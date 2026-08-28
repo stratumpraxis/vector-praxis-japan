@@ -1,6 +1,6 @@
 "use client";
 
-import { useMemo, useState } from "react";
+import { useEffect, useMemo, useState } from "react";
 import styles from "./router.module.css";
 
 type WorkType = "research" | "coding" | "content" | "creative" | "analysis" | "operations";
@@ -8,18 +8,11 @@ type Risk = "low" | "medium" | "high";
 type Complexity = "simple" | "standard" | "deep";
 type StepMode = "RULE" | "AI" | "HUMAN";
 type Frequency = "once" | "weekly" | "daily";
-
 type FlowStep = { label: string; mode: StepMode; why: string };
+type Preset = { label: string; task: string; workType: WorkType; risk: Risk; repeatable: boolean; needsCreative: boolean; needsMotion: boolean };
+type SavedPlan = { id: string; task: string; workType: WorkType; complexity: Complexity; risk: Risk; frequency: Frequency; repeatable: boolean; needsCreative: boolean; needsMotion: boolean; savedAt: string };
 
-type Preset = {
-  label: string;
-  task: string;
-  workType: WorkType;
-  risk: Risk;
-  repeatable: boolean;
-  needsCreative: boolean;
-  needsMotion: boolean;
-};
+const STORAGE_KEY = "ai-work-router-history-v1";
 
 const workLabels: Record<WorkType, string> = {
   research: "調査・リサーチ",
@@ -39,6 +32,7 @@ const tierMap: Record<Complexity, { label: string; note: string }> = {
 const presets: Preset[] = [
   { label: "競合リサーチ", task: "競合サービスを調査し、強み・弱み・価格・導入障壁を整理する", workType: "research", risk: "low", repeatable: true, needsCreative: false, needsMotion: false },
   { label: "サイト改善", task: "既存サイトを改善し、公開前に安全確認まで行う", workType: "coding", risk: "medium", repeatable: true, needsCreative: true, needsMotion: true },
+  { label: "記事制作", task: "読者の課題から逆算して記事を設計し、事実確認と公開前QAまで行う", workType: "content", risk: "medium", repeatable: true, needsCreative: false, needsMotion: false },
   { label: "SNS制作", task: "短尺SNSコンテンツを企画し、複数案を比較して公開候補を作る", workType: "creative", risk: "medium", repeatable: true, needsCreative: true, needsMotion: true },
   { label: "定型運用", task: "毎日の定型業務を整理し、ルール処理・AI処理・人間承認に分解する", workType: "operations", risk: "medium", repeatable: true, needsCreative: false, needsMotion: false },
 ];
@@ -52,6 +46,7 @@ function buildFlow(type: WorkType, risk: Risk): FlowStep[] {
     research: [
       { label: "一次情報を優先して収集", mode: "AI", why: "探索を高速化" },
       { label: "事実・仮説・不明点を分離", mode: "AI", why: "断定ミスを減らす" },
+      { label: "反対証拠を探索", mode: "AI", why: "都合の良い結論を避ける" },
       { label: "意思決定材料へ圧縮", mode: "AI", why: "情報収集だけで終わらせない" },
     ],
     coding: [
@@ -64,6 +59,7 @@ function buildFlow(type: WorkType, risk: Risk): FlowStep[] {
       { label: "読者・目的・媒体を固定", mode: "RULE", why: "誰向けかを固定" },
       { label: "構成と複数案を作成", mode: "AI", why: "一案固定を避ける" },
       { label: "事実確認・表現調整", mode: "AI", why: "品質と安全性を確保" },
+      { label: "公開前チェック", mode: "HUMAN", why: "誤解・権利・過剰表現を確認" },
     ],
     creative: [
       { label: "Briefを作成", mode: "RULE", why: "制作条件を先に固定" },
@@ -74,7 +70,7 @@ function buildFlow(type: WorkType, risk: Risk): FlowStep[] {
     analysis: [
       { label: "指標と判断基準を選定", mode: "RULE", why: "数字だけを眺めない" },
       { label: "原因候補を分解", mode: "AI", why: "複数仮説を比較" },
-      { label: "反証を確認", mode: "AI", why: "都合の良い結論を避ける" },
+      { label: "反証を確認", mode: "AI", why: "思い込みを抑える" },
       { label: "次の1アクションを選定", mode: risk === "high" ? "HUMAN" : "AI", why: "分析を実行へ接続" },
     ],
     operations: [
@@ -100,6 +96,16 @@ export default function RouterClient() {
   const [needsMotion, setNeedsMotion] = useState(false);
   const [task, setTask] = useState("既存サイトを改善し、公開前に安全確認まで行う");
   const [copied, setCopied] = useState(false);
+  const [history, setHistory] = useState<SavedPlan[]>([]);
+
+  useEffect(() => {
+    try {
+      const saved = localStorage.getItem(STORAGE_KEY);
+      if (saved) setHistory(JSON.parse(saved));
+    } catch {
+      setHistory([]);
+    }
+  }, []);
 
   const result = useMemo(() => {
     const flow = buildFlow(workType, risk);
@@ -115,15 +121,18 @@ export default function RouterClient() {
     const costGuard = complexity === "deep"
       ? "DEEP処理は設計・難所・最終レビューに限定し、分類・整形・定型処理はFAST/RULEへ戻す。"
       : "単純な分類・整形・転記はAIを使わずRULE処理に寄せられるか先に確認する。";
-    const creative = needsCreative
-      ? "Brief → 3案以上の生成 → 編集 → QA → 勝ち案選定。生成物を一発採用しない。"
-      : "成果に直結しないクリエイティブ工程は追加しない。";
-    const motion = needsMotion
-      ? "モーションはCTA・状態変化・導線理解に効く箇所だけ。prefers-reduced-motionに配慮し、装飾目的の過剰演出を避ける。"
-      : "モーションなし。読みやすさ・速度・操作理解を優先。";
+    const creative = needsCreative ? "Brief → 3案以上の生成 → 編集 → QA → 勝ち案選定。生成物を一発採用しない。" : "成果に直結しないクリエイティブ工程は追加しない。";
+    const motion = needsMotion ? "モーションはCTA・状態変化・導線理解に効く箇所だけ。prefers-reduced-motionに配慮し、装飾目的の過剰演出を避ける。" : "モーションなし。読みやすさ・速度・操作理解を優先。";
     const stop = "権限不足 / CAPTCHA / 秘密情報・個人情報 / 決済変更 / 削除 / 想定外の外部送信 / 同一失敗2回 / 仕様矛盾で停止し、人間へ戻す。";
-    const prompt = `TASK\n${task}\n\nSUCCESS CONDITION\n目的達成に必要な最小の実行を完了し、結果・未解決・次の判断材料を残す。\n\nWORK TYPE\n${workLabels[workType]}\n\nPROCESSING LEVEL\n${tierMap[complexity].label}\n${costGuard}\n\nCADENCE\n${cadence}\n\nFLOW\n${flow.map((s, i) => `${i + 1}. [${s.mode}] ${s.label} — ${s.why}`).join("\n")}\n\nHUMAN BOUNDARY\n${humanBoundary}\n\nSTOP CONDITIONS\n${stop}\n\nREUSE\n${skill}\n\nCREATIVE\n${creative}\n\nMOTION\n${motion}\n\nREPORT\n確認したこと / 実行したこと / 証拠 / 結果 / コストや工数の変化 / 未解決 / 人間確認事項 / 次の推奨アクション`;
-    return { flow, humanBoundary, skill, costGuard, creative, motion, stop, prompt };
+    const ruleCount = flow.filter((s) => s.mode === "RULE").length;
+    const aiCount = flow.filter((s) => s.mode === "AI").length;
+    const humanCount = flow.filter((s) => s.mode === "HUMAN").length;
+    const readiness = Math.max(35, Math.min(95, 58 + (repeatable ? 12 : 0) + (risk === "low" ? 12 : risk === "medium" ? 4 : -8) + (frequency !== "once" ? 8 : 0) - (complexity === "deep" ? 5 : 0)));
+    const automationDepth = risk === "high" ? "ASSIST" : readiness >= 80 ? "GUARDED AUTO" : "SEMI-AUTO";
+    const observability = ["実行日時", "入力", "処理レベル", "承認者/承認有無", "結果", "例外", "再試行回数", "工数・コスト変化"];
+    const prompt = `TASK\n${task}\n\nSUCCESS CONDITION\n目的達成に必要な最小の実行を完了し、結果・未解決・次の判断材料を残す。\n\nWORK TYPE\n${workLabels[workType]}\n\nPROCESSING LEVEL\n${tierMap[complexity].label}\n${costGuard}\n\nAUTOMATION DEPTH\n${automationDepth}\n\nCADENCE\n${cadence}\n\nFLOW\n${flow.map((s, i) => `${i + 1}. [${s.mode}] ${s.label} — ${s.why}`).join("\n")}\n\nHUMAN BOUNDARY\n${humanBoundary}\n\nSTOP CONDITIONS\n${stop}\n\nREUSE\n${skill}\n\nOBSERVABILITY\n${observability.join(" / ")}\n\nCREATIVE\n${creative}\n\nMOTION\n${motion}\n\nREPORT\n確認したこと / 実行したこと / 証拠 / 結果 / コストや工数の変化 / 未解決 / 人間確認事項 / 次の推奨アクション`;
+    const markdown = `# AI Work Plan\n\n## Task\n${task}\n\n## Readiness\n- Score: ${readiness}/100\n- Automation depth: ${automationDepth}\n- Processing: ${tierMap[complexity].label}\n- RULE / AI / HUMAN: ${ruleCount} / ${aiCount} / ${humanCount}\n\n## Human boundary\n${humanBoundary}\n\n## Cost guard\n${costGuard}\n\n## Stop conditions\n${stop}\n\n## Flow\n${flow.map((s, i) => `${i + 1}. **${s.mode}** — ${s.label}: ${s.why}`).join("\n")}\n\n## Reuse\n${skill}\n\n## Observability\n${observability.map((v) => `- ${v}`).join("\n")}\n`;
+    return { flow, humanBoundary, skill, costGuard, creative, motion, stop, prompt, markdown, readiness, automationDepth, ruleCount, aiCount, humanCount, observability };
   }, [workType, complexity, risk, frequency, repeatable, needsCreative, needsMotion, task]);
 
   const applyPreset = (preset: Preset) => {
@@ -137,11 +146,23 @@ export default function RouterClient() {
     window.setTimeout(() => setCopied(false), 1400);
   };
 
-  const downloadPrompt = () => {
-    const blob = new Blob([result.prompt], { type: "text/plain;charset=utf-8" });
+  const downloadText = (text: string, filename: string, type = "text/plain;charset=utf-8") => {
+    const blob = new Blob([text], { type });
     const url = URL.createObjectURL(blob);
     const a = document.createElement("a");
-    a.href = url; a.download = "ai-work-plan.txt"; a.click(); URL.revokeObjectURL(url);
+    a.href = url; a.download = filename; a.click(); URL.revokeObjectURL(url);
+  };
+
+  const savePlan = () => {
+    const item: SavedPlan = { id: crypto.randomUUID(), task, workType, complexity, risk, frequency, repeatable, needsCreative, needsMotion, savedAt: new Date().toISOString() };
+    const next = [item, ...history].slice(0, 6);
+    setHistory(next);
+    localStorage.setItem(STORAGE_KEY, JSON.stringify(next));
+  };
+
+  const restorePlan = (item: SavedPlan) => {
+    setTask(item.task); setWorkType(item.workType); setComplexity(item.complexity); setRisk(item.risk); setFrequency(item.frequency);
+    setRepeatable(item.repeatable); setNeedsCreative(item.needsCreative); setNeedsMotion(item.needsMotion);
   };
 
   return (
@@ -149,7 +170,14 @@ export default function RouterClient() {
       <section className={styles.hero}>
         <div className={styles.eyebrow}>AI WORK ROUTER</div>
         <h1>AIに任せる前に、仕事を設計する。</h1>
-        <p>仕事をルール処理・AI処理・人間承認へ分解し、過剰なAI利用と危険な自動化を避けながら、実行可能な運用設計に変換します。</p>
+        <p>仕事をルール処理・AI処理・人間承認へ分解し、コスト・事故・ブラックボックス化を抑えながら、再利用できる実行設計へ変換します。</p>
+      </section>
+
+      <section className={styles.valueStrip} aria-label="主要価値">
+        <div><strong>コスト制御</strong><span>AI不要工程をRULEへ</span></div>
+        <div><strong>承認設計</strong><span>重要操作だけ人間へ</span></div>
+        <div><strong>履歴・再利用</strong><span>保存して再編集</span></div>
+        <div><strong>可観測性</strong><span>何が起きたか残す</span></div>
       </section>
 
       <section className={styles.presets} aria-label="用途別プリセット">
@@ -159,6 +187,7 @@ export default function RouterClient() {
       <section className={styles.grid}>
         <div className={styles.panel}>
           <h2>1. 仕事を入力</h2>
+          <p className={styles.helper}>迷ったら上のプリセットを押してから、文章だけ自分の仕事に書き換えてください。</p>
           <label htmlFor="task">やりたいこと</label>
           <textarea id="task" value={task} onChange={(e) => setTask(e.target.value)} rows={4} />
           <label htmlFor="workType">仕事の種類</label>
@@ -166,11 +195,11 @@ export default function RouterClient() {
             {Object.entries(workLabels).map(([key, label]) => <option key={key} value={key}>{label}</option>)}
           </select>
           <label>処理の難しさ</label>
-          <div className={styles.segmented}>{(["simple", "standard", "deep"] as Complexity[]).map((v) => <button key={v} className={complexity === v ? styles.active : ""} onClick={() => setComplexity(v)}>{tierMap[v].label}</button>)}</div>
+          <div className={styles.segmented}>{(["simple", "standard", "deep"] as Complexity[]).map((v) => <button type="button" key={v} className={complexity === v ? styles.active : ""} onClick={() => setComplexity(v)}>{tierMap[v].label}</button>)}</div>
           <label>外部影響リスク</label>
-          <div className={styles.segmented}>{(["low", "medium", "high"] as Risk[]).map((v) => <button key={v} className={risk === v ? styles.active : ""} onClick={() => setRisk(v)}>{v === "low" ? "低" : v === "medium" ? "中" : "高"}</button>)}</div>
-          <label htmlFor="frequency">頻度</label>
-          <select id="frequency" value={frequency} onChange={(e) => setFrequency(e.target.value as Frequency)}><option value="once">単発</option><option value="weekly">週次</option><option value="daily">日次</option></select>
+          <div className={styles.segmented}>{(["low", "medium", "high"] as Risk[]).map((v) => <button type="button" key={v} className={risk === v ? styles.active : ""} onClick={() => setRisk(v)}>{v === "low" ? "低" : v === "medium" ? "中" : "高"}</button>)}</div>
+          <label>頻度</label>
+          <div className={styles.segmented}>{(["once", "weekly", "daily"] as Frequency[]).map((v) => <button type="button" key={v} className={frequency === v ? styles.active : ""} onClick={() => setFrequency(v)}>{v === "once" ? "単発" : v === "weekly" ? "週次" : "日次"}</button>)}</div>
           <div className={styles.toggles}>
             <label><input type="checkbox" checked={repeatable} onChange={(e) => setRepeatable(e.target.checked)} /> 繰り返す仕事</label>
             <label><input type="checkbox" checked={needsCreative} onChange={(e) => setNeedsCreative(e.target.checked)} /> 画像・動画制作あり</label>
@@ -179,25 +208,39 @@ export default function RouterClient() {
         </div>
 
         <div className={styles.panel}>
+          <div className={styles.scoreGrid}>
+            <div><span>自動化準備度</span><strong>{result.readiness}</strong><small>/100</small></div>
+            <div><span>推奨運用</span><strong className={styles.depth}>{result.automationDepth}</strong></div>
+          </div>
           <div className={styles.resultHeader}><div><span>推奨処理レベル</span><strong>{tierMap[complexity].label}</strong></div><p>{tierMap[complexity].note}</p></div>
-          <div className={styles.guardrail}><strong>コスト/複雑性ガード</strong><p>{result.costGuard}</p></div>
+          <div className={styles.modeSummary}><span>RULE {result.ruleCount}</span><span>AI {result.aiCount}</span><span>HUMAN {result.humanCount}</span></div>
+          <div className={styles.guardrail}><strong>コストガード</strong><p>{result.costGuard}</p></div>
           <h2>2. 実行フロー</h2>
           <div className={styles.flowCards}>{result.flow.map((step, i) => <div className={styles.flowCard} key={`${step.label}-${i}`}><span className={styles[`mode${step.mode}`]}>{step.mode}</span><div><strong>{step.label}</strong><p>{step.why}</p></div></div>)}</div>
           <div className={styles.card}><h3>人間確認ポイント</h3><p>{result.humanBoundary}</p></div>
           <div className={styles.card}><h3>再利用化</h3><p>{result.skill}</p></div>
           <div className={styles.card}><h3>停止条件</h3><p>{result.stop}</p></div>
-          <div className={styles.card}><h3>クリエイティブ</h3><p>{result.creative}</p></div>
-          <div className={styles.card}><h3>モーション</h3><p>{result.motion}</p></div>
         </div>
       </section>
 
-      <section className={styles.promptPanel}>
-        <div className={styles.promptHead}><div><div className={styles.eyebrow}>READY TO USE</div><h2>3. 実行Promptを書き出す</h2></div><span className={styles.localBadge}>ブラウザ内で生成</span></div>
-        <pre>{result.prompt}</pre>
-        <div className={styles.actions}><button className={styles.copy} onClick={copyPrompt}>{copied ? "コピーしました" : "Promptをコピー"}</button><button className={styles.secondary} onClick={downloadPrompt}>TXT保存</button></div>
+      <section className={styles.observability}>
+        <div><div className={styles.eyebrow}>OBSERVABILITY</div><h2>あとから「何が起きたか」を追える設計</h2><p>自動化は動くだけでは不十分。問題が起きたとき原因を追える項目を先に決めます。</p></div>
+        <div className={styles.obsTags}>{result.observability.map((item) => <span key={item}>{item}</span>)}</div>
       </section>
 
-      <section className={styles.note}><strong>設計原則</strong><p>すべてをAIにしません。決定論的な処理はルールへ、高い推論が必要な箇所だけAIへ、不可逆・外部影響のある操作は人間へ戻します。入力内容はこのページから外部送信しません。</p></section>
+      <section className={styles.promptPanel}>
+        <div className={styles.promptHead}><div><div className={styles.eyebrow}>READY TO USE</div><h2>3. そのまま渡せる実行Prompt</h2></div><span className={styles.localBadge}>入力内容はこの画面内で処理</span></div>
+        <pre>{result.prompt}</pre>
+        <div className={styles.actions}>
+          <button className={styles.copy} onClick={copyPrompt}>{copied ? "コピーしました" : "Promptをコピー"}</button>
+          <button className={styles.secondary} onClick={() => downloadText(result.markdown, "ai-work-plan.md", "text/markdown;charset=utf-8")}>設計書 .md</button>
+          <button className={styles.secondary} onClick={savePlan}>履歴に保存</button>
+        </div>
+      </section>
+
+      {history.length > 0 && <section className={styles.history}><div><div className={styles.eyebrow}>HISTORY</div><h2>最近の設計</h2></div><div className={styles.historyGrid}>{history.map((item) => <button key={item.id} onClick={() => restorePlan(item)}><strong>{item.task}</strong><span>{workLabels[item.workType]} · {tierMap[item.complexity].label} · {new Date(item.savedAt).toLocaleDateString("ja-JP")}</span></button>)}</div></section>}
+
+      <section className={styles.note}><strong>設計思想</strong><p>高性能なAIを常に使うのではなく、AIを使わない工程、止める場所、記録する項目まで含めて設計します。外部送信・決済・削除・権限変更はこのツール自身では実行しません。</p></section>
     </main>
   );
 }
