@@ -97,6 +97,8 @@ export default function RouterClient() {
   const [task, setTask] = useState("既存サイトを改善し、公開前に安全確認まで行う");
   const [copied, setCopied] = useState(false);
   const [history, setHistory] = useState<SavedPlan[]>([]);
+  const [notice, setNotice] = useState("");
+  const taskReady = task.trim().length >= 4;
 
   useEffect(() => {
     try {
@@ -138,31 +140,47 @@ export default function RouterClient() {
   const applyPreset = (preset: Preset) => {
     setTask(preset.task); setWorkType(preset.workType); setRisk(preset.risk);
     setRepeatable(preset.repeatable); setNeedsCreative(preset.needsCreative); setNeedsMotion(preset.needsMotion);
+    setNotice("");
   };
 
   const copyPrompt = async () => {
-    await navigator.clipboard.writeText(result.prompt);
-    setCopied(true);
-    window.setTimeout(() => setCopied(false), 1400);
+    if (!taskReady) { setNotice("やりたいことを4文字以上で入力してください。"); return; }
+    try {
+      await navigator.clipboard.writeText(result.prompt);
+      setCopied(true); setNotice("Promptをコピーしました。");
+      window.setTimeout(() => setCopied(false), 1400);
+    } catch {
+      setNotice("このブラウザでは自動コピーできません。下のPromptを長押ししてコピーしてください。");
+    }
   };
 
   const downloadText = (text: string, filename: string, type = "text/plain;charset=utf-8") => {
+    if (!taskReady) { setNotice("やりたいことを4文字以上で入力してください。"); return; }
     const blob = new Blob([text], { type });
     const url = URL.createObjectURL(blob);
     const a = document.createElement("a");
-    a.href = url; a.download = filename; a.click(); URL.revokeObjectURL(url);
+    a.href = url; a.download = filename; document.body.appendChild(a); a.click(); a.remove();
+    window.setTimeout(() => URL.revokeObjectURL(url), 0);
+    setNotice("設計書を作成しました。");
   };
 
   const savePlan = () => {
-    const item: SavedPlan = { id: crypto.randomUUID(), task, workType, complexity, risk, frequency, repeatable, needsCreative, needsMotion, savedAt: new Date().toISOString() };
+    if (!taskReady) { setNotice("やりたいことを4文字以上で入力してください。"); return; }
+    const id = typeof crypto !== "undefined" && "randomUUID" in crypto ? crypto.randomUUID() : `${Date.now()}-${Math.random().toString(36).slice(2)}`;
+    const item: SavedPlan = { id, task: task.trim(), workType, complexity, risk, frequency, repeatable, needsCreative, needsMotion, savedAt: new Date().toISOString() };
     const next = [item, ...history].slice(0, 6);
     setHistory(next);
-    localStorage.setItem(STORAGE_KEY, JSON.stringify(next));
+    try {
+      localStorage.setItem(STORAGE_KEY, JSON.stringify(next));
+      setNotice("この端末のブラウザに履歴を保存しました。");
+    } catch {
+      setNotice("ブラウザの保存機能が利用できないため、設計書 .md を保存してください。");
+    }
   };
 
   const restorePlan = (item: SavedPlan) => {
     setTask(item.task); setWorkType(item.workType); setComplexity(item.complexity); setRisk(item.risk); setFrequency(item.frequency);
-    setRepeatable(item.repeatable); setNeedsCreative(item.needsCreative); setNeedsMotion(item.needsMotion);
+    setRepeatable(item.repeatable); setNeedsCreative(item.needsCreative); setNeedsMotion(item.needsMotion); setNotice("履歴から復元しました。");
   };
 
   return (
@@ -173,6 +191,12 @@ export default function RouterClient() {
         <p>仕事をルール処理・AI処理・人間承認へ分解し、コスト・事故・ブラックボックス化を抑えながら、再利用できる実行設計へ変換します。</p>
       </section>
 
+      <section className={styles.quickStart} aria-label="使い方">
+        <div><b>01</b><strong>仕事を選ぶ</strong><span>プリセットか自由入力</span></div>
+        <div><b>02</b><strong>分担を確認</strong><span>RULE / AI / HUMAN</span></div>
+        <div><b>03</b><strong>実行へ渡す</strong><span>Prompt / Markdown</span></div>
+      </section>
+
       <section className={styles.valueStrip} aria-label="主要価値">
         <div><strong>コスト制御</strong><span>AI不要工程をRULEへ</span></div>
         <div><strong>承認設計</strong><span>重要操作だけ人間へ</span></div>
@@ -181,7 +205,7 @@ export default function RouterClient() {
       </section>
 
       <section className={styles.presets} aria-label="用途別プリセット">
-        {presets.map((preset) => <button key={preset.label} onClick={() => applyPreset(preset)}>{preset.label}</button>)}
+        {presets.map((preset) => <button type="button" key={preset.label} onClick={() => applyPreset(preset)}>{preset.label}</button>)}
       </section>
 
       <section className={styles.grid}>
@@ -189,7 +213,8 @@ export default function RouterClient() {
           <h2>1. 仕事を入力</h2>
           <p className={styles.helper}>迷ったら上のプリセットを押してから、文章だけ自分の仕事に書き換えてください。</p>
           <label htmlFor="task">やりたいこと</label>
-          <textarea id="task" value={task} onChange={(e) => setTask(e.target.value)} rows={4} />
+          <textarea id="task" value={task} onChange={(e) => { setTask(e.target.value); setNotice(""); }} rows={4} aria-invalid={!taskReady} />
+          {!taskReady && <p className={styles.validation}>4文字以上で具体的に入力してください。</p>}
           <label htmlFor="workType">仕事の種類</label>
           <select id="workType" value={workType} onChange={(e) => setWorkType(e.target.value as WorkType)}>
             {Object.entries(workLabels).map(([key, label]) => <option key={key} value={key}>{label}</option>)}
@@ -232,13 +257,14 @@ export default function RouterClient() {
         <div className={styles.promptHead}><div><div className={styles.eyebrow}>READY TO USE</div><h2>3. そのまま渡せる実行Prompt</h2></div><span className={styles.localBadge}>入力内容はこの画面内で処理</span></div>
         <pre>{result.prompt}</pre>
         <div className={styles.actions}>
-          <button className={styles.copy} onClick={copyPrompt}>{copied ? "コピーしました" : "Promptをコピー"}</button>
-          <button className={styles.secondary} onClick={() => downloadText(result.markdown, "ai-work-plan.md", "text/markdown;charset=utf-8")}>設計書 .md</button>
-          <button className={styles.secondary} onClick={savePlan}>履歴に保存</button>
+          <button type="button" className={styles.copy} onClick={copyPrompt} disabled={!taskReady}>{copied ? "コピーしました" : "Promptをコピー"}</button>
+          <button type="button" className={styles.secondary} onClick={() => downloadText(result.markdown, "ai-work-plan.md", "text/markdown;charset=utf-8")} disabled={!taskReady}>設計書 .md</button>
+          <button type="button" className={styles.secondary} onClick={savePlan} disabled={!taskReady}>履歴に保存</button>
         </div>
+        <p className={styles.notice} aria-live="polite">{notice}</p>
       </section>
 
-      {history.length > 0 && <section className={styles.history}><div><div className={styles.eyebrow}>HISTORY</div><h2>最近の設計</h2></div><div className={styles.historyGrid}>{history.map((item) => <button key={item.id} onClick={() => restorePlan(item)}><strong>{item.task}</strong><span>{workLabels[item.workType]} · {tierMap[item.complexity].label} · {new Date(item.savedAt).toLocaleDateString("ja-JP")}</span></button>)}</div></section>}
+      {history.length > 0 && <section className={styles.history}><div><div className={styles.eyebrow}>HISTORY</div><h2>最近の設計</h2></div><div className={styles.historyGrid}>{history.map((item) => <button type="button" key={item.id} onClick={() => restorePlan(item)}><strong>{item.task}</strong><span>{workLabels[item.workType]} · {tierMap[item.complexity].label} · {new Date(item.savedAt).toLocaleDateString("ja-JP")}</span></button>)}</div></section>}
 
       <section className={styles.note}><strong>設計思想</strong><p>高性能なAIを常に使うのではなく、AIを使わない工程、止める場所、記録する項目まで含めて設計します。外部送信・決済・削除・権限変更はこのツール自身では実行しません。</p></section>
     </main>
