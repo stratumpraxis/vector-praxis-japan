@@ -57,4 +57,10 @@ if (!payload.external_post_id) {
   process.exit(1);
 }
 
-console.log(JSON.stringify({status:'PUBLISHED_CONFIRMED_BY_PUBLISHER', id:due.id, external_post_id:payload.external_post_id}, null, 2));
+due.status = 'PUBLISHED';
+due.external_post_id = String(payload.external_post_id);
+due.published_at = payload.published_at || new Date().toISOString();
+due.publisher = payload.publisher || 'webhook';
+fs.writeFileSync(queuePath, `${JSON.stringify(queue, null, 2)}\n`);
+
+console.log(JSON.stringify({status:'PUBLISHED_CONFIRMED_BY_PUBLISHER', id:due.id, external_post_id:due.external_post_id}, null, 2));
