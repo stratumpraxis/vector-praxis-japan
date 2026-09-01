@@ -8,7 +8,15 @@
     "stop_on_failure": true,
     "require_external_post_id_for_published": true,
     "do_not_reuse_identical_copy": true,
-    "brand": "Vector Praxis Japan"
+    "brand": "Vector Praxis Japan",
+    "disabled_platforms": ["x"]
+  },
+  "platform_blocks": {
+    "x": {
+      "status": "BLOCKED_PLATFORM_SUSPENDED",
+      "reason": "Account suspension evidence exists; do not publish or retry until channel safety is explicitly re-verified.",
+      "recorded_at": "2026-09-02T04:30:00+09:00"
+    }
   },
   "items": [
     {
@@ -18,7 +26,7 @@
       "copy": "AIを増やすほど仕事が減ると思っていた。実際には、ChatGPT・Claude・Codexの間を人間が往復する『伝書鳩』状態が起きた。複数AIを実務で動かして分かった、役割分担・引き継ぎ・計測の考え方をまとめました。",
       "hashtags": ["生成AI","ChatGPT","Claude","Codex","AI活用"],
       "utm": {"utm_source":"x","utm_medium":"social","utm_campaign":"note_ai_automation_20260828","utm_content":"handoff_blindspot_v1"},
-      "status": "READY",
+      "status": "BLOCKED_PLATFORM_SUSPENDED",
       "approval": "USER_APPROVED",
       "scheduled_at": "2026-08-29T09:00:00+09:00",
       "external_post_id": null
@@ -30,7 +38,7 @@
       "copy": "AIで商品・サイト・コードはかなり速く作れる。でも、需要→流入→CTA→Checkout→Purchaseまでつながらなければ収益装置にはならない。『作れる』の次に何を見るべきかを実務ベースで整理しました。",
       "hashtags": ["生成AI","AI自動化","収益化","個人開発"],
       "utm": {"utm_source":"x","utm_medium":"social","utm_campaign":"note_ai_automation_20260828","utm_content":"build_vs_sell_v1"},
-      "status": "READY",
+      "status": "BLOCKED_PLATFORM_SUSPENDED",
       "approval": "USER_APPROVED",
       "scheduled_at": "2026-08-30T09:00:00+09:00",
       "external_post_id": null
@@ -42,7 +50,7 @@
       "copy": "複数AI運用で重要だったのは、AIの数ではなく『誰が判断し、誰が実装し、誰が監査するか』を先に決めること。役割が曖昧だと、人間がAI同士の情報を運び続けることになる。実際に使って分かった運用設計をまとめました。",
       "hashtags": ["ChatGPT","Claude","Codex","AI活用","仕事術"],
       "utm": {"utm_source":"x","utm_medium":"social","utm_campaign":"note_ai_automation_20260828","utm_content":"role_design_v1"},
-      "status": "READY",
+      "status": "BLOCKED_PLATFORM_SUSPENDED",
       "approval": "USER_APPROVED",
       "scheduled_at": "2026-08-31T09:00:00+09:00",
       "external_post_id": null
@@ -54,7 +62,7 @@
       "copy": "AIに数字を扱わせるとき、『分からない』と『0だった』を分けるだけで判断の質が変わる。UNKNOWN / NOT_MEASURED / MEASURED_ZERO / MEASURED_NONZERO。収益化の計測でこの区別がなぜ重要か、実例と一緒に整理しました。",
       "hashtags": ["AI活用","AI自動化","データ分析","収益化"],
       "utm": {"utm_source":"x","utm_medium":"social","utm_campaign":"note_ai_automation_20260828","utm_content":"unknown_vs_zero_v1"},
-      "status": "READY",
+      "status": "BLOCKED_PLATFORM_SUSPENDED",
       "approval": "USER_APPROVED",
       "scheduled_at": "2026-09-01T09:00:00+09:00",
       "external_post_id": null
@@ -66,7 +74,7 @@
       "copy": "生成AIは放っておくと新しいものを作り続ける。だからこそ『新しく作る前に既存資産を探す』をルール化する。既存商品→無料資産→改善→それでも足りなければ新規。AIをCreatorだけでなくAllocatorとして使う考え方を書きました。",
       "hashtags": ["生成AI","AI活用","副業","個人開発"],
       "utm": {"utm_source":"x","utm_medium":"social","utm_campaign":"note_ai_automation_20260828","utm_content":"reuse_before_create_v1"},
-      "status": "READY",
+      "status": "BLOCKED_PLATFORM_SUSPENDED",
       "approval": "USER_APPROVED",
       "scheduled_at": "2026-09-02T09:00:00+09:00",
       "external_post_id": null
@@ -78,7 +86,7 @@
       "copy": "AIサービスの上位プランを増やす前に見ること。①明確なボトルネックがある ②課金で解除できる ③解除後に売上か工数削減へつながる。この3つが説明できないなら、まず今いるAIを働かせる。複数AI運用の実務メモをまとめました。",
       "hashtags": ["AI活用","ChatGPT","Claude","仕事術","副業"],
       "utm": {"utm_source":"x","utm_medium":"social","utm_campaign":"note_ai_automation_20260828","utm_content":"upgrade_gate_v1"},
-      "status": "READY",
+      "status": "BLOCKED_PLATFORM_SUSPENDED",
       "approval": "USER_APPROVED",
       "scheduled_at": "2026-09-03T09:00:00+09:00",
       "external_post_id": null
