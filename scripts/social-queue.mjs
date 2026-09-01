@@ -4,6 +4,10 @@ const queuePath = new URL('../distribution/social-queue.json', import.meta.url);
 const queue = JSON.parse(fs.readFileSync(queuePath, 'utf8'));
 const now = new Date();
 
+function persist() {
+  fs.writeFileSync(queuePath, `${JSON.stringify(queue, null, 2)}\n`);
+}
+
 function buildTrackedUrl(base, utm) {
   const url = new URL(base);
   for (const [k, v] of Object.entries(utm || {})) url.searchParams.set(k, v);
@@ -14,7 +18,14 @@ function eligible(item) {
   if (item.status !== 'READY') return false;
   if (item.approval !== 'USER_APPROVED') return false;
   if (!item.scheduled_at) return false;
+  if (queue.policy?.disabled_platforms?.includes(item.platform)) return false;
   return new Date(item.scheduled_at) <= now;
+}
+
+const retryAfter = queue.publisher_state?.retry_after ? new Date(queue.publisher_state.retry_after) : null;
+if (retryAfter && retryAfter > now) {
+  console.log(JSON.stringify({status:'PUBLISHER_COOLDOWN', retry_after:retryAfter.toISOString(), last_http_status:queue.publisher_state.http_status || null}, null, 2));
+  process.exit(0);
 }
 
 const due = queue.items.find(eligible);
@@ -46,6 +57,21 @@ const response = await fetch(webhook, {
   })
 });
 
+if (response.status === 410) {
+  const retry = new Date(now.getTime() + 24 * 60 * 60 * 1000);
+  queue.publisher_state = {
+    status: 'PUBLISHER_GONE',
+    http_status: 410,
+    observed_at: now.toISOString(),
+    retry_after: retry.toISOString()
+  };
+  due.last_error = 'publisher_http_410';
+  due.last_error_at = now.toISOString();
+  persist();
+  console.log(JSON.stringify({status:'PUBLISHER_GONE_COOLDOWN_SET', id:due.id, retry_after:retry.toISOString()}, null, 2));
+  process.exit(0);
+}
+
 if (!response.ok) {
   console.error(`Publisher returned ${response.status}`);
   process.exit(1);
@@ -57,10 +83,11 @@ if (!payload.external_post_id) {
   process.exit(1);
 }
 
+delete queue.publisher_state;
 due.status = 'PUBLISHED';
 due.external_post_id = String(payload.external_post_id);
 due.published_at = payload.published_at || new Date().toISOString();
 due.publisher = payload.publisher || 'webhook';
-fs.writeFileSync(queuePath, `${JSON.stringify(queue, null, 2)}\n`);
+persist();
 
 console.log(JSON.stringify({status:'PUBLISHED_CONFIRMED_BY_PUBLISHER', id:due.id, external_post_id:due.external_post_id}, null, 2));
