@@ -1,0 +1,80 @@
+{
+  "loop_id": "vector-revenue-loop-20260902-01",
+  "recorded_at": "2026-09-02T04:30:00+09:00",
+  "revenue_goal": "Increase measurable Japanese traffic and conversion from existing Vector assets without relying on suspended or manual-first channels.",
+  "primary_route": "Vector owned media -> existing paid note -> conversion measurement",
+  "measured_baseline": {
+    "window": "last_30_days_through_2026-09-01",
+    "checkout_clicks_all_measured_products": 18,
+    "stripe_payment_intents_live": 0,
+    "checkout_to_payment_intent_rate": 0,
+    "checkout_click_breakdown": {
+      "workflow-audit": 7,
+      "revenue-router": 3,
+      "agentic-ai-governance-permission-kit": 2,
+      "ai-agent-procurement-governance-guide": 1,
+      "ai-agent-vendor-due-diligence-pack": 1,
+      "ai-value-realization-kit": 1,
+      "eu-ai-act-article-50-transparency-readiness-pack": 1,
+      "homepage": 1,
+      "service-pricing-profit-quote-model": 1
+    },
+    "buffer_last_week": {
+      "posts_shared": 18,
+      "reactions": 3,
+      "comments": 1,
+      "scope": "account-level evidence, not Vector-only"
+    }
+  },
+  "vector_assets_selected": [
+    {
+      "title": "AIを増やすほど仕事が遅くなる理由──ChatGPT・Claude・GitHubを「チーム」に変える設計",
+      "url": "https://note.com/deft_eel6718/n/ncaff8351e529",
+      "price_jpy_verified": 1480
+    },
+    {
+      "title": "AI活用を、収益につながる仕組みへ。",
+      "url": "https://note.com/deft_eel6718/n/nfce5ac047c15",
+      "price_jpy_verified": 3850
+    }
+  ],
+  "execution": {
+    "owned_page_source_added": true,
+    "posthog_tracking_added_to_hub_source": true,
+    "github_verify_hub": "PASS",
+    "github_pr_4_merged": true,
+    "vercel_file_upload_deployment": {
+      "status_reported_by_provider": "READY",
+      "url": "https://vector-works-a2ip5yhox-stratumpraxis-7205s-projects.vercel.app",
+      "public_access_verified": false,
+      "adoption_status": "REJECT_UNTIL_UNAUTHENTICATED_HTTP_200"
+    },
+    "replit_fallback": {
+      "status": "BLOCKED",
+      "reason": "requires_active_subscription"
+    },
+    "social_publisher": {
+      "github_actions_scheduler": "RUNNING",
+      "webhook_secret_present": true,
+      "last_observed_http_status": 410,
+      "root_cause": "publisher endpoint gone",
+      "x_channel": "BLOCKED_PLATFORM_SUSPENDED",
+      "retry_storm_fix": "MERGED_TO_MAIN",
+      "publisher_410_cooldown_hours": 24
+    }
+  },
+  "bottleneck": {
+    "primary": "click_to_purchase",
+    "evidence": "18 checkout_click events but 0 live Stripe PaymentIntents in the measured account",
+    "distribution_blocker": "existing social publisher webhook returns HTTP 410 and X is suspended"
+  },
+  "improvements_completed": [
+    "Added a measurable Vector.Works owned-media page to repository source",
+    "Connected repository source to existing PostHog project",
+    "Disabled suspended X queue",
+    "Added 24-hour cooldown after publisher HTTP 410 to stop hourly retry spam",
+    "Preserved fail-closed rule requiring external_post_id before marking a social post published"
+  ],
+  "next_auto_action": "Restore or replace the dead social publisher with a verified low-manual Japanese-capable publisher, then emit one tracked Vector post to the selected paid note, confirm external_post_id/public URL, and measure first Vector-specific click before scaling.",
+  "human_gate_if_needed": "If no write-capable social connector can be authenticated programmatically, one OAuth or Vercel Git-import approval is the only permitted manual step; resume automation immediately after it."
+}
