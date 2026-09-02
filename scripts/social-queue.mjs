@@ -1,6 +1,7 @@
 import fs from 'node:fs';
 
 const queuePath = new URL('../distribution/social-queue.json', import.meta.url);
+const handoffDir = new URL('../distribution/handoffs/', import.meta.url);
 const queue = JSON.parse(fs.readFileSync(queuePath, 'utf8'));
 const now = new Date();
 
@@ -22,6 +23,40 @@ function eligible(item) {
   return new Date(item.scheduled_at) <= now;
 }
 
+function handoffBlockedPublish({due, trackedUrl, text, blocker, evidence = {}, nextOwner = 'ALTERNATE_PUBLISHER_AGENT'}) {
+  fs.mkdirSync(handoffDir, {recursive: true});
+  const handoffPath = `distribution/handoffs/${due.id}.json`;
+  const handoffFile = new URL(`../${handoffPath}`, import.meta.url);
+  const payload = {
+    version: 1,
+    generated_at: now.toISOString(),
+    input: {
+      brand: queue.policy?.brand || null,
+      campaign: queue.campaign,
+      id: due.id,
+      platform: due.platform,
+      text,
+      destination_url: trackedUrl,
+      scheduled_at: due.scheduled_at
+    },
+    action: 'PUBLISH_SOCIAL_POST',
+    result: 'BLOCKED_HANDOFF_CREATED',
+    evidence,
+    blocker,
+    next_owner: nextOwner,
+    next_action: 'Publish this exact payload through another connected route, verify the public URL, then update the queue item to PUBLISHED with external_post_id/public_url/published_at. Do not redesign the campaign.'
+  };
+
+  fs.writeFileSync(handoffFile, `${JSON.stringify(payload, null, 2)}\n`);
+  due.status = 'HANDOFF_REQUIRED';
+  due.handoff_path = handoffPath;
+  due.last_error = blocker;
+  due.last_error_at = now.toISOString();
+  persist();
+
+  console.error(JSON.stringify(payload, null, 2));
+}
+
 const retryAfter = queue.publisher_state?.retry_after ? new Date(queue.publisher_state.retry_after) : null;
 if (retryAfter && retryAfter > now) {
   console.log(JSON.stringify({status:'PUBLISHER_COOLDOWN', retry_after:retryAfter.toISOString(), last_http_status:queue.publisher_state.http_status || null}, null, 2));
@@ -39,7 +74,13 @@ const text = `${due.copy}\n\n${trackedUrl}\n\n${due.hashtags.map((x) => `#${x}`)
 const webhook = process.env.SOCIAL_PUBLISH_WEBHOOK_URL;
 
 if (!webhook) {
-  console.error(JSON.stringify({status:'READY_BUT_NOT_CONNECTED', id:due.id, platform:due.platform, text}, null, 2));
+  handoffBlockedPublish({
+    due,
+    trackedUrl,
+    text,
+    blocker: 'publisher_not_connected',
+    evidence: {status: 'READY_BUT_NOT_CONNECTED'}
+  });
   process.exit(2);
 }
 
@@ -65,10 +106,13 @@ if (response.status === 410) {
     observed_at: now.toISOString(),
     retry_after: retry.toISOString()
   };
-  due.last_error = 'publisher_http_410';
-  due.last_error_at = now.toISOString();
-  persist();
-  console.error(JSON.stringify({status:'PUBLISHER_GONE_COOLDOWN_SET', id:due.id, retry_after:retry.toISOString()}, null, 2));
+  handoffBlockedPublish({
+    due,
+    trackedUrl,
+    text,
+    blocker: 'publisher_http_410',
+    evidence: {http_status: 410, retry_after: retry.toISOString()}
+  });
   process.exit(2);
 }
 
@@ -86,8 +130,9 @@ if (!payload.external_post_id) {
 delete queue.publisher_state;
 due.status = 'PUBLISHED';
 due.external_post_id = String(payload.external_post_id);
+due.public_url = payload.public_url || null;
 due.published_at = payload.published_at || new Date().toISOString();
 due.publisher = payload.publisher || 'webhook';
 persist();
 
-console.log(JSON.stringify({status:'PUBLISHED_CONFIRMED_BY_PUBLISHER', id:due.id, external_post_id:due.external_post_id}, null, 2));
+console.log(JSON.stringify({status:'PUBLISHED_CONFIRMED_BY_PUBLISHER', id:due.id, external_post_id:due.external_post_id, public_url:due.public_url}, null, 2));
