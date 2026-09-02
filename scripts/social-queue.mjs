@@ -39,8 +39,8 @@ const text = `${due.copy}\n\n${trackedUrl}\n\n${due.hashtags.map((x) => `#${x}`)
 const webhook = process.env.SOCIAL_PUBLISH_WEBHOOK_URL;
 
 if (!webhook) {
-  console.log(JSON.stringify({status:'READY_BUT_NOT_CONNECTED', id:due.id, platform:due.platform, text}, null, 2));
-  process.exit(0);
+  console.error(JSON.stringify({status:'READY_BUT_NOT_CONNECTED', id:due.id, platform:due.platform, text}, null, 2));
+  process.exit(2);
 }
 
 const response = await fetch(webhook, {
@@ -68,8 +68,8 @@ if (response.status === 410) {
   due.last_error = 'publisher_http_410';
   due.last_error_at = now.toISOString();
   persist();
-  console.log(JSON.stringify({status:'PUBLISHER_GONE_COOLDOWN_SET', id:due.id, retry_after:retry.toISOString()}, null, 2));
-  process.exit(0);
+  console.error(JSON.stringify({status:'PUBLISHER_GONE_COOLDOWN_SET', id:due.id, retry_after:retry.toISOString()}, null, 2));
+  process.exit(2);
 }
 
 if (!response.ok) {
