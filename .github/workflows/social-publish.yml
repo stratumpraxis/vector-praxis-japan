@@ -23,15 +23,15 @@ jobs:
         env:
           SOCIAL_PUBLISH_WEBHOOK_URL: ${{ secrets.SOCIAL_PUBLISH_WEBHOOK_URL }}
         run: node scripts/social-queue.mjs
-      - name: Persist confirmed publish state or publisher cooldown
+      - name: Persist publish state and handoff evidence
         if: always()
         run: |
-          if git diff --quiet -- distribution/social-queue.json; then
-            echo "No social publish state to persist."
+          if [ -z "$(git status --porcelain -- distribution/social-queue.json distribution/handoffs)" ]; then
+            echo "No social publish state or handoff evidence to persist."
             exit 0
           fi
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git add distribution/social-queue.json
-          git commit -m "chore: record social publish state"
+          git add distribution/social-queue.json distribution/handoffs
+          git commit -m "chore: record social publish state or handoff"
           git push
