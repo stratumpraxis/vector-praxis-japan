@@ -1,0 +1,80 @@
+<!doctype html>
+<html lang="ja">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <meta name="description" content="Global Work Radar — 日本から応募できる海外リモート案件を、条件・報酬・言語要件で見つける仕事市場レーダー。" />
+  <title>Global Work Radar</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@500;600;700&family=Noto+Sans+JP:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="./styles.css" />
+</head>
+<body>
+  <header class="site-header">
+    <a class="brand" href="#top" aria-label="Global Work Radar home">
+      <span class="brand-mark">GWR</span>
+      <span class="brand-copy"><strong>Global Work Radar</strong><small>Global work intelligence for Japan</small></span>
+    </a>
+    <nav><a href="#jobs">Jobs</a><a href="#market">Market</a><a href="#about">About</a></nav>
+  </header>
+
+  <main id="top">
+    <section class="hero">
+      <div class="eyebrow">GLOBAL WORK INTELLIGENCE</div>
+      <h1>世界の仕事を、<br><span>日本から探しやすく。</span></h1>
+      <p class="hero-copy">海外リモート案件を、Japan eligible・日本語要件・報酬・職種で整理。応募は必ず公式ソースへ。</p>
+      <div class="search-panel" role="search">
+        <input id="keyword" type="search" placeholder="職種・企業名・キーワード" aria-label="求人検索" />
+        <select id="category" aria-label="カテゴリ"><option value="all">すべての職種</option></select>
+        <button id="searchButton">検索</button>
+      </div>
+      <div class="quick-filters" aria-label="クイックフィルター">
+        <button data-filter="japan">Japan eligible</button>
+        <button data-filter="remote">Remote</button>
+        <button data-filter="japanese">Japanese</button>
+        <button data-filter="usd">USD</button>
+      </div>
+    </section>
+
+    <section class="metrics" id="market" aria-label="市場サマリー">
+      <article><span>ACTIVE JOBS</span><strong id="metricJobs">0</strong><small>verified records</small></article>
+      <article><span>JAPAN ELIGIBLE</span><strong id="metricJapan">0</strong><small>currently visible</small></article>
+      <article><span>REMOTE</span><strong id="metricRemote">0</strong><small>fully remote</small></article>
+      <article><span>AVG. USD / HOUR</span><strong id="metricPay">—</strong><small>hourly listings only</small></article>
+    </section>
+
+    <section class="jobs-section" id="jobs">
+      <div class="section-head">
+        <div><span class="kicker">LATEST SIGNALS</span><h2>海外仕事を比較する</h2></div>
+        <div class="result-count"><strong id="resultCount">0</strong> jobs</div>
+      </div>
+      <div class="jobs-layout">
+        <aside class="filters">
+          <label><span>最低報酬</span><select id="minPay"><option value="0">指定なし</option><option value="15">$15+</option><option value="20">$20+</option><option value="30">$30+</option><option value="40">$40+</option></select></label>
+          <label><span>英語レベル</span><select id="english"><option value="all">指定なし</option><option value="A2">A2+</option><option value="B1">B1+</option><option value="B2">B2+</option><option value="C1">C1+</option></select></label>
+          <label class="check"><input id="onlyJapan" type="checkbox" /> <span>日本から応募可のみ</span></label>
+          <label class="check"><input id="onlyRemote" type="checkbox" /> <span>完全リモートのみ</span></label>
+          <button id="resetFilters" class="ghost">条件をリセット</button>
+        </aside>
+        <div>
+          <div id="jobsList" class="jobs-list" aria-live="polite"></div>
+          <div id="emptyState" class="empty" hidden>条件に一致する求人がありません。条件を少し広げてください。</div>
+        </div>
+      </div>
+    </section>
+
+    <section class="principles" id="about">
+      <div><span class="kicker">HOW IT WORKS</span><h2>求人を抱えず、情報だけを整える。</h2></div>
+      <div class="principle-grid">
+        <article><strong>01</strong><h3>Official first</h3><p>公式企業ページ・公開API・RSSなど、出所を確認できる情報を優先します。</p></article>
+        <article><strong>02</strong><h3>Structured facts</h3><p>全文転載ではなく、勤務地・言語・報酬・雇用形態など比較に必要な情報へ整理します。</p></article>
+        <article><strong>03</strong><h3>External apply</h3><p>Global Work Radarは応募を仲介しません。応募は元の公式ページで行います。</p></article>
+      </div>
+    </section>
+  </main>
+
+  <footer><span>Global Work Radar</span><span>Information / search layer — not an employer or recruitment agency.</span></footer>
+  <script src="./app.js" defer></script>
+</body>
+</html>
