@@ -1,7 +1,14 @@
 import fs from 'node:fs';
+import path from 'node:path';
+import {pathToFileURL} from 'node:url';
 
-const queuePath = new URL('../distribution/social-queue.json', import.meta.url);
-const handoffDir = new URL('../distribution/handoffs/', import.meta.url);
+const queuePath = process.env.SOCIAL_QUEUE_PATH
+  ? pathToFileURL(path.resolve(process.env.SOCIAL_QUEUE_PATH))
+  : new URL('../distribution/social-queue.json', import.meta.url);
+const handoffDir = process.env.SOCIAL_HANDOFF_DIR
+  ? new URL('./', pathToFileURL(path.resolve(process.env.SOCIAL_HANDOFF_DIR, '_')))
+  : new URL('../distribution/handoffs/', import.meta.url);
+const handoffPathPrefix = process.env.SOCIAL_HANDOFF_PATH_PREFIX || 'distribution/handoffs';
 const queue = JSON.parse(fs.readFileSync(queuePath, 'utf8'));
 const now = new Date();
 
@@ -23,10 +30,18 @@ function eligible(item) {
   return new Date(item.scheduled_at) <= now;
 }
 
-function handoffBlockedPublish({due, trackedUrl, text, blocker, evidence = {}, nextOwner = 'ALTERNATE_PUBLISHER_AGENT'}) {
+function handoffBlockedPublish({
+  due,
+  trackedUrl,
+  text,
+  blocker,
+  evidence = {},
+  nextOwner = 'ALTERNATE_PUBLISHER_AGENT',
+  nextAction = 'Publish this exact payload through another connected route, verify the public URL, then update the queue item to PUBLISHED with external_post_id/public_url/published_at. Do not redesign the campaign.'
+}) {
   fs.mkdirSync(handoffDir, {recursive: true});
-  const handoffPath = `distribution/handoffs/${due.id}.json`;
-  const handoffFile = new URL(`../${handoffPath}`, import.meta.url);
+  const handoffPath = `${handoffPathPrefix}/${due.id}.json`;
+  const handoffFile = new URL(`${due.id}.json`, handoffDir);
   const payload = {
     version: 1,
     generated_at: now.toISOString(),
@@ -44,7 +59,7 @@ function handoffBlockedPublish({due, trackedUrl, text, blocker, evidence = {}, n
     evidence,
     blocker,
     next_owner: nextOwner,
-    next_action: 'Publish this exact payload through another connected route, verify the public URL, then update the queue item to PUBLISHED with external_post_id/public_url/published_at. Do not redesign the campaign.'
+    next_action: nextAction
   };
 
   fs.writeFileSync(handoffFile, `${JSON.stringify(payload, null, 2)}\n`);
@@ -122,15 +137,30 @@ if (!response.ok) {
 }
 
 const payload = await response.json().catch(() => ({}));
-if (!payload.external_post_id) {
-  console.error('Publisher did not return external_post_id; refusing to mark published.');
-  process.exit(1);
+if (!payload.external_post_id || !/^https:\/\//.test(payload.public_url || '')) {
+  const blocker = !payload.external_post_id
+    ? 'publisher_external_post_id_missing'
+    : 'publisher_public_url_missing';
+  handoffBlockedPublish({
+    due,
+    trackedUrl,
+    text,
+    blocker,
+    evidence: {
+      http_status: response.status,
+      external_post_id: payload.external_post_id || null,
+      public_url: payload.public_url || null
+    },
+    nextOwner: 'PUBLISHER_STATUS_VERIFICATION_AGENT',
+    nextAction: 'Read publisher status for the returned external_post_id before any retry. Persist a verified public_url and only then mark PUBLISHED; if verification fails, keep HANDOFF_REQUIRED.'
+  });
+  process.exit(2);
 }
 
 delete queue.publisher_state;
 due.status = 'PUBLISHED';
 due.external_post_id = String(payload.external_post_id);
-due.public_url = payload.public_url || null;
+due.public_url = payload.public_url;
 due.published_at = payload.published_at || new Date().toISOString();
 due.publisher = payload.publisher || 'webhook';
 persist();
