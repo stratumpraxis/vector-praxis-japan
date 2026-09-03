@@ -7,6 +7,8 @@ CREATE TABLE IF NOT EXISTS jobs (
   employer TEXT NOT NULL,
   title TEXT NOT NULL,
   location TEXT,
+  eligible_region TEXT,
+  eligibility_evidence TEXT,
   remote_type TEXT CHECK (remote_type IN ('remote','hybrid','onsite','unknown')) DEFAULT 'unknown',
   japan_eligible INTEGER CHECK (japan_eligible IN (0,1)) DEFAULT 0,
   japan_eligibility_confidence REAL DEFAULT 0,
@@ -18,13 +20,15 @@ CREATE TABLE IF NOT EXISTS jobs (
   compensation_currency TEXT,
   compensation_period TEXT,
   category TEXT,
+  published_at TEXT,
   first_seen_at TEXT NOT NULL,
   last_verified_at TEXT NOT NULL,
   expires_at TEXT,
   closed_at TEXT,
   verification_status TEXT CHECK (verification_status IN ('verified_active','active_low_confidence','closed','unknown','rejected')) DEFAULT 'unknown',
   source_status TEXT CHECK (source_status IN ('active','expired','blocked','unknown')) DEFAULT 'unknown',
-  source_policy TEXT CHECK (source_policy IN ('official','api','rss','index_only','blocked')) NOT NULL,
+  source_policy TEXT CHECK (source_policy IN ('official','api','rss','feed','index_only','blocked')) NOT NULL,
+  source_reference TEXT,
   quality_score REAL DEFAULT 0,
   created_at TEXT NOT NULL DEFAULT CURRENT_TIMESTAMP,
   updated_at TEXT NOT NULL DEFAULT CURRENT_TIMESTAMP
@@ -36,6 +40,7 @@ CREATE INDEX IF NOT EXISTS idx_jobs_language ON jobs(japanese_required, english_
 CREATE INDEX IF NOT EXISTS idx_jobs_category ON jobs(category);
 CREATE INDEX IF NOT EXISTS idx_jobs_comp ON jobs(compensation_currency, compensation_min);
 CREATE INDEX IF NOT EXISTS idx_jobs_employer ON jobs(employer, last_verified_at);
+CREATE INDEX IF NOT EXISTS idx_jobs_published ON jobs(published_at);
 
 CREATE TABLE IF NOT EXISTS job_history (
   id TEXT PRIMARY KEY,
@@ -44,6 +49,7 @@ CREATE TABLE IF NOT EXISTS job_history (
   verification_status TEXT NOT NULL,
   title TEXT,
   location TEXT,
+  eligible_region TEXT,
   remote_type TEXT,
   compensation_min REAL,
   compensation_max REAL,
@@ -51,7 +57,7 @@ CREATE TABLE IF NOT EXISTS job_history (
   compensation_period TEXT,
   official_url TEXT,
   fingerprint TEXT NOT NULL,
-  change_type TEXT CHECK (change_type IN ('first_seen','unchanged','changed','closed','reopened')) NOT NULL,
+  change_type TEXT CHECK (change_type IN ('first_seen','unchanged','changed','missing_once','closed','reopened')) NOT NULL,
   FOREIGN KEY (job_id) REFERENCES jobs(id)
 );
 
@@ -90,9 +96,13 @@ CREATE TABLE IF NOT EXISTS sources (
   id TEXT PRIMARY KEY,
   name TEXT NOT NULL UNIQUE,
   base_url TEXT NOT NULL,
-  access_method TEXT CHECK (access_method IN ('official','api','rss','index_only','blocked')) NOT NULL,
+  access_method TEXT CHECK (access_method IN ('official','api','rss','feed','index_only','blocked')) NOT NULL,
+  documentation_url TEXT,
+  terms_url TEXT,
   terms_checked_at TEXT,
   robots_checked_at TEXT,
+  min_refresh_minutes INTEGER,
+  attribution_required INTEGER CHECK (attribution_required IN (0,1)) DEFAULT 0,
   active INTEGER CHECK (active IN (0,1)) DEFAULT 0,
   notes TEXT,
   created_at TEXT NOT NULL DEFAULT CURRENT_TIMESTAMP,
