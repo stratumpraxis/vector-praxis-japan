@@ -30,18 +30,15 @@ jobs:
         with:
           python-version: '3.12'
 
-      - name: Prepare video build dependencies
-        run: |
-          sudo apt-get update
-          sudo apt-get install -y ffmpeg fonts-noto-cjk
-          python -m pip install --disable-pip-version-check pillow
-
-      - name: Build campaign media if missing
+      - name: Ensure campaign media exists
         run: |
           if [ ! -f public/media/vector-praxis-completion-layer.mp4 ]; then
+            sudo apt-get update
+            sudo apt-get install -y ffmpeg fonts-noto-cjk
+            python -m pip install --disable-pip-version-check pillow
             python scripts/build-completion-layer-social-video.py
           else
-            echo "Campaign media already exists."
+            echo "Campaign media already exists; skipping media toolchain install."
           fi
 
       - name: Preflight direct social providers
