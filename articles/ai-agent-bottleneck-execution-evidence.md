@@ -3,7 +3,7 @@ title: "AIエージェントを増やすほど遅くなる理由：ボトルネ�
 emoji: "🧭"
 type: "tech"
 topics: ["ai", "agent", "automation", "productivity", "github"]
-published: false
+published: true
 ---
 
 AIエージェントを増やせば、そのまま仕事が速くなる。最初はそう考えがちです。
