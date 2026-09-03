@@ -1,9 +1,26 @@
 {
-  "observed_at": "2026-09-03T05:28:47.883Z",
+  "observed_at": "2026-09-03T06:01:41.128Z",
   "campaign": "note-completion-layer-20260903",
   "results": [
     {
+      "status": "READY_BUT_NOT_CONNECTED",
+      "id": "vp-note-completion-layer-bluesky-01",
+      "platform": "bluesky",
+      "provider": "bluesky_direct"
+    },
+    {
       "status": "PUBLISHER_COOLDOWN",
+      "id": "vp-note-completion-layer-instagram-01",
+      "platform": "instagram",
+      "provider": "legacy_webhook",
+      "retry_after": "2026-09-04T02:20:46.968Z",
+      "last_http_status": 410
+    },
+    {
+      "status": "PUBLISHER_COOLDOWN",
+      "id": "vp-note-completion-layer-tiktok-01",
+      "platform": "tiktok",
+      "provider": "legacy_webhook",
       "retry_after": "2026-09-04T02:20:46.968Z",
       "last_http_status": 410
     }
