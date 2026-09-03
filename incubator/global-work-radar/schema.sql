@@ -21,17 +21,70 @@ CREATE TABLE IF NOT EXISTS jobs (
   first_seen_at TEXT NOT NULL,
   last_verified_at TEXT NOT NULL,
   expires_at TEXT,
+  closed_at TEXT,
+  verification_status TEXT CHECK (verification_status IN ('verified_active','active_low_confidence','closed','unknown','rejected')) DEFAULT 'unknown',
   source_status TEXT CHECK (source_status IN ('active','expired','blocked','unknown')) DEFAULT 'unknown',
   source_policy TEXT CHECK (source_policy IN ('official','api','rss','index_only','blocked')) NOT NULL,
+  quality_score REAL DEFAULT 0,
   created_at TEXT NOT NULL DEFAULT CURRENT_TIMESTAMP,
   updated_at TEXT NOT NULL DEFAULT CURRENT_TIMESTAMP
 );
 
-CREATE INDEX IF NOT EXISTS idx_jobs_active ON jobs(source_status, last_verified_at);
+CREATE INDEX IF NOT EXISTS idx_jobs_active ON jobs(verification_status, last_verified_at);
 CREATE INDEX IF NOT EXISTS idx_jobs_japan ON jobs(japan_eligible, remote_type);
 CREATE INDEX IF NOT EXISTS idx_jobs_language ON jobs(japanese_required, english_level);
 CREATE INDEX IF NOT EXISTS idx_jobs_category ON jobs(category);
 CREATE INDEX IF NOT EXISTS idx_jobs_comp ON jobs(compensation_currency, compensation_min);
+CREATE INDEX IF NOT EXISTS idx_jobs_employer ON jobs(employer, last_verified_at);
+
+CREATE TABLE IF NOT EXISTS job_history (
+  id TEXT PRIMARY KEY,
+  job_id TEXT NOT NULL,
+  observed_at TEXT NOT NULL,
+  verification_status TEXT NOT NULL,
+  title TEXT,
+  location TEXT,
+  remote_type TEXT,
+  compensation_min REAL,
+  compensation_max REAL,
+  compensation_currency TEXT,
+  compensation_period TEXT,
+  official_url TEXT,
+  fingerprint TEXT NOT NULL,
+  change_type TEXT CHECK (change_type IN ('first_seen','unchanged','changed','closed','reopened')) NOT NULL,
+  FOREIGN KEY (job_id) REFERENCES jobs(id)
+);
+
+CREATE INDEX IF NOT EXISTS idx_job_history_job_time ON job_history(job_id, observed_at);
+CREATE INDEX IF NOT EXISTS idx_job_history_change ON job_history(change_type, observed_at);
+
+CREATE TABLE IF NOT EXISTS companies (
+  id TEXT PRIMARY KEY,
+  name TEXT NOT NULL UNIQUE,
+  careers_url TEXT,
+  ats_provider TEXT,
+  ats_site_key TEXT,
+  first_seen_at TEXT NOT NULL,
+  last_seen_at TEXT NOT NULL,
+  active_job_count INTEGER DEFAULT 0,
+  japanese_job_count INTEGER DEFAULT 0,
+  remote_job_count INTEGER DEFAULT 0,
+  created_at TEXT NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  updated_at TEXT NOT NULL DEFAULT CURRENT_TIMESTAMP
+);
+
+CREATE TABLE IF NOT EXISTS market_snapshots (
+  id TEXT PRIMARY KEY,
+  snapshot_at TEXT NOT NULL UNIQUE,
+  active_jobs INTEGER DEFAULT 0,
+  japan_eligible_jobs INTEGER DEFAULT 0,
+  japanese_jobs INTEGER DEFAULT 0,
+  remote_jobs INTEGER DEFAULT 0,
+  median_hourly_usd REAL,
+  new_jobs_24h INTEGER DEFAULT 0,
+  closed_jobs_24h INTEGER DEFAULT 0,
+  payload_json TEXT
+);
 
 CREATE TABLE IF NOT EXISTS sources (
   id TEXT PRIMARY KEY,
