@@ -1,13 +1,13 @@
 {
-  "version": 1,
+  "version": 2,
   "policy": "fail_closed",
-  "last_reviewed": "2026-09-02",
+  "last_reviewed": "2026-09-03",
   "sources": [
     {
       "id": "we-work-remotely",
       "name": "We Work Remotely",
-      "priority": "P0",
-      "launch_order": 1,
+      "priority": "P1",
+      "launch_order": 4,
       "kind": "job_board_rss",
       "access_method": "rss",
       "feed_url": "https://weworkremotely.com/remote-jobs.rss",
@@ -15,14 +15,14 @@
       "outbound_policy": "link_back_to_source",
       "full_description_copy": false,
       "application_handling": false,
-      "status": "approved_for_mvp_ingest",
-      "review_note": "Official WWR RSS page states the public feed may be used and asks users to attribute links back to We Work Remotely. Store structured facts only and route outward."
+      "status": "discovery_only_pending_permission",
+      "review_note": "The public RSS page says anyone may use the feed with attribution, but WWR's API Terms & Guidelines also state that WWR data must not be used to build a job search service. GWR therefore will not publish WWR-derived records unless WWR confirms this use is permitted."
     },
     {
       "id": "remotive",
       "name": "Remotive",
-      "priority": "P0",
-      "launch_order": 2,
+      "priority": "P1",
+      "launch_order": 5,
       "kind": "job_board_api_rss",
       "access_method": "public_api_or_rss",
       "feed_url": "https://remotive.com/remote-jobs/api",
@@ -30,28 +30,28 @@
       "outbound_policy": "link_back_to_remotive",
       "full_description_copy": false,
       "application_handling": false,
-      "status": "approved_with_restrictions",
-      "review_note": "Public API permits sharing with attribution and link-back, but prohibits some redistribution destinations and using listings as a signup gate. Keep listings public, attributed, and ungated."
+      "status": "approved_with_restrictions_not_core",
+      "review_note": "Keep secondary and public/ungated only. Respect attribution and redistribution restrictions. Prefer official ATS sources for GWR core."
     },
     {
       "id": "lever",
       "name": "Lever Postings API",
       "priority": "P0",
-      "launch_order": 3,
+      "launch_order": 1,
       "kind": "ats",
       "access_method": "company_scoped_public_postings_api",
       "attribution_required": false,
       "outbound_policy": "official_employer_or_lever_job_url",
       "full_description_copy": false,
       "application_handling": false,
-      "status": "discovery_only_until_company_watchlist",
-      "review_note": "Lever exposes published company-scoped postings. GWR will use it only for selected employer sites and will not submit applications or store applicant data."
+      "status": "approved_for_curated_watchlist",
+      "review_note": "Lever's published postings API is designed for company job sites. GWR uses only selected employer sites, stores structured facts, and routes users outward; it does not submit applications or store applicant data."
     },
     {
       "id": "greenhouse",
       "name": "Greenhouse Job Board",
       "priority": "P0",
-      "launch_order": 4,
+      "launch_order": 2,
       "kind": "ats",
       "access_method": "company_scoped_public_job_board",
       "attribution_required": false,
@@ -65,7 +65,7 @@
       "id": "ashby",
       "name": "Ashby",
       "priority": "P1",
-      "launch_order": 5,
+      "launch_order": 3,
       "kind": "ats",
       "access_method": "company_scoped_public_jobs",
       "attribution_required": false,
@@ -73,12 +73,12 @@
       "full_description_copy": false,
       "application_handling": false,
       "status": "needs_source_review",
-      "review_note": "P1. Review official access and reuse terms before enabling automated ingestion."
+      "review_note": "Review official access and reuse terms before enabling automated ingestion."
     },
     {
       "id": "workable",
       "name": "Workable",
-      "priority": "P1",
+      "priority": "P2",
       "launch_order": 6,
       "kind": "ats",
       "access_method": "company_scoped_public_jobs",
@@ -87,12 +87,12 @@
       "full_description_copy": false,
       "application_handling": false,
       "status": "needs_source_review",
-      "review_note": "P1. Review official access and reuse terms before enabling automated ingestion."
+      "review_note": "Review official access and reuse terms before enabling automated ingestion."
     },
     {
       "id": "smartrecruiters",
       "name": "SmartRecruiters",
-      "priority": "P1",
+      "priority": "P2",
       "launch_order": 7,
       "kind": "ats",
       "access_method": "company_scoped_public_jobs",
@@ -101,7 +101,7 @@
       "full_description_copy": false,
       "application_handling": false,
       "status": "needs_source_review",
-      "review_note": "P1. Review official access and reuse terms before enabling automated ingestion."
+      "review_note": "Review official access and reuse terms before enabling automated ingestion."
     }
   ]
 }
