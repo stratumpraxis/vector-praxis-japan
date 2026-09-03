@@ -1,15 +1,15 @@
 {
   "source": "workable",
-  "snapshot_at": "2026-09-03T02:36:02.627Z",
+  "snapshot_at": "2026-09-03T02:38:45.391Z",
   "active_jobs": 167516,
-  "japan_eligible_jobs": 9258,
+  "verified_japan_eligible_jobs": 539,
   "japanese_jobs": 672,
   "remote_jobs": 47773,
-  "candidate_jobs_saved": 9518,
-  "new_jobs_since_previous_snapshot": 167516,
+  "candidate_jobs_saved": 539,
+  "new_jobs_since_previous_snapshot": 0,
   "closed_jobs_confirmed_this_snapshot": 0,
   "remote_ratio": 0.2851846987750424,
   "employer_recurrence_count": 4595,
-  "median_observed_survival_days": 0,
-  "intelligence_status": "baseline_only"
+  "median_observed_survival_days": 0.0018838425925925926,
+  "intelligence_status": "history_available"
 }
