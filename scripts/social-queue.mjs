@@ -1,4 +1,5 @@
 import fs from 'node:fs';
+import {blueskyConfigured, publishBluesky} from './social-provider-bluesky.mjs';
 
 const queuePath = new URL('../distribution/social-queue.json', import.meta.url);
 const lastRunPath = new URL('../distribution/social-last-run.json', import.meta.url);
@@ -33,16 +34,29 @@ function eligible(item) {
   return new Date(item.scheduled_at) <= now;
 }
 
-const retryAfter = queue.publisher_state?.retry_after ? new Date(queue.publisher_state.retry_after) : null;
-if (retryAfter && retryAfter > now) {
+function markPublished(due, payload) {
+  delete due.last_error;
+  delete due.last_error_at;
+  due.status = 'PUBLISHED';
+  due.external_post_id = String(payload.external_post_id);
+  due.external_post_url = payload.external_post_url || null;
+  due.published_at = payload.published_at || new Date().toISOString();
+  due.publisher = payload.publisher || 'unknown';
   results.push({
-    status: 'PUBLISHER_COOLDOWN',
-    retry_after: retryAfter.toISOString(),
-    last_http_status: queue.publisher_state.http_status || null
+    status: 'PUBLISHED_CONFIRMED_BY_PUBLISHER',
+    id: due.id,
+    platform: due.platform,
+    external_post_id: due.external_post_id,
+    external_post_url: due.external_post_url,
+    publisher: due.publisher
   });
-  persistLastRun();
-  console.log(JSON.stringify(results, null, 2));
-  process.exit(0);
+}
+
+function markFailed(due, reason, extra = {}) {
+  due.status = 'FAILED_REVIEW';
+  due.last_error = reason;
+  due.last_error_at = new Date().toISOString();
+  results.push({status: 'FAILED_REVIEW', id: due.id, platform: due.platform, reason, ...extra});
 }
 
 const dueItems = queue.items.filter(eligible).slice(0, queue.policy?.max_items_per_run || 1);
@@ -54,14 +68,7 @@ if (!dueItems.length) {
 }
 
 const webhook = process.env.SOCIAL_PUBLISH_WEBHOOK_URL;
-if (!webhook) {
-  for (const due of dueItems) {
-    results.push({status:'READY_BUT_NOT_CONNECTED', id:due.id, platform:due.platform});
-  }
-  persistLastRun();
-  console.log(JSON.stringify(results, null, 2));
-  process.exit(0);
-}
+const retryAfter = queue.publisher_state?.retry_after ? new Date(queue.publisher_state.retry_after) : null;
 
 for (const due of dueItems) {
   const destination = due.destination || queue.destination;
@@ -70,10 +77,44 @@ for (const due of dueItems) {
   const text = `${due.copy}\n\n${trackedUrl}${tags ? `\n\n${tags}` : ''}`;
 
   if (due.require_media && !due.media_url) {
-    due.status = 'FAILED_REVIEW';
-    due.last_error = 'required_media_url_missing';
-    due.last_error_at = new Date().toISOString();
-    results.push({status:'FAILED_REVIEW', id:due.id, platform:due.platform, reason:'required_media_url_missing'});
+    markFailed(due, 'required_media_url_missing');
+    continue;
+  }
+
+  if (due.platform === 'bluesky') {
+    if (!blueskyConfigured()) {
+      results.push({status: 'READY_BUT_NOT_CONNECTED', id: due.id, platform: due.platform, provider: 'bluesky_direct'});
+      continue;
+    }
+    try {
+      const payload = await publishBluesky({item: due, text, trackedUrl});
+      if (!payload?.external_post_id) {
+        markFailed(due, 'bluesky_missing_external_post_id');
+        continue;
+      }
+      markPublished(due, payload);
+    } catch (error) {
+      markFailed(due, `bluesky_direct_error:${error?.message || 'unknown'}`);
+    }
+    continue;
+  }
+
+  // Legacy webhook is retained only for platforms that do not yet have a direct route.
+  // Its cooldown must not block a healthy direct provider such as Bluesky.
+  if (retryAfter && retryAfter > now) {
+    results.push({
+      status: 'PUBLISHER_COOLDOWN',
+      id: due.id,
+      platform: due.platform,
+      provider: 'legacy_webhook',
+      retry_after: retryAfter.toISOString(),
+      last_http_status: queue.publisher_state?.http_status || null
+    });
+    continue;
+  }
+
+  if (!webhook) {
+    results.push({status: 'READY_BUT_NOT_CONNECTED', id: due.id, platform: due.platform, provider: 'legacy_webhook'});
     continue;
   }
 
@@ -81,7 +122,7 @@ for (const due of dueItems) {
   try {
     response = await fetch(webhook, {
       method: 'POST',
-      headers: {'content-type':'application/json'},
+      headers: {'content-type': 'application/json'},
       body: JSON.stringify({
         brand: queue.policy.brand,
         campaign: queue.campaign,
@@ -100,10 +141,7 @@ for (const due of dueItems) {
       })
     });
   } catch (error) {
-    due.status = 'FAILED_REVIEW';
-    due.last_error = `publisher_network_error:${error?.message || 'unknown'}`;
-    due.last_error_at = new Date().toISOString();
-    results.push({status:'FAILED_REVIEW', id:due.id, platform:due.platform, reason:'publisher_network_error'});
+    markFailed(due, `publisher_network_error:${error?.message || 'unknown'}`);
     continue;
   }
 
@@ -115,45 +153,26 @@ for (const due of dueItems) {
       observed_at: new Date().toISOString(),
       retry_after: retry.toISOString()
     };
-    due.status = 'FAILED_REVIEW';
-    due.last_error = 'publisher_http_410';
-    due.last_error_at = new Date().toISOString();
-    results.push({status:'PUBLISHER_GONE', id:due.id, platform:due.platform, http_status:410, retry_after:retry.toISOString()});
-    break;
+    markFailed(due, 'publisher_http_410', {http_status: 410, retry_after: retry.toISOString()});
+    continue;
   }
 
   if (!response.ok) {
-    due.status = 'FAILED_REVIEW';
-    due.last_error = `publisher_http_${response.status}`;
-    due.last_error_at = new Date().toISOString();
-    results.push({status:'FAILED_REVIEW', id:due.id, platform:due.platform, http_status:response.status});
+    markFailed(due, `publisher_http_${response.status}`, {http_status: response.status});
     continue;
   }
 
   const payload = await response.json().catch(() => ({}));
   if (!payload.external_post_id) {
-    due.status = 'FAILED_REVIEW';
-    due.last_error = 'publisher_missing_external_post_id';
-    due.last_error_at = new Date().toISOString();
-    results.push({status:'FAILED_REVIEW', id:due.id, platform:due.platform, reason:'publisher_missing_external_post_id'});
+    markFailed(due, 'publisher_missing_external_post_id');
     continue;
   }
 
-  delete queue.publisher_state;
-  due.status = 'PUBLISHED';
-  due.external_post_id = String(payload.external_post_id);
-  due.external_post_url = payload.external_post_url || payload.public_url || payload.url || null;
-  due.published_at = payload.published_at || new Date().toISOString();
-  due.publisher = payload.publisher || 'webhook';
-  delete due.last_error;
-  delete due.last_error_at;
-
-  results.push({
-    status:'PUBLISHED_CONFIRMED_BY_PUBLISHER',
-    id:due.id,
-    platform:due.platform,
-    external_post_id:due.external_post_id,
-    external_post_url:due.external_post_url
+  markPublished(due, {
+    external_post_id: payload.external_post_id,
+    external_post_url: payload.external_post_url || payload.public_url || payload.url || null,
+    published_at: payload.published_at || new Date().toISOString(),
+    publisher: payload.publisher || 'webhook'
   });
 }
 
