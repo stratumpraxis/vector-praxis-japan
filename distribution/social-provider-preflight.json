@@ -1,0 +1,12 @@
+{
+  "observed_at": "2026-09-03T02:27:43.628Z",
+  "secrets_present": {
+    "fedica": false,
+    "metricool_token": false,
+    "metricool_user_id": false,
+    "metricool_blog_id": false,
+    "publer": false,
+    "legacy_webhook": true
+  },
+  "providers": {}
+}

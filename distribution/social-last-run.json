@@ -1,13 +1,11 @@
 {
-  "observed_at": "2026-09-03T02:20:46.968Z",
+  "observed_at": "2026-09-03T02:27:43.671Z",
   "campaign": "note-completion-layer-20260903",
   "results": [
     {
-      "status": "PUBLISHER_GONE",
-      "id": "vp-note-completion-layer-bluesky-01",
-      "platform": "bluesky",
-      "http_status": 410,
-      "retry_after": "2026-09-04T02:20:46.968Z"
+      "status": "PUBLISHER_COOLDOWN",
+      "retry_after": "2026-09-04T02:20:46.968Z",
+      "last_http_status": 410
     }
   ]
 }
