@@ -19,11 +19,11 @@ Revenue endpoint: Stripe via Stratumpraxis product page
 | Money intent | GO — problem concerns operational implementation and coordination |
 | Existing asset relevance | GO — Cross-Agent Operating Kit matches directly |
 | CTA destination | GO — product route exists and article carries campaign UTM + route_id |
-| Distribution route | AUTHORIZED — user completed Zenn↔GitHub authorization for `stratumpraxis/vector-praxis-japan` |
-| Automation potential | GO — repository authorization Human Gate is cleared; next proof is public deployment |
+| Distribution route | LIVE — Zenn successfully deployed the article from `stratumpraxis/vector-praxis-japan` on `main` |
+| Automation potential | GO — one-time Zenn↔GitHub authorization is complete |
 | Reusable asset | GO — evergreen operational design topic |
 
-Decision: GO. Do not create another article before this route is published and measured.
+Decision: GO. No duplicate article should be created before this route is measured.
 
 ## Measurement contract
 
@@ -42,26 +42,40 @@ Track in order:
 6. Purchase
 7. Revenue
 
-## 2026-09-03 measurement
+## Public deployment evidence — 2026-09-03
 
-PostHog 7-day query for `utm_source=zenn`, `first_utm_source=zenn`, `last_utm_source=zenn`, or `route_id=zenn_ai_agent_bottleneck_v1`: **0 matching events** at the pre-publication measurement point.
+Zenn deployment status: **SUCCESS**.
 
-Stripe live account is connected. No Zenn-attributed downstream event was observed before publication authorization.
+Zenn reported one updated file:
 
-The article source on `main` is now `published: true` and its primary CTA carries Zenn campaign UTM + `route_id=zenn_ai_agent_bottleneck_v1`.
+- `articles/ai-agent-bottleneck-execution-evidence.md`
+- Zenn link: `https://zenn.dev/link/articles/ai-agent-bottleneck-execution-evidence`
+- Connected repository: `stratumpraxis/vector-praxis-japan`
+- Branch: `main`
+- Trigger commit: `3d4fe61d17f5918b4e3843c8ebc26bbbc3b99901`
 
-## Authorization state
+The Zenn notice that `books` directory was not found is non-blocking for the current articles-only revenue route. No book asset is required for this cycle.
 
-The one-time Zenn↔GitHub authorization Human Gate was completed by the user on 2026-09-03 for `stratumpraxis/vector-praxis-japan`.
+The article source is `published: true` and its primary CTA carries:
 
-This commit records that transition and provides a fresh `main` push so the connected Zenn deployment path has a new repository event to process.
+- `utm_source=zenn`
+- `utm_medium=article`
+- `utm_campaign=ai_agent_bottleneck_execution_evidence`
+- `asset_id=cross_agent_operating_kit`
+- `route_id=zenn_ai_agent_bottleneck_v1`
+
+## Measurement state
+
+Pre-publication PostHog query for Zenn attribution returned 0 matching events, as expected before the route was live.
+
+Now that deployment is live, the next measurement window starts from this publication point. Do not interpret earlier zeros as post-publication performance.
 
 ## Current bottleneck
 
-Single deepest bottleneck: **Public URL verification**.
+Single deepest bottleneck: **first real Zenn traffic → CTA event**.
 
-Authorization is no longer the blocker. The next required evidence is that Zenn has processed the connected repository and exposed the existing `published: true` article publicly.
+Publication authorization and deployment are no longer blockers.
 
 ## Next executable action
 
-Verify the Zenn Public URL for `ai-agent-bottleneck-execution-evidence`, test the Cross-Agent Operating Kit CTA, then begin measuring `zenn_ai_agent_bottleneck_v1` in PostHog and Stripe attribution.
+Measure the live Zenn route for impressions/page visits and `primary_cta_click` / product arrival using `route_id=zenn_ai_agent_bottleneck_v1`. If traffic appears without CTA clicks, improve only the article CTA. If no traffic appears, improve title/search distribution before changing the offer.
