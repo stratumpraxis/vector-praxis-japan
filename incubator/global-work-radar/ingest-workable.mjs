@@ -1,8 +1,10 @@
 import { createHash } from 'node:crypto';
 import { mkdir, readFile, writeFile, appendFile } from 'node:fs/promises';
+import { createReadStream } from 'node:fs';
 import { gzipSync, gunzipSync } from 'node:zlib';
 
 const FEED_URL = 'https://www.workable.com/boards/workable.xml';
+const LOCAL_XML = process.env.WORKABLE_XML_FILE || '';
 const DATA_DIR = new URL('./data/', import.meta.url);
 const CURRENT_FILE = new URL('./data/workable-current.json', import.meta.url);
 const STATE_FILE = new URL('./data/workable-state.json.gz', import.meta.url);
@@ -93,19 +95,27 @@ const processJob = (item) => {
   });
 };
 
-const response = await fetch(FEED_URL, { headers: { 'user-agent': 'GlobalWorkRadar/0.6' } });
-if (!response.ok || !response.body) throw new Error(`Workable feed fetch failed: ${response.status} ${response.statusText}`);
-const reader = response.body.getReader(); const decoder = new TextDecoder(); let buffer = '';
-while (true) {
-  const { value, done } = await reader.read();
-  if (value) buffer += decoder.decode(value, { stream: !done });
-  let start;
-  while ((start = buffer.search(/<job(?:\s[^>]*)?>/i)) >= 0) {
-    const endMatch = buffer.slice(start).match(/<\/job>/i); if (!endMatch) break;
-    const end = start + endMatch.index + endMatch[0].length; processJob(buffer.slice(start, end)); buffer = buffer.slice(end);
+const consumeChunks = async (iterable) => {
+  const decoder = new TextDecoder();
+  let buffer = '';
+  for await (const chunk of iterable) {
+    buffer += typeof chunk === 'string' ? chunk : decoder.decode(chunk, { stream: true });
+    let start;
+    while ((start = buffer.search(/<job(?:\s[^>]*)?>/i)) >= 0) {
+      const endMatch = buffer.slice(start).match(/<\/job>/i); if (!endMatch) break;
+      const end = start + endMatch.index + endMatch[0].length; processJob(buffer.slice(start, end)); buffer = buffer.slice(end);
+    }
+    if (buffer.length > 2_000_000 && !/<job/i.test(buffer)) buffer = buffer.slice(-2000);
   }
-  if (buffer.length > 2_000_000 && !/<job/i.test(buffer)) buffer = buffer.slice(-2000);
-  if (done) break;
+  buffer += decoder.decode();
+};
+
+if (LOCAL_XML) {
+  await consumeChunks(createReadStream(LOCAL_XML, { highWaterMark: 1024 * 1024 }));
+} else {
+  const response = await fetch(FEED_URL, { headers: { 'user-agent': 'GlobalWorkRadar/0.7' } });
+  if (!response.ok || !response.body) throw new Error(`Workable feed fetch failed: ${response.status} ${response.statusText}`);
+  await consumeChunks(response.body);
 }
 if (!sawJob) throw new Error('Workable feed failed structural validation: no jobs found.');
 
