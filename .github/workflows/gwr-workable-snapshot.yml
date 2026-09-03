@@ -31,9 +31,34 @@ jobs:
       - name: Setup Node
         uses: actions/setup-node@v4
         with:
-          node-version: '20'
+          node-version: '24'
+
+      - name: Download Workable feed with retry
+        run: |
+          rm -f /tmp/workable.xml
+          for attempt in 1 2 3 4; do
+            echo "Workable download attempt ${attempt}"
+            if curl --fail --location --silent --show-error \
+              --connect-timeout 20 --max-time 300 \
+              --retry 2 --retry-delay 3 --retry-all-errors \
+              --output /tmp/workable.xml \
+              https://www.workable.com/boards/workable.xml; then
+              if grep -q '<job' /tmp/workable.xml && grep -q '</job>' /tmp/workable.xml; then
+                echo "Workable feed downloaded: $(wc -c < /tmp/workable.xml) bytes"
+                break
+              fi
+            fi
+            rm -f /tmp/workable.xml
+            if [ "$attempt" = "4" ]; then
+              echo "Workable feed unavailable after retries"
+              exit 1
+            fi
+            sleep $((attempt * 5))
+          done
 
       - name: Ingest Workable
+        env:
+          WORKABLE_XML_FILE: /tmp/workable.xml
         run: node incubator/global-work-radar/ingest-workable.mjs
 
       - name: Build verified public jobs
