@@ -41,20 +41,27 @@ jobs:
 
       - name: Validate outputs
         run: |
-          node -e "const fs=require('fs'); for (const f of ['workable-current.json','workable-state.json','workable-market.json','verified-jobs.json']) JSON.parse(fs.readFileSync('incubator/global-work-radar/data/'+f,'utf8')); console.log('GWR JSON outputs valid')"
+          node - <<'NODE'
+          const fs=require('fs');
+          const zlib=require('zlib');
+          for (const f of ['workable-current.json','workable-market.json','verified-jobs.json']) JSON.parse(fs.readFileSync('incubator/global-work-radar/data/'+f,'utf8'));
+          JSON.parse(zlib.gunzipSync(fs.readFileSync('incubator/global-work-radar/data/workable-state.json.gz')).toString('utf8'));
+          console.log('GWR outputs valid');
+          NODE
+
+      - name: Remove legacy oversized state/history
+        run: |
+          rm -f incubator/global-work-radar/data/workable-state.json
+          rm -f incubator/global-work-radar/data/workable-history.jsonl
 
       - name: Commit snapshot evidence
         run: |
           git config user.name "gwr-bot"
           git config user.email "globalworkradar@gmail.com"
-          git add incubator/global-work-radar/data/workable-current.json \
-                  incubator/global-work-radar/data/workable-state.json \
-                  incubator/global-work-radar/data/workable-history.jsonl \
-                  incubator/global-work-radar/data/workable-market.json \
-                  incubator/global-work-radar/data/verified-jobs.json
+          git add -A incubator/global-work-radar/data
           if git diff --cached --quiet; then
             echo "No snapshot changes"
             exit 0
           fi
-          git commit -m "data(gwr): capture Workable market snapshot"
+          git commit -m "data(gwr): compact Workable market snapshot"
           git push origin HEAD:incubator/global-work-radar
