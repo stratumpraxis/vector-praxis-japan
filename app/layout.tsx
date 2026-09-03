@@ -49,15 +49,19 @@ export default function RootLayout({ children }: Readonly<{ children: React.Reac
     var a=target&&target.closest?target.closest("a[data-event]"):null;
     if(!a)return;
     var eventName=a.getAttribute("data-event")||"outbound_click";
+    var destination=(function(){try{return new URL(a.href,window.location.href)}catch(_e){return null}})();
     var clickProps=Object.assign({},common,{
       event_name:eventName,
-      destination_url:a.href||null,
-      destination_path:(function(){try{return new URL(a.href,window.location.href).pathname}catch(_e){return null}})(),
+      destination_url:destination?destination.href:(a.href||null),
+      destination_host:destination?destination.host:null,
+      destination_path:destination?destination.pathname:null,
       link_text:(a.innerText||"").trim().slice(0,120)
     });
     posthog.capture(eventName,clickProps);
     if(eventName==="commerce_entry_click"){
       posthog.capture("primary_cta_click",Object.assign({},clickProps,{
+        route_id:(destination&&destination.searchParams.get("route_id"))||clickProps.route_id,
+        destination_asset_id:(destination&&destination.searchParams.get("asset_id"))||null,
         cta_id:"vector_hub_cross_agent_kit",
         offer_id:"cross_agent_operating_kit_69",
         product_id:"cross_agent_operating_kit",
