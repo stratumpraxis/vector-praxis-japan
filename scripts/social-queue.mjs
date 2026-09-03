@@ -1,11 +1,22 @@
 import fs from 'node:fs';
 
 const queuePath = new URL('../distribution/social-queue.json', import.meta.url);
+const lastRunPath = new URL('../distribution/social-last-run.json', import.meta.url);
 const queue = JSON.parse(fs.readFileSync(queuePath, 'utf8'));
 const now = new Date();
+const results = [];
 
-function persist() {
+function persistQueue() {
   fs.writeFileSync(queuePath, `${JSON.stringify(queue, null, 2)}\n`);
+}
+
+function persistLastRun(extra = {}) {
+  fs.writeFileSync(lastRunPath, `${JSON.stringify({
+    observed_at: new Date().toISOString(),
+    campaign: queue.campaign,
+    results,
+    ...extra
+  }, null, 2)}\n`);
 }
 
 function buildTrackedUrl(base, utm) {
@@ -24,70 +35,128 @@ function eligible(item) {
 
 const retryAfter = queue.publisher_state?.retry_after ? new Date(queue.publisher_state.retry_after) : null;
 if (retryAfter && retryAfter > now) {
-  console.log(JSON.stringify({status:'PUBLISHER_COOLDOWN', retry_after:retryAfter.toISOString(), last_http_status:queue.publisher_state.http_status || null}, null, 2));
+  results.push({
+    status: 'PUBLISHER_COOLDOWN',
+    retry_after: retryAfter.toISOString(),
+    last_http_status: queue.publisher_state.http_status || null
+  });
+  persistLastRun();
+  console.log(JSON.stringify(results, null, 2));
   process.exit(0);
 }
 
-const due = queue.items.find(eligible);
-if (!due) {
-  console.log('No due social posts.');
+const dueItems = queue.items.filter(eligible).slice(0, queue.policy?.max_items_per_run || 1);
+if (!dueItems.length) {
+  results.push({status: 'NO_DUE_SOCIAL_POSTS'});
+  persistLastRun();
+  console.log(JSON.stringify(results, null, 2));
   process.exit(0);
 }
 
-const trackedUrl = buildTrackedUrl(queue.destination, due.utm);
-const text = `${due.copy}\n\n${trackedUrl}\n\n${due.hashtags.map((x) => `#${x}`).join(' ')}`;
 const webhook = process.env.SOCIAL_PUBLISH_WEBHOOK_URL;
-
 if (!webhook) {
-  console.log(JSON.stringify({status:'READY_BUT_NOT_CONNECTED', id:due.id, platform:due.platform, text}, null, 2));
+  for (const due of dueItems) {
+    results.push({status:'READY_BUT_NOT_CONNECTED', id:due.id, platform:due.platform});
+  }
+  persistLastRun();
+  console.log(JSON.stringify(results, null, 2));
   process.exit(0);
 }
 
-const response = await fetch(webhook, {
-  method: 'POST',
-  headers: {'content-type':'application/json'},
-  body: JSON.stringify({
-    brand: queue.policy.brand,
-    campaign: queue.campaign,
-    id: due.id,
-    platform: due.platform,
-    text,
-    destination_url: trackedUrl,
-    scheduled_at: due.scheduled_at
-  })
-});
+for (const due of dueItems) {
+  const destination = due.destination || queue.destination;
+  const trackedUrl = buildTrackedUrl(destination, due.utm);
+  const tags = (due.hashtags || []).map((x) => `#${x}`).join(' ');
+  const text = `${due.copy}\n\n${trackedUrl}${tags ? `\n\n${tags}` : ''}`;
 
-if (response.status === 410) {
-  const retry = new Date(now.getTime() + 24 * 60 * 60 * 1000);
-  queue.publisher_state = {
-    status: 'PUBLISHER_GONE',
-    http_status: 410,
-    observed_at: now.toISOString(),
-    retry_after: retry.toISOString()
-  };
-  due.last_error = 'publisher_http_410';
-  due.last_error_at = now.toISOString();
-  persist();
-  console.log(JSON.stringify({status:'PUBLISHER_GONE_COOLDOWN_SET', id:due.id, retry_after:retry.toISOString()}, null, 2));
-  process.exit(0);
+  if (due.require_media && !due.media_url) {
+    due.status = 'FAILED_REVIEW';
+    due.last_error = 'required_media_url_missing';
+    due.last_error_at = new Date().toISOString();
+    results.push({status:'FAILED_REVIEW', id:due.id, platform:due.platform, reason:'required_media_url_missing'});
+    continue;
+  }
+
+  let response;
+  try {
+    response = await fetch(webhook, {
+      method: 'POST',
+      headers: {'content-type':'application/json'},
+      body: JSON.stringify({
+        brand: queue.policy.brand,
+        campaign: queue.campaign,
+        id: due.id,
+        platform: due.platform,
+        text,
+        caption: due.copy,
+        hashtags: due.hashtags || [],
+        destination_url: trackedUrl,
+        scheduled_at: due.scheduled_at,
+        publish_now: true,
+        media_url: due.media_url || null,
+        media_type: due.media_type || null,
+        media_asset_id: due.media_asset_id || null,
+        post_format: due.post_format || null
+      })
+    });
+  } catch (error) {
+    due.status = 'FAILED_REVIEW';
+    due.last_error = `publisher_network_error:${error?.message || 'unknown'}`;
+    due.last_error_at = new Date().toISOString();
+    results.push({status:'FAILED_REVIEW', id:due.id, platform:due.platform, reason:'publisher_network_error'});
+    continue;
+  }
+
+  if (response.status === 410) {
+    const retry = new Date(Date.now() + 24 * 60 * 60 * 1000);
+    queue.publisher_state = {
+      status: 'PUBLISHER_GONE',
+      http_status: 410,
+      observed_at: new Date().toISOString(),
+      retry_after: retry.toISOString()
+    };
+    due.status = 'FAILED_REVIEW';
+    due.last_error = 'publisher_http_410';
+    due.last_error_at = new Date().toISOString();
+    results.push({status:'PUBLISHER_GONE', id:due.id, platform:due.platform, http_status:410, retry_after:retry.toISOString()});
+    break;
+  }
+
+  if (!response.ok) {
+    due.status = 'FAILED_REVIEW';
+    due.last_error = `publisher_http_${response.status}`;
+    due.last_error_at = new Date().toISOString();
+    results.push({status:'FAILED_REVIEW', id:due.id, platform:due.platform, http_status:response.status});
+    continue;
+  }
+
+  const payload = await response.json().catch(() => ({}));
+  if (!payload.external_post_id) {
+    due.status = 'FAILED_REVIEW';
+    due.last_error = 'publisher_missing_external_post_id';
+    due.last_error_at = new Date().toISOString();
+    results.push({status:'FAILED_REVIEW', id:due.id, platform:due.platform, reason:'publisher_missing_external_post_id'});
+    continue;
+  }
+
+  delete queue.publisher_state;
+  due.status = 'PUBLISHED';
+  due.external_post_id = String(payload.external_post_id);
+  due.external_post_url = payload.external_post_url || payload.public_url || payload.url || null;
+  due.published_at = payload.published_at || new Date().toISOString();
+  due.publisher = payload.publisher || 'webhook';
+  delete due.last_error;
+  delete due.last_error_at;
+
+  results.push({
+    status:'PUBLISHED_CONFIRMED_BY_PUBLISHER',
+    id:due.id,
+    platform:due.platform,
+    external_post_id:due.external_post_id,
+    external_post_url:due.external_post_url
+  });
 }
 
-if (!response.ok) {
-  console.error(`Publisher returned ${response.status}`);
-  process.exit(1);
-}
-
-const payload = await response.json().catch(() => ({}));
-if (!payload.external_post_id) {
-  console.error('Publisher did not return external_post_id; refusing to mark published.');
-  process.exit(1);
-}
-
-delete queue.publisher_state;
-due.status = 'PUBLISHED';
-due.external_post_id = String(payload.external_post_id);
-due.published_at = payload.published_at || new Date().toISOString();
-due.publisher = payload.publisher || 'webhook';
-persist();
-
-console.log(JSON.stringify({status:'PUBLISHED_CONFIRMED_BY_PUBLISHER', id:due.id, external_post_id:due.external_post_id}, null, 2));
+persistQueue();
+persistLastRun();
+console.log(JSON.stringify(results, null, 2));
