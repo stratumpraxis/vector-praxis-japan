@@ -16,13 +16,14 @@ const idFor = (ref, url) => `workable-${(ref || sha(url).slice(0, 16)).toLowerCa
 const iso = (v) => { if (!v) return null; const d = new Date(v); return Number.isNaN(d.getTime()) ? null : d.toISOString(); };
 const readJson = async (url, fallback) => { try { return JSON.parse(await readFile(url, 'utf8')); } catch { return fallback; } };
 
-const inferEligibility = ({ country, text }) => {
-  const t = `${country} ${text}`.toLowerCase();
-  if (/\b(japan|jp)\b|日本/.test(t)) return { japan_eligible: true, confidence: 0.9, eligible_region: 'Japan', evidence: 'Explicit Japan signal in source facts.' };
-  if (/worldwide|anywhere in the world|global remote/.test(t)) return { japan_eligible: true, confidence: 0.7, eligible_region: 'Worldwide', evidence: 'Explicit worldwide/global remote signal.' };
-  if (/us only|united states only|must reside in the us|u\.s\. only/.test(t)) return { japan_eligible: false, confidence: 0.9, eligible_region: 'US only', evidence: 'Explicit US-only restriction.' };
-  const jp = country.toUpperCase() === 'JP';
-  return { japan_eligible: jp ? true : null, confidence: jp ? 0.8 : 0.2, eligible_region: country || null, evidence: jp ? 'Country field is JP.' : 'No reliable Japan-eligibility evidence.' };
+const inferEligibility = ({ country, text, remote }) => {
+  const c = String(country || '').trim().toLowerCase();
+  const t = String(text || '').toLowerCase();
+  if (c === 'japan' || c === 'jp') return { japan_eligible: true, confidence: 0.98, eligible_region: 'Japan', evidence: 'Source country field explicitly identifies Japan.' };
+  if (/must (?:be|live|reside|be located) in japan|based in japan|located in japan|japan residents?|residents? of japan/.test(t)) return { japan_eligible: true, confidence: 0.95, eligible_region: 'Japan', evidence: 'Role text explicitly requires or allows Japan residence/location.' };
+  if (/us only|united states only|must reside in (?:the )?us|u\.s\. only/.test(t)) return { japan_eligible: false, confidence: 0.95, eligible_region: 'US only', evidence: 'Explicit US-only restriction.' };
+  if (remote && /worldwide|anywhere in the world|global remote|work from anywhere/.test(t)) return { japan_eligible: true, confidence: 0.75, eligible_region: 'Worldwide', evidence: 'Remote role text explicitly signals worldwide/global access; requires secondary verification before publication.' };
+  return { japan_eligible: null, confidence: 0.2, eligible_region: c ? country : null, evidence: 'No reliable Japan-eligibility evidence.' };
 };
 
 const classify = (title, category, text) => {
@@ -44,7 +45,7 @@ const historyEvents = [];
 const employerCounts = new Map();
 const survivalDays = [];
 let sawJob = false;
-let active = 0, japanEligible = 0, japanese = 0, remote = 0, newJobs = 0;
+let active = 0, verifiedJapanEligible = 0, japanese = 0, remote = 0, newJobs = 0;
 
 const processJob = (item) => {
   const title = tag(item, 'title'); const company = tag(item, 'company'); const ref = tag(item, 'referencenumber'); const url = tag(item, 'url');
@@ -54,7 +55,9 @@ const processJob = (item) => {
   const remoteFlag = tag(item, 'remote').toLowerCase() === 'true'; if (remoteFlag) remote++;
   const description = stripHtml(tag(item, 'description'));
   const jobType = tag(item, 'jobtype'); const sourceCategory = tag(item, 'category'); const experience = tag(item, 'experience');
-  const eligibility = inferEligibility({ country, text: `${title} ${description}` }); if (eligibility.japan_eligible === true) japanEligible++;
+  const eligibility = inferEligibility({ country, text: `${title} ${description}`, remote: remoteFlag });
+  const publishable = eligibility.japan_eligible === true && eligibility.confidence >= 0.8;
+  if (publishable) verifiedJapanEligible++;
   const japaneseRequired = /\bjapanese\b|日本語|nihongo/i.test(`${title} ${description}`); if (japaneseRequired) japanese++;
   const id = idFor(ref, url);
   const fingerprint = sha(JSON.stringify({ title, company, url, city, state, country, remoteFlag, jobType, sourceCategory, experience }));
@@ -65,22 +68,21 @@ const processJob = (item) => {
   employerCounts.set(company, (employerCounts.get(company) || 0) + 1);
   nextStateJobs[id] = { fingerprint, first_seen_at: firstSeen, last_seen_at: observedAt, missing_count: 0, closed_at: null };
   if (changeType !== 'unchanged') historyEvents.push({ job_id: id, observed_at: observedAt, verification_status: 'verified_active', fingerprint, change_type: changeType });
-
-  const publishable = eligibility.japan_eligible === true || japaneseRequired;
   if (!publishable) return;
+
   candidateRecords.push({
     id, canonical_key: sha(`${company.toLowerCase()}|${title.toLowerCase()}|${url}`).slice(0, 24), source_name: 'Workable', source_url: url,
     official_url: url, source_reference: ref || null, employer: company, title, location: [city, state, country].filter(Boolean).join(', ') || null,
     eligible_region: eligibility.eligible_region, eligibility_evidence: eligibility.evidence, remote_type: remoteFlag ? 'remote' : 'unknown',
-    japan_eligible: eligibility.japan_eligible, japan_eligibility_confidence: eligibility.confidence, japanese_required: japaneseRequired,
+    japan_eligible: true, japan_eligibility_confidence: eligibility.confidence, japanese_required: japaneseRequired,
     english_level: null, employment_type: jobType || null, compensation_min: null, compensation_max: null, compensation_currency: null,
     compensation_period: null, category: classify(title, sourceCategory, description), published_at: iso(tag(item, 'date')), first_seen_at: firstSeen,
     last_verified_at: observedAt, expires_at: null, closed_at: null, verification_status: 'verified_active', source_status: 'active', source_policy: 'feed',
-    source_attribution: 'Workable', quality_score: eligibility.japan_eligible === true ? 0.85 : 0.65, publishable: true, change_type: changeType, fingerprint
+    source_attribution: 'Workable', quality_score: 0.9, publishable: true, change_type: changeType, fingerprint
   });
 };
 
-const response = await fetch(FEED_URL, { headers: { 'user-agent': 'GlobalWorkRadar/0.4' } });
+const response = await fetch(FEED_URL, { headers: { 'user-agent': 'GlobalWorkRadar/0.5' } });
 if (!response.ok || !response.body) throw new Error(`Workable feed fetch failed: ${response.status} ${response.statusText}`);
 const reader = response.body.getReader(); const decoder = new TextDecoder(); let buffer = '';
 while (true) {
@@ -107,7 +109,7 @@ for (const [id, prev] of Object.entries(previousJobs)) {
 survivalDays.sort((a,b)=>a-b);
 const median = (arr) => arr.length ? arr.length % 2 ? arr[(arr.length - 1) / 2] : (arr[arr.length/2 - 1] + arr[arr.length/2]) / 2 : null;
 const market = {
-  source: 'workable', snapshot_at: observedAt, active_jobs: active, japan_eligible_jobs: japanEligible, japanese_jobs: japanese,
+  source: 'workable', snapshot_at: observedAt, active_jobs: active, verified_japan_eligible_jobs: verifiedJapanEligible, japanese_jobs: japanese,
   remote_jobs: remote, candidate_jobs_saved: candidateRecords.length, new_jobs_since_previous_snapshot: newJobs,
   closed_jobs_confirmed_this_snapshot: closedNow, remote_ratio: active ? remote / active : 0,
   employer_recurrence_count: [...employerCounts.values()].filter((n) => n > 1).length,
