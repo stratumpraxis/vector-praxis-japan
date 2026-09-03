@@ -1,12 +1,15 @@
 import { createHash } from 'node:crypto';
 import { mkdir, readFile, writeFile, appendFile } from 'node:fs/promises';
+import { gzipSync, gunzipSync } from 'node:zlib';
 
 const FEED_URL = 'https://www.workable.com/boards/workable.xml';
 const DATA_DIR = new URL('./data/', import.meta.url);
 const CURRENT_FILE = new URL('./data/workable-current.json', import.meta.url);
-const STATE_FILE = new URL('./data/workable-state.json', import.meta.url);
-const HISTORY_FILE = new URL('./data/workable-history.jsonl', import.meta.url);
+const STATE_FILE = new URL('./data/workable-state.json.gz', import.meta.url);
+const LEGACY_STATE_FILE = new URL('./data/workable-state.json', import.meta.url);
+const CANDIDATE_HISTORY_FILE = new URL('./data/workable-candidate-history.jsonl', import.meta.url);
 const MARKET_FILE = new URL('./data/workable-market.json', import.meta.url);
+const MARKET_HISTORY_FILE = new URL('./data/workable-market-history.jsonl', import.meta.url);
 
 const decode = (value = '') => value.replace(/<!\[CDATA\[([\s\S]*?)\]\]>/g, '$1').replace(/&amp;/g, '&').replace(/&lt;/g, '<').replace(/&gt;/g, '>').replace(/&quot;/g, '"').replace(/&#39;/g, "'").trim();
 const tag = (xml, name) => { const m = xml.match(new RegExp(`<${name}(?:\\s[^>]*)?>([\\s\\S]*?)<\\/${name}>`, 'i')); return m ? decode(m[1]) : ''; };
@@ -14,7 +17,15 @@ const stripHtml = (v = '') => decode(v.replace(/<[^>]+>/g, ' ').replace(/\s+/g, 
 const sha = (v) => createHash('sha256').update(v).digest('hex');
 const idFor = (ref, url) => `workable-${(ref || sha(url).slice(0, 16)).toLowerCase()}`;
 const iso = (v) => { if (!v) return null; const d = new Date(v); return Number.isNaN(d.getTime()) ? null : d.toISOString(); };
-const readJson = async (url, fallback) => { try { return JSON.parse(await readFile(url, 'utf8')); } catch { return fallback; } };
+
+const readState = async () => {
+  try { return JSON.parse(gunzipSync(await readFile(STATE_FILE)).toString('utf8')); } catch {}
+  try { return JSON.parse(await readFile(LEGACY_STATE_FILE, 'utf8')); } catch {}
+  return { jobs: {}, last_observed_at: null };
+};
+const unpack = (prev) => Array.isArray(prev)
+  ? { fingerprint: prev[0], first_seen_at: prev[1], missing_count: prev[2] || 0, candidate: prev[3] === 1, closed_at: prev[4] || null }
+  : { fingerprint: prev?.fingerprint, first_seen_at: prev?.first_seen_at, missing_count: prev?.missing_count || 0, candidate: !!prev?.candidate, closed_at: prev?.closed_at || null };
 
 const inferEligibility = ({ country, text, remote }) => {
   const c = String(country || '').trim().toLowerCase();
@@ -22,7 +33,7 @@ const inferEligibility = ({ country, text, remote }) => {
   if (c === 'japan' || c === 'jp') return { japan_eligible: true, confidence: 0.98, eligible_region: 'Japan', evidence: 'Source country field explicitly identifies Japan.' };
   if (/must (?:be|live|reside|be located) in japan|based in japan|located in japan|japan residents?|residents? of japan/.test(t)) return { japan_eligible: true, confidence: 0.95, eligible_region: 'Japan', evidence: 'Role text explicitly requires or allows Japan residence/location.' };
   if (/us only|united states only|must reside in (?:the )?us|u\.s\. only/.test(t)) return { japan_eligible: false, confidence: 0.95, eligible_region: 'US only', evidence: 'Explicit US-only restriction.' };
-  if (remote && /worldwide|anywhere in the world|global remote|work from anywhere/.test(t)) return { japan_eligible: true, confidence: 0.75, eligible_region: 'Worldwide', evidence: 'Remote role text explicitly signals worldwide/global access; requires secondary verification before publication.' };
+  if (remote && /worldwide|anywhere in the world|global remote|work from anywhere/.test(t)) return { japan_eligible: true, confidence: 0.75, eligible_region: 'Worldwide', evidence: 'Worldwide signal found; secondary verification required before publication.' };
   return { japan_eligible: null, confidence: 0.2, eligible_region: c ? country : null, evidence: 'No reliable Japan-eligibility evidence.' };
 };
 
@@ -37,11 +48,11 @@ const classify = (title, category, text) => {
 };
 
 const observedAt = new Date().toISOString();
-const previousState = await readJson(STATE_FILE, { jobs: {}, last_observed_at: null });
+const previousState = await readState();
 const previousJobs = previousState.jobs || {};
 const candidateRecords = [];
 const nextStateJobs = {};
-const historyEvents = [];
+const candidateHistoryEvents = [];
 const employerCounts = new Map();
 const survivalDays = [];
 let sawJob = false;
@@ -60,14 +71,14 @@ const processJob = (item) => {
   if (publishable) verifiedJapanEligible++;
   const japaneseRequired = /\bjapanese\b|日本語|nihongo/i.test(`${title} ${description}`); if (japaneseRequired) japanese++;
   const id = idFor(ref, url);
-  const fingerprint = sha(JSON.stringify({ title, company, url, city, state, country, remoteFlag, jobType, sourceCategory, experience }));
-  const prev = previousJobs[id];
+  const fingerprint = sha(JSON.stringify({ title, company, url, city, state, country, remoteFlag, jobType, sourceCategory, experience })).slice(0, 16);
+  const rawPrev = previousJobs[id]; const prev = rawPrev ? unpack(rawPrev) : null;
   const changeType = !prev ? 'first_seen' : prev.fingerprint === fingerprint ? 'unchanged' : 'changed'; if (!prev) newJobs++;
   const firstSeen = prev?.first_seen_at || observedAt;
   const survival = (new Date(observedAt) - new Date(firstSeen)) / 86400000; if (Number.isFinite(survival) && survival >= 0) survivalDays.push(survival);
   employerCounts.set(company, (employerCounts.get(company) || 0) + 1);
-  nextStateJobs[id] = { fingerprint, first_seen_at: firstSeen, last_seen_at: observedAt, missing_count: 0, closed_at: null };
-  if (changeType !== 'unchanged') historyEvents.push({ job_id: id, observed_at: observedAt, verification_status: 'verified_active', fingerprint, change_type: changeType });
+  nextStateJobs[id] = [fingerprint, firstSeen, 0, publishable ? 1 : 0, null];
+  if (publishable && changeType !== 'unchanged') candidateHistoryEvents.push({ job_id: id, observed_at: observedAt, status: 'verified_active', fingerprint, change_type: changeType });
   if (!publishable) return;
 
   candidateRecords.push({
@@ -82,7 +93,7 @@ const processJob = (item) => {
   });
 };
 
-const response = await fetch(FEED_URL, { headers: { 'user-agent': 'GlobalWorkRadar/0.5' } });
+const response = await fetch(FEED_URL, { headers: { 'user-agent': 'GlobalWorkRadar/0.6' } });
 if (!response.ok || !response.body) throw new Error(`Workable feed fetch failed: ${response.status} ${response.statusText}`);
 const reader = response.body.getReader(); const decoder = new TextDecoder(); let buffer = '';
 while (true) {
@@ -99,11 +110,16 @@ while (true) {
 if (!sawJob) throw new Error('Workable feed failed structural validation: no jobs found.');
 
 let closedNow = 0;
-for (const [id, prev] of Object.entries(previousJobs)) {
+for (const [id, rawPrev] of Object.entries(previousJobs)) {
   if (nextStateJobs[id]) continue;
-  const missingCount = (prev.missing_count || 0) + 1;
-  nextStateJobs[id] = { ...prev, missing_count: missingCount, closed_at: missingCount >= 2 ? (prev.closed_at || observedAt) : prev.closed_at || null };
-  if (missingCount >= 2 && !prev.closed_at) { closedNow++; historyEvents.push({ job_id: id, observed_at: observedAt, verification_status: 'closed', fingerprint: prev.fingerprint, change_type: 'closed' }); }
+  const prev = unpack(rawPrev);
+  const missingCount = prev.missing_count + 1;
+  const closedAt = missingCount >= 2 ? (prev.closed_at || observedAt) : prev.closed_at;
+  if (missingCount >= 2 && !prev.closed_at) {
+    closedNow++;
+    if (prev.candidate) candidateHistoryEvents.push({ job_id: id, observed_at: observedAt, status: 'closed', fingerprint: prev.fingerprint, change_type: 'closed' });
+  }
+  if (missingCount <= 30) nextStateJobs[id] = [prev.fingerprint, prev.first_seen_at, missingCount, prev.candidate ? 1 : 0, closedAt];
 }
 
 survivalDays.sort((a,b)=>a-b);
@@ -118,7 +134,8 @@ const market = {
 
 await mkdir(DATA_DIR, { recursive: true });
 await writeFile(CURRENT_FILE, JSON.stringify({ source: 'workable', fetched_at: observedAt, total_active_count: active, count: candidateRecords.length, records: candidateRecords }, null, 2) + '\n');
-await writeFile(STATE_FILE, JSON.stringify({ source: 'workable', last_observed_at: observedAt, jobs: nextStateJobs }, null, 2) + '\n');
+await writeFile(STATE_FILE, gzipSync(JSON.stringify({ source: 'workable', last_observed_at: observedAt, jobs: nextStateJobs }), { level: 9 }));
 await writeFile(MARKET_FILE, JSON.stringify(market, null, 2) + '\n');
-if (historyEvents.length) await appendFile(HISTORY_FILE, historyEvents.map((e) => JSON.stringify(e)).join('\n') + '\n');
+await appendFile(MARKET_HISTORY_FILE, JSON.stringify(market) + '\n');
+if (candidateHistoryEvents.length) await appendFile(CANDIDATE_HISTORY_FILE, candidateHistoryEvents.map((e) => JSON.stringify(e)).join('\n') + '\n');
 console.log(JSON.stringify(market, null, 2));
