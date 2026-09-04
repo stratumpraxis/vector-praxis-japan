@@ -58,11 +58,11 @@
         "utm_campaign": "note_completion_layer_20260903",
         "utm_content": "completion_layer_reel_v1"
       },
-      "status": "SCHEDULED_METRICOOL",
+      "status": "PUBLISHED",
       "approval": "USER_APPROVED",
       "scheduled_at": "2026-09-04T09:56:00+09:00",
-      "external_post_id": null,
-      "external_post_url": null,
+      "external_post_id": "https://www.instagram.com/reel/Dc2JmKZEX1L/",
+      "external_post_url": "https://www.instagram.com/reel/Dc2JmKZEX1L/",
       "require_media": true,
       "media_url": "https://raw.githubusercontent.com/stratumpraxis/vector-praxis-japan/main/public/media/vector-praxis-completion-layer.mp4",
       "media_type": "video/mp4",
@@ -70,7 +70,8 @@
       "post_format": "reel",
       "publisher": "metricool",
       "metricool_post_id": "370812637",
-      "metricool_uuid": "-2422389104626479468"
+      "metricool_uuid": "-2422389104626479468",
+      "published_at": "2026-09-04T00:56:00Z"
     },
     {
       "id": "vp-note-completion-layer-tiktok-01",
