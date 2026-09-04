@@ -1,4 +1,5 @@
 import fs from 'node:fs';
+import {preflightInstagram} from './social-provider-instagram.mjs';
 
 const outPath = new URL('../distribution/social-provider-preflight.json', import.meta.url);
 const now = new Date().toISOString();
@@ -7,6 +8,8 @@ const result = {
   secrets_present: {
     bluesky_handle: Boolean(process.env.BLUESKY_HANDLE),
     bluesky_app_password: Boolean(process.env.BLUESKY_APP_PASSWORD),
+    instagram_access_token: Boolean(process.env.INSTAGRAM_ACCESS_TOKEN),
+    instagram_user_id: Boolean(process.env.INSTAGRAM_USER_ID),
     fedica: Boolean(process.env.FEDICA_API_TOKEN),
     metricool_token: Boolean(process.env.METRICOOL_API_TOKEN),
     metricool_user_id: Boolean(process.env.METRICOOL_USER_ID),
@@ -44,6 +47,10 @@ if (process.env.BLUESKY_HANDLE && process.env.BLUESKY_APP_PASSWORD) {
   } catch (error) {
     result.providers.bluesky = {ok: false, error: error?.message || 'unknown'};
   }
+}
+
+if (process.env.INSTAGRAM_ACCESS_TOKEN && process.env.INSTAGRAM_USER_ID) {
+  result.providers.instagram = await preflightInstagram();
 }
 
 if (process.env.FEDICA_API_TOKEN) {
