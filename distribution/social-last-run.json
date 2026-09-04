@@ -1,12 +1,12 @@
 {
-  "observed_at": "2026-09-04T00:24:58.351Z",
+  "observed_at": "2026-09-04T00:30:09.443Z",
   "campaign": "note-completion-layer-20260903",
   "results": [
     {
-      "status": "READY_BUT_NOT_CONNECTED",
+      "status": "FAILED_REVIEW",
       "id": "vp-note-completion-layer-bluesky-01",
       "platform": "bluesky",
-      "provider": "bluesky_direct"
+      "reason": "bluesky_direct_error:bluesky_text_too_long:315"
     },
     {
       "status": "PUBLISHER_COOLDOWN",

@@ -1,8 +1,8 @@
 {
-  "observed_at": "2026-09-04T00:24:58.314Z",
+  "observed_at": "2026-09-04T00:30:09.173Z",
   "secrets_present": {
     "bluesky_handle": true,
-    "bluesky_app_password": false,
+    "bluesky_app_password": true,
     "fedica": false,
     "metricool_token": false,
     "metricool_user_id": false,
@@ -10,5 +10,13 @@
     "publer": false,
     "legacy_webhook": true
   },
-  "providers": {}
+  "providers": {
+    "bluesky": {
+      "http_status": 401,
+      "ok": false,
+      "handle": null,
+      "did": null,
+      "error": "AuthenticationRequired"
+    }
+  }
 }

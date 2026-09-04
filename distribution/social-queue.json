@@ -39,7 +39,7 @@
         "utm_campaign": "note_completion_layer_20260903",
         "utm_content": "human_gap_video_v1"
       },
-      "status": "READY",
+      "status": "FAILED_REVIEW",
       "approval": "USER_APPROVED",
       "scheduled_at": "2026-09-03T10:50:00+09:00",
       "external_post_id": null,
@@ -49,7 +49,9 @@
       "media_type": "video/mp4",
       "media_asset_id": "VAHUGuz2G34",
       "post_format": "video",
-      "alt_text": "AIの生成後に残る人間作業とCompletion Layerの考え方を解説する短い縦型動画"
+      "alt_text": "AIの生成後に残る人間作業とCompletion Layerの考え方を解説する短い縦型動画",
+      "last_error": "bluesky_direct_error:bluesky_text_too_long:315",
+      "last_error_at": "2026-09-04T00:30:09.442Z"
     },
     {
       "id": "vp-note-completion-layer-instagram-01",
