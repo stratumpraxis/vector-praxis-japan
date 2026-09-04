@@ -4,7 +4,7 @@ const NOTE = "https://note.com/deft_eel6718";
 const MAGAZINE = "https://note.com/deft_eel6718/m/md4fd3d914fe5";
 const OPERATING_KIT = "https://stratumpraxis.com/cross-agent-operating-kit.html?utm_source=vector_praxis&utm_medium=hub&utm_campaign=revenue_closure_20260829&utm_content=cross_agent_kit&asset_id=cross_agent_operating_kit&route_id=vpj_hub_cross_agent_v1";
 const resources = [
-  { label:"実装キット · $69〜", title:"Cross-Agent Operating Kit｜\nAI運用ルールを持ち運べる実装キット", description:"Claude・Codex・Cursor間で、権限・Human Gate・停止条件・状態を保つ既存の実装キットです。Stripe決済後、購入照合を通った購入者専用画面で受け取れます。", href:OPERATING_KIT, event:"commerce_entry_click" },
+  { label:"実装キット · Personal $69 · 買い切り", title:"Cross-Agent Operating Kit｜\nAI運用ルールを持ち運べる実装キット", description:"1人で自分のプロジェクトに使うPersonal版です。Claude・Codex・Cursor間で、権限・Human Gate（人の確認が必要な境界）・停止条件・状態を保ちます。$69の一回払いで、Stripe決済後そのまま購入者専用画面へ進み、編集できるMarkdown + YAML一式を受け取れます。サブスクはありません。", href:OPERATING_KIT, event:"commerce_entry_click" },
   { label:"無料記事", title:"AIでSEO記事作成を効率化するなら、\n「書く」より先に見直したい5つの工程", description:"記事制作を、キーワード・構成・執筆・確認・入稿までの工程として整理します。", href:"https://note.com/deft_eel6718/n/n86dddd12d2b2", event:"article_open" },
   { label:"有料記事 · ¥1,980", title:"AIアプリ開発に月額課金する前に｜\n無料AIビルダー使い分け完全ガイド 2026", description:"無料・有料AIビルダーの違いと、課金すべきタイミングを整理する実践ガイドです。", href:"https://note.com/deft_eel6718/n/n7574edd94a5b?app_launch=false", event:"product_click" },
   { label:"有料記事 · ¥1,980", title:"AIで作るだけでは稼げない。\nAIを「収益パイプ」に変える実践設計", description:"需要、入口、無料価値、収益化、計測をひとつの流れとして設計するための実践記事です。", href:"https://note.com/deft_eel6718/n/nc120a3159186", event:"product_click" },
