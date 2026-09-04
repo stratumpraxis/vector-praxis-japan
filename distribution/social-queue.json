@@ -10,9 +10,7 @@
     "require_external_post_id_for_published": true,
     "do_not_reuse_identical_copy": true,
     "brand": "Vector Praxis",
-    "disabled_platforms": [
-      "x"
-    ]
+    "disabled_platforms": ["x"]
   },
   "platform_blocks": {
     "x": {
@@ -27,10 +25,7 @@
       "platform": "bluesky",
       "angle": "AIの前後に残るHuman Gap",
       "copy": "AIで作るだけでは足りない。生成後に残る確認・変換・投稿・判断。その摩擦を『Completion Layer』として整理しました。",
-      "hashtags": [
-        "生成AI",
-        "自動化"
-      ],
+      "hashtags": ["生成AI", "自動化"],
       "utm": {
         "utm_source": "bluesky",
         "utm_medium": "social_video",
@@ -56,65 +51,58 @@
       "platform": "instagram",
       "angle": "生成から完了へ",
       "copy": "AIの価値は、生成だけで決まるとは限りません。AIが出力したあとに残るコピー、確認、形式変換、投稿、送信、判断。そこを仕事の完了までつなぐ構造を『Completion Layer』として整理しました。Human Gapの見つけ方、評価シート、7日検証テンプレート付き。",
-      "hashtags": [
-        "生成AI",
-        "ChatGPT",
-        "AI活用",
-        "AIエージェント",
-        "自動化",
-        "個人開発"
-      ],
+      "hashtags": ["生成AI", "ChatGPT", "AI活用", "AIエージェント", "自動化", "個人開発"],
       "utm": {
         "utm_source": "instagram",
         "utm_medium": "reel",
         "utm_campaign": "note_completion_layer_20260903",
         "utm_content": "completion_layer_reel_v1"
       },
-      "status": "READY",
+      "status": "SCHEDULED_METRICOOL",
       "approval": "USER_APPROVED",
-      "scheduled_at": "2026-09-03T10:50:00+09:00",
+      "scheduled_at": "2026-09-04T09:56:00+09:00",
       "external_post_id": null,
       "external_post_url": null,
       "require_media": true,
       "media_url": "https://raw.githubusercontent.com/stratumpraxis/vector-praxis-japan/main/public/media/vector-praxis-completion-layer.mp4",
       "media_type": "video/mp4",
       "media_asset_id": "VAHUGuz2G34",
-      "post_format": "reel"
+      "post_format": "reel",
+      "publisher": "metricool",
+      "metricool_post_id": "370812637",
+      "metricool_uuid": "-2422389104626479468"
     },
     {
       "id": "vp-note-completion-layer-tiktok-01",
       "platform": "tiktok",
       "angle": "AIで作るだけでは足りないかもしれない",
       "copy": "AIで作るだけでは、足りないかもしれない。次に注目したいのは、AIの前後に残る『人間作業』。生成→接続→完了までをCompletion Layerとして整理しました。続きはnoteで。",
-      "hashtags": [
-        "生成AI",
-        "ChatGPT",
-        "AI活用",
-        "自動化",
-        "個人開発"
-      ],
+      "hashtags": ["生成AI", "ChatGPT", "AI活用", "自動化", "個人開発"],
       "utm": {
         "utm_source": "tiktok",
         "utm_medium": "video",
         "utm_campaign": "note_completion_layer_20260903",
         "utm_content": "completion_layer_tiktok_v1"
       },
-      "status": "READY",
+      "status": "SCHEDULED_METRICOOL",
       "approval": "USER_APPROVED",
-      "scheduled_at": "2026-09-03T10:50:00+09:00",
+      "scheduled_at": "2026-09-04T10:00:00+09:00",
       "external_post_id": null,
       "external_post_url": null,
       "require_media": true,
       "media_url": "https://raw.githubusercontent.com/stratumpraxis/vector-praxis-japan/main/public/media/vector-praxis-completion-layer.mp4",
       "media_type": "video/mp4",
       "media_asset_id": "VAHUGuz2G34",
-      "post_format": "video"
+      "post_format": "video",
+      "publisher": "metricool",
+      "metricool_post_id": "370812741",
+      "metricool_uuid": "-3308317088168654624"
     }
   ],
   "publisher_state": {
-    "status": "PUBLISHER_GONE",
+    "status": "LEGACY_WEBHOOK_GONE",
     "http_status": 410,
     "observed_at": "2026-09-03T02:20:46.968Z",
-    "retry_after": "2026-09-04T02:20:46.968Z"
+    "note": "Instagram and TikTok are routed through Metricool for this campaign; legacy webhook must not be retried for these scheduled items."
   }
 }
