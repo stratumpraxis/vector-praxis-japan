@@ -115,25 +115,55 @@ The next action should not be a new product or another unmeasured article.
 
 A direct Bluesky revenue follow-up was prepared for the existing Cross-Agent Operating Kit with UTM and route attribution.
 
-Metricool rejected the draft because the text plus tracked URL exceeded Bluesky's 300-character limit:
+Metricool rejected the first draft because the text plus tracked URL exceeded Bluesky's 300-character limit:
 
 `BLUESKY:LENGTH_EXCEEDED`
 
 No failed post is counted as distribution and no duplicate retry was made.
 
+## Immediate Revenue Probe — executed 2026-09-04
+
+The user explicitly approved running the revenue probe immediately rather than waiting until the next day.
+
+A one-time daily-cap override was recorded on the queue item without changing the standing `max_posts_per_day=3` policy.
+
+Revenue probe item:
+
+- id: `vp-cross-agent-bluesky-revenue-probe-01`
+- platform: Bluesky
+- destination: `https://stratumpraxis.com/cross-agent-operating-kit.html`
+- `utm_source=bluesky`
+- `utm_medium=social`
+- `utm_campaign=vector_revenue_probe_20260904`
+- `utm_content=direct_v1`
+- `asset_id=cross_agent_operating_kit`
+- `route_id=bluesky_cross_agent_v1`
+
+Immediate execution commits:
+
+- queue moved to immediate due state: `32aefba4b528099ce6515d47eaafe74f29855d3a`
+- social workflow trigger: `6322b71a4a4ab52be0442b696b526a5ba3f2948d`
+
+GitHub Actions Social Publish Queue run:
+
+- run id: `33826418838`
+- result: **success**
+- publish step: **success**
+
+Publisher evidence:
+
+- status: `PUBLISHED_CONFIRMED_BY_PUBLISHER`
+- publisher: `bluesky_direct`
+- external post id: `at://did:plc:3cg6ij6eppzwmy2v2i42v45e/app.bsky.feed.post/3muntam34a62x`
+- public URL: `https://bsky.app/profile/vectorpx.bsky.social/post/3muntam34a62x`
+- publisher confirmation observed at: `2026-09-04T01:36:45.638Z`
+
+This closes the **direct measurable revenue-entry distribution** action. It does not yet prove traffic, checkout, or purchase.
+
 ## Next execution rule
 
-The next social revenue probe must use a short, trackable direct route and preserve:
+The live probe should now be measured on:
 
-- `utm_source`
-- `utm_medium`
-- `utm_campaign`
-- `utm_content`
-- `asset_id=cross_agent_operating_kit`
-- a channel-specific `route_id`
-
-Success condition for the next probe:
-
-`Regular traffic_session_start → primary_cta_click → checkout_click → Stripe complete`
+`Bluesky post → Regular traffic → primary_cta_click → checkout_click → Stripe complete`
 
 Until real customer traffic appears, optimize **distribution / measurable entry**, not product inventory.
