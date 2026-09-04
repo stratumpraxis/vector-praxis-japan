@@ -8,6 +8,7 @@ on:
       - incubator/global-work-radar/index.html
       - incubator/global-work-radar/styles.css
       - incubator/global-work-radar/app.js
+      - incubator/global-work-radar/revenue-config.js
       - incubator/global-work-radar/data/verified-jobs.json
       - incubator/global-work-radar/data/workable-market.json
       - .github/workflows/gwr-cloudflare-deploy.yml
@@ -53,6 +54,7 @@ jobs:
           cp incubator/global-work-radar/index.html /tmp/gwr-public/
           cp incubator/global-work-radar/styles.css /tmp/gwr-public/
           cp incubator/global-work-radar/app.js /tmp/gwr-public/
+          cp incubator/global-work-radar/revenue-config.js /tmp/gwr-public/
           cp incubator/global-work-radar/data/verified-jobs.json /tmp/gwr-public/data/
           cp incubator/global-work-radar/data/workable-market.json /tmp/gwr-public/data/
           printf '%s\n' '/* /index.html 200' > /tmp/gwr-public/_redirects
