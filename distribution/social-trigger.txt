@@ -1,3 +1,3 @@
-triggered_at=2026-09-04T09:19:00+09:00
+triggered_at=2026-09-04T09:21:00+09:00
 campaign=note-completion-layer-20260903
-reason=publish_bluesky_direct_after_app_password_added
+reason=retry_bluesky_direct_after_app_password_refresh
