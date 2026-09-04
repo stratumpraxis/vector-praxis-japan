@@ -23,14 +23,16 @@ export default function RootLayout({ children }: Readonly<{ children: React.Reac
 (function(){
   var params=new URLSearchParams(window.location.search);
   var path=window.location.pathname||"/";
-  var assetId=path.indexOf("/vector-works")===0?"vector_works":"vector_hub";
+  var isOwnedAgentBottleneck=path.indexOf("/ai-agent-bottleneck")===0;
+  var assetId=isOwnedAgentBottleneck?"owned_ai_agent_bottleneck":(path.indexOf("/vector-works")===0?"vector_works":"vector_hub");
+  var routeId=isOwnedAgentBottleneck?"vpj_owned_ai_agent_bottleneck_v1":"vp_main";
   var common={
     path:path,
     landing_path:path,
     asset_id:assetId,
     content_id:assetId,
     channel:"owned",
-    route_id:"vp_main",
+    route_id:routeId,
     utm_source:params.get("utm_source")||null,
     utm_medium:params.get("utm_medium")||null,
     utm_campaign:params.get("utm_campaign")||null,
@@ -62,7 +64,7 @@ export default function RootLayout({ children }: Readonly<{ children: React.Reac
       posthog.capture("primary_cta_click",Object.assign({},clickProps,{
         route_id:(destination&&destination.searchParams.get("route_id"))||clickProps.route_id,
         destination_asset_id:(destination&&destination.searchParams.get("asset_id"))||null,
-        cta_id:"vector_hub_cross_agent_kit",
+        cta_id:isOwnedAgentBottleneck?"owned_ai_agent_bottleneck_cross_agent_kit":"vector_hub_cross_agent_kit",
         offer_id:"cross_agent_operating_kit_69",
         product_id:"cross_agent_operating_kit",
         product:"cross_agent_operating_kit"
