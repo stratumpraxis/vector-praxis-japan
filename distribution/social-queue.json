@@ -26,11 +26,9 @@
       "id": "vp-note-completion-layer-bluesky-01",
       "platform": "bluesky",
       "angle": "AIの前後に残るHuman Gap",
-      "copy": "AIで作るだけでは、足りないかもしれない。生成が当たり前になるほど、AIの前後に残るコピー・確認・変換・投稿・判断といった人間作業が見えてきます。その摩擦を『Completion Layer』として整理しました。",
+      "copy": "AIで作るだけでは足りない。生成後に残る確認・変換・投稿・判断。その摩擦を『Completion Layer』として整理しました。",
       "hashtags": [
         "生成AI",
-        "ChatGPT",
-        "AI活用",
         "自動化"
       ],
       "utm": {
@@ -39,7 +37,7 @@
         "utm_campaign": "note_completion_layer_20260903",
         "utm_content": "human_gap_video_v1"
       },
-      "status": "FAILED_REVIEW",
+      "status": "READY",
       "approval": "USER_APPROVED",
       "scheduled_at": "2026-09-03T10:50:00+09:00",
       "external_post_id": null,
@@ -49,9 +47,7 @@
       "media_type": "video/mp4",
       "media_asset_id": "VAHUGuz2G34",
       "post_format": "video",
-      "alt_text": "AIの生成後に残る人間作業とCompletion Layerの考え方を解説する短い縦型動画",
-      "last_error": "bluesky_direct_error:bluesky_text_too_long:315",
-      "last_error_at": "2026-09-04T00:30:09.442Z"
+      "alt_text": "AIの生成後に残る人間作業とCompletion Layerの考え方を解説する短い縦型動画"
     },
     {
       "id": "vp-note-completion-layer-instagram-01",
