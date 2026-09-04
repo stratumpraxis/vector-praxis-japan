@@ -1,5 +1,5 @@
 {
-  "observed_at": "2026-09-04T00:30:09.173Z",
+  "observed_at": "2026-09-04T00:38:02.433Z",
   "secrets_present": {
     "bluesky_handle": true,
     "bluesky_app_password": true,
@@ -12,11 +12,11 @@
   },
   "providers": {
     "bluesky": {
-      "http_status": 401,
-      "ok": false,
-      "handle": null,
-      "did": null,
-      "error": "AuthenticationRequired"
+      "http_status": 200,
+      "ok": true,
+      "handle": "vectorpx.bsky.social",
+      "did": "did:plc:3cg6ij6eppzwmy2v2i42v45e",
+      "error": null
     }
   }
 }

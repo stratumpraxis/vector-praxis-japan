@@ -1,12 +1,12 @@
 {
-  "observed_at": "2026-09-04T00:30:09.443Z",
+  "observed_at": "2026-09-04T00:38:04.810Z",
   "campaign": "note-completion-layer-20260903",
   "results": [
     {
       "status": "FAILED_REVIEW",
       "id": "vp-note-completion-layer-bluesky-01",
       "platform": "bluesky",
-      "reason": "bluesky_direct_error:bluesky_text_too_long:315"
+      "reason": "bluesky_direct_error:bluesky_http_401:invalid token: invalid token audience \"did:web:bsky.social\", should be the user's PDS DID \"did:web:rhizopogon.us-west.host.bsky.network\""
     },
     {
       "status": "PUBLISHER_COOLDOWN",
