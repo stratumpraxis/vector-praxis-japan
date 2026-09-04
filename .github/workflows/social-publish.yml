@@ -46,6 +46,9 @@ jobs:
           BLUESKY_HANDLE: ${{ vars.BLUESKY_HANDLE || 'vectorpx.bsky.social' }}
           BLUESKY_APP_PASSWORD: ${{ secrets.BLUESKY_APP_PASSWORD }}
           BLUESKY_PDS_URL: ${{ vars.BLUESKY_PDS_URL || 'https://bsky.social' }}
+          INSTAGRAM_ACCESS_TOKEN: ${{ secrets.INSTAGRAM_ACCESS_TOKEN }}
+          INSTAGRAM_USER_ID: ${{ secrets.INSTAGRAM_USER_ID }}
+          INSTAGRAM_GRAPH_VERSION: ${{ vars.INSTAGRAM_GRAPH_VERSION || 'v25.0' }}
           FEDICA_API_TOKEN: ${{ secrets.FEDICA_API_TOKEN || secrets.FEDICA_TOKEN }}
           METRICOOL_API_TOKEN: ${{ secrets.METRICOOL_API_TOKEN || secrets.METRICOOL_USER_TOKEN || secrets.METRICOOL_TOKEN }}
           METRICOOL_USER_ID: ${{ secrets.METRICOOL_USER_ID }}
@@ -59,6 +62,9 @@ jobs:
           BLUESKY_HANDLE: ${{ vars.BLUESKY_HANDLE || 'vectorpx.bsky.social' }}
           BLUESKY_APP_PASSWORD: ${{ secrets.BLUESKY_APP_PASSWORD }}
           BLUESKY_PDS_URL: ${{ vars.BLUESKY_PDS_URL || 'https://bsky.social' }}
+          INSTAGRAM_ACCESS_TOKEN: ${{ secrets.INSTAGRAM_ACCESS_TOKEN }}
+          INSTAGRAM_USER_ID: ${{ secrets.INSTAGRAM_USER_ID }}
+          INSTAGRAM_GRAPH_VERSION: ${{ vars.INSTAGRAM_GRAPH_VERSION || 'v25.0' }}
           SOCIAL_PUBLISH_WEBHOOK_URL: ${{ secrets.SOCIAL_PUBLISH_WEBHOOK_URL }}
         run: node scripts/social-queue.mjs
 
