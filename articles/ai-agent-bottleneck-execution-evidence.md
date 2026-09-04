@@ -1,5 +1,5 @@
 ---
-title: "AIエージェントを増やすほど遅くなる理由：ボトルネックは生成速度ではなく運用設計にある"
+title: "複数AIエージェント運用が遅くなる理由：レビュー待ち・引き継ぎ・Human-in-the-Loopがボトルネック"
 emoji: "🧭"
 type: "tech"
 topics: ["ai", "agent", "automation", "productivity", "github"]
