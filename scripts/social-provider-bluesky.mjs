@@ -3,8 +3,21 @@ const VIDEO_SERVICE = 'https://video.bsky.app';
 const MAX_VIDEO_BYTES = 300_000_000;
 const MAX_POST_GRAPHEMES = 300;
 
-function pdsUrl() {
+function defaultPdsUrl() {
   return (process.env.BLUESKY_PDS_URL || DEFAULT_PDS).replace(/\/$/, '');
+}
+
+function sessionPdsUrl(session) {
+  const services = Array.isArray(session?.didDoc?.service) ? session.didDoc.service : [];
+  const pds = services.find((service) =>
+    service?.id === '#atproto_pds' || service?.type === 'AtprotoPersonalDataServer'
+  );
+  const endpoint = typeof pds?.serviceEndpoint === 'string' ? pds.serviceEndpoint : null;
+  return (endpoint || defaultPdsUrl()).replace(/\/$/, '');
+}
+
+function pdsAudience(session) {
+  return `did:web:${new URL(sessionPdsUrl(session)).host}`;
 }
 
 export function blueskyConfigured() {
@@ -23,7 +36,7 @@ async function readJson(response) {
 }
 
 async function createSession() {
-  const response = await fetch(`${pdsUrl()}/xrpc/com.atproto.server.createSession`, {
+  const response = await fetch(`${defaultPdsUrl()}/xrpc/com.atproto.server.createSession`, {
     method: 'POST',
     headers: {'content-type': 'application/json'},
     body: JSON.stringify({
@@ -38,13 +51,13 @@ async function createSession() {
   return session;
 }
 
-async function serviceAuth(accessJwt, aud, lxm) {
-  const url = new URL(`${pdsUrl()}/xrpc/com.atproto.server.getServiceAuth`);
+async function serviceAuth(session, aud, lxm) {
+  const url = new URL(`${sessionPdsUrl(session)}/xrpc/com.atproto.server.getServiceAuth`);
   url.searchParams.set('aud', aud);
   url.searchParams.set('lxm', lxm);
   url.searchParams.set('exp', String(Math.floor(Date.now() / 1000) + 30 * 60));
   const response = await fetch(url, {
-    headers: {Authorization: `Bearer ${accessJwt}`}
+    headers: {Authorization: `Bearer ${session.accessJwt}`}
   });
   const payload = await readJson(response);
   if (!payload?.token) throw new Error('bluesky_service_auth_missing_token');
@@ -94,7 +107,7 @@ async function downloadVideo(mediaUrl) {
   return bytes;
 }
 
-async function pollVideoJob(jobId, accessJwt) {
+async function pollVideoJob(jobId, session) {
   const deadline = Date.now() + 4 * 60 * 1000;
   let directAuthToken = null;
 
@@ -104,7 +117,7 @@ async function pollVideoJob(jobId, accessJwt) {
     let response = await fetch(url, directAuthToken ? {headers: {Authorization: `Bearer ${directAuthToken}`}} : undefined);
 
     if (response.status === 401 && !directAuthToken) {
-      directAuthToken = await serviceAuth(accessJwt, 'did:web:video.bsky.app', 'app.bsky.video.getJobStatus');
+      directAuthToken = await serviceAuth(session, 'did:web:video.bsky.app', 'app.bsky.video.getJobStatus');
       response = await fetch(url, {headers: {Authorization: `Bearer ${directAuthToken}`}});
     }
 
@@ -122,10 +135,9 @@ async function pollVideoJob(jobId, accessJwt) {
 
 async function uploadVideo(mediaUrl, session) {
   const bytes = await downloadVideo(mediaUrl);
-  const pdsHost = new URL(pdsUrl()).host;
   const uploadToken = await serviceAuth(
-    session.accessJwt,
-    `did:web:${pdsHost}`,
+    session,
+    pdsAudience(session),
     'com.atproto.repo.uploadBlob'
   );
 
@@ -146,7 +158,7 @@ async function uploadVideo(mediaUrl, session) {
   const status = payload?.jobStatus || payload;
   if (status?.blob) return status.blob;
   if (!status?.jobId) throw new Error('bluesky_video_missing_job_id');
-  return pollVideoJob(status.jobId, session.accessJwt);
+  return pollVideoJob(status.jobId, session);
 }
 
 export async function publishBluesky({item, text, trackedUrl}) {
@@ -177,7 +189,7 @@ export async function publishBluesky({item, text, trackedUrl}) {
     };
   }
 
-  const response = await fetch(`${pdsUrl()}/xrpc/com.atproto.repo.createRecord`, {
+  const response = await fetch(`${sessionPdsUrl(session)}/xrpc/com.atproto.repo.createRecord`, {
     method: 'POST',
     headers: {
       Authorization: `Bearer ${session.accessJwt}`,
