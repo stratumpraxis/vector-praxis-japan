@@ -66,6 +66,31 @@ function metrics(){
   $('#metricPay').textContent=hourly.length?`$${(hourly.reduce((a,b)=>a+b,0)/hourly.length).toFixed(0)}`:'—';
 }
 
+function setupRevenuePartner(){
+  const config=window.GWR_REVENUE;
+  const section=$('#revenuePartner');
+  const link=$('#revenuePartnerLink');
+  const disclosure=$('#revenueDisclosure');
+  if(!section||!link||!config?.enabled||!config.affiliateUrl)return;
+  try{
+    const url=new URL(config.affiliateUrl);
+    if(!['https:'].includes(url.protocol))return;
+    link.href=url.toString();
+  }catch{return;}
+  disclosure.textContent=config.disclosure||'';
+  section.hidden=false;
+  link.addEventListener('click',()=>{
+    const event={event:'gwr_revenue_click',partner:config.partner,campaign:config.campaign,ts:new Date().toISOString()};
+    try{
+      const prior=JSON.parse(localStorage.getItem('gwr_revenue_clicks')||'[]');
+      prior.push(event);
+      localStorage.setItem('gwr_revenue_clicks',JSON.stringify(prior.slice(-50)));
+    }catch{}
+    window.dataLayer=window.dataLayer||[];
+    window.dataLayer.push(event);
+  });
+}
+
 ['keyword','category','minPay','english','onlyJapan','onlyRemote'].forEach(id=>$('#'+id).addEventListener('input',render));
 $('#searchButton').addEventListener('click',()=>{render();document.querySelector('#jobs').scrollIntoView({behavior:'smooth'})});
 document.querySelectorAll('[data-filter]').forEach(btn=>btn.addEventListener('click',()=>{const f=btn.dataset.filter;state.quick.has(f)?state.quick.delete(f):state.quick.add(f);btn.classList.toggle('active');render()}));
@@ -84,6 +109,7 @@ async function init(){
   rebuildCategories();
   metrics();
   render();
+  setupRevenuePartner();
 }
 
 init();
