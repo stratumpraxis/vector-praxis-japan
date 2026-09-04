@@ -10,7 +10,9 @@
     "require_external_post_id_for_published": true,
     "do_not_reuse_identical_copy": true,
     "brand": "Vector Praxis",
-    "disabled_platforms": ["x"]
+    "disabled_platforms": [
+      "x"
+    ]
   },
   "platform_blocks": {
     "x": {
@@ -25,7 +27,10 @@
       "platform": "bluesky",
       "angle": "AIの前後に残るHuman Gap",
       "copy": "AIで作るだけでは足りない。生成後に残る確認・変換・投稿・判断。その摩擦を『Completion Layer』として整理しました。",
-      "hashtags": ["生成AI", "自動化"],
+      "hashtags": [
+        "生成AI",
+        "自動化"
+      ],
       "utm": {
         "utm_source": "bluesky",
         "utm_medium": "social_video",
@@ -51,7 +56,14 @@
       "platform": "instagram",
       "angle": "生成から完了へ",
       "copy": "AIの価値は、生成だけで決まるとは限りません。AIが出力したあとに残るコピー、確認、形式変換、投稿、送信、判断。そこを仕事の完了までつなぐ構造を『Completion Layer』として整理しました。Human Gapの見つけ方、評価シート、7日検証テンプレート付き。",
-      "hashtags": ["生成AI", "ChatGPT", "AI活用", "AIエージェント", "自動化", "個人開発"],
+      "hashtags": [
+        "生成AI",
+        "ChatGPT",
+        "AI活用",
+        "AIエージェント",
+        "自動化",
+        "個人開発"
+      ],
       "utm": {
         "utm_source": "instagram",
         "utm_medium": "reel",
@@ -78,7 +90,13 @@
       "platform": "tiktok",
       "angle": "AIで作るだけでは足りないかもしれない",
       "copy": "AIで作るだけでは、足りないかもしれない。次に注目したいのは、AIの前後に残る『人間作業』。生成→接続→完了までをCompletion Layerとして整理しました。続きはnoteで。",
-      "hashtags": ["生成AI", "ChatGPT", "AI活用", "自動化", "個人開発"],
+      "hashtags": [
+        "生成AI",
+        "ChatGPT",
+        "AI活用",
+        "自動化",
+        "個人開発"
+      ],
       "utm": {
         "utm_source": "tiktok",
         "utm_medium": "video",
@@ -99,6 +117,27 @@
       "metricool_post_id": "370812741",
       "metricool_uuid": "-3308317088168654624",
       "published_at": "2026-09-04T01:00:00Z"
+    },
+    {
+      "id": "vp-cross-agent-bluesky-revenue-probe-01",
+      "platform": "bluesky",
+      "angle": "生成速度ではなく運用設計",
+      "copy": "AIを増やしても仕事が完了しないなら、生成速度ではなく運用設計がボトルネックかもしれません。",
+      "hashtags": [],
+      "destination": "https://stratumpraxis.com/cross-agent-operating-kit.html",
+      "utm": {
+        "utm_source": "bluesky",
+        "utm_medium": "social",
+        "utm_campaign": "vector_revenue_probe_20260904",
+        "utm_content": "direct_v1",
+        "asset_id": "cross_agent_operating_kit",
+        "route_id": "bluesky_cross_agent_v1"
+      },
+      "status": "READY",
+      "approval": "USER_APPROVED",
+      "scheduled_at": "2026-09-04T10:30:00+09:00",
+      "require_media": false,
+      "post_format": "text"
     }
   ],
   "publisher_state": {
