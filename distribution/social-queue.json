@@ -135,7 +135,7 @@
       },
       "status": "READY",
       "approval": "USER_APPROVED",
-      "scheduled_at": "2026-09-04T10:30:00+09:00",
+      "scheduled_at": "2026-09-05T08:30:00+09:00",
       "require_media": false,
       "post_format": "text"
     }
