@@ -56,6 +56,31 @@ Public/approved source
 - expires_at
 - source_status
 
+## Evidence-backed work-structure fields
+
+When an official source explicitly states them, GWR should also preserve work-density and time-constraint facts that ordinary job search often misses:
+
+- actual workload / call or task volume
+- standby pay / availability fee
+- paid idle or waiting time
+- other work permitted
+- non-exclusive status
+- simultaneous work allowed during standby
+- response SLA / required response time
+- current application status
+
+These fields are evidence-first. Do not infer low workload, paid standby, or simultaneous-work permission merely from `remote`, `contractor`, `flexible`, `part-time`, `on-call`, or `non-exclusive` wording.
+
+Detailed rules: [`WORK_STRUCTURE_CLASSIFICATION.md`](WORK_STRUCTURE_CLASSIFICATION.md)
+
+Potential future derived intelligence, only after enough verified evidence exists:
+
+- Work Density = active workload per paid availability period
+- Constraint Level = how much paid time is actually restricted
+- Standby Value = whether waiting/availability itself is compensated
+
+Raw facts come first; do not publish speculative scores.
+
 ## Initial categories
 
 - AI Trainer / Evaluator
@@ -73,6 +98,7 @@ Public/approved source
 3. Keep the official source URL visible and route applications externally.
 4. Fail closed when source permission, listing authenticity, or eligibility is unclear.
 5. Never infer that Global Work Radar is the employer or recruiter.
+6. Work-density, standby-pay, exclusivity, simultaneous-work, and SLA fields require explicit source evidence; unknown is better than guessed.
 
 ## Success criteria for MVP
 
