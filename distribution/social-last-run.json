@@ -1,22 +1,12 @@
 {
-  "observed_at": "2026-09-04T00:40:20.657Z",
+  "observed_at": "2026-09-04T00:49:38.732Z",
   "campaign": "note-completion-layer-20260903",
   "results": [
     {
-      "status": "PUBLISHED_CONFIRMED_BY_PUBLISHER",
-      "id": "vp-note-completion-layer-bluesky-01",
-      "platform": "bluesky",
-      "external_post_id": "at://did:plc:3cg6ij6eppzwmy2v2i42v45e/app.bsky.feed.post/3munq3pfhml2d",
-      "external_post_url": "https://bsky.app/profile/vectorpx.bsky.social/post/3munq3pfhml2d",
-      "publisher": "bluesky_direct"
-    },
-    {
-      "status": "PUBLISHER_COOLDOWN",
+      "status": "READY_BUT_NOT_CONNECTED",
       "id": "vp-note-completion-layer-instagram-01",
       "platform": "instagram",
-      "provider": "legacy_webhook",
-      "retry_after": "2026-09-04T02:20:46.968Z",
-      "last_http_status": 410
+      "provider": "instagram_direct"
     },
     {
       "status": "PUBLISHER_COOLDOWN",
