@@ -1,5 +1,6 @@
 import fs from 'node:fs';
 import {blueskyConfigured, publishBluesky} from './social-provider-bluesky.mjs';
+import {instagramConfigured, publishInstagram} from './social-provider-instagram.mjs';
 
 const queuePath = new URL('../distribution/social-queue.json', import.meta.url);
 const lastRunPath = new URL('../distribution/social-last-run.json', import.meta.url);
@@ -99,8 +100,26 @@ for (const due of dueItems) {
     continue;
   }
 
+  if (due.platform === 'instagram') {
+    if (!instagramConfigured()) {
+      results.push({status: 'READY_BUT_NOT_CONNECTED', id: due.id, platform: due.platform, provider: 'instagram_direct'});
+      continue;
+    }
+    try {
+      const payload = await publishInstagram({item: due, text, trackedUrl});
+      if (!payload?.external_post_id) {
+        markFailed(due, 'instagram_missing_external_post_id');
+        continue;
+      }
+      markPublished(due, payload);
+    } catch (error) {
+      markFailed(due, `instagram_direct_error:${error?.message || 'unknown'}`);
+    }
+    continue;
+  }
+
   // Legacy webhook is retained only for platforms that do not yet have a direct route.
-  // Its cooldown must not block a healthy direct provider such as Bluesky.
+  // Its cooldown must not block a healthy direct provider such as Bluesky or Instagram.
   if (retryAfter && retryAfter > now) {
     results.push({
       status: 'PUBLISHER_COOLDOWN',
