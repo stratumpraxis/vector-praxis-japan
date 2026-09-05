@@ -308,8 +308,23 @@ AIは作業を高速化します。
 
 ---
 
-### 実装用テンプレート
+### この構造を、自分のプロジェクトへそのまま実装したい場合
 
-複数AIの役割分担、handoff、Evidence、Human Gate、次アクションまでを一枚の運用構造に落としたい場合は、実装テンプレートをまとめた Cross-Agent Operating Kit もあります。
+記事で整理した `handoff → Evidence → Human Gate → Next Action` を理解するだけでなく、実際のAI運用へ落とすには、**誰が何を引き継ぐか・どこで人間が止めるか・何を完了証拠にするか**をプロジェクト側に定義する必要があります。
 
-[Cross-Agent Operating Kitを見る](https://stratumpraxis.com/cross-agent-operating-kit.html?utm_source=zenn&utm_medium=article&utm_campaign=ai_agent_bottleneck_execution_evidence&utm_content=primary_cta&asset_id=cross_agent_operating_kit&route_id=zenn_ai_agent_bottleneck_v1)
+Cross-Agent Operating Kit は、その初期設計をゼロから書かずに始めるための実装用キットです。
+
+**Personal $69 に含まれる主なもの**
+
+- `AGENTS.md`：目的、Source of Truth、権限、Human Gate、失敗時ルール、Definition of Done
+- Claude / Codex / Cursor 用ランタイムアダプター
+- Policy Conflict Check
+- Human Gate Matrix
+- Budget / Token / Quota / Retry のガードレール
+- Agentを切り替えるためのMigration / State Handoffテンプレート
+
+**向いている人**：複数のAI・開発Agentを自分のプロジェクトで運用していて、「生成は速いのにレビュー・引き継ぎ・完了確認で止まる」状態を減らしたい人。
+
+買い切り $69。Markdown + YAML の編集可能なファイルとして、自分のプロジェクトへ組み込めます。
+
+[Cross-Agent Operating Kit Personalを見る — $69](https://stratumpraxis.com/cross-agent-operating-kit.html?utm_source=zenn&utm_medium=article&utm_campaign=ai_agent_bottleneck_execution_evidence&utm_content=primary_cta&asset_id=cross_agent_operating_kit&route_id=zenn_ai_agent_bottleneck_v1)
