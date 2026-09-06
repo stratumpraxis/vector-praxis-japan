@@ -11,7 +11,7 @@ const signals = [
   { kicker: "WORK MARKET", value: "456 verified jobs", detail: "Japan-eligible global work", href: GWR, event: "business_pulse_gwr_open" },
   { kicker: "TOP PAY SIGNAL", value: "$42/hr", detail: "Japanese AI Data Trainer · verified 2026-09-06", href: GWR, event: "business_pulse_gwr_open" },
   { kicker: "REVENUE ROUTE", value: "AI → 収益パイプ", detail: "需要・入口・計測から設計", href: REVENUE_ARTICLE, event: "business_pulse_revenue_open" },
-  { kicker: "AGENT OPS", value: "$69 implementation", detail: "Cross-Agent Operating Kit", href: OPERATING_KIT, event: "business_pulse_kit_open" },
+  { kicker: "AGENT OPS", value: "$69 implementation", detail: "Cross-Agent Operating Kit", href: OPERATING_KIT, event: "commerce_entry_click" },
 ];
 
 const routes = [
@@ -19,19 +19,19 @@ const routes = [
   { icon: BriefcaseBusiness, title: "海外AI仕事を探す", copy: "日本から応募できるVerified Opportunityを比較する。", href: GWR, event: "business_route_gwr" },
   { icon: Sparkles, title: "AIで収益導線を作る", copy: "作る前に、需要→入口→CTA→購入までを一本にする。", href: REVENUE_ARTICLE, event: "business_route_revenue" },
   { icon: Activity, title: "AI運用の詰まりを直す", copy: "レビュー・権限・引き継ぎのボトルネックを先に特定する。", href: OWNED_AGENT_ARTICLE, event: "business_route_agent_ops" },
-  { icon: Route, title: "実装キットで運用を固定する", copy: "複数AIの権限・停止条件・Human Gateを持ち運ぶ。", href: OPERATING_KIT, event: "business_route_kit" },
+  { icon: Route, title: "実装キットで運用を固定する", copy: "複数AIの権限・停止条件・Human Gateを持ち運ぶ。", href: OPERATING_KIT, event: "commerce_entry_click" },
 ];
 
-function SmartLink({ href, event, children, className = "" }: { href: string; event: string; children: React.ReactNode; className?: string }) {
+function SmartLink({ href, event, children, className = "", duplicate = false }: { href: string; event: string; children: React.ReactNode; className?: string; duplicate?: boolean }) {
   const external = href.startsWith("http");
-  return <a href={href} data-event={event} className={className} {...(external ? { target: "_blank", rel: "noopener noreferrer" } : {})}>{children}</a>;
+  return <a href={href} data-event={event} className={className} aria-hidden={duplicate || undefined} tabIndex={duplicate ? -1 : undefined} {...(external ? { target: "_blank", rel: "noopener noreferrer" } : {})}>{children}</a>;
 }
 
 export default function BusinessPulse() {
   return <section className="business-pulse" aria-labelledby="business-pulse-title">
     <div className="pulse-rail" aria-label="現在のAIビジネス・仕事市場シグナル">
       <div className="pulse-track">
-        {[...signals, ...signals].map((signal, index) => <SmartLink key={`${signal.kicker}-${index}`} href={signal.href} event={signal.event} className="pulse-signal">
+        {[...signals, ...signals].map((signal, index) => <SmartLink key={`${signal.kicker}-${index}`} href={signal.href} event={signal.event} className="pulse-signal" duplicate={index >= signals.length}>
           <span>{signal.kicker}</span><strong>{signal.value}</strong><small>{signal.detail}</small><ArrowUpRight size={14}/>
         </SmartLink>)}
       </div>
@@ -53,11 +53,11 @@ export default function BusinessPulse() {
       </div>
 
       <div className="search-antenna" aria-labelledby="search-antenna-title">
-        <div className="search-antenna-copy"><Search size={20}/><div><b id="search-antenna-title">外の情報をその場で探す</b><small>入力内容はVector Praxisで処理・保存せず、通常のWeb検索としてBingへ直接送ります。検索結果の転載・埋め込み・保存は行いません。</small></div></div>
-        <form action="https://www.bing.com/search" method="get" target="_blank" rel="noopener noreferrer" className="business-search" role="search">
+        <div className="search-antenna-copy"><Search size={20}/><div><b id="search-antenna-title">外の情報をその場で探す</b><small>入力内容はVector Praxisで処理・保存せず、通常のWeb検索としてBingへ直接送ります。検索語そのものはVectorの分析イベントへ送信しません。</small></div></div>
+        <form action="https://www.bing.com/search" method="get" target="_blank" rel="noopener noreferrer" className="business-search" role="search" data-event="business_web_search_submit">
           <label htmlFor="vector-web-search" className="sr-only">Web検索</label>
           <input id="vector-web-search" name="q" type="search" placeholder="例：AI 自動化 ROI 比較" autoComplete="off" required />
-          <button type="submit" data-event="business_web_search_submit">Bingで検索 <ArrowUpRight size={15}/></button>
+          <button type="submit">Bingで検索 <ArrowUpRight size={15}/></button>
         </form>
       </div>
 
