@@ -11,6 +11,18 @@ const readJson = async (url, fallback) => {
 const lever = await readJson(LEVER, { records: [] });
 const workable = await readJson(WORKABLE, { records: [] });
 
+const MAX_LEVER_AGE_DAYS = 3;
+const now = Date.now();
+const isFreshLeverRecord = (job) => {
+  if (job.status !== 'VERIFIED ACTIVE') return false;
+  if (!job.lastVerifiedAt) return false;
+  const verifiedAt = Date.parse(job.lastVerifiedAt);
+  if (!Number.isFinite(verifiedAt)) return false;
+  return now - verifiedAt <= MAX_LEVER_AGE_DAYS * 24 * 60 * 60 * 1000;
+};
+
+const leverPublic = (lever.records || []).filter(isFreshLeverRecord);
+
 const workablePublic = (workable.records || [])
   .filter((job) => job.publishable === true && job.verification_status === 'verified_active')
   .map((job) => ({
@@ -34,10 +46,11 @@ const workablePublic = (workable.records || [])
     confidence: job.japan_eligibility_confidence >= 0.8 ? 'high' : 'medium',
     eligibilityEvidence: job.eligibility_evidence || null,
     publishedAt: job.published_at || null,
-    firstSeenAt: job.first_seen_at || null
+    firstSeenAt: job.first_seen_at || null,
+    lastVerifiedAt: job.last_verified_at || null
   }));
 
-const merged = [...(lever.records || []), ...workablePublic];
+const merged = [...leverPublic, ...workablePublic];
 const seen = new Set();
 const records = merged.filter((job) => {
   const key = String(job.url || job.id || '').toLowerCase();
@@ -49,8 +62,12 @@ const records = merged.filter((job) => {
 const output = {
   generated_at: new Date().toISOString(),
   policy: 'verified_active_structured_facts_only',
+  freshness_policy: {
+    lever_max_age_days: MAX_LEVER_AGE_DAYS,
+    stale_or_unverified_records_fail_closed: true
+  },
   source_counts: {
-    lever: (lever.records || []).length,
+    lever: leverPublic.length,
     workable_publishable: workablePublic.length
   },
   count: records.length,
