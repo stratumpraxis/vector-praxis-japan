@@ -5,6 +5,10 @@ const state={quick:new Set()};
 const ranks={A2:0,B1:1,B2:2,C1:3,C2:4};
 const category=$('#category');
 
+function track(event,properties={}){
+  try{window.posthog?.capture?.(event,{product:'global-work-radar',...properties})}catch{}
+}
+
 function rebuildCategories(){
   category.querySelectorAll('option:not([value="all"])').forEach(o=>o.remove());
   [...new Set(jobs.map(j=>j.category).filter(Boolean))].sort().forEach(v=>{
@@ -24,7 +28,7 @@ function escapeHtml(value=''){
 }
 
 function card(j){
-  const link=`<a href="${escapeHtml(j.url)}" target="_blank" rel="noopener noreferrer">公式求人を見る ↗</a>`;
+  const link=`<a class="official-apply" href="${escapeHtml(j.url)}" target="_blank" rel="noopener noreferrer" data-job-id="${escapeHtml(j.id||'')}" data-source="${escapeHtml(j.source||'')}">公式求人を見る ↗</a>`;
   return `<article class="job-card"><div><div class="job-top">${j.japan?'<span class="pill good">JAPAN ELIGIBLE</span>':''}${j.remote==='remote'?'<span class="pill">REMOTE</span>':''}${j.japanese?'<span class="pill">JAPANESE</span>':''}<span class="pill">${escapeHtml(j.category||'Other')}</span></div><h3>${escapeHtml(j.title)}</h3><div class="employer">${escapeHtml(j.employer)} · ${escapeHtml(j.location||'Location not specified')}</div><div class="job-meta"><div><span>English</span> ${escapeHtml(j.english||'要確認')}</div><div><span>Currency</span> ${escapeHtml(j.currency||'—')}</div><div><span>Status</span> ${escapeHtml(j.status||'VERIFIED ACTIVE')}</div></div></div><div><div class="pay">${payText(j)}</div><span class="verified">${escapeHtml(j.verified||'Verified')}</span>${link}</div></article>`;
 }
 
@@ -88,13 +92,36 @@ function setupRevenuePartner(){
     }catch{}
     window.dataLayer=window.dataLayer||[];
     window.dataLayer.push(event);
+    track('gwr_revenue_click',{partner:config.partner,campaign:config.campaign});
   });
 }
 
 ['keyword','category','minPay','english','onlyJapan','onlyRemote'].forEach(id=>$('#'+id).addEventListener('input',render));
-$('#searchButton').addEventListener('click',()=>{render();document.querySelector('#jobs').scrollIntoView({behavior:'smooth'})});
+$('#searchButton').addEventListener('click',()=>{
+  render();
+  const data=filtered();
+  track('gwr_search',{
+    keyword:$('#keyword').value.trim()||null,
+    category:category.value,
+    min_pay:Number($('#minPay').value)||0,
+    english:$('#english').value,
+    japan_only:$('#onlyJapan').checked||state.quick.has('japan'),
+    remote_only:$('#onlyRemote').checked||state.quick.has('remote'),
+    result_count:data.length
+  });
+  document.querySelector('#jobs').scrollIntoView({behavior:'smooth'});
+});
 document.querySelectorAll('[data-filter]').forEach(btn=>btn.addEventListener('click',()=>{const f=btn.dataset.filter;state.quick.has(f)?state.quick.delete(f):state.quick.add(f);btn.classList.toggle('active');render()}));
 $('#resetFilters').addEventListener('click',()=>{$('#keyword').value='';category.value='all';$('#minPay').value='0';$('#english').value='all';$('#onlyJapan').checked=false;$('#onlyRemote').checked=false;state.quick.clear();document.querySelectorAll('[data-filter]').forEach(b=>b.classList.remove('active'));render()});
+$('#jobsList').addEventListener('click',event=>{
+  const link=event.target.closest('.official-apply');
+  if(!link)return;
+  track('gwr_official_apply_click',{
+    job_id:link.dataset.jobId||null,
+    source:link.dataset.source||null,
+    destination_host:(()=>{try{return new URL(link.href).host}catch{return null}})()
+  });
+});
 
 async function init(){
   try{
@@ -102,9 +129,11 @@ async function init(){
     if(!res.ok)throw new Error(`verified jobs fetch failed: ${res.status}`);
     const payload=await res.json();
     jobs=Array.isArray(payload.records)?payload.records:[];
+    track('gwr_jobs_loaded',{job_count:jobs.length,generated_at:payload.generated_at||null});
   }catch(error){
     console.error(error);
     jobs=[];
+    track('gwr_jobs_load_failed',{message:String(error?.message||error)});
   }
   rebuildCategories();
   metrics();
