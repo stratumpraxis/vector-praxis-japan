@@ -6,7 +6,7 @@ const ranks={A2:0,B1:1,B2:2,C1:3,C2:4};
 const category=$('#category');
 
 function track(event,properties={}){
-  try{window.posthog?.capture?.(event,{product:'global-work-radar',...properties})}catch{}
+  try{window.posthog?.capture?.(event,{product:'global-work-radar',...properties},{send_instantly:true})}catch{}
 }
 
 function rebuildCategories(){
