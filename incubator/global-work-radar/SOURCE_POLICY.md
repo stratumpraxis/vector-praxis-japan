@@ -10,6 +10,38 @@ Global Work Radar should minimize dependency, legal ambiguity, and operational d
 4. Public structured feeds explicitly intended for distribution
 5. Index-only references where reuse rights are unclear
 
+## Professional external sensor layer
+
+GWR may use reputable professional market, recruiting, labor-intelligence, search, analytics, and specialist discovery services as **sensors** even when their content is not eligible for republication.
+
+The sensor layer exists to answer questions such as:
+
+- Where is Japanese-language demand rising?
+- Which roles are appearing outside the current GWR source set?
+- Are headline remote pay rates moving up or down?
+- Which employers or platforms deserve official-source re-verification?
+- Is a high-paying `Remote` role actually open to applicants in Japan?
+- Which skills, work structures, and reward models are emerging before GWR has direct coverage?
+
+Sensor data must be classified separately from the verified public inventory:
+
+- `SENSOR_ONLY` — useful for discovery/market observation; not safe or sufficient for a public GWR job record.
+- `VERIFY_REQUIRED` — a sensor has identified a potentially valuable opportunity, but official-source, geography, compensation, freshness, or reuse verification is incomplete.
+- `PUBLICATION_ELIGIBLE` — the opportunity has independently passed GWR provenance, eligibility, freshness, and source-policy checks and may enter the public verified inventory.
+
+Rules:
+
+- A professional sensor may trigger investigation, but it does not become the source of truth merely because it is reputable.
+- Before publication, re-verify the material facts against an official employer/source whenever possible.
+- Do not copy sensor-owned descriptions, screenshots, ranking text, proprietary scores, or other protected presentation into GWR.
+- Keep `Remote` and `Japan eligible` as separate facts. A remote listing is not Japan eligible until geography evidence supports it.
+- Keep headline pay and confirmed Japan-eligible pay as separate market signals.
+- Sensor-only observations may inform internal market intelligence and public aggregate commentary only when clearly labeled and when the underlying use is permitted.
+- Sensor-only observations do **not** increase `verified_cases_learned` and do not count as verified inventory.
+- If a professional sensor conflicts with the official source, the official source wins.
+
+This layer lets GWR borrow professional eyes without turning third-party content into GWR inventory or weakening the verified-source boundary.
+
 ## Do not ingest automatically
 
 - sources whose terms prohibit automated access or redistribution
