@@ -4,9 +4,29 @@ const $=s=>document.querySelector(s);
 const state={quick:new Set()};
 const ranks={A2:0,B1:1,B2:2,C1:3,C2:4};
 const category=$('#category');
+let searchTrackTimer=null;
 
 function track(event,properties={}){
   try{window.posthog?.capture?.(event,{product:'global-work-radar',...properties},{send_instantly:true})}catch{}
+}
+
+function searchProperties(trigger='search_button'){
+  const data=filtered();
+  return {
+    trigger,
+    keyword:$('#keyword').value.trim()||null,
+    category:category.value,
+    min_pay:Number($('#minPay').value)||0,
+    english:$('#english').value,
+    japan_only:$('#onlyJapan').checked||state.quick.has('japan'),
+    remote_only:$('#onlyRemote').checked||state.quick.has('remote'),
+    result_count:data.length
+  };
+}
+
+function trackSearch(trigger='filter_change'){
+  clearTimeout(searchTrackTimer);
+  searchTrackTimer=setTimeout(()=>track('gwr_search',searchProperties(trigger)),350);
 }
 
 function rebuildCategories(){
@@ -96,23 +116,26 @@ function setupRevenuePartner(){
   });
 }
 
-['keyword','category','minPay','english','onlyJapan','onlyRemote'].forEach(id=>$('#'+id).addEventListener('input',render));
+['keyword','category','minPay','english','onlyJapan','onlyRemote'].forEach(id=>$('#'+id).addEventListener('input',()=>{
+  render();
+  trackSearch('filter_change');
+}));
 $('#searchButton').addEventListener('click',()=>{
   render();
-  const data=filtered();
-  track('gwr_search',{
-    keyword:$('#keyword').value.trim()||null,
-    category:category.value,
-    min_pay:Number($('#minPay').value)||0,
-    english:$('#english').value,
-    japan_only:$('#onlyJapan').checked||state.quick.has('japan'),
-    remote_only:$('#onlyRemote').checked||state.quick.has('remote'),
-    result_count:data.length
-  });
+  clearTimeout(searchTrackTimer);
+  track('gwr_search',searchProperties('search_button'));
   document.querySelector('#jobs').scrollIntoView({behavior:'smooth'});
 });
-document.querySelectorAll('[data-filter]').forEach(btn=>btn.addEventListener('click',()=>{const f=btn.dataset.filter;state.quick.has(f)?state.quick.delete(f):state.quick.add(f);btn.classList.toggle('active');render()}));
-$('#resetFilters').addEventListener('click',()=>{$('#keyword').value='';category.value='all';$('#minPay').value='0';$('#english').value='all';$('#onlyJapan').checked=false;$('#onlyRemote').checked=false;state.quick.clear();document.querySelectorAll('[data-filter]').forEach(b=>b.classList.remove('active'));render()});
+document.querySelectorAll('[data-filter]').forEach(btn=>btn.addEventListener('click',()=>{
+  const f=btn.dataset.filter;
+  state.quick.has(f)?state.quick.delete(f):state.quick.add(f);
+  btn.classList.toggle('active');
+  render();
+  trackSearch('quick_filter');
+}));
+$('#resetFilters').addEventListener('click',()=>{
+  $('#keyword').value='';category.value='all';$('#minPay').value='0';$('#english').value='all';$('#onlyJapan').checked=false;$('#onlyRemote').checked=false;state.quick.clear();document.querySelectorAll('[data-filter]').forEach(b=>b.classList.remove('active'));render();trackSearch('reset_filters');
+});
 $('#jobsList').addEventListener('click',event=>{
   const link=event.target.closest('.official-apply');
   if(!link)return;
