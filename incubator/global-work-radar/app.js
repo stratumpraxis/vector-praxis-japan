@@ -152,6 +152,33 @@ function marketSignal(){
   section.hidden=false;
 }
 
+function eligibilityGap(){
+  const section=$('#eligibilityGap');
+  const title=$('#eligibilityGapTitle');
+  const body=$('#eligibilityGapBody');
+  const meta=$('#eligibilityGapMeta');
+  if(!section||!title||!body||!meta)return;
+  const remote=jobs.filter(j=>j.remote==='remote');
+  const japanRemote=remote.filter(j=>j.japan);
+  const remoteHourly=remote.filter(j=>j.currency==='USD'&&j.period==='hour'&&Number(j.payMin)>0);
+  const japanHourly=remoteHourly.filter(j=>j.japan);
+  const unconfirmedHourly=remoteHourly.filter(j=>!j.japan);
+  if(!remote.length||!japanRemote.length){section.hidden=true;return;}
+  const japanTop=japanHourly.sort((a,b)=>Number(b.payMin)-Number(a.payMin))[0];
+  const unconfirmedTop=unconfirmedHourly.sort((a,b)=>Number(b.payMin)-Number(a.payMin))[0];
+  const remoteWithoutJapan=Math.max(0,remote.length-japanRemote.length);
+  title.textContent=`Remote ${remote.length}件のうち、Japan eligible確認済みは ${japanRemote.length}件`;
+  if(unconfirmedTop&&japanTop&&Number(unconfirmedTop.payMin)>Number(japanTop.payMin)){
+    const gap=Number(unconfirmedTop.payMin)-Number(japanTop.payMin);
+    body.textContent=`「Remote」だけでは日本から応募できるとは限りません。Japan eligible未確認のRemote時給案件には最高 $${unconfirmedTop.payMin}/hr のSignalがありますが、確認済みJapan eligible側の最高は $${japanTop.payMin}/hr。見かけの高単価と実際に応募できる高単価を分けて測ります。`;
+    meta.textContent=`Japan eligible未確認Remote ${remoteWithoutJapan}件 · observed pay gap $${gap}/hr · GWR verified dataset only`;
+  }else{
+    body.textContent=`「Remote」表記だけで日本から応募できると判断せず、勤務地・応募地域・公式ソースを分けて確認します。GWRはRemoteとJapan eligibleを別のSignalとして扱います。`;
+    meta.textContent=`Japan eligible未確認Remote ${remoteWithoutJapan}件 · GWR verified dataset only`;
+  }
+  section.hidden=false;
+}
+
 function setupRevenuePartner(){
   const config=window.GWR_REVENUE;
   const section=$('#revenuePartner');
@@ -229,6 +256,17 @@ $('#marketSignalLink')?.addEventListener('click',event=>{
     destination_host:(()=>{try{return new URL(link.href).host}catch{return null}})()
   });
 });
+$('#eligibilityGapLink')?.addEventListener('click',event=>{
+  event.preventDefault();
+  state.quick.add('japan');
+  state.quick.add('remote');
+  document.querySelector('[data-filter="japan"]')?.classList.add('active');
+  document.querySelector('[data-filter="remote"]')?.classList.add('active');
+  render();
+  clearTimeout(searchTrackTimer);
+  track('gwr_search',searchProperties('eligibility_gap'));
+  document.querySelector('#jobs').scrollIntoView({behavior:'smooth'});
+});
 
 async function init(){
   try{
@@ -245,6 +283,7 @@ async function init(){
   rebuildCategories();
   metrics();
   marketSignal();
+  eligibilityGap();
   render();
   setupRevenuePartner();
 }
