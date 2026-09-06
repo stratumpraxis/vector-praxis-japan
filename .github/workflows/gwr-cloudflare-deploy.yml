@@ -114,11 +114,18 @@ jobs:
             const browser = await chromium.launch({ headless: true });
             const page = await browser.newPage();
             let posthogPosts = 0;
+            let sawSearch = false;
+            let sawOfficialApply = false;
             page.on('console', msg => console.log(`BROWSER_CONSOLE ${msg.type()} ${msg.text()}`));
             page.on('request', req => {
               if (/posthog|\/e\/|\/batch\//i.test(req.url())) {
-                console.log(`POSTHOG_REQUEST ${req.method()} ${req.url()} ${(req.postData()||'').slice(0,1600)}`);
-                if (req.method() === 'POST') posthogPosts++;
+                const body = req.postData() || '';
+                console.log(`POSTHOG_REQUEST ${req.method()} ${req.url()} ${body.slice(0,1600)}`);
+                if (req.method() === 'POST') {
+                  posthogPosts++;
+                  if (body.includes('gwr_search')) sawSearch = true;
+                  if (body.includes('gwr_official_apply_click')) sawOfficialApply = true;
+                }
               }
             });
             page.on('response', res => {
@@ -145,7 +152,11 @@ jobs:
             await popup.close();
             await page.waitForTimeout(4000);
             if (posthogPosts < 1) throw new Error('No PostHog POST request observed from production interactions');
+            if (!sawSearch) throw new Error('gwr_search PostHog POST was not observed from live production interaction');
+            if (!sawOfficialApply) throw new Error('gwr_official_apply_click PostHog POST was not observed from live production interaction');
             console.log(`GWR_POSTHOG_POSTS=${posthogPosts}`);
+            console.log('GWR_SEARCH_POST_OBSERVED=1');
+            console.log('GWR_OFFICIAL_APPLY_POST_OBSERVED=1');
             await browser.close();
           })().catch(error => { console.error(error); process.exit(1); });
           NODE
