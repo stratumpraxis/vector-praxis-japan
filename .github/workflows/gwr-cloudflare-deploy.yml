@@ -78,3 +78,58 @@ jobs:
             --project-name=global-work-radar \
             --branch=incubator/global-work-radar \
             --commit-dirty=true
+
+      - name: Live production QA
+        env:
+          GWR_URL: https://global-work-radar.pages.dev
+        run: |
+          set -euo pipefail
+          for attempt in 1 2 3 4 5 6 7 8; do
+            if curl --fail --location --silent --show-error --max-time 30 "$GWR_URL/" -o /tmp/gwr-live.html; then
+              break
+            fi
+            if [ "$attempt" = "8" ]; then
+              echo "Production page unavailable after retries"
+              exit 1
+            fi
+            sleep $((attempt * 2))
+          done
+
+          grep -q "Global Work Radar" /tmp/gwr-live.html
+          grep -q 'id="jobsList"' /tmp/gwr-live.html
+          grep -q 'src="./app.js"' /tmp/gwr-live.html
+
+          curl --fail --location --silent --show-error --max-time 30 \
+            "$GWR_URL/data/verified-jobs.json" -o /tmp/gwr-live-jobs.json
+          curl --fail --location --silent --show-error --max-time 30 \
+            "$GWR_URL/app.js" -o /tmp/gwr-live-app.js
+          curl --fail --location --silent --show-error --max-time 30 \
+            "$GWR_URL/revenue-config.js" -o /tmp/gwr-live-revenue.js
+
+          grep -q "gwr_search" /tmp/gwr-live-app.js
+          grep -q "gwr_official_apply_click" /tmp/gwr-live-app.js
+          grep -q "official-apply" /tmp/gwr-live-app.js
+          grep -q "enabled: false" /tmp/gwr-live-revenue.js
+
+          node - <<'NODE'
+          const fs = require('fs');
+          const payload = JSON.parse(fs.readFileSync('/tmp/gwr-live-jobs.json', 'utf8'));
+          if (!Array.isArray(payload.records) || payload.records.length === 0) throw new Error('No live verified jobs');
+          if (!payload.freshness_policy?.stale_or_unverified_records_fail_closed) throw new Error('Freshness gate missing');
+          const first = payload.records.find(j => /^https:\/\//.test(j.url || ''));
+          if (!first) throw new Error('No official HTTPS outbound URL');
+          console.log(`GWR_LIVE_JOB_COUNT=${payload.records.length}`);
+          console.log(`GWR_LIVE_GENERATED_AT=${payload.generated_at || ''}`);
+          console.log(`GWR_FIRST_OFFICIAL_HOST=${new URL(first.url).host}`);
+          console.log(`GWR_FIRST_OFFICIAL_URL=${first.url}`);
+          NODE
+
+          OFFICIAL_URL=$(node -e "const p=require('/tmp/gwr-live-jobs.json'); const j=p.records.find(x=>/^https:\\/\\//.test(x.url||'')); process.stdout.write(j.url)")
+          STATUS=$(curl --location --silent --show-error --max-time 30 -o /dev/null -w '%{http_code}' "$OFFICIAL_URL")
+          if [ "$STATUS" -lt 200 ] || [ "$STATUS" -ge 400 ]; then
+            echo "Official Apply outbound failed with HTTP $STATUS"
+            exit 1
+          fi
+          echo "GWR_PRODUCTION_URL=$GWR_URL/"
+          echo "GWR_OFFICIAL_APPLY_HTTP=$STATUS"
+          echo "GWR_LIVE_QA=PASS"
