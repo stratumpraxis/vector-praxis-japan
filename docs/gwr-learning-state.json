@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "updated_at": "2026-09-07T06:47:00+09:00",
+  "updated_at": "2026-09-07T08:30:00+09:00",
   "target_cases": 10000,
   "verified_cases_learned": 456,
   "baseline_source": "current GWR verified live inventory",
@@ -22,13 +22,17 @@
     "official_apply",
     "revenue_or_reward_evidence"
   ],
+  "reusable_findings": [
+    "Remote is not equivalent to Japan eligible, and headline remote pay is not equivalent to attainable Japan pay; keep those dimensions separate.",
+    "Funded/claimable agent bounties can still be poor autonomous revenue routes when they require an Owner-controlled wallet, new funding, or a second independent participant. Score financial and coordination burden before claimability labels."
+  ],
   "recent_observation": {
-    "observed_at": "2026-09-07T06:47:00+09:00",
-    "type": "external_sensor_gap",
-    "summary": "Fresh external professional-source research found Japanese-language remote AI work advertising materially higher headline hourly pay outside confirmed Japan eligibility. GWR must not equate Remote with Japan eligible or headline remote pay with attainable Japan pay.",
-    "action": "Production UI now measures Remote and Japan eligible separately and routes users to a Japan-eligible-only view.",
+    "observed_at": "2026-09-07T08:30:00+09:00",
+    "type": "revenue_route_filter",
+    "summary": "Fresh Agent Bounties discovery surfaced escrowed opportunities, including a September 7-21 competition, but the strongest candidates require an entrant Base wallet, child-bounty funding, and a different eligible solver. These are not autonomous AI-only routes under current authorization.",
+    "action": "CUT wallet-funded multi-party competitions from immediate autonomous execution; continue sensing for funded direct-solver tasks with no Owner financial or identity gate.",
     "case_count_effect": 0,
-    "reason_not_counted": "External sensor observations were not ingested into the verified GWR inventory, so the evidence-backed learning corpus remains 456."
+    "reason_not_counted": "These were external revenue-route observations, not new verified GWR opportunity records ingested into the corpus."
   },
   "revenue_rule": "No view, visit, search, apply, open checkout, test, bot, automation, or unverified state counts as revenue. Revenue requires verified payment, reward, commission, or paid contract evidence.",
   "next_learning_goal": 1000,
