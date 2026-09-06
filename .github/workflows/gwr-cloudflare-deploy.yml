@@ -113,14 +113,18 @@ jobs:
           (async () => {
             const browser = await chromium.launch({ headless: true });
             const page = await browser.newPage();
+            let posthogPosts = 0;
             page.on('console', msg => console.log(`BROWSER_CONSOLE ${msg.type()} ${msg.text()}`));
             page.on('request', req => {
-              if (/posthog|\/e\/|\/batch\//i.test(req.url())) console.log(`POSTHOG_REQUEST ${req.method()} ${req.url()} ${(req.postData()||'').slice(0,1600)}`);
+              if (/posthog|\/e\/|\/batch\//i.test(req.url())) {
+                console.log(`POSTHOG_REQUEST ${req.method()} ${req.url()} ${(req.postData()||'').slice(0,1600)}`);
+                if (req.method() === 'POST') posthogPosts++;
+              }
             });
             page.on('response', res => {
               if (/posthog|\/e\/|\/batch\//i.test(res.url())) console.log(`POSTHOG_RESPONSE ${res.status()} ${res.url()}`);
             });
-            await page.goto(process.env.GWR_URL, { waitUntil: 'networkidle' });
+            await page.goto(`${process.env.GWR_URL}/?gwr_qa=1`, { waitUntil: 'networkidle' });
             await page.waitForFunction(() => window.posthog && typeof window.posthog.capture === 'function');
             await page.evaluate(() => {
               window.posthog.register({ gwr_qa: true, gwr_qa_source: 'github_actions_live' });
@@ -128,12 +132,20 @@ jobs:
               window.posthog.capture = function(name, props, options) { console.log(`CAPTURE_CALL ${name} ${JSON.stringify(props||{})}`); return original(name, props, options); };
             });
             await page.click('#searchButton');
-            await page.waitForTimeout(1500);
+            await page.waitForTimeout(1800);
             const firstApply = page.locator('.official-apply').first();
             await firstApply.waitFor({ state: 'visible' });
-            await page.evaluate(() => document.querySelector('.official-apply')?.addEventListener('click', e => e.preventDefault(), { once: true }));
-            await firstApply.click();
-            await page.waitForTimeout(3000);
+            const [popup] = await Promise.all([
+              page.waitForEvent('popup'),
+              firstApply.click()
+            ]);
+            await popup.waitForLoadState('domcontentloaded', { timeout: 30000 }).catch(() => {});
+            console.log(`GWR_OFFICIAL_OUTBOUND_URL=${popup.url()}`);
+            if (!/^https:\/\//.test(popup.url()) || popup.url().includes('global-work-radar.pages.dev')) throw new Error(`Official outbound did not leave GWR: ${popup.url()}`);
+            await popup.close();
+            await page.waitForTimeout(4000);
+            if (posthogPosts < 1) throw new Error('No PostHog POST request observed from production interactions');
+            console.log(`GWR_POSTHOG_POSTS=${posthogPosts}`);
             await browser.close();
           })().catch(error => { console.error(error); process.exit(1); });
           NODE
