@@ -156,9 +156,21 @@ function setupRevenuePartner(){
   trackSearch('filter_change');
 }));
 $('#searchButton').addEventListener('click',()=>{
+  const hasExplicitCondition=
+    $('#keyword').value.trim()||
+    category.value!=='all'||
+    Number($('#minPay').value)>0||
+    $('#english').value!=='all'||
+    $('#onlyJapan').checked||
+    $('#onlyRemote').checked||
+    state.quick.size>0;
+  if(!hasExplicitCondition){
+    state.quick.add('japan');
+    document.querySelector('[data-filter="japan"]')?.classList.add('active');
+  }
   render();
   clearTimeout(searchTrackTimer);
-  track('gwr_search',searchProperties('search_button'));
+  track('gwr_search',searchProperties(hasExplicitCondition?'search_button':'search_button_default_japan'));
   document.querySelector('#jobs').scrollIntoView({behavior:'smooth'});
 });
 document.querySelectorAll('[data-filter]').forEach(btn=>btn.addEventListener('click',()=>{
