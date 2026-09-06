@@ -13,7 +13,9 @@ Vector Praxisの日本語公式ハブです。検証済みの無料記事、note
 
 Portable operating infrastructure for AI teams using Claude Code, Codex, Cursor, and other agent runtimes. Includes a master `AGENTS.md` policy, runtime adapters, human gates, policy-conflict checks, budget/token/quota guards, migration checklist, score sheet, state handoff, and implementation guides.
 
-- [$69 Personal License — Cross-Agent Operating Kit](https://buy.stripe.com/4gM9AU3sE1YLcoM4FB6Zy0T?client_reference_id=github_readme_ca_20260906&utm_source=github&utm_medium=repo&utm_campaign=market_revenue_retest)
+Relevant when a run moves between providers and you need authority, budget, evidence, and human-gate rules to stay explicit instead of drifting with the adapter change.
+
+- [$69 Personal License — Cross-Agent Operating Kit](https://buy.stripe.com/4gM9AU3sE1YLcoM4FB6Zy0T?client_reference_id=github_readme_provider_handoff_20260906&utm_source=github&utm_medium=repo&utm_campaign=market_revenue_retest&utm_content=provider_handoff)
 
 The existing Sites URL remains live and canonical until a replacement `*.vercel.app` production URL is publicly reachable without authentication.
 
