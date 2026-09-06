@@ -5,9 +5,43 @@ const state={quick:new Set()};
 const ranks={A2:0,B1:1,B2:2,C1:3,C2:4};
 const category=$('#category');
 let searchTrackTimer=null;
+const POSTHOG_KEY='phc_oTYapRSNXDtn8aY7wMNHfCDexRTkfb2H44MDVXwoUMSN';
+const POSTHOG_CAPTURE='https://us.i.posthog.com/capture/';
+
+function gwrDistinctId(){
+  try{
+    const sdkId=window.posthog?.get_distinct_id?.();
+    if(sdkId)return sdkId;
+    const key='gwr_distinct_id';
+    let id=localStorage.getItem(key);
+    if(!id){id=crypto.randomUUID?.()||`gwr-${Date.now()}-${Math.random().toString(36).slice(2)}`;localStorage.setItem(key,id)}
+    return id;
+  }catch{return `gwr-${Date.now()}-${Math.random().toString(36).slice(2)}`}
+}
 
 function track(event,properties={}){
-  try{window.posthog?.capture?.(event,{product:'global-work-radar',...properties},{send_instantly:true})}catch{}
+  const payload={
+    api_key:POSTHOG_KEY,
+    event,
+    properties:{
+      distinct_id:gwrDistinctId(),
+      product:'global-work-radar',
+      '$current_url':location.href,
+      '$host':location.host,
+      '$pathname':location.pathname,
+      '$referrer':document.referrer||'$direct',
+      ...properties
+    }
+  };
+  try{
+    fetch(POSTHOG_CAPTURE,{
+      method:'POST',
+      mode:'cors',
+      keepalive:true,
+      headers:{'Content-Type':'application/json'},
+      body:JSON.stringify(payload)
+    }).catch(()=>{});
+  }catch{}
 }
 
 function searchProperties(trigger='search_button'){
