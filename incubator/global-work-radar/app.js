@@ -125,6 +125,33 @@ function metrics(){
   $('#metricPay').textContent=hourly.length?`$${(hourly.reduce((a,b)=>a+b,0)/hourly.length).toFixed(0)}`:'—';
 }
 
+function marketSignal(){
+  const section=$('#marketSignal');
+  const title=$('#marketSignalTitle');
+  const body=$('#marketSignalBody');
+  const meta=$('#marketSignalMeta');
+  const link=$('#marketSignalLink');
+  if(!section||!title||!body||!meta||!link)return;
+  const candidates=jobs
+    .filter(j=>j.japan&&j.remote==='remote'&&j.currency==='USD'&&j.period==='hour'&&Number(j.payMin)>0&&j.url)
+    .sort((a,b)=>Number(b.payMin)-Number(a.payMin));
+  if(!candidates.length){
+    section.hidden=true;
+    return;
+  }
+  const top=candidates[0];
+  title.textContent=`GWR掲載中の確認済み時給案件：最高 $${top.payMin}/hr`;
+  body.textContent=`${top.employer}「${top.title}」。Japan eligible・Remote・${top.japanese?'Japanese対応':'言語要件要確認'}。生の求人一覧ではなく、今どこに高単価Signalがあるかを先に示します。`;
+  meta.textContent=`${candidates.length}件の Japan eligible × Remote × USD/hour を比較 · ${top.lastVerifiedAt||top.verified||'Verified'}`;
+  link.href=top.url;
+  link.target='_blank';
+  link.rel='noopener noreferrer';
+  link.textContent='最高報酬案件の公式求人を見る ↗';
+  link.dataset.jobId=top.id||'';
+  link.dataset.source=top.source||'';
+  section.hidden=false;
+}
+
 function setupRevenuePartner(){
   const config=window.GWR_REVENUE;
   const section=$('#revenuePartner');
@@ -192,6 +219,16 @@ $('#jobsList').addEventListener('click',event=>{
     destination_host:(()=>{try{return new URL(link.href).host}catch{return null}})()
   });
 });
+$('#marketSignalLink')?.addEventListener('click',event=>{
+  const link=event.currentTarget;
+  if(!link?.href||link.getAttribute('href')==='#jobs')return;
+  track('gwr_official_apply_click',{
+    trigger:'market_signal',
+    job_id:link.dataset.jobId||null,
+    source:link.dataset.source||null,
+    destination_host:(()=>{try{return new URL(link.href).host}catch{return null}})()
+  });
+});
 
 async function init(){
   try{
@@ -207,6 +244,7 @@ async function init(){
   }
   rebuildCategories();
   metrics();
+  marketSignal();
   render();
   setupRevenuePartner();
 }
