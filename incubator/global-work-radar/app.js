@@ -30,6 +30,7 @@ function track(event,properties={}){
       '$host':location.host,
       '$pathname':location.pathname,
       '$referrer':document.referrer||'$direct',
+      ...(new URLSearchParams(location.search).get('gwr_qa')==='1'?{gwr_qa:true,gwr_qa_source:'github_actions_live'}:{}),
       ...properties
     }
   };
