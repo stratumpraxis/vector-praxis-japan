@@ -1,0 +1,26 @@
+{
+  "schema_version": 1,
+  "updated_at": "2026-09-07T03:19:00+09:00",
+  "target_cases": 10000,
+  "verified_cases_learned": 456,
+  "baseline_source": "current GWR verified live inventory",
+  "learning_dimensions": [
+    "japan_eligibility",
+    "remote_scope",
+    "language_fit",
+    "compensation_signal",
+    "official_source_integrity",
+    "freshness",
+    "apply_distance",
+    "ai_completability",
+    "owner_labor_requirement",
+    "distribution_angle",
+    "human_visit",
+    "search_intent",
+    "official_apply",
+    "revenue_or_reward_evidence"
+  ],
+  "revenue_rule": "No view, visit, search, apply, open checkout, test, bot, automation, or unverified state counts as revenue. Revenue requires verified payment, reward, commission, or paid contract evidence.",
+  "next_learning_goal": 1000,
+  "mode": "revenue_first"
+}
