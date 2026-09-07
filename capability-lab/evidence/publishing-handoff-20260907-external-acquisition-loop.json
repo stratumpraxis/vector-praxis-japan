@@ -1,0 +1,25 @@
+{
+  "id": "publishing-handoff-20260907-external-acquisition-loop",
+  "source_evidence": "capability-lab/evidence/capability-20260907-external-acquisition-loop.json",
+  "result": "SUCCESS",
+  "problem": "External GitHub and OSS research was fragmented and could not reliably convert public signals into verified internal capability gains or reusable knowledge.",
+  "evidence": [
+    {"type": "regression", "ref": "Capability scoring regression 5/5 PASS"},
+    {"type": "external_side_effect", "ref": "Capability Acquisition Loop GitHub Actions SUCCESS"},
+    {"type": "test", "ref": "Verify Hub GitHub Actions SUCCESS"},
+    {"type": "artifact", "ref": "Merged implementation and durable evidence ledger"}
+  ],
+  "reusable_pattern": "Automate discovery, not trust. Automate signal intake and prioritization, but gate adoption behind primary-source verification, license/security review, isolated proof-of-work, objective evidence, and KEEP/KILL.",
+  "audience_value": {
+    "pain": "Teams adopting popular AI/OSS tools without proving whether they actually improve execution, creating tool sprawl and hidden risk.",
+    "audience": "AI agent operators, coding-agent users, automation builders, small teams running multiple AI tools.",
+    "why_now": "Agent and OSS discovery volume is rising faster than most teams can manually verify, making evidence-driven adoption increasingly valuable."
+  },
+  "publishing_candidate": {
+    "eligible": true,
+    "suggested_format": "success_pattern",
+    "reason": "Contains implemented workflow, machine-checkable verification, clear failure-prevention logic, and a reusable operating principle rather than a repo list."
+  },
+  "redaction_check": "PASS",
+  "publishing_state": "SUPPLY_READY"
+}
