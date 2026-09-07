@@ -10,6 +10,7 @@ on:
       - incubator/global-work-radar/ingest-workable.mjs
       - incubator/global-work-radar/ingest-lever.mjs
       - incubator/global-work-radar/build-public-jobs.mjs
+      - incubator/global-work-radar/observability.mjs
       - incubator/global-work-radar/company-watchlist.json
       - .github/workflows/gwr-workable-snapshot.yml
   workflow_dispatch:
@@ -80,6 +81,11 @@ jobs:
           JSON.parse(zlib.gunzipSync(fs.readFileSync('incubator/global-work-radar/data/workable-state.json.gz')).toString('utf8'));
           console.log('GWR outputs valid');
           NODE
+
+      - name: Record evidence-first observability
+        env:
+          GWR_BASELINE_REF: HEAD
+        run: node incubator/global-work-radar/observability.mjs
 
       - name: Remove legacy oversized state/history
         run: |
