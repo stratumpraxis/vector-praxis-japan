@@ -1,10 +1,10 @@
 {
   "schema_version": 1,
-  "observed_at": "2026-09-07T10:42:20.166Z",
+  "observed_at": "2026-09-07T11:03:03.917Z",
   "run": {
-    "github_run_id": "34112704719",
+    "github_run_id": "34114474896",
     "github_run_attempt": "1",
-    "github_sha": "92edbd9a71a3602dede0782d29855eda4a758f79",
+    "github_sha": "cce7c42fac6ed56de94cc1ecf7d0acebdf802e15",
     "baseline_ref": "HEAD"
   },
   "inventory": {
@@ -496,7 +496,7 @@
         "REVIEW": 46
       },
       "reopened_after_confirmed_close_count": 0,
-      "changed_within_7d_count": 431,
+      "changed_within_7d_count": 434,
       "thresholds_days": {
         "aging": 30,
         "long_running": 60,
@@ -506,9 +506,9 @@
     },
     "hiring_intent": {
       "signal_level_counts": {
-        "MODERATE_EVIDENCE": 174,
-        "WEAK_EVIDENCE": 232,
-        "STRONG_EVIDENCE": 48
+        "MODERATE_EVIDENCE": 158,
+        "WEAK_EVIDENCE": 269,
+        "STRONG_EVIDENCE": 27
       },
       "score_is_probability": false,
       "ghost_job_classifier": false,
