@@ -100,6 +100,37 @@ Raw facts come first; do not publish speculative scores.
 5. Never infer that Global Work Radar is the employer or recruiter.
 6. Work-density, standby-pay, exclusivity, simultaneous-work, and SLA fields require explicit source evidence; unknown is better than guessed.
 
+## Agent Lab downstream handoff
+
+GWR remains a Global Work / Labor Intelligence brand. Agent Lab is downstream only and must not change GWR's product, ranking, ingestion, UI, source policy, or revenue priorities.
+
+GWR's priority remains:
+
+External Market → Work Signal → Human Action → Revenue / Evidence
+
+When normal GWR operations already produce an evidence-backed lesson that is reusable beyond GWR, it may be handed downstream as an Agent Lab Field Note candidate. GWR does not write the article, build membership features, or perform extra experiments for content production.
+
+A candidate is fail-closed and can be recorded only when all of these are known from evidence:
+
+1. what was executed
+2. what succeeded or failed
+3. cause
+4. fix
+5. external evidence
+6. reusable pattern
+7. Field Note value
+
+Use `agent-lab-handoff.mjs` only after those facts already exist. Hypotheses, ordinary job records, unresolved warnings, market observations without a reusable operating pattern, and content ideas are not candidates.
+
+The handoff log is append-only at `data/agent-lab-field-note-candidates.jsonl` and is created only when a qualifying candidate exists. A candidate must also carry `source_ref` back to auditable GWR evidence. This is an evidence outlet, not a content-production queue.
+
+Commands:
+
+```bash
+node incubator/global-work-radar/agent-lab-handoff.mjs --validate-log
+node incubator/global-work-radar/agent-lab-handoff.mjs --record path/to/evidence-backed-candidate.json
+```
+
 ## Success criteria for MVP
 
 - scheduled ingestion works
