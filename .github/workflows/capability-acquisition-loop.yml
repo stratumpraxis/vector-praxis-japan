@@ -9,6 +9,7 @@ on:
       - "capability-lab/**"
       - "scripts/capability-scan.mjs"
       - "tests/capability-scoring.test.mjs"
+      - "tests/revenue-agent-benchmark.test.mjs"
       - ".github/workflows/capability-acquisition-loop.yml"
 
 permissions:
@@ -34,7 +35,7 @@ jobs:
           node-version: "22"
 
       - name: Regression tests
-        run: node --test tests/capability-scoring.test.mjs
+        run: node --test tests/capability-scoring.test.mjs tests/revenue-agent-benchmark.test.mjs
 
       - name: Scan external capability signals
         env:
