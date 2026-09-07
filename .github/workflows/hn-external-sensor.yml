@@ -1,0 +1,38 @@
+name: HN External Signal Sensor
+
+on:
+  workflow_dispatch:
+  push:
+    paths:
+      - 'scripts/hn-signal-scan.mjs'
+      - 'tests/hn-signal-scan.test.mjs'
+      - 'tests/external-capability-scoring.test.mjs'
+      - 'capability-lab/external-capability-*.json'
+      - 'capability-lab/external-capability-*.mjs'
+      - '.github/workflows/hn-external-sensor.yml'
+
+permissions:
+  contents: read
+
+jobs:
+  verify-hn-sensor:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 5
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+
+      - name: Run deterministic sensor regressions
+        run: node --test tests/hn-signal-scan.test.mjs tests/external-capability-scoring.test.mjs
+
+      - name: Read real Hacker News signal
+        run: node scripts/hn-signal-scan.mjs --limit 80 --out /tmp/hn-signal-evidence.json
+
+      - name: Show returned evidence
+        if: always()
+        run: cat /tmp/hn-signal-evidence.json || true
