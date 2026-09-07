@@ -1,30 +1,28 @@
 {
   "schema_version": 1,
-  "observed_at": "2026-09-07T04:01:05.492Z",
+  "observed_at": "2026-09-07T05:43:40.825Z",
   "run": {
-    "github_run_id": "34081508594",
+    "github_run_id": "34087795782",
     "github_run_attempt": "1",
-    "github_sha": "245bf1d116177c03d53e7d37066ec28d016d72a8",
+    "github_sha": "9d1386ce0c55a9a3b1eccb67ad71f612fb4f61d7",
     "baseline_ref": "HEAD"
   },
   "inventory": {
     "previous_count": 455,
-    "current_count": 455,
+    "current_count": 454,
     "source_counts": {
       "lever": 7,
-      "workable_publishable": 546
+      "workable_publishable": 545
     }
   },
   "change_detection": {
-    "meaningful_change_count": 3,
-    "added_count": 1,
+    "meaningful_change_count": 2,
+    "added_count": 0,
     "removed_count": 1,
     "changed_count": 1,
-    "added_ids": [
-      "workable-be5d79cfd1"
-    ],
+    "added_ids": [],
     "removed_ids": [
-      "workable-74c71529e8"
+      "workable-195b599a2c"
     ],
     "changed": [
       {
