@@ -2,6 +2,17 @@
 
 External capability signals are continuously pulled into a controlled evaluation loop. The goal is not to collect repositories; it is to convert useful outside capability into measurable internal execution gains.
 
+## External Nervous System
+
+GitHub研究所はGitHub内部のRepo研究だけを担当しない。MARKETが外部世界を安全・低固定費・低Owner負担で観測・作用・検証するための標準External Capabilityも管理する。
+
+- Operating contract: `EXTERNAL_NERVOUS_SYSTEM.md`
+- Machine-readable capability registry: `external-capability-registry.json`
+- Deterministic 100-point scoring / lifecycle validation: `external-capability-scoring.mjs`
+- Regression tests: `tests/external-capability-scoring.test.mjs`
+
+External capabilities are classified as `EYES / EARS / BRAIN_INPUT / MOUTH_HANDS / NERVES / WALLET` and move through `AVAILABLE -> CONNECTED -> VERIFIED -> ON_DEMAND -> ACTIVE -> PAUSED / RETIRED`. A connection is never promoted by popularity or score alone; external Evidence and safety gates remain authoritative.
+
 ## Operating Philosophy — Revenue Loop as Code
 
 GitHub研究所は、GitHubを単なるコード置き場やRepo収集場所として扱わない。
@@ -238,6 +249,7 @@ Publishing owns external demand validation, three-stage research, fact/license/l
 ```bash
 npm run capability:test
 npm run capability:scan
+node --test tests/external-capability-scoring.test.mjs
 ```
 
 The scheduled GitHub Actions workflow runs at approximately 08:10 JST each day and can also be triggered manually.
