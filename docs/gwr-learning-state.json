@@ -1,8 +1,8 @@
 {
   "schema_version": 1,
-  "updated_at": "2026-09-07T11:32:46+09:00",
+  "updated_at": "2026-09-07T12:33:00+09:00",
   "target_cases": 10000,
-  "verified_cases_learned": 464,
+  "verified_cases_learned": 469,
   "baseline_source": "current GWR verified live inventory plus evidence-backed external work/reward cases",
   "learning_dimensions": [
     "japan_eligibility",
@@ -27,15 +27,17 @@
     "Funded/claimable agent bounties can still be poor autonomous revenue routes when they require an Owner-controlled wallet, new funding, or a second independent participant. Score financial and coordination burden before claimability labels.",
     "An open GitHub issue with an Algora bounty marker is not enough to qualify as a fresh revenue route. Check the Algora attempt/reward table, current competition, payout eligibility, demo requirements, and whether the bounty has already produced many rewarded solutions before attempting.",
     "Marketplace open-count is not sufficient evidence of executable bounty value. Before attempting, inspect repository-side claim density, overlapping PRs, maintainer acceptance filters such as anti-slop automation, and explicit sponsor confirmation that the remaining non-overlapping scope is still payable.",
-    "Treat stale open bounties and multiple bounty entries attached to the same underlying issue as funding-state residue until fresh sponsor intent is corroborated. Canonicalize by underlying issue before scoring and heavily discount age without recent maintainer activity."
+    "Treat stale open bounties and multiple bounty entries attached to the same underlying issue as funding-state residue until fresh sponsor intent is corroborated. Canonicalize by underlying issue before scoring and heavily discount age without recent maintainer activity.",
+    "Before scoring a public bounty as solver inventory, verify who earns the reward: discoverer-only bug bounty programs are not equivalent to fix-for-pay work, even when the reported issue includes an obvious patch path.",
+    "For AI-native bounty routes, claim/comment/attempt density is a hard negative-EV gate. A highly AI-completable task can still be a poor revenue action when hundreds or thousands of competing attempts are already attached to it; require low swarm plus verified solver payout mechanics before spending execution time."
   ],
   "recent_observation": {
-    "observed_at": "2026-09-07T11:32:46+09:00",
-    "type": "stale_duplicate_bounty_filter",
-    "summary": "Three currently listed Algora open bounty entries were inspected as fresh market cases. One $100 meteor-vite bounty is still open roughly 16 months after listing. Two Cal.com bounty entries ($50 and $100) point to the same underlying font#2 issue, with one listing roughly 4 months old and the other roughly 39 months old, each showing one claim. These are real funded-market signals but weak evidence of fresh executable demand.",
-    "action": "FIX bounty scoring: canonicalize multiple marketplace entries by underlying issue, then apply a strong freshness discount to old open listings unless recent sponsor or maintainer activity reconfirms payable scope. CUT these three listings from immediate autonomous claim selection.",
-    "case_count_effect": 3,
-    "reason_counted": "All three are real public funded work listings with amount, open status, age, and claim/issue identity evidence sufficient to alter freshness and deduplication scoring."
+    "observed_at": "2026-09-07T12:33:00+09:00",
+    "type": "solver_reward_and_swarm_filter",
+    "summary": "Five fresh-to-corpus external paid-work cases were inspected deeply enough to alter selection: Tarsnap/tarsnap#855 is a real bounty-program case but its program rewards the first discoverer/reporter rather than a later fixer; claude-builders-bounty issues #1 ($50) and #4 ($150) advertise Opire solver payment on merge but have 2107 and 1450 comments respectively; tscircuit/jlcsearch#92 is an open $75 bounty with 142 comments and an old listing; Movalabs-crew/mova-store#43 is an open $55 task with existing competing work and an additional contributor-application gate.",
+    "action": "FIX Revenue Probability scoring: require solver-side reward eligibility before counting claim distance, and apply a hard competition-density penalty before AI-completability can raise priority. CUT these five cases from immediate autonomous execution; continue seeking fresh fiat work with verified solver payout and low swarm while the note-to-GWR cohort remains on HOLD.",
+    "case_count_effect": 5,
+    "reason_counted": "Each case is a real public external opportunity or bounty-program case with enough source evidence on payment/reward mechanics, competition or participation gate, and current issue state to change next-action selection."
   },
   "revenue_rule": "No view, visit, search, apply, open checkout, test, bot, automation, or unverified state counts as revenue. Revenue requires verified payment, reward, commission, or paid contract evidence.",
   "next_learning_goal": 1000,
