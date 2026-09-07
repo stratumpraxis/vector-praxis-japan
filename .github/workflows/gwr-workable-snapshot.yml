@@ -10,6 +10,7 @@ on:
       - incubator/global-work-radar/ingest-workable.mjs
       - incubator/global-work-radar/ingest-lever.mjs
       - incubator/global-work-radar/build-public-jobs.mjs
+      - incubator/global-work-radar/enrich-lifecycle.mjs
       - incubator/global-work-radar/observability.mjs
       - incubator/global-work-radar/labor-benchmarks.json
       - incubator/global-work-radar/company-watchlist.json
@@ -73,6 +74,9 @@ jobs:
       - name: Build verified public jobs
         run: node incubator/global-work-radar/build-public-jobs.mjs
 
+      - name: Enrich lifecycle and hiring intent
+        run: node incubator/global-work-radar/enrich-lifecycle.mjs
+
       - name: Validate outputs
         run: |
           node - <<'NODE'
@@ -82,8 +86,10 @@ jobs:
           JSON.parse(zlib.gunzipSync(fs.readFileSync('incubator/global-work-radar/data/workable-state.json.gz')).toString('utf8'));
           const verified=JSON.parse(fs.readFileSync('incubator/global-work-radar/data/verified-jobs.json','utf8'));
           if(!verified.intelligence) throw new Error('GWR intelligence missing');
-          if(!verified.records.every(r=>r.freshness&&r.hiringMomentum&&r.skillSalary&&r.laborBenchmark)) throw new Error('GWR intelligence fields missing from records');
-          console.log('GWR outputs + intelligence valid');
+          if(!verified.intelligence.lifecycle||!verified.intelligence.hiring_intent) throw new Error('GWR lifecycle/hiring intent summary missing');
+          if(!verified.records.every(r=>r.freshness&&r.hiringMomentum&&r.skillSalary&&r.laborBenchmark&&r.lifecycle&&r.hiringIntent)) throw new Error('GWR intelligence fields missing from records');
+          if(verified.records.some(r=>r.hiringIntent.is_hiring_probability!==false||r.hiringIntent.is_ghost_job_determination!==false)) throw new Error('GWR hiring intent safety semantics invalid');
+          console.log('GWR outputs + lifecycle intelligence valid');
           NODE
 
       - name: Record evidence-first observability
