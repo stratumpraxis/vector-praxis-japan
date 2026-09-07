@@ -51,34 +51,38 @@
 
   <main id="top">
     <section class="hero" id="market">
-      <div class="eyebrow">GLOBAL WORK INTELLIGENCE</div>
-      <h1>世界の仕事を、<br><span>日本から探しやすく。</span></h1>
-      <p class="hero-copy">海外リモート案件を、Japan eligible・日本語要件・報酬・職種で整理。応募は必ず公式ソースへ。</p>
+      <div class="eyebrow">REMOTE ≠ WORLDWIDE</div>
+      <h1>Remoteでも、<br><span>日本から応募できるとは限らない。</span></h1>
+      <p class="hero-copy">Global Work Radarは、海外求人の「Remote」と「Japan eligible」を分けて確認。日本から応募可能と判断できる求人を優先し、公式応募先までの無駄を減らします。</p>
+      <div class="trust-strip" aria-label="GWR verification principles">
+        <span>✓ 公式ソース優先</span><span>✓ Japan eligibilityを別判定</span><span>✓ 最終確認時刻を表示</span><span>✓ 応募は公式サイトへ</span>
+      </div>
       <div class="search-panel" role="search">
         <input id="keyword" type="search" placeholder="職種・企業名・キーワード" aria-label="求人検索" />
         <select id="category" aria-label="カテゴリ"><option value="all">すべての職種</option></select>
-        <button id="searchButton">日本から応募できる求人を検索する</button>
+        <button id="searchButton">応募可能な求人を見る</button>
       </div>
       <div class="quick-filters" aria-label="クイックフィルター">
-        <button data-filter="japan">Japan eligible</button>
-        <button data-filter="remote">Remote</button>
-        <button data-filter="japanese">Japanese</button>
-        <button data-filter="usd">USD</button>
+        <button class="active" aria-pressed="true" data-filter="japan">Japan eligible</button>
+        <button aria-pressed="false" data-filter="remote">Remote</button>
+        <button aria-pressed="false" data-filter="japanese">Japanese</button>
+        <button aria-pressed="false" data-filter="usd">USD</button>
       </div>
+      <p class="filter-note">初期表示は <strong>Japan eligible</strong> のみ。必要ならフィルターを外して全件を比較できます。</p>
     </section>
 
     <section class="metrics" id="marketSummary" aria-label="市場サマリー">
-      <article><span>ACTIVE JOBS</span><strong id="metricJobs">0</strong><small>verified records</small></article>
-      <article><span>JAPAN ELIGIBLE</span><strong id="metricJapan">0</strong><small>currently visible</small></article>
+      <article><span>VERIFIED ACTIVE</span><strong id="metricJobs">0</strong><small>current records</small></article>
+      <article><span>JAPAN ELIGIBLE</span><strong id="metricJapan">0</strong><small>confirmed layer</small></article>
       <article><span>REMOTE</span><strong id="metricRemote">0</strong><small>fully remote</small></article>
-      <article><span>AVG. USD / HOUR</span><strong id="metricPay">—</strong><small>hourly listings only</small></article>
+      <article><span>LATEST CHECK</span><strong id="metricFresh">—</strong><small>newest verification</small></article>
     </section>
 
-    <section id="marketSignal" class="partner-section" aria-label="現在の仕事市場シグナル">
+    <section id="marketSignal" class="partner-section" aria-label="現在の応募可能性シグナル">
       <div>
-        <span class="kicker">CURRENT MARKET SIGNAL</span>
-        <h2 id="marketSignalTitle">確認済みOpportunityを解析中</h2>
-        <p id="marketSignalBody">Japan eligible・Remote・USD時給案件から、現在の最上位Signalを抽出しています。</p>
+        <span class="kicker">ACTIONABLE NOW</span>
+        <h2 id="marketSignalTitle">直近確認済みOpportunityを解析中</h2>
+        <p id="marketSignalBody">Japan eligible・公式応募先・確認鮮度を優先して、今確認しやすい求人を抽出しています。</p>
         <small id="marketSignalMeta" class="partner-disclosure"></small>
       </div>
       <a id="marketSignalLink" class="partner-cta" href="#jobs">求人を比較する ↓</a>
@@ -96,7 +100,7 @@
 
     <section class="jobs-section" id="jobs">
       <div class="section-head">
-        <div><span class="kicker">LATEST SIGNALS</span><h2>海外仕事を比較する</h2></div>
+        <div><span class="kicker">ACTIONABLE OPPORTUNITIES</span><h2>日本から次に動ける求人を比較</h2></div>
         <div class="result-count"><strong id="resultCount">0</strong> jobs</div>
       </div>
       <div class="jobs-layout">
@@ -105,10 +109,11 @@
           <label><span>英語レベル</span><select id="english"><option value="all">指定なし</option><option value="A2">A2+</option><option value="B1">B1+</option><option value="B2">B2+</option><option value="C1">C1+</option></select></label>
           <label class="check"><input id="onlyJapan" type="checkbox" /> <span>日本から応募可のみ</span></label>
           <label class="check"><input id="onlyRemote" type="checkbox" /> <span>完全リモートのみ</span></label>
-          <button id="resetFilters" class="ghost">条件をリセット</button>
+          <button id="resetFilters" class="ghost">Japan eligible初期状態へ戻す</button>
         </aside>
         <div>
           <div id="jobsList" class="jobs-list" aria-live="polite"></div>
+          <button id="loadMore" class="load-more" hidden>さらに求人を見る</button>
           <div id="emptyState" class="empty" hidden>条件に一致する求人がありません。条件を少し広げてください。</div>
         </div>
       </div>
@@ -125,11 +130,11 @@
     </section>
 
     <section class="principles" id="about">
-      <div><span class="kicker">HOW IT WORKS</span><h2>求人を抱えず、情報だけを整える。</h2></div>
+      <div><span class="kicker">HOW IT WORKS</span><h2>求人を増やすより、応募できない求人を見る時間を減らす。</h2></div>
       <div class="principle-grid">
-        <article><strong>01</strong><h3>Official first</h3><p>公式企業ページ・公開API・RSSなど、出所を確認できる情報を優先します。</p></article>
-        <article><strong>02</strong><h3>Structured facts</h3><p>全文転載ではなく、勤務地・言語・報酬・雇用形態など比較に必要な情報へ整理します。</p></article>
-        <article><strong>03</strong><h3>External apply</h3><p>Global Work Radarは応募を仲介しません。応募は元の公式ページで行います。</p></article>
+        <article><strong>01</strong><h3>Eligibility first</h3><p>Remote表記だけで判断せず、日本から応募可能と確認できる条件を別Signalとして扱います。</p></article>
+        <article><strong>02</strong><h3>Fresh evidence</h3><p>公式企業ページ・公開API等を優先し、確認時刻とActive状態を使って古いOpportunityを避けます。</p></article>
+        <article><strong>03</strong><h3>Official action</h3><p>Global Work Radarは応募を仲介しません。次の行動は元の公式求人ページへ直接つなぎます。</p></article>
       </div>
     </section>
   </main>
