@@ -1,9 +1,9 @@
 {
   "schema_version": 1,
-  "updated_at": "2026-09-07T08:30:00+09:00",
+  "updated_at": "2026-09-07T09:35:00+09:00",
   "target_cases": 10000,
-  "verified_cases_learned": 456,
-  "baseline_source": "current GWR verified live inventory",
+  "verified_cases_learned": 459,
+  "baseline_source": "current GWR verified live inventory plus evidence-backed external work/reward cases",
   "learning_dimensions": [
     "japan_eligibility",
     "remote_scope",
@@ -24,15 +24,16 @@
   ],
   "reusable_findings": [
     "Remote is not equivalent to Japan eligible, and headline remote pay is not equivalent to attainable Japan pay; keep those dimensions separate.",
-    "Funded/claimable agent bounties can still be poor autonomous revenue routes when they require an Owner-controlled wallet, new funding, or a second independent participant. Score financial and coordination burden before claimability labels."
+    "Funded/claimable agent bounties can still be poor autonomous revenue routes when they require an Owner-controlled wallet, new funding, or a second independent participant. Score financial and coordination burden before claimability labels.",
+    "An open GitHub issue with an Algora bounty marker is not enough to qualify as a fresh revenue route. Check the Algora attempt/reward table, current competition, payout eligibility, demo requirements, and whether the bounty has already produced many rewarded solutions before attempting."
   ],
   "recent_observation": {
-    "observed_at": "2026-09-07T08:30:00+09:00",
+    "observed_at": "2026-09-07T09:35:00+09:00",
     "type": "revenue_route_filter",
-    "summary": "Fresh Agent Bounties discovery surfaced escrowed opportunities, including a September 7-21 competition, but the strongest candidates require an entrant Base wallet, child-bounty funding, and a different eligible solver. These are not autonomous AI-only routes under current authorization.",
-    "action": "CUT wallet-funded multi-party competitions from immediate autonomous execution; continue sensing for funded direct-solver tasks with no Owner financial or identity gate.",
-    "case_count_effect": 0,
-    "reason_not_counted": "These were external revenue-route observations, not new verified GWR opportunity records ingested into the corpus."
+    "summary": "Three current public Algora-linked bounty cases were inspected in detail. Each had explicit payment mechanics and reward evidence, but the apparently open issues already showed extensive historical attempts/rewarded solutions or heavy competition. Open-issue status materially overstates immediate claimability.",
+    "action": "FIX Algora sensing: require live competition and prior-reward-table inspection before scoring apply/claim distance; CUT stale or repeatedly-solved open issues from immediate execution.",
+    "case_count_effect": 3,
+    "reason_counted": "Each case had a real public task, explicit bounty/payment mechanics, and observable attempt/reward outcome evidence sufficient for route scoring."
   },
   "revenue_rule": "No view, visit, search, apply, open checkout, test, bot, automation, or unverified state counts as revenue. Revenue requires verified payment, reward, commission, or paid contract evidence.",
   "next_learning_goal": 1000,
