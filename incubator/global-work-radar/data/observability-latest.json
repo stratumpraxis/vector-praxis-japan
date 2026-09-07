@@ -1,14 +1,14 @@
 {
   "schema_version": 1,
-  "observed_at": "2026-09-07T05:43:40.825Z",
+  "observed_at": "2026-09-07T05:53:54.358Z",
   "run": {
-    "github_run_id": "34087795782",
+    "github_run_id": "34088470138",
     "github_run_attempt": "1",
-    "github_sha": "9d1386ce0c55a9a3b1eccb67ad71f612fb4f61d7",
+    "github_sha": "0fda2155bff638e0418c3bb268cf484ce2ea9470",
     "baseline_ref": "HEAD"
   },
   "inventory": {
-    "previous_count": 455,
+    "previous_count": 454,
     "current_count": 454,
     "source_counts": {
       "lever": 7,
@@ -16,22 +16,3713 @@
     }
   },
   "change_detection": {
-    "meaningful_change_count": 2,
+    "meaningful_change_count": 454,
     "added_count": 0,
-    "removed_count": 1,
-    "changed_count": 1,
+    "removed_count": 0,
+    "changed_count": 454,
     "added_ids": [],
-    "removed_ids": [
-      "workable-195b599a2c"
-    ],
+    "removed_ids": [],
     "changed": [
+      {
+        "id": "rws-ai-data-specialist-japanese",
+        "fields": [
+          "lifecycle_state",
+          "lifecycle_stale_risk",
+          "hiring_intent_level"
+        ]
+      },
+      {
+        "id": "appen-japanese-thai-translation",
+        "fields": [
+          "lifecycle_state",
+          "lifecycle_stale_risk",
+          "hiring_intent_level"
+        ]
+      },
+      {
+        "id": "welo-scout-search-quality-rater-ja",
+        "fields": [
+          "lifecycle_state",
+          "lifecycle_stale_risk",
+          "hiring_intent_level"
+        ]
+      },
+      {
+        "id": "welo-japanese-content-reviewer",
+        "fields": [
+          "lifecycle_state",
+          "lifecycle_stale_risk",
+          "hiring_intent_level"
+        ]
+      },
+      {
+        "id": "welo-maps-relevance-rater-ja",
+        "fields": [
+          "lifecycle_state",
+          "lifecycle_stale_risk",
+          "hiring_intent_level"
+        ]
+      },
+      {
+        "id": "welo-project-epsilon-japanese-data-trainer",
+        "fields": [
+          "lifecycle_state",
+          "lifecycle_stale_risk",
+          "hiring_intent_level"
+        ]
+      },
+      {
+        "id": "welo-ads-quality-rater-japanese",
+        "fields": [
+          "lifecycle_state",
+          "lifecycle_stale_risk",
+          "hiring_intent_level"
+        ]
+      },
+      {
+        "id": "workable-eea57c6ee0",
+        "fields": [
+          "lifecycle_state",
+          "lifecycle_stale_risk",
+          "hiring_intent_level"
+        ]
+      },
+      {
+        "id": "workable-0debd9fc61",
+        "fields": [
+          "lifecycle_state",
+          "lifecycle_stale_risk",
+          "hiring_intent_level"
+        ]
+      },
+      {
+        "id": "workable-fbb0e06b69",
+        "fields": [
+          "lifecycle_state",
+          "lifecycle_stale_risk",
+          "hiring_intent_level"
+        ]
+      },
+      {
+        "id": "workable-1c1be53cdb",
+        "fields": [
+          "lifecycle_state",
+          "lifecycle_stale_risk",
+          "hiring_intent_level"
+        ]
+      },
+      {
+        "id": "workable-629db67629",
+        "fields": [
+          "lifecycle_state",
+          "lifecycle_stale_risk",
+          "hiring_intent_level"
+        ]
+      },
+      {
+        "id": "workable-9134732ca9",
+        "fields": [
+          "lifecycle_state",
+          "lifecycle_stale_risk",
+          "hiring_intent_level"
+        ]
+      },
+      {
+        "id": "workable-cdd7f003d8",
+        "fields": [
+          "lifecycle_state",
+          "lifecycle_stale_risk",
+          "hiring_intent_level"
+        ]
+      },
+      {
+        "id": "workable-3d80317f09",
+        "fields": [
+          "lifecycle_state",
+          "lifecycle_stale_risk",
+          "hiring_intent_level"
+        ]
+      },
+      {
+        "id": "workable-f08ecc04d8",
+        "fields": [
+          "lifecycle_state",
+          "lifecycle_stale_risk",
+          "hiring_intent_level"
+        ]
+      },
+      {
+        "id": "workable-44b2567a99",
+        "fields": [
+          "lifecycle_state",
+          "lifecycle_stale_risk",
+          "hiring_intent_level"
+        ]
+      },
+      {
+        "id": "workable-df08d17fe2",
+        "fields": [
+          "lifecycle_state",
+          "lifecycle_stale_risk",
+          "hiring_intent_level"
+        ]
+      },
+      {
+        "id": "workable-14cb8e9594",
+        "fields": [
+          "lifecycle_state",
+          "lifecycle_stale_risk",
+          "hiring_intent_level"
+        ]
+      },
+      {
+        "id": "workable-2bc7b3e24a",
+        "fields": [
+          "lifecycle_state",
+          "lifecycle_stale_risk",
+          "hiring_intent_level"
+        ]
+      },
+      {
+        "id": "workable-ad45131703",
+        "fields": [
+          "lifecycle_state",
+          "lifecycle_stale_risk",
+          "hiring_intent_level"
+        ]
+      },
+      {
+        "id": "workable-50cf31d307",
+        "fields": [
+          "lifecycle_state",
+          "lifecycle_stale_risk",
+          "hiring_intent_level"
+        ]
+      },
+      {
+        "id": "workable-4534afa276",
+        "fields": [
+          "lifecycle_state",
+          "lifecycle_stale_risk",
+          "hiring_intent_level"
+        ]
+      },
+      {
+        "id": "workable-8dee959fab",
+        "fields": [
+          "lifecycle_state",
+          "lifecycle_stale_risk",
+          "hiring_intent_level"
+        ]
+      },
+      {
+        "id": "workable-b889e3ec4c",
+        "fields": [
+          "lifecycle_state",
+          "lifecycle_stale_risk",
+          "hiring_intent_level"
+        ]
+      },
+      {
+        "id": "workable-ffc36ff743",
+        "fields": [
+          "lifecycle_state",
+          "lifecycle_stale_risk",
+          "hiring_intent_level"
+        ]
+      },
+      {
+        "id": "workable-c6d7de88cf",
+        "fields": [
+          "lifecycle_state",
+          "lifecycle_stale_risk",
+          "hiring_intent_level"
+        ]
+      },
+      {
+        "id": "workable-2f1c0fb66b",
+        "fields": [
+          "lifecycle_state",
+          "lifecycle_stale_risk",
+          "hiring_intent_level"
+        ]
+      },
+      {
+        "id": "workable-26eaec0289",
+        "fields": [
+          "lifecycle_state",
+          "lifecycle_stale_risk",
+          "hiring_intent_level"
+        ]
+      },
+      {
+        "id": "workable-012fc4d983",
+        "fields": [
+          "lifecycle_state",
+          "lifecycle_stale_risk",
+          "hiring_intent_level"
+        ]
+      },
+      {
+        "id": "workable-b2f4f2a75a",
+        "fields": [
+          "lifecycle_state",
+          "lifecycle_stale_risk",
+          "hiring_intent_level"
+        ]
+      },
+      {
+        "id": "workable-8456d135c8",
+        "fields": [
+          "lifecycle_state",
+          "lifecycle_stale_risk",
+          "hiring_intent_level"
+        ]
+      },
+      {
+        "id": "workable-6eb7e5aae9",
+        "fields": [
+          "lifecycle_state",
+          "lifecycle_stale_risk",
+          "hiring_intent_level"
+        ]
+      },
+      {
+        "id": "workable-1835a11bd7",
+        "fields": [
+          "lifecycle_state",
+          "lifecycle_stale_risk",
+          "hiring_intent_level"
+        ]
+      },
+      {
+        "id": "workable-645a10cd7c",
+        "fields": [
+          "lifecycle_state",
+          "lifecycle_stale_risk",
+          "hiring_intent_level"
+        ]
+      },
+      {
+        "id": "workable-c0bf8df48a",
+        "fields": [
+          "hiring_momentum_state",
+          "lifecycle_state",
+          "lifecycle_stale_risk",
+          "hiring_intent_level"
+        ]
+      },
+      {
+        "id": "workable-ee92418aa3",
+        "fields": [
+          "lifecycle_state",
+          "lifecycle_stale_risk",
+          "hiring_intent_level"
+        ]
+      },
+      {
+        "id": "workable-cf0abad580",
+        "fields": [
+          "lifecycle_state",
+          "lifecycle_stale_risk",
+          "hiring_intent_level"
+        ]
+      },
+      {
+        "id": "workable-93f73fcfd9",
+        "fields": [
+          "lifecycle_state",
+          "lifecycle_stale_risk",
+          "hiring_intent_level"
+        ]
+      },
+      {
+        "id": "workable-af9b7a6e30",
+        "fields": [
+          "lifecycle_state",
+          "lifecycle_stale_risk",
+          "hiring_intent_level"
+        ]
+      },
+      {
+        "id": "workable-c2bdf5efab",
+        "fields": [
+          "lifecycle_state",
+          "lifecycle_stale_risk",
+          "hiring_intent_level"
+        ]
+      },
+      {
+        "id": "workable-3776e1fb87",
+        "fields": [
+          "lifecycle_state",
+          "lifecycle_stale_risk",
+          "hiring_intent_level"
+        ]
+      },
+      {
+        "id": "workable-72afaff491",
+        "fields": [
+          "lifecycle_state",
+          "lifecycle_stale_risk",
+          "hiring_intent_level"
+        ]
+      },
+      {
+        "id": "workable-b7d8449cb1",
+        "fields": [
+          "lifecycle_state",
+          "lifecycle_stale_risk",
+          "hiring_intent_level"
+        ]
+      },
+      {
+        "id": "workable-3c04f92b5f",
+        "fields": [
+          "lifecycle_state",
+          "lifecycle_stale_risk",
+          "hiring_intent_level"
+        ]
+      },
+      {
+        "id": "workable-f92557cf4c",
+        "fields": [
+          "lifecycle_state",
+          "lifecycle_stale_risk",
+          "hiring_intent_level"
+        ]
+      },
+      {
+        "id": "workable-5510ff9c88",
+        "fields": [
+          "lifecycle_state",
+          "lifecycle_stale_risk",
+          "hiring_intent_level"
+        ]
+      },
+      {
+        "id": "workable-4a21a651d4",
+        "fields": [
+          "lifecycle_state",
+          "lifecycle_stale_risk",
+          "hiring_intent_level"
+        ]
+      },
+      {
+        "id": "workable-ccb1816009",
+        "fields": [
+          "lifecycle_state",
+          "lifecycle_stale_risk",
+          "hiring_intent_level"
+        ]
+      },
+      {
+        "id": "workable-4006265775",
+        "fields": [
+          "lifecycle_state",
+          "lifecycle_stale_risk",
+          "hiring_intent_level"
+        ]
+      },
+      {
+        "id": "workable-a335b713f4",
+        "fields": [
+          "lifecycle_state",
+          "lifecycle_stale_risk",
+          "hiring_intent_level"
+        ]
+      },
+      {
+        "id": "workable-35e51b79a9",
+        "fields": [
+          "lifecycle_state",
+          "lifecycle_stale_risk",
+          "hiring_intent_level"
+        ]
+      },
+      {
+        "id": "workable-2584b2186b",
+        "fields": [
+          "lifecycle_state",
+          "lifecycle_stale_risk",
+          "hiring_intent_level"
+        ]
+      },
+      {
+        "id": "workable-4c15cdd484",
+        "fields": [
+          "lifecycle_state",
+          "lifecycle_stale_risk",
+          "hiring_intent_level"
+        ]
+      },
+      {
+        "id": "workable-8bbd3702f9",
+        "fields": [
+          "lifecycle_state",
+          "lifecycle_stale_risk",
+          "hiring_intent_level"
+        ]
+      },
+      {
+        "id": "workable-0b1d27bd70",
+        "fields": [
+          "lifecycle_state",
+          "lifecycle_stale_risk",
+          "hiring_intent_level"
+        ]
+      },
+      {
+        "id": "workable-82d7518973",
+        "fields": [
+          "lifecycle_state",
+          "lifecycle_stale_risk",
+          "hiring_intent_level"
+        ]
+      },
+      {
+        "id": "workable-7afb08df16",
+        "fields": [
+          "lifecycle_state",
+          "lifecycle_stale_risk",
+          "hiring_intent_level"
+        ]
+      },
+      {
+        "id": "workable-0eb2685003",
+        "fields": [
+          "lifecycle_state",
+          "lifecycle_stale_risk",
+          "hiring_intent_level"
+        ]
+      },
+      {
+        "id": "workable-52a535b707",
+        "fields": [
+          "lifecycle_state",
+          "lifecycle_stale_risk",
+          "hiring_intent_level"
+        ]
+      },
+      {
+        "id": "workable-adcea5c63d",
+        "fields": [
+          "lifecycle_state",
+          "lifecycle_stale_risk",
+          "hiring_intent_level"
+        ]
+      },
+      {
+        "id": "workable-04ed5aa65f",
+        "fields": [
+          "lifecycle_state",
+          "lifecycle_stale_risk",
+          "hiring_intent_level"
+        ]
+      },
+      {
+        "id": "workable-60c504e70b",
+        "fields": [
+          "lifecycle_state",
+          "lifecycle_stale_risk",
+          "hiring_intent_level"
+        ]
+      },
+      {
+        "id": "workable-2491771220",
+        "fields": [
+          "lifecycle_state",
+          "lifecycle_stale_risk",
+          "hiring_intent_level"
+        ]
+      },
+      {
+        "id": "workable-7066a95e5c",
+        "fields": [
+          "lifecycle_state",
+          "lifecycle_stale_risk",
+          "hiring_intent_level"
+        ]
+      },
+      {
+        "id": "workable-9700794743",
+        "fields": [
+          "lifecycle_state",
+          "lifecycle_stale_risk",
+          "hiring_intent_level"
+        ]
+      },
+      {
+        "id": "workable-880a60b611",
+        "fields": [
+          "lifecycle_state",
+          "lifecycle_stale_risk",
+          "hiring_intent_level"
+        ]
+      },
+      {
+        "id": "workable-c489180ebf",
+        "fields": [
+          "lifecycle_state",
+          "lifecycle_stale_risk",
+          "hiring_intent_level"
+        ]
+      },
+      {
+        "id": "workable-2ed6e15a34",
+        "fields": [
+          "lifecycle_state",
+          "lifecycle_stale_risk",
+          "hiring_intent_level"
+        ]
+      },
+      {
+        "id": "workable-96b9908270",
+        "fields": [
+          "lifecycle_state",
+          "lifecycle_stale_risk",
+          "hiring_intent_level"
+        ]
+      },
+      {
+        "id": "workable-650401fd75",
+        "fields": [
+          "lifecycle_state",
+          "lifecycle_stale_risk",
+          "hiring_intent_level"
+        ]
+      },
+      {
+        "id": "workable-089e240467",
+        "fields": [
+          "lifecycle_state",
+          "lifecycle_stale_risk",
+          "hiring_intent_level"
+        ]
+      },
+      {
+        "id": "workable-d144a37f32",
+        "fields": [
+          "lifecycle_state",
+          "lifecycle_stale_risk",
+          "hiring_intent_level"
+        ]
+      },
+      {
+        "id": "workable-a1ab519400",
+        "fields": [
+          "lifecycle_state",
+          "lifecycle_stale_risk",
+          "hiring_intent_level"
+        ]
+      },
+      {
+        "id": "workable-e33749b0a4",
+        "fields": [
+          "lifecycle_state",
+          "lifecycle_stale_risk",
+          "hiring_intent_level"
+        ]
+      },
+      {
+        "id": "workable-3ee3968348",
+        "fields": [
+          "lifecycle_state",
+          "lifecycle_stale_risk",
+          "hiring_intent_level"
+        ]
+      },
+      {
+        "id": "workable-3863da2d2d",
+        "fields": [
+          "lifecycle_state",
+          "lifecycle_stale_risk",
+          "hiring_intent_level"
+        ]
+      },
+      {
+        "id": "workable-31ec65c469",
+        "fields": [
+          "lifecycle_state",
+          "lifecycle_stale_risk",
+          "hiring_intent_level"
+        ]
+      },
+      {
+        "id": "workable-b9964f098a",
+        "fields": [
+          "lifecycle_state",
+          "lifecycle_stale_risk",
+          "hiring_intent_level"
+        ]
+      },
+      {
+        "id": "workable-2c84eab49c",
+        "fields": [
+          "lifecycle_state",
+          "lifecycle_stale_risk",
+          "hiring_intent_level"
+        ]
+      },
+      {
+        "id": "workable-3fd706417c",
+        "fields": [
+          "lifecycle_state",
+          "lifecycle_stale_risk",
+          "hiring_intent_level"
+        ]
+      },
+      {
+        "id": "workable-7fff232185",
+        "fields": [
+          "lifecycle_state",
+          "lifecycle_stale_risk",
+          "hiring_intent_level"
+        ]
+      },
+      {
+        "id": "workable-2cd6e6eff4",
+        "fields": [
+          "lifecycle_state",
+          "lifecycle_stale_risk",
+          "hiring_intent_level"
+        ]
+      },
+      {
+        "id": "workable-225b4123b8",
+        "fields": [
+          "lifecycle_state",
+          "lifecycle_stale_risk",
+          "hiring_intent_level"
+        ]
+      },
+      {
+        "id": "workable-a44c192f7d",
+        "fields": [
+          "lifecycle_state",
+          "lifecycle_stale_risk",
+          "hiring_intent_level"
+        ]
+      },
+      {
+        "id": "workable-0eceefe5df",
+        "fields": [
+          "lifecycle_state",
+          "lifecycle_stale_risk",
+          "hiring_intent_level"
+        ]
+      },
+      {
+        "id": "workable-9708d89c23",
+        "fields": [
+          "lifecycle_state",
+          "lifecycle_stale_risk",
+          "hiring_intent_level"
+        ]
+      },
+      {
+        "id": "workable-acb8ceab30",
+        "fields": [
+          "lifecycle_state",
+          "lifecycle_stale_risk",
+          "hiring_intent_level"
+        ]
+      },
+      {
+        "id": "workable-6b799781d8",
+        "fields": [
+          "lifecycle_state",
+          "lifecycle_stale_risk",
+          "hiring_intent_level"
+        ]
+      },
+      {
+        "id": "workable-a32b52f1c9",
+        "fields": [
+          "lifecycle_state",
+          "lifecycle_stale_risk",
+          "hiring_intent_level"
+        ]
+      },
+      {
+        "id": "workable-511b3ecff5",
+        "fields": [
+          "lifecycle_state",
+          "lifecycle_stale_risk",
+          "hiring_intent_level"
+        ]
+      },
+      {
+        "id": "workable-76130c5870",
+        "fields": [
+          "lifecycle_state",
+          "lifecycle_stale_risk",
+          "hiring_intent_level"
+        ]
+      },
+      {
+        "id": "workable-f92aed4196",
+        "fields": [
+          "lifecycle_state",
+          "lifecycle_stale_risk",
+          "hiring_intent_level"
+        ]
+      },
+      {
+        "id": "workable-82fcd309b3",
+        "fields": [
+          "hiring_momentum_state",
+          "lifecycle_state",
+          "lifecycle_stale_risk",
+          "hiring_intent_level"
+        ]
+      },
+      {
+        "id": "workable-c2694e8957",
+        "fields": [
+          "lifecycle_state",
+          "lifecycle_stale_risk",
+          "hiring_intent_level"
+        ]
+      },
+      {
+        "id": "workable-11d91c8fe9",
+        "fields": [
+          "lifecycle_state",
+          "lifecycle_stale_risk",
+          "hiring_intent_level"
+        ]
+      },
+      {
+        "id": "workable-21a4274921",
+        "fields": [
+          "lifecycle_state",
+          "lifecycle_stale_risk",
+          "hiring_intent_level"
+        ]
+      },
+      {
+        "id": "workable-aae8d6269a",
+        "fields": [
+          "lifecycle_state",
+          "lifecycle_stale_risk",
+          "hiring_intent_level"
+        ]
+      },
+      {
+        "id": "workable-98e3b4ff2d",
+        "fields": [
+          "lifecycle_state",
+          "lifecycle_stale_risk",
+          "hiring_intent_level"
+        ]
+      },
+      {
+        "id": "workable-86941312bb",
+        "fields": [
+          "lifecycle_state",
+          "lifecycle_stale_risk",
+          "hiring_intent_level"
+        ]
+      },
+      {
+        "id": "workable-41f439e0a6",
+        "fields": [
+          "lifecycle_state",
+          "lifecycle_stale_risk",
+          "hiring_intent_level"
+        ]
+      },
+      {
+        "id": "workable-6b151a6914",
+        "fields": [
+          "lifecycle_state",
+          "lifecycle_stale_risk",
+          "hiring_intent_level"
+        ]
+      },
+      {
+        "id": "workable-d27bc4d685",
+        "fields": [
+          "lifecycle_state",
+          "lifecycle_stale_risk",
+          "hiring_intent_level"
+        ]
+      },
+      {
+        "id": "workable-450c7cea45",
+        "fields": [
+          "lifecycle_state",
+          "lifecycle_stale_risk",
+          "hiring_intent_level"
+        ]
+      },
+      {
+        "id": "workable-d71790711b",
+        "fields": [
+          "lifecycle_state",
+          "lifecycle_stale_risk",
+          "hiring_intent_level"
+        ]
+      },
+      {
+        "id": "workable-4e88c4845e",
+        "fields": [
+          "lifecycle_state",
+          "lifecycle_stale_risk",
+          "hiring_intent_level"
+        ]
+      },
+      {
+        "id": "workable-2079229813",
+        "fields": [
+          "lifecycle_state",
+          "lifecycle_stale_risk",
+          "hiring_intent_level"
+        ]
+      },
+      {
+        "id": "workable-a2ab44cd68",
+        "fields": [
+          "lifecycle_state",
+          "lifecycle_stale_risk",
+          "hiring_intent_level"
+        ]
+      },
+      {
+        "id": "workable-e56d227bc8",
+        "fields": [
+          "lifecycle_state",
+          "lifecycle_stale_risk",
+          "hiring_intent_level"
+        ]
+      },
+      {
+        "id": "workable-2416ec5ae6",
+        "fields": [
+          "lifecycle_state",
+          "lifecycle_stale_risk",
+          "hiring_intent_level"
+        ]
+      },
+      {
+        "id": "workable-6f2f664d12",
+        "fields": [
+          "hiring_momentum_state",
+          "lifecycle_state",
+          "lifecycle_stale_risk",
+          "hiring_intent_level"
+        ]
+      },
+      {
+        "id": "workable-d52d556b86",
+        "fields": [
+          "lifecycle_state",
+          "lifecycle_stale_risk",
+          "hiring_intent_level"
+        ]
+      },
+      {
+        "id": "workable-e37cb454e0",
+        "fields": [
+          "lifecycle_state",
+          "lifecycle_stale_risk",
+          "hiring_intent_level"
+        ]
+      },
+      {
+        "id": "workable-135a66bbd4",
+        "fields": [
+          "hiring_momentum_state",
+          "lifecycle_state",
+          "lifecycle_stale_risk",
+          "hiring_intent_level"
+        ]
+      },
+      {
+        "id": "workable-f500af51dd",
+        "fields": [
+          "lifecycle_state",
+          "lifecycle_stale_risk",
+          "hiring_intent_level"
+        ]
+      },
+      {
+        "id": "workable-85a4766c1d",
+        "fields": [
+          "lifecycle_state",
+          "lifecycle_stale_risk",
+          "hiring_intent_level"
+        ]
+      },
+      {
+        "id": "workable-69cc84d10f",
+        "fields": [
+          "lifecycle_state",
+          "lifecycle_stale_risk",
+          "hiring_intent_level"
+        ]
+      },
+      {
+        "id": "workable-fb40eeb840",
+        "fields": [
+          "lifecycle_state",
+          "lifecycle_stale_risk",
+          "hiring_intent_level"
+        ]
+      },
+      {
+        "id": "workable-3f37a8f3c8",
+        "fields": [
+          "lifecycle_state",
+          "lifecycle_stale_risk",
+          "hiring_intent_level"
+        ]
+      },
+      {
+        "id": "workable-e1e8437ad8",
+        "fields": [
+          "lifecycle_state",
+          "lifecycle_stale_risk",
+          "hiring_intent_level"
+        ]
+      },
+      {
+        "id": "workable-40ccf0db57",
+        "fields": [
+          "lifecycle_state",
+          "lifecycle_stale_risk",
+          "hiring_intent_level"
+        ]
+      },
+      {
+        "id": "workable-7117e6a64a",
+        "fields": [
+          "lifecycle_state",
+          "lifecycle_stale_risk",
+          "hiring_intent_level"
+        ]
+      },
+      {
+        "id": "workable-9a29453184",
+        "fields": [
+          "lifecycle_state",
+          "lifecycle_stale_risk",
+          "hiring_intent_level"
+        ]
+      },
+      {
+        "id": "workable-4be8080efb",
+        "fields": [
+          "lifecycle_state",
+          "lifecycle_stale_risk",
+          "hiring_intent_level"
+        ]
+      },
+      {
+        "id": "workable-4d3720f4c3",
+        "fields": [
+          "lifecycle_state",
+          "lifecycle_stale_risk",
+          "hiring_intent_level"
+        ]
+      },
+      {
+        "id": "workable-a28b1d7585",
+        "fields": [
+          "lifecycle_state",
+          "lifecycle_stale_risk",
+          "hiring_intent_level"
+        ]
+      },
+      {
+        "id": "workable-be1ea84eab",
+        "fields": [
+          "lifecycle_state",
+          "lifecycle_stale_risk",
+          "hiring_intent_level"
+        ]
+      },
+      {
+        "id": "workable-6f14d9904f",
+        "fields": [
+          "lifecycle_state",
+          "lifecycle_stale_risk",
+          "hiring_intent_level"
+        ]
+      },
+      {
+        "id": "workable-22ed3d67c0",
+        "fields": [
+          "lifecycle_state",
+          "lifecycle_stale_risk",
+          "hiring_intent_level"
+        ]
+      },
+      {
+        "id": "workable-431fce5084",
+        "fields": [
+          "lifecycle_state",
+          "lifecycle_stale_risk",
+          "hiring_intent_level"
+        ]
+      },
+      {
+        "id": "workable-6a42996879",
+        "fields": [
+          "lifecycle_state",
+          "lifecycle_stale_risk",
+          "hiring_intent_level"
+        ]
+      },
+      {
+        "id": "workable-f6b5fc653f",
+        "fields": [
+          "lifecycle_state",
+          "lifecycle_stale_risk",
+          "hiring_intent_level"
+        ]
+      },
+      {
+        "id": "workable-6ce68c228e",
+        "fields": [
+          "lifecycle_state",
+          "lifecycle_stale_risk",
+          "hiring_intent_level"
+        ]
+      },
+      {
+        "id": "workable-650d64cd6f",
+        "fields": [
+          "lifecycle_state",
+          "lifecycle_stale_risk",
+          "hiring_intent_level"
+        ]
+      },
+      {
+        "id": "workable-2ce9b93480",
+        "fields": [
+          "lifecycle_state",
+          "lifecycle_stale_risk",
+          "hiring_intent_level"
+        ]
+      },
+      {
+        "id": "workable-5d2da7007d",
+        "fields": [
+          "lifecycle_state",
+          "lifecycle_stale_risk",
+          "hiring_intent_level"
+        ]
+      },
+      {
+        "id": "workable-99f29605ec",
+        "fields": [
+          "lifecycle_state",
+          "lifecycle_stale_risk",
+          "hiring_intent_level"
+        ]
+      },
+      {
+        "id": "workable-ec5a1078c4",
+        "fields": [
+          "lifecycle_state",
+          "lifecycle_stale_risk",
+          "hiring_intent_level"
+        ]
+      },
+      {
+        "id": "workable-498e9dc0f9",
+        "fields": [
+          "lifecycle_state",
+          "lifecycle_stale_risk",
+          "hiring_intent_level"
+        ]
+      },
+      {
+        "id": "workable-5e75189229",
+        "fields": [
+          "lifecycle_state",
+          "lifecycle_stale_risk",
+          "hiring_intent_level"
+        ]
+      },
+      {
+        "id": "workable-eaa43ae136",
+        "fields": [
+          "lifecycle_state",
+          "lifecycle_stale_risk",
+          "hiring_intent_level"
+        ]
+      },
+      {
+        "id": "workable-a71d279ca9",
+        "fields": [
+          "lifecycle_state",
+          "lifecycle_stale_risk",
+          "hiring_intent_level"
+        ]
+      },
+      {
+        "id": "workable-5da4203471",
+        "fields": [
+          "lifecycle_state",
+          "lifecycle_stale_risk",
+          "hiring_intent_level"
+        ]
+      },
+      {
+        "id": "workable-5d361c8b01",
+        "fields": [
+          "lifecycle_state",
+          "lifecycle_stale_risk",
+          "hiring_intent_level"
+        ]
+      },
+      {
+        "id": "workable-3b4993db59",
+        "fields": [
+          "lifecycle_state",
+          "lifecycle_stale_risk",
+          "hiring_intent_level"
+        ]
+      },
+      {
+        "id": "workable-041cee8095",
+        "fields": [
+          "lifecycle_state",
+          "lifecycle_stale_risk",
+          "hiring_intent_level"
+        ]
+      },
+      {
+        "id": "workable-ae6981b648",
+        "fields": [
+          "lifecycle_state",
+          "lifecycle_stale_risk",
+          "hiring_intent_level"
+        ]
+      },
+      {
+        "id": "workable-ecf97a7eea",
+        "fields": [
+          "lifecycle_state",
+          "lifecycle_stale_risk",
+          "hiring_intent_level"
+        ]
+      },
+      {
+        "id": "workable-b004fc6548",
+        "fields": [
+          "lifecycle_state",
+          "lifecycle_stale_risk",
+          "hiring_intent_level"
+        ]
+      },
+      {
+        "id": "workable-dfc84399c1",
+        "fields": [
+          "lifecycle_state",
+          "lifecycle_stale_risk",
+          "hiring_intent_level"
+        ]
+      },
+      {
+        "id": "workable-135c9aaa7f",
+        "fields": [
+          "lifecycle_state",
+          "lifecycle_stale_risk",
+          "hiring_intent_level"
+        ]
+      },
+      {
+        "id": "workable-2010960a50",
+        "fields": [
+          "lifecycle_state",
+          "lifecycle_stale_risk",
+          "hiring_intent_level"
+        ]
+      },
+      {
+        "id": "workable-124bed571b",
+        "fields": [
+          "lifecycle_state",
+          "lifecycle_stale_risk",
+          "hiring_intent_level"
+        ]
+      },
+      {
+        "id": "workable-d4a368746c",
+        "fields": [
+          "lifecycle_state",
+          "lifecycle_stale_risk",
+          "hiring_intent_level"
+        ]
+      },
+      {
+        "id": "workable-8cbe38d430",
+        "fields": [
+          "lifecycle_state",
+          "lifecycle_stale_risk",
+          "hiring_intent_level"
+        ]
+      },
+      {
+        "id": "workable-437e5440df",
+        "fields": [
+          "lifecycle_state",
+          "lifecycle_stale_risk",
+          "hiring_intent_level"
+        ]
+      },
+      {
+        "id": "workable-8fadf03758",
+        "fields": [
+          "lifecycle_state",
+          "lifecycle_stale_risk",
+          "hiring_intent_level"
+        ]
+      },
+      {
+        "id": "workable-f46a524a6b",
+        "fields": [
+          "lifecycle_state",
+          "lifecycle_stale_risk",
+          "hiring_intent_level"
+        ]
+      },
+      {
+        "id": "workable-7899692b69",
+        "fields": [
+          "lifecycle_state",
+          "lifecycle_stale_risk",
+          "hiring_intent_level"
+        ]
+      },
+      {
+        "id": "workable-4ddf7cfbd9",
+        "fields": [
+          "lifecycle_state",
+          "lifecycle_stale_risk",
+          "hiring_intent_level"
+        ]
+      },
+      {
+        "id": "workable-9afc68760a",
+        "fields": [
+          "lifecycle_state",
+          "lifecycle_stale_risk",
+          "hiring_intent_level"
+        ]
+      },
+      {
+        "id": "workable-bbfb35d93d",
+        "fields": [
+          "lifecycle_state",
+          "lifecycle_stale_risk",
+          "hiring_intent_level"
+        ]
+      },
+      {
+        "id": "workable-11021fa6ad",
+        "fields": [
+          "lifecycle_state",
+          "lifecycle_stale_risk",
+          "hiring_intent_level"
+        ]
+      },
+      {
+        "id": "workable-03b400cbf3",
+        "fields": [
+          "lifecycle_state",
+          "lifecycle_stale_risk",
+          "hiring_intent_level"
+        ]
+      },
+      {
+        "id": "workable-e10b2ac6b0",
+        "fields": [
+          "lifecycle_state",
+          "lifecycle_stale_risk",
+          "hiring_intent_level"
+        ]
+      },
+      {
+        "id": "workable-37f7a528f4",
+        "fields": [
+          "lifecycle_state",
+          "lifecycle_stale_risk",
+          "hiring_intent_level"
+        ]
+      },
+      {
+        "id": "workable-274f6b4a1d",
+        "fields": [
+          "lifecycle_state",
+          "lifecycle_stale_risk",
+          "hiring_intent_level"
+        ]
+      },
+      {
+        "id": "workable-568d94c5a0",
+        "fields": [
+          "lifecycle_state",
+          "lifecycle_stale_risk",
+          "hiring_intent_level"
+        ]
+      },
+      {
+        "id": "workable-368fea548c",
+        "fields": [
+          "lifecycle_state",
+          "lifecycle_stale_risk",
+          "hiring_intent_level"
+        ]
+      },
+      {
+        "id": "workable-7c0f262854",
+        "fields": [
+          "lifecycle_state",
+          "lifecycle_stale_risk",
+          "hiring_intent_level"
+        ]
+      },
+      {
+        "id": "workable-8928b60bae",
+        "fields": [
+          "lifecycle_state",
+          "lifecycle_stale_risk",
+          "hiring_intent_level"
+        ]
+      },
+      {
+        "id": "workable-246e90f168",
+        "fields": [
+          "lifecycle_state",
+          "lifecycle_stale_risk",
+          "hiring_intent_level"
+        ]
+      },
+      {
+        "id": "workable-c1dc3a5213",
+        "fields": [
+          "lifecycle_state",
+          "lifecycle_stale_risk",
+          "hiring_intent_level"
+        ]
+      },
+      {
+        "id": "workable-c7a5c3e911",
+        "fields": [
+          "lifecycle_state",
+          "lifecycle_stale_risk",
+          "hiring_intent_level"
+        ]
+      },
+      {
+        "id": "workable-40b5669092",
+        "fields": [
+          "lifecycle_state",
+          "lifecycle_stale_risk",
+          "hiring_intent_level"
+        ]
+      },
+      {
+        "id": "workable-6490add6a2",
+        "fields": [
+          "lifecycle_state",
+          "lifecycle_stale_risk",
+          "hiring_intent_level"
+        ]
+      },
+      {
+        "id": "workable-062ed272b1",
+        "fields": [
+          "lifecycle_state",
+          "lifecycle_stale_risk",
+          "hiring_intent_level"
+        ]
+      },
+      {
+        "id": "workable-0cc277ec8d",
+        "fields": [
+          "lifecycle_state",
+          "lifecycle_stale_risk",
+          "hiring_intent_level"
+        ]
+      },
+      {
+        "id": "workable-adf7837e4d",
+        "fields": [
+          "lifecycle_state",
+          "lifecycle_stale_risk",
+          "hiring_intent_level"
+        ]
+      },
+      {
+        "id": "workable-19747fd523",
+        "fields": [
+          "lifecycle_state",
+          "lifecycle_stale_risk",
+          "hiring_intent_level"
+        ]
+      },
+      {
+        "id": "workable-abe4773ad7",
+        "fields": [
+          "lifecycle_state",
+          "lifecycle_stale_risk",
+          "hiring_intent_level"
+        ]
+      },
+      {
+        "id": "workable-547acb42c2",
+        "fields": [
+          "lifecycle_state",
+          "lifecycle_stale_risk",
+          "hiring_intent_level"
+        ]
+      },
+      {
+        "id": "workable-c51f14bcb4",
+        "fields": [
+          "lifecycle_state",
+          "lifecycle_stale_risk",
+          "hiring_intent_level"
+        ]
+      },
+      {
+        "id": "workable-c6edb915ef",
+        "fields": [
+          "lifecycle_state",
+          "lifecycle_stale_risk",
+          "hiring_intent_level"
+        ]
+      },
+      {
+        "id": "workable-2cb46ec764",
+        "fields": [
+          "lifecycle_state",
+          "lifecycle_stale_risk",
+          "hiring_intent_level"
+        ]
+      },
+      {
+        "id": "workable-53aaa48c7f",
+        "fields": [
+          "lifecycle_state",
+          "lifecycle_stale_risk",
+          "hiring_intent_level"
+        ]
+      },
+      {
+        "id": "workable-599321a9c5",
+        "fields": [
+          "lifecycle_state",
+          "lifecycle_stale_risk",
+          "hiring_intent_level"
+        ]
+      },
+      {
+        "id": "workable-b013b19315",
+        "fields": [
+          "lifecycle_state",
+          "lifecycle_stale_risk",
+          "hiring_intent_level"
+        ]
+      },
+      {
+        "id": "workable-113b4bf983",
+        "fields": [
+          "lifecycle_state",
+          "lifecycle_stale_risk",
+          "hiring_intent_level"
+        ]
+      },
+      {
+        "id": "workable-f4a1e04198",
+        "fields": [
+          "lifecycle_state",
+          "lifecycle_stale_risk",
+          "hiring_intent_level"
+        ]
+      },
+      {
+        "id": "workable-624f89f225",
+        "fields": [
+          "lifecycle_state",
+          "lifecycle_stale_risk",
+          "hiring_intent_level"
+        ]
+      },
+      {
+        "id": "workable-195adffb77",
+        "fields": [
+          "lifecycle_state",
+          "lifecycle_stale_risk",
+          "hiring_intent_level"
+        ]
+      },
+      {
+        "id": "workable-f4f240cc09",
+        "fields": [
+          "lifecycle_state",
+          "lifecycle_stale_risk",
+          "hiring_intent_level"
+        ]
+      },
+      {
+        "id": "workable-d6701297cc",
+        "fields": [
+          "lifecycle_state",
+          "lifecycle_stale_risk",
+          "hiring_intent_level"
+        ]
+      },
+      {
+        "id": "workable-969bfe938a",
+        "fields": [
+          "lifecycle_state",
+          "lifecycle_stale_risk",
+          "hiring_intent_level"
+        ]
+      },
+      {
+        "id": "workable-2d2d6fd52b",
+        "fields": [
+          "lifecycle_state",
+          "lifecycle_stale_risk",
+          "hiring_intent_level"
+        ]
+      },
+      {
+        "id": "workable-6c2ca259d3",
+        "fields": [
+          "lifecycle_state",
+          "lifecycle_stale_risk",
+          "hiring_intent_level"
+        ]
+      },
+      {
+        "id": "workable-35a8b8be51",
+        "fields": [
+          "lifecycle_state",
+          "lifecycle_stale_risk",
+          "hiring_intent_level"
+        ]
+      },
+      {
+        "id": "workable-5110ad7732",
+        "fields": [
+          "lifecycle_state",
+          "lifecycle_stale_risk",
+          "hiring_intent_level"
+        ]
+      },
+      {
+        "id": "workable-12d52e195f",
+        "fields": [
+          "lifecycle_state",
+          "lifecycle_stale_risk",
+          "hiring_intent_level"
+        ]
+      },
+      {
+        "id": "workable-a8fac0e4ba",
+        "fields": [
+          "lifecycle_state",
+          "lifecycle_stale_risk",
+          "hiring_intent_level"
+        ]
+      },
+      {
+        "id": "workable-4cce3b5f5e",
+        "fields": [
+          "lifecycle_state",
+          "lifecycle_stale_risk",
+          "hiring_intent_level"
+        ]
+      },
+      {
+        "id": "workable-f87d09534b",
+        "fields": [
+          "lifecycle_state",
+          "lifecycle_stale_risk",
+          "hiring_intent_level"
+        ]
+      },
+      {
+        "id": "workable-4b5f2c13ae",
+        "fields": [
+          "lifecycle_state",
+          "lifecycle_stale_risk",
+          "hiring_intent_level"
+        ]
+      },
+      {
+        "id": "workable-71eff4390f",
+        "fields": [
+          "lifecycle_state",
+          "lifecycle_stale_risk",
+          "hiring_intent_level"
+        ]
+      },
+      {
+        "id": "workable-02861e3075",
+        "fields": [
+          "lifecycle_state",
+          "lifecycle_stale_risk",
+          "hiring_intent_level"
+        ]
+      },
+      {
+        "id": "workable-d9b3cf27e9",
+        "fields": [
+          "lifecycle_state",
+          "lifecycle_stale_risk",
+          "hiring_intent_level"
+        ]
+      },
+      {
+        "id": "workable-d845e79830",
+        "fields": [
+          "lifecycle_state",
+          "lifecycle_stale_risk",
+          "hiring_intent_level"
+        ]
+      },
+      {
+        "id": "workable-a5b4e894eb",
+        "fields": [
+          "lifecycle_state",
+          "lifecycle_stale_risk",
+          "hiring_intent_level"
+        ]
+      },
+      {
+        "id": "workable-8d8df65dd4",
+        "fields": [
+          "lifecycle_state",
+          "lifecycle_stale_risk",
+          "hiring_intent_level"
+        ]
+      },
+      {
+        "id": "workable-9a17327915",
+        "fields": [
+          "lifecycle_state",
+          "lifecycle_stale_risk",
+          "hiring_intent_level"
+        ]
+      },
+      {
+        "id": "workable-284724c2d8",
+        "fields": [
+          "lifecycle_state",
+          "lifecycle_stale_risk",
+          "hiring_intent_level"
+        ]
+      },
+      {
+        "id": "workable-8e87c7bb33",
+        "fields": [
+          "lifecycle_state",
+          "lifecycle_stale_risk",
+          "hiring_intent_level"
+        ]
+      },
+      {
+        "id": "workable-9ad8063e4f",
+        "fields": [
+          "lifecycle_state",
+          "lifecycle_stale_risk",
+          "hiring_intent_level"
+        ]
+      },
+      {
+        "id": "workable-ebf340a7ca",
+        "fields": [
+          "lifecycle_state",
+          "lifecycle_stale_risk",
+          "hiring_intent_level"
+        ]
+      },
+      {
+        "id": "workable-99d41dda7a",
+        "fields": [
+          "lifecycle_state",
+          "lifecycle_stale_risk",
+          "hiring_intent_level"
+        ]
+      },
+      {
+        "id": "workable-8292dd145a",
+        "fields": [
+          "lifecycle_state",
+          "lifecycle_stale_risk",
+          "hiring_intent_level"
+        ]
+      },
+      {
+        "id": "workable-7531d01742",
+        "fields": [
+          "lifecycle_state",
+          "lifecycle_stale_risk",
+          "hiring_intent_level"
+        ]
+      },
+      {
+        "id": "workable-d16157a33a",
+        "fields": [
+          "lifecycle_state",
+          "lifecycle_stale_risk",
+          "hiring_intent_level"
+        ]
+      },
+      {
+        "id": "workable-919d6e0428",
+        "fields": [
+          "lifecycle_state",
+          "lifecycle_stale_risk",
+          "hiring_intent_level"
+        ]
+      },
+      {
+        "id": "workable-79d89ebb01",
+        "fields": [
+          "lifecycle_state",
+          "lifecycle_stale_risk",
+          "hiring_intent_level"
+        ]
+      },
+      {
+        "id": "workable-9ed0b135fa",
+        "fields": [
+          "lifecycle_state",
+          "lifecycle_stale_risk",
+          "hiring_intent_level"
+        ]
+      },
+      {
+        "id": "workable-743fbcd790",
+        "fields": [
+          "lifecycle_state",
+          "lifecycle_stale_risk",
+          "hiring_intent_level"
+        ]
+      },
+      {
+        "id": "workable-257963a19c",
+        "fields": [
+          "lifecycle_state",
+          "lifecycle_stale_risk",
+          "hiring_intent_level"
+        ]
+      },
+      {
+        "id": "workable-0faef24db1",
+        "fields": [
+          "lifecycle_state",
+          "lifecycle_stale_risk",
+          "hiring_intent_level"
+        ]
+      },
+      {
+        "id": "workable-f24cc2ecf2",
+        "fields": [
+          "lifecycle_state",
+          "lifecycle_stale_risk",
+          "hiring_intent_level"
+        ]
+      },
+      {
+        "id": "workable-6b4cb5b1e7",
+        "fields": [
+          "lifecycle_state",
+          "lifecycle_stale_risk",
+          "hiring_intent_level"
+        ]
+      },
+      {
+        "id": "workable-509be872b5",
+        "fields": [
+          "lifecycle_state",
+          "lifecycle_stale_risk",
+          "hiring_intent_level"
+        ]
+      },
+      {
+        "id": "workable-94d956e7b1",
+        "fields": [
+          "lifecycle_state",
+          "lifecycle_stale_risk",
+          "hiring_intent_level"
+        ]
+      },
+      {
+        "id": "workable-3d98715a81",
+        "fields": [
+          "lifecycle_state",
+          "lifecycle_stale_risk",
+          "hiring_intent_level"
+        ]
+      },
+      {
+        "id": "workable-8d9fbfbeb9",
+        "fields": [
+          "lifecycle_state",
+          "lifecycle_stale_risk",
+          "hiring_intent_level"
+        ]
+      },
+      {
+        "id": "workable-ae93f9005b",
+        "fields": [
+          "lifecycle_state",
+          "lifecycle_stale_risk",
+          "hiring_intent_level"
+        ]
+      },
+      {
+        "id": "workable-d358d8dac9",
+        "fields": [
+          "lifecycle_state",
+          "lifecycle_stale_risk",
+          "hiring_intent_level"
+        ]
+      },
+      {
+        "id": "workable-53c85c7c46",
+        "fields": [
+          "lifecycle_state",
+          "lifecycle_stale_risk",
+          "hiring_intent_level"
+        ]
+      },
+      {
+        "id": "workable-e15a83320b",
+        "fields": [
+          "lifecycle_state",
+          "lifecycle_stale_risk",
+          "hiring_intent_level"
+        ]
+      },
+      {
+        "id": "workable-dce00c9ab7",
+        "fields": [
+          "lifecycle_state",
+          "lifecycle_stale_risk",
+          "hiring_intent_level"
+        ]
+      },
+      {
+        "id": "workable-5566905a4d",
+        "fields": [
+          "lifecycle_state",
+          "lifecycle_stale_risk",
+          "hiring_intent_level"
+        ]
+      },
+      {
+        "id": "workable-77e347facb",
+        "fields": [
+          "lifecycle_state",
+          "lifecycle_stale_risk",
+          "hiring_intent_level"
+        ]
+      },
+      {
+        "id": "workable-724fc610a7",
+        "fields": [
+          "lifecycle_state",
+          "lifecycle_stale_risk",
+          "hiring_intent_level"
+        ]
+      },
+      {
+        "id": "workable-361b100e01",
+        "fields": [
+          "lifecycle_state",
+          "lifecycle_stale_risk",
+          "hiring_intent_level"
+        ]
+      },
+      {
+        "id": "workable-1a3ece5ba1",
+        "fields": [
+          "lifecycle_state",
+          "lifecycle_stale_risk",
+          "hiring_intent_level"
+        ]
+      },
+      {
+        "id": "workable-394c5fdae6",
+        "fields": [
+          "lifecycle_state",
+          "lifecycle_stale_risk",
+          "hiring_intent_level"
+        ]
+      },
+      {
+        "id": "workable-6d37f9f9a1",
+        "fields": [
+          "lifecycle_state",
+          "lifecycle_stale_risk",
+          "hiring_intent_level"
+        ]
+      },
+      {
+        "id": "workable-57eb2ce1dd",
+        "fields": [
+          "lifecycle_state",
+          "lifecycle_stale_risk",
+          "hiring_intent_level"
+        ]
+      },
+      {
+        "id": "workable-c550458f01",
+        "fields": [
+          "lifecycle_state",
+          "lifecycle_stale_risk",
+          "hiring_intent_level"
+        ]
+      },
+      {
+        "id": "workable-b40459acbb",
+        "fields": [
+          "lifecycle_state",
+          "lifecycle_stale_risk",
+          "hiring_intent_level"
+        ]
+      },
+      {
+        "id": "workable-a29021cc47",
+        "fields": [
+          "lifecycle_state",
+          "lifecycle_stale_risk",
+          "hiring_intent_level"
+        ]
+      },
+      {
+        "id": "workable-001eb68a79",
+        "fields": [
+          "lifecycle_state",
+          "lifecycle_stale_risk",
+          "hiring_intent_level"
+        ]
+      },
+      {
+        "id": "workable-1e98f1d169",
+        "fields": [
+          "lifecycle_state",
+          "lifecycle_stale_risk",
+          "hiring_intent_level"
+        ]
+      },
+      {
+        "id": "workable-9bea0f7cf3",
+        "fields": [
+          "lifecycle_state",
+          "lifecycle_stale_risk",
+          "hiring_intent_level"
+        ]
+      },
+      {
+        "id": "workable-ae781d676e",
+        "fields": [
+          "lifecycle_state",
+          "lifecycle_stale_risk",
+          "hiring_intent_level"
+        ]
+      },
+      {
+        "id": "workable-c7d843994b",
+        "fields": [
+          "lifecycle_state",
+          "lifecycle_stale_risk",
+          "hiring_intent_level"
+        ]
+      },
+      {
+        "id": "workable-98aaef1162",
+        "fields": [
+          "lifecycle_state",
+          "lifecycle_stale_risk",
+          "hiring_intent_level"
+        ]
+      },
+      {
+        "id": "workable-eda7112e01",
+        "fields": [
+          "lifecycle_state",
+          "lifecycle_stale_risk",
+          "hiring_intent_level"
+        ]
+      },
+      {
+        "id": "workable-41731dd741",
+        "fields": [
+          "lifecycle_state",
+          "lifecycle_stale_risk",
+          "hiring_intent_level"
+        ]
+      },
+      {
+        "id": "workable-70e115d7f8",
+        "fields": [
+          "lifecycle_state",
+          "lifecycle_stale_risk",
+          "hiring_intent_level"
+        ]
+      },
+      {
+        "id": "workable-2e36e9fb07",
+        "fields": [
+          "lifecycle_state",
+          "lifecycle_stale_risk",
+          "hiring_intent_level"
+        ]
+      },
+      {
+        "id": "workable-27c9e3bc72",
+        "fields": [
+          "lifecycle_state",
+          "lifecycle_stale_risk",
+          "hiring_intent_level"
+        ]
+      },
+      {
+        "id": "workable-d676a527a5",
+        "fields": [
+          "lifecycle_state",
+          "lifecycle_stale_risk",
+          "hiring_intent_level"
+        ]
+      },
+      {
+        "id": "workable-f6c1c20cb3",
+        "fields": [
+          "lifecycle_state",
+          "lifecycle_stale_risk",
+          "hiring_intent_level"
+        ]
+      },
+      {
+        "id": "workable-f0992f2360",
+        "fields": [
+          "lifecycle_state",
+          "lifecycle_stale_risk",
+          "hiring_intent_level"
+        ]
+      },
+      {
+        "id": "workable-560e7958c6",
+        "fields": [
+          "lifecycle_state",
+          "lifecycle_stale_risk",
+          "hiring_intent_level"
+        ]
+      },
+      {
+        "id": "workable-bfea977411",
+        "fields": [
+          "lifecycle_state",
+          "lifecycle_stale_risk",
+          "hiring_intent_level"
+        ]
+      },
+      {
+        "id": "workable-b92728b832",
+        "fields": [
+          "lifecycle_state",
+          "lifecycle_stale_risk",
+          "hiring_intent_level"
+        ]
+      },
+      {
+        "id": "workable-7ae97f8a2c",
+        "fields": [
+          "lifecycle_state",
+          "lifecycle_stale_risk",
+          "hiring_intent_level"
+        ]
+      },
+      {
+        "id": "workable-23f01534a6",
+        "fields": [
+          "lifecycle_state",
+          "lifecycle_stale_risk",
+          "hiring_intent_level"
+        ]
+      },
+      {
+        "id": "workable-8c70197d53",
+        "fields": [
+          "lifecycle_state",
+          "lifecycle_stale_risk",
+          "hiring_intent_level"
+        ]
+      },
+      {
+        "id": "workable-cd8e70b815",
+        "fields": [
+          "lifecycle_state",
+          "lifecycle_stale_risk",
+          "hiring_intent_level"
+        ]
+      },
+      {
+        "id": "workable-f43febc242",
+        "fields": [
+          "lifecycle_state",
+          "lifecycle_stale_risk",
+          "hiring_intent_level"
+        ]
+      },
+      {
+        "id": "workable-17837b6d25",
+        "fields": [
+          "lifecycle_state",
+          "lifecycle_stale_risk",
+          "hiring_intent_level"
+        ]
+      },
+      {
+        "id": "workable-ea263eb445",
+        "fields": [
+          "lifecycle_state",
+          "lifecycle_stale_risk",
+          "hiring_intent_level"
+        ]
+      },
+      {
+        "id": "workable-b7fffc47c7",
+        "fields": [
+          "lifecycle_state",
+          "lifecycle_stale_risk",
+          "hiring_intent_level"
+        ]
+      },
+      {
+        "id": "workable-be7cbf40db",
+        "fields": [
+          "lifecycle_state",
+          "lifecycle_stale_risk",
+          "hiring_intent_level"
+        ]
+      },
+      {
+        "id": "workable-793f9e9ae6",
+        "fields": [
+          "lifecycle_state",
+          "lifecycle_stale_risk",
+          "hiring_intent_level"
+        ]
+      },
+      {
+        "id": "workable-5ea3cb073b",
+        "fields": [
+          "lifecycle_state",
+          "lifecycle_stale_risk",
+          "hiring_intent_level"
+        ]
+      },
+      {
+        "id": "workable-54c8ebaa07",
+        "fields": [
+          "lifecycle_state",
+          "lifecycle_stale_risk",
+          "hiring_intent_level"
+        ]
+      },
+      {
+        "id": "workable-37eb867871",
+        "fields": [
+          "lifecycle_state",
+          "lifecycle_stale_risk",
+          "hiring_intent_level"
+        ]
+      },
+      {
+        "id": "workable-a17df7f126",
+        "fields": [
+          "lifecycle_state",
+          "lifecycle_stale_risk",
+          "hiring_intent_level"
+        ]
+      },
+      {
+        "id": "workable-68557ec55c",
+        "fields": [
+          "lifecycle_state",
+          "lifecycle_stale_risk",
+          "hiring_intent_level"
+        ]
+      },
+      {
+        "id": "workable-e9eec9f115",
+        "fields": [
+          "lifecycle_state",
+          "lifecycle_stale_risk",
+          "hiring_intent_level"
+        ]
+      },
+      {
+        "id": "workable-6175754c37",
+        "fields": [
+          "lifecycle_state",
+          "lifecycle_stale_risk",
+          "hiring_intent_level"
+        ]
+      },
+      {
+        "id": "workable-2f0fd9cb3b",
+        "fields": [
+          "lifecycle_state",
+          "lifecycle_stale_risk",
+          "hiring_intent_level"
+        ]
+      },
+      {
+        "id": "workable-0208c3141d",
+        "fields": [
+          "lifecycle_state",
+          "lifecycle_stale_risk",
+          "hiring_intent_level"
+        ]
+      },
+      {
+        "id": "workable-d6c5bd3282",
+        "fields": [
+          "lifecycle_state",
+          "lifecycle_stale_risk",
+          "hiring_intent_level"
+        ]
+      },
+      {
+        "id": "workable-173f8fcd7d",
+        "fields": [
+          "lifecycle_state",
+          "lifecycle_stale_risk",
+          "hiring_intent_level"
+        ]
+      },
+      {
+        "id": "workable-277f712c2c",
+        "fields": [
+          "lifecycle_state",
+          "lifecycle_stale_risk",
+          "hiring_intent_level"
+        ]
+      },
+      {
+        "id": "workable-73043bfe04",
+        "fields": [
+          "lifecycle_state",
+          "lifecycle_stale_risk",
+          "hiring_intent_level"
+        ]
+      },
+      {
+        "id": "workable-dd6d889fc9",
+        "fields": [
+          "lifecycle_state",
+          "lifecycle_stale_risk",
+          "hiring_intent_level"
+        ]
+      },
+      {
+        "id": "workable-7d3bd41163",
+        "fields": [
+          "lifecycle_state",
+          "lifecycle_stale_risk",
+          "hiring_intent_level"
+        ]
+      },
+      {
+        "id": "workable-2f86a4c903",
+        "fields": [
+          "lifecycle_state",
+          "lifecycle_stale_risk",
+          "hiring_intent_level"
+        ]
+      },
+      {
+        "id": "workable-a3138f0a7f",
+        "fields": [
+          "lifecycle_state",
+          "lifecycle_stale_risk",
+          "hiring_intent_level"
+        ]
+      },
+      {
+        "id": "workable-c591b5748a",
+        "fields": [
+          "lifecycle_state",
+          "lifecycle_stale_risk",
+          "hiring_intent_level"
+        ]
+      },
+      {
+        "id": "workable-c970414929",
+        "fields": [
+          "lifecycle_state",
+          "lifecycle_stale_risk",
+          "hiring_intent_level"
+        ]
+      },
+      {
+        "id": "workable-d938a9a8ed",
+        "fields": [
+          "lifecycle_state",
+          "lifecycle_stale_risk",
+          "hiring_intent_level"
+        ]
+      },
+      {
+        "id": "workable-315ec3ea7f",
+        "fields": [
+          "lifecycle_state",
+          "lifecycle_stale_risk",
+          "hiring_intent_level"
+        ]
+      },
+      {
+        "id": "workable-ae8c512164",
+        "fields": [
+          "lifecycle_state",
+          "lifecycle_stale_risk",
+          "hiring_intent_level"
+        ]
+      },
+      {
+        "id": "workable-c27832845f",
+        "fields": [
+          "lifecycle_state",
+          "lifecycle_stale_risk",
+          "hiring_intent_level"
+        ]
+      },
+      {
+        "id": "workable-d069059ee3",
+        "fields": [
+          "lifecycle_state",
+          "lifecycle_stale_risk",
+          "hiring_intent_level"
+        ]
+      },
+      {
+        "id": "workable-7a8b56f354",
+        "fields": [
+          "lifecycle_state",
+          "lifecycle_stale_risk",
+          "hiring_intent_level"
+        ]
+      },
+      {
+        "id": "workable-260e83f2aa",
+        "fields": [
+          "lifecycle_state",
+          "lifecycle_stale_risk",
+          "hiring_intent_level"
+        ]
+      },
+      {
+        "id": "workable-51214ee79d",
+        "fields": [
+          "lifecycle_state",
+          "lifecycle_stale_risk",
+          "hiring_intent_level"
+        ]
+      },
+      {
+        "id": "workable-08cf77a51b",
+        "fields": [
+          "lifecycle_state",
+          "lifecycle_stale_risk",
+          "hiring_intent_level"
+        ]
+      },
+      {
+        "id": "workable-9625246d96",
+        "fields": [
+          "lifecycle_state",
+          "lifecycle_stale_risk",
+          "hiring_intent_level"
+        ]
+      },
+      {
+        "id": "workable-0b75f1efbe",
+        "fields": [
+          "lifecycle_state",
+          "lifecycle_stale_risk",
+          "hiring_intent_level"
+        ]
+      },
+      {
+        "id": "workable-9589b39b72",
+        "fields": [
+          "lifecycle_state",
+          "lifecycle_stale_risk",
+          "hiring_intent_level"
+        ]
+      },
+      {
+        "id": "workable-71c84b77ed",
+        "fields": [
+          "lifecycle_state",
+          "lifecycle_stale_risk",
+          "hiring_intent_level"
+        ]
+      },
+      {
+        "id": "workable-f89512f650",
+        "fields": [
+          "lifecycle_state",
+          "lifecycle_stale_risk",
+          "hiring_intent_level"
+        ]
+      },
+      {
+        "id": "workable-daab432a6a",
+        "fields": [
+          "lifecycle_state",
+          "lifecycle_stale_risk",
+          "hiring_intent_level"
+        ]
+      },
+      {
+        "id": "workable-a61a878bf8",
+        "fields": [
+          "lifecycle_state",
+          "lifecycle_stale_risk",
+          "hiring_intent_level"
+        ]
+      },
+      {
+        "id": "workable-0cf7bc7e35",
+        "fields": [
+          "lifecycle_state",
+          "lifecycle_stale_risk",
+          "hiring_intent_level"
+        ]
+      },
+      {
+        "id": "workable-f45f839f4d",
+        "fields": [
+          "lifecycle_state",
+          "lifecycle_stale_risk",
+          "hiring_intent_level"
+        ]
+      },
+      {
+        "id": "workable-1077d54ed8",
+        "fields": [
+          "lifecycle_state",
+          "lifecycle_stale_risk",
+          "hiring_intent_level"
+        ]
+      },
+      {
+        "id": "workable-36aa816049",
+        "fields": [
+          "lifecycle_state",
+          "lifecycle_stale_risk",
+          "hiring_intent_level"
+        ]
+      },
+      {
+        "id": "workable-71c65b4331",
+        "fields": [
+          "lifecycle_state",
+          "lifecycle_stale_risk",
+          "hiring_intent_level"
+        ]
+      },
+      {
+        "id": "workable-dc1a93b2f6",
+        "fields": [
+          "lifecycle_state",
+          "lifecycle_stale_risk",
+          "hiring_intent_level"
+        ]
+      },
+      {
+        "id": "workable-781d37ba11",
+        "fields": [
+          "hiring_momentum_state",
+          "lifecycle_state",
+          "lifecycle_stale_risk",
+          "hiring_intent_level"
+        ]
+      },
+      {
+        "id": "workable-ee87f3673c",
+        "fields": [
+          "hiring_momentum_state",
+          "lifecycle_state",
+          "lifecycle_stale_risk",
+          "hiring_intent_level"
+        ]
+      },
+      {
+        "id": "workable-4401781d9a",
+        "fields": [
+          "hiring_momentum_state",
+          "lifecycle_state",
+          "lifecycle_stale_risk",
+          "hiring_intent_level"
+        ]
+      },
+      {
+        "id": "workable-6ff703f4b7",
+        "fields": [
+          "hiring_momentum_state",
+          "lifecycle_state",
+          "lifecycle_stale_risk",
+          "hiring_intent_level"
+        ]
+      },
+      {
+        "id": "workable-c3b9eb9954",
+        "fields": [
+          "hiring_momentum_state",
+          "lifecycle_state",
+          "lifecycle_stale_risk",
+          "hiring_intent_level"
+        ]
+      },
+      {
+        "id": "workable-ab264d7fe6",
+        "fields": [
+          "hiring_momentum_state",
+          "lifecycle_state",
+          "lifecycle_stale_risk",
+          "hiring_intent_level"
+        ]
+      },
+      {
+        "id": "workable-9f37295d07",
+        "fields": [
+          "hiring_momentum_state",
+          "lifecycle_state",
+          "lifecycle_stale_risk",
+          "hiring_intent_level"
+        ]
+      },
+      {
+        "id": "workable-450acf7407",
+        "fields": [
+          "lifecycle_state",
+          "lifecycle_stale_risk",
+          "hiring_intent_level"
+        ]
+      },
+      {
+        "id": "workable-12b87eeeef",
+        "fields": [
+          "lifecycle_state",
+          "lifecycle_stale_risk",
+          "hiring_intent_level"
+        ]
+      },
+      {
+        "id": "workable-ab083e1aee",
+        "fields": [
+          "lifecycle_state",
+          "lifecycle_stale_risk",
+          "hiring_intent_level"
+        ]
+      },
+      {
+        "id": "workable-81b07fd2b9",
+        "fields": [
+          "lifecycle_state",
+          "lifecycle_stale_risk",
+          "hiring_intent_level"
+        ]
+      },
+      {
+        "id": "workable-7da4aff653",
+        "fields": [
+          "lifecycle_state",
+          "lifecycle_stale_risk",
+          "hiring_intent_level"
+        ]
+      },
+      {
+        "id": "workable-e3097b66d0",
+        "fields": [
+          "lifecycle_state",
+          "lifecycle_stale_risk",
+          "hiring_intent_level"
+        ]
+      },
+      {
+        "id": "workable-b3ca8eabd2",
+        "fields": [
+          "lifecycle_state",
+          "lifecycle_stale_risk",
+          "hiring_intent_level"
+        ]
+      },
+      {
+        "id": "workable-d45b156ab2",
+        "fields": [
+          "lifecycle_state",
+          "lifecycle_stale_risk",
+          "hiring_intent_level"
+        ]
+      },
+      {
+        "id": "workable-aa0950bf66",
+        "fields": [
+          "hiring_momentum_state",
+          "lifecycle_state",
+          "lifecycle_stale_risk",
+          "hiring_intent_level"
+        ]
+      },
+      {
+        "id": "workable-03008b5f61",
+        "fields": [
+          "lifecycle_state",
+          "lifecycle_stale_risk",
+          "hiring_intent_level"
+        ]
+      },
+      {
+        "id": "workable-2d26f0e7ad",
+        "fields": [
+          "lifecycle_state",
+          "lifecycle_stale_risk",
+          "hiring_intent_level"
+        ]
+      },
+      {
+        "id": "workable-2cb030137a",
+        "fields": [
+          "lifecycle_state",
+          "lifecycle_stale_risk",
+          "hiring_intent_level"
+        ]
+      },
+      {
+        "id": "workable-2badf69cc3",
+        "fields": [
+          "lifecycle_state",
+          "lifecycle_stale_risk",
+          "hiring_intent_level"
+        ]
+      },
+      {
+        "id": "workable-f64ceb6d50",
+        "fields": [
+          "lifecycle_state",
+          "lifecycle_stale_risk",
+          "hiring_intent_level"
+        ]
+      },
+      {
+        "id": "workable-520d710388",
+        "fields": [
+          "lifecycle_state",
+          "lifecycle_stale_risk",
+          "hiring_intent_level"
+        ]
+      },
+      {
+        "id": "workable-c78f595c8d",
+        "fields": [
+          "lifecycle_state",
+          "lifecycle_stale_risk",
+          "hiring_intent_level"
+        ]
+      },
+      {
+        "id": "workable-7d6642cfff",
+        "fields": [
+          "lifecycle_state",
+          "lifecycle_stale_risk",
+          "hiring_intent_level"
+        ]
+      },
+      {
+        "id": "workable-0f952dd32a",
+        "fields": [
+          "lifecycle_state",
+          "lifecycle_stale_risk",
+          "hiring_intent_level"
+        ]
+      },
+      {
+        "id": "workable-3ad018b1ec",
+        "fields": [
+          "lifecycle_state",
+          "lifecycle_stale_risk",
+          "hiring_intent_level"
+        ]
+      },
+      {
+        "id": "workable-6870f06d9a",
+        "fields": [
+          "lifecycle_state",
+          "lifecycle_stale_risk",
+          "hiring_intent_level"
+        ]
+      },
+      {
+        "id": "workable-f1153aa5a8",
+        "fields": [
+          "lifecycle_state",
+          "lifecycle_stale_risk",
+          "hiring_intent_level"
+        ]
+      },
+      {
+        "id": "workable-fad5b6920f",
+        "fields": [
+          "lifecycle_state",
+          "lifecycle_stale_risk",
+          "hiring_intent_level"
+        ]
+      },
+      {
+        "id": "workable-509be5c3e9",
+        "fields": [
+          "lifecycle_state",
+          "lifecycle_stale_risk",
+          "hiring_intent_level"
+        ]
+      },
+      {
+        "id": "workable-f36ed72367",
+        "fields": [
+          "lifecycle_state",
+          "lifecycle_stale_risk",
+          "hiring_intent_level"
+        ]
+      },
+      {
+        "id": "workable-52747ba8b0",
+        "fields": [
+          "lifecycle_state",
+          "lifecycle_stale_risk",
+          "hiring_intent_level"
+        ]
+      },
+      {
+        "id": "workable-d1b4ec163d",
+        "fields": [
+          "lifecycle_state",
+          "lifecycle_stale_risk",
+          "hiring_intent_level"
+        ]
+      },
+      {
+        "id": "workable-d354fd74a2",
+        "fields": [
+          "lifecycle_state",
+          "lifecycle_stale_risk",
+          "hiring_intent_level"
+        ]
+      },
+      {
+        "id": "workable-3b73c5d7c9",
+        "fields": [
+          "lifecycle_state",
+          "lifecycle_stale_risk",
+          "hiring_intent_level"
+        ]
+      },
+      {
+        "id": "workable-0b21f4ae74",
+        "fields": [
+          "lifecycle_state",
+          "lifecycle_stale_risk",
+          "hiring_intent_level"
+        ]
+      },
+      {
+        "id": "workable-73165c316a",
+        "fields": [
+          "lifecycle_state",
+          "lifecycle_stale_risk",
+          "hiring_intent_level"
+        ]
+      },
+      {
+        "id": "workable-d7dceee15e",
+        "fields": [
+          "lifecycle_state",
+          "lifecycle_stale_risk",
+          "hiring_intent_level"
+        ]
+      },
+      {
+        "id": "workable-88dd10188c",
+        "fields": [
+          "hiring_momentum_state",
+          "lifecycle_state",
+          "lifecycle_stale_risk",
+          "hiring_intent_level"
+        ]
+      },
+      {
+        "id": "workable-d8ee2d66d0",
+        "fields": [
+          "lifecycle_state",
+          "lifecycle_stale_risk",
+          "hiring_intent_level"
+        ]
+      },
+      {
+        "id": "workable-00f12593b6",
+        "fields": [
+          "lifecycle_state",
+          "lifecycle_stale_risk",
+          "hiring_intent_level"
+        ]
+      },
+      {
+        "id": "workable-68e186b7b8",
+        "fields": [
+          "lifecycle_state",
+          "lifecycle_stale_risk",
+          "hiring_intent_level"
+        ]
+      },
+      {
+        "id": "workable-bb3d68888f",
+        "fields": [
+          "lifecycle_state",
+          "lifecycle_stale_risk",
+          "hiring_intent_level"
+        ]
+      },
+      {
+        "id": "workable-55d9ce3c58",
+        "fields": [
+          "lifecycle_state",
+          "lifecycle_stale_risk",
+          "hiring_intent_level"
+        ]
+      },
+      {
+        "id": "workable-8bf3378732",
+        "fields": [
+          "lifecycle_state",
+          "lifecycle_stale_risk",
+          "hiring_intent_level"
+        ]
+      },
+      {
+        "id": "workable-9273f121d0",
+        "fields": [
+          "lifecycle_state",
+          "lifecycle_stale_risk",
+          "hiring_intent_level"
+        ]
+      },
+      {
+        "id": "workable-3e0903c522",
+        "fields": [
+          "lifecycle_state",
+          "lifecycle_stale_risk",
+          "hiring_intent_level"
+        ]
+      },
+      {
+        "id": "workable-041092f470",
+        "fields": [
+          "lifecycle_state",
+          "lifecycle_stale_risk",
+          "hiring_intent_level"
+        ]
+      },
+      {
+        "id": "workable-94dd2b30cc",
+        "fields": [
+          "lifecycle_state",
+          "lifecycle_stale_risk",
+          "hiring_intent_level"
+        ]
+      },
+      {
+        "id": "workable-0cfbf11b9e",
+        "fields": [
+          "lifecycle_state",
+          "lifecycle_stale_risk",
+          "hiring_intent_level"
+        ]
+      },
+      {
+        "id": "workable-0e4cd16d16",
+        "fields": [
+          "lifecycle_state",
+          "lifecycle_stale_risk",
+          "hiring_intent_level"
+        ]
+      },
+      {
+        "id": "workable-66da676936",
+        "fields": [
+          "lifecycle_state",
+          "lifecycle_stale_risk",
+          "hiring_intent_level"
+        ]
+      },
+      {
+        "id": "workable-95c216f5dc",
+        "fields": [
+          "lifecycle_state",
+          "lifecycle_stale_risk",
+          "hiring_intent_level"
+        ]
+      },
+      {
+        "id": "workable-8455bc276f",
+        "fields": [
+          "hiring_momentum_state",
+          "lifecycle_state",
+          "lifecycle_stale_risk",
+          "hiring_intent_level"
+        ]
+      },
+      {
+        "id": "workable-c395d150f8",
+        "fields": [
+          "lifecycle_state",
+          "lifecycle_stale_risk",
+          "hiring_intent_level"
+        ]
+      },
+      {
+        "id": "workable-f21fdc1caa",
+        "fields": [
+          "lifecycle_state",
+          "lifecycle_stale_risk",
+          "hiring_intent_level"
+        ]
+      },
+      {
+        "id": "workable-235dce3779",
+        "fields": [
+          "lifecycle_state",
+          "lifecycle_stale_risk",
+          "hiring_intent_level"
+        ]
+      },
+      {
+        "id": "workable-163ac78409",
+        "fields": [
+          "lifecycle_state",
+          "lifecycle_stale_risk",
+          "hiring_intent_level"
+        ]
+      },
+      {
+        "id": "workable-e90c26d288",
+        "fields": [
+          "lifecycle_state",
+          "lifecycle_stale_risk",
+          "hiring_intent_level"
+        ]
+      },
+      {
+        "id": "workable-d356fba73c",
+        "fields": [
+          "lifecycle_state",
+          "lifecycle_stale_risk",
+          "hiring_intent_level"
+        ]
+      },
+      {
+        "id": "workable-27fdc14d88",
+        "fields": [
+          "lifecycle_state",
+          "lifecycle_stale_risk",
+          "hiring_intent_level"
+        ]
+      },
+      {
+        "id": "workable-faed417b19",
+        "fields": [
+          "hiring_momentum_state",
+          "lifecycle_state",
+          "lifecycle_stale_risk",
+          "hiring_intent_level"
+        ]
+      },
+      {
+        "id": "workable-3765fbbe93",
+        "fields": [
+          "lifecycle_state",
+          "lifecycle_stale_risk",
+          "hiring_intent_level"
+        ]
+      },
+      {
+        "id": "workable-0605fb0427",
+        "fields": [
+          "hiring_momentum_state",
+          "lifecycle_state",
+          "lifecycle_stale_risk",
+          "hiring_intent_level"
+        ]
+      },
+      {
+        "id": "workable-fd7370d9ae",
+        "fields": [
+          "lifecycle_state",
+          "lifecycle_stale_risk",
+          "hiring_intent_level"
+        ]
+      },
       {
         "id": "workable-bcc94e038e",
         "fields": [
-          "location"
+          "lifecycle_state",
+          "lifecycle_stale_risk",
+          "hiring_intent_level"
+        ]
+      },
+      {
+        "id": "workable-b1fa4ef000",
+        "fields": [
+          "hiring_momentum_state",
+          "lifecycle_state",
+          "lifecycle_stale_risk",
+          "hiring_intent_level"
+        ]
+      },
+      {
+        "id": "workable-de77a98d9a",
+        "fields": [
+          "hiring_momentum_state",
+          "lifecycle_state",
+          "lifecycle_stale_risk",
+          "hiring_intent_level"
+        ]
+      },
+      {
+        "id": "workable-00ec70f58f",
+        "fields": [
+          "lifecycle_state",
+          "lifecycle_stale_risk",
+          "hiring_intent_level"
+        ]
+      },
+      {
+        "id": "workable-c7b164256b",
+        "fields": [
+          "lifecycle_state",
+          "lifecycle_stale_risk",
+          "hiring_intent_level"
+        ]
+      },
+      {
+        "id": "workable-9f1ca21e0e",
+        "fields": [
+          "lifecycle_state",
+          "lifecycle_stale_risk",
+          "hiring_intent_level"
+        ]
+      },
+      {
+        "id": "workable-0964f320d4",
+        "fields": [
+          "hiring_momentum_state",
+          "lifecycle_state",
+          "lifecycle_stale_risk",
+          "hiring_intent_level"
+        ]
+      },
+      {
+        "id": "workable-c504070dfe",
+        "fields": [
+          "lifecycle_state",
+          "lifecycle_stale_risk",
+          "hiring_intent_level"
+        ]
+      },
+      {
+        "id": "workable-b8c14f2b5c",
+        "fields": [
+          "lifecycle_state",
+          "lifecycle_stale_risk",
+          "hiring_intent_level"
+        ]
+      },
+      {
+        "id": "workable-46ed3e0919",
+        "fields": [
+          "lifecycle_state",
+          "lifecycle_stale_risk",
+          "hiring_intent_level"
+        ]
+      },
+      {
+        "id": "workable-bd6de01816",
+        "fields": [
+          "lifecycle_state",
+          "lifecycle_stale_risk",
+          "hiring_intent_level"
+        ]
+      },
+      {
+        "id": "workable-0257fc6a22",
+        "fields": [
+          "hiring_momentum_state",
+          "lifecycle_state",
+          "lifecycle_stale_risk",
+          "hiring_intent_level"
+        ]
+      },
+      {
+        "id": "workable-a2c418a2d3",
+        "fields": [
+          "lifecycle_state",
+          "lifecycle_stale_risk",
+          "hiring_intent_level"
+        ]
+      },
+      {
+        "id": "workable-4a137c14cc",
+        "fields": [
+          "lifecycle_state",
+          "lifecycle_stale_risk",
+          "hiring_intent_level"
+        ]
+      },
+      {
+        "id": "workable-8510d8ad8e",
+        "fields": [
+          "lifecycle_state",
+          "lifecycle_stale_risk",
+          "hiring_intent_level"
+        ]
+      },
+      {
+        "id": "workable-412bd8011d",
+        "fields": [
+          "lifecycle_state",
+          "lifecycle_stale_risk",
+          "hiring_intent_level"
+        ]
+      },
+      {
+        "id": "workable-33ffd227f4",
+        "fields": [
+          "hiring_momentum_state",
+          "lifecycle_state",
+          "lifecycle_stale_risk",
+          "hiring_intent_level"
+        ]
+      },
+      {
+        "id": "workable-0d6ad05b7a",
+        "fields": [
+          "lifecycle_state",
+          "lifecycle_stale_risk",
+          "hiring_intent_level"
+        ]
+      },
+      {
+        "id": "workable-374c08e8fb",
+        "fields": [
+          "lifecycle_state",
+          "lifecycle_stale_risk",
+          "hiring_intent_level"
+        ]
+      },
+      {
+        "id": "workable-9ea51a69fe",
+        "fields": [
+          "lifecycle_state",
+          "lifecycle_stale_risk",
+          "hiring_intent_level"
+        ]
+      },
+      {
+        "id": "workable-4795570eef",
+        "fields": [
+          "lifecycle_state",
+          "lifecycle_stale_risk",
+          "hiring_intent_level"
+        ]
+      },
+      {
+        "id": "workable-f2b59fb6e4",
+        "fields": [
+          "hiring_momentum_state",
+          "lifecycle_state",
+          "lifecycle_stale_risk",
+          "hiring_intent_level"
+        ]
+      },
+      {
+        "id": "workable-011bf9fa87",
+        "fields": [
+          "lifecycle_state",
+          "lifecycle_stale_risk",
+          "hiring_intent_level"
+        ]
+      },
+      {
+        "id": "workable-63a7e740f6",
+        "fields": [
+          "lifecycle_state",
+          "lifecycle_stale_risk",
+          "hiring_intent_level"
+        ]
+      },
+      {
+        "id": "workable-068b7872e6",
+        "fields": [
+          "lifecycle_state",
+          "lifecycle_stale_risk",
+          "hiring_intent_level"
+        ]
+      },
+      {
+        "id": "workable-afda38feb3",
+        "fields": [
+          "hiring_momentum_state",
+          "lifecycle_state",
+          "lifecycle_stale_risk",
+          "hiring_intent_level"
+        ]
+      },
+      {
+        "id": "workable-7b9e42baf9",
+        "fields": [
+          "hiring_momentum_state",
+          "lifecycle_state",
+          "lifecycle_stale_risk",
+          "hiring_intent_level"
+        ]
+      },
+      {
+        "id": "workable-7e19978f06",
+        "fields": [
+          "lifecycle_state",
+          "lifecycle_stale_risk",
+          "hiring_intent_level"
+        ]
+      },
+      {
+        "id": "workable-75dbff3ff1",
+        "fields": [
+          "lifecycle_state",
+          "lifecycle_stale_risk",
+          "hiring_intent_level"
+        ]
+      },
+      {
+        "id": "workable-28988426ef",
+        "fields": [
+          "lifecycle_state",
+          "lifecycle_stale_risk",
+          "hiring_intent_level"
+        ]
+      },
+      {
+        "id": "workable-96c59496c8",
+        "fields": [
+          "lifecycle_state",
+          "lifecycle_stale_risk",
+          "hiring_intent_level"
+        ]
+      },
+      {
+        "id": "workable-eefeefbdc9",
+        "fields": [
+          "lifecycle_state",
+          "lifecycle_stale_risk",
+          "hiring_intent_level"
+        ]
+      },
+      {
+        "id": "workable-ca11b62407",
+        "fields": [
+          "lifecycle_state",
+          "lifecycle_stale_risk",
+          "hiring_intent_level"
+        ]
+      },
+      {
+        "id": "workable-804cc07ffa",
+        "fields": [
+          "hiring_momentum_state",
+          "lifecycle_state",
+          "lifecycle_stale_risk",
+          "hiring_intent_level"
+        ]
+      },
+      {
+        "id": "workable-93bc2dbdb6",
+        "fields": [
+          "lifecycle_state",
+          "lifecycle_stale_risk",
+          "hiring_intent_level"
+        ]
+      },
+      {
+        "id": "workable-31185b5931",
+        "fields": [
+          "lifecycle_state",
+          "lifecycle_stale_risk",
+          "hiring_intent_level"
+        ]
+      },
+      {
+        "id": "workable-00421de40f",
+        "fields": [
+          "lifecycle_state",
+          "lifecycle_stale_risk",
+          "hiring_intent_level"
+        ]
+      },
+      {
+        "id": "workable-762f2f0bb4",
+        "fields": [
+          "lifecycle_state",
+          "lifecycle_stale_risk",
+          "hiring_intent_level"
+        ]
+      },
+      {
+        "id": "workable-bc795ae714",
+        "fields": [
+          "lifecycle_state",
+          "lifecycle_stale_risk",
+          "hiring_intent_level"
+        ]
+      },
+      {
+        "id": "workable-59def8cdc3",
+        "fields": [
+          "lifecycle_state",
+          "lifecycle_stale_risk",
+          "hiring_intent_level"
+        ]
+      },
+      {
+        "id": "workable-fd71b3f497",
+        "fields": [
+          "lifecycle_state",
+          "lifecycle_stale_risk",
+          "hiring_intent_level"
+        ]
+      },
+      {
+        "id": "workable-28ecda7834",
+        "fields": [
+          "lifecycle_state",
+          "lifecycle_stale_risk",
+          "hiring_intent_level"
+        ]
+      },
+      {
+        "id": "workable-5cad2fc7ee",
+        "fields": [
+          "lifecycle_state",
+          "lifecycle_stale_risk",
+          "hiring_intent_level"
+        ]
+      },
+      {
+        "id": "workable-4b12708b9e",
+        "fields": [
+          "lifecycle_state",
+          "lifecycle_stale_risk",
+          "hiring_intent_level"
+        ]
+      },
+      {
+        "id": "workable-d888760f30",
+        "fields": [
+          "lifecycle_state",
+          "lifecycle_stale_risk",
+          "hiring_intent_level"
+        ]
+      },
+      {
+        "id": "workable-43dacfeb6e",
+        "fields": [
+          "lifecycle_state",
+          "lifecycle_stale_risk",
+          "hiring_intent_level"
+        ]
+      },
+      {
+        "id": "workable-d559a11f60",
+        "fields": [
+          "lifecycle_state",
+          "lifecycle_stale_risk",
+          "hiring_intent_level"
+        ]
+      },
+      {
+        "id": "workable-b0f69c7bbe",
+        "fields": [
+          "lifecycle_state",
+          "lifecycle_stale_risk",
+          "hiring_intent_level"
+        ]
+      },
+      {
+        "id": "workable-2ef8c82b09",
+        "fields": [
+          "lifecycle_state",
+          "lifecycle_stale_risk",
+          "hiring_intent_level"
+        ]
+      },
+      {
+        "id": "workable-5390ba1808",
+        "fields": [
+          "lifecycle_state",
+          "lifecycle_stale_risk",
+          "hiring_intent_level"
+        ]
+      },
+      {
+        "id": "workable-628152bfc5",
+        "fields": [
+          "lifecycle_state",
+          "lifecycle_stale_risk",
+          "hiring_intent_level"
+        ]
+      },
+      {
+        "id": "workable-d5ac411800",
+        "fields": [
+          "lifecycle_state",
+          "lifecycle_stale_risk",
+          "hiring_intent_level"
+        ]
+      },
+      {
+        "id": "workable-90cd2d1581",
+        "fields": [
+          "lifecycle_state",
+          "lifecycle_stale_risk",
+          "hiring_intent_level"
+        ]
+      },
+      {
+        "id": "workable-1d8ad4c6fb",
+        "fields": [
+          "lifecycle_state",
+          "lifecycle_stale_risk",
+          "hiring_intent_level"
+        ]
+      },
+      {
+        "id": "workable-becb1490b1",
+        "fields": [
+          "lifecycle_state",
+          "lifecycle_stale_risk",
+          "hiring_intent_level"
+        ]
+      },
+      {
+        "id": "workable-0c5505658b",
+        "fields": [
+          "lifecycle_state",
+          "lifecycle_stale_risk",
+          "hiring_intent_level"
+        ]
+      },
+      {
+        "id": "workable-eb82fa5e64",
+        "fields": [
+          "lifecycle_state",
+          "lifecycle_stale_risk",
+          "hiring_intent_level"
+        ]
+      },
+      {
+        "id": "workable-d7548f5238",
+        "fields": [
+          "lifecycle_state",
+          "lifecycle_stale_risk",
+          "hiring_intent_level"
+        ]
+      },
+      {
+        "id": "workable-704f38da2a",
+        "fields": [
+          "lifecycle_state",
+          "lifecycle_stale_risk",
+          "hiring_intent_level"
+        ]
+      },
+      {
+        "id": "workable-6cc6595778",
+        "fields": [
+          "lifecycle_state",
+          "lifecycle_stale_risk",
+          "hiring_intent_level"
+        ]
+      },
+      {
+        "id": "workable-5931538b09",
+        "fields": [
+          "lifecycle_state",
+          "lifecycle_stale_risk",
+          "hiring_intent_level"
+        ]
+      },
+      {
+        "id": "workable-4919b43783",
+        "fields": [
+          "lifecycle_state",
+          "lifecycle_stale_risk",
+          "hiring_intent_level"
+        ]
+      },
+      {
+        "id": "workable-96e2307441",
+        "fields": [
+          "lifecycle_state",
+          "lifecycle_stale_risk",
+          "hiring_intent_level"
+        ]
+      },
+      {
+        "id": "workable-cd2e09d2fd",
+        "fields": [
+          "lifecycle_state",
+          "lifecycle_stale_risk",
+          "hiring_intent_level"
+        ]
+      },
+      {
+        "id": "workable-c3bb459090",
+        "fields": [
+          "lifecycle_state",
+          "lifecycle_stale_risk",
+          "hiring_intent_level"
+        ]
+      },
+      {
+        "id": "workable-9148de266b",
+        "fields": [
+          "lifecycle_state",
+          "lifecycle_stale_risk",
+          "hiring_intent_level"
+        ]
+      },
+      {
+        "id": "workable-a7a996cd91",
+        "fields": [
+          "lifecycle_state",
+          "lifecycle_stale_risk",
+          "hiring_intent_level"
+        ]
+      },
+      {
+        "id": "workable-974598abd0",
+        "fields": [
+          "lifecycle_state",
+          "lifecycle_stale_risk",
+          "hiring_intent_level"
+        ]
+      },
+      {
+        "id": "workable-d7093878d5",
+        "fields": [
+          "lifecycle_state",
+          "lifecycle_stale_risk",
+          "hiring_intent_level"
+        ]
+      },
+      {
+        "id": "workable-d69b53e5bf",
+        "fields": [
+          "lifecycle_state",
+          "lifecycle_stale_risk",
+          "hiring_intent_level"
+        ]
+      },
+      {
+        "id": "workable-b5db83a0b9",
+        "fields": [
+          "lifecycle_state",
+          "lifecycle_stale_risk",
+          "hiring_intent_level"
+        ]
+      },
+      {
+        "id": "workable-7f93a46503",
+        "fields": [
+          "lifecycle_state",
+          "lifecycle_stale_risk",
+          "hiring_intent_level"
+        ]
+      },
+      {
+        "id": "workable-61788fb05e",
+        "fields": [
+          "lifecycle_state",
+          "lifecycle_stale_risk",
+          "hiring_intent_level"
+        ]
+      },
+      {
+        "id": "workable-be5d79cfd1",
+        "fields": [
+          "lifecycle_state",
+          "lifecycle_stale_risk",
+          "hiring_intent_level"
         ]
       }
     ]
+  },
+  "intelligence": {
+    "lifecycle": {
+      "state_counts": {
+        "NEW_3D": 14,
+        "STALE_RISK_90D": 225,
+        "AGING_30D": 75,
+        "FRESH_7D": 33,
+        "LONG_RUNNING_60D": 45,
+        "ACTIVE": 61,
+        "NEW_24H": 1
+      },
+      "stale_risk_counts": {
+        "LOW": 184,
+        "ELEVATED": 225,
+        "REVIEW": 45
+      },
+      "reopened_after_confirmed_close_count": 0,
+      "changed_within_7d_count": 437,
+      "thresholds_days": {
+        "aging": 30,
+        "long_running": 60,
+        "stale_risk": 90
+      },
+      "rule": "Long-running and reopened postings are review signals, not automatic ghost-job labels."
+    },
+    "hiring_intent": {
+      "signal_level_counts": {
+        "MODERATE_EVIDENCE": 153,
+        "WEAK_EVIDENCE": 270,
+        "STRONG_EVIDENCE": 31
+      },
+      "score_is_probability": false,
+      "ghost_job_classifier": false,
+      "evidence_inputs": [
+        "official active verification",
+        "posting age",
+        "employer hiring momentum",
+        "recent posting change",
+        "confirmed close/reopen history"
+      ]
+    }
   },
   "verification": {
     "hard_errors": [],
