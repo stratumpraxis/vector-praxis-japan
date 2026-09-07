@@ -13,7 +13,9 @@ on:
       - incubator/global-work-radar/enrich-lifecycle.mjs
       - incubator/global-work-radar/observability.mjs
       - incubator/global-work-radar/agent-lab-handoff.mjs
+      - incubator/global-work-radar/publishing-handoff.mjs
       - incubator/global-work-radar/data/agent-lab-field-note-candidates.jsonl
+      - incubator/global-work-radar/data/publishing-data-insight-candidates.jsonl
       - incubator/global-work-radar/labor-benchmarks.json
       - incubator/global-work-radar/company-watchlist.json
       - .github/workflows/gwr-workable-snapshot.yml
@@ -96,6 +98,9 @@ jobs:
 
       - name: Validate Agent Lab downstream handoff
         run: node incubator/global-work-radar/agent-lab-handoff.mjs --validate-log
+
+      - name: Validate Publishing downstream handoff
+        run: node incubator/global-work-radar/publishing-handoff.mjs --validate-log
 
       - name: Record evidence-first observability
         env:
