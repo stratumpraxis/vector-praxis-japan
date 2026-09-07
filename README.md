@@ -21,9 +21,9 @@ Portable operating infrastructure for AI teams using Claude Code, Codex, Cursor,
 
 Relevant when a run moves between providers and you need authority, budget, evidence, and human-gate rules to stay explicit instead of drifting with the adapter change.
 
-**$69 one-time personal license. No subscription. After a successful Stripe Checkout, you are redirected to the access page for delivery.**
+**$69 one-time personal license. No subscription. Purchase is completed through Stripe after reviewing the first-party product page.**
 
-- [$69 Personal License — Cross-Agent Operating Kit](https://buy.stripe.com/4gM9AU3sE1YLcoM4FB6Zy0T?client_reference_id=github_readme_provider_handoff_20260906&utm_source=github&utm_medium=repo&utm_campaign=market_revenue_retest&utm_content=provider_handoff)
+- [$69 Personal License — Cross-Agent Operating Kit](https://stratumpraxis.com/cross-agent-operating-kit.html?utm_source=github&utm_medium=repo&utm_campaign=market_revenue_retest&utm_content=provider_handoff&route_id=github_readme_provider_handoff_20260906)
 
 The existing Sites URL remains live and canonical until a replacement `*.vercel.app` production URL is publicly reachable without authentication.
 
