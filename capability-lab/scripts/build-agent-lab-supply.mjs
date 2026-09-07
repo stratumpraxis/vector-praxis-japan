@@ -12,8 +12,13 @@ if (!fs.existsSync(root)) {
   fs.mkdirSync(root, { recursive: true });
 }
 
+// Agent Lab supply records use the durable capability-YYYYMMDD-slug namespace.
+// Other evidence families (daily scans, Publishing handoffs, etc.) share this
+// directory but must never be validated as Agent Lab records.
+const agentLabRecordPattern = /^capability-\d{8}-.+\.json$/;
+
 const records = fs.readdirSync(root)
-  .filter((name) => name.endsWith('.json') && !name.includes('example'))
+  .filter((name) => agentLabRecordPattern.test(name) && !name.includes('example'))
   .sort();
 
 const ready = [];
