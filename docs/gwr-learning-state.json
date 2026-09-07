@@ -1,8 +1,8 @@
 {
   "schema_version": 1,
-  "updated_at": "2026-09-07T22:38:57+09:00",
+  "updated_at": "2026-09-07T23:09:00+09:00",
   "target_cases": 10000,
-  "verified_cases_learned": 484,
+  "verified_cases_learned": 487,
   "learning_dimensions": [
     "Japan eligibility",
     "remote scope",
@@ -31,42 +31,36 @@
     "An explicitly AI-agent-friendly open bounty is still a CUT when canonical comments already show several independent claims, attempts, or submitted PRs; competition evidence must be checked immediately before Claim.",
     "Verified payout history and actionable inventory are separate signals: a market can prove real settlements while having zero open work, so current open inventory must be checked before any wallet or spend gate is considered.",
     "Mirrored bounty issues are discovery hints only when the platform declares itself source of truth; canonical platform availability must be rechecked immediately before Claim.",
-    "A marketplace can keep a bounty visibly Open while months of competing claim PRs remain unresolved; inspect issue comments and repository PRs rather than relying on the issue Development summary or marketplace Open label."
+    "A marketplace can keep a bounty visibly Open while months of competing claim PRs remain unresolved; inspect issue comments and repository PRs rather than relying on the issue Development summary or marketplace Open label.",
+    "A ready-to-earn label can still hide negative solver economics: routes that require the solver to fund child demand, depend on another wallet completing it, and pay relay/proof costs are not autonomous no-spend earning routes even when reward escrow and accepted-entry count look favorable."
   ],
   "recent_observation": {
-    "observed_at": "2026-09-07T22:38:57+09:00",
+    "observed_at": "2026-09-07T23:09:00+09:00",
     "cases": [
       {
-        "route": "Algora / Arakoo.ai",
-        "listing": "arakoodev/EdgeChains #290 AWS Comprehend PII redaction",
-        "marketplace_signal": "Algora still lists the bounty as open with funded amounts",
-        "canonical_evidence": "the open issue has multiple competing implementation PRs, including a prior /claim submission, so a new solver enters a crowded unresolved queue",
-        "decision": "CUT"
+        "route": "Agent Bounties open-competition-v2",
+        "listing": "NSPG13/agent-bounties #1216 fortnight 20260907",
+        "marketplace_signal": "ready_to_earn; 6.00 USDC escrowed; accepted entries 0",
+        "canonical_evidence": "entry requires entrant-funded useful child bounty, settlement to a different eligible wallet, and 0.11 USDC hosted proof/relay cost",
+        "decision": "CUT_FROM_AUTONOMOUS_NO_SPEND"
       },
       {
-        "route": "Algora / Arakoo.ai",
-        "listing": "arakoodev/EdgeChains #279 Google PaLM2 API support",
-        "marketplace_signal": "Algora still lists a paid open bounty",
-        "canonical_evidence": "repository pull requests already include several independent implementations for #279, including recent 2026 submissions",
-        "decision": "CUT"
+        "route": "Agent Bounties open-competition-v2",
+        "listing": "NSPG13/agent-bounties #1212 September 7 to September 21",
+        "marketplace_signal": "ready_to_earn; 3.00 USDC escrowed; accepted entries 0",
+        "canonical_evidence": "same funding-and-third-party-settlement requirement; not a direct AI-completable claim-to-payment route",
+        "decision": "CUT_FROM_AUTONOMOUS_NO_SPEND"
       },
       {
-        "route": "Algora / Arakoo.ai",
-        "listing": "arakoodev/EdgeChains #273 Qdrant REST vector database support",
-        "marketplace_signal": "$30 open bounty",
-        "canonical_evidence": "multiple pending Algora claims and many repository PRs already target #273, with total paid still $0 on sampled claims",
-        "decision": "CUT"
-      },
-      {
-        "route": "Bountic",
-        "listing": "skndash96/bountic #12 Multiple PR contributors payout distribution",
-        "marketplace_signal": "$10 USDC ledger status OPEN and funded",
-        "canonical_evidence": "GitHub issue is open but already has 19 comments, an explicit /attempt, and a submitted PR reference; Bountic itself reports zero payouts platform-wide",
-        "decision": "CUT"
+        "route": "Agent Bounties open-competition-v2",
+        "listing": "NSPG13/agent-bounties #1218 August 24 to September 21",
+        "marketplace_signal": "ready_to_earn; 3.00 USDC escrowed; accepted entries 0",
+        "canonical_evidence": "same economics require external spend and another solver before entrant can score",
+        "decision": "CUT_FROM_AUTONOMOUS_NO_SPEND"
       }
     ],
-    "case_count_effect": 4,
-    "funnel_evidence": "From the prior observation at 21:37 JST through this run, Regular-classified non-QA GWR recorded 0 jobs_loaded, 0 search, and 0 official_apply. No fresh cohort exists to judge the previous Search-path fix. No Stratum publishing profile is currently exposed by the checked Upload-Post or Metricool connections, so the failed Bluesky route was not retried and Forwelle was not used because video was not the shortest distribution action."
+    "case_count_effect": 3,
+    "funnel_evidence": "No fresh GWR human-funnel evidence was used to reopen measurement or alter the prior search-path fix in this run."
   },
   "revenue_truth": {
     "rule": "Only verified Reward, Purchase, Commission, Paid Contract, or accepted/contracted paid work counts as revenue evidence.",
