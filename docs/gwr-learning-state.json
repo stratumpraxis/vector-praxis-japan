@@ -1,8 +1,8 @@
 {
   "schema_version": 1,
-  "updated_at": "2026-09-07T17:35:00+09:00",
+  "updated_at": "2026-09-07T18:45:00+09:00",
   "target_cases": 10000,
-  "verified_cases_learned": 474,
+  "verified_cases_learned": 476,
   "learning_dimensions": [
     "Japan eligibility",
     "remote scope",
@@ -26,28 +26,29 @@
     "Reward ownership matters: a public fixable issue is not a solver revenue route when the bounty is reserved for the original reporter or another role.",
     "AI-oriented bounties attract dense automated competition; high comment/solver density materially lowers payment probability even when the work is AI-completable.",
     "Canonical repository state must outrank marketplace labels such as Featured, Available, or zero solvers; open issue, no competing implementation, and fresh sponsor intent are required before Claim.",
-    "Marketplace zero-solver labels can lag reality: a canonical issue may already be closed or have multiple active claim PRs, so zero-solvers is never sufficient evidence of low competition."
+    "Marketplace zero-solver labels can lag reality: a canonical issue may already be closed or have multiple active claim PRs, so zero-solvers is never sufficient evidence of low competition.",
+    "An Opire-enabled issue is not evidence of a funded bounty: actual unclaimed reward state must be verified, and marketplace headline amounts can remain misleading after canonical closure or prior claim."
   ],
   "recent_observation": {
-    "observed_at": "2026-09-07T17:35:00+09:00",
+    "observed_at": "2026-09-07T18:45:00+09:00",
     "cases": [
       {
         "route": "Opire",
-        "listing": "go-github stateless GitHub App installation token format",
-        "marketplace_signal": "listed as $100-$360 with zero/low solvers",
-        "canonical_evidence": "issue #7 is closed and multiple implementation PRs remain open",
+        "listing": "secondlife/viewer #4445 Replace tut with doctest",
+        "marketplace_signal": "$270 card / low apparent solver count",
+        "canonical_evidence": "issue comments show JulianJulius claimed all rewards and later multiple additional /try attempts; no unclaimed solver reward remains",
         "decision": "CUT"
       },
       {
         "route": "Opire",
-        "listing": "Electron macOS showOpenDialog package filtering",
-        "marketplace_signal": "$100 / 1 solver",
-        "canonical_evidence": "electron/electron issue #48191 is closed",
+        "listing": "Opire/docs #27 French language support",
+        "marketplace_signal": "marketplace still surfaces a four-solver high headline value around the French docs item",
+        "canonical_evidence": "GitHub issue #27 is closed as completed; maintainer explicitly stated French already exists and asked reward creator to remove the stale reward",
         "decision": "CUT"
       }
     ],
     "case_count_effect": 2,
-    "funnel_evidence": "13 Regular-classified non-QA gwr_jobs_loaded events loaded all 456 jobs, with 0 Regular search/apply; all observed referrers were direct, so no independently corroborated human conversion is claimed."
+    "funnel_evidence": "Fresh Regular-classified non-QA GWR cohort from 17:35-18:31 JST recorded 0 jobs_loaded, 0 search, and 0 official_apply events. A Bluesky distribution attempt failed before publication, so no human visit or external write is claimed."
   },
   "revenue_truth": {
     "rule": "Only verified Reward, Purchase, Commission, Paid Contract, or accepted/contracted paid work counts as revenue evidence.",
