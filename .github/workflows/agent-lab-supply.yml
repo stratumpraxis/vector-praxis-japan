@@ -1,0 +1,32 @@
+name: Agent Lab Knowledge Supply Gate
+
+on:
+  pull_request:
+    paths:
+      - 'capability-lab/**'
+      - '.github/workflows/agent-lab-supply.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  validate-supply:
+    runs-on: ubuntu-24.04
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+
+      - name: Validate example record
+        run: node capability-lab/scripts/validate-agent-lab-supply.mjs capability-lab/evidence/agent-lab-supply-example.json
+
+      - name: Build verified supply queue
+        run: node capability-lab/scripts/build-agent-lab-supply.mjs capability-lab/evidence /tmp/agent-lab-supply-queue.md
+
+      - name: Show queue
+        run: cat /tmp/agent-lab-supply-queue.md
