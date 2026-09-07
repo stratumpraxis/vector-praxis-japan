@@ -4,6 +4,7 @@ on:
   pull_request:
     paths:
       - 'capability-lab/**'
+      - 'tests/agent-lab-supply-builder.test.mjs'
       - '.github/workflows/agent-lab-supply.yml'
   workflow_dispatch:
 
@@ -21,6 +22,9 @@ jobs:
         uses: actions/setup-node@v4
         with:
           node-version: '22'
+
+      - name: Evidence namespace regression
+        run: node --test tests/agent-lab-supply-builder.test.mjs
 
       - name: Validate example record
         run: node capability-lab/scripts/validate-agent-lab-supply.mjs capability-lab/evidence/agent-lab-supply-example.json
