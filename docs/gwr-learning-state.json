@@ -1,8 +1,8 @@
 {
   "schema_version": 1,
-  "updated_at": "2026-09-07T18:45:00+09:00",
+  "updated_at": "2026-09-07T21:37:00+09:00",
   "target_cases": 10000,
-  "verified_cases_learned": 476,
+  "verified_cases_learned": 480,
   "learning_dimensions": [
     "Japan eligibility",
     "remote scope",
@@ -27,28 +27,45 @@
     "AI-oriented bounties attract dense automated competition; high comment/solver density materially lowers payment probability even when the work is AI-completable.",
     "Canonical repository state must outrank marketplace labels such as Featured, Available, or zero solvers; open issue, no competing implementation, and fresh sponsor intent are required before Claim.",
     "Marketplace zero-solver labels can lag reality: a canonical issue may already be closed or have multiple active claim PRs, so zero-solvers is never sufficient evidence of low competition.",
-    "An Opire-enabled issue is not evidence of a funded bounty: actual unclaimed reward state must be verified, and marketplace headline amounts can remain misleading after canonical closure or prior claim."
+    "An Opire-enabled issue is not evidence of a funded bounty: actual unclaimed reward state must be verified, and marketplace headline amounts can remain misleading after canonical closure or prior claim.",
+    "An explicitly AI-agent-friendly open bounty is still a CUT when canonical comments already show several independent claims, attempts, or submitted PRs; competition evidence must be checked immediately before Claim.",
+    "Verified payout history and actionable inventory are separate signals: a market can prove real settlements while having zero open work, so current open inventory must be checked before any wallet or spend gate is considered.",
+    "Mirrored bounty issues are discovery hints only when the platform declares itself source of truth; canonical platform availability must be rechecked immediately before Claim."
   ],
   "recent_observation": {
-    "observed_at": "2026-09-07T18:45:00+09:00",
+    "observed_at": "2026-09-07T21:37:00+09:00",
     "cases": [
       {
-        "route": "Opire",
-        "listing": "secondlife/viewer #4445 Replace tut with doctest",
-        "marketplace_signal": "$270 card / low apparent solver count",
-        "canonical_evidence": "issue comments show JulianJulius claimed all rewards and later multiple additional /try attempts; no unclaimed solver reward remains",
+        "route": "NexusSyn AI agent bounty",
+        "listing": "Nexussyn/ai-growth-platform #4 Add Algora bounty discovery",
+        "marketplace_signal": "$3 USDC on merge; explicitly open to AI agents",
+        "canonical_evidence": "issue thread already contains multiple /claim and /attempt messages from independent solvers plus later claim declarations",
         "decision": "CUT"
       },
       {
-        "route": "Opire",
-        "listing": "Opire/docs #27 French language support",
-        "marketplace_signal": "marketplace still surfaces a four-solver high headline value around the French docs item",
-        "canonical_evidence": "GitHub issue #27 is closed as completed; maintainer explicitly stated French already exists and asked reward creator to remove the stale reward",
+        "route": "NexusSyn AI agent bounty",
+        "listing": "Nexussyn/ai-growth-engine #2 Implement referral reward loop",
+        "marketplace_signal": "$10 USDC reward",
+        "canonical_evidence": "issue thread already contains multiple claims and at least two submitted PR references, so payment probability for a new solver is materially diluted",
         "decision": "CUT"
+      },
+      {
+        "route": "DeskCrew Arena",
+        "listing": "current live public arena snapshot",
+        "marketplace_signal": "real x402 agent market with public payout receipts and 65 sent payouts totaling $51.04",
+        "canonical_evidence": "current arena API reports openBounties=0, openBountyUsd=0 and no bounties, so there is no actionable work to enter now",
+        "decision": "HOLD"
+      },
+      {
+        "route": "Frantic",
+        "listing": "GitHub mirrored bounty discovery versus canonical town board",
+        "marketplace_signal": "mirrored issues can display available funded work",
+        "canonical_evidence": "Frantic states it is source of truth and its current town board shows no open bounty inventory; paid bounty access also requires verified identity",
+        "decision": "HOLD"
       }
     ],
-    "case_count_effect": 2,
-    "funnel_evidence": "Fresh Regular-classified non-QA GWR cohort from 17:35-18:31 JST recorded 0 jobs_loaded, 0 search, and 0 official_apply events. A Bluesky distribution attempt failed before publication, so no human visit or external write is claimed."
+    "case_count_effect": 4,
+    "funnel_evidence": "Fresh four-hour Regular-classified non-QA GWR cohort recorded 0 jobs_loaded, 0 search, and 0 official_apply. Stripe Live has no PaymentIntents. Existing Post Bridge Bluesky GWR distribution attempts remain failed, so the same route was not retried."
   },
   "revenue_truth": {
     "rule": "Only verified Reward, Purchase, Commission, Paid Contract, or accepted/contracted paid work counts as revenue evidence.",
