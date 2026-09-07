@@ -12,6 +12,9 @@ const queuePath = path.join(root, "capability-lab", "queue.md");
 const config = JSON.parse(await fs.readFile(configPath, "utf8"));
 const token = process.env.GITHUB_TOKEN || "";
 const now = new Date();
+const lookbackStart = new Date(now.getTime() - Number(config.lookback_days ?? 90) * 86_400_000)
+  .toISOString()
+  .slice(0, 10);
 
 const githubHeaders = {
   Accept: "application/vnd.github+json",
@@ -39,14 +42,15 @@ async function github(pathname) {
 }
 
 async function searchRepositories(query) {
+  const effectiveQuery = /\bpushed:/.test(query) ? query : `${query} pushed:>${lookbackStart}`;
   const params = new URLSearchParams({
-    q: query,
+    q: effectiveQuery,
     sort: "updated",
     order: "desc",
     per_page: String(config.max_per_query ?? 8),
   });
   const result = await github(`/search/repositories?${params}`);
-  return result.items ?? [];
+  return { items: result.items ?? [], effectiveQuery };
 }
 
 async function fetchRepository(fullName) {
@@ -135,7 +139,8 @@ for (const fullName of config.seed_repositories ?? []) {
 
 for (const query of config.github_queries ?? []) {
   try {
-    for (const repo of await searchRepositories(query)) add(repo, `github-search:${query}`);
+    const { items, effectiveQuery } = await searchRepositories(query);
+    for (const repo of items) add(repo, `github-search:${effectiveQuery}`);
   } catch (error) {
     console.warn(`search failed: ${query}: ${error.message}`);
   }
@@ -162,6 +167,7 @@ candidates.sort((a, b) => b.score - a.score || b.star_delta - a.star_delta || b.
 const output = {
   schema_version: 1,
   generated_at: now.toISOString(),
+  lookback_start: lookbackStart,
   run: {
     github_repository: process.env.GITHUB_REPOSITORY ?? null,
     github_run_id: process.env.GITHUB_RUN_ID ?? null,
@@ -192,6 +198,7 @@ function renderMarkdown() {
     "# Capability Acquisition Queue",
     "",
     `Generated: ${output.generated_at}`,
+    `Rolling discovery window starts: ${lookbackStart}`,
     "",
     "> External signal → primary GitHub metadata → score → isolated sandbox → KEEP/KILL. Discovery never auto-installs third-party code.",
     "",
