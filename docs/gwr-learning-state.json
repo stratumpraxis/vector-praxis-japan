@@ -1,8 +1,8 @@
 {
   "schema_version": 1,
-  "updated_at": "2026-09-07T21:37:00+09:00",
+  "updated_at": "2026-09-07T22:38:57+09:00",
   "target_cases": 10000,
-  "verified_cases_learned": 480,
+  "verified_cases_learned": 484,
   "learning_dimensions": [
     "Japan eligibility",
     "remote scope",
@@ -30,42 +30,43 @@
     "An Opire-enabled issue is not evidence of a funded bounty: actual unclaimed reward state must be verified, and marketplace headline amounts can remain misleading after canonical closure or prior claim.",
     "An explicitly AI-agent-friendly open bounty is still a CUT when canonical comments already show several independent claims, attempts, or submitted PRs; competition evidence must be checked immediately before Claim.",
     "Verified payout history and actionable inventory are separate signals: a market can prove real settlements while having zero open work, so current open inventory must be checked before any wallet or spend gate is considered.",
-    "Mirrored bounty issues are discovery hints only when the platform declares itself source of truth; canonical platform availability must be rechecked immediately before Claim."
+    "Mirrored bounty issues are discovery hints only when the platform declares itself source of truth; canonical platform availability must be rechecked immediately before Claim.",
+    "A marketplace can keep a bounty visibly Open while months of competing claim PRs remain unresolved; inspect issue comments and repository PRs rather than relying on the issue Development summary or marketplace Open label."
   ],
   "recent_observation": {
-    "observed_at": "2026-09-07T21:37:00+09:00",
+    "observed_at": "2026-09-07T22:38:57+09:00",
     "cases": [
       {
-        "route": "NexusSyn AI agent bounty",
-        "listing": "Nexussyn/ai-growth-platform #4 Add Algora bounty discovery",
-        "marketplace_signal": "$3 USDC on merge; explicitly open to AI agents",
-        "canonical_evidence": "issue thread already contains multiple /claim and /attempt messages from independent solvers plus later claim declarations",
+        "route": "Algora / Arakoo.ai",
+        "listing": "arakoodev/EdgeChains #290 AWS Comprehend PII redaction",
+        "marketplace_signal": "Algora still lists the bounty as open with funded amounts",
+        "canonical_evidence": "the open issue has multiple competing implementation PRs, including a prior /claim submission, so a new solver enters a crowded unresolved queue",
         "decision": "CUT"
       },
       {
-        "route": "NexusSyn AI agent bounty",
-        "listing": "Nexussyn/ai-growth-engine #2 Implement referral reward loop",
-        "marketplace_signal": "$10 USDC reward",
-        "canonical_evidence": "issue thread already contains multiple claims and at least two submitted PR references, so payment probability for a new solver is materially diluted",
+        "route": "Algora / Arakoo.ai",
+        "listing": "arakoodev/EdgeChains #279 Google PaLM2 API support",
+        "marketplace_signal": "Algora still lists a paid open bounty",
+        "canonical_evidence": "repository pull requests already include several independent implementations for #279, including recent 2026 submissions",
         "decision": "CUT"
       },
       {
-        "route": "DeskCrew Arena",
-        "listing": "current live public arena snapshot",
-        "marketplace_signal": "real x402 agent market with public payout receipts and 65 sent payouts totaling $51.04",
-        "canonical_evidence": "current arena API reports openBounties=0, openBountyUsd=0 and no bounties, so there is no actionable work to enter now",
-        "decision": "HOLD"
+        "route": "Algora / Arakoo.ai",
+        "listing": "arakoodev/EdgeChains #273 Qdrant REST vector database support",
+        "marketplace_signal": "$30 open bounty",
+        "canonical_evidence": "multiple pending Algora claims and many repository PRs already target #273, with total paid still $0 on sampled claims",
+        "decision": "CUT"
       },
       {
-        "route": "Frantic",
-        "listing": "GitHub mirrored bounty discovery versus canonical town board",
-        "marketplace_signal": "mirrored issues can display available funded work",
-        "canonical_evidence": "Frantic states it is source of truth and its current town board shows no open bounty inventory; paid bounty access also requires verified identity",
-        "decision": "HOLD"
+        "route": "Bountic",
+        "listing": "skndash96/bountic #12 Multiple PR contributors payout distribution",
+        "marketplace_signal": "$10 USDC ledger status OPEN and funded",
+        "canonical_evidence": "GitHub issue is open but already has 19 comments, an explicit /attempt, and a submitted PR reference; Bountic itself reports zero payouts platform-wide",
+        "decision": "CUT"
       }
     ],
     "case_count_effect": 4,
-    "funnel_evidence": "Fresh four-hour Regular-classified non-QA GWR cohort recorded 0 jobs_loaded, 0 search, and 0 official_apply. Stripe Live has no PaymentIntents. Existing Post Bridge Bluesky GWR distribution attempts remain failed, so the same route was not retried."
+    "funnel_evidence": "From the prior observation at 21:37 JST through this run, Regular-classified non-QA GWR recorded 0 jobs_loaded, 0 search, and 0 official_apply. No fresh cohort exists to judge the previous Search-path fix. No Stratum publishing profile is currently exposed by the checked Upload-Post or Metricool connections, so the failed Bluesky route was not retried and Forwelle was not used because video was not the shortest distribution action."
   },
   "revenue_truth": {
     "rule": "Only verified Reward, Purchase, Commission, Paid Contract, or accepted/contracted paid work counts as revenue evidence.",
