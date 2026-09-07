@@ -1,0 +1,94 @@
+{
+  "schema_version": 1,
+  "updated_at": "2026-09-07T23:00:00+09:00",
+  "principle": "CONNECT BROADLY. ACT SELECTIVELY. VERIFY EXTERNALLY. LEARN FROM MONEY.",
+  "lifecycle_states": ["AVAILABLE", "CONNECTED", "VERIFIED", "ON_DEMAND", "ACTIVE", "PAUSED", "RETIRED"],
+  "classes": ["EYES", "EARS", "BRAIN_INPUT", "MOUTH_HANDS", "NERVES", "WALLET"],
+  "overlap_states": ["NEW_SENSOR", "COMPLEMENT", "IMPORTANT_FALLBACK", "PARTIAL_OVERLAP", "FULL_DUPLICATE"],
+  "capabilities": [
+    {
+      "id": "github-public-search",
+      "name": "GitHub public repository/search surface",
+      "classes": ["EYES"],
+      "state": "ACTIVE",
+      "overlap": "NEW_SENSOR",
+      "cost_model": "free/public API within GitHub limits",
+      "commercial_note": "Public metadata discovery; downstream repository license/terms still require separate verification.",
+      "evidence": [".github/workflows/capability-acquisition-loop.yml", "capability-lab/evidence/latest.json"],
+      "revalidate": ["API availability", "rate limits", "search schema", "GitHub terms"],
+      "scores": {"external_reach": 9, "signal_quality": 8, "revenue_distance": 4, "automation": 10, "owner_burden": 10, "free_sustainability": 9, "safety_policy": 9, "reliability": 9, "return_path": 8, "market_synergy": 10}
+    },
+    {
+      "id": "github-actions",
+      "name": "GitHub Actions execution/evidence plane",
+      "classes": ["MOUTH_HANDS", "NERVES"],
+      "state": "ACTIVE",
+      "overlap": "COMPLEMENT",
+      "cost_model": "repository/plan dependent; current public-repo workflows available",
+      "commercial_note": "Execution plane only; not Revenue Truth and not a permanent daemon.",
+      "evidence": [".github/workflows/capability-acquisition-loop.yml", ".github/workflows/agent-lab-supply.yml"],
+      "revalidate": ["runner limits", "workflow permissions", "action versions", "schedule behavior"],
+      "scores": {"external_reach": 6, "signal_quality": 7, "revenue_distance": 5, "automation": 10, "owner_burden": 10, "free_sustainability": 8, "safety_policy": 8, "reliability": 9, "return_path": 9, "market_synergy": 10}
+    },
+    {
+      "id": "make-signal-intake",
+      "name": "Make MARKET Signal Intake webhook",
+      "classes": ["NERVES", "BRAIN_INPUT"],
+      "state": "CONNECTED",
+      "overlap": "COMPLEMENT",
+      "cost_model": "current Make plan/free-tier constraints apply",
+      "commercial_note": "Scenario exists and is active; registry does not yet claim a real external delivery as verification evidence.",
+      "evidence": ["Make scenario 6181725: MARKET | Signal Intake"],
+      "revalidate": ["webhook delivery", "scenario active state", "credit limits", "schema mapping"],
+      "scores": {"external_reach": 8, "signal_quality": 7, "revenue_distance": 7, "automation": 10, "owner_burden": 9, "free_sustainability": 7, "safety_policy": 8, "reliability": 8, "return_path": 10, "market_synergy": 10}
+    },
+    {
+      "id": "rss-atom-standard",
+      "name": "RSS / Atom feeds",
+      "classes": ["EYES"],
+      "state": "AVAILABLE",
+      "overlap": "NEW_SENSOR",
+      "cost_model": "open standard; source-specific availability",
+      "commercial_note": "Feed availability and downstream content rights are source-specific; ingest metadata/excerpts only as permitted.",
+      "evidence": [],
+      "revalidate": ["source feed URL", "terms", "refresh frequency", "schema"],
+      "scores": {"external_reach": 8, "signal_quality": 7, "revenue_distance": 4, "automation": 10, "owner_burden": 10, "free_sustainability": 10, "safety_policy": 9, "reliability": 8, "return_path": 6, "market_synergy": 9}
+    },
+    {
+      "id": "browser-use",
+      "name": "Browser Use",
+      "classes": ["EYES", "MOUTH_HANDS"],
+      "state": "AVAILABLE",
+      "overlap": "COMPLEMENT",
+      "cost_model": "OSS framework; model/browser infrastructure costs may apply",
+      "commercial_note": "Use only on permitted public/authorized surfaces; no CAPTCHA/access-control bypass.",
+      "evidence": ["capability-lab/WORLD_REVENUE_AGENT_SCAN_2026-09-07.md"],
+      "revalidate": ["license", "upstream activity", "browser policy", "sandbox proof-of-work"],
+      "scores": {"external_reach": 9, "signal_quality": 8, "revenue_distance": 7, "automation": 10, "owner_burden": 9, "free_sustainability": 8, "safety_policy": 7, "reliability": 8, "return_path": 7, "market_synergy": 10}
+    },
+    {
+      "id": "playwright-mcp",
+      "name": "Microsoft Playwright MCP",
+      "classes": ["EYES", "MOUTH_HANDS"],
+      "state": "AVAILABLE",
+      "overlap": "COMPLEMENT",
+      "cost_model": "OSS; runtime/model costs may apply",
+      "commercial_note": "Best suited to deterministic authorized browser verification and bounded actions.",
+      "evidence": ["capability-lab/WORLD_REVENUE_AGENT_SCAN_2026-09-07.md"],
+      "revalidate": ["license", "upstream activity", "MCP compatibility", "sandbox proof-of-work"],
+      "scores": {"external_reach": 8, "signal_quality": 9, "revenue_distance": 7, "automation": 10, "owner_burden": 9, "free_sustainability": 9, "safety_policy": 8, "reliability": 9, "return_path": 8, "market_synergy": 10}
+    },
+    {
+      "id": "stripe-revenue-truth",
+      "name": "Stripe Revenue Truth",
+      "classes": ["WALLET", "NERVES"],
+      "state": "AVAILABLE",
+      "overlap": "NEW_SENSOR",
+      "cost_model": "transaction fees apply; event verification itself has no separate fixed polling requirement",
+      "commercial_note": "Payment truth must be verified from Stripe state/webhook/API; paid does not by itself prove a human buyer.",
+      "evidence": [],
+      "revalidate": ["webhook/API connection", "event signature", "idempotency", "live/test mode separation"],
+      "scores": {"external_reach": 5, "signal_quality": 10, "revenue_distance": 10, "automation": 10, "owner_burden": 10, "free_sustainability": 8, "safety_policy": 10, "reliability": 10, "return_path": 10, "market_synergy": 10}
+    }
+  ]
+}
