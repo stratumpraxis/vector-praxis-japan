@@ -1,8 +1,8 @@
 {
   "schema_version": 1,
-  "updated_at": "2026-09-07T23:09:00+09:00",
+  "updated_at": "2026-09-08T06:28:00+09:00",
   "target_cases": 10000,
-  "verified_cases_learned": 487,
+  "verified_cases_learned": 491,
   "learning_dimensions": [
     "Japan eligibility",
     "remote scope",
@@ -32,35 +32,16 @@
     "Verified payout history and actionable inventory are separate signals: a market can prove real settlements while having zero open work, so current open inventory must be checked before any wallet or spend gate is considered.",
     "Mirrored bounty issues are discovery hints only when the platform declares itself source of truth; canonical platform availability must be rechecked immediately before Claim.",
     "A marketplace can keep a bounty visibly Open while months of competing claim PRs remain unresolved; inspect issue comments and repository PRs rather than relying on the issue Development summary or marketplace Open label.",
-    "A ready-to-earn label can still hide negative solver economics: routes that require the solver to fund child demand, depend on another wallet completing it, and pay relay/proof costs are not autonomous no-spend earning routes even when reward escrow and accepted-entry count look favorable."
+    "A ready-to-earn label can still hide negative solver economics: routes that require the solver to fund child demand, depend on another wallet completing it, and pay relay/proof costs are not autonomous no-spend earning routes even when reward escrow and accepted-entry count look favorable.",
+    "High nominal bounty value is not enough when payout eligibility requires a separate marketplace account, API key, social amplification, or maintainer pre-approval; these gates materially increase apply distance and Owner burden.",
+    "Competition density must be checked from current issue comments and submitted work immediately before a claim; a simple AI-completable workflow bounty can become economically unattractive once many claims and complete submissions already exist.",
+    "Audit bounties with public code and payout-to-handle support reduce identity friction, but expected value collapses when the maintainer has already enumerated and paid the obvious defect classes; novelty must be verified before submission.",
+    "A developer bounty that requires sign-up plus maintainer confirmation before work begins is not autonomous claimable inventory even when the GitHub issue is open and the cash reward is explicit."
   ],
   "recent_observation": {
-    "observed_at": "2026-09-07T23:09:00+09:00",
-    "cases": [
-      {
-        "route": "Agent Bounties open-competition-v2",
-        "listing": "NSPG13/agent-bounties #1216 fortnight 20260907",
-        "marketplace_signal": "ready_to_earn; 6.00 USDC escrowed; accepted entries 0",
-        "canonical_evidence": "entry requires entrant-funded useful child bounty, settlement to a different eligible wallet, and 0.11 USDC hosted proof/relay cost",
-        "decision": "CUT_FROM_AUTONOMOUS_NO_SPEND"
-      },
-      {
-        "route": "Agent Bounties open-competition-v2",
-        "listing": "NSPG13/agent-bounties #1212 September 7 to September 21",
-        "marketplace_signal": "ready_to_earn; 3.00 USDC escrowed; accepted entries 0",
-        "canonical_evidence": "same funding-and-third-party-settlement requirement; not a direct AI-completable claim-to-payment route",
-        "decision": "CUT_FROM_AUTONOMOUS_NO_SPEND"
-      },
-      {
-        "route": "Agent Bounties open-competition-v2",
-        "listing": "NSPG13/agent-bounties #1218 August 24 to September 21",
-        "marketplace_signal": "ready_to_earn; 3.00 USDC escrowed; accepted entries 0",
-        "canonical_evidence": "same economics require external spend and another solver before entrant can score",
-        "decision": "CUT_FROM_AUTONOMOUS_NO_SPEND"
-      }
-    ],
-    "case_count_effect": 3,
-    "funnel_evidence": "No fresh GWR human-funnel evidence was used to reopen measurement or alter the prior search-path fix in this run."
+    "observed_at": "2026-09-08T06:28:00+09:00",
+    "case_count_effect": 4,
+    "summary": "Fresh official/public cases reinforced gate-distance and competition penalties; no route crossed the threshold for a safe autonomous Claim/Bid/Submission in this run."
   },
   "revenue_truth": {
     "rule": "Only verified Reward, Purchase, Commission, Paid Contract, or accepted/contracted paid work counts as revenue evidence.",
