@@ -1,0 +1,37 @@
+{
+  "version": 1,
+  "lookback_days": 90,
+  "max_per_query": 8,
+  "max_gitgem_candidates": 20,
+  "priority_threshold": 90,
+  "sandbox_threshold": 75,
+  "github_queries": [
+    "agent skill codex mcp stars:>50",
+    "browser automation agent stars:>50",
+    "ai eval observability agent stars:>20",
+    "pdf translation agent stars:>20",
+    "video generation html agent stars:>20",
+    "workflow automation agent cli stars:>50",
+    "rag notebook self hosted stars:>50"
+  ],
+  "seed_repositories": [
+    "backnotprop/pstack",
+    "deusyu/translate-book",
+    "xai-org/x-algorithm",
+    "heygen-com/hyperframes",
+    "qiaozhishuo/opencli",
+    "browser-use/browser-use",
+    "lfnovo/open-notebook",
+    "Stirling-Tools/Stirling-PDF",
+    "github/spec-kit",
+    "mendableai/firecrawl",
+    "BytedTsinghua-SIA/CUDA-Agent"
+  ],
+  "external_sensors": [
+    {
+      "name": "GitGem",
+      "url": "https://gitgem.org/",
+      "mode": "best_effort_repo_name_extraction"
+    }
+  ]
+}
