@@ -1,0 +1,29 @@
+{
+  "id": "capability-example",
+  "source_repo": "owner/repo",
+  "source_url": "https://github.com/owner/repo",
+  "problem": "Describe the operational problem this capability was meant to solve.",
+  "project_target": "MARKET",
+  "execution_state": "VERIFIED",
+  "result": "SUCCESS",
+  "evidence": [
+    {
+      "type": "test",
+      "ref": "Replace with immutable test, trace, artifact, benchmark, external-side-effect, or regression reference"
+    }
+  ],
+  "capability_gain": "Describe what became measurably possible or better after adoption.",
+  "reusable_pattern": "Describe the reusable implementation, failure-prevention, or operating pattern.",
+  "risks": {
+    "license": "Verified license and commercial-use notes",
+    "security": "Dependency / credential / supply-chain notes",
+    "operational": "Runtime, maintenance, cost, or reliability notes"
+  },
+  "agent_lab_value": {
+    "eligible": true,
+    "format": "success_pattern",
+    "reason": "Explain why this is useful to a third party beyond the internal implementation."
+  },
+  "redaction_check": "PASS",
+  "supply_state": "SUPPLY_READY"
+}
