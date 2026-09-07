@@ -1,5 +1,5 @@
 {
-  "version": 1,
+  "version": 2,
   "lookback_days": 90,
   "max_per_query": 8,
   "max_gitgem_candidates": 20,
@@ -12,7 +12,13 @@
     "pdf translation agent stars:>20",
     "video generation html agent stars:>20",
     "workflow automation agent cli stars:>50",
-    "rag notebook self hosted stars:>50"
+    "rag notebook self hosted stars:>50",
+    "durable agent workflow checkpoint retry human in the loop stars:>20",
+    "mcp agent tool authentication trigger integration stars:>20",
+    "browser computer use agent deterministic playwright stars:>20",
+    "agent tracing eval observability regression stars:>20",
+    "agent memory persistent state temporal knowledge stars:>20",
+    "agent sandbox isolated code execution microvm stars:>20"
   ],
   "seed_repositories": [
     "backnotprop/pstack",
@@ -25,7 +31,20 @@
     "Stirling-Tools/Stirling-PDF",
     "github/spec-kit",
     "mendableai/firecrawl",
-    "BytedTsinghua-SIA/CUDA-Agent"
+    "BytedTsinghua-SIA/CUDA-Agent",
+    "pydantic/pydantic-ai",
+    "langchain-ai/langgraph",
+    "lastmile-ai/mcp-agent",
+    "triggerdotdev/trigger.dev",
+    "temporalio/temporal",
+    "browserbase/stagehand",
+    "vercel-labs/agent-browser",
+    "ComposioHQ/composio",
+    "langfuse/langfuse",
+    "comet-ml/opik",
+    "mem0ai/mem0",
+    "e2b-dev/E2B",
+    "anomalyco/opencode"
   ],
   "external_sensors": [
     {
