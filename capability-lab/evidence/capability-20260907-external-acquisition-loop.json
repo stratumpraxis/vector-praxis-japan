@@ -1,0 +1,41 @@
+{
+  "id": "capability-20260907-external-acquisition-loop",
+  "source_repo": "stratumpraxis/vector-praxis-japan",
+  "source_url": "https://github.com/stratumpraxis/vector-praxis-japan/pull/13",
+  "problem": "Agent research was fragmented: external GitHub and OSS signals could be discovered, but there was no durable loop for primary-source verification, deterministic scoring, sandbox prioritization, evidence retention, and repeated discovery.",
+  "project_target": "MARKET",
+  "execution_state": "VERIFIED",
+  "result": "SUCCESS",
+  "evidence": [
+    {
+      "type": "regression",
+      "ref": "PR #13 verification: capability scoring regression 5/5 PASS"
+    },
+    {
+      "type": "external_side_effect",
+      "ref": "GitHub Actions run 34097663727: Capability Acquisition Loop completed success, including external signal scan"
+    },
+    {
+      "type": "test",
+      "ref": "GitHub Actions run 34097663653: Verify Hub completed success"
+    },
+    {
+      "type": "artifact",
+      "ref": "Merge commit d2beb12db5e2b8f9c4f7282729b80f851e0a8fba"
+    }
+  ],
+  "capability_gain": "External capability discovery became a repeatable evidence-driven loop: GitHub Search + GitGem + seed tracking feed deterministic scoring, rolling freshness, sandbox queues, KEEP/KILL decisions, and durable JSON evidence instead of ad-hoc chat-only research.",
+  "reusable_pattern": "Separate discovery from adoption. Automate signal intake and scoring, but prohibit automatic third-party installation. Require primary-source verification, license/security review, isolated proof-of-work, objective evidence, and KEEP/KILL before project connection. Persist evidence outside ephemeral CI retention.",
+  "risks": {
+    "license": "The loop itself does not grant license rights to discovered repositories; every third-party candidate remains individually license-gated before adoption.",
+    "security": "Automatic third-party installation is intentionally prohibited; sandbox and dependency/security review precede production use.",
+    "operational": "Discovery quality depends on upstream GitHub/GitGem availability and scoring calibration; stale or noisy signals require periodic regression review."
+  },
+  "agent_lab_value": {
+    "eligible": true,
+    "format": "success_pattern",
+    "reason": "This is a reusable operating pattern for turning public OSS discovery into verified capability acquisition without letting popularity metrics or agent self-report become adoption evidence."
+  },
+  "redaction_check": "PASS",
+  "supply_state": "SUPPLY_READY"
+}
