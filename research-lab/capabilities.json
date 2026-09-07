@@ -1,0 +1,55 @@
+{
+  "version": 1,
+  "updated_at": "2026-09-07",
+  "stages": ["watch", "verify", "sandbox", "promoted", "hold", "killed"],
+  "candidates": [
+    {
+      "id": "pstack",
+      "name": "pstack",
+      "source": "https://github.com/backnotprop/pstack",
+      "preliminary_score": 98,
+      "stage": "sandbox",
+      "capability": "engineering verification, TDD, root-cause fixing, autonomous execution patterns",
+      "integration_mode": "selective-principles",
+      "license": "MIT",
+      "license_status": "verified",
+      "security_status": "review-required-before-code-import",
+      "targets": ["engineering", "agent-observability", "regression"],
+      "evidence_refs": [],
+      "regression_refs": [],
+      "kill_condition": "Adds process overhead without measurable reduction in repeat failures or verification gaps"
+    },
+    {
+      "id": "translate-book",
+      "name": "translate-book",
+      "source": "https://github.com/deusyu/translate-book",
+      "preliminary_score": 93,
+      "stage": "verify",
+      "capability": "long-form PDF/DOCX/EPUB translation and document delivery",
+      "integration_mode": "external-skill-candidate",
+      "license": "VERIFY_UPSTREAM_BEFORE_VENDORING",
+      "license_status": "verify",
+      "security_status": "verify",
+      "targets": ["delivery", "multilingual", "revenue-execution"],
+      "evidence_refs": [],
+      "regression_refs": [],
+      "kill_condition": "License, document fidelity, or deterministic validation is insufficient for commercial delivery"
+    },
+    {
+      "id": "x-algorithm",
+      "name": "X Algorithm",
+      "source": "https://github.com/xai-org/x-algorithm",
+      "preliminary_score": 91,
+      "stage": "sandbox",
+      "capability": "distribution research using public recommendation architecture",
+      "integration_mode": "read-only-research",
+      "license": "Apache-2.0",
+      "license_status": "verified",
+      "security_status": "not-executed",
+      "targets": ["distribution", "content-fit", "x-research"],
+      "evidence_refs": [],
+      "regression_refs": [],
+      "kill_condition": "Research produces no measurable improvement in legitimate distribution decisions or creates platform-compliance risk"
+    }
+  ]
+}
