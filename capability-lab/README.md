@@ -67,6 +67,28 @@ Generated files:
 
 The daily snapshot in repository history acts as the durable Evidence Ledger for discovery decisions. Production adoption should add its own test/deployment/revenue evidence in the owning project.
 
+## Knowledge Revenue Routes
+
+Verified Capability Lab evidence can flow downstream without turning the research cell into a publishing team.
+
+### Agent Lab
+
+`Capability -> Execution -> Evidence -> Reusable Pattern -> Agent Lab`
+
+See `AGENT_LAB_SUPPLY.md` and `agent-lab-supply-queue.md`.
+
+### Publishing Revenue Cell
+
+`Capability -> Execution -> Evidence -> Reusable Pattern -> Publishing -> Market -> Revenue -> Research`
+
+See:
+
+- `PUBLISHING_SUPPLY.md` — bidirectional role and Evidence Gate
+- `publishing-supply-queue.md` — verified material ready for Publishing research/editorial evaluation
+- `publishing-demand-queue.md` — external-demand themes returned by Publishing for evidence search or real implementation tests
+
+Publishing owns external demand validation, three-stage research, fact/license/legal/media-policy review, editorial packaging, distribution, and revenue feedback. GitHub研究所 owns implementation truth, failure/success evidence, and reusable-pattern extraction.
+
 ## Commands
 
 ```bash
