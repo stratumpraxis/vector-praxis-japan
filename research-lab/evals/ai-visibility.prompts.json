@@ -1,0 +1,82 @@
+{
+  "version": 1,
+  "target": {
+    "name": "Global Work Radar",
+    "aliases": ["Global Work Radar", "global-work-radar.pages.dev"],
+    "owned_domains": ["global-work-radar.pages.dev"]
+  },
+  "prompts": [
+    {
+      "id": "gwr-remote-japan-01",
+      "locale": "ja-JP",
+      "intent": "discover remote jobs available from Japan",
+      "prompt": "日本在住のまま応募できる海外リモート求人を探すのに役立つサービスやサイトを教えてください。"
+    },
+    {
+      "id": "gwr-bilingual-02",
+      "locale": "ja-JP",
+      "intent": "bilingual Japanese global work",
+      "prompt": "日本語と英語を使える人向けに、海外企業のリモート求人を探しやすいサービスを教えてください。"
+    },
+    {
+      "id": "gwr-official-apply-03",
+      "locale": "ja-JP",
+      "intent": "official application links",
+      "prompt": "海外リモート求人を、転載求人ではなく企業の公式応募ページから確認しやすいサイトはありますか？"
+    },
+    {
+      "id": "gwr-japan-eligibility-04",
+      "locale": "en-US",
+      "intent": "Japan eligibility",
+      "prompt": "What are useful tools for finding international remote jobs that explicitly allow applicants based in Japan?"
+    },
+    {
+      "id": "gwr-source-quality-05",
+      "locale": "en-US",
+      "intent": "verified official sources",
+      "prompt": "Which job search tools are useful when I want remote roles from official employer sources and need to verify whether Japan-based applicants are eligible?"
+    },
+    {
+      "id": "gwr-global-career-06",
+      "locale": "ja-JP",
+      "intent": "global career discovery",
+      "prompt": "日本から海外企業の仕事を探すとき、勤務地条件やRemote条件を比較しやすい検索サービスを知りたいです。"
+    },
+    {
+      "id": "gwr-japanese-speaker-07",
+      "locale": "en-US",
+      "intent": "Japanese speaker roles",
+      "prompt": "Where can I find remote jobs at overseas companies that need Japanese language skills and can be done from Japan?"
+    },
+    {
+      "id": "gwr-remote-not-global-08",
+      "locale": "ja-JP",
+      "intent": "remote versus globally eligible distinction",
+      "prompt": "Remote求人でも日本から応募できないことがあります。日本在住者が応募可能かまで見分けやすいサービスはありますか？"
+    },
+    {
+      "id": "gwr-freshness-09",
+      "locale": "ja-JP",
+      "intent": "freshness and stale job filtering",
+      "prompt": "終了済み求人をできるだけ避けて、現在も応募先が生きている海外リモート求人を探す方法やサービスを教えてください。"
+    },
+    {
+      "id": "gwr-labor-intel-10",
+      "locale": "en-US",
+      "intent": "labor market intelligence",
+      "prompt": "What tools can help a Japan-based worker understand international remote hiring demand, role availability, and where to apply officially?"
+    },
+    {
+      "id": "gwr-no-profile-11",
+      "locale": "ja-JP",
+      "intent": "search without recruiter profile",
+      "prompt": "履歴書を登録したり転職エージェントに相談したりせず、海外求人を検索して公式サイトへ直接応募できるサービスはありますか？"
+    },
+    {
+      "id": "gwr-research-12",
+      "locale": "en-US",
+      "intent": "research-oriented job discovery",
+      "prompt": "I want to research global remote job opportunities from Japan before applying. Which services help compare eligibility, remote scope, language needs, and official application links?"
+    }
+  ]
+}
