@@ -1,12 +1,16 @@
 name: GWR Workable Snapshot
 
 on:
+  schedule:
+    - cron: '17 */4 * * *'
   push:
     branches:
       - incubator/global-work-radar
     paths:
       - incubator/global-work-radar/ingest-workable.mjs
+      - incubator/global-work-radar/ingest-lever.mjs
       - incubator/global-work-radar/build-public-jobs.mjs
+      - incubator/global-work-radar/company-watchlist.json
       - .github/workflows/gwr-workable-snapshot.yml
   workflow_dispatch:
 
@@ -32,6 +36,9 @@ jobs:
         uses: actions/setup-node@v4
         with:
           node-version: '24'
+
+      - name: Stage current Lever watchlist signals
+        run: node incubator/global-work-radar/ingest-lever.mjs
 
       - name: Download Workable feed with retry
         run: |
@@ -69,7 +76,7 @@ jobs:
           node - <<'NODE'
           const fs=require('fs');
           const zlib=require('zlib');
-          for (const f of ['workable-current.json','workable-market.json','verified-jobs.json']) JSON.parse(fs.readFileSync('incubator/global-work-radar/data/'+f,'utf8'));
+          for (const f of ['staging-lever.json','workable-current.json','workable-market.json','verified-jobs.json']) JSON.parse(fs.readFileSync('incubator/global-work-radar/data/'+f,'utf8'));
           JSON.parse(zlib.gunzipSync(fs.readFileSync('incubator/global-work-radar/data/workable-state.json.gz')).toString('utf8'));
           console.log('GWR outputs valid');
           NODE
@@ -88,5 +95,5 @@ jobs:
             echo "No snapshot changes"
             exit 0
           fi
-          git commit -m "data(gwr): compact Workable market snapshot"
+          git commit -m "data(gwr): scheduled market observation snapshot"
           git push origin HEAD:incubator/global-work-radar
