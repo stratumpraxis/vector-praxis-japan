@@ -1,0 +1,54 @@
+{
+  "schema_version": 1,
+  "sensor": "hacker-news-official-api",
+  "source": "Hacker News Official API (Firebase)",
+  "source_endpoint": "https://hacker-news.firebaseio.com/v0/",
+  "read_only": true,
+  "auth_required": false,
+  "observed_at": "2026-09-07T14:47:19.023Z",
+  "github_actions_run_id": 34134855108,
+  "github_actions_job_id": 101783288337,
+  "sampled_ids": 106,
+  "fetched_items": 106,
+  "fetch_errors": 0,
+  "candidate_count": 36,
+  "state_transition": ["CONNECTED", "VERIFIED", "ON_DEMAND"],
+  "top_signal": {
+    "event_id": "hn-49571537",
+    "source_event_id": "49571537",
+    "timestamp": "2026-09-04T23:50:29.000Z",
+    "title": "Show HN: Moadim.io – A scheduler for agents",
+    "author": "tupe12334",
+    "hn_url": "https://news.ycombinator.com/item?id=49571537",
+    "external_url": "https://moadim.io/",
+    "score": 36,
+    "comments": 18,
+    "classification": {
+      "route_id": "multi-agent-governance",
+      "matched_keywords": ["agent", "agents", "claude", "codex"],
+      "signal_score": 80,
+      "confidence": "HIGH",
+      "existing_asset_match": {
+        "name": "Agent Control Auditor",
+        "url": "https://stratumpraxis.com/agent-control-auditor.html"
+      },
+      "fallback_asset": {
+        "name": "Cross-Agent Operating Kit",
+        "url": "https://stratumpraxis.com/cross-agent-operating-kit.html"
+      },
+      "handoff_cell": "Publishing Revenue Cell"
+    },
+    "fact": "A public Hacker News item matching deterministic MARKET keywords existed and was returned by the official API.",
+    "inference": "The discussion may indicate multi-agent-governance demand/pain worth editorial or market validation.",
+    "hypothesis": "This signal could progress toward a qualified visit or paid route after external validation; purchase intent is not established.",
+    "handoff": {
+      "cell": "Publishing Revenue Cell",
+      "action": "Validate external demand and decide whether to route the matched existing asset; do not create a new product.",
+      "asset": {
+        "name": "Agent Control Auditor",
+        "url": "https://stratumpraxis.com/agent-control-auditor.html"
+      }
+    }
+  },
+  "revenue_truth": 0
+}
