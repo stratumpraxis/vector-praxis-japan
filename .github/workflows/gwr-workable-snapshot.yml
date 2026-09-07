@@ -12,6 +12,8 @@ on:
       - incubator/global-work-radar/build-public-jobs.mjs
       - incubator/global-work-radar/enrich-lifecycle.mjs
       - incubator/global-work-radar/observability.mjs
+      - incubator/global-work-radar/agent-lab-handoff.mjs
+      - incubator/global-work-radar/data/agent-lab-field-note-candidates.jsonl
       - incubator/global-work-radar/labor-benchmarks.json
       - incubator/global-work-radar/company-watchlist.json
       - .github/workflows/gwr-workable-snapshot.yml
@@ -91,6 +93,9 @@ jobs:
           if(verified.records.some(r=>r.hiringIntent.is_hiring_probability!==false||r.hiringIntent.is_ghost_job_determination!==false)) throw new Error('GWR hiring intent safety semantics invalid');
           console.log('GWR outputs + lifecycle intelligence valid');
           NODE
+
+      - name: Validate Agent Lab downstream handoff
+        run: node incubator/global-work-radar/agent-lab-handoff.mjs --validate-log
 
       - name: Record evidence-first observability
         env:
