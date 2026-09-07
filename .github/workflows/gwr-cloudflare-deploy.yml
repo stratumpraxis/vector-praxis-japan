@@ -101,10 +101,16 @@ jobs:
           grep -q 'src="./app.js"' /tmp/gwr-live.html
           curl --fail --location --silent --show-error --max-time 30 "$GWR_URL/robots.txt" -o /tmp/gwr-live-robots.txt
           curl --fail --location --silent --show-error --max-time 30 "$GWR_URL/sitemap.xml" -o /tmp/gwr-live-sitemap.xml
-          curl --fail --location --silent --show-error --max-time 30 "$GWR_URL/d3af1ce8e69e0a9f87870bc03e522daf.txt" -o /tmp/gwr-live-indexnow-key.txt
           grep -q 'Sitemap: https://global-work-radar.pages.dev/sitemap.xml' /tmp/gwr-live-robots.txt
           grep -q '<loc>https://global-work-radar.pages.dev/</loc>' /tmp/gwr-live-sitemap.xml
-          grep -q '^d3af1ce8e69e0a9f87870bc03e522daf$' /tmp/gwr-live-indexnow-key.txt
+          for attempt in 1 2 3 4 5 6 7 8; do
+            if curl --fail --location --silent --show-error --max-time 30 "$GWR_URL/d3af1ce8e69e0a9f87870bc03e522daf.txt" -o /tmp/gwr-live-indexnow-key.txt \
+              && grep -q '^d3af1ce8e69e0a9f87870bc03e522daf$' /tmp/gwr-live-indexnow-key.txt; then
+              break
+            fi
+            if [ "$attempt" = "8" ]; then echo "IndexNow key unavailable on production alias after retries"; exit 1; fi
+            sleep $((attempt * 2))
+          done
           curl --fail --location --silent --show-error --max-time 30 "$GWR_URL/data/verified-jobs.json" -o /tmp/gwr-live-jobs.json
           curl --fail --location --silent --show-error --max-time 30 "$GWR_URL/app.js" -o /tmp/gwr-live-app.js
           grep -q "gwr_search" /tmp/gwr-live-app.js
