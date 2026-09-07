@@ -9,6 +9,8 @@ on:
       - incubator/global-work-radar/styles.css
       - incubator/global-work-radar/app.js
       - incubator/global-work-radar/revenue-config.js
+      - incubator/global-work-radar/robots.txt
+      - incubator/global-work-radar/sitemap.xml
       - incubator/global-work-radar/data/verified-jobs.json
       - incubator/global-work-radar/data/workable-market.json
       - .github/workflows/gwr-cloudflare-deploy.yml
@@ -58,6 +60,8 @@ jobs:
           cp incubator/global-work-radar/styles.css /tmp/gwr-public/
           cp incubator/global-work-radar/app.js /tmp/gwr-public/
           cp incubator/global-work-radar/revenue-config.js /tmp/gwr-public/
+          cp incubator/global-work-radar/robots.txt /tmp/gwr-public/
+          cp incubator/global-work-radar/sitemap.xml /tmp/gwr-public/
           cp incubator/global-work-radar/data/verified-jobs.json /tmp/gwr-public/data/
           cp incubator/global-work-radar/data/workable-market.json /tmp/gwr-public/data/
           printf '%s\n' '/* /index.html 200' > /tmp/gwr-public/_redirects
@@ -89,9 +93,14 @@ jobs:
             if [ "$attempt" = "8" ]; then echo "Production page unavailable after retries"; exit 1; fi
             sleep $((attempt * 2))
           done
-          grep -q "Global Work Radar" /tmp/gwr-live.html
+          grep -q "日本から応募できる海外リモート求人" /tmp/gwr-live.html
+          grep -q 'rel="canonical" href="https://global-work-radar.pages.dev/"' /tmp/gwr-live.html
           grep -q 'id="jobsList"' /tmp/gwr-live.html
           grep -q 'src="./app.js"' /tmp/gwr-live.html
+          curl --fail --location --silent --show-error --max-time 30 "$GWR_URL/robots.txt" -o /tmp/gwr-live-robots.txt
+          curl --fail --location --silent --show-error --max-time 30 "$GWR_URL/sitemap.xml" -o /tmp/gwr-live-sitemap.xml
+          grep -q 'Sitemap: https://global-work-radar.pages.dev/sitemap.xml' /tmp/gwr-live-robots.txt
+          grep -q '<loc>https://global-work-radar.pages.dev/</loc>' /tmp/gwr-live-sitemap.xml
           curl --fail --location --silent --show-error --max-time 30 "$GWR_URL/data/verified-jobs.json" -o /tmp/gwr-live-jobs.json
           curl --fail --location --silent --show-error --max-time 30 "$GWR_URL/app.js" -o /tmp/gwr-live-app.js
           grep -q "gwr_search" /tmp/gwr-live-app.js
