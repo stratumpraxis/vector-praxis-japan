@@ -1,17 +1,18 @@
 {
   "version": 1,
+  "lookback_days": 90,
   "max_per_query": 8,
   "max_gitgem_candidates": 20,
   "priority_threshold": 90,
   "sandbox_threshold": 75,
   "github_queries": [
-    "agent skill codex mcp stars:>50 pushed:>2026-08-01",
-    "browser automation agent stars:>50 pushed:>2026-08-01",
-    "ai eval observability agent stars:>20 pushed:>2026-08-01",
-    "pdf translation agent stars:>20 pushed:>2026-08-01",
-    "video generation html agent stars:>20 pushed:>2026-08-01",
-    "workflow automation agent cli stars:>50 pushed:>2026-08-01",
-    "rag notebook self hosted stars:>50 pushed:>2026-08-01"
+    "agent skill codex mcp stars:>50",
+    "browser automation agent stars:>50",
+    "ai eval observability agent stars:>20",
+    "pdf translation agent stars:>20",
+    "video generation html agent stars:>20",
+    "workflow automation agent cli stars:>50",
+    "rag notebook self hosted stars:>50"
   ],
   "seed_repositories": [
     "backnotprop/pstack",
