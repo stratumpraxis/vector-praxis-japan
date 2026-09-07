@@ -24,12 +24,35 @@ function readBaseline() {
 }
 
 function stableRecord(record) {
-  const fields = [
-    'id', 'employer', 'title', 'category', 'location', 'remote', 'japan',
-    'japanese', 'english', 'payMin', 'payMax', 'currency', 'period', 'status',
-    'url', 'source', 'confidence', 'eligibilityEvidence', 'publishedAt',
-  ];
-  return Object.fromEntries(fields.map((key) => [key, record?.[key] ?? null]));
+  return {
+    id: record?.id ?? null,
+    employer: record?.employer ?? null,
+    title: record?.title ?? null,
+    category: record?.category ?? null,
+    location: record?.location ?? null,
+    remote: record?.remote ?? null,
+    japan: record?.japan ?? null,
+    japanese: record?.japanese ?? null,
+    english: record?.english ?? null,
+    payMin: record?.payMin ?? null,
+    payMax: record?.payMax ?? null,
+    currency: record?.currency ?? null,
+    period: record?.period ?? null,
+    status: record?.status ?? null,
+    url: record?.url ?? null,
+    source: record?.source ?? null,
+    confidence: record?.confidence ?? null,
+    eligibilityEvidence: record?.eligibilityEvidence ?? null,
+    publishedAt: record?.publishedAt ?? null,
+    freshness_bucket: record?.freshness?.bucket ?? null,
+    hiring_momentum_state: record?.hiringMomentum?.state ?? null,
+    lifecycle_state: record?.lifecycle?.state ?? null,
+    lifecycle_reopened: record?.lifecycle?.reopened_after_confirmed_close ?? false,
+    lifecycle_stale_risk: record?.lifecycle?.stale_risk ?? null,
+    hiring_intent_level: record?.hiringIntent?.signal_level ?? null,
+    skill_salary_category_median: record?.skillSalary?.category_median_usd_hourly ?? null,
+    labor_benchmark_soc: record?.laborBenchmark?.soc ?? null,
+  };
 }
 
 function digest(value) {
@@ -121,6 +144,10 @@ const evidence = {
     removed_ids: removed,
     changed,
   },
+  intelligence: {
+    lifecycle: current?.intelligence?.lifecycle || null,
+    hiring_intent: current?.intelligence?.hiring_intent || null,
+  },
   verification: {
     hard_errors: [],
     warnings: validation.warnings,
@@ -138,6 +165,8 @@ const summary = [
   `- Added: ${added.length}`,
   `- Removed: ${removed.length}`,
   `- Meaningfully changed: ${changed.length}`,
+  `- Lifecycle stale-risk 90d: ${current?.intelligence?.lifecycle?.state_counts?.STALE_RISK_90D || 0}`,
+  `- Reopened after confirmed close: ${current?.intelligence?.lifecycle?.reopened_after_confirmed_close_count || 0}`,
   `- Validation warnings: ${validation.warnings.length}`,
   `- Revenue evidence: false (market-data change only)`,
 ].join('\n') + '\n';
