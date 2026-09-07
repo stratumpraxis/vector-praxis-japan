@@ -1,46 +1,58 @@
 {
   "schema_version": 1,
-  "updated_at": "2026-09-07T14:33:00+09:00",
+  "updated_at": "2026-09-07T17:35:00+09:00",
   "target_cases": 10000,
-  "verified_cases_learned": 472,
-  "baseline_source": "current GWR verified live inventory plus evidence-backed external work/reward cases",
+  "verified_cases_learned": 474,
   "learning_dimensions": [
-    "japan_eligibility",
-    "remote_scope",
-    "remote_geo_mismatch",
-    "headline_pay_vs_eligible_pay",
-    "language_fit",
-    "compensation_signal",
-    "official_source_integrity",
+    "Japan eligibility",
+    "remote scope",
+    "language fit",
+    "compensation",
+    "official-source integrity",
     "freshness",
-    "apply_distance",
-    "ai_completability",
-    "owner_labor_requirement",
-    "distribution_angle",
-    "human_visit",
-    "search_intent",
-    "official_apply",
-    "revenue_or_reward_evidence"
+    "apply distance",
+    "AI-completability",
+    "Owner-labor requirement",
+    "distribution angle",
+    "human visit/search/apply behavior",
+    "verified revenue/reward evidence"
   ],
   "reusable_findings": [
-    "Remote is not equivalent to Japan eligible, and headline remote pay is not equivalent to attainable Japan pay; keep those dimensions separate.",
-    "Funded/claimable agent bounties can still be poor autonomous revenue routes when they require an Owner-controlled wallet, new funding, or a second independent participant. Score financial and coordination burden before claimability labels.",
-    "An open GitHub issue with an Algora bounty marker is not enough to qualify as a fresh revenue route. Check the Algora attempt/reward table, current competition, payout eligibility, demo requirements, and whether the bounty has already produced many rewarded solutions before attempting.",
-    "Marketplace open-count is not sufficient evidence of executable bounty value. Before attempting, inspect repository-side claim density, overlapping PRs, maintainer acceptance filters such as anti-slop automation, and explicit sponsor confirmation that the remaining non-overlapping scope is still payable.",
-    "Treat stale open bounties and multiple bounty entries attached to the same underlying issue as funding-state residue until fresh sponsor intent is corroborated. Canonicalize by underlying issue before scoring and heavily discount age without recent maintainer activity.",
-    "Before scoring a public bounty as solver inventory, verify who earns the reward: discoverer-only bug bounty programs are not equivalent to fix-for-pay work, even when the reported issue includes an obvious patch path.",
-    "For AI-native bounty routes, claim/comment/attempt density is a hard negative-EV gate. A highly AI-completable task can still be a poor revenue action when hundreds or thousands of competing attempts are already attached to it; require low swarm plus verified solver payout mechanics before spending execution time.",
-    "Marketplace featured or funded status must never outrank the canonical repository state. CUT a bounty immediately when its underlying issue is closed, and sharply penalize an open issue when an active recent PR is already implementing the rewarded scope unless the sponsor explicitly confirms parallel payout eligibility."
+    "Remote scope and Japan eligibility are separate signals; never infer Japan eligibility from Remote alone.",
+    "Revenue probability must penalize identity, interview, ongoing-owner-labor, and financial-account gates even when nominal reward is high.",
+    "Algora-style bounty routes require checking active bounty status, attempt/competition density, and payout readiness before implementation.",
+    "Marketplace open counts are not enough: canonical issue state and repository activity must be verified before treating a bounty as executable.",
+    "Stale or superseded bounty listings can remain visible after canonical closure; freshness must be established from the issue/PR source of truth.",
+    "Reward ownership matters: a public fixable issue is not a solver revenue route when the bounty is reserved for the original reporter or another role.",
+    "AI-oriented bounties attract dense automated competition; high comment/solver density materially lowers payment probability even when the work is AI-completable.",
+    "Canonical repository state must outrank marketplace labels such as Featured, Available, or zero solvers; open issue, no competing implementation, and fresh sponsor intent are required before Claim.",
+    "Marketplace zero-solver labels can lag reality: a canonical issue may already be closed or have multiple active claim PRs, so zero-solvers is never sufficient evidence of low competition."
   ],
   "recent_observation": {
-    "observed_at": "2026-09-07T14:33:00+09:00",
-    "type": "canonical_issue_state_filter",
-    "summary": "Three Opire featured paid-work cases were cross-checked against their canonical GitHub state. strapi/strapi#11998 is still surfaced as a $70 featured bounty while the GitHub issue is closed/fixed. typeorm/typeorm#3357 is surfaced at $590 but dates to 2019 and now has a fresh competing PR listed on August 31, 2026 for the same migration-loss scope. denoland/deno#18147 is surfaced at $70 but the canonical feature issue dates to March 2023 with no fresh payout intent corroborated in the inspected evidence.",
-    "action": "FIX Revenue Probability scoring so canonical repository state and active solution PRs dominate marketplace presentation. CUT these three from immediate autonomous execution and do not claim merely because a marketplace still features a dollar amount.",
-    "case_count_effect": 3,
-    "reason_counted": "Each is a real external rewarded issue with marketplace reward evidence and enough canonical repository state to determine freshness, competing-solution risk, and immediate claimability."
+    "observed_at": "2026-09-07T17:35:00+09:00",
+    "cases": [
+      {
+        "route": "Opire",
+        "listing": "go-github stateless GitHub App installation token format",
+        "marketplace_signal": "listed as $100-$360 with zero/low solvers",
+        "canonical_evidence": "issue #7 is closed and multiple implementation PRs remain open",
+        "decision": "CUT"
+      },
+      {
+        "route": "Opire",
+        "listing": "Electron macOS showOpenDialog package filtering",
+        "marketplace_signal": "$100 / 1 solver",
+        "canonical_evidence": "electron/electron issue #48191 is closed",
+        "decision": "CUT"
+      }
+    ],
+    "case_count_effect": 2,
+    "funnel_evidence": "13 Regular-classified non-QA gwr_jobs_loaded events loaded all 456 jobs, with 0 Regular search/apply; all observed referrers were direct, so no independently corroborated human conversion is claimed."
   },
-  "revenue_rule": "No view, visit, search, apply, open checkout, test, bot, automation, or unverified state counts as revenue. Revenue requires verified payment, reward, commission, or paid contract evidence.",
+  "revenue_truth": {
+    "rule": "Only verified Reward, Purchase, Commission, Paid Contract, or accepted/contracted paid work counts as revenue evidence.",
+    "current_verified_revenue": 0
+  },
   "next_learning_goal": 1000,
   "mode": "revenue_first"
 }
