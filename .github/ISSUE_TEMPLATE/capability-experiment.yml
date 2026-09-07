@@ -1,0 +1,82 @@
+name: Capability experiment
+description: Evaluate an OSS/tool/research signal before it can enter production.
+title: "[Capability] "
+labels: []
+body:
+  - type: markdown
+    attributes:
+      value: |
+        DISCOVER -> VERIFY -> SANDBOX -> EVAL -> EVIDENCE -> REGRESSION -> PROMOTE/KILL
+        Agent self-report is not evidence.
+
+  - type: input
+    id: gap
+    attributes:
+      label: Capability gap
+      description: What can the system not reliably do today?
+    validations:
+      required: true
+
+  - type: input
+    id: source
+    attributes:
+      label: Upstream/source
+      description: Repository, paper, specification, or primary source URL.
+    validations:
+      required: true
+
+  - type: textarea
+    id: hypothesis
+    attributes:
+      label: Testable hypothesis
+      description: State the measurable improvement expected if this capability is adopted.
+    validations:
+      required: true
+
+  - type: textarea
+    id: risk
+    attributes:
+      label: License / security / platform risk
+      description: Record license status, secrets/network requirements, external side effects, and platform-policy concerns.
+    validations:
+      required: true
+
+  - type: textarea
+    id: sandbox
+    attributes:
+      label: Sandbox plan
+      description: Minimal isolated test. Prefer existing assets and representative production traces.
+    validations:
+      required: true
+
+  - type: textarea
+    id: metric
+    attributes:
+      label: Pass / fail metric
+      description: Define an observable threshold. Avoid subjective agent claims.
+    validations:
+      required: true
+
+  - type: textarea
+    id: evidence
+    attributes:
+      label: Required evidence
+      description: Tests, artifacts, state changes, traces, or external side-effect proof required for PASS.
+    validations:
+      required: true
+
+  - type: textarea
+    id: regression
+    attributes:
+      label: Regression protection
+      description: What automated test/eval will prevent the same failure from returning?
+    validations:
+      required: true
+
+  - type: textarea
+    id: kill
+    attributes:
+      label: Kill / rollback condition
+      description: When should the capability be rejected or reverted?
+    validations:
+      required: true
