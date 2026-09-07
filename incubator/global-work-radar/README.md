@@ -131,6 +131,38 @@ node incubator/global-work-radar/agent-lab-handoff.mjs --validate-log
 node incubator/global-work-radar/agent-lab-handoff.mjs --record path/to/evidence-backed-candidate.json
 ```
 
+## Publishing Revenue Cell downstream handoff
+
+Publishing is also downstream only. GWR remains the market/data system and must not change its ingestion, ranking, UI, source policy, or research priorities merely to create articles.
+
+When normal GWR operation already produces a general-user-relevant data finding, it may be handed to Publishing as a Data Insight candidate only when:
+
+- the underlying GWR evidence is confirmed
+- freshness has been checked
+- the data scope and `as_of` date are explicit
+- auditable GWR evidence/source references are present
+- claim limits are explicit so Publishing cannot strengthen the finding beyond the data
+- the default return destination remains GWR
+
+The handoff is data, not article copy. Publishing owns three-stage research, freshness confirmation, country/labor-expression review, article/Field Note/newsletter production, and qualified-traffic distribution.
+
+GWR never hands off claims equivalent to "this job will make money", "Japanese people can apply as a group", or "this role is easy to get hired for" unless the underlying evidence actually establishes that claim. Ordinary listings or weak samples are not generalized into population-level claims.
+
+Publishing may return search-demand or reader-response questions to GWR. GWR may deepen the data only when that analysis also serves GWR's own market-intelligence purpose; content demand alone does not create a new GWR workstream.
+
+Use `publishing-handoff.mjs` only after the qualifying data finding already exists. The append-only log is `data/publishing-data-insight-candidates.jsonl` and is created only when a qualifying candidate is recorded.
+
+Commands:
+
+```bash
+node incubator/global-work-radar/publishing-handoff.mjs --validate-log
+node incubator/global-work-radar/publishing-handoff.mjs --record path/to/evidence-backed-data-insight.json
+```
+
+The intended loop is:
+
+GWR Data → Publishing Research / QA → Public Content → Qualified Search / Human Signal → GWR
+
 ## Success criteria for MVP
 
 - scheduled ingestion works
