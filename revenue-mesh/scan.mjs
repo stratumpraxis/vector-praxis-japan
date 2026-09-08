@@ -5,7 +5,7 @@ const config = JSON.parse(await fs.readFile(new URL('./config.json', import.meta
 const now = new Date();
 const githubToken = process.env.GITHUB_TOKEN || '';
 const superteamKey = process.env.SUPERTEAM_AGENT_KEY || '';
-const userAgent = 'vector-praxis-revenue-mesh/1.0';
+const userAgent = 'vector-praxis-revenue-mesh/2.0';
 
 const githubHeaders = {
   Accept: 'application/vnd.github+json',
@@ -30,13 +30,13 @@ function stripHtml(value = '') {
 function extractRewardUsd(text = '') {
   const values = [];
   const patterns = [
-    /(?:\$|USD\s*|USDC\s*)(\d{1,6}(?:\.\d{1,2})?)/gi,
-    /(\d{1,6}(?:\.\d{1,2})?)\s*(?:USD|USDC)\b/gi,
-    /\/bounty\s+\$(\d{1,6}(?:\.\d{1,2})?)/gi,
+    /(?:\$|USD\s*|USDC\s*)([\d,]{1,10}(?:\.\d{1,2})?)/gi,
+    /([\d,]{1,10}(?:\.\d{1,2})?)\s*(?:USD|USDC)\b/gi,
+    /\/bounty\s+\$([\d,]{1,10}(?:\.\d{1,2})?)/gi,
   ];
   for (const pattern of patterns) {
     for (const match of String(text).matchAll(pattern)) {
-      const amount = Number(match[1]);
+      const amount = Number(match[1].replace(/,/g, ''));
       if (Number.isFinite(amount) && amount > 0 && amount <= 100000) values.push(amount);
     }
   }
@@ -50,13 +50,32 @@ function ageDays(dateValue) {
   return Math.max(0, (now.getTime() - date.getTime()) / 86400000);
 }
 
-function inferHours(text = '') {
+function relativeAgeDays(amount, unit) {
+  const n = Number(amount);
+  if (!Number.isFinite(n)) return null;
+  const lower = String(unit).toLowerCase();
+  if (lower.startsWith('day')) return n;
+  if (lower.startsWith('week')) return n * 7;
+  if (lower.startsWith('month')) return n * 30.44;
+  if (lower.startsWith('year')) return n * 365.25;
+  return null;
+}
+
+function inferHours(text = '', rewardUsd = 0) {
   const t = text.toLowerCase();
-  if (/typo|docs?|documentation|readme|broken link|copy|example/.test(t)) return 1.5;
-  if (/test|typing|schema|small fix|bug|cli|api/.test(t)) return 2.5;
-  if (/feature|integration|component|support for|add support/.test(t)) return 5;
-  if (/architecture|rewrite|migration|compiler|kernel|distributed|refactor/.test(t)) return 10;
-  return 4;
+  let hours = 4;
+  if (/typo|docs?|documentation|readme|broken link|copy|example/.test(t)) hours = 1.5;
+  else if (/test|typing|schema|small fix|bug|cli|api/.test(t)) hours = 2.5;
+  else if (/feature|integration|component|support for|add support/.test(t)) hours = 5;
+  else if (/architecture|rewrite|rebuild|migration|compiler|kernel|distributed|refactor|on-device|native app/.test(t)) hours = 12;
+
+  if (rewardUsd >= 10000) hours = Math.max(hours, 40);
+  else if (rewardUsd >= 5000) hours = Math.max(hours, 24);
+  else if (rewardUsd >= 2000) hours = Math.max(hours, 16);
+  else if (rewardUsd >= 1000) hours = Math.max(hours, 10);
+  else if (rewardUsd >= 500) hours = Math.max(hours, 6);
+
+  return hours;
 }
 
 function containsAny(text, terms) {
@@ -69,24 +88,25 @@ function safetyReject(item) {
   if (containsAny(text, config.safety.exclude_terms)) return 'excluded safety term';
   if (config.safety.require_explicit_reward && !item.rewardUsd) return 'reward not explicit';
   if (item.rewardUsd < config.thresholds.minimum_reward_usd) return 'reward below threshold';
-  if ((item.comments || 0) > config.thresholds.maximum_comments) return 'competition/comments too high';
+  if ((item.competition || item.comments || 0) > config.thresholds.maximum_comments) return 'competition too high';
   if (item.ageDays != null && item.ageDays > config.thresholds.maximum_age_days) return 'too old';
   return null;
 }
 
 function rank(item) {
   const text = `${item.title} ${item.body || ''}`.toLowerCase();
-  const hours = inferHours(text);
+  const hours = inferHours(text, item.rewardUsd);
+  const competition = Number(item.competition || item.comments || 0);
   let winProbability = 0.78;
 
-  if (item.comments) winProbability *= Math.max(0.35, 1 - item.comments / 35);
-  if (item.ageDays != null) winProbability *= Math.max(0.35, 1 - item.ageDays / (config.thresholds.maximum_age_days * 1.4));
+  if (competition) winProbability *= Math.max(0.28, 1 - competition / 35);
+  if (item.ageDays != null) winProbability *= Math.max(0.32, 1 - item.ageDays / (config.thresholds.maximum_age_days * 1.4));
   if (containsAny(text, config.ranking.preferred_terms)) winProbability += 0.05;
   if (containsAny(text, config.ranking.deprioritize_terms)) winProbability -= 0.15;
   if (item.source === 'superteam-agent') winProbability += 0.08;
-  if (item.source === 'algora-github') winProbability += 0.05;
+  if (item.source === 'algora' || item.source === 'algora-github') winProbability += 0.05;
 
-  winProbability = Math.min(0.88, Math.max(0.12, winProbability));
+  winProbability = Math.min(0.88, Math.max(0.1, winProbability));
   const expectedJpyPerHour = Math.round(
     (item.rewardUsd * config.currency.usd_jpy_assumption * winProbability) / hours,
   );
@@ -172,6 +192,7 @@ async function collectGithubSignals() {
         repo,
         rewardUsd,
         comments: Number(issue.comments || 0),
+        competition: Number(issue.comments || 0),
         ageDays: ageDays(issue.created_at),
         updatedAt: issue.updated_at || null,
       };
@@ -184,6 +205,56 @@ async function collectGithubSignals() {
   }
 
   return [...seen.values()];
+}
+
+async function collectAlgoraPages() {
+  const projects = Array.isArray(config.sources.algora_public_projects)
+    ? config.sources.algora_public_projects
+    : [];
+  const candidates = [];
+
+  for (const project of projects) {
+    const pageUrl = `https://algora.io/${project}/bounties?status=open`;
+    try {
+      const html = await getText(pageUrl);
+      const text = stripHtml(html);
+      const starts = [...text.matchAll(/\$([\d,]+(?:\.\d+)?)\s+([A-Za-z0-9_.-]+)#(\d+)\s+/g)];
+
+      for (let i = 0; i < starts.length; i += 1) {
+        const match = starts[i];
+        const rewardUsd = Number(match[1].replace(/,/g, ''));
+        const repoName = match[2];
+        const issueNumber = match[3];
+        const start = (match.index || 0) + match[0].length;
+        const end = i + 1 < starts.length ? starts[i + 1].index : Math.min(text.length, start + 1200);
+        const segment = text.slice(start, end);
+        const ageMatch = segment.match(/(\d+)\s+(day|days|week|weeks|month|months|year|years)\s+ago/i);
+        const claimMatch = segment.match(/(\d+)\s+claims?/i);
+        const titleEnd = ageMatch?.index ?? Math.min(segment.length, 180);
+        const title = segment.slice(0, titleEnd).trim().replace(/\s+\|.*$/, '').slice(0, 180) || `${repoName}#${issueNumber}`;
+        const age = ageMatch ? relativeAgeDays(ageMatch[1], ageMatch[2]) : null;
+        const claims = claimMatch ? Number(claimMatch[1]) : 0;
+
+        candidates.push({
+          id: `algora:${project}:${repoName}#${issueNumber}:${rewardUsd}`,
+          source: 'algora',
+          title,
+          body: `${repoName}#${issueNumber} | open Algora bounty | ${claims} claims`,
+          url: pageUrl,
+          repo: repoName,
+          rewardUsd,
+          comments: claims,
+          competition: claims,
+          ageDays: age,
+          updatedAt: null,
+        });
+      }
+    } catch (error) {
+      console.error(`Algora page failed for ${project}:`, error.message);
+    }
+  }
+
+  return candidates;
 }
 
 async function collectIssueHunt() {
@@ -211,6 +282,7 @@ async function collectIssueHunt() {
         repo,
         rewardUsd,
         comments: 0,
+        competition: 0,
         ageDays: 180,
         updatedAt: null,
       });
@@ -249,10 +321,11 @@ async function collectSuperteam() {
         source: 'superteam-agent',
         title: listing.title || listing.name || `Superteam listing ${slug}`,
         body: stripHtml(listing.description || listing.content || serialized).slice(0, 1400),
-        url: slug ? `https://superteam.fun/earn/listing/${slug}` : 'https://superteam.fun/earn',
+        url: slug ? `https://superteam.fun/earn` : 'https://superteam.fun/earn',
         repo: null,
         rewardUsd,
         comments: 0,
+        competition: 0,
         ageDays: ageDays(listing.createdAt || listing.created_at),
         updatedAt: listing.updatedAt || listing.updated_at || null,
       };
@@ -265,11 +338,12 @@ async function collectSuperteam() {
 
 const raw = [
   ...(await collectGithubSignals()),
+  ...(await collectAlgoraPages()),
   ...(await collectIssueHunt()),
   ...(await collectSuperteam()),
 ];
 
-const deduped = [...new Map(raw.map((item) => [item.url, item])).values()];
+const deduped = [...new Map(raw.map((item) => [item.id, item])).values()];
 const rejected = [];
 const qualified = [];
 
@@ -291,7 +365,7 @@ qualified.sort((a, b) => b.expectedJpyPerHour - a.expectedJpyPerHour || b.reward
 const top = qualified.slice(0, 12);
 const fingerprint = crypto
   .createHash('sha256')
-  .update(JSON.stringify(top.map((item) => [item.url, item.rewardUsd, item.expectedJpyPerHour])))
+  .update(JSON.stringify(top.map((item) => [item.id, item.rewardUsd, item.expectedJpyPerHour])))
   .digest('hex')
   .slice(0, 16);
 
@@ -306,16 +380,16 @@ const lines = [
 ];
 
 if (top.length) {
-  lines.push('| Source | Reward | EV / h | Win est. | Hours est. | Candidate |');
-  lines.push('|---|---:|---:|---:|---:|---|');
+  lines.push('| Source | Reward | EV / h | Win est. | Hours est. | Competition | Candidate |');
+  lines.push('|---|---:|---:|---:|---:|---:|---|');
   for (const item of top) {
     const safeTitle = item.title.replace(/\|/g, '\\|').slice(0, 100);
     lines.push(
-      `| ${item.source} | $${item.rewardUsd.toFixed(0)} | ¥${item.expectedJpyPerHour.toLocaleString()} | ${(item.estimatedWinProbability * 100).toFixed(0)}% | ${item.estimatedHours} | [${safeTitle}](${item.url}) |`,
+      `| ${item.source} | $${item.rewardUsd.toFixed(0)} | ¥${item.expectedJpyPerHour.toLocaleString()} | ${(item.estimatedWinProbability * 100).toFixed(0)}% | ${item.estimatedHours} | ${item.competition || item.comments || 0} | [${safeTitle}](${item.url}) |`,
     );
   }
   lines.push('', '## Execution order', '');
-  lines.push('Work top-down. Before external submission, verify current acceptance criteria, claimant eligibility, and payout path.');
+  lines.push('Work top-down. Before external submission, verify the live acceptance criteria, claimant eligibility, repository state, and payout path.');
 } else {
   lines.push('No candidate currently clears the economic + safety gate.');
 }
