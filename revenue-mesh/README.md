@@ -8,22 +8,24 @@ The owner is not the operator. The system is designed to keep scanning while the
 
 Market -> paid task -> qualification -> buildable candidate -> submission -> acceptance -> payment evidence -> next task.
 
-The current production stage automates the first half of that loop:
+The current production stage automates the discovery and qualification half of that loop:
 
-1. Scan public paid-task surfaces continuously.
-2. Reject unsafe, ambiguous, low-value, stale, or over-contested work.
-3. Estimate effort, win probability, and expected JPY/hour.
-4. Surface only actionable candidates.
-5. Keep one GitHub Radar issue current instead of creating repeated zero-value reports.
+1. Scan verified paid-task surfaces continuously.
+2. Normalize reward amounts before scoring them.
+3. Cross-check external bounty listings against the underlying live GitHub issue where possible.
+4. Reject unsafe, ambiguous, low-value, stale, implausible, or over-contested work.
+5. Estimate effort, win probability, and expected JPY/hour.
+6. Surface only actionable candidates.
+7. Keep one GitHub Radar issue current instead of creating repeated zero-value reports.
 
 ## Sources
 
-- GitHub open issues carrying bounty/reward signals.
-- Algora bounty signals discoverable through GitHub issue comments.
+- Algora public bounty surfaces, with live GitHub issue validation.
+- Opire public rewards API, with USD-cent normalization and live GitHub issue validation.
 - IssueHunt public funded-issue feed.
-- Superteam Earn Agent API when `SUPERTEAM_AGENT_KEY` is available as a repository secret.
+- Superteam Earn Agent API when `SUPERTEAM_AGENT_KEY` is available through a secure secret store.
 
-Superteam is intentionally credential-gated. The API key must never be committed to the repository.
+Generic self-declared GitHub bounty labels are intentionally not treated as trusted payout evidence. Superteam is credential-gated; its API key must never be committed to the repository or stored in plaintext automation variables.
 
 ## Qualification policy
 
@@ -31,8 +33,10 @@ Default gate:
 
 - explicit reward >= $25
 - expected value >= ¥5,000/hour
-- <= 25 issue comments
-- <= 365 days old when age is known
+- <= 25 competition/discussion score
+- <= 730 days old when age is known
+- single listed reward <= $25,000 sanity cap
+- underlying GitHub issue must still be open for Algora and Opire
 - no security/vulnerability/exploit work
 - no unclear-payment work
 
@@ -56,7 +60,7 @@ Security research, vulnerability exploitation, credential collection, deceptive 
 ## Files
 
 - `config.json` — economic and safety gates.
-- `scan.mjs` — source ingestion, normalization, scoring, and report generation.
+- `scan.mjs` — source ingestion, normalization, live verification, scoring, and report generation.
 - `.github/workflows/revenue-mesh-radar.yml` — hourly 24/7 runner with low-noise issue updates.
 
 ## State machine
