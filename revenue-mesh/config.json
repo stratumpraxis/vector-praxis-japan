@@ -1,0 +1,61 @@
+{
+  "version": 1,
+  "currency": {
+    "usd_jpy_assumption": 150
+  },
+  "thresholds": {
+    "minimum_reward_usd": 25,
+    "minimum_expected_jpy_per_hour": 5000,
+    "maximum_comments": 25,
+    "maximum_age_days": 365
+  },
+  "safety": {
+    "exclude_terms": [
+      "security",
+      "vulnerability",
+      "exploit",
+      "cve-",
+      "rce",
+      "xss",
+      "sql injection",
+      "bug bounty",
+      "credential",
+      "phishing",
+      "malware",
+      "weapon"
+    ],
+    "require_explicit_reward": true,
+    "auto_external_submit": false
+  },
+  "sources": {
+    "github_bounty_search": true,
+    "algora_comment_search": true,
+    "issuehunt_public_feed": true,
+    "superteam_agent_api": {
+      "enabled_when_secret_present": true,
+      "secret_name": "SUPERTEAM_AGENT_KEY"
+    }
+  },
+  "ranking": {
+    "preferred_terms": [
+      "docs",
+      "documentation",
+      "test",
+      "typescript",
+      "javascript",
+      "python",
+      "fix",
+      "bug",
+      "cli",
+      "api"
+    ],
+    "deprioritize_terms": [
+      "architecture",
+      "rewrite",
+      "migration",
+      "kernel",
+      "compiler",
+      "distributed system"
+    ]
+  }
+}
