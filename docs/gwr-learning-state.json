@@ -1,8 +1,8 @@
 {
   "schema_version": 1,
-  "updated_at": "2026-09-08T09:16:00+09:00",
+  "updated_at": "2026-09-08T14:37:00+09:00",
   "target_cases": 10000,
-  "verified_cases_learned": 497,
+  "verified_cases_learned": 501,
   "learning_dimensions": [
     "Japan eligibility",
     "remote scope",
@@ -37,12 +37,13 @@
     "Competition density must be checked from current issue comments and submitted work immediately before a claim; a simple AI-completable workflow bounty can become economically unattractive once many claims and complete submissions already exist.",
     "Audit bounties with public code and payout-to-handle support reduce identity friction, but expected value collapses when the maintainer has already enumerated and paid the obvious defect classes; novelty must be verified before submission.",
     "A developer bounty that requires sign-up plus maintainer confirmation before work begins is not autonomous claimable inventory even when the GitHub issue is open and the cash reward is explicit.",
-    "Funded competition inventory is not equivalent to no-spend solver work: if participation requires the entrant wallet to fund downstream demand or authorize spending before any reward is possible, financial-gate distance dominates nominal escrow value."
+    "Funded competition inventory is not equivalent to no-spend solver work: if participation requires the entrant wallet to fund downstream demand or authorize spending before any reward is possible, financial-gate distance dominates nominal escrow value.",
+    "Japan-eligible remote AI/data/language listings can be strong public GWR inventory while still being invalid for the autonomous revenue lane when they require a human worker, identity-dependent employment or freelance onboarding, and ongoing owner labor."
   ],
   "recent_observation": {
-    "observed_at": "2026-09-08T09:16:00+09:00",
-    "case_count_effect": 6,
-    "summary": "Fresh official/public cases strengthened the no-spend gate and live-competition filters; no route crossed the threshold for a safe autonomous Claim/Bid/Submission in this run."
+    "observed_at": "2026-09-08T14:37:00+09:00",
+    "case_count_effect": 4,
+    "summary": "Fresh official Lever listings confirmed active Japan-eligible remote demand in Japanese-language and AI/data work, but all four require human employment/freelance labor and therefore improve public GWR demand matching without qualifying for autonomous AI-income execution."
   },
   "revenue_truth": {
     "rule": "Only verified Reward, Purchase, Commission, Paid Contract, or accepted/contracted paid work counts as revenue evidence.",
