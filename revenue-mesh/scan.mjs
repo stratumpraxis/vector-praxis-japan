@@ -5,7 +5,7 @@ const config = JSON.parse(await fs.readFile(new URL('./config.json', import.meta
 const now = new Date();
 const githubToken = process.env.GITHUB_TOKEN || '';
 const superteamKey = process.env.SUPERTEAM_AGENT_KEY || '';
-const userAgent = 'vector-praxis-revenue-mesh/3.0';
+const userAgent = 'vector-praxis-revenue-mesh/4.0';
 
 const githubHeaders = {
   Accept: 'application/vnd.github+json',
@@ -87,6 +87,7 @@ function safetyReject(item) {
   if (containsAny(text, config.safety.exclude_terms)) return 'excluded safety term';
   if (config.safety.require_explicit_reward && !item.rewardUsd) return 'reward not explicit';
   if (item.rewardUsd < config.thresholds.minimum_reward_usd) return 'reward below threshold';
+  if (config.thresholds.maximum_single_reward_usd && item.rewardUsd > config.thresholds.maximum_single_reward_usd) return 'implausible reward above sanity cap';
   if ((item.competition || 0) > config.thresholds.maximum_comments) return 'competition/discussion too high';
   if (item.ageDays != null && item.ageDays > config.thresholds.maximum_age_days) return 'too old';
   return null;
@@ -103,7 +104,7 @@ function rank(item) {
   if (containsAny(text, config.ranking.preferred_terms)) winProbability += 0.05;
   if (containsAny(text, config.ranking.deprioritize_terms)) winProbability -= 0.15;
   if (item.source === 'superteam-agent') winProbability += 0.08;
-  if (item.source === 'algora' || item.source === 'algora-github') winProbability += 0.05;
+  if (item.source === 'algora' || item.source === 'algora-github' || item.source === 'opire') winProbability += 0.05;
 
   winProbability = Math.min(0.88, Math.max(0.1, winProbability));
   const expectedJpyPerHour = Math.round(
@@ -134,6 +135,12 @@ async function getText(url, headers = {}) {
   });
   if (!response.ok) throw new Error(`${response.status} ${response.statusText}: ${url}`);
   return response.text();
+}
+
+function parseGithubIssueUrl(url = '') {
+  const match = String(url).match(/^https?:\/\/github\.com\/([^/]+)\/([^/]+)\/issues\/(\d+)(?:[/?#].*)?$/i);
+  if (!match) return null;
+  return { owner: match[1], repoName: match[2], issueNumber: Number(match[3]) };
 }
 
 async function githubSearch(query) {
@@ -281,6 +288,89 @@ async function collectAlgoraPages() {
   return verified;
 }
 
+function opirePriceToUsd(price) {
+  if (!price || !Number.isFinite(Number(price.value))) return 0;
+  const value = Number(price.value);
+  return String(price.unit || '').toUpperCase() === 'USD_CENT' ? value / 100 : value;
+}
+
+async function collectOpire() {
+  const sourceConfig = config.sources.opire_public_api;
+  if (!sourceConfig?.enabled) return [];
+
+  const endpoint = sourceConfig.endpoint || 'https://api.opire.dev/rewards';
+  const itemsPerPage = Number(sourceConfig.items_per_page || 100);
+  const maxPages = Number(sourceConfig.max_pages || 5);
+  const records = [];
+
+  for (let page = 1; page <= maxPages; page += 1) {
+    try {
+      const url = new URL(endpoint);
+      url.searchParams.set('page', String(page));
+      url.searchParams.set('itemsPerPage', String(itemsPerPage));
+      const payload = await getJson(url);
+      if (!Array.isArray(payload)) break;
+      records.push(...payload);
+      if (payload.length < itemsPerPage) break;
+    } catch (error) {
+      console.error(`Opire page ${page} failed:`, error.message);
+      break;
+    }
+  }
+
+  const prelim = [];
+  for (const bounty of records) {
+    const rewardUsd = opirePriceToUsd(bounty?.pendingPrice);
+    if (!rewardUsd || rewardUsd < config.thresholds.minimum_reward_usd) continue;
+    if (config.thresholds.maximum_single_reward_usd && rewardUsd > config.thresholds.maximum_single_reward_usd) continue;
+
+    const parsed = parseGithubIssueUrl(bounty?.url || '');
+    if (!parsed) continue;
+    const trying = Array.isArray(bounty?.tryingUsers) ? bounty.tryingUsers.length : 0;
+    const claimers = Array.isArray(bounty?.claimerUsers) ? bounty.claimerUsers.length : 0;
+    const competition = trying + claimers * 3;
+    if (competition > config.thresholds.maximum_comments) continue;
+
+    prelim.push({ bounty, parsed, rewardUsd, trying, claimers, competition });
+  }
+
+  prelim.sort((a, b) => b.rewardUsd - a.rewardUsd || a.competition - b.competition);
+  const verified = [];
+
+  for (const item of prelim.slice(0, 80)) {
+    const { owner, repoName, issueNumber } = item.parsed;
+    const repo = `${owner}/${repoName}`;
+    const apiUrl = `https://api.github.com/repos/${owner}/${repoName}/issues/${issueNumber}`;
+    try {
+      const issue = await getJson(apiUrl, githubHeaders);
+      if (issue.pull_request) continue;
+      if (config.safety.require_open_github_issue_for_opire && issue.state !== 'open') continue;
+
+      const discussion = Number(issue.comments || 0);
+      const competition = Math.max(item.competition, discussion);
+      verified.push({
+        id: `opire:${item.bounty.id || `${repo}#${issueNumber}`}`,
+        source: 'opire',
+        title: issue.title || item.bounty.title || `${repo}#${issueNumber}`,
+        body: stripHtml(issue.body || '').slice(0, 1400),
+        url: issue.html_url || item.bounty.url,
+        repo,
+        rewardUsd: item.rewardUsd,
+        competition,
+        ageDays: ageDays(item.bounty.createdAt || issue.created_at),
+        updatedAt: issue.updated_at || null,
+        languages: Array.isArray(item.bounty.programmingLanguages) ? item.bounty.programmingLanguages : [],
+        opireTrying: item.trying,
+        opireClaimers: item.claimers,
+      });
+    } catch (error) {
+      console.error(`Opire GitHub validation failed for ${repo}#${issueNumber}:`, error.message);
+    }
+  }
+
+  return verified;
+}
+
 async function collectIssueHunt() {
   if (!config.sources.issuehunt_public_feed) return [];
   try {
@@ -355,6 +445,7 @@ async function collectSuperteam() {
 const raw = [
   ...(await collectGithubSignals()),
   ...(await collectAlgoraPages()),
+  ...(await collectOpire()),
   ...(await collectIssueHunt()),
   ...(await collectSuperteam()),
 ];
