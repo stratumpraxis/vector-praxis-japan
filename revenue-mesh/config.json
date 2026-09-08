@@ -1,5 +1,5 @@
 {
-  "version": 7,
+  "version": 8,
   "currency": {
     "usd_jpy_assumption": 150
   },
@@ -32,9 +32,13 @@
     "trusted_payout_domains": [
       "algora.io",
       "oss.issuehunt.io",
-      "superteam.fun",
-      "opire.dev"
+      "superteam.fun"
     ],
+    "payment_policy": {
+      "prefer_prefunded_or_auto_pay": true,
+      "manual_pay_after_delivery_is_actionable": false,
+      "opire_status": "discovery_disabled_until_creator_payment_history_or_prefunding_can_be_verified"
+    },
     "auto_external_submit": false,
     "circuit_breaker": {
       "enabled": true,
@@ -74,10 +78,11 @@
       {"algora_slug":"triggerdotdev","github_owner":"triggerdotdev"}
     ],
     "opire_public_api": {
-      "enabled": true,
+      "enabled": false,
       "endpoint": "https://api.opire.dev/rewards",
       "items_per_page": 100,
-      "max_pages": 5
+      "max_pages": 5,
+      "disabled_reason": "reward creator pays only after delivery; payout is not escrowed or guaranteed"
     },
     "issuehunt_public_feed": true,
     "superteam_agent_api": {
