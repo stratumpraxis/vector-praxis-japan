@@ -1,5 +1,5 @@
 {
-  "version": 3,
+  "version": 4,
   "currency": {
     "usd_jpy_assumption": 150
   },
@@ -26,6 +26,12 @@
     ],
     "require_explicit_reward": true,
     "require_open_github_issue_for_algora": true,
+    "require_trusted_payout_for_generic_github": true,
+    "trusted_payout_domains": [
+      "algora.io",
+      "oss.issuehunt.io",
+      "superteam.fun"
+    ],
     "auto_external_submit": false
   },
   "sources": {
