@@ -5,7 +5,7 @@ const config = JSON.parse(await fs.readFile(new URL('./config.json', import.meta
 const now = new Date();
 const githubToken = process.env.GITHUB_TOKEN || '';
 const superteamKey = process.env.SUPERTEAM_AGENT_KEY || '';
-const userAgent = 'vector-praxis-revenue-mesh/4.0';
+const userAgent = 'vector-praxis-revenue-mesh/4.1';
 
 const githubHeaders = {
   Accept: 'application/vnd.github+json',
@@ -88,7 +88,7 @@ function safetyReject(item) {
   if (config.safety.require_explicit_reward && !item.rewardUsd) return 'reward not explicit';
   if (item.rewardUsd < config.thresholds.minimum_reward_usd) return 'reward below threshold';
   if (config.thresholds.maximum_single_reward_usd && item.rewardUsd > config.thresholds.maximum_single_reward_usd) return 'implausible reward above sanity cap';
-  if ((item.competition || 0) > config.thresholds.maximum_comments) return 'competition/discussion too high';
+  if ((item.competition || 0) > config.thresholds.maximum_comments) return 'competition too high';
   if (item.ageDays != null && item.ageDays > config.thresholds.maximum_age_days) return 'too old';
   return null;
 }
@@ -97,9 +97,12 @@ function rank(item) {
   const text = `${item.title} ${item.body || ''}`.toLowerCase();
   const hours = inferHours(text, item.rewardUsd);
   const competition = Number(item.competition || 0);
+  const discussionComments = Number(item.discussionComments || 0);
   let winProbability = 0.78;
 
   if (competition) winProbability *= Math.max(0.28, 1 - competition / 35);
+  if (discussionComments >= 100) winProbability *= 0.65;
+  else if (discussionComments >= 50) winProbability *= 0.8;
   if (item.ageDays != null) winProbability *= Math.max(0.32, 1 - item.ageDays / (config.thresholds.maximum_age_days * 1.4));
   if (containsAny(text, config.ranking.preferred_terms)) winProbability += 0.05;
   if (containsAny(text, config.ranking.deprioritize_terms)) winProbability -= 0.15;
@@ -268,7 +271,6 @@ async function collectAlgoraPages() {
     try {
       const issue = await getJson(apiUrl, githubHeaders);
       if (config.safety.require_open_github_issue_for_algora && issue.state !== 'open') continue;
-      const discussion = Number(issue.comments || 0);
       verified.push({
         id: `algora:${repo}#${item.issueNumber}`,
         source: 'algora',
@@ -277,7 +279,8 @@ async function collectAlgoraPages() {
         url: issue.html_url || item.pageUrl,
         repo,
         rewardUsd: item.rewardUsd,
-        competition: Math.max(item.claims, discussion),
+        competition: item.claims,
+        discussionComments: Number(issue.comments || 0),
         ageDays: item.bountyAge,
         updatedAt: issue.updated_at || null,
       });
@@ -346,8 +349,6 @@ async function collectOpire() {
       if (issue.pull_request) continue;
       if (config.safety.require_open_github_issue_for_opire && issue.state !== 'open') continue;
 
-      const discussion = Number(issue.comments || 0);
-      const competition = Math.max(item.competition, discussion);
       verified.push({
         id: `opire:${item.bounty.id || `${repo}#${issueNumber}`}`,
         source: 'opire',
@@ -356,7 +357,8 @@ async function collectOpire() {
         url: issue.html_url || item.bounty.url,
         repo,
         rewardUsd: item.rewardUsd,
-        competition,
+        competition: item.competition,
+        discussionComments: Number(issue.comments || 0),
         ageDays: ageDays(item.bounty.createdAt || issue.created_at),
         updatedAt: issue.updated_at || null,
         languages: Array.isArray(item.bounty.programmingLanguages) ? item.bounty.programmingLanguages : [],
@@ -394,6 +396,7 @@ async function collectIssueHunt() {
         repo,
         rewardUsd,
         competition: 0,
+        discussionComments: 0,
         ageDays: 180,
         updatedAt: null,
       });
@@ -432,6 +435,7 @@ async function collectSuperteam() {
         repo: null,
         rewardUsd: extractRewardUsd(serialized),
         competition: 0,
+        discussionComments: 0,
         ageDays: ageDays(listing.createdAt || listing.created_at),
         updatedAt: listing.updatedAt || listing.updated_at || null,
       };
@@ -496,6 +500,17 @@ if (top.length) {
 } else {
   lines.push('No candidate currently clears the economic + safety gate.');
 }
+
+const cutReasonCounts = rejected.reduce((acc, item) => {
+  acc[item.reason] = (acc[item.reason] || 0) + 1;
+  return acc;
+}, {});
+console.log('Cut reasons:', JSON.stringify(cutReasonCounts));
+const nearMisses = [...rejected]
+  .sort((a, b) => (b.expectedJpyPerHour || 0) - (a.expectedJpyPerHour || 0) || b.rewardUsd - a.rewardUsd)
+  .slice(0, 8)
+  .map((item) => ({ source: item.source, rewardUsd: item.rewardUsd, expectedJpyPerHour: item.expectedJpyPerHour || null, competition: item.competition || 0, reason: item.reason, title: item.title?.slice(0, 100), url: item.url }));
+console.log('Near misses:', JSON.stringify(nearMisses));
 
 const report = `${lines.join('\n')}\n`;
 await fs.writeFile('/tmp/revenue-mesh.md', report, 'utf8');
