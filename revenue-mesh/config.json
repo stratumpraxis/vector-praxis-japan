@@ -1,5 +1,5 @@
 {
-  "version": 2,
+  "version": 3,
   "currency": {
     "usd_jpy_assumption": 150
   },
@@ -25,21 +25,22 @@
       "weapon"
     ],
     "require_explicit_reward": true,
+    "require_open_github_issue_for_algora": true,
     "auto_external_submit": false
   },
   "sources": {
     "github_bounty_search": true,
     "algora_comment_search": true,
     "algora_public_projects": [
-      "spaceandtimelabs",
-      "go-gitea",
-      "SCIBASE.AI",
-      "gyroflow",
-      "BasedHardware",
-      "drizzle-team",
-      "comet-ml",
-      "terrastruct",
-      "triggerdotdev"
+      {"algora_slug":"spaceandtimelabs","github_owner":"spaceandtimefdn"},
+      {"algora_slug":"go-gitea","github_owner":"go-gitea"},
+      {"algora_slug":"SCIBASE.AI","github_owner":"SCIBASE-AI"},
+      {"algora_slug":"gyroflow","github_owner":"gyroflow"},
+      {"algora_slug":"BasedHardware","github_owner":"BasedHardware"},
+      {"algora_slug":"drizzle-team","github_owner":"drizzle-team"},
+      {"algora_slug":"comet-ml","github_owner":"comet-ml"},
+      {"algora_slug":"terrastruct","github_owner":"terrastruct"},
+      {"algora_slug":"triggerdotdev","github_owner":"triggerdotdev"}
     ],
     "issuehunt_public_feed": true,
     "superteam_agent_api": {
@@ -63,6 +64,7 @@
     "deprioritize_terms": [
       "architecture",
       "rewrite",
+      "rebuild",
       "migration",
       "kernel",
       "compiler",
