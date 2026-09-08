@@ -5,7 +5,7 @@ const config = JSON.parse(await fs.readFile(new URL('./config.json', import.meta
 const now = new Date();
 const githubToken = process.env.GITHUB_TOKEN || '';
 const superteamKey = process.env.SUPERTEAM_AGENT_KEY || '';
-const userAgent = 'vector-praxis-revenue-mesh/2.0';
+const userAgent = 'vector-praxis-revenue-mesh/3.0';
 
 const githubHeaders = {
   Accept: 'application/vnd.github+json',
@@ -74,7 +74,6 @@ function inferHours(text = '', rewardUsd = 0) {
   else if (rewardUsd >= 2000) hours = Math.max(hours, 16);
   else if (rewardUsd >= 1000) hours = Math.max(hours, 10);
   else if (rewardUsd >= 500) hours = Math.max(hours, 6);
-
   return hours;
 }
 
@@ -88,7 +87,7 @@ function safetyReject(item) {
   if (containsAny(text, config.safety.exclude_terms)) return 'excluded safety term';
   if (config.safety.require_explicit_reward && !item.rewardUsd) return 'reward not explicit';
   if (item.rewardUsd < config.thresholds.minimum_reward_usd) return 'reward below threshold';
-  if ((item.competition || item.comments || 0) > config.thresholds.maximum_comments) return 'competition too high';
+  if ((item.competition || 0) > config.thresholds.maximum_comments) return 'competition/discussion too high';
   if (item.ageDays != null && item.ageDays > config.thresholds.maximum_age_days) return 'too old';
   return null;
 }
@@ -96,7 +95,7 @@ function safetyReject(item) {
 function rank(item) {
   const text = `${item.title} ${item.body || ''}`.toLowerCase();
   const hours = inferHours(text, item.rewardUsd);
-  const competition = Number(item.competition || item.comments || 0);
+  const competition = Number(item.competition || 0);
   let winProbability = 0.78;
 
   if (competition) winProbability *= Math.max(0.28, 1 - competition / 35);
@@ -120,13 +119,19 @@ function rank(item) {
 }
 
 async function getJson(url, headers = {}) {
-  const response = await fetch(url, { headers: { 'User-Agent': userAgent, ...headers } });
+  const response = await fetch(url, {
+    headers: { 'User-Agent': userAgent, ...headers },
+    signal: AbortSignal.timeout(12000),
+  });
   if (!response.ok) throw new Error(`${response.status} ${response.statusText}: ${url}`);
   return response.json();
 }
 
 async function getText(url, headers = {}) {
-  const response = await fetch(url, { headers: { 'User-Agent': userAgent, ...headers } });
+  const response = await fetch(url, {
+    headers: { 'User-Agent': userAgent, ...headers },
+    signal: AbortSignal.timeout(12000),
+  });
   if (!response.ok) throw new Error(`${response.status} ${response.statusText}: ${url}`);
   return response.text();
 }
@@ -143,18 +148,14 @@ async function githubSearch(query) {
 
 async function collectGithubSignals() {
   if (!config.sources.github_bounty_search && !config.sources.algora_comment_search) return [];
-
   const queries = [];
   if (config.sources.github_bounty_search) {
     queries.push('is:issue is:open label:bounty');
     queries.push('is:issue is:open reward in:title,body');
   }
-  if (config.sources.algora_comment_search) {
-    queries.push('is:issue is:open algora in:comments');
-  }
+  if (config.sources.algora_comment_search) queries.push('is:issue is:open algora in:comments');
 
   const seen = new Map();
-
   for (const query of queries) {
     let items = [];
     try {
@@ -165,7 +166,7 @@ async function collectGithubSignals() {
     }
 
     for (const issue of items) {
-      if (issue.pull_request) continue;
+      if (issue.pull_request || issue.state !== 'open') continue;
       const repoMatch = issue.repository_url?.match(/repos\/([^/]+\/[^/]+)$/);
       const repo = repoMatch?.[1] || 'unknown/unknown';
       let extra = '';
@@ -191,19 +192,16 @@ async function collectGithubSignals() {
         url: issue.html_url,
         repo,
         rewardUsd,
-        comments: Number(issue.comments || 0),
         competition: Number(issue.comments || 0),
         ageDays: ageDays(issue.created_at),
         updatedAt: issue.updated_at || null,
       };
-
       const previous = seen.get(candidate.url);
       if (!previous || candidate.rewardUsd > previous.rewardUsd || candidate.source === 'algora-github') {
         seen.set(candidate.url, candidate);
       }
     }
   }
-
   return [...seen.values()];
 }
 
@@ -211,50 +209,76 @@ async function collectAlgoraPages() {
   const projects = Array.isArray(config.sources.algora_public_projects)
     ? config.sources.algora_public_projects
     : [];
-  const candidates = [];
+  const byIssue = new Map();
 
-  for (const project of projects) {
-    const pageUrl = `https://algora.io/${project}/bounties?status=open`;
+  for (const projectConfig of projects) {
+    const algoraSlug = typeof projectConfig === 'string' ? projectConfig : projectConfig.algora_slug;
+    const githubOwner = typeof projectConfig === 'string' ? projectConfig : projectConfig.github_owner;
+    const pageUrl = `https://algora.io/${algoraSlug}/bounties?status=open`;
+
     try {
-      const html = await getText(pageUrl);
-      const text = stripHtml(html);
+      const text = stripHtml(await getText(pageUrl));
       const starts = [...text.matchAll(/\$([\d,]+(?:\.\d+)?)\s+([A-Za-z0-9_.-]+)#(\d+)\s+/g)];
-
       for (let i = 0; i < starts.length; i += 1) {
         const match = starts[i];
         const rewardUsd = Number(match[1].replace(/,/g, ''));
         const repoName = match[2];
-        const issueNumber = match[3];
+        const issueNumber = Number(match[3]);
         const start = (match.index || 0) + match[0].length;
-        const end = i + 1 < starts.length ? starts[i + 1].index : Math.min(text.length, start + 1200);
+        const end = i + 1 < starts.length ? starts[i + 1].index : Math.min(text.length, start + 1400);
         const segment = text.slice(start, end);
         const ageMatch = segment.match(/(\d+)\s+(day|days|week|weeks|month|months|year|years)\s+ago/i);
         const claimMatch = segment.match(/(\d+)\s+claims?/i);
         const titleEnd = ageMatch?.index ?? Math.min(segment.length, 180);
         const title = segment.slice(0, titleEnd).trim().replace(/\s+\|.*$/, '').slice(0, 180) || `${repoName}#${issueNumber}`;
-        const age = ageMatch ? relativeAgeDays(ageMatch[1], ageMatch[2]) : null;
+        const bountyAge = ageMatch ? relativeAgeDays(ageMatch[1], ageMatch[2]) : null;
         const claims = claimMatch ? Number(claimMatch[1]) : 0;
-
-        candidates.push({
-          id: `algora:${project}:${repoName}#${issueNumber}:${rewardUsd}`,
-          source: 'algora',
-          title,
-          body: `${repoName}#${issueNumber} | open Algora bounty | ${claims} claims`,
-          url: pageUrl,
-          repo: repoName,
+        const key = `${githubOwner}/${repoName}#${issueNumber}`;
+        const prior = byIssue.get(key);
+        const next = {
+          key,
+          algoraSlug,
+          githubOwner,
+          repoName,
+          issueNumber,
+          pageUrl,
           rewardUsd,
-          comments: claims,
-          competition: claims,
-          ageDays: age,
-          updatedAt: null,
-        });
+          title,
+          bountyAge,
+          claims,
+        };
+        if (!prior || rewardUsd > prior.rewardUsd) byIssue.set(key, next);
       }
     } catch (error) {
-      console.error(`Algora page failed for ${project}:`, error.message);
+      console.error(`Algora page failed for ${algoraSlug}:`, error.message);
     }
   }
 
-  return candidates;
+  const verified = [];
+  for (const item of byIssue.values()) {
+    const repo = `${item.githubOwner}/${item.repoName}`;
+    const apiUrl = `https://api.github.com/repos/${item.githubOwner}/${item.repoName}/issues/${item.issueNumber}`;
+    try {
+      const issue = await getJson(apiUrl, githubHeaders);
+      if (config.safety.require_open_github_issue_for_algora && issue.state !== 'open') continue;
+      const discussion = Number(issue.comments || 0);
+      verified.push({
+        id: `algora:${repo}#${item.issueNumber}`,
+        source: 'algora',
+        title: issue.title || item.title,
+        body: stripHtml(issue.body || '').slice(0, 1400),
+        url: issue.html_url || item.pageUrl,
+        repo,
+        rewardUsd: item.rewardUsd,
+        competition: Math.max(item.claims, discussion),
+        ageDays: item.bountyAge,
+        updatedAt: issue.updated_at || null,
+      });
+    } catch (error) {
+      console.error(`Algora GitHub validation failed for ${repo}#${item.issueNumber}:`, error.message);
+    }
+  }
+  return verified;
 }
 
 async function collectIssueHunt() {
@@ -263,7 +287,6 @@ async function collectIssueHunt() {
     const html = await getText('https://oss.issuehunt.io/issues');
     const candidates = [];
     const linkPattern = /href=["']\/r\/([^/"']+)\/([^/"']+)\/issues\/(\d+)["'][^>]*>([\s\S]*?)<\/a>/gi;
-
     for (const match of html.matchAll(linkPattern)) {
       const [full, owner, repoName, issueNumber, anchorText] = match;
       const start = Math.max(0, (match.index || 0) - 600);
@@ -272,22 +295,19 @@ async function collectIssueHunt() {
       const rewardUsd = extractRewardUsd(window);
       if (!rewardUsd) continue;
       const repo = `${owner}/${repoName}`;
-      const title = stripHtml(anchorText) || `${repo}#${issueNumber}`;
       candidates.push({
         id: `issuehunt:${repo}#${issueNumber}`,
         source: 'issuehunt',
-        title,
+        title: stripHtml(anchorText) || `${repo}#${issueNumber}`,
         body: stripHtml(window).slice(0, 1000),
         url: `https://oss.issuehunt.io/r/${owner}/${repoName}/issues/${issueNumber}`,
         repo,
         rewardUsd,
-        comments: 0,
         competition: 0,
         ageDays: 180,
         updatedAt: null,
       });
     }
-
     return candidates;
   } catch (error) {
     console.error('IssueHunt feed failed:', error.message);
@@ -305,26 +325,22 @@ function normalizeSuperteamListings(payload) {
 
 async function collectSuperteam() {
   if (!config.sources.superteam_agent_api?.enabled_when_secret_present || !superteamKey) return [];
-
   const deadline = new Date(now.getTime() + 120 * 86400000).toISOString().slice(0, 10);
   const url = `https://superteam.fun/api/agents/listings/live?take=50&deadline=${deadline}`;
-
   try {
     const payload = await getJson(url, { Authorization: `Bearer ${superteamKey}` });
     const listings = normalizeSuperteamListings(payload);
     return listings.map((listing) => {
       const serialized = JSON.stringify(listing);
-      const rewardUsd = extractRewardUsd(serialized);
       const slug = listing.slug || listing.id || listing.listingId || '';
       return {
         id: `superteam:${listing.id || listing.listingId || slug}`,
         source: 'superteam-agent',
         title: listing.title || listing.name || `Superteam listing ${slug}`,
         body: stripHtml(listing.description || listing.content || serialized).slice(0, 1400),
-        url: slug ? `https://superteam.fun/earn` : 'https://superteam.fun/earn',
+        url: 'https://superteam.fun/earn',
         repo: null,
-        rewardUsd,
-        comments: 0,
+        rewardUsd: extractRewardUsd(serialized),
         competition: 0,
         ageDays: ageDays(listing.createdAt || listing.created_at),
         updatedAt: listing.updatedAt || listing.updated_at || null,
@@ -343,10 +359,9 @@ const raw = [
   ...(await collectSuperteam()),
 ];
 
-const deduped = [...new Map(raw.map((item) => [item.id, item])).values()];
+const deduped = [...new Map(raw.map((item) => [item.url, item])).values()];
 const rejected = [];
 const qualified = [];
-
 for (const item of deduped) {
   const reason = safetyReject(item);
   if (reason) {
@@ -365,7 +380,7 @@ qualified.sort((a, b) => b.expectedJpyPerHour - a.expectedJpyPerHour || b.reward
 const top = qualified.slice(0, 12);
 const fingerprint = crypto
   .createHash('sha256')
-  .update(JSON.stringify(top.map((item) => [item.id, item.rewardUsd, item.expectedJpyPerHour])))
+  .update(JSON.stringify(top.map((item) => [item.url, item.rewardUsd, item.expectedJpyPerHour])))
   .digest('hex')
   .slice(0, 16);
 
@@ -378,18 +393,15 @@ const lines = [
   '> Expected JPY/hour is a ranking heuristic, not guaranteed income.',
   '',
 ];
-
 if (top.length) {
   lines.push('| Source | Reward | EV / h | Win est. | Hours est. | Competition | Candidate |');
   lines.push('|---|---:|---:|---:|---:|---:|---|');
   for (const item of top) {
     const safeTitle = item.title.replace(/\|/g, '\\|').slice(0, 100);
-    lines.push(
-      `| ${item.source} | $${item.rewardUsd.toFixed(0)} | ¥${item.expectedJpyPerHour.toLocaleString()} | ${(item.estimatedWinProbability * 100).toFixed(0)}% | ${item.estimatedHours} | ${item.competition || item.comments || 0} | [${safeTitle}](${item.url}) |`,
-    );
+    lines.push(`| ${item.source} | $${item.rewardUsd.toFixed(0)} | ¥${item.expectedJpyPerHour.toLocaleString()} | ${(item.estimatedWinProbability * 100).toFixed(0)}% | ${item.estimatedHours} | ${item.competition || 0} | [${safeTitle}](${item.url}) |`);
   }
   lines.push('', '## Execution order', '');
-  lines.push('Work top-down. Before external submission, verify the live acceptance criteria, claimant eligibility, repository state, and payout path.');
+  lines.push('Work top-down. Before external submission, verify live acceptance criteria, claimant eligibility, repository state, and payout path.');
 } else {
   lines.push('No candidate currently clears the economic + safety gate.');
 }
@@ -397,7 +409,6 @@ if (top.length) {
 const report = `${lines.join('\n')}\n`;
 await fs.writeFile('/tmp/revenue-mesh.md', report, 'utf8');
 console.log(report);
-
 if (process.env.GITHUB_OUTPUT) {
   await fs.appendFile(
     process.env.GITHUB_OUTPUT,
