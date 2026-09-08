@@ -1,0 +1,61 @@
+name: Revenue Mesh Radar
+
+on:
+  schedule:
+    - cron: '37 * * * *'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  issues: write
+
+concurrency:
+  group: revenue-mesh-radar
+  cancel-in-progress: true
+
+jobs:
+  scan-paid-work:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 8
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+
+      - name: Scan and qualify paid work
+        id: scan
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          SUPERTEAM_AGENT_KEY: ${{ secrets.SUPERTEAM_AGENT_KEY }}
+        run: node revenue-mesh/scan.mjs
+
+      - name: Update actionable radar only when candidate set changes
+        if: steps.scan.outputs.has_actionable == 'true'
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          FINGERPRINT: ${{ steps.scan.outputs.fingerprint }}
+        shell: bash
+        run: |
+          set -euo pipefail
+          TITLE='Revenue Mesh Radar'
+          MARKER="<!-- revenue-mesh-fingerprint:${FINGERPRINT} -->"
+          printf '\n%s\n' "$MARKER" >> /tmp/revenue-mesh.md
+
+          ISSUE_NUMBER="$(gh issue list --repo "$GITHUB_REPOSITORY" --state open --search 'Revenue Mesh Radar in:title' --json number,title --jq '.[] | select(.title == "Revenue Mesh Radar") | .number' | head -n1)"
+
+          if [ -z "$ISSUE_NUMBER" ]; then
+            gh issue create --repo "$GITHUB_REPOSITORY" --title "$TITLE" --body-file /tmp/revenue-mesh.md
+            exit 0
+          fi
+
+          CURRENT_BODY="$(gh issue view "$ISSUE_NUMBER" --repo "$GITHUB_REPOSITORY" --json body --jq '.body')"
+          if printf '%s' "$CURRENT_BODY" | grep -Fq "$MARKER"; then
+            echo 'Candidate set unchanged; no issue update.'
+            exit 0
+          fi
+
+          gh issue edit "$ISSUE_NUMBER" --repo "$GITHUB_REPOSITORY" --body-file /tmp/revenue-mesh.md
