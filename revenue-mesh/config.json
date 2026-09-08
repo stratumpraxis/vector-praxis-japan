@@ -1,5 +1,5 @@
 {
-  "version": 8,
+  "version": 9,
   "currency": {
     "usd_jpy_assumption": 150
   },
@@ -110,7 +110,14 @@
       "migration",
       "kernel",
       "compiler",
-      "distributed system"
+      "distributed system",
+      "attachment",
+      "storage lifecycle",
+      "orphaned attachment",
+      "frontend and backend",
+      "database schema",
+      "prior attempt failed",
+      "previous attempt failed"
     ]
   }
 }
