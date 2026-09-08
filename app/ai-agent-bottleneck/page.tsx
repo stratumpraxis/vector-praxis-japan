@@ -4,6 +4,7 @@ import { siteOrigin } from "@/lib/site-url";
 
 const ROUTE_ID = "vpj_owned_ai_agent_bottleneck_v1";
 const OPERATING_KIT = `https://stratumpraxis.com/cross-agent-operating-kit.html?utm_source=vector_praxis&utm_medium=owned_article&utm_campaign=ai_agent_bottleneck_owned_20260904&utm_content=primary_cta&asset_id=cross_agent_operating_kit&route_id=${ROUTE_ID}`;
+const AGENT_ECONOMICS_CALCULATOR = `https://stratumpraxis.com/ai-agent-economics-calculator.html?utm_source=vector_praxis&utm_medium=owned_article&utm_campaign=agent_economics_20260908&utm_content=bottleneck_cta&route_id=${ROUTE_ID}`;
 const NOTE_DEEP_DIVE = "https://note.com/deft_eel6718/n/ncaff8351e529?utm_source=vector_praxis_site&utm_medium=owned_article&utm_campaign=ai_agent_bottleneck_owned_20260904&utm_content=paid_note_secondary";
 
 export const metadata: Metadata = {
@@ -35,8 +36,8 @@ export default function AiAgentBottleneckPage() {
       <h1>AIを増やしても、<br/><em>仕事は速くならない。</em></h1>
       <p className="hero-copy">複数AI運用で詰まりやすいのは生成速度ではありません。レビュー待ち、誰が決めるか不明な状態、引き継ぎの欠落です。必要なのは、AIを追加することではなく、役割・権限・停止条件を一枚の運用ルールにすることです。</p>
       <div className="hero-actions">
-        <TrackedLink href={OPERATING_KIT} event="commerce_entry_click" className="button primary">実装キットを見る · $69 <ArrowUpRight size={17}/></TrackedLink>
-        <TrackedLink href={NOTE_DEEP_DIVE} event="product_click" className="button secondary">詳しい解説をnoteで読む</TrackedLink>
+        <TrackedLink href={AGENT_ECONOMICS_CALCULATOR} event="agent_economics_calculator_open" className="button primary">成功1件あたりの採算を計算 <ArrowUpRight size={17}/></TrackedLink>
+        <TrackedLink href={OPERATING_KIT} event="commerce_entry_click" className="button secondary">実装キットを見る · $69</TrackedLink>
       </div>
       <div className="hero-index" aria-label="この記事の要点"><span>01 <b>レビュー待ち</b></span><span>02 <b>権限の曖昧さ</b></span><span>03 <b>引き継ぎ欠落</b></span></div>
     </section>
@@ -63,15 +64,20 @@ export default function AiAgentBottleneckPage() {
 
     <section id="next" className="section shell return-panel">
       <ShieldCheck size={26}/>
-      <div><p>NEXT ACTION</p><h2>設計を読むだけで終わらせず、運用ルールとして持ち帰る。</h2><span>Cross-Agent Operating Kit Personalは、役割・権限・Human Gate・停止条件・状態引き継ぎをMarkdown + YAMLで実装する買い切りキットです。</span></div>
-      <TrackedLink href={OPERATING_KIT} event="commerce_entry_click" className="button primary">Personal $69を見る <ArrowUpRight size={17}/></TrackedLink>
+      <div><p>NEXT ACTION</p><h2>運用の詰まりを、コストと成功率まで含めて数値で確認する。</h2><span>モデル/API費、ツール費、再試行、失敗、人間レビューを含めて成功1件あたり総費用を確認し、複雑・高額なケースはStratum Praxisの既存監査へ進めます。</span></div>
+      <TrackedLink href={AGENT_ECONOMICS_CALCULATOR} event="agent_economics_calculator_open" className="button primary">無料で採算を計算 <ArrowUpRight size={17}/></TrackedLink>
     </section>
 
     <section className="section shell">
-      <div className="section-heading"><p>SECOND PATH</p><h2>まず背景から深く読みたい場合</h2></div>
-      <div className="empty-panel"><span className="status-dot"/><div><b>有料noteで、複数AIが遅くなる構造を詳しく読む。</b><p>商品を先に見るより、レビュー・権限・受け渡しの考え方を理解してから判断したい方向けです。</p></div><TrackedLink href={NOTE_DEEP_DIVE} event="product_click" className="text-link">noteへ <ArrowUpRight size={15}/></TrackedLink></div>
+      <div className="section-heading"><p>SECOND PATH</p><h2>運用ルールそのものを持ち帰りたい場合</h2></div>
+      <div className="empty-panel"><span className="status-dot"/><div><b>Cross-Agent Operating Kitで役割・権限・Human Gate・停止条件を実装する。</b><p>採算より先に、複数AIのレビュー・権限・受け渡し設計を固定したい方向けです。</p></div><TrackedLink href={OPERATING_KIT} event="commerce_entry_click" className="text-link">Personal $69へ <ArrowUpRight size={15}/></TrackedLink></div>
     </section>
 
-    <footer className="footer shell"><div><span className="brand-mark">VP</span><b>Vector Praxis</b></div><p>無料記事 → 実装 → Purchaseまでを短くするOwned Revenue Route。</p><small>© 2026 Vector Praxis</small></footer>
+    <section className="section shell">
+      <div className="section-heading"><p>DEEP DIVE</p><h2>背景から詳しく読みたい場合</h2></div>
+      <div className="empty-panel"><span className="status-dot"/><div><b>有料noteで、複数AIが遅くなる構造を詳しく読む。</b><p>レビュー・権限・受け渡しの考え方を文章で理解してから判断したい方向けです。</p></div><TrackedLink href={NOTE_DEEP_DIVE} event="product_click" className="text-link">noteへ <ArrowUpRight size={15}/></TrackedLink></div>
+    </section>
+
+    <footer className="footer shell"><div><span className="brand-mark">VP</span><b>Vector Praxis</b></div><p>無料記事 → 診断 → 実装 / 監査 → Purchaseまでを短くするOwned Revenue Route。</p><small>© 2026 Vector Praxis</small></footer>
   </main>;
 }
