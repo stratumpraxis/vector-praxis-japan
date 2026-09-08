@@ -1,5 +1,5 @@
 {
-  "version": 5,
+  "version": 6,
   "currency": {
     "usd_jpy_assumption": 150
   },
@@ -7,7 +7,8 @@
     "minimum_reward_usd": 25,
     "minimum_expected_jpy_per_hour": 5000,
     "maximum_comments": 25,
-    "maximum_age_days": 730
+    "maximum_age_days": 730,
+    "maximum_single_reward_usd": 25000
   },
   "safety": {
     "exclude_terms": [
@@ -26,11 +27,13 @@
     ],
     "require_explicit_reward": true,
     "require_open_github_issue_for_algora": true,
+    "require_open_github_issue_for_opire": true,
     "require_trusted_payout_for_generic_github": true,
     "trusted_payout_domains": [
       "algora.io",
       "oss.issuehunt.io",
-      "superteam.fun"
+      "superteam.fun",
+      "opire.dev"
     ],
     "auto_external_submit": false
   },
@@ -48,6 +51,12 @@
       {"algora_slug":"terrastruct","github_owner":"terrastruct"},
       {"algora_slug":"triggerdotdev","github_owner":"triggerdotdev"}
     ],
+    "opire_public_api": {
+      "enabled": true,
+      "endpoint": "https://api.opire.dev/rewards",
+      "items_per_page": 100,
+      "max_pages": 5
+    },
     "issuehunt_public_feed": true,
     "superteam_agent_api": {
       "enabled_when_secret_present": true,
