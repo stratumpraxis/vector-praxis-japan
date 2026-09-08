@@ -1,5 +1,5 @@
 {
-  "version": 1,
+  "version": 2,
   "currency": {
     "usd_jpy_assumption": 150
   },
@@ -7,7 +7,7 @@
     "minimum_reward_usd": 25,
     "minimum_expected_jpy_per_hour": 5000,
     "maximum_comments": 25,
-    "maximum_age_days": 365
+    "maximum_age_days": 730
   },
   "safety": {
     "exclude_terms": [
@@ -30,6 +30,17 @@
   "sources": {
     "github_bounty_search": true,
     "algora_comment_search": true,
+    "algora_public_projects": [
+      "spaceandtimelabs",
+      "go-gitea",
+      "SCIBASE.AI",
+      "gyroflow",
+      "BasedHardware",
+      "drizzle-team",
+      "comet-ml",
+      "terrastruct",
+      "triggerdotdev"
+    ],
     "issuehunt_public_feed": true,
     "superteam_agent_api": {
       "enabled_when_secret_present": true,
