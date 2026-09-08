@@ -1,5 +1,5 @@
 {
-  "version": 4,
+  "version": 5,
   "currency": {
     "usd_jpy_assumption": 150
   },
@@ -35,8 +35,8 @@
     "auto_external_submit": false
   },
   "sources": {
-    "github_bounty_search": true,
-    "algora_comment_search": true,
+    "github_bounty_search": false,
+    "algora_comment_search": false,
     "algora_public_projects": [
       {"algora_slug":"spaceandtimelabs","github_owner":"spaceandtimefdn"},
       {"algora_slug":"go-gitea","github_owner":"go-gitea"},
