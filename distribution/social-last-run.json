@@ -1,14 +1,9 @@
 {
-  "observed_at": "2026-09-09T01:31:34.186Z",
+  "observed_at": "2026-09-09T04:26:24.027Z",
   "campaign": "note-completion-layer-20260903",
   "results": [
     {
-      "status": "PUBLISHED_CONFIRMED_BY_PUBLISHER",
-      "id": "vp-gwr-bluesky-direct-20260909-01",
-      "platform": "bluesky",
-      "external_post_id": "at://did:plc:3cg6ij6eppzwmy2v2i42v45e/app.bsky.feed.post/3mv2fbwfdea2q",
-      "external_post_url": "https://bsky.app/profile/vectorpx.bsky.social/post/3mv2fbwfdea2q",
-      "publisher": "bluesky_direct"
+      "status": "NO_DUE_SOCIAL_POSTS"
     }
   ]
 }
