@@ -1,6 +1,8 @@
 import type { Metadata } from "next";
-import { ArrowUpRight, CheckCircle2, GitBranch, ShieldCheck, TimerReset } from "lucide-react";
+import { ArrowUpRight, Check, GitBranch, Gauge, ShieldCheck, TimerReset, WalletCards } from "lucide-react";
 import { siteOrigin } from "@/lib/site-url";
+import { VectorFooter, VectorHeader } from "@/components/vector-chrome";
+import { VectorNext } from "@/components/vector-next";
 
 const ROUTE_ID = "vpj_owned_ai_agent_bottleneck_v1";
 const OPERATING_KIT = `https://stratumpraxis.com/cross-agent-operating-kit.html?utm_source=vector_praxis&utm_medium=owned_article&utm_campaign=ai_agent_bottleneck_owned_20260904&utm_content=primary_cta&asset_id=cross_agent_operating_kit&route_id=${ROUTE_ID}`;
@@ -9,75 +11,85 @@ const NOTE_DEEP_DIVE = "https://note.com/deft_eel6718/n/ncaff8351e529?utm_source
 
 export const metadata: Metadata = {
   title: "複数AIエージェント運用が遅くなる理由｜Vector Praxis",
-  description: "AIを増やしても仕事が速くならない原因を、レビュー待ち・引き継ぎ・権限境界から整理。複数AIを止めずに運用する実装設計へつなげます。",
+  description: "AIを増やしても仕事が速くならない原因を、レビュー待ち・引き継ぎ・権限境界から整理。次の実装ルートまで短く案内します。",
   alternates: { canonical: `${siteOrigin}/ai-agent-bottleneck` },
-  openGraph: {
-    title: "複数AIエージェント運用が遅くなる理由",
-    description: "ボトルネックは生成速度ではなく、レビュー待ち・引き継ぎ・権限境界にある。",
-    type: "article",
-    locale: "ja_JP",
-    siteName: "Vector Praxis",
-  },
+  openGraph: { title: "複数AIエージェント運用が遅くなる理由", description: "ボトルネックは生成速度ではなく、レビュー待ち・引き継ぎ・権限境界にある。", type: "article", locale: "ja_JP", siteName: "Vector Praxis" },
 };
 
-function TrackedLink({ href, event, children, className = "" }: { href: string; event: string; children: React.ReactNode; className?: string }) {
+function Out({ href, event, children, className = "" }: { href: string; event: string; children: React.ReactNode; className?: string }) {
   return <a href={href} target="_blank" rel="noopener noreferrer" data-event={event} className={className}>{children}</a>;
 }
 
+const bottlenecks = [
+  { icon:<TimerReset/>, label:"WAIT", title:"レビュー待ち", text:"生成後に人の確認で止まる。" },
+  { icon:<ShieldCheck/>, label:"RULE", title:"権限が曖昧", text:"毎回「ここまで進めていい？」が発生。" },
+  { icon:<GitBranch/>, label:"HANDOFF", title:"引き継ぎ不足", text:"次のAIが状態を読み直す。" },
+];
+
 export default function AiAgentBottleneckPage() {
-  return <main>
-    <header className="site-header">
-      <a href="/" className="brand" aria-label="Vector Praxis ホーム"><span className="brand-mark" aria-hidden="true">VP</span><span>Vector Praxis</span></a>
-      <nav aria-label="ページナビゲーション"><a href="#bottleneck">詰まり</a><a href="#design">実装設計</a><a href="#next">次の一手</a></nav>
-    </header>
+  return <main className="vx-page tone-read">
+    <VectorHeader tone="read"/>
 
-    <section className="hero shell">
-      <div className="eyebrow"><span/> OWNED REVENUE ARTICLE</div>
-      <h1>AIを増やしても、<br/><em>仕事は速くならない。</em></h1>
-      <p className="hero-copy">複数AI運用で詰まりやすいのは生成速度ではありません。レビュー待ち、誰が決めるか不明な状態、引き継ぎの欠落です。必要なのは、AIを追加することではなく、役割・権限・停止条件を一枚の運用ルールにすることです。</p>
-      <div className="hero-actions">
-        <TrackedLink href={AGENT_ECONOMICS_CALCULATOR} event="agent_economics_calculator_open" className="button primary">成功1件あたりの採算を計算 <ArrowUpRight size={17}/></TrackedLink>
-        <TrackedLink href={OPERATING_KIT} event="commerce_entry_click" className="button secondary">実装キットを見る · $69</TrackedLink>
-      </div>
-      <div className="hero-index" aria-label="この記事の要点"><span>01 <b>レビュー待ち</b></span><span>02 <b>権限の曖昧さ</b></span><span>03 <b>引き継ぎ欠落</b></span></div>
-    </section>
-
-    <section id="bottleneck" className="section shell">
-      <div className="section-heading"><p>WHERE SPEED DISAPPEARS</p><h2>遅くなる場所は、AIの外側にある。</h2></div>
-      <div className="route-grid">
-        <div className="route-card"><TimerReset/><span><b>レビュー待ち</b><small>生成は終わっているのに、人の確認待ちでキューが止まる。</small></span></div>
-        <div className="route-card"><ShieldCheck/><span><b>権限境界が不明</b><small>どこまでAIが進めてよいか分からず、毎回確認が発生する。</small></span></div>
-        <div className="route-card"><GitBranch/><span><b>引き継ぎが弱い</b><small>次のAIへ目的・状態・停止条件が渡らず、再説明とやり直しが増える。</small></span></div>
-      </div>
-    </section>
-
-    <section id="design" className="section muted-section">
-      <div className="shell">
-        <div className="section-heading"><p>OPERATING CONTRACT</p><h2>必要なのは「もっと賢いAI」ではなく、共通の運用契約。</h2></div>
-        <div className="resource-list">
-          <article className="resource"><div className="resource-no">01</div><div className="resource-main"><span className="tag">ROLE</span><h3>誰が何を担当するか</h3><p>調査・判断・実装・QAを分け、同じ作業を複数AIが重複しないようにします。</p></div><CheckCircle2/></article>
-          <article className="resource"><div className="resource-no">02</div><div className="resource-main"><span className="tag">AUTHORITY</span><h3>どこまで自律実行してよいか</h3><p>安全なread-only、低リスク変更、人間確認が必要な境界を先に固定します。</p></div><CheckCircle2/></article>
-          <article className="resource"><div className="resource-no">03</div><div className="resource-main"><span className="tag">HANDOFF</span><h3>次の担当へ何を渡すか</h3><p>INPUT / ACTION / RESULT / EVIDENCE / BLOCKER / NEXT ACTION を共通形式にして、再説明を減らします。</p></div><CheckCircle2/></article>
+    <section className="vx-article-hero shell">
+      <div className="vx-breadcrumb">READ <span>→</span> AI PRACTICE <span>→</span> EARN</div>
+      <div className="vx-article-layout">
+        <div>
+          <span className="vx-chip">5 min · Practical Guide</span>
+          <h1>AIを増やしても、<br/><em>仕事は速くならない。</em></h1>
+          <p>詰まるのはAIの性能ではなく、<strong>待ち・権限・引き継ぎ</strong>。まず3つだけ確認します。</p>
+          <div className="vx-actions">
+            <Out href={AGENT_ECONOMICS_CALCULATOR} event="agent_economics_calculator_open" className="vx-button primary"><Gauge size={18}/> 無料で採算を見る <ArrowUpRight size={16}/></Out>
+            <a href="#diagnose" className="vx-button ghost">まず原因を見る</a>
+          </div>
+        </div>
+        <div className="vx-route-preview" aria-label="Vector revenue route preview">
+          <span className="vx-preview-label">YOUR ROUTE</span>
+          <div className="vx-route-step done"><Check size={15}/><span>Read<small>今ここ</small></span></div>
+          <div className="vx-route-line"/>
+          <div className="vx-route-step"><Gauge size={16}/><span>Check<small>採算を確認</small></span></div>
+          <div className="vx-route-line"/>
+          <div className="vx-route-step earn"><WalletCards size={16}/><span>Earn<small>実装へ</small></span></div>
         </div>
       </div>
     </section>
 
-    <section id="next" className="section shell return-panel">
-      <ShieldCheck size={26}/>
-      <div><p>NEXT ACTION</p><h2>運用の詰まりを、コストと成功率まで含めて数値で確認する。</h2><span>モデル/API費、ツール費、再試行、失敗、人間レビューを含めて成功1件あたり総費用を確認し、複雑・高額なケースはStratum Praxisの既存監査へ進めます。</span></div>
-      <TrackedLink href={AGENT_ECONOMICS_CALCULATOR} event="agent_economics_calculator_open" className="button primary">無料で採算を計算 <ArrowUpRight size={17}/></TrackedLink>
+    <section id="diagnose" className="vx-section shell">
+      <div className="vx-section-head"><span>01 / CHECK</span><h2>どこで止まっていますか？</h2><p>長い診断は不要。近いものを1つ見るだけでOKです。</p></div>
+      <div className="vx-choice-grid">
+        {bottlenecks.map((item, i)=><article className={`vx-choice ${i===0?"recommended":""}`} key={item.label}>
+          <span className="vx-choice-icon">{item.icon}</span>
+          <span><small>{item.label}</small><b>{item.title}</b><em>{item.text}</em></span>
+          {i===0&&<mark>よくある</mark>}
+        </article>)}
+      </div>
     </section>
 
-    <section className="section shell">
-      <div className="section-heading"><p>SECOND PATH</p><h2>運用ルールそのものを持ち帰りたい場合</h2></div>
-      <div className="empty-panel"><span className="status-dot"/><div><b>Cross-Agent Operating Kitで役割・権限・Human Gate・停止条件を実装する。</b><p>採算より先に、複数AIのレビュー・権限・受け渡し設計を固定したい方向けです。</p></div><TrackedLink href={OPERATING_KIT} event="commerce_entry_click" className="text-link">Personal $69へ <ArrowUpRight size={15}/></TrackedLink></div>
+    <section className="vx-section vx-soft">
+      <div className="shell vx-solution-layout">
+        <div className="vx-section-head"><span>02 / FIX</span><h2>増やすより、先に3つ決める。</h2></div>
+        <ol className="vx-rule-list">
+          <li><span>01</span><div><b>Role</b><p>誰が調査・判断・実装するか。</p></div></li>
+          <li><span>02</span><div><b>Authority</b><p>どこまで自動で進めてよいか。</p></div></li>
+          <li><span>03</span><div><b>Handoff</b><p>次の担当へ何を渡すか。</p></div></li>
+        </ol>
+      </div>
     </section>
 
-    <section className="section shell">
-      <div className="section-heading"><p>DEEP DIVE</p><h2>背景から詳しく読みたい場合</h2></div>
-      <div className="empty-panel"><span className="status-dot"/><div><b>有料noteで、複数AIが遅くなる構造を詳しく読む。</b><p>レビュー・権限・受け渡しの考え方を文章で理解してから判断したい方向けです。</p></div><TrackedLink href={NOTE_DEEP_DIVE} event="product_click" className="text-link">noteへ <ArrowUpRight size={15}/></TrackedLink></div>
+    <section className="vx-earn-focus shell">
+      <div className="vx-earn-badge"><WalletCards size={18}/> EARN ROUTE</div>
+      <div><h2>次は「速いか」ではなく、<br/>成功1件あたりの採算を見る。</h2><p>モデル/API費・再試行・失敗・人レビューを含めて、続ける価値があるかを判断します。</p></div>
+      <Out href={AGENT_ECONOMICS_CALCULATOR} event="agent_economics_calculator_open" className="vx-button earn">無料で計算する <ArrowUpRight size={16}/></Out>
     </section>
 
-    <footer className="footer shell"><div><span className="brand-mark">VP</span><b>Vector Praxis</b></div><p>無料記事 → 診断 → 実装 / 監査 → Purchaseまでを短くするOwned Revenue Route。</p><small>© 2026 Vector Praxis</small></footer>
+    <VectorNext
+      title="結果に合わせて、次へ"
+      routes={[
+        { label:"RECOMMENDED PRODUCT", title:"Cross-Agent Operating Kit", text:"役割・権限・Human Gateを実装する。", href:OPERATING_KIT, event:"commerce_entry_click", kind:"earn", external:true },
+        { label:"READ MORE", title:"AIを増やすほど仕事が遅くなる理由", text:"背景を文章で深く理解する。", href:NOTE_DEEP_DIVE, event:"product_click", kind:"read", external:true },
+        { label:"RETURN", title:"Vector Hubへ戻る", text:"Start / Build / Earnから別ルートを選ぶ。", href:"/", event:"return_to_hub", kind:"return" },
+      ]}
+    />
+
+    <VectorFooter/>
   </main>;
 }
