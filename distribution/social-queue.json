@@ -10,17 +10,170 @@
     "require_external_post_id_for_published": true,
     "do_not_reuse_identical_copy": true,
     "brand": "Vector Praxis",
-    "disabled_platforms": ["x"]
+    "disabled_platforms": [
+      "x"
+    ]
   },
   "platform_blocks": {
-    "x": {"status":"BLOCKED_PLATFORM_SUSPENDED","reason":"Account suspension evidence exists; do not publish or retry until channel safety is explicitly re-verified.","recorded_at":"2026-09-02T04:30:00+09:00"}
+    "x": {
+      "status": "BLOCKED_PLATFORM_SUSPENDED",
+      "reason": "Account suspension evidence exists; do not publish or retry until channel safety is explicitly re-verified.",
+      "recorded_at": "2026-09-02T04:30:00+09:00"
+    }
   },
   "items": [
-    {"id":"vp-note-completion-layer-bluesky-01","platform":"bluesky","angle":"AIの前後に残るHuman Gap","copy":"AIで作るだけでは足りない。生成後に残る確認・変換・投稿・判断。その摩擦を『Completion Layer』として整理しました。","hashtags":["生成AI","自動化"],"utm":{"utm_source":"bluesky","utm_medium":"social_video","utm_campaign":"note_completion_layer_20260903","utm_content":"human_gap_video_v1"},"status":"PUBLISHED","approval":"USER_APPROVED","scheduled_at":"2026-09-03T10:50:00+09:00","external_post_id":"at://did:plc:3cg6ij6eppzwmy2v2i42v45e/app.bsky.feed.post/3munq3pfhml2d","external_post_url":"https://bsky.app/profile/vectorpx.bsky.social/post/3munq3pfhml2d","require_media":true,"media_url":"https://raw.githubusercontent.com/stratumpraxis/vector-praxis-japan/main/public/media/vector-praxis-completion-layer.mp4","media_type":"video/mp4","media_asset_id":"VAHUGuz2G34","post_format":"video","alt_text":"AIの生成後に残る人間作業とCompletion Layerの考え方を解説する短い縦型動画","published_at":"2026-09-04T00:40:20.656Z","publisher":"bluesky_direct"},
-    {"id":"vp-note-completion-layer-instagram-01","platform":"instagram","angle":"生成から完了へ","copy":"AIの価値は、生成だけで決まるとは限りません。AIが出力したあとに残るコピー、確認、形式変換、投稿、送信、判断。そこを仕事の完了までつなぐ構造を『Completion Layer』として整理しました。Human Gapの見つけ方、評価シート、7日検証テンプレート付き。","hashtags":["生成AI","ChatGPT","AI活用","AIエージェント","自動化","個人開発"],"utm":{"utm_source":"instagram","utm_medium":"reel","utm_campaign":"note_completion_layer_20260903","utm_content":"completion_layer_reel_v1"},"status":"PUBLISHED","approval":"USER_APPROVED","scheduled_at":"2026-09-04T09:56:00+09:00","external_post_id":"https://www.instagram.com/reel/Dc2JmKZEX1L/","external_post_url":"https://www.instagram.com/reel/Dc2JmKZEX1L/","require_media":true,"media_url":"https://raw.githubusercontent.com/stratumpraxis/vector-praxis-japan/main/public/media/vector-praxis-completion-layer.mp4","media_type":"video/mp4","media_asset_id":"VAHUGuz2G34","post_format":"reel","publisher":"metricool","metricool_post_id":"370812637","metricool_uuid":"-2422389104626479468","published_at":"2026-09-04T00:56:00Z"},
-    {"id":"vp-note-completion-layer-tiktok-01","platform":"tiktok","angle":"AIで作るだけでは足りないかもしれない","copy":"AIで作るだけでは、足りないかもしれない。次に注目したいのは、AIの前後に残る『人間作業』。生成→接続→完了までをCompletion Layerとして整理しました。続きはnoteで。","hashtags":["生成AI","ChatGPT","AI活用","自動化","個人開発"],"utm":{"utm_source":"tiktok","utm_medium":"video","utm_campaign":"note_completion_layer_20260903","utm_content":"completion_layer_tiktok_v1"},"status":"PUBLISHED","approval":"USER_APPROVED","scheduled_at":"2026-09-04T10:00:00+09:00","external_post_id":"7681478999175957781","external_post_url":"https://www.tiktok.com/@vectorpraxismd/video/7681478999175957781","require_media":true,"media_url":"https://raw.githubusercontent.com/stratumpraxis/vector-praxis-japan/main/public/media/vector-praxis-completion-layer.mp4","media_type":"video/mp4","media_asset_id":"VAHUGuz2G34","post_format":"video","publisher":"metricool","metricool_post_id":"370812741","metricool_uuid":"-3308317088168654624","published_at":"2026-09-04T01:00:00Z"},
-    {"id":"vp-cross-agent-bluesky-revenue-probe-01","platform":"bluesky","angle":"生成速度ではなく運用設計","copy":"AIを増やしても仕事が完了しないなら、生成速度ではなく運用設計がボトルネックかもしれません。","hashtags":[],"destination":"https://stratumpraxis.com/cross-agent-operating-kit.html","utm":{"utm_source":"bluesky","utm_medium":"social","utm_campaign":"vector_revenue_probe_20260904","utm_content":"direct_v1","asset_id":"cross_agent_operating_kit","route_id":"bluesky_cross_agent_v1"},"status":"PUBLISHED","approval":"USER_APPROVED","scheduled_at":"2026-09-04T10:32:00+09:00","daily_cap_override":"USER_APPROVED_IMMEDIATE_REVENUE_PROBE_2026-09-04","require_media":false,"post_format":"text","external_post_id":"at://did:plc:3cg6ij6eppzwmy2v2i42v45e/app.bsky.feed.post/3muntam34a62x","external_post_url":"https://bsky.app/profile/vectorpx.bsky.social/post/3muntam34a62x","published_at":"2026-09-04T01:36:45.588Z","publisher":"bluesky_direct"},
-    {"id":"vp-gwr-bluesky-direct-20260909-01","platform":"bluesky","angle":"Remote求人の地域制限を先に除外","copy":"Remote ≠ Worldwide。GWRで、日本から応募可能か・Remote・言語・報酬を先に絞れます。","hashtags":[],"destination":"https://global-work-radar.pages.dev/","utm":{"utm_source":"bluesky","utm_medium":"social","utm_campaign":"gwr_direct_20260909","utm_content":"japan_eligibility_v1","asset_id":"global_work_radar","route_id":"vp_gwr_bsky_direct_20260909"},"status":"READY","approval":"USER_APPROVED","scheduled_at":"2026-09-09T10:31:00+09:00","require_media":false,"post_format":"text"}
+    {
+      "id": "vp-note-completion-layer-bluesky-01",
+      "platform": "bluesky",
+      "angle": "AIの前後に残るHuman Gap",
+      "copy": "AIで作るだけでは足りない。生成後に残る確認・変換・投稿・判断。その摩擦を『Completion Layer』として整理しました。",
+      "hashtags": [
+        "生成AI",
+        "自動化"
+      ],
+      "utm": {
+        "utm_source": "bluesky",
+        "utm_medium": "social_video",
+        "utm_campaign": "note_completion_layer_20260903",
+        "utm_content": "human_gap_video_v1"
+      },
+      "status": "PUBLISHED",
+      "approval": "USER_APPROVED",
+      "scheduled_at": "2026-09-03T10:50:00+09:00",
+      "external_post_id": "at://did:plc:3cg6ij6eppzwmy2v2i42v45e/app.bsky.feed.post/3munq3pfhml2d",
+      "external_post_url": "https://bsky.app/profile/vectorpx.bsky.social/post/3munq3pfhml2d",
+      "require_media": true,
+      "media_url": "https://raw.githubusercontent.com/stratumpraxis/vector-praxis-japan/main/public/media/vector-praxis-completion-layer.mp4",
+      "media_type": "video/mp4",
+      "media_asset_id": "VAHUGuz2G34",
+      "post_format": "video",
+      "alt_text": "AIの生成後に残る人間作業とCompletion Layerの考え方を解説する短い縦型動画",
+      "published_at": "2026-09-04T00:40:20.656Z",
+      "publisher": "bluesky_direct"
+    },
+    {
+      "id": "vp-note-completion-layer-instagram-01",
+      "platform": "instagram",
+      "angle": "生成から完了へ",
+      "copy": "AIの価値は、生成だけで決まるとは限りません。AIが出力したあとに残るコピー、確認、形式変換、投稿、送信、判断。そこを仕事の完了までつなぐ構造を『Completion Layer』として整理しました。Human Gapの見つけ方、評価シート、7日検証テンプレート付き。",
+      "hashtags": [
+        "生成AI",
+        "ChatGPT",
+        "AI活用",
+        "AIエージェント",
+        "自動化",
+        "個人開発"
+      ],
+      "utm": {
+        "utm_source": "instagram",
+        "utm_medium": "reel",
+        "utm_campaign": "note_completion_layer_20260903",
+        "utm_content": "completion_layer_reel_v1"
+      },
+      "status": "PUBLISHED",
+      "approval": "USER_APPROVED",
+      "scheduled_at": "2026-09-04T09:56:00+09:00",
+      "external_post_id": "https://www.instagram.com/reel/Dc2JmKZEX1L/",
+      "external_post_url": "https://www.instagram.com/reel/Dc2JmKZEX1L/",
+      "require_media": true,
+      "media_url": "https://raw.githubusercontent.com/stratumpraxis/vector-praxis-japan/main/public/media/vector-praxis-completion-layer.mp4",
+      "media_type": "video/mp4",
+      "media_asset_id": "VAHUGuz2G34",
+      "post_format": "reel",
+      "publisher": "metricool",
+      "metricool_post_id": "370812637",
+      "metricool_uuid": "-2422389104626479468",
+      "published_at": "2026-09-04T00:56:00Z"
+    },
+    {
+      "id": "vp-note-completion-layer-tiktok-01",
+      "platform": "tiktok",
+      "angle": "AIで作るだけでは足りないかもしれない",
+      "copy": "AIで作るだけでは、足りないかもしれない。次に注目したいのは、AIの前後に残る『人間作業』。生成→接続→完了までをCompletion Layerとして整理しました。続きはnoteで。",
+      "hashtags": [
+        "生成AI",
+        "ChatGPT",
+        "AI活用",
+        "自動化",
+        "個人開発"
+      ],
+      "utm": {
+        "utm_source": "tiktok",
+        "utm_medium": "video",
+        "utm_campaign": "note_completion_layer_20260903",
+        "utm_content": "completion_layer_tiktok_v1"
+      },
+      "status": "PUBLISHED",
+      "approval": "USER_APPROVED",
+      "scheduled_at": "2026-09-04T10:00:00+09:00",
+      "external_post_id": "7681478999175957781",
+      "external_post_url": "https://www.tiktok.com/@vectorpraxismd/video/7681478999175957781",
+      "require_media": true,
+      "media_url": "https://raw.githubusercontent.com/stratumpraxis/vector-praxis-japan/main/public/media/vector-praxis-completion-layer.mp4",
+      "media_type": "video/mp4",
+      "media_asset_id": "VAHUGuz2G34",
+      "post_format": "video",
+      "publisher": "metricool",
+      "metricool_post_id": "370812741",
+      "metricool_uuid": "-3308317088168654624",
+      "published_at": "2026-09-04T01:00:00Z"
+    },
+    {
+      "id": "vp-cross-agent-bluesky-revenue-probe-01",
+      "platform": "bluesky",
+      "angle": "生成速度ではなく運用設計",
+      "copy": "AIを増やしても仕事が完了しないなら、生成速度ではなく運用設計がボトルネックかもしれません。",
+      "hashtags": [],
+      "destination": "https://stratumpraxis.com/cross-agent-operating-kit.html",
+      "utm": {
+        "utm_source": "bluesky",
+        "utm_medium": "social",
+        "utm_campaign": "vector_revenue_probe_20260904",
+        "utm_content": "direct_v1",
+        "asset_id": "cross_agent_operating_kit",
+        "route_id": "bluesky_cross_agent_v1"
+      },
+      "status": "PUBLISHED",
+      "approval": "USER_APPROVED",
+      "scheduled_at": "2026-09-04T10:32:00+09:00",
+      "daily_cap_override": "USER_APPROVED_IMMEDIATE_REVENUE_PROBE_2026-09-04",
+      "require_media": false,
+      "post_format": "text",
+      "external_post_id": "at://did:plc:3cg6ij6eppzwmy2v2i42v45e/app.bsky.feed.post/3muntam34a62x",
+      "external_post_url": "https://bsky.app/profile/vectorpx.bsky.social/post/3muntam34a62x",
+      "published_at": "2026-09-04T01:36:45.588Z",
+      "publisher": "bluesky_direct"
+    },
+    {
+      "id": "vp-gwr-bluesky-direct-20260909-01",
+      "platform": "bluesky",
+      "angle": "Remote求人の地域制限を先に除外",
+      "copy": "Remote ≠ Worldwide。GWRで、日本から応募可能か・Remote・言語・報酬を先に絞れます。",
+      "hashtags": [],
+      "destination": "https://global-work-radar.pages.dev/",
+      "utm": {
+        "utm_source": "bluesky",
+        "utm_medium": "social",
+        "utm_campaign": "gwr_direct_20260909",
+        "utm_content": "japan_eligibility_v1",
+        "asset_id": "global_work_radar",
+        "route_id": "vp_gwr_bsky_direct_20260909"
+      },
+      "status": "PUBLISHED",
+      "approval": "USER_APPROVED",
+      "scheduled_at": "2026-09-09T10:31:00+09:00",
+      "require_media": false,
+      "post_format": "text",
+      "external_post_id": "at://did:plc:3cg6ij6eppzwmy2v2i42v45e/app.bsky.feed.post/3mv2fbwfdea2q",
+      "external_post_url": "https://bsky.app/profile/vectorpx.bsky.social/post/3mv2fbwfdea2q",
+      "published_at": "2026-09-09T01:31:34.186Z",
+      "publisher": "bluesky_direct"
+    }
   ],
-  "publisher_state": {"status":"LEGACY_WEBHOOK_GONE","http_status":410,"observed_at":"2026-09-03T02:20:46.968Z","note":"Instagram and TikTok are routed through Metricool for this campaign; legacy webhook must not be retried for these published items."}
+  "publisher_state": {
+    "status": "LEGACY_WEBHOOK_GONE",
+    "http_status": 410,
+    "observed_at": "2026-09-03T02:20:46.968Z",
+    "note": "Instagram and TikTok are routed through Metricool for this campaign; legacy webhook must not be retried for these published items."
+  }
 }
