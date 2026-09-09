@@ -1,161 +1,113 @@
 "use client";
 
-import { useEffect, useState } from "react";
-import { ArrowUpRight, Compass, FileText, Layers3 } from "lucide-react";
-import MotionEnhancer from "./motion-enhancer";
+import { useEffect, useMemo, useState } from "react";
+import { ArrowRight, ArrowUpRight, BookOpen, Boxes, ChevronRight, CircleDollarSign, Compass, Menu, RefreshCw, Sparkles, X } from "lucide-react";
 import AIWorkstyleCheck from "./ai-workstyle-check";
 
-type Lang = "ja" | "en" | "zh" | "ko";
-type LocalText = Record<Lang, string>;
+type Lang = "ja" | "en";
+type Status = "FREE" | "PAID" | "EXTERNAL" | "HUB" | "PAUSED";
+type Asset = { ja:string; en:string; jaDesc:string; enDesc:string; href?:string; status:Status; event:string; external?:boolean };
+type Category = { id:string; icon:React.ReactNode; ja:string; en:string; jaLead:string; enLead:string; assets:Asset[] };
 
 const NOTE = "https://note.com/deft_eel6718";
-const MAGAZINE = "https://note.com/deft_eel6718/m/md4fd3d914fe5";
 const STRATUM = "https://stratumpraxis.com/";
 
-const COPY: Record<Lang, Record<string, string>> = {
-  ja: {
-    navStart:"はじめる", navTools:"Tools", navArticles:"Articles", role:"@vector · 非B2B / Individual & Creator",
-    heroA:"AIとデジタル実践を、", heroB:"次の一手へ。",
-    heroText:"Vector Praxisは、個人・Creator・一人運営向けのAI活用、学習、制作、デジタル商品、収益化の実践資産をまとめた非B2Bラインです。情報を増やすより、次に何を試すかを見つけやすくします。",
-    heroCta:"自分向けの入口を選ぶ", heroArticles:"記事を見る", index1:"AI活用", index2:"Creator / 個人", index3:"Digital Product",
-    startKicker:"START HERE", startTitle:"今、何を進めたいですか？", startText:"目的から入口を選び、必要な資産だけに進めます。",
-    toolsKicker:"TOOLS / PRODUCTS", toolsTitle:"非B2Bの実践資産を、用途別に整理。", toolsText:"診断・制作・商品化・収益化を、目的ごとに選べるようにしています。",
-    legacy:"一部の旧資産は移管途中のため stratumpraxis.com で開きます。内容は非B2B資産として継続します。",
-    articlesKicker:"ARTICLES · @vector", articlesTitle:"読むだけで終わらず、判断と実行につなぐ。", allArticles:"noteですべて見る",
-    pathKicker:"PRACTICE ROUTE", pathTitle:"学ぶ → 作る → 確かめる → 収益へ。", path1:"理解する", path2:"作って試す", path3:"現実性を確認", path4:"次の行動へ",
-    bridgeKicker:"BUSINESS / TEAM", bridgeTitle:"法人・チームのAI判断は @stratum へ。", bridgeText:"Workflow、ROI、AI Agent Control、業務システムなどB2B用途はStratum Praxisに分離しています。", bridgeCta:"@stratum を開く",
-    footerText:"AI・Creator・Digital Productを、個人が使える実践へ。", jpContent:"日本語コンテンツ"
-  },
-  en: {
-    navStart:"Start", navTools:"Tools", navArticles:"Articles", role:"@vector · Non-B2B / Individual & Creator",
-    heroA:"Turn AI and digital practice", heroB:"into a clear next move.",
-    heroText:"Vector Praxis is the non-B2B asset line for individuals, creators, and solo operators: AI use, learning, making, digital products, and monetization. The goal is not more information—it is an easier next experiment.",
-    heroCta:"Choose your starting point", heroArticles:"Browse articles", index1:"AI Practice", index2:"Creator / Solo", index3:"Digital Product",
-    startKicker:"START HERE", startTitle:"What do you want to move forward now?", startText:"Choose by goal and go only to the asset that fits the next step.",
-    toolsKicker:"TOOLS / PRODUCTS", toolsTitle:"Non-B2B assets, organized by use case.", toolsText:"Diagnostics, creation, productization, and monetization routes without the catalog overload.",
-    legacy:"Some legacy non-B2B assets still open on stratumpraxis.com while URLs are being separated. Their role remains non-B2B.",
-    articlesKicker:"ARTICLES · @vector", articlesTitle:"Read to decide and act—not just to collect information.", allArticles:"See all on note",
-    pathKicker:"PRACTICE ROUTE", pathTitle:"Learn → Make → Validate → Monetize.", path1:"Understand", path2:"Build & test", path3:"Check reality", path4:"Take the next action",
-    bridgeKicker:"BUSINESS / TEAM", bridgeTitle:"For company and team AI decisions, use @stratum.", bridgeText:"Workflow, ROI, AI agent control, and business systems are separated into Stratum Praxis for B2B use.", bridgeCta:"Open @stratum",
-    footerText:"AI, creator work, and digital products—made practical for individuals.", jpContent:"Japanese content"
-  },
-  zh: {
-    navStart:"开始", navTools:"工具", navArticles:"文章", role:"@vector · 非B2B / 个人与Creator",
-    heroA:"把AI与数字实践", heroB:"变成清晰的下一步。",
-    heroText:"Vector Praxis 是面向个人、Creator 与单人运营者的非B2B资产线，涵盖AI使用、学习、制作、数字产品与变现。重点不是增加信息，而是更快找到下一次可验证的行动。",
-    heroCta:"选择适合我的入口", heroArticles:"查看文章", index1:"AI实践", index2:"Creator / 个人", index3:"数字产品",
-    startKicker:"START HERE", startTitle:"你现在最想推进什么？", startText:"按目标选择入口，只进入当前真正需要的资产。",
-    toolsKicker:"TOOLS / PRODUCTS", toolsTitle:"按用途整理非B2B实践资产。", toolsText:"把诊断、制作、产品化与变现路径整理得更简单。",
-    legacy:"部分旧的非B2B资产仍暂时从 stratumpraxis.com 打开，角色仍属于非B2B资产。",
-    articlesKicker:"ARTICLES · @vector", articlesTitle:"阅读不是终点，要连接判断与行动。", allArticles:"在 note 查看全部",
-    pathKicker:"PRACTICE ROUTE", pathTitle:"学习 → 制作 → 验证 → 变现。", path1:"理解", path2:"制作与测试", path3:"验证现实性", path4:"进入下一步",
-    bridgeKicker:"BUSINESS / TEAM", bridgeTitle:"企业与团队的AI决策请前往 @stratum。", bridgeText:"Workflow、ROI、AI Agent Control 与业务系统等B2B用途由 Stratum Praxis 负责。", bridgeCta:"打开 @stratum",
-    footerText:"让AI、Creator与数字产品成为个人可执行的实践。", jpContent:"日语内容"
-  },
-  ko: {
-    navStart:"시작", navTools:"도구", navArticles:"아티클", role:"@vector · 비B2B / 개인 & Creator",
-    heroA:"AI와 디지털 실천을", heroB:"명확한 다음 행동으로.",
-    heroText:"Vector Praxis는 개인, Creator, 1인 운영자를 위한 비B2B 자산 라인입니다. AI 활용, 학습, 제작, 디지털 상품, 수익화를 다루며 정보량보다 다음 실험을 쉽게 찾는 데 집중합니다.",
-    heroCta:"내 시작점 고르기", heroArticles:"아티클 보기", index1:"AI 활용", index2:"Creator / 개인", index3:"Digital Product",
-    startKicker:"START HERE", startTitle:"지금 무엇을 가장 먼저 진행하고 싶나요?", startText:"목적에 맞는 입구를 선택하고 필요한 자산으로만 이동합니다.",
-    toolsKicker:"TOOLS / PRODUCTS", toolsTitle:"비B2B 실천 자산을 용도별로 정리했습니다.", toolsText:"진단, 제작, 상품화, 수익화 경로를 복잡한 카탈로그 없이 선택할 수 있습니다.",
-    legacy:"일부 기존 비B2B 자산은 URL 분리 중이라 stratumpraxis.com에서 열립니다. 역할은 계속 비B2B입니다.",
-    articlesKicker:"ARTICLES · @vector", articlesTitle:"읽고 끝내지 않고 판단과 실행으로 연결합니다.", allArticles:"note에서 모두 보기",
-    pathKicker:"PRACTICE ROUTE", pathTitle:"학습 → 제작 → 검증 → 수익화.", path1:"이해", path2:"만들고 테스트", path3:"현실성 확인", path4:"다음 행동",
-    bridgeKicker:"BUSINESS / TEAM", bridgeTitle:"회사·팀의 AI 판단은 @stratum으로.", bridgeText:"Workflow, ROI, AI Agent Control, 비즈니스 시스템 등 B2B 용도는 Stratum Praxis로 분리되어 있습니다.", bridgeCta:"@stratum 열기",
-    footerText:"AI·Creator·Digital Product를 개인이 실행할 수 있는 형태로.", jpContent:"일본어 콘텐츠"
-  }
+const categories:Category[] = [
+  { id:"start", icon:<Compass/>, ja:"はじめる", en:"Start", jaLead:"まず無料で現在地を知る。AIの使い方と収益化の前提を短く確認。", enLead:"Start free. Understand how you use AI and test the assumptions behind monetization claims.", assets:[
+    {ja:"AIの使い方・仕事スタイル診断",en:"AI Workstyle Check",jaDesc:"AIの使い方から、自分に合う次の実践ルートを選ぶ。",enDesc:"Map your AI work style and choose a practical next route.",href:"#ai-workstyle",status:"FREE",event:"free_diagnostic_open"},
+    {ja:"AI実務力チェック",en:"AI Practical Check",jaDesc:"AIを仕事で使う現在地を短く確認。",enDesc:"Check your practical AI readiness in a few steps.",href:"https://ai-practical-check.pages.dev/",status:"FREE",event:"free_diagnostic_open",external:true},
+    {ja:"AIで稼げる系の主張チェック",en:"AI Income Claim Check",jaDesc:"再現性・Evidence・依存条件から、強すぎる収益主張を点検。",enDesc:"Stress-test AI income claims using evidence, repeatability, and dependencies.",href:"https://stratumpraxis.com/ai-monetization-reality-check.html",status:"FREE",event:"free_claim_check_open",external:true},
+  ]},
+  { id:"build", icon:<Boxes/>, ja:"作る", en:"Build", jaLead:"AIアプリ、デジタル商品、スライド、Prompt。作りたいものから選ぶ。", enLead:"Build an AI app, digital product, slide system, or reusable prompt workflow.", assets:[
+    {ja:"AIアプリ開発ツール選び診断",en:"AI App Builder Router 2026",jaDesc:"目的・制約からAI App Builderの選択肢を絞る。",enDesc:"Choose an AI app-building route by goal and constraints.",href:"https://payhip.com/b/LBtbr",status:"PAID",event:"paid_product_cta",external:true},
+    {ja:"AIデジタル商品づくり入門セット",en:"Global Digital Product AI Starter Kit",jaDesc:"デジタル商品の企画から公開までの実践ルート。",enDesc:"A practical route from digital-product idea to launch.",href:"https://stratumpraxis.com/global-digital-product-ai-starter-kit.html",status:"PAID",event:"paid_product_cta",external:true},
+    {ja:"スマホAIスライド制作システム",en:"Smartphone AI Slide Factory",jaDesc:"スマホ中心でスライド制作を回すための実践システム。",enDesc:"A phone-first workflow for producing AI-assisted slides.",href:"https://stratumpraxis.com/smartphone-ai-slide-factory.html",status:"PAID",event:"paid_product_cta",external:true},
+    {ja:"再利用できるAIプロンプト設計集",en:"Prompt Systems",jaDesc:"単発Promptではなく、判断と実行を再利用できる形にする。",enDesc:"Reusable prompt operating systems for decisions and execution.",href:"https://stratumpraxis.com/prompt-systems.html",status:"HUB",event:"asset_click",external:true},
+  ]},
+  { id:"earn", icon:<CircleDollarSign/>, ja:"収益化する", en:"Earn", jaLead:"収益化を煽らず、検証 → 設計 → 実行の順で進める。", enLead:"Validate first, then design and execute a monetization route.", assets:[
+    {ja:"AI収益化の現実チェック",en:"AI Monetization Reality Check",jaDesc:"収益主張のEvidenceと隠れた依存条件を確認。",enDesc:"Evaluate evidence and hidden dependencies behind AI income claims.",href:"https://stratumpraxis.com/ai-monetization-reality-check.html",status:"PAID",event:"paid_product_cta",external:true},
+    {ja:"スマホ中心の収益化設計",en:"Smartphone Income Blueprint",jaDesc:"スマホ主体で収益化仮説を検証する設計。",enDesc:"A phone-first workflow for validating a monetization path.",href:"https://stratumpraxis.com/smartphone-income-blueprint.html",status:"PAID",event:"paid_product_cta",external:true},
+    {ja:"AI収益化ツールセット",en:"AI Monetization Toolkit",jaDesc:"収益化に必要な既存ツールを目的別にまとめるHub。",enDesc:"A goal-based hub for practical monetization tools.",href:"https://stratumpraxis.com/product-router.html",status:"HUB",event:"asset_click",external:true},
+    {ja:"収益につながる次の行動振り分け",en:"Revenue Router",jaDesc:"SignalやResearchを、次の収益アクションへ振り分ける。",enDesc:"Route signals and research into a concrete revenue action.",href:"https://stratumpraxis.com/revenue-router.html",status:"PAID",event:"paid_product_cta",external:true},
+  ]},
+  { id:"creator", icon:<Sparkles/>, ja:"販売・作品", en:"Creator", jaLead:"Creator向け販売・作品系資産の受け皿。必要なものだけ見せる。", enLead:"A focused home for creator commerce and publishing assets.", assets:[
+    {ja:"画像を使った販売・収益化システム",en:"Image Commerce",jaDesc:"専用公開URL確認後に接続。既存資産は保持し、未確認リンクは出さない。",enDesc:"Route preserved. The public destination will appear only after the existing URL is verified.",status:"EXTERNAL",event:"asset_click"},
+  ]},
+  { id:"read", icon:<BookOpen/>, ja:"記事・知識", en:"Read", jaLead:"記事全文を抱え込まず、読む場所へ最短で送る。", enLead:"Choose what to read here, then continue on the best publishing surface.", assets:[
+    {ja:"記事・作品・コンテンツの接続拠点",en:"Folio Junction",jaDesc:"Vector系記事とストック資産を、noteや関連ツールへ接続。",enDesc:"A gateway connecting Vector articles, stock assets, note, and related tools.",href:"https://stratumpraxis.com/folio-junction/",status:"HUB",event:"asset_click",external:true},
+    {ja:"Vectorのnote・記事群",en:"Vector on note",jaDesc:"新着・有料・無料の記事をnoteで読む。",enDesc:"Browse current free and paid Vector articles on note.",href:NOTE,status:"EXTERNAL",event:"external_link_click",external:true},
+  ]},
+  { id:"return", icon:<RefreshCw/>, ja:"また戻る", en:"Return", jaLead:"毎日・週次・困った時。次に必要な場所へ戻るための入口。", enLead:"A repeat-use entrance for daily, weekly, and problem-triggered needs.", assets:[
+    {ja:"再訪・回遊のための入口ゲート",en:"Return Gate",jaDesc:"必要な場所へ進み、また戻るための再訪Hub。",enDesc:"A repeat-visit hub that routes you to what matters now.",href:"https://stratumpraxis.com/return-gate/",status:"FREE",event:"return_gate_move",external:true},
+    {ja:"再訪を増やす成長システム",en:"Return Gate Growth OS",jaDesc:"現在は購入導線停止中。内容確認ページのみ案内。",enDesc:"Direct checkout is currently paused; view the product information only.",href:"https://stratumpraxis.com/return-gate-growth-os.html",status:"PAUSED",event:"asset_click",external:true},
+  ]},
+];
+
+const copy = {
+  ja:{role:"@vector · Individual / Creator / AI Practice",title1:"AIを使う。作る。",title2:"収益につなげる。",lead:"Vector Praxis Works Hubは、個人・Creator向けのAI実践を、目的から必要な場所へ案内する非B2Bハブです。商品名を覚える必要はありません。今やりたいことから選んでください。",choose:"目的から選ぶ",read:"記事を見る",eyebrow:"VECTOR PRAXIS WORKS HUB",question:"今日は何を進めますか？",questionLead:"大きなカテゴリだけを表示します。選ぶと、その中にある必要なページだけが開きます。",freeFirst:"無料で試す",freeText:"最初からCheckoutへ押し込みません。無料診断 → 関連資産 → 必要な時だけ購入 → Return Gateで再訪、を基本にします。",close:"閉じる",open:"開く",unverified:"公開先確認中",stratum:"法人・チーム向けは Stratum Praxisへ",footer:"AIを使う。作る。収益につなげる。そして、次に必要な場所へ進める。"},
+  en:{role:"@vector · Individual / Creator / AI Practice",title1:"Use AI. Build something.",title2:"Turn it into value.",lead:"Vector Praxis Works Hub is the non-B2B route map for individuals and creators. You do not need to know product names. Start with what you want to do now.",choose:"Choose by goal",read:"Browse articles",eyebrow:"VECTOR PRAXIS WORKS HUB",question:"What do you want to move forward today?",questionLead:"Only the main categories are shown first. Open one to reveal the relevant pages inside it.",freeFirst:"Start free",freeText:"No forced checkout. Start with free value, move to a relevant asset, buy only when useful, then return through Return Gate.",close:"Close",open:"Open",unverified:"Destination pending verification",stratum:"For companies and teams, go to Stratum Praxis",footer:"Use AI. Build. Monetize. Then move to the next place you actually need."}
 };
 
-const routes: {title:LocalText; description:LocalText; href:string; event:string}[] = [
-  { title:{ja:"AIアプリを作りたい",en:"I want to build an AI app",zh:"我想做一个AI应用",ko:"AI 앱을 만들고 싶다"}, description:{ja:"目的・制約・実装方法から、自分に合うAI App Builderの進め方を選ぶ。",en:"Choose an AI app-building route from your goal, constraints, and implementation style.",zh:"从目标、限制与实现方式中选择适合自己的AI应用构建路线。",ko:"목적, 제약, 구현 방식에 맞는 AI App Builder 경로를 고릅니다."}, href:"https://payhip.com/b/LBtbr", event:"vector_app_builder_open" },
-  { title:{ja:"AI実務タイプを知りたい",en:"I want to understand my AI work style",zh:"我想了解自己的AI工作类型",ko:"내 AI 실무 유형을 알고 싶다"}, description:{ja:"AIの使い方を診断して、自分に合う次の実践ルートを選ぶ。",en:"Check how you use AI and choose a better next practice route.",zh:"诊断你的AI使用方式，并选择更适合的下一步实践。",ko:"AI 사용 방식을 진단하고 나에게 맞는 다음 실천 경로를 고릅니다."}, href:"https://ai-practical-check.pages.dev/", event:"vector_practical_check_open" },
-  { title:{ja:"AI収益化を現実的に見たい",en:"I want a reality check on AI monetization",zh:"我想现实地判断AI变现",ko:"AI 수익화를 현실적으로 보고 싶다"}, description:{ja:"AI収益化の主張を、Evidence・再現性・依存条件から確認する。",en:"Check monetization claims through evidence, repeatability, and dependencies.",zh:"从证据、可重复性和依赖条件检查AI变现主张。",ko:"근거, 재현성, 의존 조건으로 AI 수익화 주장을 확인합니다."}, href:"https://stratumpraxis.com/ai-monetization-reality-check.html", event:"vector_reality_check_open" },
-  { title:{ja:"デジタル商品を作りたい",en:"I want to make a digital product",zh:"我想做数字产品",ko:"디지털 상품을 만들고 싶다"}, description:{ja:"個人・Creator向けのDigital Product設計と公開ルートへ進む。",en:"Move from product idea to a practical digital-product publishing route.",zh:"从产品想法进入面向个人与Creator的数字产品发布路线。",ko:"개인·Creator용 Digital Product 설계와 공개 경로로 이동합니다."}, href:"https://stratumpraxis.com/global-digital-product-ai-starter-kit.html", event:"vector_digital_product_open" },
-  { title:{ja:"スマホ中心で作りたい",en:"I want a mobile-first workflow",zh:"我想以手机为主来制作",ko:"스마트폰 중심으로 만들고 싶다"}, description:{ja:"スマホでも進めやすい収益設計・制作の既存資産を見る。",en:"Use mobile-friendly assets for creation and monetization planning.",zh:"查看适合手机操作的制作与变现设计资产。",ko:"스마트폰에서도 진행하기 쉬운 제작·수익 설계 자산을 봅니다."}, href:"https://stratumpraxis.com/smartphone-income-blueprint.html", event:"vector_smartphone_open" },
-  { title:{ja:"収益ルートを整理したい",en:"I want to organize my revenue route",zh:"我想整理收入路线",ko:"수익 경로를 정리하고 싶다"}, description:{ja:"ResearchやSignalを、次の収益アクションへ整理する。",en:"Turn research and signals into one concrete revenue action.",zh:"把研究与信号整理成一个明确的收入行动。",ko:"Research와 Signal을 하나의 구체적인 수익 행동으로 정리합니다."}, href:"https://stratumpraxis.com/revenue-router.html", event:"vector_revenue_router_open" },
-];
-
-const products = [
-  { title:"AI App Builder Router 2026", note:"AI APP BUILDING", href:"https://payhip.com/b/LBtbr" },
-  { title:"AI Practical Check", note:"AI WORKSTYLE", href:"https://ai-practical-check.pages.dev/" },
-  { title:"AI Monetization Reality Check", note:"MONETIZATION", href:"https://stratumpraxis.com/ai-monetization-reality-check.html" },
-  { title:"Global Digital Product AI Starter Kit", note:"DIGITAL PRODUCT", href:"https://stratumpraxis.com/global-digital-product-ai-starter-kit.html" },
-  { title:"Smartphone Income Blueprint", note:"MOBILE FIRST", href:"https://stratumpraxis.com/smartphone-income-blueprint.html" },
-  { title:"Smartphone AI Slide Factory", note:"CREATION", href:"https://stratumpraxis.com/smartphone-ai-slide-factory.html" },
-  { title:"Revenue Router", note:"REVENUE ROUTING", href:"https://stratumpraxis.com/revenue-router.html" },
-  { title:"Return Gate Growth OS", note:"RETENTION", href:"https://stratumpraxis.com/return-gate-growth-os.html" },
-];
-
-const resources = [
-  { title:"AIでSEO記事作成を効率化するなら、\n「書く」より先に見直したい5つの工程", description:"記事制作を、キーワード・構成・執筆・確認・入稿までの工程として整理します。", href:"https://note.com/deft_eel6718/n/n86dddd12d2b2", event:"article_open" },
-  { title:"AIアプリ開発に月額課金する前に｜\n無料AIビルダー使い分け完全ガイド 2026", description:"無料・有料AIビルダーの違いと、課金すべきタイミングを整理する実践ガイドです。", href:"https://note.com/deft_eel6718/n/n7574edd94a5b?app_launch=false", event:"product_click" },
-  { title:"AIで作るだけでは稼げない。\nAIを「収益パイプ」に変える実践設計", description:"需要、入口、無料価値、収益化、計測をひとつの流れとして設計します。", href:"https://note.com/deft_eel6718/n/nc120a3159186", event:"product_click" },
-  { title:"不安は再生される", description:"不安を増幅するコンテンツ構造を読み解き、行動へ変える判断の枠組みを扱います。", href:"https://note.com/deft_eel6718/n/nee032c683c27", event:"product_click" },
-  { title:"Codexを「実装部隊」にして、\n広告費0円から外貨収益を作る一人会社の設計書", description:"制作で終わらせず、商品・導線・公開・計測をつなぐ一人運営の設計を扱います。", href:"https://note.com/deft_eel6718/n/n6643ede87ad3", event:"product_click" },
-];
-
-function TrackedLink({href,event,children,className="",...rest}:{href:string;event:string;children:React.ReactNode;className?:string;[key:string]:unknown}) {
-  return <a href={href} target="_blank" rel="noopener noreferrer" data-event={event} className={className} {...rest}>{children}</a>;
+function capture(event:string, props:Record<string,unknown>={}){
+  try{const ph=(window as unknown as {posthog?:{capture:(e:string,p?:Record<string,unknown>)=>void}}).posthog; ph?.capture(event,{surface:"vector_works_hub",...props});}catch{}
 }
 
 export default function Home(){
-  const [lang,setLang] = useState<Lang>("ja");
-  const c = COPY[lang];
+  const [lang,setLang]=useState<Lang>("ja");
+  const [active,setActive]=useState<string|null>(null);
+  const c=copy[lang];
+  const activeCategory=useMemo(()=>categories.find(x=>x.id===active)||null,[active]);
 
-  useEffect(()=>{
-    let preferred:Lang="ja";
-    try {
-      const saved=localStorage.getItem("vector-lang") as Lang | null;
-      if(saved && ["ja","en","zh","ko"].includes(saved)) preferred=saved;
-      else {
-        const n=(navigator.language||"ja").toLowerCase();
-        preferred=n.startsWith("en")?"en":n.startsWith("zh")?"zh":n.startsWith("ko")?"ko":"ja";
-      }
-    } catch {}
-    setLang(preferred);
-  },[]);
+  useEffect(()=>{try{const saved=localStorage.getItem("vector-lang") as Lang|null;if(saved==="ja"||saved==="en")setLang(saved);else if((navigator.language||"").toLowerCase().startsWith("en"))setLang("en");}catch{} capture("hub_view");},[]);
+  useEffect(()=>{document.documentElement.lang=lang;try{localStorage.setItem("vector-lang",lang)}catch{}},[lang]);
+  useEffect(()=>{document.body.style.overflow=activeCategory?"hidden":"";return()=>{document.body.style.overflow=""}},[activeCategory]);
 
-  useEffect(()=>{
-    document.documentElement.lang=lang==="zh"?"zh-CN":lang;
-    try{localStorage.setItem("vector-lang",lang)}catch{}
-  },[lang]);
+  function openCategory(id:string){setActive(id);capture("category_select",{category:id});capture("drawer_view",{category:id});}
+  function closeDrawer(){setActive(null)}
+  function assetClick(asset:Asset,cat:string){capture(asset.event,{category:cat,asset:asset.en,status:asset.status,destination:asset.href||null});if(asset.href?.startsWith("#")){setActive(null);setTimeout(()=>document.querySelector(asset.href!)?.scrollIntoView({behavior:"smooth"}),60)}}
 
-  return <main><MotionEnhancer/>
-    <header className="site-header vp-header">
-      <a href="#top" className="brand" aria-label="Vector Praxis home"><span className="brand-mark" aria-hidden="true">VP</span><span>Vector Praxis</span></a>
-      <nav aria-label="Main navigation"><a href="#start">{c.navStart}</a><a href="#products">{c.navTools}</a><a href="#articles">{c.navArticles}</a></nav>
-      <div className="vp-lang-switch" role="group" aria-label="Language">
-        {(["ja","en","zh","ko"] as Lang[]).map(l=><button key={l} type="button" aria-pressed={lang===l} onClick={()=>setLang(l)}>{l==="ja"?"日本語":l==="en"?"EN":l==="zh"?"中文":"한국어"}</button>)}
-      </div>
+  return <main className="vw-root" id="top">
+    <div className="vw-grid" aria-hidden="true"/><div className="vw-glow vw-glow-a" aria-hidden="true"/><div className="vw-glow vw-glow-b" aria-hidden="true"/>
+    <header className="vw-header">
+      <a href="#top" className="vw-brand"><span className="vw-mark">V</span><span><b>Vector Praxis</b><small>Works Hub</small></span></a>
+      <nav className="vw-nav"><a href="#routes">Routes</a><a href="#ai-workstyle">Check</a><a href={NOTE} target="_blank" rel="noreferrer">Read</a></nav>
+      <div className="vw-actions"><div className="vw-lang" role="group" aria-label="Language"><button onClick={()=>setLang("ja")} aria-pressed={lang==="ja"}>日本語</button><button onClick={()=>setLang("en")} aria-pressed={lang==="en"}>EN</button></div><button className="vw-menu" onClick={()=>openCategory("start")} aria-label="Open routes"><Menu size={18}/></button></div>
     </header>
 
-    <section id="top" className="hero shell vp-hero">
-      <div className="eyebrow"><span/> {c.role}</div>
-      <h1>{c.heroA}<br/><em>{c.heroB}</em></h1>
-      <p className="hero-copy">{c.heroText}</p>
-      <div className="hero-actions"><a href="#start" className="button primary">{c.heroCta} <ArrowUpRight size={17}/></a><a href="#articles" className="button secondary">{c.heroArticles}</a></div>
-      <div className="hero-index" aria-label="Vector Praxis areas"><span>01 <b>{c.index1}</b></span><span>02 <b>{c.index2}</b></span><span>03 <b>{c.index3}</b></span></div>
+    <section className="vw-hero vw-shell">
+      <div className="vw-kicker"><span/> {c.eyebrow}</div>
+      <p className="vw-role">{c.role}</p>
+      <h1>{c.title1}<br/><em>{c.title2}</em></h1>
+      <p className="vw-lead">{c.lead}</p>
+      <div className="vw-hero-actions"><a href="#routes" className="vw-btn vw-primary">{c.choose}<ArrowRight size={17}/></a><a href={NOTE} target="_blank" rel="noreferrer" data-event="external_link_click" className="vw-btn vw-secondary">{c.read}<ArrowUpRight size={16}/></a></div>
+      <div className="vw-flow" aria-label="Vector flow"><span>USE</span><i>→</i><span>BUILD</span><i>→</i><span>EARN</span><i>→</i><span>RETURN</span></div>
     </section>
 
-    <AIWorkstyleCheck/>
+    <section id="routes" className="vw-routes vw-shell">
+      <div className="vw-section-head"><span>ROUTE BY INTENT</span><h2>{c.question}</h2><p>{c.questionLead}</p></div>
+      <div className="vw-category-grid">{categories.map((cat,index)=><button key={cat.id} className="vw-category" onClick={()=>openCategory(cat.id)}><span className="vw-index">0{index+1}</span><span className="vw-icon">{cat.icon}</span><span className="vw-cat-copy"><b>{lang==="ja"?cat.ja:cat.en}</b><small>{lang==="ja"?cat.jaLead:cat.enLead}</small></span><ChevronRight className="vw-chevron"/></button>)}</div>
+    </section>
 
-    <section id="start" className="section shell"><div className="section-heading"><p>{c.startKicker}</p><h2>{c.startTitle}</h2><span className="vp-section-copy">{c.startText}</span></div><div className="route-grid">{routes.map(item=><TrackedLink key={item.href} href={item.href} event={item.event} className="route-card"><Compass/><span><b>{item.title[lang]}</b><small>{item.description[lang]}</small></span><ArrowUpRight/></TrackedLink>)}</div></section>
+    <section className="vw-free vw-shell"><div><span>FREE FIRST</span><h2>{c.freeFirst}</h2><p>{c.freeText}</p></div><button className="vw-btn vw-primary" onClick={()=>openCategory("start")}>{c.choose}<ArrowRight size={17}/></button></section>
 
-    <section id="products" className="section muted-section"><div className="shell tool-empty"><div className="section-heading"><p>{c.toolsKicker}</p><h2>{c.toolsTitle}</h2><span className="vp-section-copy">{c.toolsText}</span></div><div><div className="route-grid vp-product-grid">{products.map(item=><TrackedLink key={item.href} href={item.href} event="vector_product_open" className="route-card vp-product"><Layers3/><span><small className="vp-product-label">{item.note}</small><b>{item.title}</b></span><ArrowUpRight/></TrackedLink>)}</div><p className="price-note">{c.legacy}</p></div></div></section>
+    <section id="ai-workstyle" className="vw-check"><AIWorkstyleCheck/></section>
 
-    <section id="articles" className="section shell"><div className="section-heading split"><div><p>{c.articlesKicker}</p><h2>{c.articlesTitle}</h2></div><TrackedLink href={NOTE} event="article_open" className="text-link">{c.allArticles} <ArrowUpRight size={15}/></TrackedLink></div><div className="resource-list">{resources.map((item,index)=><article className="resource" key={item.href}><div className="resource-no">0{index+1}</div><div className="resource-main"><span className="tag">{c.jpContent} · @vector</span><h3>{item.title.split("\n").map(line=><span key={line}>{line}<br/></span>)}</h3><p>{item.description}</p></div><TrackedLink href={item.href} event={item.event} className="round-link" aria-label={`${item.title}を開く`}><ArrowUpRight/></TrackedLink></article>)}</div></section>
+    <section className="vw-stratum vw-shell"><div><span>B2B / TEAM</span><h2>{c.stratum}</h2></div><a href={STRATUM} target="_blank" rel="noreferrer" data-event="vector_to_stratum" className="vw-btn vw-secondary">Stratum Praxis <ArrowUpRight size={16}/></a></section>
 
-    <section className="section path-section"><div className="shell path-layout"><div className="section-heading"><p>{c.pathKicker}</p><h2>{c.pathTitle}</h2></div><ol className="path"><li><span>01</span><b>{c.path1}</b><small>Articles / Check</small></li><li><span>02</span><b>{c.path2}</b><small>Builder / Product</small></li><li><span>03</span><b>{c.path3}</b><small>Reality / Evidence</small></li><li><span>04</span><b>{c.path4}</b><small>Revenue Route</small></li></ol></div></section>
+    <footer className="vw-footer vw-shell"><div className="vw-brand"><span className="vw-mark">V</span><span><b>Vector Praxis</b><small>Works Hub</small></span></div><p>{c.footer}</p><small>© 2026 Vector Praxis · @vector</small></footer>
 
-    <section className="section shell return-panel vp-bridge"><FileText size={26}/><div><p>{c.bridgeKicker}</p><h2>{c.bridgeTitle}</h2><span>{c.bridgeText}</span></div><TrackedLink href={STRATUM} event="vector_to_stratum" className="button secondary">{c.bridgeCta} <ArrowUpRight size={15}/></TrackedLink></section>
-
-    <footer className="footer shell"><div><span className="brand-mark">VP</span><b>Vector Praxis</b></div><p>{c.footerText}</p><nav aria-label="Footer navigation"><TrackedLink href={NOTE} event="article_open">note</TrackedLink><TrackedLink href={MAGAZINE} event="article_open">@vector magazine</TrackedLink><TrackedLink href={STRATUM} event="vector_to_stratum">@stratum</TrackedLink></nav><small>© 2026 Vector Praxis · @vector</small></footer>
+    {activeCategory&&<div className="vw-overlay" role="presentation" onMouseDown={(e)=>{if(e.target===e.currentTarget)closeDrawer()}}><aside className="vw-drawer" role="dialog" aria-modal="true" aria-labelledby="vw-drawer-title"><div className="vw-drawer-head"><div><span>{activeCategory.id.toUpperCase()}</span><h2 id="vw-drawer-title">{lang==="ja"?activeCategory.ja:activeCategory.en}</h2><p>{lang==="ja"?activeCategory.jaLead:activeCategory.enLead}</p></div><button onClick={closeDrawer} aria-label={c.close}><X/></button></div><div className="vw-asset-list">{activeCategory.assets.map((asset,i)=>asset.href?<a key={asset.en} href={asset.href} target={asset.external?"_blank":undefined} rel={asset.external?"noreferrer":undefined} data-event={asset.event} onClick={()=>assetClick(asset,activeCategory.id)} className="vw-asset"><span className={`vw-status s-${asset.status.toLowerCase()}`}>{asset.status}</span><span className="vw-asset-copy"><b>{lang==="ja"?asset.ja:asset.en}</b><small>{lang==="ja"?asset.jaDesc:asset.enDesc}</small></span><ArrowUpRight size={17}/></a>:<div key={asset.en} className="vw-asset vw-disabled" aria-disabled="true"><span className="vw-status s-external">{asset.status}</span><span className="vw-asset-copy"><b>{lang==="ja"?asset.ja:asset.en}</b><small>{lang==="ja"?asset.jaDesc:asset.enDesc}</small><em>{c.unverified}</em></span></div>)}</div><div className="vw-drawer-foot"><span>Vector Praxis Works Hub</span><button onClick={closeDrawer}>{c.close}</button></div></aside></div>}
 
     <style jsx global>{`
-      .vp-header{grid-template-columns:1fr auto auto;display:grid;gap:22px}.vp-lang-switch{display:flex;gap:4px;padding:4px;border:1px solid #29364a;border-radius:10px;background:#090e16}.vp-lang-switch button{border:0;background:transparent;color:#758397;padding:7px 8px;border-radius:7px;font:700 10px/1 system-ui;cursor:pointer}.vp-lang-switch button[aria-pressed="true"],.vp-lang-switch button:hover{background:#172337;color:#eef6ff}.vp-hero .eyebrow{max-width:max-content}.vp-section-copy{display:block;margin-top:13px;max-width:660px;color:#8f9aaa;font-size:13px;line-height:1.8}.vp-product-grid{grid-template-columns:repeat(2,1fr)}.vp-product{min-height:190px}.vp-product-label{color:#74c7ff!important;font-size:9px!important;letter-spacing:.12em}.vp-bridge{border-color:#35465c;background:linear-gradient(120deg,#101a2b,#0b111b)}
-      @media(max-width:980px){.vp-header{grid-template-columns:1fr auto}.vp-header nav{display:none}.vp-lang-switch{justify-self:end}.tool-empty{grid-template-columns:1fr}.vp-product-grid{grid-template-columns:1fr 1fr}}
-      @media(max-width:650px){.vp-header{height:auto;min-height:72px;grid-template-columns:1fr;padding-block:10px}.vp-lang-switch{justify-self:start;max-width:100%;overflow:auto}.vp-product-grid{grid-template-columns:1fr}.vp-lang-switch button{white-space:nowrap}}
+      :root{--vw-bg:#071019;--vw-panel:#0b1622;--vw-line:#1f3546;--vw-text:#f3f7fb;--vw-muted:#8ea1b4;--vw-cyan:#73e8ff;--vw-mint:#8dffc7;--vw-violet:#a996ff}
+      html{scroll-behavior:smooth}.vw-root{min-height:100vh;background:radial-gradient(circle at 55% -20%,#153249 0,transparent 38%),linear-gradient(180deg,#071019 0%,#08131d 48%,#070d14 100%);color:var(--vw-text);position:relative;overflow:hidden}.vw-root *{box-sizing:border-box}.vw-shell{width:min(1120px,calc(100% - 42px));margin:0 auto;position:relative;z-index:2}.vw-grid{position:absolute;inset:0;background-image:linear-gradient(rgba(115,232,255,.035) 1px,transparent 1px),linear-gradient(90deg,rgba(115,232,255,.035) 1px,transparent 1px);background-size:48px 48px;mask-image:linear-gradient(to bottom,black,transparent 72%);pointer-events:none}.vw-glow{position:absolute;border-radius:50%;filter:blur(90px);opacity:.17;pointer-events:none}.vw-glow-a{width:420px;height:420px;background:#36d6ff;top:120px;right:-140px;animation:vwFloat 12s ease-in-out infinite}.vw-glow-b{width:340px;height:340px;background:#7c5cff;top:520px;left:-180px;animation:vwFloat 15s ease-in-out infinite reverse}@keyframes vwFloat{50%{transform:translate3d(0,34px,0) scale(1.06)}}
+      .vw-header{height:76px;width:min(1180px,calc(100% - 30px));margin:0 auto;display:grid;grid-template-columns:1fr auto 1fr;align-items:center;border-bottom:1px solid rgba(143,180,205,.13);position:relative;z-index:20}.vw-brand{display:flex;align-items:center;gap:11px;color:inherit;text-decoration:none}.vw-brand span:last-child{display:grid;gap:1px}.vw-brand b{font-size:13px;letter-spacing:.04em}.vw-brand small{font-size:9px;letter-spacing:.18em;color:#7190a5;text-transform:uppercase}.vw-mark{width:32px;height:32px;border:1px solid #54d8f7;border-radius:9px;display:grid;place-items:center;font-weight:900;color:#9af0ff;box-shadow:inset 0 0 18px rgba(84,216,247,.1),0 0 22px rgba(84,216,247,.08)}.vw-nav{display:flex;gap:28px}.vw-nav a{font-size:11px;color:#8ea1b4;text-decoration:none;letter-spacing:.06em}.vw-nav a:hover{color:white}.vw-actions{display:flex;justify-content:flex-end;align-items:center;gap:10px}.vw-lang{display:flex;border:1px solid #233849;background:#09131d;border-radius:10px;padding:3px}.vw-lang button,.vw-menu{border:0;background:transparent;color:#7990a3;cursor:pointer}.vw-lang button{padding:7px 9px;border-radius:7px;font:700 10px/1 system-ui}.vw-lang button[aria-pressed=true]{background:#173044;color:#baf5ff}.vw-menu{display:none;padding:9px}
+      .vw-hero{padding:94px 0 70px}.vw-kicker,.vw-role,.vw-section-head>span,.vw-free>div>span,.vw-stratum span{font-size:10px;letter-spacing:.17em;color:#7eeaff;text-transform:uppercase;font-weight:800}.vw-kicker{display:flex;align-items:center;gap:8px}.vw-kicker span{width:20px;height:1px;background:#7eeaff}.vw-role{margin:28px 0 13px;color:#6e8294}.vw-hero h1{font-size:clamp(48px,8vw,94px);line-height:.95;letter-spacing:-.055em;margin:0;max-width:900px}.vw-hero h1 em{font-style:normal;background:linear-gradient(90deg,#9df4ff,#86ffd0 52%,#b4a7ff);-webkit-background-clip:text;color:transparent}.vw-lead{max-width:690px;color:#9aabba;font-size:16px;line-height:1.85;margin:30px 0}.vw-hero-actions{display:flex;gap:10px;flex-wrap:wrap}.vw-btn{min-height:45px;padding:0 18px;border-radius:12px;display:inline-flex;align-items:center;justify-content:center;gap:9px;text-decoration:none;font-size:12px;font-weight:800;letter-spacing:.02em;border:1px solid #284358;cursor:pointer}.vw-primary{background:linear-gradient(135deg,#98f3ff,#8dffc7);color:#031018;border-color:transparent;box-shadow:0 12px 30px rgba(115,232,255,.12)}.vw-secondary{background:#0b1722;color:#dceaf2}.vw-flow{display:flex;gap:12px;align-items:center;margin-top:58px;font:800 9px/1 system-ui;letter-spacing:.15em;color:#6f8597}.vw-flow i{font-style:normal;color:#3e5b70}
+      .vw-routes{padding:52px 0 96px}.vw-section-head{max-width:690px;margin-bottom:28px}.vw-section-head h2,.vw-free h2,.vw-stratum h2{font-size:clamp(28px,4vw,46px);letter-spacing:-.035em;margin:8px 0 12px}.vw-section-head p,.vw-free p{color:#8ea1b4;line-height:1.8;margin:0}.vw-category-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:12px}.vw-category{min-height:172px;text-align:left;border:1px solid #1d3446;background:linear-gradient(145deg,rgba(13,27,40,.9),rgba(8,18,28,.9));border-radius:18px;padding:20px;display:grid;grid-template-columns:auto 1fr auto;grid-template-rows:auto 1fr;gap:12px 16px;color:inherit;cursor:pointer;position:relative;overflow:hidden;transition:.2s ease}.vw-category:before{content:"";position:absolute;inset:auto -20% -70% 20%;height:120px;background:radial-gradient(circle,#37dfff25,transparent 68%);transition:.25s}.vw-category:hover{transform:translateY(-3px);border-color:#3f718c}.vw-category:hover:before{transform:translateY(-14px)}.vw-index{font:700 9px/1 system-ui;color:#53758d;letter-spacing:.14em}.vw-icon{grid-row:2;width:42px;height:42px;border-radius:12px;display:grid;place-items:center;background:#102637;color:#7eeaff}.vw-icon svg{width:19px}.vw-cat-copy{grid-row:2;display:grid;align-content:start;gap:8px}.vw-cat-copy b{font-size:21px;letter-spacing:-.02em}.vw-cat-copy small{color:#8ea1b4;line-height:1.6;font-size:12px}.vw-chevron{grid-row:2;color:#56768c;align-self:center}
+      .vw-free{margin-bottom:90px;padding:30px;border:1px solid #294455;border-radius:20px;background:linear-gradient(120deg,#0d1d2a,#0a1520);display:grid;grid-template-columns:1fr auto;align-items:center;gap:30px}.vw-free h2{font-size:30px}.vw-free p{max-width:680px}.vw-check{position:relative;z-index:2}.vw-stratum{margin-top:70px;margin-bottom:70px;padding:28px;border-top:1px solid #20384a;border-bottom:1px solid #20384a;display:flex;justify-content:space-between;align-items:center;gap:20px}.vw-stratum h2{font-size:25px;margin-bottom:0}.vw-footer{padding:20px 0 52px;display:grid;grid-template-columns:1fr 1fr auto;gap:24px;align-items:end;color:#6f8495}.vw-footer p{font-size:12px;line-height:1.7;margin:0}.vw-footer>small{font-size:10px}
+      .vw-overlay{position:fixed;inset:0;background:rgba(2,7,11,.72);backdrop-filter:blur(8px);z-index:100;display:flex;justify-content:flex-end;animation:vwFade .18s ease}.vw-drawer{height:100%;width:min(560px,92vw);background:linear-gradient(180deg,#0c1722,#08131d);border-left:1px solid #294458;box-shadow:-20px 0 60px rgba(0,0,0,.35);padding:28px;display:flex;flex-direction:column;animation:vwSlide .26s cubic-bezier(.2,.75,.2,1)}@keyframes vwFade{from{opacity:0}}@keyframes vwSlide{from{transform:translateX(35px);opacity:.2}}.vw-drawer-head{display:grid;grid-template-columns:1fr auto;gap:20px;padding-bottom:20px;border-bottom:1px solid #1d3446}.vw-drawer-head>div>span{font-size:9px;letter-spacing:.16em;color:#6ce9ff;font-weight:900}.vw-drawer-head h2{font-size:34px;letter-spacing:-.035em;margin:7px 0}.vw-drawer-head p{font-size:12px;line-height:1.7;color:#8fa1b2;margin:0;max-width:430px}.vw-drawer-head button{width:40px;height:40px;border:1px solid #263d4e;border-radius:12px;background:#0b1620;color:#8fa5b6;display:grid;place-items:center;cursor:pointer}.vw-asset-list{display:grid;gap:9px;padding:20px 0;overflow:auto}.vw-asset{display:grid;grid-template-columns:auto 1fr auto;gap:13px;align-items:start;padding:16px;border:1px solid #1f3445;border-radius:14px;background:#0a151f;color:inherit;text-decoration:none;transition:.18s}.vw-asset[href]:hover{border-color:#3a718b;transform:translateX(-3px);background:#0d1b27}.vw-status{margin-top:2px;border:1px solid #315066;border-radius:999px;padding:5px 7px;font:900 8px/1 system-ui;letter-spacing:.08em;color:#9ccfe3}.s-free{color:#93ffd0;border-color:#285c4d}.s-paid{color:#ffe6a3;border-color:#5f5130}.s-hub{color:#bcb1ff;border-color:#504879}.s-paused{color:#ffb5a8;border-color:#674139}.vw-asset-copy{display:grid;gap:6px}.vw-asset-copy b{font-size:14px}.vw-asset-copy small{font-size:11px;color:#8ea1b4;line-height:1.55}.vw-asset-copy em{font-style:normal;font-size:9px;color:#d3a69e}.vw-disabled{opacity:.62}.vw-drawer-foot{margin-top:auto;padding-top:16px;border-top:1px solid #1d3446;display:flex;justify-content:space-between;align-items:center;color:#668195;font-size:10px}.vw-drawer-foot button{border:0;background:transparent;color:#a6bac9;cursor:pointer}
+      @media(max-width:760px){.vw-shell{width:min(100% - 28px,1120px)}.vw-header{height:68px;grid-template-columns:1fr auto;width:calc(100% - 24px)}.vw-nav{display:none}.vw-menu{display:grid}.vw-hero{padding:68px 0 48px}.vw-hero h1{font-size:clamp(45px,14vw,68px)}.vw-lead{font-size:14px}.vw-flow{overflow:auto;padding-bottom:4px}.vw-category-grid{grid-template-columns:1fr}.vw-category{min-height:150px}.vw-free{grid-template-columns:1fr;padding:22px}.vw-stratum{align-items:flex-start;flex-direction:column}.vw-footer{grid-template-columns:1fr;align-items:start}.vw-overlay{align-items:flex-end}.vw-drawer{width:100%;height:min(82vh,760px);border-left:0;border-top:1px solid #2b475b;border-radius:22px 22px 0 0;padding:20px;animation:vwSheet .26s cubic-bezier(.2,.75,.2,1)}@keyframes vwSheet{from{transform:translateY(45px);opacity:.2}}.vw-drawer-head h2{font-size:28px}.vw-asset{grid-template-columns:auto 1fr}.vw-asset>svg{display:none}}
+      @media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}.vw-glow{animation:none}.vw-category,.vw-asset,.vw-drawer,.vw-overlay{animation:none;transition:none}}
     `}</style>
   </main>
 }
