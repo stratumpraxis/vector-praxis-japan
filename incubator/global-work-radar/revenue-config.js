@@ -6,6 +6,78 @@ window.GWR_REVENUE = Object.freeze({
   campaign: 'gwr_deel_2026_09'
 });
 
+window.GWR_INTELLIGENCE_SIGNAL = Object.freeze({
+  id: 'japanese-speaker-demand-2026-09-07',
+  theme: 'Japanese Speaker Demand',
+  asOf: '2026-09-07T11:02:40.422Z',
+  periodStart: '2026-09-03T02:49:09.780Z',
+  startJapaneseJobs: 672,
+  endJapaneseJobs: 702,
+  japaneseGrowthPct: 4.46,
+  activeGrowthPct: 0.50,
+  remoteGrowthPct: 1.47,
+  japanEligibleGrowthPct: 2.04,
+  source: 'Workable market snapshots',
+  scope: 'GWR-observed Workable market only',
+  score: 92,
+  route: 'PAID_CANDIDATE'
+});
+
+(function setupIntelligencePreview() {
+  const signal = window.GWR_INTELLIGENCE_SIGNAL;
+  const summary = document.querySelector('#marketSummary');
+  if (!summary || document.querySelector('#laborIntelligenceSignal')) return;
+
+  const section = document.createElement('section');
+  section.id = 'laborIntelligenceSignal';
+  section.className = 'partner-section';
+  section.setAttribute('aria-label', 'Global Work Radar labor intelligence signal');
+  section.innerHTML = `
+    <div>
+      <span class="kicker">LABOR INTELLIGENCE · SCORE ${signal.score}/100</span>
+      <h2>日本語人材需要が、求人市場全体より速く伸びている。</h2>
+      <p>GWRが継続観測しているWorkable市場では、9月3日→9月7日に日本語関連求人が <strong>${signal.startJapaneseJobs} → ${signal.endJapaneseJobs}（+${signal.japaneseGrowthPct}%）</strong>。同期間の全求人は +${signal.activeGrowthPct}%、Remote求人は +${signal.remoteGrowthPct}%、Japan-eligible求人は +${signal.japanEligibleGrowthPct}% でした。</p>
+      <small class="partner-disclosure">これは求人本文の転載ではなく、GWR独自の時系列集計です。対象はGWRが観測したWorkable市場であり、世界求人市場全体を代表する統計ではありません。As of 2026-09-07.</small>
+    </div>
+    <a id="intelligenceInterestLink" class="partner-cta" href="mailto:stratumpraxis@gmail.com?subject=GWR%20Japanese%20Speaker%20Demand%20Intelligence&body=Japanese%20Speaker%20Demand%20の継続データ・アラートに関心があります。">このSignalの継続版に関心がある ↗</a>
+  `;
+  summary.insertAdjacentElement('afterend', section);
+
+  const interest = section.querySelector('#intelligenceInterestLink');
+  interest?.addEventListener('click', () => {
+    if (window.posthog && typeof window.posthog.capture === 'function') {
+      window.posthog.capture('gwr_intelligence_interest_click', {
+        product: 'global-work-radar',
+        signal_id: signal.id,
+        theme: signal.theme,
+        score: signal.score,
+        route: signal.route,
+        source: signal.source,
+        scope: signal.scope
+      });
+    }
+  });
+
+  if (window.posthog && typeof window.posthog.capture === 'function' && 'IntersectionObserver' in window) {
+    let sent = false;
+    const observer = new IntersectionObserver((entries) => {
+      if (sent || !entries.some((entry) => entry.isIntersecting && entry.intersectionRatio >= 0.35)) return;
+      sent = true;
+      window.posthog.capture('gwr_intelligence_signal_view', {
+        product: 'global-work-radar',
+        signal_id: signal.id,
+        theme: signal.theme,
+        score: signal.score,
+        route: signal.route,
+        source: signal.source,
+        scope: signal.scope
+      });
+      observer.disconnect();
+    }, { threshold: [0.35] });
+    observer.observe(section);
+  }
+}());
+
 (function setupRevenuePump() {
   const qa = new URLSearchParams(window.location.search).get('gwr_qa') === '1';
 
@@ -122,7 +194,7 @@ window.GWR_REVENUE = Object.freeze({
   document.addEventListener('click', (event) => {
     if (!(event.target instanceof Element)) return;
     const target = event.target.closest(
-      '#searchButton,[data-filter],.official-apply,#marketSignalLink,#eligibilityGapLink,#revenuePartnerLink,#resetFilters,#loadMore'
+      '#searchButton,[data-filter],.official-apply,#marketSignalLink,#eligibilityGapLink,#revenuePartnerLink,#intelligenceInterestLink,#resetFilters,#loadMore'
     );
     if (!target) return;
     markMeaningfulAction();
@@ -134,6 +206,7 @@ window.GWR_REVENUE = Object.freeze({
     markMeaningfulAction();
   }, true);
 
+  observeOnce('#laborIntelligenceSignal', 'gwr_intelligence_section_view');
   observeOnce('#marketSignal', 'gwr_market_signal_view');
   observeOnce('#jobs .section-head', 'gwr_jobs_section_view');
   observeJobCards();
