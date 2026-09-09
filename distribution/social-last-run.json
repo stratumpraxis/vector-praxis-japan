@@ -1,9 +1,12 @@
 {
-  "observed_at": "2026-09-09T00:01:02.717Z",
+  "observed_at": "2026-09-09T01:29:12.620Z",
   "campaign": "note-completion-layer-20260903",
   "results": [
     {
-      "status": "NO_DUE_SOCIAL_POSTS"
+      "status": "FAILED_REVIEW",
+      "id": "vp-gwr-bluesky-direct-20260909-01",
+      "platform": "bluesky",
+      "reason": "bluesky_direct_error:bluesky_text_too_long:333"
     }
   ]
 }
