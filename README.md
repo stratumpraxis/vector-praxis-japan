@@ -1,6 +1,17 @@
-# Vector Praxis Japan Hub
+# Vector Praxis Works Hub
 
-Vector Praxisの日本語公式ハブです。検証済みの無料記事、noteマガジン、有料コンテンツを、課題と目的から選べる形に整理しています。
+Vector Praxis Works Hub is the public hub for practical AI use, building, monetization, creator work, publishing, and return routes.
+
+Public-facing structure:
+
+- Start
+- Build
+- Earn
+- Creator
+- Read
+- Return
+
+The public design and copy are original to Vector Praxis. Do not copy third-party product UI, logos, branded layouts, questionnaires, result text, or proprietary visual systems. External services may be linked only as destinations where relevant; they are not used as visual templates for this site.
 
 ## Production
 
@@ -9,23 +20,13 @@ Vector Praxisの日本語公式ハブです。検証済みの無料記事、note
 - Deployment migration: [`docs/zero-cost-hosting-migration.md`](docs/zero-cost-hosting-migration.md)
 - Verified asset inventory: [`docs/asset-inventory.md`](docs/asset-inventory.md)
 
-## Global Work Radar
+The existing Sites URL remains live and canonical until a replacement production URL is publicly reachable without authentication.
 
-Global Work Radar is a public search and intelligence layer for Japan-based users exploring global and remote work opportunities. Listings are normalized from approved public sources and route applications to the original official source rather than collecting applications inside GWR.
+## Current public role
 
-- [Open Global Work Radar](https://global-work-radar.pages.dev/?utm_source=github&utm_medium=repo&utm_campaign=gwr_public_launch&utm_content=vector_praxis_hub)
+Vector is the Praxis Group route for AI practice, creator workflows, building, monetization, publishing, and repeat-use navigation. B2B products and team/enterprise operating offers belong on Stratum and should not be promoted as Vector-owned offers.
 
-## Cross-Agent Operating Kit
-
-Portable operating infrastructure for AI teams using Claude Code, Codex, Cursor, and other agent runtimes. Includes a master `AGENTS.md` policy, runtime adapters, human gates, policy-conflict checks, budget/token/quota guards, migration checklist, score sheet, state handoff, and implementation guides.
-
-Relevant when a run moves between providers and you need authority, budget, evidence, and human-gate rules to stay explicit instead of drifting with the adapter change.
-
-**$69 one-time personal license. No subscription. Purchase is completed through Stripe after reviewing the first-party product page.**
-
-- [$69 Personal License — Cross-Agent Operating Kit](https://stratumpraxis.com/cross-agent-operating-kit.html?utm_source=github&utm_medium=repo&utm_campaign=market_revenue_retest&utm_content=provider_handoff&route_id=github_readme_provider_handoff_20260906)
-
-The existing Sites URL remains live and canonical until a replacement `*.vercel.app` production URL is publicly reachable without authentication.
+Digital Index Base main-site creation and future canonical asset migration are intentionally deferred. Existing asset URLs should remain intact until a verified replacement is ready.
 
 ## Local verification
 
