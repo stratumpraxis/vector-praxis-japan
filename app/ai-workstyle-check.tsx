@@ -25,10 +25,28 @@ const EMPTY: Answer = { mainAi: "", mode: "", split: "", count: "", goal: "" };
 function track(event: string, extra: Record<string, string> = {}) {
   if (typeof window === "undefined") return;
   const payload = { event, ...extra };
-  (window as Window & { dataLayer?: unknown[] }).dataLayer = (window as Window & { dataLayer?: unknown[] }).dataLayer || [];
-  (window as Window & { dataLayer?: unknown[] }).dataLayer?.push(payload);
-  const gtag = (window as Window & { gtag?: (...args: unknown[]) => void }).gtag;
-  if (typeof gtag === "function") gtag("event", event, extra);
+  const w = window as Window & {
+    dataLayer?: unknown[];
+    gtag?: (...args: unknown[]) => void;
+    posthog?: { capture?: (event: string, props?: Record<string, string>) => void };
+    __vpTrackingDisabled?: boolean;
+  };
+  w.dataLayer = w.dataLayer || [];
+  w.dataLayer.push(payload);
+  if (typeof w.gtag === "function") w.gtag("event", event, extra);
+  if (!w.__vpTrackingDisabled && typeof w.posthog?.capture === "function") {
+    const params = new URLSearchParams(window.location.search);
+    w.posthog.capture(event, {
+      ...extra,
+      asset_id: "vector_hub_ai_workstyle",
+      content_id: "ai_workstyle_check",
+      route_id: "vpj_ai_workstyle_router_v1",
+      utm_source: params.get("utm_source") || "",
+      utm_medium: params.get("utm_medium") || "",
+      utm_campaign: params.get("utm_campaign") || "",
+      utm_content: params.get("utm_content") || "",
+    });
+  }
 }
 
 function classify(a: Answer): Result {
