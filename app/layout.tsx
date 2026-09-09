@@ -5,11 +5,21 @@ import "./globals.css";
 
 export const metadata: Metadata = {
   metadataBase: new URL(siteOrigin),
-  title: "Vector Praxis｜構造を、実務へ。",
-  description: "AI・構造思考・知識整理を、実務と収益設計へつなげるVector Praxis公式Hub。無料記事、実践記事、テーマ別マガジンを整理しています。",
+  title: "Vector Praxis Works Hub｜AIを使う・作る・収益につなげる",
+  description: "個人・Creator向けのAI実践Hub。AIの使い方、AIアプリ作成、デジタル商品、スマホAI制作、Prompt Systems、収益化、記事、再訪導線を目的から選べます。",
   alternates: { canonical: canonicalUrl },
-  openGraph: { title: "Vector Praxis｜構造を、実務へ。", description: "複雑な情報を、判断と実装に使える構造へ。", type: "website", locale: "ja_JP", siteName: "Vector Praxis" },
-  twitter: { card: "summary", title: "Vector Praxis｜構造を、実務へ。", description: "複雑な情報を、判断と実装に使える構造へ。" },
+  openGraph: {
+    title: "Vector Praxis Works Hub",
+    description: "AIを使う。作る。収益につなげる。そして、次に必要な場所へ進める。",
+    type: "website",
+    locale: "ja_JP",
+    siteName: "Vector Praxis",
+  },
+  twitter: {
+    card: "summary",
+    title: "Vector Praxis Works Hub",
+    description: "個人・Creator向けのAI実践、制作、収益化、Publishingを目的から選べるHub。",
+  },
   icons: { icon: "/favicon.svg", shortcut: "/favicon.svg" },
 };
 
