@@ -1,3 +1,3 @@
-triggered_at=2026-09-09T10:24:00+09:00
+triggered_at=2026-09-09T10:30:00+09:00
 campaign=gwr-direct-20260909
-reason=direct_bluesky_gwr_revenue_route
+reason=retry_shortened_direct_bluesky_gwr_revenue_route
