@@ -24,27 +24,13 @@ window.GWR_REVENUE = Object.freeze({
     const visits = toNumber(metrics.visits);
     const partnerEnabled = metrics.partnerEnabled === true;
 
-    if (verifiedRevenue > 0) {
-      return Object.freeze({ state: 'WINNER_AMPLIFICATION', priority: 100 });
-    }
-    if (revenueClicks > 0) {
-      return Object.freeze({ state: 'MONETIZATION_VERIFY', priority: 95 });
-    }
-    if (officialApplyClicks > 0 && !partnerEnabled) {
-      return Object.freeze({ state: 'MONETIZATION_GATE', priority: 90 });
-    }
-    if (jobCardViews > 0 && officialApplyClicks === 0) {
-      return Object.freeze({ state: 'CARD_TO_APPLY', priority: 86 });
-    }
-    if (jobsSectionViews > 0 && jobCardViews === 0) {
-      return Object.freeze({ state: 'SECTION_TO_CARD', priority: 83 });
-    }
-    if (visits > 0 && jobsSectionViews === 0) {
-      return Object.freeze({ state: 'VISIT_TO_JOBS', priority: 80 });
-    }
-    if (searches > 0 && officialApplyClicks === 0) {
-      return Object.freeze({ state: 'SEARCH_TO_APPLY', priority: 78 });
-    }
+    if (verifiedRevenue > 0) return Object.freeze({ state: 'WINNER_AMPLIFICATION', priority: 100 });
+    if (revenueClicks > 0) return Object.freeze({ state: 'MONETIZATION_VERIFY', priority: 95 });
+    if (officialApplyClicks > 0 && !partnerEnabled) return Object.freeze({ state: 'MONETIZATION_GATE', priority: 90 });
+    if (jobCardViews > 0 && officialApplyClicks === 0) return Object.freeze({ state: 'CARD_TO_APPLY', priority: 86 });
+    if (jobsSectionViews > 0 && jobCardViews === 0) return Object.freeze({ state: 'SECTION_TO_CARD', priority: 83 });
+    if (visits > 0 && jobsSectionViews === 0) return Object.freeze({ state: 'VISIT_TO_JOBS', priority: 80 });
+    if (searches > 0 && officialApplyClicks === 0) return Object.freeze({ state: 'SEARCH_TO_APPLY', priority: 78 });
     return Object.freeze({ state: 'QUALIFIED_ACQUISITION', priority: 70 });
   }
 
@@ -116,11 +102,7 @@ window.GWR_REVENUE = Object.freeze({
         const key = `gwr_job_card_view:${jobId || jobSource || position}`;
         if (!seen.has(key)) {
           seen.add(key);
-          capture('gwr_job_card_view', {
-            job_id: jobId,
-            job_source: jobSource,
-            position
-          });
+          capture('gwr_job_card_view', { job_id: jobId, job_source: jobSource, position });
         }
         cardObserver.unobserve(card);
       }
@@ -153,7 +135,7 @@ window.GWR_REVENUE = Object.freeze({
   }, true);
 
   observeOnce('#marketSignal', 'gwr_market_signal_view');
-  observeOnce('#jobs', 'gwr_jobs_section_view');
+  observeOnce('#jobs .section-head', 'gwr_jobs_section_view');
   observeJobCards();
 
   stallTimer = window.setTimeout(() => {

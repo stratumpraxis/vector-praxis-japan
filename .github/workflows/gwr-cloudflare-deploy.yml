@@ -99,6 +99,7 @@ jobs:
           grep -q 'rel="canonical" href="https://global-work-radar.pages.dev/"' /tmp/gwr-live.html
           grep -q 'id="jobsList"' /tmp/gwr-live.html
           grep -q 'src="./app.js"' /tmp/gwr-live.html
+          grep -q 'src="./revenue-config.js"' /tmp/gwr-live.html
           curl --fail --location --silent --show-error --max-time 30 "$GWR_URL/robots.txt" -o /tmp/gwr-live-robots.txt
           curl --fail --location --silent --show-error --max-time 30 "$GWR_URL/sitemap.xml" -o /tmp/gwr-live-sitemap.xml
           grep -q 'Sitemap: https://global-work-radar.pages.dev/sitemap.xml' /tmp/gwr-live-robots.txt
@@ -113,8 +114,12 @@ jobs:
           done
           curl --fail --location --silent --show-error --max-time 30 "$GWR_URL/data/verified-jobs.json" -o /tmp/gwr-live-jobs.json
           curl --fail --location --silent --show-error --max-time 30 "$GWR_URL/app.js" -o /tmp/gwr-live-app.js
+          curl --fail --location --silent --show-error --max-time 30 "$GWR_URL/revenue-config.js" -o /tmp/gwr-live-revenue-config.js
           grep -q "gwr_search" /tmp/gwr-live-app.js
           grep -q "gwr_official_apply_click" /tmp/gwr-live-app.js
+          grep -q "gwr_jobs_section_view" /tmp/gwr-live-revenue-config.js
+          grep -q "gwr_job_card_view" /tmp/gwr-live-revenue-config.js
+          grep -q "CARD_TO_APPLY" /tmp/gwr-live-revenue-config.js
           node - <<'NODE'
           const p=require('/tmp/gwr-live-jobs.json'); if(!p.records?.length) throw new Error('No jobs'); console.log(`GWR_LIVE_JOB_COUNT=${p.records.length}`)
           NODE
@@ -174,13 +179,21 @@ jobs:
             await page.waitForFunction(() => window.posthog && typeof window.posthog.capture === 'function');
             await page.evaluate(() => {
               window.posthog.register({ gwr_qa: true, gwr_qa_source: 'github_actions_live' });
+              window.__gwrQaCaptures = [];
               const original = window.posthog.capture.bind(window.posthog);
-              window.posthog.capture = function(name, props, options) { console.log(`CAPTURE_CALL ${name} ${JSON.stringify(props||{})}`); return original(name, props, options); };
+              window.posthog.capture = function(name, props, options) {
+                window.__gwrQaCaptures.push(name);
+                console.log(`CAPTURE_CALL ${name} ${JSON.stringify(props||{})}`);
+                return original(name, props, options);
+              };
             });
             await page.click('#searchButton');
-            await page.waitForTimeout(1800);
+            await page.waitForTimeout(2200);
             const firstApply = page.locator('.official-apply').first();
             await firstApply.waitFor({ state: 'visible' });
+            const capturesBeforeApply = await page.evaluate(() => window.__gwrQaCaptures.slice());
+            if (!capturesBeforeApply.includes('gwr_jobs_section_view')) throw new Error(`gwr_jobs_section_view capture missing: ${capturesBeforeApply.join(',')}`);
+            if (!capturesBeforeApply.includes('gwr_job_card_view')) throw new Error(`gwr_job_card_view capture missing: ${capturesBeforeApply.join(',')}`);
             const [popup] = await Promise.all([
               page.waitForEvent('popup'),
               firstApply.click()
@@ -194,6 +207,8 @@ jobs:
             if (!sawSearch) throw new Error('gwr_search PostHog POST was not observed from live production interaction');
             if (!sawOfficialApply) throw new Error('gwr_official_apply_click PostHog POST was not observed from live production interaction');
             console.log(`GWR_POSTHOG_POSTS=${posthogPosts}`);
+            console.log('GWR_JOBS_SECTION_CAPTURE_OBSERVED=1');
+            console.log('GWR_JOB_CARD_CAPTURE_OBSERVED=1');
             console.log('GWR_SEARCH_POST_OBSERVED=1');
             console.log('GWR_OFFICIAL_APPLY_POST_OBSERVED=1');
             await browser.close();
