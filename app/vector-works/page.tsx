@@ -1,28 +1,56 @@
-import { ArrowUpRight, Network, Radar, RefreshCw } from "lucide-react";
+import { ArrowUpRight, BookOpen, Gauge, RefreshCw, Share2 } from "lucide-react";
+import { VectorFooter, VectorHeader } from "@/components/vector-chrome";
+import { VectorNext } from "@/components/vector-next";
 
 const HANDOFF_ARTICLE = "https://note.com/deft_eel6718/n/ncaff8351e529?utm_source=vector_praxis_site&utm_medium=owned&utm_campaign=vector_works_reuse_20260902&utm_content=handoff_article";
 const REVENUE_ARTICLE = "https://note.com/deft_eel6718/n/nfce5ac047c15?utm_source=vector_praxis_site&utm_medium=owned&utm_campaign=vector_works_reuse_20260902&utm_content=revenue_article";
 const FREE_ENTRY = "https://note.com/deft_eel6718/n/n86dddd12d2b2?utm_source=vector_praxis_site&utm_medium=owned&utm_campaign=vector_works_reuse_20260902&utm_content=free_entry";
 
-function Outbound({ href, event, children, className = "" }: { href: string; event: string; children: React.ReactNode; className?: string }) {
+function Out({ href, event, children, className = "" }: { href: string; event: string; children: React.ReactNode; className?: string }) {
   return <a href={href} target="_blank" rel="noopener noreferrer" data-event={event} className={className}>{children}</a>;
 }
 
 export default function VectorWorksPage() {
-  return <main>
-    <header className="site-header"><a href="/" className="brand" aria-label="Vector Praxis ホーム"><span className="brand-mark" aria-hidden="true">VP</span><span>Vector.Works</span></a><nav aria-label="ページナビゲーション"><a href="#route">導線</a><a href="#assets">既存資産</a></nav></header>
+  return <main className="vx-page tone-build">
+    <VectorHeader tone="build"/>
 
-    <section className="hero shell"><div className="eyebrow"><span/> JAPANESE DISTRIBUTION & REVENUE</div><h1>作る前に拾う。<br/><em>配って、測って、戻す。</em></h1><p className="hero-copy">Vector.Worksは、Vector Praxisの既存記事・動画・販売導線を日本語圏へ再配置する実行レーンです。新規制作を増やすより、公開済み資産を自社サイトへ戻し、適切な媒体へ渡し、クリックと成果を次の配信判断へ返します。</p><div className="hero-actions"><Outbound href={FREE_ENTRY} event="vector_free_entry_click" className="button primary">無料記事から入る <ArrowUpRight size={17}/></Outbound><Outbound href={HANDOFF_ARTICLE} event="vector_handoff_article_click" className="button secondary">AIチーム設計を見る</Outbound></div></section>
+    <section className="vx-work-hero shell">
+      <div className="vx-breadcrumb">BUILD <span>→</span> DISTRIBUTE <span>→</span> EARN <span>→</span> RETURN</div>
+      <span className="vx-chip">Vector Works</span>
+      <h1>作るだけで終わらせない。<br/>届けて、反応を次へ戻す。</h1>
+      <p>公開済みのVector資産を、必要な人へ届け、クリックと購入反応を次の行動へ返す実行レーンです。</p>
+      <div className="vx-actions"><Out href={FREE_ENTRY} event="vector_free_entry_click" className="vx-button primary"><BookOpen size={17}/> 無料記事から見る <ArrowUpRight size={15}/></Out><a href="#loop" className="vx-button ghost">流れを見る</a></div>
+      <div id="loop" className="vx-loop" aria-label="Vector distribution loop">
+        <div><small>01 / READ</small><b>既存資産を拾う</b></div>
+        <div><small>02 / SHARE</small><b>適切な場所へ届ける</b></div>
+        <div><small>03 / EARN</small><b>CTA・購入を見る</b></div>
+        <div><small>04 / RETURN</small><b>反応を次へ戻す</b></div>
+      </div>
+    </section>
 
-    <section id="route" className="section shell"><div className="section-heading"><p>EXECUTION LOOP</p><h2>Vectorの配信ループ</h2></div><div className="route-grid"><div className="route-card"><Radar/><span><b>SCAN｜既存資産を拾う</b><small>note・サイト・動画・CTAを再利用候補として確認</small></span></div><div className="route-card"><Network/><span><b>MATCH｜導線をつなぐ</b><small>読者テーマと販売先が一致する経路だけを採用</small></span></div><div className="route-card"><RefreshCw/><span><b>MEASURE｜数字を戻す</b><small>流入・クリック・CVを見て勝ち資産を再配信</small></span></div></div></section>
+    <section className="vx-section shell">
+      <div className="vx-section-head"><span>ACTIVE ASSETS</span><h2>いま使う公開資産</h2><p>新しく増やす前に、既に公開されているVector資産から使います。</p></div>
+      <div>
+        <div className="vx-asset-row"><span>01</span><div><b>AIを増やすほど仕事が遅くなる理由</b><small>複数AIの役割・権限・引き継ぎ。</small></div><Out href={HANDOFF_ARTICLE} event="vector_handoff_article_click">読む <ArrowUpRight size={14}/></Out></div>
+        <div className="vx-asset-row"><span>02</span><div><b>AI活用を、収益につながる仕組みへ。</b><small>AI運用を成果確認とRevenueまでつなぐ。</small></div><Out href={REVENUE_ARTICLE} event="vector_revenue_article_click">読む <ArrowUpRight size={14}/></Out></div>
+      </div>
+    </section>
 
-    <section id="assets" className="section shell"><div className="section-heading split"><div><p>REUSED ASSETS</p><h2>今回、再利用する公開済み資産</h2></div></div><div className="resource-list">
-      <article className="resource"><div className="resource-no">01</div><div className="resource-main"><span className="tag">有料note · ¥1,480</span><h3>AIを増やすほど仕事が遅くなる理由<br/>ChatGPT・Claude・GitHubを「チーム」に変える設計</h3><p>複数AIの性能比較ではなく、役割・権限・受け渡し・Buffer・PostHog・Stripeまでを一つの仕事としてつなぐ記事です。</p></div><Outbound href={HANDOFF_ARTICLE} event="vector_handoff_article_click" className="round-link"><ArrowUpRight/></Outbound></article>
-      <article className="resource"><div className="resource-no">02</div><div className="resource-main"><span className="tag">有料note · ¥3,850</span><h3>AI活用を、収益につながる仕組みへ。</h3><p>生成量ではなく、AIの役割・権限・成果確認を設計し、収益へ接続するための実践記事です。</p></div><Outbound href={REVENUE_ARTICLE} event="vector_revenue_article_click" className="round-link"><ArrowUpRight/></Outbound></article>
-    </div><p className="price-note">価格は2026年9月2日の公開ページ確認時点です。購入前にnote上の最新表示をご確認ください。アフィリエイト案件は、関連性・掲載条件・広告表記を確認できた場合のみ追加します。</p></section>
+    <section className="vx-earn-focus shell">
+      <div className="vx-earn-badge"><Gauge size={18}/> MEASURE</div>
+      <div><h2>配った数ではなく、<br/>次へ進んだ反応を見る。</h2><p>Read → CTA → Product → Checkout のどこで動いたかを次の配信判断へ戻します。</p></div>
+      <a href="/" className="vx-button earn"><RefreshCw size={16}/> Hubへ戻る</a>
+    </section>
 
-    <section className="section shell return-panel"><RefreshCw size={26}/><div><p>RETURN LOOP</p><h2>公開 → 計測 → 再配信。</h2><span>このページへの流入と外向きリンク操作を計測し、成果の良い資産を次の日本語媒体へ渡します。</span></div><a href="/" className="button secondary">Vector Praxis Hubへ戻る</a></section>
+    <VectorNext
+      title="このあと何をする？"
+      routes={[
+        { label:"READ", title:"無料記事を読む", text:"低摩擦でVectorを試す。", href:FREE_ENTRY, event:"vector_free_entry_click", kind:"read", external:true },
+        { label:"BUILD", title:"AIチーム設計を見る", text:"複数AIを止めない構造へ。", href:HANDOFF_ARTICLE, event:"vector_handoff_article_click", kind:"build", external:true },
+        { label:"RETURN", title:"Vector Hub", text:"Start / Build / Earnから別ルートへ。", href:"/", event:"return_to_hub", kind:"return" },
+      ]}
+    />
 
-    <footer className="footer shell"><div><span className="brand-mark">VP</span><b>Vector.Works</b></div><p>日本語圏の配信・実行・収益回収レーン。</p><small>© 2026 Vector Praxis</small></footer>
+    <VectorFooter/>
   </main>;
 }
