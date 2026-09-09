@@ -67,13 +67,12 @@ window.GWR_REVENUE = Object.freeze({
     });
   }
 
-  function markMeaningfulAction(action) {
+  function markMeaningfulAction() {
     meaningfulAction = true;
     if (stallTimer) {
       window.clearTimeout(stallTimer);
       stallTimer = null;
     }
-    return action;
   }
 
   function observeOnce(selector, event) {
@@ -92,16 +91,18 @@ window.GWR_REVENUE = Object.freeze({
   }
 
   document.addEventListener('click', (event) => {
+    if (!(event.target instanceof Element)) return;
     const target = event.target.closest(
       '#searchButton,[data-filter],.official-apply,#marketSignalLink,#eligibilityGapLink,#revenueCtaLink'
     );
     if (!target) return;
-    markMeaningfulAction(target.id || target.dataset.filter || target.className || 'click');
+    markMeaningfulAction();
   }, true);
 
   document.addEventListener('input', (event) => {
+    if (!(event.target instanceof Element)) return;
     if (!event.target.closest('#q,#japanFit,#japaneseReq,#workStyle,#jobType,#payBand')) return;
-    markMeaningfulAction('filter_input');
+    markMeaningfulAction();
   }, true);
 
   observeOnce('#marketSignal', 'gwr_market_signal_view');
