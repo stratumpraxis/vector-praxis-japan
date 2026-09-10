@@ -1,31 +1,66 @@
-# GWR Revenue Integration — 2026-09-04
+# GWR Revenue Integration — 2026-09-10
 
-## Selected partner
+Global Work Radar keeps revenue routes separate from ordinary traffic, search, and official-apply activity. Only verified Commission, Purchase, Paid Contract, Reward, or actual payment is Revenue Evidence.
 
-Deel affiliate program.
+## Route A — Paid Labor Intelligence
+
+Status: **ACTIVE LEAD ROUTE**
+
+Existing GWR market evidence is now exposed as a commercial B2B intelligence route rather than only an interest signal.
+
+Current paid candidate:
+- Theme: Japanese Speaker Demand
+- Evidence source: GWR-observed Workable market snapshots
+- Observed period: 2026-09-03 → 2026-09-07
+- Japanese-related jobs: 672 → 702 (+4.46%)
+- Same-period comparison: all active +0.50%, Remote +1.47%, Japan-eligible +2.04%
+- Scope limitation is displayed publicly: GWR-observed Workable market only; not a claim about the entire global labor market.
+
+Commercial surface:
+- Trend brief
+- Japan eligibility analysis
+- Language-demand analysis
+- Custom segment comparison
+- Fresh-signal / alert scope
+
+Commercial model:
+- paid contract inquiry
+- scope and usage confirmed first
+- pricing is not invented or hard-coded before a real buyer scope exists
+- inquiry CTA opens a prefilled email with organization, use case, requested market/role scope, and desired frequency
+
+Measurement:
+- `gwr_intelligence_signal_view`
+- `gwr_intelligence_interest_click`
+- `gwr_paid_intelligence_lead_click`
+- `GWR_REVENUE_PUMP` state `PAID_INTELLIGENCE_VERIFY`
+
+Revenue truth:
+- an inquiry click is **not revenue**
+- a reply is **not revenue**
+- a quote is **not revenue**
+- count revenue only after a Paid Contract or actual payment is verified
+
+## Route B — Deel Affiliate / Referral
+
+Status: **CONDITIONAL READY — EXTERNAL APPROVAL / TRACKING URL REQUIRED**
 
 Why selected:
 - Direct fit with global hiring / contractor payment / payroll / compliance context.
-- Official affiliate program currently advertises up to USD 1,500 per new customer: USD 500 per sales-qualified referral plus USD 1,000 per new paying customer.
-- 90-day attribution window.
 - Existing GWR product boundary is preserved because applications, employment, payroll, and hiring decisions remain external.
 
-## Integration state
-
+Integration state:
 - CTA shell implemented in `index.html`.
 - Revenue config isolated in `revenue-config.js`.
 - CTA is fail-closed: hidden unless `enabled: true` and a valid HTTPS `affiliateUrl` are both present.
 - Affiliate disclosure is shown when active.
-- Outbound clicks emit `gwr_revenue_click` to `dataLayer` and a bounded localStorage audit trail.
-- Cloudflare deployment workflow updated to include `revenue-config.js`.
+- Outbound clicks emit `gwr_revenue_click` to `dataLayer`, PostHog, and a bounded localStorage audit trail.
+- Cloudflare deployment workflow includes `revenue-config.js`.
 
-## External blocker
+External blocker:
+A live revenue-generating affiliate CTA requires the approved unique Deel tracking URL issued after affiliate application / review. Do not substitute a generic Deel URL and call it revenue tracking.
 
-A live revenue-generating CTA requires the approved unique Deel affiliate tracking URL issued after affiliate application / review. Do not substitute a generic Deel URL and call it revenue tracking.
-
-## Activation
-
-After approval, edit only `revenue-config.js`:
+Activation after approval:
 
 ```js
 window.GWR_REVENUE = Object.freeze({
@@ -42,7 +77,12 @@ Then verify:
 2. CTA is visible,
 3. CTA resolves to the approved tracking URL,
 4. one test click is recorded,
-5. PartnerStack records attribution,
-6. commission is marked only after Deel reports a qualifying referral/customer.
+5. partner platform records attribution,
+6. commission is marked only after the partner reports a qualifying referral/customer.
 
-Status: CONDITIONAL READY — code path complete; affiliate approval/tracking URL remains external dependency.
+## Current priority
+
+1. Paid Labor Intelligence lead → qualified conversation → scoped offer → Paid Contract / Payment Evidence.
+2. Keep official job-search / official-apply experience strong because it produces the audience and evidence base.
+3. Activate Deel only after an approved unique tracking URL exists.
+4. Do not create fake checkout, generic affiliate attribution, or call CTA clicks revenue.
