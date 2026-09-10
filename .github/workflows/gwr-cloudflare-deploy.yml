@@ -9,6 +9,7 @@ on:
       - incubator/global-work-radar/styles.css
       - incubator/global-work-radar/app.js
       - incubator/global-work-radar/revenue-config.js
+      - incubator/global-work-radar/favicon.svg
       - incubator/global-work-radar/robots.txt
       - incubator/global-work-radar/sitemap.xml
       - incubator/global-work-radar/d3af1ce8e69e0a9f87870bc03e522daf.txt
@@ -61,6 +62,7 @@ jobs:
           cp incubator/global-work-radar/styles.css /tmp/gwr-public/
           cp incubator/global-work-radar/app.js /tmp/gwr-public/
           cp incubator/global-work-radar/revenue-config.js /tmp/gwr-public/
+          cp incubator/global-work-radar/favicon.svg /tmp/gwr-public/
           cp incubator/global-work-radar/robots.txt /tmp/gwr-public/
           cp incubator/global-work-radar/sitemap.xml /tmp/gwr-public/
           cp incubator/global-work-radar/d3af1ce8e69e0a9f87870bc03e522daf.txt /tmp/gwr-public/
@@ -100,6 +102,9 @@ jobs:
           grep -q 'id="jobsList"' /tmp/gwr-live.html
           grep -q 'src="./app.js"' /tmp/gwr-live.html
           grep -q 'src="./revenue-config.js"' /tmp/gwr-live.html
+          grep -q 'href="./favicon.svg"' /tmp/gwr-live.html
+          curl --fail --location --silent --show-error --max-time 30 "$GWR_URL/favicon.svg" -o /tmp/gwr-live-favicon.svg
+          grep -q '<svg' /tmp/gwr-live-favicon.svg
           curl --fail --location --silent --show-error --max-time 30 "$GWR_URL/robots.txt" -o /tmp/gwr-live-robots.txt
           curl --fail --location --silent --show-error --max-time 30 "$GWR_URL/sitemap.xml" -o /tmp/gwr-live-sitemap.xml
           grep -q 'Sitemap: https://global-work-radar.pages.dev/sitemap.xml' /tmp/gwr-live-robots.txt
