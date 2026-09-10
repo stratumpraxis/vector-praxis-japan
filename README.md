@@ -1,6 +1,8 @@
 # Vector Praxis Works Hub
 
-Vector Praxis Works Hub is the public hub for practical AI use, building, monetization, creator work, publishing, and return routes.
+Vector Praxis Works Hub is the general public asset base inside the broader Digital Index Base structure.
+
+It organizes practical AI use, building, monetization, creator work, publishing, reusable utilities, and return routes without turning Vector into the owner of Stratum's B2B offers.
 
 Public-facing structure:
 
@@ -24,9 +26,17 @@ The existing Sites URL remains live and canonical until a replacement production
 
 ## Current public role
 
-Vector is the Praxis Group route for AI practice, creator workflows, building, monetization, publishing, and repeat-use navigation. B2B products and team/enterprise operating offers belong on Stratum and should not be promoted as Vector-owned offers.
+Vector is an asset base and navigation hub, not the umbrella operating system by itself. Digital Index Base is the umbrella structure.
 
-Digital Index Base main-site creation and future canonical asset migration are intentionally deferred. Existing asset URLs should remain intact until a verified replacement is ready.
+Vector may hold non-Stratum public assets, creator/practical-AI routes, publishing surfaces, diagnostics, utilities, and reusable experiments that have earned a public role.
+
+B2B decision tools, audits, team/enterprise operating offers, and the independent `stratumpraxis.com` business surface belong to Stratum and should not be promoted as Vector-owned offers.
+
+Research may prototype one-page utilities and inbound-revenue experiments before promotion. MARKET remains the separate outward market/revenue circulation layer. Do not collapse those operating roles into the Vector public navigation.
+
+## GWR
+
+Global Work Radar is maintained as a distinct public asset with its own production route and operating logic. Its current direction is inbound revenue: useful labor intelligence and repeat utility -> CTA / revenue-bearing action -> verified checkout/payment evidence. The current merged GWR redesign is the refinement base; do not replace it with a new concept or turn it back into manual outbound sales.
 
 ## Local verification
 
