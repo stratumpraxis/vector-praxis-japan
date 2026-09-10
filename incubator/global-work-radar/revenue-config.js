@@ -20,8 +20,124 @@ window.GWR_INTELLIGENCE_SIGNAL = Object.freeze({
   source: 'Workable market snapshots',
   scope: 'GWR-observed Workable market only',
   score: 92,
-  route: 'PAID_CANDIDATE'
+  route: 'PAID_CONTRACT_CANDIDATE'
 });
+
+(function setupCommercialStyles() {
+  if (document.querySelector('#gwrCommercialStyles')) return;
+  const style = document.createElement('style');
+  style.id = 'gwrCommercialStyles';
+  style.textContent = `
+    #laborIntelligenceSignal.gwr-intelligence-offer {
+      max-width: calc(var(--max) - 104px);
+      margin: 10px auto 30px;
+      grid-template-columns: minmax(0,1fr) 285px;
+      gap: 32px;
+      border-color: #50614c;
+      background:
+        radial-gradient(circle at 85% 25%, rgba(244,201,107,.13), transparent 28%),
+        radial-gradient(circle at 10% 85%, rgba(104,226,194,.09), transparent 30%),
+        linear-gradient(135deg,#102133,#0a1927);
+    }
+    #laborIntelligenceSignal.gwr-intelligence-offer:before {
+      content: 'GWR PRO';
+      position: absolute;
+      right: 22px;
+      top: 18px;
+      color: rgba(244,201,107,.18);
+      font: 800 42px/1 Inter, sans-serif;
+      letter-spacing: -.06em;
+      pointer-events: none;
+    }
+    .gwr-commercial-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 7px;
+      margin-bottom: 13px;
+      padding: 6px 8px;
+      border: 1px solid #655c38;
+      border-radius: 7px;
+      background: rgba(89,71,30,.18);
+      color: #e8c56e;
+      font-size: 8px;
+      font-weight: 800;
+      letter-spacing: .14em;
+    }
+    .gwr-commercial-badge:before { content: '◆'; font-size: 6px; }
+    #laborIntelligenceSignal .gwr-intelligence-copy h2 {
+      max-width: 780px;
+      font-size: clamp(25px,3vw,40px);
+      margin-top: 7px;
+    }
+    #laborIntelligenceSignal .gwr-intelligence-copy p strong { color: #f1d48c; }
+    .gwr-offer-points {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 7px;
+      margin: 15px 0 4px;
+    }
+    .gwr-offer-points span {
+      padding: 6px 8px;
+      border: 1px solid #30475a;
+      border-radius: 7px;
+      background: rgba(8,22,35,.65);
+      color: #91a9bf;
+      font-size: 8px;
+      font-weight: 700;
+      letter-spacing: .04em;
+    }
+    .gwr-intelligence-action {
+      position: relative;
+      z-index: 2;
+      display: flex;
+      flex-direction: column;
+      align-items: stretch;
+      padding: 18px;
+      border: 1px solid #4d5139;
+      border-radius: 16px;
+      background: linear-gradient(160deg,rgba(30,36,36,.94),rgba(13,26,36,.96));
+      box-shadow: 0 16px 40px rgba(0,0,0,.18);
+    }
+    .gwr-intelligence-action > strong {
+      color: #e5c872;
+      font-size: 8px;
+      letter-spacing: .14em;
+    }
+    .gwr-intelligence-action > span {
+      margin: 8px 0 15px;
+      color: #a9b9c7;
+      font-size: 11px;
+      line-height: 1.55;
+    }
+    .gwr-intelligence-action .partner-cta {
+      min-width: 0;
+      width: 100%;
+      border-color: #8d7435;
+      background: linear-gradient(135deg,#705727,#9a7935);
+    }
+    .gwr-intelligence-action > small {
+      margin-top: 9px;
+      text-align: center;
+      color: #687b8c;
+      font-size: 8px;
+    }
+    @media(max-width:820px) {
+      #laborIntelligenceSignal.gwr-intelligence-offer {
+        max-width: calc(100% - 40px);
+        grid-template-columns: 1fr;
+      }
+      #laborIntelligenceSignal .gwr-intelligence-action { grid-column: 1; }
+    }
+    @media(max-width:430px) {
+      #laborIntelligenceSignal.gwr-intelligence-offer {
+        max-width: calc(100% - 28px);
+        padding: 20px;
+      }
+      #laborIntelligenceSignal.gwr-intelligence-offer:before { font-size: 30px; }
+    }
+  `;
+  document.head.appendChild(style);
+}());
 
 (function setupIntelligencePreview() {
   const signal = window.GWR_INTELLIGENCE_SIGNAL;
@@ -30,31 +146,44 @@ window.GWR_INTELLIGENCE_SIGNAL = Object.freeze({
 
   const section = document.createElement('section');
   section.id = 'laborIntelligenceSignal';
-  section.className = 'partner-section';
-  section.setAttribute('aria-label', 'Global Work Radar labor intelligence signal');
+  section.className = 'partner-section gwr-intelligence-offer';
+  section.setAttribute('aria-label', 'Global Work Radar paid labor intelligence signal');
   section.innerHTML = `
-    <div>
+    <div class="gwr-intelligence-copy">
+      <div class="gwr-commercial-badge">B2B PAID INTELLIGENCE</div>
       <span class="kicker">LABOR INTELLIGENCE · SCORE ${signal.score}/100</span>
-      <h2>日本語人材需要が、求人市場全体より速く伸びている。</h2>
+      <h2>日本語人材需要を、採用・市場判断に使える継続Signalへ。</h2>
       <p>GWRが継続観測しているWorkable市場では、9月3日→9月7日に日本語関連求人が <strong>${signal.startJapaneseJobs} → ${signal.endJapaneseJobs}（+${signal.japaneseGrowthPct}%）</strong>。同期間の全求人は +${signal.activeGrowthPct}%、Remote求人は +${signal.remoteGrowthPct}%、Japan-eligible求人は +${signal.japanEligibleGrowthPct}% でした。</p>
-      <small class="partner-disclosure">これは求人本文の転載ではなく、GWR独自の時系列集計です。対象はGWRが観測したWorkable市場であり、世界求人市場全体を代表する統計ではありません。As of 2026-09-07.</small>
+      <div class="gwr-offer-points" aria-label="Paid intelligence scope examples">
+        <span>TREND BRIEF</span><span>JAPAN ELIGIBILITY</span><span>LANGUAGE DEMAND</span><span>CUSTOM SEGMENT</span><span>FRESH SIGNALS</span>
+      </div>
+      <small class="partner-disclosure">GWR独自の時系列集計です。対象はGWRが観測したWorkable市場であり、世界求人市場全体を代表する統計ではありません。有料提供は用途・対象市場・頻度・集計範囲を確認後に個別スコープ／見積り。As of 2026-09-07.</small>
     </div>
-    <a id="intelligenceInterestLink" class="partner-cta" href="mailto:stratumpraxis@gmail.com?subject=GWR%20Japanese%20Speaker%20Demand%20Intelligence&body=Japanese%20Speaker%20Demand%20の継続データ・アラートに関心があります。">このSignalの継続版に関心がある ↗</a>
+    <div class="gwr-intelligence-action">
+      <strong>FOR TEAMS / RESEARCH</strong>
+      <span>継続データ、アラート、比較集計など、必要な範囲だけ相談できます。</span>
+      <a id="intelligenceInterestLink" class="partner-cta" href="mailto:stratumpraxis@gmail.com?subject=GWR%20Paid%20Labor%20Intelligence%20Inquiry&body=Global%20Work%20Radar%20の有料Labor%20Intelligenceについて相談したいです。%0A%0A組織名:%0A用途:%0A見たい市場・職種:%0A希望頻度:%0Aその他:">有料版を相談する <span>↗</span></a>
+      <small>Paid contract inquiry · scope first</small>
+    </div>
   `;
   summary.insertAdjacentElement('afterend', section);
 
   const interest = section.querySelector('#intelligenceInterestLink');
   interest?.addEventListener('click', () => {
+    const properties = {
+      product: 'global-work-radar',
+      signal_id: signal.id,
+      theme: signal.theme,
+      score: signal.score,
+      route: signal.route,
+      source: signal.source,
+      scope: signal.scope,
+      commercial_intent: true,
+      revenue_route: 'paid_labor_intelligence_contract'
+    };
     if (window.posthog && typeof window.posthog.capture === 'function') {
-      window.posthog.capture('gwr_intelligence_interest_click', {
-        product: 'global-work-radar',
-        signal_id: signal.id,
-        theme: signal.theme,
-        score: signal.score,
-        route: signal.route,
-        source: signal.source,
-        scope: signal.scope
-      });
+      window.posthog.capture('gwr_intelligence_interest_click', properties);
+      window.posthog.capture('gwr_paid_intelligence_lead_click', properties);
     }
   });
 
@@ -70,7 +199,8 @@ window.GWR_INTELLIGENCE_SIGNAL = Object.freeze({
         score: signal.score,
         route: signal.route,
         source: signal.source,
-        scope: signal.scope
+        scope: signal.scope,
+        commercial_intent_available: true
       });
       observer.disconnect();
     }, { threshold: [0.35] });
@@ -89,6 +219,7 @@ window.GWR_INTELLIGENCE_SIGNAL = Object.freeze({
   function selectNextAction(metrics = {}) {
     const verifiedRevenue = toNumber(metrics.verifiedRevenue);
     const revenueClicks = toNumber(metrics.revenueClicks);
+    const intelligenceLeadClicks = toNumber(metrics.intelligenceLeadClicks);
     const officialApplyClicks = toNumber(metrics.officialApplyClicks);
     const jobCardViews = toNumber(metrics.jobCardViews);
     const jobsSectionViews = toNumber(metrics.jobsSectionViews);
@@ -98,6 +229,7 @@ window.GWR_INTELLIGENCE_SIGNAL = Object.freeze({
 
     if (verifiedRevenue > 0) return Object.freeze({ state: 'WINNER_AMPLIFICATION', priority: 100 });
     if (revenueClicks > 0) return Object.freeze({ state: 'MONETIZATION_VERIFY', priority: 95 });
+    if (intelligenceLeadClicks > 0) return Object.freeze({ state: 'PAID_INTELLIGENCE_VERIFY', priority: 93 });
     if (officialApplyClicks > 0 && !partnerEnabled) return Object.freeze({ state: 'MONETIZATION_GATE', priority: 90 });
     if (jobCardViews > 0 && officialApplyClicks === 0) return Object.freeze({ state: 'CARD_TO_APPLY', priority: 86 });
     if (jobsSectionViews > 0 && jobCardViews === 0) return Object.freeze({ state: 'SECTION_TO_CARD', priority: 83 });
@@ -111,6 +243,7 @@ window.GWR_INTELLIGENCE_SIGNAL = Object.freeze({
     priorityOrder: Object.freeze([
       'WINNER_AMPLIFICATION',
       'MONETIZATION_VERIFY',
+      'PAID_INTELLIGENCE_VERIFY',
       'MONETIZATION_GATE',
       'CARD_TO_APPLY',
       'SECTION_TO_CARD',
