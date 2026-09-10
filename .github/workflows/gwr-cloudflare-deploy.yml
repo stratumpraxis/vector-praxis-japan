@@ -7,6 +7,7 @@ on:
     paths:
       - incubator/global-work-radar/index.html
       - incubator/global-work-radar/styles.css
+      - incubator/global-work-radar/stage2.css
       - incubator/global-work-radar/app.js
       - incubator/global-work-radar/revenue-config.js
       - incubator/global-work-radar/favicon.svg
@@ -60,6 +61,7 @@ jobs:
           mkdir -p /tmp/gwr-public/data
           cp incubator/global-work-radar/index.html /tmp/gwr-public/
           cp incubator/global-work-radar/styles.css /tmp/gwr-public/
+          cp incubator/global-work-radar/stage2.css /tmp/gwr-public/
           cp incubator/global-work-radar/app.js /tmp/gwr-public/
           cp incubator/global-work-radar/revenue-config.js /tmp/gwr-public/
           cp incubator/global-work-radar/favicon.svg /tmp/gwr-public/
@@ -102,7 +104,10 @@ jobs:
           grep -q 'id="jobsList"' /tmp/gwr-live.html
           grep -q 'src="./app.js"' /tmp/gwr-live.html
           grep -q 'src="./revenue-config.js"' /tmp/gwr-live.html
+          grep -q 'href="./stage2.css"' /tmp/gwr-live.html
           grep -q 'href="./favicon.svg"' /tmp/gwr-live.html
+          curl --fail --location --silent --show-error --max-time 30 "$GWR_URL/stage2.css" -o /tmp/gwr-live-stage2.css
+          grep -q 'GWR Stage 2' /tmp/gwr-live-stage2.css
           curl --fail --location --silent --show-error --max-time 30 "$GWR_URL/favicon.svg" -o /tmp/gwr-live-favicon.svg
           grep -q '<svg' /tmp/gwr-live-favicon.svg
           curl --fail --location --silent --show-error --max-time 30 "$GWR_URL/robots.txt" -o /tmp/gwr-live-robots.txt
