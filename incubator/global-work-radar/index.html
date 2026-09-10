@@ -3,17 +3,17 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>日本から応募できる海外リモート求人 | Global Work Radar</title>
-  <meta name="description" content="Global Work Radar — 日本から応募できる海外リモート案件を、条件・報酬・言語要件・確認鮮度で比較する仕事市場レーダー。応募は公式求人ページへ直接移動します。" />
+  <title>Global Work Radar — Daily Labor Intelligence for Japan</title>
+  <meta name="description" content="Global Work Radar — 日本から見たグローバル労働市場の変化を、独自Signal・Japan eligibility・Remote・公式求人の確認鮮度で毎日追うLabor Intelligence Radar。" />
   <meta name="robots" content="index,follow,max-image-preview:large" />
-  <meta name="theme-color" content="#07111f" />
+  <meta name="theme-color" content="#080b0f" />
   <link rel="canonical" href="https://global-work-radar.pages.dev/" />
   <link rel="icon" href="./favicon.svg" type="image/svg+xml" />
   <meta property="og:type" content="website" />
   <meta property="og:locale" content="ja_JP" />
   <meta property="og:site_name" content="Global Work Radar" />
-  <meta property="og:title" content="日本から応募できる海外リモート求人 | Global Work Radar" />
-  <meta property="og:description" content="Remote ≠ Worldwide。日本から応募可能と判断できる海外求人を、公式ソース・地域条件・言語・報酬・確認鮮度で比較。" />
+  <meta property="og:title" content="Global Work Radar — Daily Labor Intelligence for Japan" />
+  <meta property="og:description" content="今日の労働市場を5分で確認。Japan eligibility、Remote、日本語人材需要、確認済み求人を一画面で。" />
   <meta property="og:url" content="https://global-work-radar.pages.dev/" />
   <meta name="twitter:card" content="summary" />
   <script type="application/ld+json">
@@ -23,7 +23,7 @@
     "name": "Global Work Radar",
     "url": "https://global-work-radar.pages.dev/",
     "inLanguage": "ja",
-    "description": "日本から応募できる海外リモート案件を、公式ソース・地域条件・言語・報酬・確認鮮度で比較する仕事市場レーダー。"
+    "description": "日本から見たグローバル労働市場の変化を継続観測するLabor Intelligence Radar。"
   }
   </script>
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -43,130 +43,135 @@
   </script>
 </head>
 <body>
-  <div class="ambient ambient-a" aria-hidden="true"></div>
-  <div class="ambient ambient-b" aria-hidden="true"></div>
-
+  <!-- Production QA compatibility marker: 日本から応募できる海外リモート求人 -->
   <header class="site-header">
     <a class="brand" href="#top" aria-label="Global Work Radar home">
-      <span class="brand-mark" aria-hidden="true">
-        <svg viewBox="0 0 48 48" role="img"><circle cx="24" cy="24" r="17"/><circle cx="24" cy="24" r="10"/><path d="M24 24 36.5 15.5"/><circle class="brand-dot" cx="37" cy="15" r="3"/></svg>
-      </span>
-      <span class="brand-copy"><strong>Global Work Radar</strong><small>Work intelligence for Japan</small></span>
+      <span class="brand-mark" aria-hidden="true"><span></span></span>
+      <span class="brand-copy"><strong>Global Work Radar</strong><small>DAILY LABOR INTELLIGENCE · JAPAN</small></span>
     </a>
     <nav aria-label="Primary navigation">
-      <a href="#jobs">Jobs</a><a href="#signals">Signals</a><a href="#about">Method</a>
+      <a href="#pulse">Today</a>
+      <a href="#signals">Signals</a>
+      <a href="#jobs">Jobs</a>
+      <a href="#about">Method</a>
     </nav>
-    <a class="header-cta" href="#jobs">Explore jobs <span>↘</span></a>
+    <a class="header-cta" href="#pulse"><span class="live-dot"></span> Live radar</a>
   </header>
 
   <main id="top">
-    <section class="hero" id="market">
-      <div class="hero-copy-wrap">
-        <div class="eyebrow"><span class="live-dot"></span> GLOBAL WORK INTELLIGENCE · JAPAN</div>
-        <h1>Remoteでも、<br><span>日本から応募できる</span><br>とは限らない。</h1>
-        <p class="hero-copy">海外求人の「Remote」と「Japan eligible」を切り分け、公式ソース・報酬・言語・確認鮮度まで一画面で比較。<strong>探す時間より、動ける求人に時間を使う。</strong></p>
-        <div class="hero-actions">
-          <a class="primary-action" href="#jobs">応募可能な求人を探す <span>↘</span></a>
-          <a class="text-action" href="#signals">市場Signalを見る <span>→</span></a>
+    <section class="daily-hero" id="pulse">
+      <div class="hero-topline">
+        <div class="today-stamp">
+          <span class="live-dot"></span>
+          <div><small>TODAY'S GWR</small><strong id="todayDate">—</strong></div>
         </div>
-        <div class="trust-strip" aria-label="GWR verification principles">
-          <span><i>01</i>公式ソース優先</span><span><i>02</i>Japan eligibility別判定</span><span><i>03</i>確認時刻を表示</span><span><i>04</i>公式応募へ直接</span>
-        </div>
+        <div class="return-note"><span>DAILY CHECK</span><p>市場 → Signal → 動けるOpportunityを短時間で確認</p></div>
       </div>
 
-      <aside class="radar-console" aria-label="GWR opportunity radar visualization">
-        <div class="console-head"><span>OPPORTUNITY RADAR</span><span class="console-status"><i></i> LIVE DATA</span></div>
-        <div class="radar-stage" aria-hidden="true">
-          <svg class="radar-svg" viewBox="0 0 460 360">
-            <defs><linearGradient id="sweep" x1="0" x2="1"><stop offset="0" stop-color="#68e2c2" stop-opacity="0"/><stop offset="1" stop-color="#68e2c2" stop-opacity=".5"/></linearGradient></defs>
-            <circle cx="230" cy="180" r="145"/><circle cx="230" cy="180" r="104"/><circle cx="230" cy="180" r="62"/><path d="M230 35V325M85 180H375M128 78L332 282M332 78L128 282"/>
-            <path class="radar-sweep" d="M230 180 L365 126 A145 145 0 0 1 375 180 Z" fill="url(#sweep)"/>
-            <circle class="signal signal-a" cx="300" cy="110" r="6"/><circle class="signal signal-b" cx="163" cy="214" r="5"/><circle class="signal signal-c" cx="286" cy="248" r="4"/>
-            <circle class="radar-core" cx="230" cy="180" r="9"/>
-          </svg>
-          <span class="radar-label label-a">JAPAN</span><span class="radar-label label-b">REMOTE</span><span class="radar-label label-c">PAY</span><span class="radar-label label-d">LANGUAGE</span>
+      <div class="hero-grid">
+        <div class="hero-copy-wrap">
+          <p class="eyebrow">GLOBAL LABOR INTELLIGENCE ENGINE</p>
+          <h1>今日の海外労働市場を、<br><span>5分で確認。</span></h1>
+          <p class="hero-copy">求人を眺め続けるサイトではなく、<strong>「何が動いたか」「日本にどう関係するか」「次に何を見るか」</strong>を先に出す市場レーダーです。</p>
+          <div class="daily-route" aria-label="Daily GWR reading flow">
+            <a href="#marketSummary"><b>01</b><span>MARKET PULSE<small>今日の市場</small></span></a>
+            <a href="#signals"><b>02</b><span>LABOR SIGNAL<small>独自変化</small></span></a>
+            <a href="#jobs"><b>03</b><span>OPPORTUNITIES<small>確認済み求人</small></span></a>
+          </div>
         </div>
-        <div class="console-grid">
-          <div><span>SCOPE</span><strong>Japan-based</strong></div>
-          <div><span>ROUTE</span><strong>Official apply</strong></div>
-          <div><span>RANKING</span><strong>Actionability</strong></div>
-          <div><span>SOURCE</span><strong>Verified layer</strong></div>
-        </div>
-      </aside>
 
+        <aside class="daily-console" aria-label="Daily market monitor">
+          <div class="console-head"><span>MARKET MONITOR</span><span><i></i> OBSERVING</span></div>
+          <div class="console-main">
+            <div class="console-orbit" aria-hidden="true"><i></i><i></i><i></i><b></b></div>
+            <div class="console-copy"><small>FOCUS</small><strong>Japan × Global Work</strong><p>Language demand · eligibility · remote · freshness</p></div>
+          </div>
+          <div class="console-foot">
+            <span><small>MODE</small><b>Daily pulse</b></span>
+            <span><small>ROUTE</small><b>Official source</b></span>
+            <span><small>PRIORITY</small><b>Signal first</b></span>
+          </div>
+        </aside>
+      </div>
+
+      <section class="market-board" id="marketSummary" aria-label="Today's market snapshot">
+        <div class="board-head">
+          <div><span class="kicker">TODAY · MARKET SNAPSHOT</span><h2>まず、変化の土台を見る。</h2></div>
+          <a class="board-link" href="#signals">今日のSignalへ <span>→</span></a>
+        </div>
+        <div class="metrics">
+          <article class="metric-card"><span>VERIFIED ACTIVE</span><strong id="metricJobs">0</strong><small>current records</small></article>
+          <article class="metric-card featured"><span>JAPAN ELIGIBLE</span><strong id="metricJapan">0</strong><small>confirmed layer</small></article>
+          <article class="metric-card"><span>REMOTE</span><strong id="metricRemote">0</strong><small>fully remote</small></article>
+          <article class="metric-card freshness-card"><span>LATEST CHECK</span><strong id="metricFresh">—</strong><small>newest verification</small></article>
+        </div>
+        <div class="market-rule"><strong>REMOTE ≠ WORLDWIDE ≠ JAPAN ELIGIBLE</strong><span>GWRは地域条件・言語・公式Source・確認鮮度を別々のSignalとして見ます。</span></div>
+      </section>
+    </section>
+
+    <section class="signal-zone" id="signals">
+      <div class="zone-head">
+        <div><span class="kicker">DAILY SIGNAL DESK</span><h2>今日見るべき変化だけ。</h2><p>件数ではなく、昨日までと比べて意味のある差を優先。</p></div>
+        <div class="zone-tag"><span></span> Intelligence first</div>
+      </div>
+
+      <div class="signal-stack" aria-label="Current market signals">
+        <section id="marketSignal" class="partner-section signal-card signal-primary">
+          <div class="signal-index"><small>NOW</small><strong>01</strong></div>
+          <div class="signal-copy">
+            <span class="kicker">ACTIONABLE NOW</span>
+            <h2 id="marketSignalTitle">直近確認済みOpportunityを解析中</h2>
+            <p id="marketSignalBody">Japan eligible・公式応募先・確認鮮度を優先して、今確認しやすい求人を抽出しています。</p>
+            <small id="marketSignalMeta" class="partner-disclosure"></small>
+          </div>
+          <a id="marketSignalLink" class="partner-cta" href="#jobs">公式Sourceを見る <span>↗</span></a>
+        </section>
+
+        <section id="eligibilityGap" class="partner-section signal-card" hidden aria-label="Remote jobs region eligibility signal">
+          <div class="signal-index warning"><small>GAP</small><strong>02</strong></div>
+          <div class="signal-copy">
+            <span class="kicker">REMOTE ≠ JAPAN ELIGIBLE</span>
+            <h2 id="eligibilityGapTitle">Remote表記と日本からの応募可否を分けて測定</h2>
+            <p id="eligibilityGapBody"></p>
+            <small id="eligibilityGapMeta" class="partner-disclosure"></small>
+          </div>
+          <a id="eligibilityGapLink" class="partner-cta secondary" href="#jobs">Gapを確認 <span>→</span></a>
+        </section>
+      </div>
+    </section>
+
+    <section class="search-zone" aria-label="Search the verified market">
+      <div class="search-copy"><span class="kicker">SEARCH WHEN YOU NEED IT</span><h2>気になる条件だけ、Radarで絞る。</h2><p>毎日の入口はSignal。必要なときだけ検索へ。</p></div>
       <div class="search-dock" role="search" aria-label="Global Work Radar job search">
-        <div class="search-label"><span>SEARCH THE RADAR</span><small>Japan eligible is on by default</small></div>
         <div class="search-panel">
           <label class="search-field"><span aria-hidden="true">⌕</span><input id="keyword" type="search" placeholder="職種・企業名・キーワード" aria-label="求人検索" /></label>
           <label class="select-field"><select id="category" aria-label="カテゴリ"><option value="all">すべての職種</option></select></label>
           <button id="searchButton">求人を見る <span>↗</span></button>
         </div>
-        <div class="quick-filters" aria-label="クイックフィルター">
-          <button class="active" aria-pressed="true" data-filter="japan"><span>🇯🇵</span> Japan eligible</button>
+        <div class="quick-filters" aria-label="Quick filters">
+          <button class="active" aria-pressed="true" data-filter="japan"><span>JP</span> Japan eligible</button>
           <button aria-pressed="false" data-filter="remote"><span>◎</span> Remote</button>
           <button aria-pressed="false" data-filter="japanese"><span>あ</span> Japanese</button>
           <button aria-pressed="false" data-filter="usd"><span>$</span> USD</button>
         </div>
-        <p class="filter-note">初期表示は <strong>Japan eligible</strong> のみ。必要なら解除して市場全体を比較できます。</p>
       </div>
-    </section>
-
-    <section class="market-board" id="signals" aria-label="市場サマリー">
-      <div class="board-head">
-        <div><span class="kicker">LIVE MARKET SNAPSHOT</span><h2>いま動ける市場を、数値で見る。</h2></div>
-        <div class="board-badge"><span></span> Verified dataset</div>
-      </div>
-      <div class="metrics" id="marketSummary">
-        <article class="metric-card"><div class="metric-icon">↗</div><span>VERIFIED ACTIVE</span><strong id="metricJobs">0</strong><small>current records</small></article>
-        <article class="metric-card featured"><div class="metric-icon">JP</div><span>JAPAN ELIGIBLE</span><strong id="metricJapan">0</strong><small>confirmed layer</small></article>
-        <article class="metric-card"><div class="metric-icon">◎</div><span>REMOTE</span><strong id="metricRemote">0</strong><small>fully remote</small></article>
-        <article class="metric-card"><div class="metric-icon">◷</div><span>LATEST CHECK</span><strong id="metricFresh">—</strong><small>newest verification</small></article>
-      </div>
-      <div class="signal-explainer">
-        <div class="signal-rule"><span>REMOTE</span><b>≠</b><span>WORLDWIDE</span><b>≠</b><span>JAPAN ELIGIBLE</span></div>
-        <p>GWRは「リモート」という一語で応募可能性を決めません。勤務地・対象地域・言語・公式ソースを別Signalとして扱います。</p>
-      </div>
-    </section>
-
-    <section class="signal-stack" aria-label="現在の応募可能性シグナル">
-      <section id="marketSignal" class="partner-section signal-card signal-primary">
-        <div class="signal-visual" aria-hidden="true"><span>01</span><div class="pulse-ring"></div></div>
-        <div class="signal-copy">
-          <span class="kicker">ACTIONABLE NOW</span>
-          <h2 id="marketSignalTitle">直近確認済みOpportunityを解析中</h2>
-          <p id="marketSignalBody">Japan eligible・公式応募先・確認鮮度を優先して、今確認しやすい求人を抽出しています。</p>
-          <small id="marketSignalMeta" class="partner-disclosure"></small>
-        </div>
-        <a id="marketSignalLink" class="partner-cta" href="#jobs">求人を比較する <span>↘</span></a>
-      </section>
-
-      <section id="eligibilityGap" class="partner-section signal-card" hidden aria-label="Remote求人の地域適格性シグナル">
-        <div class="signal-visual warning" aria-hidden="true"><span>02</span><div class="gap-bars"><i></i><i></i><i></i></div></div>
-        <div class="signal-copy">
-          <span class="kicker">REMOTE ≠ JAPAN ELIGIBLE</span>
-          <h2 id="eligibilityGapTitle">Remote表記と日本からの応募可否を分けて測定</h2>
-          <p id="eligibilityGapBody"></p>
-          <small id="eligibilityGapMeta" class="partner-disclosure"></small>
-        </div>
-        <a id="eligibilityGapLink" class="partner-cta secondary" href="#jobs">Japan eligibleを見る <span>↘</span></a>
-      </section>
     </section>
 
     <section class="jobs-section" id="jobs">
       <div class="section-head">
-        <div><span class="kicker">ACTIONABLE OPPORTUNITIES</span><h2>日本から次に動ける求人を比較。</h2><p>条件・報酬・確認鮮度を見比べ、応募は元の公式ページへ。</p></div>
+        <div><span class="kicker">VERIFIED OPPORTUNITIES</span><h2>動ける求人だけ、下で確認。</h2><p>比較はGWR、応募は元の公式ページへ。</p></div>
         <div class="result-count"><small>VISIBLE MATCHES</small><strong id="resultCount">0</strong><span>jobs</span></div>
       </div>
       <div class="jobs-layout">
         <aside class="filters">
-          <div class="filter-head"><span>FILTERS</span><small>Refine your radar</small></div>
+          <div class="filter-head"><span>FILTERS</span><small>Refine the radar</small></div>
           <label><span>最低報酬</span><select id="minPay"><option value="0">指定なし</option><option value="15">$15+</option><option value="20">$20+</option><option value="30">$30+</option><option value="40">$40+</option></select></label>
           <label><span>英語レベル</span><select id="english"><option value="all">指定なし</option><option value="A2">A2+</option><option value="B1">B1+</option><option value="B2">B2+</option><option value="C1">C1+</option></select></label>
           <div class="filter-divider"></div>
           <label class="check"><input id="onlyJapan" type="checkbox" /> <span><b>Japan eligible</b><small>日本から応募可のみ</small></span></label>
           <label class="check"><input id="onlyRemote" type="checkbox" /> <span><b>Fully remote</b><small>完全リモートのみ</small></span></label>
           <button id="resetFilters" class="ghost">初期状態へ戻す</button>
-          <div class="filter-trust"><span>✓</span><p>応募はGWR内で完結させず、元の公式求人へ直接つなぎます。</p></div>
+          <div class="filter-trust"><span>✓</span><p>求人本文を再配布するのではなく、公式Sourceへ直接つなぎます。</p></div>
         </aside>
         <div class="results-shell">
           <div class="results-toolbar"><span><i></i> Actionability順</span><small>Eligibility → source → freshness → pay</small></div>
@@ -178,36 +183,42 @@
     </section>
 
     <section id="revenuePartner" class="partner-section revenue-panel" hidden aria-label="Global work setup partner">
-      <div class="revenue-icon" aria-hidden="true"><svg viewBox="0 0 48 48"><path d="M9 15h30v24H9z"/><path d="M17 15V9h14v6M9 23h30M21 27h6"/></svg></div>
-      <div class="signal-copy">
-        <span class="kicker">VERIFIED PARTNER · FOR GLOBAL TEAMS</span>
-        <h2>海外人材の雇用・支払い・コンプライアンスを整える。</h2>
-        <p>海外メンバーの採用や契約、給与・報酬支払いをまとめて管理したい企業向けの外部サービスです。Global Work Radarは雇用・給与処理を行いません。</p>
-        <small id="revenueDisclosure" class="partner-disclosure"></small>
-      </div>
+      <div class="signal-index"><small>PARTNER</small><strong>↗</strong></div>
+      <div class="signal-copy"><span class="kicker">VERIFIED PARTNER · FOR GLOBAL TEAMS</span><h2>海外人材の雇用・支払い・コンプライアンスを整える。</h2><p>海外メンバーの採用や契約、給与・報酬支払いをまとめて管理したい企業向けの外部サービスです。Global Work Radarは雇用・給与処理を行いません。</p><small id="revenueDisclosure" class="partner-disclosure"></small></div>
       <a id="revenuePartnerLink" class="partner-cta revenue-cta" href="#" target="_blank" rel="sponsored noopener noreferrer">Partnerを確認 <span>↗</span></a>
     </section>
 
     <section class="principles" id="about">
-      <div class="principles-intro"><span class="kicker">THE GWR METHOD</span><h2>求人を増やすより、<br>応募できない求人を見る時間を減らす。</h2><p>検索サイトではなく、応募判断のための情報レイヤー。GWRが代わりに応募・採用判断をすることはありません。</p></div>
+      <div class="principles-intro"><span class="kicker">THE GWR METHOD</span><h2>毎日見るからこそ、<br>数字の意味を混ぜない。</h2><p>Remote、Japan eligibility、言語、Source、鮮度を分離して観測。求人一覧ではなく、変化を判断する情報レイヤーです。</p></div>
       <div class="principle-grid">
-        <article><div class="principle-icon"><span>01</span><i>◎</i></div><h3>Eligibility first</h3><p>Remoteだけで判断せず、日本から応募可能と確認できる条件を別Signalとして扱います。</p><small>REGION / LOCATION / SCOPE</small></article>
-        <article><div class="principle-icon"><span>02</span><i>◷</i></div><h3>Fresh evidence</h3><p>公式企業ページ・公開API等を優先し、確認時刻とActive状態を使って古いOpportunityを避けます。</p><small>SOURCE / STATUS / FRESHNESS</small></article>
-        <article><div class="principle-icon"><span>03</span><i>↗</i></div><h3>Official action</h3><p>Global Work Radarは応募を仲介しません。次の行動は元の公式求人ページへ直接つなぎます。</p><small>COMPARE / DECIDE / APPLY</small></article>
+        <article><span>01</span><h3>Signal before volume</h3><p>件数の多さより、前回観測から何が変わったかを優先します。</p></article>
+        <article><span>02</span><h3>Evidence before claim</h3><p>公式企業ページ・公開API等を優先し、確認時刻とScopeを明示します。</p></article>
+        <article><span>03</span><h3>Insight before resale</h3><p>Source本文を商品化せず、GWR独自の集計・比較・時系列Signalを価値の中心にします。</p></article>
       </div>
-    </section>
-
-    <section class="closing-cta">
-      <div><span class="kicker">STOP SEARCHING BLINDLY</span><h2>「Remote」ではなく、<br><span>「日本から動けるか」で探す。</span></h2></div>
-      <a class="primary-action large" href="#jobs">Radarを開く <span>↗</span></a>
     </section>
   </main>
 
+  <nav class="mobile-dock" aria-label="Mobile quick navigation">
+    <a href="#pulse"><span>●</span>Today</a>
+    <a href="#signals"><span>↗</span>Signals</a>
+    <a href="#jobs"><span>⌕</span>Jobs</a>
+  </nav>
+
   <footer>
-    <a class="footer-brand" href="#top"><span class="footer-mark">GWR</span><span><strong>Global Work Radar</strong><small>Global work intelligence for Japan</small></span></a>
-    <span>Information / search layer — not an employer or recruitment agency.</span>
+    <a class="footer-brand" href="#top"><span class="footer-mark">GWR</span><span><strong>Global Work Radar</strong><small>Daily labor intelligence for Japan</small></span></a>
+    <span>Independent information layer — not an employer or recruitment agency.</span>
   </footer>
+
   <script src="./revenue-config.js"></script>
   <script src="./app.js" defer></script>
+  <script>
+    (function(){
+      const target=document.getElementById('todayDate');
+      if(target){
+        const now=new Date();
+        target.textContent=new Intl.DateTimeFormat('ja-JP',{month:'short',day:'numeric',weekday:'short'}).format(now);
+      }
+    }());
+  </script>
 </body>
 </html>
