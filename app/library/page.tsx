@@ -1,4 +1,6 @@
-import { ArrowUpRight } from "lucide-react";
+import { ArrowUpRight, LibraryBig } from "lucide-react";
+import { VectorFooter, VectorHeader } from "@/components/vector-chrome";
+import { VectorNext } from "@/components/vector-next";
 
 const STRATUM = "https://stratumpraxis.com/";
 
@@ -51,35 +53,71 @@ const groups = [
 
 export default function LibraryPage() {
   return (
-    <main className="shell" style={{ paddingTop: 56, paddingBottom: 80 }}>
-      <a href="/" className="text-link">← Digital Index Base</a>
-      <div className="section-heading" style={{ marginTop: 28 }}>
-        <p>NON-B2B ASSET LIBRARY</p>
-        <h1 style={{ maxWidth: 860 }}>旧Stratum / @vector の非B2B資産を、Digital Index Baseから見える形に。</h1>
-        <p style={{ maxWidth: 760 }}>
-          URLは急いで移動しません。まずブランド上の所属と入口をDigital Index Baseへ統一し、既存ページを壊さず段階的に移植・再構成します。
+    <main className="vx-page tone-read">
+      <VectorHeader tone="read" />
+
+      <section className="vx-work-hero shell">
+        <div className="vx-breadcrumb">VECTOR <span>→</span> LINKED ASSETS <span>→</span> RETURN</div>
+        <span className="vx-chip"><LibraryBig size={14} /> Linked Asset Index</span>
+        <h1>必要な資産を探す。<br/>所有ブランドは混ぜない。</h1>
+        <p>
+          Digital Index Base @vector から辿れる既存の非B2B資産を一覧化しています。
+          リンク先がStratumや外部サービスの場合、その資産の運営・商品主体までVectorに移るわけではありません。
         </p>
-      </div>
-
-      {groups.map((group) => (
-        <section className="section" key={group.title} style={{ paddingTop: 26, paddingBottom: 26 }}>
-          <div className="section-heading"><p>CATEGORY</p><h2>{group.title}</h2></div>
-          <div className="route-grid">
-            {group.items.map(([title, href, note]) => (
-              <a key={href} href={href} target="_blank" rel="noopener noreferrer" className="route-card" data-event="dib_library_asset_open">
-                <span><b>{title}</b><small>{note}</small></span><ArrowUpRight />
-              </a>
-            ))}
-          </div>
-        </section>
-      ))}
-
-      <section className="section muted-section" style={{ marginTop: 28 }}>
-        <div className="shell" style={{ paddingTop: 40, paddingBottom: 40 }}>
-          <div className="section-heading"><p>B2B ROUTE</p><h2>会社・チームの意思決定は @stratum</h2></div>
-          <a href={STRATUM} target="_blank" rel="noopener noreferrer" className="button primary">Digital Index Base @stratum <ArrowUpRight size={17}/></a>
+        <div className="vx-actions">
+          <a href="/" className="vx-button primary">Vector Hubへ戻る</a>
+          <a href="#assets" className="vx-button ghost">資産を見る</a>
         </div>
       </section>
+
+      <div id="assets">
+        {groups.map((group, groupIndex) => (
+          <section className="vx-section shell" key={group.title}>
+            <div className="vx-section-head">
+              <span>{String(groupIndex + 1).padStart(2, "0")} / LINKED CATEGORY</span>
+              <h2>{group.title}</h2>
+              <p>既存URLを維持したまま、必要な公開先へ移動します。外部遷移は新しいタブで開きます。</p>
+            </div>
+            <div>
+              {group.items.map(([title, href, note], itemIndex) => (
+                <div className="vx-asset-row" key={href}>
+                  <span>{String(itemIndex + 1).padStart(2, "0")}</span>
+                  <div>
+                    <b>{title}</b>
+                    <small>{note} · External destination</small>
+                  </div>
+                  <a href={href} target="_blank" rel="noopener noreferrer" data-event="dib_library_asset_open">
+                    開く <ArrowUpRight size={14} />
+                  </a>
+                </div>
+              ))}
+            </div>
+          </section>
+        ))}
+      </div>
+
+      <section className="vx-earn-focus shell">
+        <div className="vx-earn-badge">BRAND BOUNDARY</div>
+        <div>
+          <h2>会社・チーム向けの意思決定は、Stratumへ。</h2>
+          <p>Vectorは一般ユーザー / Creator向けの入口です。B2B商品・監査・業務意思決定の主体はStratum側に残します。</p>
+        </div>
+        <a href={STRATUM} target="_blank" rel="noopener noreferrer" className="vx-button earn" data-event="vector_library_to_stratum">
+          Stratumを見る <ArrowUpRight size={15} />
+        </a>
+      </section>
+
+      <VectorNext
+        eyebrow="RETURN / CONTINUE"
+        title="次の入口へ戻る"
+        routes={[
+          { label:"RETURN", title:"Vector Hub", text:"Start / Build / Earn / Creator / Read / Return から選び直す。", href:"/", event:"return_to_hub", kind:"return" },
+          { label:"BUILD", title:"Vector Works", text:"既存資産を作る・届ける・反応へ戻す。", href:"/vector-works", event:"vector_works_open", kind:"build" },
+          { label:"READ", title:"Vector note", text:"公開済みの無料・有料記事を読む。", href:"https://note.com/deft_eel6718", event:"vector_note_open", kind:"read", external:true },
+        ]}
+      />
+
+      <VectorFooter />
     </main>
   );
 }
