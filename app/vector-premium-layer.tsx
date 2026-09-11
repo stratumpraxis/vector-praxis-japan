@@ -2,7 +2,7 @@
 
 import { useEffect, useMemo, useState } from "react";
 import { createPortal } from "react-dom";
-import { ArrowUpRight, BookOpen, ChevronRight, ExternalLink, Sparkles } from "lucide-react";
+import { ArrowRight, ArrowUpRight, BookOpen, ChevronRight, Compass, RefreshCw, Sparkles } from "lucide-react";
 
 type EditorialAsset = {
   id: string;
@@ -57,7 +57,7 @@ const assets: EditorialAsset[] = [
   },
 ];
 
-function capture(event: string, props: Record<string, unknown>) {
+function capture(event: string, props: Record<string, unknown> = {}) {
   try {
     (window as unknown as { posthog?: { capture: (name: string, properties?: Record<string, unknown>) => void } }).posthog?.capture(event, {
       surface: "vector_home_premium_layer",
@@ -71,25 +71,29 @@ function normalizeStatusLabels() {
     const link = badge.closest<HTMLAnchorElement>("a[href]");
     const href = link?.href || "";
     const raw = badge.textContent?.trim().toUpperCase();
+    if (!raw) return;
 
     let next = raw;
     if (raw === "READ") next = href.includes("note.com/deft_eel6718") ? "HUB" : "EXTERNAL";
     if (raw === "GROUP") next = "EXTERNAL";
-    if (!next) return;
+    if (!["FREE", "PAID", "HUB", "EXTERNAL", "PAUSED"].includes(next)) return;
 
-    badge.textContent = next;
+    if (badge.textContent?.trim() !== next) badge.textContent = next;
     badge.dataset.vectorStatus = next;
-    badge.classList.remove("status-read", "status-group");
+    ["free", "paid", "hub", "external", "paused", "read", "group"].forEach((status) => badge.classList.remove(`status-${status}`));
     badge.classList.add(`status-${next.toLowerCase()}`);
   });
 }
 
 function installMotionSignals() {
   const root = document.documentElement;
+  const reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+  const finePointer = window.matchMedia("(pointer: fine)").matches;
   root.classList.add("vector-premium-ready");
 
   let raf = 0;
   const onPointer = (event: PointerEvent) => {
+    if (reduceMotion || !finePointer) return;
     cancelAnimationFrame(raf);
     raf = requestAnimationFrame(() => {
       root.style.setProperty("--vp-pointer-x", `${event.clientX}px`);
@@ -97,16 +101,21 @@ function installMotionSignals() {
     });
   };
 
+  const onScroll = () => {
+    const max = Math.max(1, document.documentElement.scrollHeight - window.innerHeight);
+    root.style.setProperty("--vp-scroll", `${Math.min(1, Math.max(0, window.scrollY / max))}`);
+  };
+
   const tiles = Array.from(document.querySelectorAll<HTMLElement>(".vector-route-tile"));
-  const tileHandlers = tiles.map((tile) => {
+  const tileHandlers = finePointer && !reduceMotion ? tiles.map((tile) => {
     const move = (event: PointerEvent) => {
       const rect = tile.getBoundingClientRect();
       const x = Math.max(0, Math.min(1, (event.clientX - rect.left) / rect.width));
       const y = Math.max(0, Math.min(1, (event.clientY - rect.top) / rect.height));
       tile.style.setProperty("--vp-card-x", `${x * 100}%`);
       tile.style.setProperty("--vp-card-y", `${y * 100}%`);
-      tile.style.setProperty("--vp-tilt-x", `${(0.5 - y) * 2.2}deg`);
-      tile.style.setProperty("--vp-tilt-y", `${(x - 0.5) * 2.6}deg`);
+      tile.style.setProperty("--vp-tilt-x", `${(0.5 - y) * 1.6}deg`);
+      tile.style.setProperty("--vp-tilt-y", `${(x - 0.5) * 2}deg`);
     };
     const leave = () => {
       tile.style.setProperty("--vp-tilt-x", "0deg");
@@ -115,28 +124,44 @@ function installMotionSignals() {
     tile.addEventListener("pointermove", move, { passive: true });
     tile.addEventListener("pointerleave", leave, { passive: true });
     return { tile, move, leave };
-  });
+  }) : [];
 
   const revealTargets = Array.from(document.querySelectorAll<HTMLElement>(
     ".vector-hero-copy,.vector-route-preview,.vector-goal-inner,.vector-section-head,.vector-route-tile,.vector-stratum"
   ));
-  const observer = new IntersectionObserver((entries) => {
+  const observer = reduceMotion ? null : new IntersectionObserver((entries) => {
     entries.forEach((entry) => {
       if (!entry.isIntersecting) return;
       entry.target.classList.add("vp-in-view");
-      observer.unobserve(entry.target);
+      observer?.unobserve(entry.target);
     });
-  }, { threshold: 0.14, rootMargin: "0px 0px -7% 0px" });
+  }, { threshold: 0.12, rootMargin: "0px 0px -7% 0px" });
+
   revealTargets.forEach((node, index) => {
-    node.style.setProperty("--vp-reveal-delay", `${Math.min(index % 6, 5) * 46}ms`);
-    observer.observe(node);
+    node.style.setProperty("--vp-reveal-delay", `${Math.min(index % 6, 5) * 42}ms`);
+    if (observer) observer.observe(node);
+    else node.classList.add("vp-in-view");
   });
 
+  const onKey = (event: KeyboardEvent) => {
+    if (event.key !== "Escape") return;
+    const close = document.querySelector<HTMLButtonElement>(".vector-overlay .vector-close");
+    close?.click();
+  };
+
   window.addEventListener("pointermove", onPointer, { passive: true });
+  window.addEventListener("scroll", onScroll, { passive: true });
+  window.addEventListener("resize", onScroll, { passive: true });
+  window.addEventListener("keydown", onKey);
+  onScroll();
+
   return () => {
     window.removeEventListener("pointermove", onPointer);
+    window.removeEventListener("scroll", onScroll);
+    window.removeEventListener("resize", onScroll);
+    window.removeEventListener("keydown", onKey);
     cancelAnimationFrame(raf);
-    observer.disconnect();
+    observer?.disconnect();
     tileHandlers.forEach(({ tile, move, leave }) => {
       tile.removeEventListener("pointermove", move);
       tile.removeEventListener("pointerleave", leave);
@@ -186,7 +211,7 @@ function EditorialShelf() {
           <span className={`vp-asset-status is-${selected.status.toLowerCase()}`}>{selected.status}</span>
           <small>{selected.label}</small>
           <h4>{selected.title}</h4>
-          <p>Vector Praxisの既存公開資産です。サイト内に閉じ込めず、必要な人を正しい公開先へ送ります。</p>
+          <p>Vector Praxisの既存公開資産です。必要な人を、正しい公開先へ短くつなぎます。</p>
           <a
             href={selected.href}
             target="_blank"
@@ -197,6 +222,16 @@ function EditorialShelf() {
             noteで開く <ArrowUpRight size={15} />
           </a>
         </article>
+      </div>
+
+      <div className="vp-existing-lanes" aria-label="Existing Vector destinations">
+        <span className="vp-existing-label">EXISTING VECTOR</span>
+        <a href="/library" data-event="vector_library_open" onClick={() => capture("vector_internal_destination", { destination: "library" })}>
+          <Compass size={15} /><span><b>Asset Library</b><small>既存資産を探す</small></span><ArrowRight size={14} />
+        </a>
+        <a href="/vector-works" data-event="vector_works_open" onClick={() => capture("vector_internal_destination", { destination: "vector_works" })}>
+          <RefreshCw size={15} /><span><b>Vector Works</b><small>作る → 届ける → 戻す</small></span><ArrowRight size={14} />
+        </a>
       </div>
     </section>
   );
@@ -216,6 +251,8 @@ export default function VectorPremiumLayer() {
     const cleanupMotion = installMotionSignals();
     const mutations = new MutationObserver(() => normalizeStatusLabels());
     mutations.observe(document.body, { childList: true, subtree: true });
+
+    capture("vector_premium_layer_ready", { route_count: 6, editorial_assets: assets.length });
 
     return () => {
       cleanupMotion();
