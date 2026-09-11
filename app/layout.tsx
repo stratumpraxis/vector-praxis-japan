@@ -2,8 +2,10 @@ import type { Metadata } from "next";
 import Script from "next/script";
 import { canonicalUrl, siteOrigin } from "@/lib/site-url";
 import VectorPremiumLayer from "./vector-premium-layer";
+import VectorRevenueLayer from "./vector-revenue-layer";
 import "./globals.css";
 import "./vector-premium-layer.css";
+import "./vector-revenue-layer.css";
 
 export const metadata: Metadata = {
   metadataBase: new URL(siteOrigin),
@@ -32,6 +34,7 @@ export default function RootLayout({ children }: Readonly<{ children: React.Reac
       <body>
         {children}
         <VectorPremiumLayer />
+        <VectorRevenueLayer />
         <div style={{maxWidth:1120,margin:"0 auto",padding:"0 24px 28px",fontSize:11,opacity:.58,textAlign:"right"}}><a href="/privacy" style={{color:"inherit"}}>Analytics & Privacy</a></div>
         <Script id="posthog-tracker" strategy="afterInteractive">
           {`(function(){
