@@ -2,6 +2,7 @@
 
 import { useEffect, useMemo, useState } from "react";
 import { ArrowUpRight, Calculator, GitBranch, ShieldCheck, TimerReset, WalletCards } from "lucide-react";
+import styles from "./bottleneck-router.module.css";
 
 type BottleneckId = "wait" | "authority" | "handoff";
 
@@ -113,7 +114,7 @@ export default function BottleneckRouter() {
           <button
             key={item.id}
             type="button"
-            className={`vx-choice vx-choice-button ${selected === item.id ? "is-selected" : ""}`}
+            className={`vx-choice ${styles.choiceButton}`}
             aria-pressed={selected === item.id}
             onClick={() => choose(item.id)}
           >
@@ -124,8 +125,8 @@ export default function BottleneckRouter() {
         ))}
       </div>
 
-      <div className={`vx-bottleneck-result is-${current.kind}`} aria-live="polite">
-        <div className="vx-bottleneck-result-icon">{current.kind === "free" ? <Calculator /> : <WalletCards />}</div>
+      <div className={`${styles.result} ${current.kind === "paid" ? styles.resultPaid : styles.resultFree}`} aria-live="polite">
+        <div className={styles.resultIcon}>{current.kind === "free" ? <Calculator /> : <WalletCards />}</div>
         <div>
           <small>{current.nextLabel}</small>
           <h3>{current.nextTitle}</h3>
