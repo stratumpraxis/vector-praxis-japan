@@ -1,0 +1,74 @@
+name: GWR Social Growth Candidates
+
+on:
+  workflow_run:
+    workflows:
+      - GWR Scheduled Refresh & Deploy
+    types:
+      - completed
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+concurrency:
+  group: gwr-social-growth-candidates
+  cancel-in-progress: true
+
+jobs:
+  build-social-growth-candidates:
+    if: ${{ github.event_name == 'workflow_dispatch' || github.event.workflow_run.conclusion == 'success' }}
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - name: Checkout GWR branch
+        uses: actions/checkout@v4
+        with:
+          ref: incubator/global-work-radar
+          fetch-depth: 0
+
+      - name: Setup Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: '24'
+
+      - name: Build follower-growth candidates from verified GWR signals
+        run: node incubator/global-work-radar/social-growth-engine.mjs
+
+      - name: Validate GWR-only social output
+        run: |
+          node - <<'NODE'
+          const fs=require('fs');
+          const p='incubator/global-work-radar/data/gwr-social-growth-candidates.json';
+          const out=JSON.parse(fs.readFileSync(p,'utf8'));
+          if(out.brand!=='Global Work Radar') throw new Error('wrong brand');
+          if(out.channel_policy!=='GWR_CHANNEL_ONLY') throw new Error('GWR channel boundary missing');
+          if(out.publication_policy!=='candidate_generation_only_until_a_GWR_owned_social_channel_is_verified') throw new Error('publication guard missing');
+          if(!Array.isArray(out.candidates)||!out.candidates.length) throw new Error('no social growth candidates');
+          if(out.candidates.length>12) throw new Error('candidate cap exceeded');
+          for(const c of out.candidates){
+            if(c.publish_state!=='CANDIDATE_NOT_PUBLISHED') throw new Error(`invalid publish state: ${c.candidate_id}`);
+            if(c.channel_rule!=='GWR_CHANNEL_ONLY') throw new Error(`cross-brand channel risk: ${c.candidate_id}`);
+            if(!c.destination_url?.startsWith('https://global-work-radar.pages.dev/')) throw new Error(`invalid destination: ${c.candidate_id}`);
+            if(!c.destination_url.includes('utm_campaign=gwr_signal_growth')) throw new Error(`tracking missing: ${c.candidate_id}`);
+            if(!c.text?.x||!c.text?.linkedin||!c.text?.bluesky) throw new Error(`platform copy missing: ${c.candidate_id}`);
+            if(c.text.bluesky.length>300) throw new Error(`Bluesky copy too long: ${c.candidate_id}`);
+            if(!Array.isArray(c.evidence)||!c.evidence.length) throw new Error(`evidence missing: ${c.candidate_id}`);
+          }
+          console.log(`GWR_SOCIAL_CANDIDATES=${out.candidates.length}`);
+          console.log(`GWR_SOCIAL_TOP=${out.candidates[0].candidate_id}`);
+          console.log(`GWR_SOCIAL_TOP_SCORE=${out.candidates[0].score}`);
+          NODE
+
+      - name: Persist candidate evidence to GWR branch
+        run: |
+          set -euo pipefail
+          git config user.name "gwr-bot"
+          git config user.email "globalworkradar@gmail.com"
+          git add incubator/global-work-radar/data/gwr-social-growth-candidates.json
+          if git diff --cached --quiet; then
+            echo "No GWR social candidate changes"
+          else
+            git commit -m "data(gwr): refresh social follower-growth candidates"
+            git push origin HEAD:incubator/global-work-radar
+          fi
