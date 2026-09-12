@@ -1,26 +1,30 @@
 {
   "schema_version": 1,
-  "observed_at": "2026-09-12T16:07:27.301Z",
+  "observed_at": "2026-09-12T18:12:03.877Z",
   "run": {
     "github_run_id": "34704190103",
-    "github_run_attempt": "1",
+    "github_run_attempt": "2",
     "github_sha": "ce7aa163a8de00eba66d34430d49aa058410729d",
     "baseline_ref": "HEAD"
   },
   "inventory": {
     "previous_count": null,
-    "current_count": 463,
+    "current_count": 467,
     "source_counts": {
-      "lever": 0,
+      "lever": 4,
       "workable_publishable": 571
     }
   },
   "change_detection": {
-    "meaningful_change_count": 463,
-    "added_count": 463,
+    "meaningful_change_count": 467,
+    "added_count": 467,
     "removed_count": 0,
     "changed_count": 0,
     "added_ids": [
+      "rws-ai-data-specialist-japanese",
+      "rws-search-engine-evaluator-japanese-japan",
+      "welo-ads-quality-rater-japanese",
+      "welo-circinus-audio-contributor-japanese-japan",
       "workable-eea57c6ee0",
       "workable-0debd9fc61",
       "workable-fbb0e06b69",
@@ -421,7 +425,6 @@
       "workable-c3bb459090",
       "workable-9148de266b",
       "workable-a7a996cd91",
-      "workable-d7093878d5",
       "workable-b5db83a0b9",
       "workable-7f93a46503",
       "workable-61788fb05e",
@@ -483,7 +486,8 @@
       "workable-c78e00751f",
       "workable-718daf4e74",
       "workable-7c7b249f3c",
-      "workable-7367875c4c"
+      "workable-7367875c4c",
+      "workable-35075755e4"
     ],
     "removed_ids": [],
     "changed": []
@@ -491,21 +495,21 @@
   "intelligence": {
     "lifecycle": {
       "state_counts": {
+        "NEW_24H": 5,
         "STALE_RISK_90D": 221,
         "AGING_30D": 70,
-        "ACTIVE": 68,
+        "ACTIVE": 67,
         "LONG_RUNNING_60D": 45,
-        "FRESH_7D": 25,
-        "NEW_3D": 33,
-        "NEW_24H": 1
+        "FRESH_7D": 26,
+        "NEW_3D": 33
       },
       "stale_risk_counts": {
+        "LOW": 201,
         "ELEVATED": 221,
-        "LOW": 197,
         "REVIEW": 45
       },
       "reopened_after_confirmed_close_count": 0,
-      "changed_within_7d_count": 55,
+      "changed_within_7d_count": 67,
       "thresholds_days": {
         "aging": 30,
         "long_running": 60,
@@ -515,9 +519,9 @@
     },
     "hiring_intent": {
       "signal_level_counts": {
-        "WEAK_EVIDENCE": 295,
-        "MODERATE_EVIDENCE": 121,
-        "STRONG_EVIDENCE": 47
+        "STRONG_EVIDENCE": 19,
+        "WEAK_EVIDENCE": 331,
+        "MODERATE_EVIDENCE": 117
       },
       "score_is_probability": false,
       "ghost_job_classifier": false,
