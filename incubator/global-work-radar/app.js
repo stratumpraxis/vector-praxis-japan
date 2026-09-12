@@ -1,12 +1,22 @@
 let jobs=[];
 
 const $=s=>document.querySelector(s);
-const state={quick:new Set(['japan']),visibleLimit:30};
+const state={quick:new Set(['japan']),visibleLimit:30,intent:'general'};
 const ranks={A2:0,B1:1,B2:2,C1:3,C2:4};
 const category=$('#category');
 let searchTrackTimer=null;
 const POSTHOG_KEY='phc_oTYapRSNXDtn8aY7wMNHfCDexRTkfb2H44MDVXwoUMSN';
 const POSTHOG_CAPTURE='https://us.i.posthog.com/capture/';
+
+const INTENTS=Object.freeze({
+  general:{label:'General opportunity',terms:[]},
+  ai:{label:'AI work',terms:['ai','人工知能','llm','agent','annotation','data labeling','prompt','machine learning']},
+  remote:{label:'Global remote',terms:['remote','リモート','海外','worldwide','global']},
+  side:{label:'Side work',terms:['副業','side','part-time','part time','contract','freelance']},
+  fast:{label:'Fast income',terms:['短期','単発','すぐ','urgent','quick','bounty','task']},
+  highpay:{label:'High pay',terms:['高単価','高収入','high pay','senior','lead','principal']},
+  beginner:{label:'Beginner',terms:['未経験','初心者','entry','junior','no experience']}
+});
 
 function gwrDistinctId(){
   try{
@@ -43,6 +53,16 @@ function track(event,properties={}){
   }catch{}
 }
 
+function trackVisitQuality(){
+  const now=Date.now();
+  let previous=0;
+  try{previous=Number(localStorage.getItem('gwr_last_visit')||0);localStorage.setItem('gwr_last_visit',String(now))}catch{}
+  track('gwr_visit',{intent:state.intent});
+  if(previous&&now-previous>21600000&&now-previous<2592000000){
+    track('gwr_return_visit',{hours_since_previous:Math.round((now-previous)/3600000),intent:state.intent});
+  }
+}
+
 function parseTimestamp(value){
   if(!value)return 0;
   const ts=Date.parse(value);
@@ -51,6 +71,11 @@ function parseTimestamp(value){
 
 function verifiedTimestamp(j){
   return parseTimestamp(j.lastVerifiedAt)||parseTimestamp(j.verified);
+}
+
+function ageDays(j){
+  const ts=verifiedTimestamp(j);
+  return ts?Math.max(0,(Date.now()-ts)/86400000):999;
 }
 
 function freshnessText(j){
@@ -76,34 +101,82 @@ function latestCheckText(){
   return `${Math.floor(diff/day)}d`;
 }
 
-function actionabilityScore(j){
+function validOfficialDestination(j){
+  try{
+    const u=new URL(j.url||'');
+    return u.protocol==='https:'&&Boolean(u.hostname)&&!['localhost','127.0.0.1'].includes(u.hostname);
+  }catch{return false}
+}
+
+function jobText(j){
+  return `${j.title||''} ${j.employer||''} ${j.category||''} ${j.location||''} ${j.description||''}`.toLowerCase();
+}
+
+function inferIntent(){
+  const p=new URLSearchParams(location.search);
+  const explicit=(p.get('intent')||'').toLowerCase();
+  if(INTENTS[explicit])return explicit;
+  const q=($('#keyword')?.value||p.get('q')||'').trim().toLowerCase();
+  const scores={general:1,ai:0,remote:0,side:0,fast:0,highpay:0,beginner:0};
+  Object.entries(INTENTS).forEach(([name,def])=>{
+    if(name==='general')return;
+    def.terms.forEach(term=>{if(q.includes(term))scores[name]+=3});
+  });
+  if(state.quick.has('remote'))scores.remote+=3;
+  if(state.quick.has('japanese'))scores.remote+=1;
+  if(Number($('#minPay')?.value||0)>=30)scores.highpay+=3;
+  const cat=category?.value||'all';
+  if(/ai|data|machine|software|engineer/i.test(cat))scores.ai+=2;
+  return Object.entries(scores).sort((a,b)=>b[1]-a[1])[0][0];
+}
+
+function intentMatchScore(j,intent=state.intent){
+  const text=jobText(j);
   let score=0;
+  if(intent==='ai'&&/(\bai\b|artificial intelligence|llm|agent|machine learning|annotation|data label|prompt)/i.test(text))score+=2400;
+  if(intent==='remote'&&j.remote==='remote')score+=2200;
+  if(intent==='side'&&/(contract|freelance|part[- ]?time|temporary|project|hourly)/i.test(text))score+=1900;
+  if(intent==='fast'&&/(bounty|task|temporary|contract|project|hourly|immediate|urgent)/i.test(text))score+=1800;
+  if(intent==='highpay')score+=Math.min(2600,Number(j.payMin||0)*45);
+  if(intent==='beginner'&&/(entry|junior|associate|trainee|no experience|beginner)/i.test(text))score+=2100;
+  return score;
+}
+
+function actionabilityScore(j,intent=state.intent){
+  let score=0;
+  const official=validOfficialDestination(j);
+  const active=(j.status||'').includes('ACTIVE');
+  const age=ageDays(j);
   if(j.japan)score+=100000;
-  if(/^https:\/\//.test(j.url||''))score+=10000;
-  if((j.status||'').includes('ACTIVE'))score+=5000;
+  if(official)score+=15000;else score-=30000;
+  if(active)score+=7000;else score-=12000;
   if(j.remote==='remote')score+=600;
   if(j.japanese)score+=180;
-  if(j.payMin)score+=20;
-  const ts=verifiedTimestamp(j);
-  if(ts){
-    const ageDays=Math.max(0,(Date.now()-ts)/86400000);
-    score+=Math.max(0,4000-Math.min(ageDays,40)*100);
-  }
+  if(j.payMin)score+=Math.min(900,Number(j.payMin)*15);
+  if(age<=1)score+=5000;
+  else if(age<=7)score+=3500;
+  else if(age<=14)score+=1800;
+  else if(age<=30)score+=400;
+  else if(age>45)score-=8000;
+  score+=intentMatchScore(j,intent);
   return score;
 }
 
 function sortActionable(data){
+  state.intent=inferIntent();
   return [...data].sort((a,b)=>
-    actionabilityScore(b)-actionabilityScore(a)||
+    actionabilityScore(b,state.intent)-actionabilityScore(a,state.intent)||
     verifiedTimestamp(b)-verifiedTimestamp(a)||
     Number(b.payMin||0)-Number(a.payMin||0)
   );
 }
 
 function searchProperties(trigger='search_button'){
+  state.intent=inferIntent();
   const data=filtered();
   return {
     trigger,
+    intent:state.intent,
     keyword:$('#keyword').value.trim()||null,
     category:category.value,
     min_pay:Number($('#minPay').value)||0,
@@ -144,9 +217,11 @@ function applyUrlState(){
   if(p.get('category')&&[...category.options].some(o=>o.value===p.get('category')))category.value=p.get('category');
   if(p.get('min_pay')&&[...$('#minPay').options].some(o=>o.value===p.get('min_pay')))$('#minPay').value=p.get('min_pay');
   if(p.get('english')&&[...$('#english').options].some(o=>o.value===p.get('english')))$('#english').value=p.get('english');
+  state.intent=inferIntent();
 }
 
 function syncUrl(){
+  state.intent=inferIntent();
   const p=new URLSearchParams(location.search);
   const setOrDelete=(key,value,defaultValue='')=>value&&value!==defaultValue?p.set(key,value):p.delete(key);
   setOrDelete('q',$('#keyword').value.trim());
@@ -157,6 +232,7 @@ function syncUrl(){
   state.quick.has('remote')||$('#onlyRemote').checked?p.set('remote','1'):p.delete('remote');
   state.quick.has('japanese')?p.set('japanese','1'):p.delete('japanese');
   state.quick.has('usd')?p.set('usd','1'):p.delete('usd');
+  state.intent!=='general'?p.set('intent',state.intent):p.delete('intent');
   const query=p.toString();
   history.replaceState(null,'',`${location.pathname}${query?`?${query}`:''}${location.hash}`);
 }
@@ -173,10 +249,13 @@ function escapeHtml(value=''){
 }
 
 function card(j){
+  const official=validOfficialDestination(j);
   const cta=j.japan?'Japan eligible確認済み → 公式求人':'公式求人で条件を確認';
-  const link=`<a class="official-apply" href="${escapeHtml(j.url)}" target="_blank" rel="noopener noreferrer" data-job-id="${escapeHtml(j.id||'')}" data-source="${escapeHtml(j.source||'')}">${cta} ↗</a>`;
+  const link=official
+    ?`<a class="official-apply" href="${escapeHtml(j.url)}" target="_blank" rel="noopener noreferrer" data-job-id="${escapeHtml(j.id||'')}" data-source="${escapeHtml(j.source||'')}" data-score="${actionabilityScore(j,state.intent)}">${cta} ↗</a>`
+    :'<span class="verified">Official destination 要確認</span>';
   const source=j.source?`Source: ${escapeHtml(j.source)}`:'Official source';
-  return `<article class="job-card"><div><div class="job-top">${j.japan?'<span class="pill good">JAPAN ELIGIBLE</span>':''}${j.remote==='remote'?'<span class="pill">REMOTE</span>':''}${j.japanese?'<span class="pill">JAPANESE</span>':''}<span class="pill">${escapeHtml(j.category||'Other')}</span></div><h3>${escapeHtml(j.title)}</h3><div class="employer">${escapeHtml(j.employer)} · ${escapeHtml(j.location||'Location not specified')}</div><div class="job-meta"><div><span>English</span> ${escapeHtml(j.english||'要確認')}</div><div><span>Currency</span> ${escapeHtml(j.currency||'—')}</div><div><span>Status</span> ${escapeHtml(j.status||'VERIFIED ACTIVE')}</div></div></div><div class="job-action"><div class="pay">${payText(j)}</div><span class="freshness">${escapeHtml(freshnessText(j))}</span><span class="verified">${source}</span>${link}</div></article>`;
+  return `<article class="job-card" data-intent="${escapeHtml(state.intent)}"><div><div class="job-top">${j.japan?'<span class="pill good">JAPAN ELIGIBLE</span>':''}${j.remote==='remote'?'<span class="pill">REMOTE</span>':''}${j.japanese?'<span class="pill">JAPANESE</span>':''}<span class="pill">${escapeHtml(j.category||'Other')}</span></div><h3>${escapeHtml(j.title)}</h3><div class="employer">${escapeHtml(j.employer)} · ${escapeHtml(j.location||'Location not specified')}</div><div class="job-meta"><div><span>English</span> ${escapeHtml(j.english||'要確認')}</div><div><span>Currency</span> ${escapeHtml(j.currency||'—')}</div><div><span>Status</span> ${escapeHtml(j.status||'VERIFIED ACTIVE')}</div></div></div><div class="job-action"><div class="pay">${payText(j)}</div><span class="freshness">${escapeHtml(freshnessText(j))}</span><span class="verified">${source}</span>${link}</div></article>`;
 }
 
 function filtered(){
@@ -187,7 +266,7 @@ function filtered(){
   const onlyJapan=$('#onlyJapan').checked||state.quick.has('japan');
   const onlyRemote=$('#onlyRemote').checked||state.quick.has('remote');
   return jobs.filter(j=>{
-    if(q&&!`${j.title} ${j.employer} ${j.category} ${j.location}`.toLowerCase().includes(q))return false;
+    if(q&&!jobText(j).includes(q))return false;
     if(cat!=='all'&&j.category!==cat)return false;
     if(min&&(!j.payMin||j.payMin<min))return false;
     if(eng!=='all'&&(!j.english||(ranks[j.english]??-1)<ranks[eng]))return false;
@@ -227,19 +306,20 @@ function marketSignal(){
   const meta=$('#marketSignalMeta');
   const link=$('#marketSignalLink');
   if(!section||!title||!body||!meta||!link)return;
-  const candidates=sortActionable(jobs.filter(j=>j.japan&&j.url&&(j.status||'').includes('ACTIVE')));
+  const candidates=sortActionable(jobs.filter(j=>j.japan&&validOfficialDestination(j)&&(j.status||'').includes('ACTIVE')));
   if(!candidates.length){section.hidden=true;return;}
   const top=candidates[0];
   title.textContent=`直近確認：${top.employer}「${top.title}」`;
   const pay=top.payMin?`・${payText(top)}`:'';
-  body.textContent=`Japan eligible${top.remote==='remote'?'・Remote':''}${top.japanese?'・Japanese':''}${pay}。高報酬順ではなく、応募可否・公式応募先・確認鮮度を優先して表示しています。`;
-  meta.textContent=`${freshnessText(top)} · ${top.source?`Source ${top.source}`:'official-source route'} · GWR verified dataset`;
+  body.textContent=`Japan eligible${top.remote==='remote'?'・Remote':''}${top.japanese?'・Japanese':''}${pay}。応募可否・公式応募先・確認鮮度・現在Intentを優先して表示しています。`;
+  meta.textContent=`${freshnessText(top)} · ${top.source?`Source ${top.source}`:'official-source route'} · Intent ${INTENTS[state.intent]?.label||state.intent}`;
   link.href=top.url;
   link.target='_blank';
   link.rel='noopener noreferrer';
   link.textContent='この求人を公式で確認する ↗';
   link.dataset.jobId=top.id||'';
   link.dataset.source=top.source||'';
+  link.dataset.score=String(actionabilityScore(top,state.intent));
   section.hidden=false;
 }
 
@@ -292,13 +372,15 @@ function setupRevenuePartner(){
     }catch{}
     window.dataLayer=window.dataLayer||[];
     window.dataLayer.push(event);
-    track('gwr_revenue_click',{partner:config.partner,campaign:config.campaign});
+    track('gwr_revenue_click',{partner:config.partner,campaign:config.campaign,intent:state.intent});
   });
 }
 
 function refreshFromControl(trigger){
   state.visibleLimit=30;
+  state.intent=inferIntent();
   render();
+  marketSignal();
   syncUrl();
   trackSearch(trigger);
 }
@@ -307,7 +389,9 @@ function refreshFromControl(trigger){
 
 $('#searchButton').addEventListener('click',()=>{
   state.visibleLimit=30;
+  state.intent=inferIntent();
   render();
+  marketSignal();
   syncUrl();
   clearTimeout(searchTrackTimer);
   track('gwr_search',searchProperties('search_button'));
@@ -324,9 +408,11 @@ document.querySelectorAll('[data-filter]').forEach(btn=>btn.addEventListener('cl
 $('#resetFilters').addEventListener('click',()=>{
   $('#keyword').value='';category.value='all';$('#minPay').value='0';$('#english').value='all';$('#onlyJapan').checked=false;$('#onlyRemote').checked=false;
   state.quick=new Set(['japan']);
+  state.intent='general';
   state.visibleLimit=30;
   updateQuickUI();
   render();
+  marketSignal();
   syncUrl();
   trackSearch('reset_filters');
 });
@@ -336,32 +422,40 @@ $('#loadMore').addEventListener('click',()=>{
   render();
 });
 
+function trackOfficialApply(link,trigger='job_card'){
+  const props={
+    trigger,
+    intent:state.intent,
+    job_id:link.dataset.jobId||null,
+    source:link.dataset.source||null,
+    actionability_score:Number(link.dataset.score)||null,
+    destination_host:(()=>{try{return new URL(link.href).host}catch{return null}})()
+  };
+  track('gwr_outbound_click',props);
+  track('gwr_official_apply_click',props);
+}
+
 $('#jobsList').addEventListener('click',event=>{
   const link=event.target.closest('.official-apply');
   if(!link)return;
-  track('gwr_official_apply_click',{
-    job_id:link.dataset.jobId||null,
-    source:link.dataset.source||null,
-    destination_host:(()=>{try{return new URL(link.href).host}catch{return null}})()
-  });
+  trackOfficialApply(link,'job_card');
 });
 
 $('#marketSignalLink')?.addEventListener('click',event=>{
   const link=event.currentTarget;
   if(!link?.href||link.getAttribute('href')==='#jobs')return;
-  track('gwr_official_apply_click',{
-    trigger:'market_signal',job_id:link.dataset.jobId||null,source:link.dataset.source||null,
-    destination_host:(()=>{try{return new URL(link.href).host}catch{return null}})()
-  });
+  trackOfficialApply(link,'market_signal');
 });
 
 $('#eligibilityGapLink')?.addEventListener('click',event=>{
   event.preventDefault();
   state.quick.add('japan');
   state.quick.add('remote');
+  state.intent='remote';
   state.visibleLimit=30;
   updateQuickUI();
   render();
+  marketSignal();
   syncUrl();
   clearTimeout(searchTrackTimer);
   track('gwr_search',searchProperties('eligibility_gap'));
@@ -374,7 +468,12 @@ async function init(){
     if(!res.ok)throw new Error(`verified jobs fetch failed: ${res.status}`);
     const payload=await res.json();
     jobs=Array.isArray(payload.records)?payload.records:[];
-    track('gwr_jobs_loaded',{job_count:jobs.length,generated_at:payload.generated_at||null});
+    track('gwr_jobs_loaded',{
+      job_count:jobs.length,
+      generated_at:payload.generated_at||null,
+      official_destination_count:jobs.filter(validOfficialDestination).length,
+      fresh_7d_count:jobs.filter(j=>ageDays(j)<=7).length
+    });
   }catch(error){
     console.error(error);
     jobs=[];
@@ -384,10 +483,12 @@ async function init(){
   applyUrlState();
   updateQuickUI();
   metrics();
+  render();
   marketSignal();
   eligibilityGap();
-  render();
   setupRevenuePartner();
+  trackVisitQuality();
+  track('gwr_intent_resolved',{intent:state.intent,result_count:filtered().length});
 }
 
 init();
