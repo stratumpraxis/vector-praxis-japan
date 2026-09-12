@@ -7,6 +7,11 @@ on:
     types:
       - completed
   workflow_dispatch:
+  push:
+    branches:
+      - main
+    paths:
+      - .github/workflows/gwr-social-growth.yml
 
 permissions:
   contents: write
@@ -17,7 +22,7 @@ concurrency:
 
 jobs:
   build-social-growth-candidates:
-    if: ${{ github.event_name == 'workflow_dispatch' || github.event.workflow_run.conclusion == 'success' }}
+    if: ${{ github.event_name == 'push' || github.event_name == 'workflow_dispatch' || github.event.workflow_run.conclusion == 'success' }}
     runs-on: ubuntu-latest
     timeout-minutes: 10
     steps:
