@@ -1,10 +1,10 @@
 {
   "schema_version": 1,
-  "observed_at": "2026-09-12T18:12:03.877Z",
+  "observed_at": "2026-09-12T18:18:31.319Z",
   "run": {
-    "github_run_id": "34704190103",
-    "github_run_attempt": "2",
-    "github_sha": "ce7aa163a8de00eba66d34430d49aa058410729d",
+    "github_run_id": "34710718739",
+    "github_run_attempt": "1",
+    "github_sha": "4adc9516d2df1cf18eef935587b97937177c52ac",
     "baseline_ref": "HEAD"
   },
   "inventory": {
@@ -519,9 +519,9 @@
     },
     "hiring_intent": {
       "signal_level_counts": {
-        "STRONG_EVIDENCE": 19,
+        "MODERATE_EVIDENCE": 121,
         "WEAK_EVIDENCE": 331,
-        "MODERATE_EVIDENCE": 117
+        "STRONG_EVIDENCE": 15
       },
       "score_is_probability": false,
       "ghost_job_classifier": false,
