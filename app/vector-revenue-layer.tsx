@@ -18,6 +18,16 @@ type RevenueAsset = {
 
 const revenueAssets: RevenueAsset[] = [
   {
+    id: "market-origin-design",
+    title: "AIエージェントを増やす前に、『仕事の発生源』を設計する",
+    href: "https://note.com/deft_eel6718/n/n53d075c8e62d",
+    label: "MARKET / AGENT / REVENUE",
+    status: "PAID",
+    intents: ["revenue", "solo"],
+    fit: "市場・Buyer・外部Signalを起点に、AIの活動量をRevenueへ接続したい人向け。",
+    next: "市場起点の設計を読む（¥14,800）",
+  },
+  {
     id: "ai-team-design",
     title: "AIを増やすほど仕事が遅くなる理由 ── ChatGPT・Claude・GitHubを『チーム』に変える設計",
     href: "https://note.com/deft_eel6718/n/ncaff8351e529",
