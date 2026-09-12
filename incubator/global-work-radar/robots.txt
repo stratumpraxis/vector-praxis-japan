@@ -2,4 +2,4 @@ User-agent: *
 Allow: /
 
 Sitemap: https://global-work-radar.pages.dev/sitemap.xml
-# 2026-09-11 live-data closeout redeploy
+# 2026-09-13 UI level 7 verified redeploy
