@@ -135,11 +135,14 @@ jobs:
 
       - name: Build public-only bundle
         run: |
+          set -euo pipefail
           rm -rf /tmp/gwr-public
           mkdir -p /tmp/gwr-public/data
           cp incubator/global-work-radar/index.html /tmp/gwr-public/
           cp incubator/global-work-radar/styles.css /tmp/gwr-public/
           cp incubator/global-work-radar/app.js /tmp/gwr-public/
+          printf '\n' >> /tmp/gwr-public/app.js
+          cat incubator/global-work-radar/measurement-contract.js >> /tmp/gwr-public/app.js
           cp incubator/global-work-radar/revenue-config.js /tmp/gwr-public/
           cp incubator/global-work-radar/favicon.svg /tmp/gwr-public/
           cp incubator/global-work-radar/robots.txt /tmp/gwr-public/
@@ -148,6 +151,11 @@ jobs:
           cp incubator/global-work-radar/data/verified-jobs.json /tmp/gwr-public/data/
           cp incubator/global-work-radar/data/workable-market.json /tmp/gwr-public/data/
           printf '%s\n' '/* /index.html 200' > /tmp/gwr-public/_redirects
+          node --check /tmp/gwr-public/app.js
+          grep -q "gwr_job_view" /tmp/gwr-public/app.js
+          grep -q "gwr_official_source_click" /tmp/gwr-public/app.js
+          grep -q "gwr_apply_click" /tmp/gwr-public/app.js
+          echo "GWR_MEASUREMENT_CONTRACT_QA=PASS"
 
       - name: Create Cloudflare Pages project if needed
         env:
