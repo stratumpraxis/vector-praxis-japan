@@ -1,6 +1,6 @@
 {
-  "generated_at": "2026-09-12T18:24:46.287Z",
-  "source_generated_at": "2026-09-12T18:24:16.696Z",
+  "generated_at": "2026-09-12T22:19:18.841Z",
+  "source_generated_at": "2026-09-12T22:18:47.878Z",
   "brand": "Global Work Radar",
   "purpose": "Turn verified market changes into GWR-owned traffic, explicit buyer-reaction evidence, and revenue opportunities without fabricating publication state.",
   "channel_policy": "GWR_CHANNEL_ONLY",
@@ -35,18 +35,18 @@
   "candidate_count": 10,
   "candidates": [
     {
-      "candidate_id": "gwr-alert-125dbb30841f",
+      "candidate_id": "gwr-alert-ba8d0e2bd87d",
       "signal_type": "GWR_ALERT",
       "objective": "qualified_revenue_growth",
       "score": 98,
-      "source_generated_at": "2026-09-12T18:24:16.696Z",
+      "source_generated_at": "2026-09-12T22:18:47.878Z",
       "claim_scope": "snapshot_change_only_no_hiring_outcome_inference",
       "text": {
-        "x": "【GWR ALERT】Mindrift - Data annotation｜AI Trainer - Freelance Data Annotator｜新着Signal。日本対象可否・公式求人・鮮度を確認して追跡しています。次の変化もGWRで更新。 https://global-work-radar.pages.dev/?japan=1&utm_source=social&utm_medium=organic&utm_campaign=gwr_signal_growth&utm_content=gwr-alert-125dbb30841f&q…",
-        "bluesky": "GWR ALERT｜Mindrift - Data annotation｜AI Trainer - Freelance Data Annotator｜新着Signal。日本対象可否・公式求人・鮮度を確認して継続追跡。 https://global-work-radar.pages.dev/?japan=1&utm_source=social&utm_medium=organic&utm_campaign=gwr_signal_growth&utm_content=gwr-alert-125dbb30841f&q=Mindrift+-+Data+annotation&intent=g…",
-        "linkedin": "GWR Market Alert Mindrift - Data annotation｜AI Trainer - Freelance Data Annotator｜新着Signal。採用結果の予測ではなく、GWRの検証済み求人スナップショットで確認できた変化です。 https://global-work-radar.pages.dev/?japan=1&utm_source=social&utm_medium=organic&utm_campaign=gwr_signal_growth&utm_content=gwr-alert-125dbb30841f&q=Mindrift+-+Data+annotation&intent=general"
+        "x": "【GWR ALERT】Mindrift - Data annotation｜AI Trainer - Freelance Data Annotator｜新着Signal。日本対象可否・公式求人・鮮度を確認して追跡しています。次の変化もGWRで更新。 https://global-work-radar.pages.dev/?japan=1&utm_source=social&utm_medium=organic&utm_campaign=gwr_signal_growth&utm_content=gwr-alert-ba8d0e2bd87d&q…",
+        "bluesky": "GWR ALERT｜Mindrift - Data annotation｜AI Trainer - Freelance Data Annotator｜新着Signal。日本対象可否・公式求人・鮮度を確認して継続追跡。 https://global-work-radar.pages.dev/?japan=1&utm_source=social&utm_medium=organic&utm_campaign=gwr_signal_growth&utm_content=gwr-alert-ba8d0e2bd87d&q=Mindrift+-+Data+annotation&intent=g…",
+        "linkedin": "GWR Market Alert Mindrift - Data annotation｜AI Trainer - Freelance Data Annotator｜新着Signal。採用結果の予測ではなく、GWRの検証済み求人スナップショットで確認できた変化です。 https://global-work-radar.pages.dev/?japan=1&utm_source=social&utm_medium=organic&utm_campaign=gwr_signal_growth&utm_content=gwr-alert-ba8d0e2bd87d&q=Mindrift+-+Data+annotation&intent=general"
       },
-      "destination_url": "https://global-work-radar.pages.dev/?japan=1&utm_source=social&utm_medium=organic&utm_campaign=gwr_signal_growth&utm_content=gwr-alert-125dbb30841f&q=Mindrift+-+Data+annotation&intent=general",
+      "destination_url": "https://global-work-radar.pages.dev/?japan=1&utm_source=social&utm_medium=organic&utm_campaign=gwr_signal_growth&utm_content=gwr-alert-ba8d0e2bd87d&q=Mindrift+-+Data+annotation&intent=general",
       "evidence": [
         {
           "job_id": "workable-35075755e4",
@@ -54,7 +54,7 @@
           "title": "AI Trainer - Freelance Data Annotator",
           "source": "Workable",
           "official_url": "https://apply.workable.com/j/35075755E4",
-          "last_verified_at": "2026-09-12T18:23:54.582Z",
+          "last_verified_at": "2026-09-12T22:18:30.374Z",
           "freshness_bucket": "NEW_24H",
           "hiring_momentum": "STEADY",
           "hiring_delta": 0
@@ -73,18 +73,18 @@
       "rank": 1
     },
     {
-      "candidate_id": "gwr-alert-d001636e6501",
+      "candidate_id": "gwr-alert-74fbcdaac62c",
       "signal_type": "GWR_ALERT",
       "objective": "qualified_revenue_growth",
       "score": 93,
-      "source_generated_at": "2026-09-12T18:24:16.696Z",
+      "source_generated_at": "2026-09-12T22:18:47.878Z",
       "claim_scope": "snapshot_change_only_no_hiring_outcome_inference",
       "text": {
-        "x": "【GWR ALERT】Ten Group｜夜勤バイリンガルコンシェルジュ 在宅勤務可能｜新着Signal。日本対象可否・公式求人・鮮度を確認して追跡しています。次の変化もGWRで更新。 https://global-work-radar.pages.dev/?japan=1&utm_source=social&utm_medium=organic&utm_campaign=gwr_signal_growth&utm_content=gwr-alert-d001636e6501&q=Ten+Group&intent=general",
-        "bluesky": "GWR ALERT｜Ten Group｜夜勤バイリンガルコンシェルジュ 在宅勤務可能｜新着Signal。日本対象可否・公式求人・鮮度を確認して継続追跡。 https://global-work-radar.pages.dev/?japan=1&utm_source=social&utm_medium=organic&utm_campaign=gwr_signal_growth&utm_content=gwr-alert-d001636e6501&q=Ten+Group&intent=general",
-        "linkedin": "GWR Market Alert Ten Group｜夜勤バイリンガルコンシェルジュ 在宅勤務可能｜新着Signal。採用結果の予測ではなく、GWRの検証済み求人スナップショットで確認できた変化です。 https://global-work-radar.pages.dev/?japan=1&utm_source=social&utm_medium=organic&utm_campaign=gwr_signal_growth&utm_content=gwr-alert-d001636e6501&q=Ten+Group&intent=general"
+        "x": "【GWR ALERT】Ten Group｜夜勤バイリンガルコンシェルジュ 在宅勤務可能｜新着Signal。日本対象可否・公式求人・鮮度を確認して追跡しています。次の変化もGWRで更新。 https://global-work-radar.pages.dev/?japan=1&utm_source=social&utm_medium=organic&utm_campaign=gwr_signal_growth&utm_content=gwr-alert-74fbcdaac62c&q=Ten+Group&intent=general",
+        "bluesky": "GWR ALERT｜Ten Group｜夜勤バイリンガルコンシェルジュ 在宅勤務可能｜新着Signal。日本対象可否・公式求人・鮮度を確認して継続追跡。 https://global-work-radar.pages.dev/?japan=1&utm_source=social&utm_medium=organic&utm_campaign=gwr_signal_growth&utm_content=gwr-alert-74fbcdaac62c&q=Ten+Group&intent=general",
+        "linkedin": "GWR Market Alert Ten Group｜夜勤バイリンガルコンシェルジュ 在宅勤務可能｜新着Signal。採用結果の予測ではなく、GWRの検証済み求人スナップショットで確認できた変化です。 https://global-work-radar.pages.dev/?japan=1&utm_source=social&utm_medium=organic&utm_campaign=gwr_signal_growth&utm_content=gwr-alert-74fbcdaac62c&q=Ten+Group&intent=general"
       },
-      "destination_url": "https://global-work-radar.pages.dev/?japan=1&utm_source=social&utm_medium=organic&utm_campaign=gwr_signal_growth&utm_content=gwr-alert-d001636e6501&q=Ten+Group&intent=general",
+      "destination_url": "https://global-work-radar.pages.dev/?japan=1&utm_source=social&utm_medium=organic&utm_campaign=gwr_signal_growth&utm_content=gwr-alert-74fbcdaac62c&q=Ten+Group&intent=general",
       "evidence": [
         {
           "job_id": "workable-43dacfeb6e",
@@ -92,7 +92,7 @@
           "title": "夜勤バイリンガルコンシェルジュ 在宅勤務可能",
           "source": "Workable",
           "official_url": "https://apply.workable.com/j/43DACFEB6E",
-          "last_verified_at": "2026-09-12T18:23:54.582Z",
+          "last_verified_at": "2026-09-12T22:18:30.374Z",
           "freshness_bucket": "NEW_3D",
           "hiring_momentum": "STEADY",
           "hiring_delta": 0
@@ -111,18 +111,18 @@
       "rank": 2
     },
     {
-      "candidate_id": "gwr-alert-1a12bb1d67f8",
+      "candidate_id": "gwr-alert-f972f7351652",
       "signal_type": "GWR_ALERT",
       "objective": "qualified_revenue_growth",
       "score": 93,
-      "source_generated_at": "2026-09-12T18:24:16.696Z",
+      "source_generated_at": "2026-09-12T22:18:47.878Z",
       "claim_scope": "snapshot_change_only_no_hiring_outcome_inference",
       "text": {
-        "x": "【GWR ALERT】Mindrift｜Freelance Agent Evaluation Engineer｜新着Signal。日本対象可否・公式求人・鮮度を確認して追跡しています。次の変化もGWRで更新。 https://global-work-radar.pages.dev/?japan=1&utm_source=social&utm_medium=organic&utm_campaign=gwr_signal_growth&utm_content=gwr-alert-1a12bb1d67f8&q=Mindrift&intent=gen…",
-        "bluesky": "GWR ALERT｜Mindrift｜Freelance Agent Evaluation Engineer｜新着Signal。日本対象可否・公式求人・鮮度を確認して継続追跡。 https://global-work-radar.pages.dev/?japan=1&utm_source=social&utm_medium=organic&utm_campaign=gwr_signal_growth&utm_content=gwr-alert-1a12bb1d67f8&q=Mindrift&intent=general",
-        "linkedin": "GWR Market Alert Mindrift｜Freelance Agent Evaluation Engineer｜新着Signal。採用結果の予測ではなく、GWRの検証済み求人スナップショットで確認できた変化です。 https://global-work-radar.pages.dev/?japan=1&utm_source=social&utm_medium=organic&utm_campaign=gwr_signal_growth&utm_content=gwr-alert-1a12bb1d67f8&q=Mindrift&intent=general"
+        "x": "【GWR ALERT】Mindrift｜Freelance Agent Evaluation Engineer｜新着Signal。日本対象可否・公式求人・鮮度を確認して追跡しています。次の変化もGWRで更新。 https://global-work-radar.pages.dev/?japan=1&utm_source=social&utm_medium=organic&utm_campaign=gwr_signal_growth&utm_content=gwr-alert-f972f7351652&q=Mindrift&intent=gen…",
+        "bluesky": "GWR ALERT｜Mindrift｜Freelance Agent Evaluation Engineer｜新着Signal。日本対象可否・公式求人・鮮度を確認して継続追跡。 https://global-work-radar.pages.dev/?japan=1&utm_source=social&utm_medium=organic&utm_campaign=gwr_signal_growth&utm_content=gwr-alert-f972f7351652&q=Mindrift&intent=general",
+        "linkedin": "GWR Market Alert Mindrift｜Freelance Agent Evaluation Engineer｜新着Signal。採用結果の予測ではなく、GWRの検証済み求人スナップショットで確認できた変化です。 https://global-work-radar.pages.dev/?japan=1&utm_source=social&utm_medium=organic&utm_campaign=gwr_signal_growth&utm_content=gwr-alert-f972f7351652&q=Mindrift&intent=general"
       },
-      "destination_url": "https://global-work-radar.pages.dev/?japan=1&utm_source=social&utm_medium=organic&utm_campaign=gwr_signal_growth&utm_content=gwr-alert-1a12bb1d67f8&q=Mindrift&intent=general",
+      "destination_url": "https://global-work-radar.pages.dev/?japan=1&utm_source=social&utm_medium=organic&utm_campaign=gwr_signal_growth&utm_content=gwr-alert-f972f7351652&q=Mindrift&intent=general",
       "evidence": [
         {
           "job_id": "workable-6ed4b65d53",
@@ -130,7 +130,7 @@
           "title": "Freelance Agent Evaluation Engineer",
           "source": "Workable",
           "official_url": "https://apply.workable.com/j/6ED4B65D53",
-          "last_verified_at": "2026-09-12T18:23:54.582Z",
+          "last_verified_at": "2026-09-12T22:18:30.374Z",
           "freshness_bucket": "NEW_3D",
           "hiring_momentum": "STEADY",
           "hiring_delta": 0
@@ -149,18 +149,18 @@
       "rank": 3
     },
     {
-      "candidate_id": "gwr-alert-73caee515a73",
+      "candidate_id": "gwr-alert-ce3ab081e8e0",
       "signal_type": "GWR_ALERT",
       "objective": "qualified_revenue_growth",
       "score": 93,
-      "source_generated_at": "2026-09-12T18:24:16.696Z",
+      "source_generated_at": "2026-09-12T22:18:47.878Z",
       "claim_scope": "snapshot_change_only_no_hiring_outcome_inference",
       "text": {
-        "x": "【GWR ALERT】Mindrift｜Freelance Agent Evaluation Engineer｜新着Signal。日本対象可否・公式求人・鮮度を確認して追跡しています。次の変化もGWRで更新。 https://global-work-radar.pages.dev/?japan=1&utm_source=social&utm_medium=organic&utm_campaign=gwr_signal_growth&utm_content=gwr-alert-73caee515a73&q=Mindrift&intent=gen…",
-        "bluesky": "GWR ALERT｜Mindrift｜Freelance Agent Evaluation Engineer｜新着Signal。日本対象可否・公式求人・鮮度を確認して継続追跡。 https://global-work-radar.pages.dev/?japan=1&utm_source=social&utm_medium=organic&utm_campaign=gwr_signal_growth&utm_content=gwr-alert-73caee515a73&q=Mindrift&intent=general",
-        "linkedin": "GWR Market Alert Mindrift｜Freelance Agent Evaluation Engineer｜新着Signal。採用結果の予測ではなく、GWRの検証済み求人スナップショットで確認できた変化です。 https://global-work-radar.pages.dev/?japan=1&utm_source=social&utm_medium=organic&utm_campaign=gwr_signal_growth&utm_content=gwr-alert-73caee515a73&q=Mindrift&intent=general"
+        "x": "【GWR ALERT】Mindrift｜Freelance Agent Evaluation Engineer｜新着Signal。日本対象可否・公式求人・鮮度を確認して追跡しています。次の変化もGWRで更新。 https://global-work-radar.pages.dev/?japan=1&utm_source=social&utm_medium=organic&utm_campaign=gwr_signal_growth&utm_content=gwr-alert-ce3ab081e8e0&q=Mindrift&intent=gen…",
+        "bluesky": "GWR ALERT｜Mindrift｜Freelance Agent Evaluation Engineer｜新着Signal。日本対象可否・公式求人・鮮度を確認して継続追跡。 https://global-work-radar.pages.dev/?japan=1&utm_source=social&utm_medium=organic&utm_campaign=gwr_signal_growth&utm_content=gwr-alert-ce3ab081e8e0&q=Mindrift&intent=general",
+        "linkedin": "GWR Market Alert Mindrift｜Freelance Agent Evaluation Engineer｜新着Signal。採用結果の予測ではなく、GWRの検証済み求人スナップショットで確認できた変化です。 https://global-work-radar.pages.dev/?japan=1&utm_source=social&utm_medium=organic&utm_campaign=gwr_signal_growth&utm_content=gwr-alert-ce3ab081e8e0&q=Mindrift&intent=general"
       },
-      "destination_url": "https://global-work-radar.pages.dev/?japan=1&utm_source=social&utm_medium=organic&utm_campaign=gwr_signal_growth&utm_content=gwr-alert-73caee515a73&q=Mindrift&intent=general",
+      "destination_url": "https://global-work-radar.pages.dev/?japan=1&utm_source=social&utm_medium=organic&utm_campaign=gwr_signal_growth&utm_content=gwr-alert-ce3ab081e8e0&q=Mindrift&intent=general",
       "evidence": [
         {
           "job_id": "workable-887f0c009b",
@@ -168,7 +168,7 @@
           "title": "Freelance Agent Evaluation Engineer",
           "source": "Workable",
           "official_url": "https://apply.workable.com/j/887F0C009B",
-          "last_verified_at": "2026-09-12T18:23:54.582Z",
+          "last_verified_at": "2026-09-12T22:18:30.374Z",
           "freshness_bucket": "NEW_3D",
           "hiring_momentum": "STEADY",
           "hiring_delta": 0
@@ -187,18 +187,18 @@
       "rank": 4
     },
     {
-      "candidate_id": "gwr-open-9c8296d6dd5d",
+      "candidate_id": "gwr-open-5bea5c2e82b2",
       "signal_type": "GWR_OPEN",
       "objective": "qualified_revenue_growth",
       "score": 91,
-      "source_generated_at": "2026-09-12T18:24:16.696Z",
+      "source_generated_at": "2026-09-12T22:18:47.878Z",
       "claim_scope": "verified_active_structured_facts_only",
       "text": {
-        "x": "【GWR OPEN】AI Trainer - Freelance Data Annotator｜Mindrift - Data annotation｜JP｜USD 0。公式求人の確認先まで検証済み。GWRは日本から確認できる海外求人の変化を継続観測中。 https://global-work-radar.pages.dev/?japan=1&utm_source=social&utm_medium=organic&utm_campaign=gwr_signal_growth&utm_content=gwr-open-9c8296d6dd5d&…",
-        "bluesky": "GWR OPEN｜AI Trainer - Freelance Data Annotator｜Mindrift - Data annotation｜JP｜USD 0。公式求人まで確認済み。GWRは日本から確認できる海外求人の変化を継続観測中。 https://global-work-radar.pages.dev/?japan=1&utm_source=social&utm_medium=organic&utm_campaign=gwr_signal_growth&utm_content=gwr-open-9c8296d6dd5d&q=Mindrift+-+Data+annotat…",
-        "linkedin": "Global Work Radarで新しい求人Signalを確認。 AI Trainer - Freelance Data Annotator｜Mindrift - Data annotation｜JP｜USD 0 公開対象はVERIFIED ACTIVEかつ公式応募先を確認できたものに限定しています。 https://global-work-radar.pages.dev/?japan=1&utm_source=social&utm_medium=organic&utm_campaign=gwr_signal_growth&utm_content=gwr-open-9c8296d6dd5d&q=Mindrift+-+Data+annotation&intent=remote"
+        "x": "【GWR OPEN】AI Trainer - Freelance Data Annotator｜Mindrift - Data annotation｜JP｜USD 0。公式求人の確認先まで検証済み。GWRは日本から確認できる海外求人の変化を継続観測中。 https://global-work-radar.pages.dev/?japan=1&utm_source=social&utm_medium=organic&utm_campaign=gwr_signal_growth&utm_content=gwr-open-5bea5c2e82b2&…",
+        "bluesky": "GWR OPEN｜AI Trainer - Freelance Data Annotator｜Mindrift - Data annotation｜JP｜USD 0。公式求人まで確認済み。GWRは日本から確認できる海外求人の変化を継続観測中。 https://global-work-radar.pages.dev/?japan=1&utm_source=social&utm_medium=organic&utm_campaign=gwr_signal_growth&utm_content=gwr-open-5bea5c2e82b2&q=Mindrift+-+Data+annotat…",
+        "linkedin": "Global Work Radarで新しい求人Signalを確認。 AI Trainer - Freelance Data Annotator｜Mindrift - Data annotation｜JP｜USD 0 公開対象はVERIFIED ACTIVEかつ公式応募先を確認できたものに限定しています。 https://global-work-radar.pages.dev/?japan=1&utm_source=social&utm_medium=organic&utm_campaign=gwr_signal_growth&utm_content=gwr-open-5bea5c2e82b2&q=Mindrift+-+Data+annotation&intent=remote"
       },
-      "destination_url": "https://global-work-radar.pages.dev/?japan=1&utm_source=social&utm_medium=organic&utm_campaign=gwr_signal_growth&utm_content=gwr-open-9c8296d6dd5d&q=Mindrift+-+Data+annotation&intent=remote",
+      "destination_url": "https://global-work-radar.pages.dev/?japan=1&utm_source=social&utm_medium=organic&utm_campaign=gwr_signal_growth&utm_content=gwr-open-5bea5c2e82b2&q=Mindrift+-+Data+annotation&intent=remote",
       "evidence": [
         {
           "job_id": "workable-35075755e4",
@@ -206,7 +206,7 @@
           "title": "AI Trainer - Freelance Data Annotator",
           "source": "Workable",
           "official_url": "https://apply.workable.com/j/35075755E4",
-          "last_verified_at": "2026-09-12T18:23:54.582Z",
+          "last_verified_at": "2026-09-12T22:18:30.374Z",
           "freshness_bucket": "NEW_24H",
           "hiring_momentum": "STEADY",
           "hiring_delta": 0
@@ -225,18 +225,18 @@
       "rank": 5
     },
     {
-      "candidate_id": "gwr-open-6614c9733e74",
+      "candidate_id": "gwr-open-93fde59fc511",
       "signal_type": "GWR_OPEN",
       "objective": "qualified_revenue_growth",
       "score": 86,
-      "source_generated_at": "2026-09-12T18:24:16.696Z",
+      "source_generated_at": "2026-09-12T22:18:47.878Z",
       "claim_scope": "verified_active_structured_facts_only",
       "text": {
-        "x": "【GWR OPEN】夜勤バイリンガルコンシェルジュ 在宅勤務可能｜Ten Group｜Nishishinjuku, Tokyo, JP｜USD 0。公式求人の確認先まで検証済み。GWRは日本から確認できる海外求人の変化を継続観測中。 https://global-work-radar.pages.dev/?japan=1&utm_source=social&utm_medium=organic&utm_campaign=gwr_signal_growth&utm_content=gwr-open-6614c9733e74&q=Ten+Grou…",
-        "bluesky": "GWR OPEN｜夜勤バイリンガルコンシェルジュ 在宅勤務可能｜Ten Group｜Nishishinjuku, Tokyo, JP｜USD 0。公式求人まで確認済み。GWRは日本から確認できる海外求人の変化を継続観測中。 https://global-work-radar.pages.dev/?japan=1&utm_source=social&utm_medium=organic&utm_campaign=gwr_signal_growth&utm_content=gwr-open-6614c9733e74&q=Ten+Group&intent=remote",
-        "linkedin": "Global Work Radarで新しい求人Signalを確認。 夜勤バイリンガルコンシェルジュ 在宅勤務可能｜Ten Group｜Nishishinjuku, Tokyo, JP｜USD 0 公開対象はVERIFIED ACTIVEかつ公式応募先を確認できたものに限定しています。 https://global-work-radar.pages.dev/?japan=1&utm_source=social&utm_medium=organic&utm_campaign=gwr_signal_growth&utm_content=gwr-open-6614c9733e74&q=Ten+Group&intent=remote"
+        "x": "【GWR OPEN】夜勤バイリンガルコンシェルジュ 在宅勤務可能｜Ten Group｜Nishishinjuku, Tokyo, JP｜USD 0。公式求人の確認先まで検証済み。GWRは日本から確認できる海外求人の変化を継続観測中。 https://global-work-radar.pages.dev/?japan=1&utm_source=social&utm_medium=organic&utm_campaign=gwr_signal_growth&utm_content=gwr-open-93fde59fc511&q=Ten+Grou…",
+        "bluesky": "GWR OPEN｜夜勤バイリンガルコンシェルジュ 在宅勤務可能｜Ten Group｜Nishishinjuku, Tokyo, JP｜USD 0。公式求人まで確認済み。GWRは日本から確認できる海外求人の変化を継続観測中。 https://global-work-radar.pages.dev/?japan=1&utm_source=social&utm_medium=organic&utm_campaign=gwr_signal_growth&utm_content=gwr-open-93fde59fc511&q=Ten+Group&intent=remote",
+        "linkedin": "Global Work Radarで新しい求人Signalを確認。 夜勤バイリンガルコンシェルジュ 在宅勤務可能｜Ten Group｜Nishishinjuku, Tokyo, JP｜USD 0 公開対象はVERIFIED ACTIVEかつ公式応募先を確認できたものに限定しています。 https://global-work-radar.pages.dev/?japan=1&utm_source=social&utm_medium=organic&utm_campaign=gwr_signal_growth&utm_content=gwr-open-93fde59fc511&q=Ten+Group&intent=remote"
       },
-      "destination_url": "https://global-work-radar.pages.dev/?japan=1&utm_source=social&utm_medium=organic&utm_campaign=gwr_signal_growth&utm_content=gwr-open-6614c9733e74&q=Ten+Group&intent=remote",
+      "destination_url": "https://global-work-radar.pages.dev/?japan=1&utm_source=social&utm_medium=organic&utm_campaign=gwr_signal_growth&utm_content=gwr-open-93fde59fc511&q=Ten+Group&intent=remote",
       "evidence": [
         {
           "job_id": "workable-43dacfeb6e",
@@ -244,7 +244,7 @@
           "title": "夜勤バイリンガルコンシェルジュ 在宅勤務可能",
           "source": "Workable",
           "official_url": "https://apply.workable.com/j/43DACFEB6E",
-          "last_verified_at": "2026-09-12T18:23:54.582Z",
+          "last_verified_at": "2026-09-12T22:18:30.374Z",
           "freshness_bucket": "NEW_3D",
           "hiring_momentum": "STEADY",
           "hiring_delta": 0
@@ -263,18 +263,18 @@
       "rank": 6
     },
     {
-      "candidate_id": "gwr-open-5ad783d752e1",
+      "candidate_id": "gwr-open-84ce6463f1f4",
       "signal_type": "GWR_OPEN",
       "objective": "qualified_revenue_growth",
       "score": 86,
-      "source_generated_at": "2026-09-12T18:24:16.696Z",
+      "source_generated_at": "2026-09-12T22:18:47.878Z",
       "claim_scope": "verified_active_structured_facts_only",
       "text": {
-        "x": "【GWR OPEN】Freelance Agent Evaluation Engineer｜Mindrift｜JP｜USD 0。公式求人の確認先まで検証済み。GWRは日本から確認できる海外求人の変化を継続観測中。 https://global-work-radar.pages.dev/?japan=1&utm_source=social&utm_medium=organic&utm_campaign=gwr_signal_growth&utm_content=gwr-open-5ad783d752e1&q=Mindrift&intent=re…",
-        "bluesky": "GWR OPEN｜Freelance Agent Evaluation Engineer｜Mindrift｜JP｜USD 0。公式求人まで確認済み。GWRは日本から確認できる海外求人の変化を継続観測中。 https://global-work-radar.pages.dev/?japan=1&utm_source=social&utm_medium=organic&utm_campaign=gwr_signal_growth&utm_content=gwr-open-5ad783d752e1&q=Mindrift&intent=remote",
-        "linkedin": "Global Work Radarで新しい求人Signalを確認。 Freelance Agent Evaluation Engineer｜Mindrift｜JP｜USD 0 公開対象はVERIFIED ACTIVEかつ公式応募先を確認できたものに限定しています。 https://global-work-radar.pages.dev/?japan=1&utm_source=social&utm_medium=organic&utm_campaign=gwr_signal_growth&utm_content=gwr-open-5ad783d752e1&q=Mindrift&intent=remote"
+        "x": "【GWR OPEN】Freelance Agent Evaluation Engineer｜Mindrift｜JP｜USD 0。公式求人の確認先まで検証済み。GWRは日本から確認できる海外求人の変化を継続観測中。 https://global-work-radar.pages.dev/?japan=1&utm_source=social&utm_medium=organic&utm_campaign=gwr_signal_growth&utm_content=gwr-open-84ce6463f1f4&q=Mindrift&intent=re…",
+        "bluesky": "GWR OPEN｜Freelance Agent Evaluation Engineer｜Mindrift｜JP｜USD 0。公式求人まで確認済み。GWRは日本から確認できる海外求人の変化を継続観測中。 https://global-work-radar.pages.dev/?japan=1&utm_source=social&utm_medium=organic&utm_campaign=gwr_signal_growth&utm_content=gwr-open-84ce6463f1f4&q=Mindrift&intent=remote",
+        "linkedin": "Global Work Radarで新しい求人Signalを確認。 Freelance Agent Evaluation Engineer｜Mindrift｜JP｜USD 0 公開対象はVERIFIED ACTIVEかつ公式応募先を確認できたものに限定しています。 https://global-work-radar.pages.dev/?japan=1&utm_source=social&utm_medium=organic&utm_campaign=gwr_signal_growth&utm_content=gwr-open-84ce6463f1f4&q=Mindrift&intent=remote"
       },
-      "destination_url": "https://global-work-radar.pages.dev/?japan=1&utm_source=social&utm_medium=organic&utm_campaign=gwr_signal_growth&utm_content=gwr-open-5ad783d752e1&q=Mindrift&intent=remote",
+      "destination_url": "https://global-work-radar.pages.dev/?japan=1&utm_source=social&utm_medium=organic&utm_campaign=gwr_signal_growth&utm_content=gwr-open-84ce6463f1f4&q=Mindrift&intent=remote",
       "evidence": [
         {
           "job_id": "workable-6ed4b65d53",
@@ -282,7 +282,7 @@
           "title": "Freelance Agent Evaluation Engineer",
           "source": "Workable",
           "official_url": "https://apply.workable.com/j/6ED4B65D53",
-          "last_verified_at": "2026-09-12T18:23:54.582Z",
+          "last_verified_at": "2026-09-12T22:18:30.374Z",
           "freshness_bucket": "NEW_3D",
           "hiring_momentum": "STEADY",
           "hiring_delta": 0
@@ -301,18 +301,18 @@
       "rank": 7
     },
     {
-      "candidate_id": "gwr-open-467969ef9741",
+      "candidate_id": "gwr-open-0c1728eaf4c5",
       "signal_type": "GWR_OPEN",
       "objective": "qualified_revenue_growth",
       "score": 86,
-      "source_generated_at": "2026-09-12T18:24:16.696Z",
+      "source_generated_at": "2026-09-12T22:18:47.878Z",
       "claim_scope": "verified_active_structured_facts_only",
       "text": {
-        "x": "【GWR OPEN】Freelance Agent Evaluation Engineer｜Mindrift｜JP｜USD 0。公式求人の確認先まで検証済み。GWRは日本から確認できる海外求人の変化を継続観測中。 https://global-work-radar.pages.dev/?japan=1&utm_source=social&utm_medium=organic&utm_campaign=gwr_signal_growth&utm_content=gwr-open-467969ef9741&q=Mindrift&intent=re…",
-        "bluesky": "GWR OPEN｜Freelance Agent Evaluation Engineer｜Mindrift｜JP｜USD 0。公式求人まで確認済み。GWRは日本から確認できる海外求人の変化を継続観測中。 https://global-work-radar.pages.dev/?japan=1&utm_source=social&utm_medium=organic&utm_campaign=gwr_signal_growth&utm_content=gwr-open-467969ef9741&q=Mindrift&intent=remote",
-        "linkedin": "Global Work Radarで新しい求人Signalを確認。 Freelance Agent Evaluation Engineer｜Mindrift｜JP｜USD 0 公開対象はVERIFIED ACTIVEかつ公式応募先を確認できたものに限定しています。 https://global-work-radar.pages.dev/?japan=1&utm_source=social&utm_medium=organic&utm_campaign=gwr_signal_growth&utm_content=gwr-open-467969ef9741&q=Mindrift&intent=remote"
+        "x": "【GWR OPEN】Freelance Agent Evaluation Engineer｜Mindrift｜JP｜USD 0。公式求人の確認先まで検証済み。GWRは日本から確認できる海外求人の変化を継続観測中。 https://global-work-radar.pages.dev/?japan=1&utm_source=social&utm_medium=organic&utm_campaign=gwr_signal_growth&utm_content=gwr-open-0c1728eaf4c5&q=Mindrift&intent=re…",
+        "bluesky": "GWR OPEN｜Freelance Agent Evaluation Engineer｜Mindrift｜JP｜USD 0。公式求人まで確認済み。GWRは日本から確認できる海外求人の変化を継続観測中。 https://global-work-radar.pages.dev/?japan=1&utm_source=social&utm_medium=organic&utm_campaign=gwr_signal_growth&utm_content=gwr-open-0c1728eaf4c5&q=Mindrift&intent=remote",
+        "linkedin": "Global Work Radarで新しい求人Signalを確認。 Freelance Agent Evaluation Engineer｜Mindrift｜JP｜USD 0 公開対象はVERIFIED ACTIVEかつ公式応募先を確認できたものに限定しています。 https://global-work-radar.pages.dev/?japan=1&utm_source=social&utm_medium=organic&utm_campaign=gwr_signal_growth&utm_content=gwr-open-0c1728eaf4c5&q=Mindrift&intent=remote"
       },
-      "destination_url": "https://global-work-radar.pages.dev/?japan=1&utm_source=social&utm_medium=organic&utm_campaign=gwr_signal_growth&utm_content=gwr-open-467969ef9741&q=Mindrift&intent=remote",
+      "destination_url": "https://global-work-radar.pages.dev/?japan=1&utm_source=social&utm_medium=organic&utm_campaign=gwr_signal_growth&utm_content=gwr-open-0c1728eaf4c5&q=Mindrift&intent=remote",
       "evidence": [
         {
           "job_id": "workable-887f0c009b",
@@ -320,7 +320,7 @@
           "title": "Freelance Agent Evaluation Engineer",
           "source": "Workable",
           "official_url": "https://apply.workable.com/j/887F0C009B",
-          "last_verified_at": "2026-09-12T18:23:54.582Z",
+          "last_verified_at": "2026-09-12T22:18:30.374Z",
           "freshness_bucket": "NEW_3D",
           "hiring_momentum": "STEADY",
           "hiring_delta": 0
@@ -339,18 +339,18 @@
       "rank": 8
     },
     {
-      "candidate_id": "gwr-open-c5d91b7fbc51",
+      "candidate_id": "gwr-open-8db8cfadbb97",
       "signal_type": "GWR_OPEN",
       "objective": "qualified_revenue_growth",
       "score": 86,
-      "source_generated_at": "2026-09-12T18:24:16.696Z",
+      "source_generated_at": "2026-09-12T22:18:47.878Z",
       "claim_scope": "verified_active_structured_facts_only",
       "text": {
-        "x": "【GWR OPEN】AI训练师 - 中英双语语音录制｜Mindrift - Data annotation｜JP｜USD 0。公式求人の確認先まで検証済み。GWRは日本から確認できる海外求人の変化を継続観測中。 https://global-work-radar.pages.dev/?japan=1&utm_source=social&utm_medium=organic&utm_campaign=gwr_signal_growth&utm_content=gwr-open-c5d91b7fbc51&q=Mindrift+-+Data+ann…",
-        "bluesky": "GWR OPEN｜AI训练师 - 中英双语语音录制｜Mindrift - Data annotation｜JP｜USD 0。公式求人まで確認済み。GWRは日本から確認できる海外求人の変化を継続観測中。 https://global-work-radar.pages.dev/?japan=1&utm_source=social&utm_medium=organic&utm_campaign=gwr_signal_growth&utm_content=gwr-open-c5d91b7fbc51&q=Mindrift+-+Data+annotation&intent=remote",
-        "linkedin": "Global Work Radarで新しい求人Signalを確認。 AI训练师 - 中英双语语音录制｜Mindrift - Data annotation｜JP｜USD 0 公開対象はVERIFIED ACTIVEかつ公式応募先を確認できたものに限定しています。 https://global-work-radar.pages.dev/?japan=1&utm_source=social&utm_medium=organic&utm_campaign=gwr_signal_growth&utm_content=gwr-open-c5d91b7fbc51&q=Mindrift+-+Data+annotation&intent=remote"
+        "x": "【GWR OPEN】AI训练师 - 中英双语语音录制｜Mindrift - Data annotation｜JP｜USD 0。公式求人の確認先まで検証済み。GWRは日本から確認できる海外求人の変化を継続観測中。 https://global-work-radar.pages.dev/?japan=1&utm_source=social&utm_medium=organic&utm_campaign=gwr_signal_growth&utm_content=gwr-open-8db8cfadbb97&q=Mindrift+-+Data+ann…",
+        "bluesky": "GWR OPEN｜AI训练师 - 中英双语语音录制｜Mindrift - Data annotation｜JP｜USD 0。公式求人まで確認済み。GWRは日本から確認できる海外求人の変化を継続観測中。 https://global-work-radar.pages.dev/?japan=1&utm_source=social&utm_medium=organic&utm_campaign=gwr_signal_growth&utm_content=gwr-open-8db8cfadbb97&q=Mindrift+-+Data+annotation&intent=remote",
+        "linkedin": "Global Work Radarで新しい求人Signalを確認。 AI训练师 - 中英双语语音录制｜Mindrift - Data annotation｜JP｜USD 0 公開対象はVERIFIED ACTIVEかつ公式応募先を確認できたものに限定しています。 https://global-work-radar.pages.dev/?japan=1&utm_source=social&utm_medium=organic&utm_campaign=gwr_signal_growth&utm_content=gwr-open-8db8cfadbb97&q=Mindrift+-+Data+annotation&intent=remote"
       },
-      "destination_url": "https://global-work-radar.pages.dev/?japan=1&utm_source=social&utm_medium=organic&utm_campaign=gwr_signal_growth&utm_content=gwr-open-c5d91b7fbc51&q=Mindrift+-+Data+annotation&intent=remote",
+      "destination_url": "https://global-work-radar.pages.dev/?japan=1&utm_source=social&utm_medium=organic&utm_campaign=gwr_signal_growth&utm_content=gwr-open-8db8cfadbb97&q=Mindrift+-+Data+annotation&intent=remote",
       "evidence": [
         {
           "job_id": "workable-3ae6d3c7f5",
@@ -358,7 +358,7 @@
           "title": "AI训练师 - 中英双语语音录制",
           "source": "Workable",
           "official_url": "https://apply.workable.com/j/3AE6D3C7F5",
-          "last_verified_at": "2026-09-12T18:23:54.582Z",
+          "last_verified_at": "2026-09-12T22:18:30.374Z",
           "freshness_bucket": "NEW_3D",
           "hiring_momentum": "STEADY",
           "hiring_delta": 0
@@ -377,18 +377,18 @@
       "rank": 9
     },
     {
-      "candidate_id": "gwr-open-681b89a66fa3",
+      "candidate_id": "gwr-open-43c1ec9edda2",
       "signal_type": "GWR_OPEN",
       "objective": "qualified_revenue_growth",
       "score": 86,
-      "source_generated_at": "2026-09-12T18:24:16.696Z",
+      "source_generated_at": "2026-09-12T22:18:47.878Z",
       "claim_scope": "verified_active_structured_facts_only",
       "text": {
-        "x": "【GWR OPEN】AI Trainer - English-Chinese Bilingual Voice Recording｜Mindrift - Data annotation｜Tokyo, JP｜USD 0。公式求人の確認先まで検証済み。GWRは日本から確認できる海外求人の変化を継続観測中。 https://global-work-radar.pages.dev/?japan=1&utm_source=social&utm_medium=organic&utm_campaign=gwr_signal_growth&utm_conten…",
-        "bluesky": "GWR OPEN｜AI Trainer - English-Chinese Bilingual Voice Recording｜Mindrift - Data annotation｜Tokyo, JP｜USD 0。公式求人まで確認済み。GWRは日本から確認できる海外求人の変化を継続観測中。 https://global-work-radar.pages.dev/?japan=1&utm_source=social&utm_medium=organic&utm_campaign=gwr_signal_growth&utm_content=gwr-open-681b89a66fa3&q…",
-        "linkedin": "Global Work Radarで新しい求人Signalを確認。 AI Trainer - English-Chinese Bilingual Voice Recording｜Mindrift - Data annotation｜Tokyo, JP｜USD 0 公開対象はVERIFIED ACTIVEかつ公式応募先を確認できたものに限定しています。 https://global-work-radar.pages.dev/?japan=1&utm_source=social&utm_medium=organic&utm_campaign=gwr_signal_growth&utm_content=gwr-open-681b89a66fa3&q=Mindrift+-+Data+annotation&intent=remote"
+        "x": "【GWR OPEN】AI Trainer - English-Chinese Bilingual Voice Recording｜Mindrift - Data annotation｜JP｜USD 0。公式求人の確認先まで検証済み。GWRは日本から確認できる海外求人の変化を継続観測中。 https://global-work-radar.pages.dev/?japan=1&utm_source=social&utm_medium=organic&utm_campaign=gwr_signal_growth&utm_content=gwr-o…",
+        "bluesky": "GWR OPEN｜AI Trainer - English-Chinese Bilingual Voice Recording｜Mindrift - Data annotation｜JP｜USD 0。公式求人まで確認済み。GWRは日本から確認できる海外求人の変化を継続観測中。 https://global-work-radar.pages.dev/?japan=1&utm_source=social&utm_medium=organic&utm_campaign=gwr_signal_growth&utm_content=gwr-open-43c1ec9edda2&q=Mindri…",
+        "linkedin": "Global Work Radarで新しい求人Signalを確認。 AI Trainer - English-Chinese Bilingual Voice Recording｜Mindrift - Data annotation｜JP｜USD 0 公開対象はVERIFIED ACTIVEかつ公式応募先を確認できたものに限定しています。 https://global-work-radar.pages.dev/?japan=1&utm_source=social&utm_medium=organic&utm_campaign=gwr_signal_growth&utm_content=gwr-open-43c1ec9edda2&q=Mindrift+-+Data+annotation&intent=remote"
       },
-      "destination_url": "https://global-work-radar.pages.dev/?japan=1&utm_source=social&utm_medium=organic&utm_campaign=gwr_signal_growth&utm_content=gwr-open-681b89a66fa3&q=Mindrift+-+Data+annotation&intent=remote",
+      "destination_url": "https://global-work-radar.pages.dev/?japan=1&utm_source=social&utm_medium=organic&utm_campaign=gwr_signal_growth&utm_content=gwr-open-43c1ec9edda2&q=Mindrift+-+Data+annotation&intent=remote",
       "evidence": [
         {
           "job_id": "workable-e51e70cb6b",
@@ -396,7 +396,7 @@
           "title": "AI Trainer - English-Chinese Bilingual Voice Recording",
           "source": "Workable",
           "official_url": "https://apply.workable.com/j/E51E70CB6B",
-          "last_verified_at": "2026-09-12T18:23:54.582Z",
+          "last_verified_at": "2026-09-12T22:18:30.374Z",
           "freshness_bucket": "NEW_3D",
           "hiring_momentum": "STEADY",
           "hiring_delta": 0
