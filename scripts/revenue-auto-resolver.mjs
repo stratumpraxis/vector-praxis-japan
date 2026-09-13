@@ -16,12 +16,16 @@ const DEFAULT_POLICY = Object.freeze({
   },
 });
 
-const safeDivide = (numerator, denominator) =>
-  denominator > 0 ? numerator / denominator : null;
+const safeDivide = (numerator, denominator) => {
+  if (numerator == null || denominator == null || denominator <= 0) return null;
+  return numerator / denominator;
+};
 
-const clampCount = (value) => {
-  const number = Number(value ?? 0);
-  return Number.isFinite(number) && number > 0 ? Math.floor(number) : 0;
+const observedCount = (value) => {
+  if (value == null) return null;
+  const number = Number(value);
+  if (!Number.isFinite(number)) return null;
+  return number > 0 ? Math.floor(number) : 0;
 };
 
 export function normalizeRevenueMetrics(input = {}) {
@@ -30,15 +34,14 @@ export function normalizeRevenueMetrics(input = {}) {
     route_id: input.route_id ?? "vpj_owned_ai_agent_bottleneck_v2",
     window: input.window ?? "unspecified",
     metrics: {
-      owned_sessions: clampCount(source.owned_sessions),
-      diagnostic_entry_clicks: clampCount(source.diagnostic_entry_clicks),
-      diagnostic_sessions: clampCount(source.diagnostic_sessions),
-      bottleneck_selections: clampCount(source.bottleneck_selections),
-      paid_recommendation_views: clampCount(source.paid_recommendation_views),
-      paid_cta_clicks: clampCount(source.paid_cta_clicks),
-      checkout_reaches: source.checkout_reaches == null ? null : clampCount(source.checkout_reaches),
-      verified_human_purchases:
-        source.verified_human_purchases == null ? null : clampCount(source.verified_human_purchases),
+      owned_sessions: observedCount(source.owned_sessions),
+      diagnostic_entry_clicks: observedCount(source.diagnostic_entry_clicks),
+      diagnostic_sessions: observedCount(source.diagnostic_sessions),
+      bottleneck_selections: observedCount(source.bottleneck_selections),
+      paid_recommendation_views: observedCount(source.paid_recommendation_views),
+      paid_cta_clicks: observedCount(source.paid_cta_clicks),
+      checkout_reaches: observedCount(source.checkout_reaches),
+      verified_human_purchases: observedCount(source.verified_human_purchases),
     },
   };
 }
@@ -51,16 +54,12 @@ export function resolveRevenueBottleneck(input = {}, policy = DEFAULT_POLICY) {
     diagnostic_arrival_rate: safeDivide(m.diagnostic_sessions, m.diagnostic_entry_clicks),
     bottleneck_select_rate: safeDivide(m.bottleneck_selections, m.diagnostic_sessions),
     paid_cta_rate: safeDivide(m.paid_cta_clicks, m.paid_recommendation_views),
-    checkout_rate:
-      m.checkout_reaches == null ? null : safeDivide(m.checkout_reaches, m.paid_cta_clicks),
-    purchase_rate:
-      m.checkout_reaches == null || m.verified_human_purchases == null
-        ? null
-        : safeDivide(m.verified_human_purchases, m.checkout_reaches),
+    checkout_rate: safeDivide(m.checkout_reaches, m.paid_cta_clicks),
+    purchase_rate: safeDivide(m.verified_human_purchases, m.checkout_reaches),
   };
 
-  const result = (status, bottleneck, action, reason, confidence = "medium") => ({
-    version: 1,
+  const result = (status, bottleneck, action, reason, confidence = "medium", missingMetric = null) => ({
+    version: 2,
     route_id: normalized.route_id,
     window: normalized.window,
     status,
@@ -68,15 +67,29 @@ export function resolveRevenueBottleneck(input = {}, policy = DEFAULT_POLICY) {
     action,
     reason,
     confidence,
+    missing_metric: missingMetric,
     metrics: m,
     rates,
     evidence_rules: {
+      missing_or_unobserved_is_not_zero: true,
       checkout_is_optional_external_evidence: true,
       purchase_is_verified_external_evidence_only: true,
       paid_cta_click_is_not_checkout: true,
       paid_cta_click_is_not_purchase: true,
     },
   });
+
+  const incomplete = (metric, bottleneck) =>
+    result(
+      "OBSERVATION_INCOMPLETE",
+      bottleneck,
+      "WAIT_FOR_OBSERVED_METRIC",
+      `${metric} has not been observed yet; unknown evidence must not be treated as zero.`,
+      "low",
+      metric,
+    );
+
+  if (m.owned_sessions == null) return incomplete("owned_sessions", "traffic_observation");
 
   if (m.owned_sessions === 0) {
     return result(
@@ -98,7 +111,11 @@ export function resolveRevenueBottleneck(input = {}, policy = DEFAULT_POLICY) {
     );
   }
 
-  if ((rates.entry_rate ?? 0) < policy.thresholds.entry_rate) {
+  if (m.diagnostic_entry_clicks == null) {
+    return incomplete("diagnostic_entry_clicks", "entry_observation");
+  }
+
+  if (rates.entry_rate < policy.thresholds.entry_rate) {
     return result(
       "ENTRY_FRICTION",
       "entry",
@@ -118,7 +135,11 @@ export function resolveRevenueBottleneck(input = {}, policy = DEFAULT_POLICY) {
     );
   }
 
-  if ((rates.diagnostic_arrival_rate ?? 0) < policy.thresholds.diagnostic_arrival_rate) {
+  if (m.diagnostic_sessions == null) {
+    return incomplete("diagnostic_sessions", "diagnostic_arrival_observation");
+  }
+
+  if (rates.diagnostic_arrival_rate < policy.thresholds.diagnostic_arrival_rate) {
     return result(
       "DIAGNOSTIC_ARRIVAL_FRICTION",
       "diagnostic_arrival",
@@ -138,7 +159,11 @@ export function resolveRevenueBottleneck(input = {}, policy = DEFAULT_POLICY) {
     );
   }
 
-  if ((rates.bottleneck_select_rate ?? 0) < policy.thresholds.bottleneck_select_rate) {
+  if (m.bottleneck_selections == null) {
+    return incomplete("bottleneck_selections", "diagnostic_choice_observation");
+  }
+
+  if (rates.bottleneck_select_rate < policy.thresholds.bottleneck_select_rate) {
     return result(
       "DIAGNOSTIC_FRICTION",
       "diagnostic_choice",
@@ -146,6 +171,10 @@ export function resolveRevenueBottleneck(input = {}, policy = DEFAULT_POLICY) {
       `Bottleneck selection rate is below ${(policy.thresholds.bottleneck_select_rate * 100).toFixed(0)}%.`,
       "high",
     );
+  }
+
+  if (m.paid_recommendation_views == null) {
+    return incomplete("paid_recommendation_views", "paid_offer_observation");
   }
 
   if (m.paid_recommendation_views < policy.minimums.paid_recommendation_views) {
@@ -158,7 +187,11 @@ export function resolveRevenueBottleneck(input = {}, policy = DEFAULT_POLICY) {
     );
   }
 
-  if ((rates.paid_cta_rate ?? 0) < policy.thresholds.paid_cta_rate) {
+  if (m.paid_cta_clicks == null) {
+    return incomplete("paid_cta_clicks", "paid_cta_observation");
+  }
+
+  if (rates.paid_cta_rate < policy.thresholds.paid_cta_rate) {
     return result(
       "OFFER_FRICTION",
       "paid_offer",
@@ -175,10 +208,11 @@ export function resolveRevenueBottleneck(input = {}, policy = DEFAULT_POLICY) {
       "VERIFY_EXTERNAL_CHECKOUT_EVIDENCE",
       "On-site funnel cleared current thresholds, but checkout reach is not independently observed.",
       "medium",
+      "checkout_reaches",
     );
   }
 
-  if (m.paid_cta_clicks > 0 && (rates.checkout_rate ?? 0) < policy.thresholds.checkout_rate) {
+  if (m.paid_cta_clicks > 0 && rates.checkout_rate < policy.thresholds.checkout_rate) {
     return result(
       "CHECKOUT_FRICTION",
       "external_checkout",
@@ -205,10 +239,11 @@ export function resolveRevenueBottleneck(input = {}, policy = DEFAULT_POLICY) {
       "VERIFY_HUMAN_PAYMENT_EVIDENCE",
       "Checkout evidence exists, but no independently verified human purchase count was supplied.",
       "medium",
+      "verified_human_purchases",
     );
   }
 
-  if ((rates.purchase_rate ?? 0) < policy.thresholds.purchase_rate) {
+  if (rates.purchase_rate < policy.thresholds.purchase_rate) {
     return result(
       "PAYMENT_GAP",
       "payment",
