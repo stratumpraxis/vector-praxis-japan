@@ -38,11 +38,13 @@ test("Vector premium layer exposes the canonical public status vocabulary", asyn
   assert.match(layer, /GROUP.*EXTERNAL/);
 });
 
-test("Vector keeps explicit, privacy-aware measurement", async () => {
+test("Vector keeps explicit, privacy-aware and project-scoped measurement", async () => {
   const layout = await read("app/layout.tsx");
   assert.match(layout, /autocapture:false/);
   assert.match(layout, /disable_session_recording:true/);
   assert.match(layout, /person_profiles:"never"/);
+  assert.match(layout, /analytics_scope:"vector_praxis_japan"/);
+  assert.match(layout, /route_id:routeId/);
   assert.match(layout, /VectorPremiumLayer/);
 });
 
