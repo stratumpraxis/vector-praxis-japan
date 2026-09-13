@@ -1,10 +1,10 @@
 {
   "schema_version": 1,
-  "observed_at": "2026-09-13T18:48:10.214Z",
+  "observed_at": "2026-09-13T22:25:23.397Z",
   "run": {
-    "github_run_id": "34775698928",
+    "github_run_id": "34786685412",
     "github_run_attempt": "1",
-    "github_sha": "0baf623accfaf5f2d61e9f00be1b465cbff093b0",
+    "github_sha": "d5ff1a51faee21b921e3b41d414ab8a581c0245d",
     "baseline_ref": "HEAD"
   },
   "inventory": {
@@ -499,19 +499,19 @@
       "state_counts": {
         "NEW_24H": 8,
         "STALE_RISK_90D": 221,
-        "AGING_30D": 68,
+        "LONG_RUNNING_60D": 51,
         "ACTIVE": 63,
-        "LONG_RUNNING_60D": 50,
+        "AGING_30D": 67,
         "FRESH_7D": 34,
         "NEW_3D": 25
       },
       "stale_risk_counts": {
-        "LOW": 198,
+        "LOW": 197,
         "ELEVATED": 221,
-        "REVIEW": 50
+        "REVIEW": 51
       },
       "reopened_after_confirmed_close_count": 0,
-      "changed_within_7d_count": 66,
+      "changed_within_7d_count": 67,
       "thresholds_days": {
         "aging": 30,
         "long_running": 60,
@@ -521,9 +521,9 @@
     },
     "hiring_intent": {
       "signal_level_counts": {
-        "MODERATE_EVIDENCE": 116,
+        "MODERATE_EVIDENCE": 115,
         "WEAK_EVIDENCE": 335,
-        "STRONG_EVIDENCE": 18
+        "STRONG_EVIDENCE": 19
       },
       "score_is_probability": false,
       "ghost_job_classifier": false,
