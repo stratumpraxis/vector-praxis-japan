@@ -75,6 +75,7 @@ const items: Bottleneck[] = [
 function capture(event: string, props: Record<string, unknown> = {}) {
   try {
     (window as unknown as { posthog?: { capture: (name: string, properties?: Record<string, unknown>) => void } }).posthog?.capture(event, {
+      analytics_scope: "vector_praxis_japan",
       surface: "vector_ai_agent_bottleneck",
       route_id: ROUTE_ID,
       asset_id: "ai_agent_bottleneck",
