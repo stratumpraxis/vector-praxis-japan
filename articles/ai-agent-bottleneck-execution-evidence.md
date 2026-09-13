@@ -308,23 +308,14 @@ AIは作業を高速化します。
 
 ---
 
-### この構造を、自分のプロジェクトへそのまま実装したい場合
+### 複数AIを「チーム」にする設計を、さらに深掘りしたい場合
 
-記事で整理した `handoff → Evidence → Human Gate → Next Action` を理解するだけでなく、実際のAI運用へ落とすには、**誰が何を引き継ぐか・どこで人間が止めるか・何を完了証拠にするか**をプロジェクト側に定義する必要があります。
+この記事では、ボトルネックの見つけ方と `handoff → Evidence → Human Gate → Next Action` の基本構造を整理しました。
 
-Cross-Agent Operating Kit は、その初期設計をゼロから書かずに始めるための実装用キットです。
+Vectorの有料note **「AIを増やすほど仕事が遅くなる理由──ChatGPT・Claude・GitHubを『チーム』に変える設計」** では、役割分担、受け渡し、外部配信、計測、収益導線までを一続きで詳しく扱っています。
 
-**Personal $69 に含まれる主なもの**
+**向いている人**：AIや自動化ツールを増やしたのに、比較・コピペ・確認・投稿・記録が人間側に残り、全体が速くならない人。
 
-- `AGENTS.md`：目的、Source of Truth、権限、Human Gate、失敗時ルール、Definition of Done
-- Claude / Codex / Cursor 用ランタイムアダプター
-- Policy Conflict Check
-- Human Gate Matrix
-- Budget / Token / Quota / Retry のガードレール
-- Agentを切り替えるためのMigration / State Handoffテンプレート
+¥1,480。
 
-**向いている人**：複数のAI・開発Agentを自分のプロジェクトで運用していて、「生成は速いのにレビュー・引き継ぎ・完了確認で止まる」状態を減らしたい人。
-
-買い切り $69。Markdown + YAML の編集可能なファイルとして、自分のプロジェクトへ組み込めます。
-
-[Cross-Agent Operating Kit Personalを見る — $69](https://stratumpraxis.com/cross-agent-operating-kit.html?utm_source=zenn&utm_medium=article&utm_campaign=ai_agent_bottleneck_execution_evidence&utm_content=primary_cta&asset_id=cross_agent_operating_kit&route_id=zenn_ai_agent_bottleneck_v1)
+[Vectorの深掘り記事を見る — ¥1,480](https://note.com/deft_eel6718/n/ncaff8351e529?utm_source=zenn&utm_medium=article&utm_campaign=vector_ai_agent_bottleneck_20260913&utm_content=primary_cta&asset_id=note_ncaff8351e529&route_id=zenn_ai_agent_bottleneck_v2)
