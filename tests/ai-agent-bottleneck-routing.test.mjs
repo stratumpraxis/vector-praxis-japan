@@ -20,10 +20,12 @@ test("bottleneck routing stays Vector-native and routes intent to the existing p
   assert.doesNotMatch(router, /stratumpraxis\.com|cross-agent-operating-kit|ai-agent-economics-calculator/i);
 });
 
-test("bottleneck routing emits measurable intent and next-action events", () => {
+test("bottleneck routing emits scoped measurable intent and next-action events", () => {
   assert.match(router, /vector_bottleneck_select/);
   assert.match(router, /vector_bottleneck_recommendation_view/);
   assert.match(router, /vector_bottleneck_next_click/);
+  assert.match(router, /analytics_scope:\s*"vector_praxis_japan"/);
+  assert.match(router, /destination_kind:\s*current\.kind/);
   assert.match(router, /data-event=\{current\.event\}/);
   assert.match(router, /asset_id/);
   assert.match(router, /route_id/);
