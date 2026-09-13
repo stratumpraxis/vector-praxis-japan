@@ -49,7 +49,7 @@
       "event": "vector_bottleneck_recommendation_view",
       "filters": {
         "analytics_scope": "vector_praxis_japan",
-        "target": "paid"
+        "destination_kind": "paid"
       },
       "observation": "unobserved_until_event_appears_in_schema"
     },
