@@ -28,7 +28,9 @@ window.GWR_INTELLIGENCE_SIGNAL = Object.freeze({
     jobasia: 'JOBAsia',
     japan_hire: 'Japan Hire',
     advanced_talent: 'ADVANCED Talent',
-    jac_international: 'JAC International'
+    jac_international: 'JAC International',
+    beacon_associates: 'BEACON Associates',
+    hrog: 'HRog'
   });
   const storageKey = 'gwr_buyer_attribution_v1';
   const ttlMs = 30 * 24 * 60 * 60 * 1000;
