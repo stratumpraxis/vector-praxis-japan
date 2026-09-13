@@ -1,3 +1,3 @@
-triggered_at=2026-09-13T19:55:00+09:00
-campaign=vector-ai-agent-bottleneck-20260913-v2
-reason=retry_shortened_vector_native_bluesky_route
+triggered_at=2026-09-13T19:58:00+09:00
+campaign=vector-ai-agent-bottleneck-20260913-v3
+reason=retry_utm_preserving_bluesky_with_minimal_copy
