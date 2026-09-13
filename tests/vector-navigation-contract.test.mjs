@@ -4,12 +4,24 @@ import test from "node:test";
 
 const read = (path) => readFile(new URL(`../${path}`, import.meta.url), "utf8");
 
-test("Vector keeps the six-route public information architecture", async () => {
+test("Vector keeps the four-intent revenue information architecture", async () => {
   const home = await read("app/page.tsx");
-  for (const id of ["start", "build", "earn", "creator", "read", "return"]) {
-    assert.match(home, new RegExp(`id:\\s*"${id}"`));
+  for (const id of ["diagnose", "learn", "earn", "create"]) {
+    assert.match(home, new RegExp(`\\b${id}:\\s*\\{`));
   }
-  assert.match(home, /type RouteId = "start" \| "build" \| "earn" \| "creator" \| "read" \| "return"/);
+  assert.match(home, /type IntentId = "diagnose" \| "learn" \| "earn" \| "create"/);
+  assert.match(home, /vector_revenue_intent_select/);
+  assert.match(home, /vector_revenue_match_view/);
+});
+
+test("Vector routes owned traffic into the measured free diagnostic", async () => {
+  const layout = await read("app/layout.tsx");
+  const entry = await read("app/vector-diagnostic-entry.tsx");
+  assert.match(layout, /VectorDiagnosticEntry/);
+  assert.match(entry, /\/ai-agent-bottleneck\?utm_source=vector_owned/);
+  assert.match(entry, /data-event="priority_entry_click"/);
+  assert.match(entry, /vpj_owned_ai_agent_bottleneck_v2/);
+  assert.match(entry, /pathname\?\.startsWith\("\/ai-agent-bottleneck"\)/);
 });
 
 test("Vector preserves current Sites canonical fallback", async () => {
