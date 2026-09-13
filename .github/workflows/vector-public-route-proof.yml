@@ -1,0 +1,132 @@
+name: Vector Public Route Proof
+
+on:
+  workflow_dispatch:
+  push:
+    branches: [main]
+    paths:
+      - '.github/workflows/vector-public-route-proof.yml'
+      - 'app/ai-agent-bottleneck/**'
+      - 'app/layout.tsx'
+      - 'lib/site-url.ts'
+  schedule:
+    - cron: '17 */6 * * *'
+
+permissions:
+  contents: write
+
+concurrency:
+  group: vector-public-route-proof
+  cancel-in-progress: false
+
+jobs:
+  prove-route:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Probe Vector public route candidates
+        shell: bash
+        run: |
+          set -u
+          mkdir -p distribution .route-proof
+          python3 - <<'PY'
+          import json
+          from pathlib import Path
+
+          candidates = [
+              "https://vector-praxis-japan.vercel.app/ai-agent-bottleneck",
+              "https://vector-praxis-japan-hub.vercel.app/ai-agent-bottleneck",
+          ]
+          Path('.route-proof/candidates.json').write_text(json.dumps(candidates), encoding='utf-8')
+          PY
+
+          : > .route-proof/results.tsv
+          python3 - <<'PY'
+          import json, subprocess
+          from pathlib import Path
+
+          marker = "AIを増やしても"
+          candidates = json.loads(Path('.route-proof/candidates.json').read_text(encoding='utf-8'))
+          rows = []
+          for i, url in enumerate(candidates):
+              body = Path(f'.route-proof/body-{i}.html')
+              cmd = [
+                  'curl', '-sS', '-L', '--connect-timeout', '10', '--max-time', '25',
+                  '-A', 'VectorRouteProof/1.0 (+https://github.com/stratumpraxis/vector-praxis-japan)',
+                  '-o', str(body), '-w', '%{http_code}\t%{url_effective}', url,
+              ]
+              try:
+                  proc = subprocess.run(cmd, text=True, capture_output=True, timeout=30)
+                  parts = (proc.stdout or '').strip().split('\t', 1)
+                  status = int(parts[0]) if parts and parts[0].isdigit() else 0
+                  effective = parts[1] if len(parts) > 1 else None
+                  text = body.read_text(encoding='utf-8', errors='ignore') if body.exists() else ''
+                  rows.append({
+                      'requested_url': url,
+                      'effective_url': effective,
+                      'http_status': status,
+                      'marker_match': marker in text,
+                      'curl_exit_code': proc.returncode,
+                      'curl_error': (proc.stderr or '').strip()[:500] or None,
+                  })
+              except Exception as exc:
+                  rows.append({
+                      'requested_url': url,
+                      'effective_url': None,
+                      'http_status': 0,
+                      'marker_match': False,
+                      'curl_exit_code': None,
+                      'curl_error': str(exc)[:500],
+                  })
+          Path('.route-proof/results.json').write_text(json.dumps(rows, ensure_ascii=False, indent=2), encoding='utf-8')
+          PY
+
+      - name: Write evidence state
+        env:
+          COMMIT_SHA: ${{ github.sha }}
+          RUN_ID: ${{ github.run_id }}
+          REPOSITORY: ${{ github.repository }}
+        run: |
+          python3 - <<'PY'
+          import json, os
+          from datetime import datetime, timezone
+          from pathlib import Path
+
+          results = json.loads(Path('.route-proof/results.json').read_text(encoding='utf-8'))
+          passing = [r for r in results if r['http_status'] == 200 and r['marker_match']]
+          selected = passing[0]['effective_url'] if passing else None
+          evidence = {
+              'checked_at': datetime.now(timezone.utc).isoformat().replace('+00:00', 'Z'),
+              'commit_sha': os.environ.get('COMMIT_SHA'),
+              'workflow_run_id': os.environ.get('RUN_ID'),
+              'repository': os.environ.get('REPOSITORY'),
+              'route_id': 'vpj_owned_ai_agent_bottleneck_v2',
+              'asset_id': 'ai_agent_bottleneck',
+              'content_marker': 'AIを増やしても',
+              'evidence_state': 'REACHABLE' if selected else 'UNVERIFIED',
+              'selected_url': selected,
+              'candidates': results,
+              'inference_guard': 'HTTP 200 plus current-content marker is required before treating the route as publicly reachable. Deployment success alone is insufficient.'
+          }
+          Path('distribution/vector-public-route-proof.json').write_text(
+              json.dumps(evidence, ensure_ascii=False, indent=2) + '\n', encoding='utf-8'
+          )
+          print(json.dumps(evidence, ensure_ascii=False, indent=2))
+          PY
+
+      - name: Persist route evidence
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add distribution/vector-public-route-proof.json
+          if git diff --cached --quiet; then
+            echo "No public-route evidence change to persist."
+            exit 0
+          fi
+          git commit -m "chore: persist Vector public route evidence"
+          git fetch origin main
+          git rebase origin/main
+          git push origin HEAD:main
