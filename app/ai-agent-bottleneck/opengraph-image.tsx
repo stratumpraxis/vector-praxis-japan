@@ -20,7 +20,7 @@ export default function Image() {
       }}
     >
       <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center" }}>
-        <div style={{ fontSize: 24, letterSpacing: 4, fontWeight: 700 }}>VECTOR PRAXIS</div>
+        <div style={{ display: "flex", fontSize: 24, letterSpacing: 4, fontWeight: 700 }}>VECTOR PRAXIS</div>
         <div
           style={{
             display: "flex",
@@ -49,7 +49,7 @@ export default function Image() {
         <div style={{ display: "flex", gap: 18, fontSize: 22, color: "#9ca3af" }}>
           <span>READ</span><span>→</span><span>DIAGNOSE</span><span>→</span><span>NEXT</span>
         </div>
-        <div style={{ fontSize: 25, fontWeight: 700 }}>vector-praxis-japan-hub.vercel.app</div>
+        <div style={{ display: "flex", fontSize: 25, fontWeight: 700 }}>vector-praxis-japan-hub.vercel.app</div>
       </div>
     </div>,
     size,
