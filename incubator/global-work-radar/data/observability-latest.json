@@ -1,23 +1,23 @@
 {
   "schema_version": 1,
-  "observed_at": "2026-09-13T13:19:38.079Z",
+  "observed_at": "2026-09-13T18:48:10.214Z",
   "run": {
-    "github_run_id": "34759469200",
+    "github_run_id": "34775698928",
     "github_run_attempt": "1",
-    "github_sha": "b427e0b1421b7beb3d347555ca8737d8b2a762a1",
+    "github_sha": "0baf623accfaf5f2d61e9f00be1b465cbff093b0",
     "baseline_ref": "HEAD"
   },
   "inventory": {
     "previous_count": null,
-    "current_count": 470,
+    "current_count": 469,
     "source_counts": {
       "lever": 4,
-      "workable_publishable": 574
+      "workable_publishable": 573
     }
   },
   "change_detection": {
-    "meaningful_change_count": 470,
-    "added_count": 470,
+    "meaningful_change_count": 469,
+    "added_count": 469,
     "removed_count": 0,
     "changed_count": 0,
     "added_ids": [
@@ -69,10 +69,10 @@
       "workable-ccb1816009",
       "workable-4006265775",
       "workable-a335b713f4",
+      "workable-4c15cdd484",
       "workable-35e51b79a9",
       "workable-2584b2186b",
       "workable-8bbd3702f9",
-      "workable-4c15cdd484",
       "workable-0b1d27bd70",
       "workable-82d7518973",
       "workable-7afb08df16",
@@ -84,8 +84,8 @@
       "workable-2491771220",
       "workable-7066a95e5c",
       "workable-9700794743",
-      "workable-880a60b611",
       "workable-c489180ebf",
+      "workable-880a60b611",
       "workable-2ed6e15a34",
       "workable-650401fd75",
       "workable-089e240467",
@@ -450,7 +450,6 @@
       "workable-534d694ae5",
       "workable-c1a9d1b0bc",
       "workable-bd51cdab6e",
-      "workable-fbc4b650c1",
       "workable-05994213a3",
       "workable-22879008a6",
       "workable-872528ebb5",
@@ -498,21 +497,21 @@
   "intelligence": {
     "lifecycle": {
       "state_counts": {
-        "NEW_24H": 9,
+        "NEW_24H": 8,
         "STALE_RISK_90D": 221,
         "AGING_30D": 68,
         "ACTIVE": 63,
         "LONG_RUNNING_60D": 50,
-        "FRESH_7D": 35,
-        "NEW_3D": 24
+        "FRESH_7D": 34,
+        "NEW_3D": 25
       },
       "stale_risk_counts": {
-        "LOW": 199,
+        "LOW": 198,
         "ELEVATED": 221,
         "REVIEW": 50
       },
       "reopened_after_confirmed_close_count": 0,
-      "changed_within_7d_count": 63,
+      "changed_within_7d_count": 66,
       "thresholds_days": {
         "aging": 30,
         "long_running": 60,
@@ -522,9 +521,9 @@
     },
     "hiring_intent": {
       "signal_level_counts": {
-        "MODERATE_EVIDENCE": 115,
-        "WEAK_EVIDENCE": 334,
-        "STRONG_EVIDENCE": 21
+        "MODERATE_EVIDENCE": 116,
+        "WEAK_EVIDENCE": 335,
+        "STRONG_EVIDENCE": 18
       },
       "score_is_probability": false,
       "ghost_job_classifier": false,
