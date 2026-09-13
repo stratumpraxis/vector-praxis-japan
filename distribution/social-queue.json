@@ -225,6 +225,30 @@
       "external_post_url": "https://bsky.app/profile/vectorpx.bsky.social/post/3mv4xtjhyek24",
       "published_at": "2026-09-10T02:08:52.194Z",
       "publisher": "bluesky_direct"
+    },
+    {
+      "id": "vp-ai-agent-bottleneck-bluesky-20260913-01",
+      "platform": "bluesky",
+      "angle": "AIを増やす前に受け渡しを見る",
+      "copy": "AIを増やしたのに仕事が速くならないなら、モデル性能より先に『レビュー待ち・権限・引き継ぎ』を見た方がいい。3つから今の詰まりを選べるようにしました。",
+      "hashtags": [
+        "生成AI",
+        "AIエージェント"
+      ],
+      "destination": "https://vector-praxis-japan-hub.vercel.app/ai-agent-bottleneck",
+      "utm": {
+        "utm_source": "bluesky",
+        "utm_medium": "social",
+        "utm_campaign": "vector_ai_agent_bottleneck_20260913",
+        "utm_content": "handoff_bottleneck_v1",
+        "asset_id": "ai_agent_bottleneck",
+        "route_id": "vpj_owned_ai_agent_bottleneck_v2"
+      },
+      "status": "READY",
+      "approval": "USER_APPROVED",
+      "scheduled_at": "2026-09-13T19:30:00+09:00",
+      "require_media": false,
+      "post_format": "text"
     }
   ],
   "publisher_state": {
