@@ -16,6 +16,21 @@ const base = {
   },
 };
 
+test("unobserved internal metrics remain unknown instead of becoming zero", () => {
+  const result = resolveRevenueBottleneck({
+    metrics: {
+      owned_sessions: 100,
+      diagnostic_entry_clicks: 20,
+      diagnostic_sessions: 18,
+    },
+  });
+  assert.equal(result.status, "OBSERVATION_INCOMPLETE");
+  assert.equal(result.action, "WAIT_FOR_OBSERVED_METRIC");
+  assert.equal(result.missing_metric, "bottleneck_selections");
+  assert.equal(result.metrics.bottleneck_selections, null);
+  assert.equal(result.evidence_rules.missing_or_unobserved_is_not_zero, true);
+});
+
 test("zero traffic routes to distribution instead of offer changes", () => {
   const result = resolveRevenueBottleneck({ metrics: { owned_sessions: 0 } });
   assert.equal(result.status, "NO_TRAFFIC");
