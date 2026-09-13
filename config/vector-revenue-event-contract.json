@@ -1,0 +1,53 @@
+{
+  "version": 1,
+  "brand": "Vector Praxis",
+  "updated_at": "2026-09-13",
+  "required_attribution": [
+    "utm_source",
+    "utm_medium",
+    "utm_campaign",
+    "utm_content",
+    "route_id",
+    "asset_id"
+  ],
+  "funnel": [
+    {"event":"traffic_session_start","evidence":"analytics","status":"implemented"},
+    {"event":"free_tool_start","evidence":"first_party_interaction","status":"contract_only"},
+    {"event":"free_tool_complete","evidence":"first_party_interaction","status":"contract_only"},
+    {"event":"paid_product_view","evidence":"first_party_product_surface_or_verified_provider_view","status":"partial"},
+    {"event":"primary_cta_click","evidence":"first_party_click","status":"implemented"},
+    {"event":"checkout_click","evidence":"explicit_checkout_control_click","status":"existing_elsewhere_unverified_for_current_route"},
+    {"event":"confirmed_checkout_departure","evidence":"checkout_provider_or_verified_navigation","status":"missing"},
+    {"event":"checkout_return","evidence":"verified_return_route","status":"existing_elsewhere_unverified_for_current_route"},
+    {"event":"verified_access","evidence":"provider_access_or_delivery_confirmation","status":"missing"},
+    {"event":"purchase","evidence":"payment_provider_or_platform_sale","status":"missing"}
+  ],
+  "forbidden_inference": [
+    "primary_cta_click=>confirmed_checkout_departure",
+    "outbound_note_click=>checkout_click",
+    "checkout_click=>purchase",
+    "published_source=>deployed_public_behavior",
+    "pageview=>qualified_buyer"
+  ],
+  "states": [
+    "UNVERIFIED",
+    "UNKNOWN",
+    "AUTH_WAIT",
+    "PERMISSION_WAIT",
+    "FAILED_REVIEW",
+    "PUBLISHED",
+    "DEPLOYED",
+    "PURCHASED"
+  ],
+  "current_route": {
+    "route_id": "vpj_owned_ai_agent_bottleneck_v2",
+    "entry_asset_id": "ai_agent_bottleneck",
+    "product_asset_id": "note_ncaff8351e529",
+    "product_price_jpy": 1480,
+    "primary_channel": "bluesky",
+    "current_verified_stage": "PUBLISHED",
+    "checkout_reached": "UNVERIFIED",
+    "purchase": "UNVERIFIED",
+    "revenue": "UNVERIFIED"
+  }
+}
