@@ -15,7 +15,8 @@
     "lint": "bash scripts/sites-env.sh -- eslint . --ignore-pattern dist --ignore-pattern .next",
     "db:generate": "bash scripts/sites-env.sh -- drizzle-kit generate",
     "capability:scan": "node scripts/capability-scan.mjs",
-    "capability:test": "node --test tests/capability-scoring.test.mjs"
+    "capability:test": "node --test tests/capability-scoring.test.mjs",
+    "revenue:resolve": "node scripts/revenue-auto-resolver.mjs"
   },
   "dependencies": {
     "@base-ui/react": "^1.7.0",
