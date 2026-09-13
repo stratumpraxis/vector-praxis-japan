@@ -1,0 +1,30 @@
+{
+  "checked_at": "2026-09-13T17:22:34.136955Z",
+  "commit_sha": "538cf27d519020d7265110f1d306499017ed14c4",
+  "workflow_run_id": "34771398782",
+  "repository": "stratumpraxis/vector-praxis-japan",
+  "route_id": "vpj_owned_ai_agent_bottleneck_v2",
+  "asset_id": "ai_agent_bottleneck",
+  "content_marker": "AIを増やしても",
+  "evidence_state": "REACHABLE",
+  "selected_url": "https://vector-praxis-japan.vercel.app/ai-agent-bottleneck",
+  "candidates": [
+    {
+      "requested_url": "https://vector-praxis-japan.vercel.app/ai-agent-bottleneck",
+      "effective_url": "https://vector-praxis-japan.vercel.app/ai-agent-bottleneck",
+      "http_status": 200,
+      "marker_match": true,
+      "curl_exit_code": 0,
+      "curl_error": null
+    },
+    {
+      "requested_url": "https://vector-praxis-japan-hub.vercel.app/ai-agent-bottleneck",
+      "effective_url": "https://vector-praxis-japan-hub.vercel.app/ai-agent-bottleneck",
+      "http_status": 200,
+      "marker_match": true,
+      "curl_exit_code": 0,
+      "curl_error": null
+    }
+  ],
+  "inference_guard": "HTTP 200 plus current-content marker is required before treating the route as publicly reachable. Deployment success alone is insufficient."
+}
