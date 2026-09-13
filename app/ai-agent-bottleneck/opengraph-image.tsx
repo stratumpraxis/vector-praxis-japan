@@ -35,13 +35,13 @@ export default function Image() {
       </div>
 
       <div style={{ display: "flex", flexDirection: "column", maxWidth: 1000 }}>
-        <div style={{ fontSize: 70, lineHeight: 1.08, fontWeight: 800, letterSpacing: -2 }}>
-          AIを増やしても、
-          <br />仕事は速くならない。
+        <div style={{ display: "flex", flexDirection: "column", fontSize: 70, lineHeight: 1.08, fontWeight: 800, letterSpacing: -2 }}>
+          <span>AIを増やしても、</span>
+          <span>仕事は速くならない。</span>
         </div>
-        <div style={{ marginTop: 28, fontSize: 32, lineHeight: 1.35, color: "#c7cbd2" }}>
-          待ち・権限・引き継ぎ。
-          <br />いま一番近い詰まりを切り分ける。
+        <div style={{ display: "flex", flexDirection: "column", marginTop: 28, fontSize: 32, lineHeight: 1.35, color: "#c7cbd2" }}>
+          <span>待ち・権限・引き継ぎ。</span>
+          <span>いま一番近い詰まりを切り分ける。</span>
         </div>
       </div>
 
