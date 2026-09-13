@@ -1,3 +1,3 @@
-triggered_at=2026-09-13T20:25:00+09:00
-campaign=vector-completion-layer-revenue-20260913-v2
-reason=publish_existing_paid_asset_980_via_direct_bluesky
+triggered_at=2026-09-13T20:34:00+09:00
+campaign=vector-completion-layer-revenue-20260913-v3
+reason=retry_bluesky_under_300_chars_preserve_checkout_route
