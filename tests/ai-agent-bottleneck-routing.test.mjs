@@ -12,11 +12,12 @@ test("bottleneck routing uses only the three declared operational bottlenecks", 
   for (const id of ['id: "wait"', 'id: "authority"', 'id: "handoff"']) assert.match(router, new RegExp(id.replace(/[.*+?^${}()|[\]\\]/g, "\\$&")));
 });
 
-test("bottleneck routing sends wait to free economics measurement and rule/handoff to the existing operating kit", () => {
-  assert.match(router, /ai-agent-economics-calculator\.html/);
-  assert.match(router, /cross-agent-operating-kit\.html/);
+test("bottleneck routing stays Vector-native and routes intent to the existing paid note", () => {
+  assert.match(router, /note\.com\/deft_eel6718\/n\/ncaff8351e529/);
   assert.match(router, /FREE FIRST/);
-  assert.match(router, /PAID IMPLEMENTATION/);
+  assert.match(router, /VECTOR DEEP DIVE/);
+  assert.match(router, /vpj_owned_ai_agent_bottleneck_v2/);
+  assert.doesNotMatch(router, /stratumpraxis\.com|cross-agent-operating-kit|ai-agent-economics-calculator/i);
 });
 
 test("bottleneck routing emits measurable intent and next-action events", () => {
@@ -24,10 +25,14 @@ test("bottleneck routing emits measurable intent and next-action events", () => 
   assert.match(router, /vector_bottleneck_recommendation_view/);
   assert.match(router, /vector_bottleneck_next_click/);
   assert.match(router, /data-event=\{current\.event\}/);
+  assert.match(router, /asset_id/);
+  assert.match(router, /route_id/);
 });
 
-test("article keeps existing downstream routes and does not fabricate checkout evidence", () => {
-  assert.match(page, /Cross-Agent Operating Kit/);
-  assert.match(page, /Agent Economics Calculator|無料で計算する/);
+test("article keeps Vector ownership boundaries and does not fabricate checkout evidence", () => {
+  assert.match(page, /note\.com\/deft_eel6718\/n\/ncaff8351e529/);
+  assert.match(page, /Vectorの有料note/);
+  assert.match(page, /primary_cta_click/);
+  assert.doesNotMatch(page + router, /stratumpraxis\.com|Cross-Agent Operating Kit|Agent Economics Calculator/i);
   assert.doesNotMatch(router + page, /purchase_success|verified_purchase|fake_checkout/i);
 });
