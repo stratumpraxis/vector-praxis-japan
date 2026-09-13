@@ -23,6 +23,70 @@ window.GWR_INTELLIGENCE_SIGNAL = Object.freeze({
   route: 'PAID_CONTRACT_CANDIDATE'
 });
 
+(function setupBuyerAttribution() {
+  const buyers = Object.freeze({
+    jobasia: 'JOBAsia',
+    japan_hire: 'Japan Hire',
+    advanced_talent: 'ADVANCED Talent',
+    jac_international: 'JAC International'
+  });
+  const storageKey = 'gwr_buyer_attribution_v1';
+  const ttlMs = 30 * 24 * 60 * 60 * 1000;
+  const params = new URLSearchParams(window.location.search);
+  const requestedBuyer = String(params.get('gwr_buyer') || params.get('buyer') || '').trim().toLowerCase();
+  const now = Date.now();
+  let current = null;
+
+  if (buyers[requestedBuyer]) {
+    current = {
+      buyer_key: requestedBuyer,
+      buyer_label: buyers[requestedBuyer],
+      attribution_source: 'url_param',
+      attribution_campaign: params.get('utm_campaign') || 'gwr_buyer_reaction',
+      attribution_channel: params.get('utm_source') || 'qualified_buyer_exposure',
+      captured_at: new Date(now).toISOString()
+    };
+    try { localStorage.setItem(storageKey, JSON.stringify(current)); } catch (_) {}
+  } else {
+    try {
+      const stored = JSON.parse(localStorage.getItem(storageKey) || 'null');
+      const capturedAt = stored?.captured_at ? Date.parse(stored.captured_at) : NaN;
+      if (stored && buyers[stored.buyer_key] && Number.isFinite(capturedAt) && now - capturedAt <= ttlMs) {
+        current = { ...stored, attribution_source: 'persisted' };
+      } else if (stored) {
+        localStorage.removeItem(storageKey);
+      }
+    } catch (_) {}
+  }
+
+  const base = `${window.location.origin}${window.location.pathname}`;
+  const campaign = 'gwr_buyer_reaction_202609';
+  const links = Object.freeze(Object.fromEntries(Object.keys(buyers).map((buyerKey) => [
+    buyerKey,
+    `${base}?gwr_buyer=${encodeURIComponent(buyerKey)}&utm_source=qualified_buyer_exposure&utm_campaign=${encodeURIComponent(campaign)}`
+  ])));
+
+  window.GWR_BUYER_ATTRIBUTION = Object.freeze({
+    buyers,
+    current: current ? Object.freeze(current) : null,
+    links
+  });
+}());
+
+function gwrAttributionProperties() {
+  const qa = new URLSearchParams(window.location.search).get('gwr_qa') === '1';
+  const current = window.GWR_BUYER_ATTRIBUTION?.current;
+  return {
+    gwr_qa: qa,
+    buyer_attributed: Boolean(current),
+    buyer_key: current?.buyer_key || null,
+    buyer_label: current?.buyer_label || null,
+    attribution_source: current?.attribution_source || 'unattributed',
+    attribution_campaign: current?.attribution_campaign || null,
+    attribution_channel: current?.attribution_channel || null
+  };
+}
+
 (function setupCommercialStyles() {
   if (document.querySelector('#gwrCommercialStyles')) return;
   const style = document.createElement('style');
@@ -96,7 +160,8 @@ window.GWR_INTELLIGENCE_SIGNAL = Object.freeze({
         scope: signal.scope,
         reaction,
         commercial_intent: true,
-        evidence_stage: 'buyer_reaction'
+        evidence_stage: 'buyer_reaction',
+        ...gwrAttributionProperties()
       };
       if (window.posthog && typeof window.posthog.capture === 'function') {
         window.posthog.capture('gwr_buyer_reaction', properties);
@@ -119,7 +184,8 @@ window.GWR_INTELLIGENCE_SIGNAL = Object.freeze({
       sent = true;
       window.posthog.capture('gwr_intelligence_signal_view', {
         product: 'global-work-radar', signal_id: signal.id, theme: signal.theme, score: signal.score,
-        route: signal.route, source: signal.source, scope: signal.scope, buyer_reaction_available: true
+        route: signal.route, source: signal.source, scope: signal.scope, buyer_reaction_available: true,
+        ...gwrAttributionProperties()
       });
       observer.disconnect();
     }, { threshold: [0.35] });
@@ -166,7 +232,7 @@ window.GWR_INTELLIGENCE_SIGNAL = Object.freeze({
   const seen = new Set();
 
   function capture(event, properties = {}) {
-    window.posthog.capture(event, {...properties, product:'global-work-radar', source:'global-work-radar', gwr_qa:qa, referrer:document.referrer || '$direct'});
+    window.posthog.capture(event, {...properties, product:'global-work-radar', source:'global-work-radar', referrer:document.referrer || '$direct', ...gwrAttributionProperties()});
   }
   function markMeaningfulAction(){meaningfulAction=true;if(stallTimer){window.clearTimeout(stallTimer);stallTimer=null}}
   function observeOnce(selector,event){const element=document.querySelector(selector);if(!element||!('IntersectionObserver' in window))return;const observer=new IntersectionObserver((entries)=>{for(const entry of entries){if(!entry.isIntersecting||entry.intersectionRatio<0.35||seen.has(event))continue;seen.add(event);capture(event,{selector});observer.disconnect();break}},{threshold:[0.35]});observer.observe(element)}
