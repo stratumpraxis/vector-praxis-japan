@@ -29,7 +29,7 @@ test("snapshot remains hard-scoped to Vector and preserves evidence provenance",
   assert.equal(snapshot.metrics.verified_human_purchases.source, "external_payment_evidence");
 });
 
-test("snapshot feeds unknown evidence to resolver as unknown, never as zero", async () => {
+test("snapshot feeds unknown evidence to resolver and safe policy without mutating", async () => {
   const snapshot = await buildRevenuePulseSnapshot({
     metrics: {
       owned_sessions: 100,
@@ -41,6 +41,9 @@ test("snapshot feeds unknown evidence to resolver as unknown, never as zero", as
   assert.equal(snapshot.resolution.status, "OBSERVATION_INCOMPLETE");
   assert.equal(snapshot.resolution.missing_metric, "bottleneck_selections");
   assert.equal(snapshot.resolution.metrics.bottleneck_selections, null);
+  assert.equal(snapshot.safe_action.mode, "observe");
+  assert.equal(snapshot.safe_action.mutation_allowed, false);
+  assert.equal(snapshot.safe_action.selected_action, "COLLECT_MISSING_METRIC");
 });
 
 test("snapshot can carry verified external payment evidence without inferring it", async () => {
@@ -60,4 +63,7 @@ test("snapshot can carry verified external payment evidence without inferring it
   assert.equal(snapshot.metrics.checkout_reaches.observation_state, "observed");
   assert.equal(snapshot.metrics.verified_human_purchases.observation_state, "observed");
   assert.equal(snapshot.resolution.status, "HEALTHY");
+  assert.equal(snapshot.safe_action.mode, "amplify");
+  assert.equal(snapshot.safe_action.selected_action, "AMPLIFY_EXISTING_WINNING_ROUTE");
+  assert.equal(snapshot.safe_action.guardrails.auto_product_creation, false);
 });
