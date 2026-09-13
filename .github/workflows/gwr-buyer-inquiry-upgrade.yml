@@ -1,0 +1,78 @@
+name: GWR Buyer Inquiry Upgrade
+
+on:
+  push:
+    branches:
+      - incubator/global-work-radar
+    paths:
+      - .github/workflows/gwr-buyer-inquiry-upgrade.yml
+
+permissions:
+  contents: write
+
+jobs:
+  patch:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: incubator/global-work-radar
+      - name: Upgrade buyer reaction to explicit commercial inquiry evidence
+        run: |
+          python - <<'PY'
+          from pathlib import Path
+          path = Path('incubator/global-work-radar/revenue-config.js')
+          text = path.read_text()
+
+          css_old = ".gwr-reaction-status{min-height:18px;margin-top:9px;color:#8de6c0!important;font-size:9px!important;line-height:1.45;text-align:left!important}.gwr-intelligence-action>small{margin-top:7px;color:#687b8c;font-size:8px;text-align:left}"
+          css_new = css_old + "\n    .gwr-inquiry-step{margin-top:13px;padding-top:13px;border-top:1px solid #34414b}.gwr-inquiry-step[hidden]{display:none}.gwr-inquiry-step>strong{display:block;color:#f0d37c;font-size:8px;letter-spacing:.14em}.gwr-inquiry-step>p{margin:7px 0 10px;color:#93a4b3;font-size:9px;line-height:1.55}.gwr-inquiry-options{display:grid;gap:7px}.gwr-inquiry-option{min-height:42px;padding:9px 10px;border:1px solid #6a623f;border-radius:10px;background:linear-gradient(145deg,#171c20,#111923);color:#f0e7c7;font:800 10px/1.35 'Noto Sans JP',sans-serif;text-align:left;cursor:pointer}.gwr-inquiry-option:hover,.gwr-inquiry-option:focus-visible{border-color:#d7b95f;background:#20231f;outline:3px solid #b7f4da;outline-offset:2px}.gwr-inquiry-option[aria-pressed='true']{border-color:#8de6c0;background:rgba(31,78,65,.45);color:#e1fff2}.gwr-inquiry-option:disabled{cursor:default;opacity:.9}.gwr-inquiry-status{min-height:18px;margin-top:9px;color:#8de6c0;font-size:9px;line-height:1.5}"
+          if css_old not in text:
+              raise SystemExit('commercial CSS anchor not found')
+          text = text.replace(css_old, css_new, 1)
+
+          html_old = """      <div class=\"gwr-reaction-status\" id=\"gwrReactionStatus\" aria-live=\"polite\"></div>\n      <small>Reaction evidence only · no email · no account required</small>"""
+          html_new = """      <div class=\"gwr-reaction-status\" id=\"gwrReactionStatus\" aria-live=\"polite\"></div>\n      <div class=\"gwr-inquiry-step\" id=\"gwrInquiryStep\" hidden>\n        <strong>NEXT · COMMERCIAL INQUIRY</strong>\n        <p>ここからは単なるReactionではなく、GWR Paid Intelligenceへの明示的な問い合わせとして記録します。</p>\n        <div class=\"gwr-inquiry-options\" role=\"group\" aria-label=\"Commercial inquiry options\">\n          <button type=\"button\" class=\"gwr-inquiry-option\" data-inquiry=\"paid_pilot\">Paid Pilotを検討したい</button>\n          <button type=\"button\" class=\"gwr-inquiry-option\" data-inquiry=\"custom_sample\">自社向けSampleを見たい</button>\n          <button type=\"button\" class=\"gwr-inquiry-option\" data-inquiry=\"commercial_terms\">契約条件を確認したい</button>\n        </div>\n        <div class=\"gwr-inquiry-status\" id=\"gwrInquiryStatus\" aria-live=\"polite\"></div>\n      </div>\n      <small>Reaction / inquiry evidence only · no email · no account required</small>"""
+          if html_old not in text:
+              raise SystemExit('reaction HTML anchor not found')
+          text = text.replace(html_old, html_new, 1)
+
+          reaction_old = """      const status = section.querySelector('#gwrReactionStatus');\n      if (status) status.textContent = '反応を記録しました。次のSignal設計に反映します。';\n    });\n  });\n\n  if (window.posthog"""
+          reaction_new = """      const status = section.querySelector('#gwrReactionStatus');\n      if (status) status.textContent = '反応を記録しました。商談意向がある場合は次の1項目だけ選べます。';\n      const inquiryStep = section.querySelector('#gwrInquiryStep');\n      if (inquiryStep) {\n        inquiryStep.hidden = false;\n        inquiryStep.dataset.reactionContext = reaction;\n      }\n    });\n  });\n\n  let inquirySubmitted = false;\n  section.querySelectorAll('.gwr-inquiry-option').forEach((button) => {\n    button.addEventListener('click', () => {\n      if (inquirySubmitted) return;\n      inquirySubmitted = true;\n      const inquiry = button.dataset.inquiry || 'unknown';\n      const inquiryStep = section.querySelector('#gwrInquiryStep');\n      const reactionContext = inquiryStep?.dataset.reactionContext || null;\n      const attribution = gwrAttributionProperties();\n      const recoveryQualified = attribution.buyer_attributed === true;\n      const evidence = {\n        product: 'global-work-radar',\n        signal_id: signal.id,\n        theme: signal.theme,\n        score: signal.score,\n        route: signal.route,\n        source: signal.source,\n        scope: signal.scope,\n        inquiry,\n        reaction_context: reactionContext,\n        commercial_intent: true,\n        evidence_stage: 'buyer_inquiry',\n        evidence_timestamp: new Date().toISOString(),\n        evidence_channel: attribution.attribution_channel || 'site_direct',\n        evidence_action: inquiry,\n        evidence_asset: 'laborIntelligenceSignal',\n        evidence_url: window.location.href.split('#')[0],\n        recovery_qualified: recoveryQualified,\n        recovery_status: recoveryQualified ? 'explicit_inquiry' : 'unattributed_intent',\n        revenue_distance: 'inquiry_to_contract',\n        ...attribution\n      };\n      if (window.posthog && typeof window.posthog.capture === 'function') {\n        window.posthog.capture('gwr_buyer_inquiry', evidence);\n        if (inquiry === 'paid_pilot') window.posthog.capture('gwr_paid_pilot_request', evidence);\n        if (inquiry === 'custom_sample') window.posthog.capture('gwr_custom_sample_request', evidence);\n        if (inquiry === 'commercial_terms') window.posthog.capture('gwr_commercial_terms_request', evidence);\n        if (recoveryQualified) window.posthog.capture('gwr_buyer_reaction_recovered', evidence);\n      }\n      section.querySelectorAll('.gwr-inquiry-option').forEach((item) => {\n        const selected = item === button;\n        item.setAttribute('aria-pressed', selected ? 'true' : 'false');\n        item.disabled = true;\n      });\n      const status = section.querySelector('#gwrInquiryStatus');\n      if (status) status.textContent = recoveryQualified\n        ? '明示的な問い合わせを記録しました。Buyer identity・時刻・Channel・Action・URLをRecovery evidenceとして保存しました。'\n        : '問い合わせ意向を記録しました。Buyer identityがないためRecovery Completeにはしません。';\n    });\n  });\n\n  if (window.posthog"""
+          if reaction_old not in text:
+              raise SystemExit('reaction handler anchor not found')
+          text = text.replace(reaction_old, reaction_new, 1)
+
+          metric_old = """    const revenueClicks = toNumber(metrics.revenueClicks);\n    const buyerReactions = toNumber(metrics.buyerReactions);"""
+          metric_new = """    const revenueClicks = toNumber(metrics.revenueClicks);\n    const buyerInquiries = toNumber(metrics.buyerInquiries);\n    const buyerReactions = toNumber(metrics.buyerReactions);"""
+          if metric_old not in text:
+              raise SystemExit('metric anchor not found')
+          text = text.replace(metric_old, metric_new, 1)
+
+          state_old = """    if (verifiedRevenue > 0) return Object.freeze({ state: 'WINNER_AMPLIFICATION', priority: 100 });\n    if (revenueClicks > 0) return Object.freeze({ state: 'MONETIZATION_VERIFY', priority: 95 });\n    if (buyerReactions > 0) return Object.freeze({ state: 'BUYER_REACTION_VERIFY', priority: 94 });"""
+          state_new = """    if (verifiedRevenue > 0) return Object.freeze({ state: 'WINNER_AMPLIFICATION', priority: 100 });\n    if (revenueClicks > 0) return Object.freeze({ state: 'MONETIZATION_VERIFY', priority: 97 });\n    if (buyerInquiries > 0) return Object.freeze({ state: 'BUYER_INQUIRY_VERIFY', priority: 96 });\n    if (buyerReactions > 0) return Object.freeze({ state: 'BUYER_REACTION_VERIFY', priority: 94 });"""
+          if state_old not in text:
+              raise SystemExit('revenue state anchor not found')
+          text = text.replace(state_old, state_new, 1)
+
+          priority_old = "priorityOrder: Object.freeze(['WINNER_AMPLIFICATION','MONETIZATION_VERIFY','BUYER_REACTION_VERIFY','PAID_INTELLIGENCE_VERIFY','MONETIZATION_GATE','CARD_TO_APPLY','SECTION_TO_CARD','VISIT_TO_JOBS','SEARCH_TO_APPLY','QUALIFIED_ACQUISITION'])"
+          priority_new = "priorityOrder: Object.freeze(['WINNER_AMPLIFICATION','MONETIZATION_VERIFY','BUYER_INQUIRY_VERIFY','BUYER_REACTION_VERIFY','PAID_INTELLIGENCE_VERIFY','MONETIZATION_GATE','CARD_TO_APPLY','SECTION_TO_CARD','VISIT_TO_JOBS','SEARCH_TO_APPLY','QUALIFIED_ACQUISITION'])"
+          if priority_old not in text:
+              raise SystemExit('priority order anchor not found')
+          text = text.replace(priority_old, priority_new, 1)
+
+          selector_old = ".gwr-reaction-option,#resetFilters,#loadMore"
+          selector_new = ".gwr-reaction-option,.gwr-inquiry-option,#resetFilters,#loadMore"
+          if selector_old not in text:
+              raise SystemExit('meaningful action selector anchor not found')
+          text = text.replace(selector_old, selector_new, 1)
+
+          path.write_text(text)
+          PY
+      - name: Commit upgrade
+        run: |
+          git config user.name gwr-revenue-bot
+          git config user.email gwr-revenue-bot@users.noreply.github.com
+          git add incubator/global-work-radar/revenue-config.js
+          git diff --cached --check
+          git commit -m "feat(gwr): convert buyer reactions into explicit inquiry evidence"
+          git push origin HEAD:incubator/global-work-radar
