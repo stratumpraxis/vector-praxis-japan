@@ -1,5 +1,6 @@
 import { readFile } from "node:fs/promises";
 import { resolveRevenueBottleneck } from "./revenue-auto-resolver.mjs";
+import { planSafeRevenueAction } from "./revenue-safe-action-policy.mjs";
 
 const contractUrl = new URL("../capability-lab/vector-revenue-pulse-contract.json", import.meta.url);
 
@@ -43,16 +44,18 @@ export async function buildRevenuePulseSnapshot(input = {}) {
     window,
     metrics: resolverMetrics,
   };
+  const resolution = resolveRevenueBottleneck(resolverInput);
 
   return {
-    version: 1,
+    version: 2,
     observed_at: observedAt,
     window,
     analytics_scope: contract.scope.value,
     route_id: contract.route.value,
     metrics,
     evidence_rules: contract.evidence_rules,
-    resolution: resolveRevenueBottleneck(resolverInput),
+    resolution,
+    safe_action: planSafeRevenueAction(resolution),
   };
 }
 
