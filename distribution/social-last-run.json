@@ -1,12 +1,14 @@
 {
-  "observed_at": "2026-09-13T10:53:51.076Z",
+  "observed_at": "2026-09-13T10:55:37.273Z",
   "campaign": "note-completion-layer-20260903",
   "results": [
     {
-      "status": "FAILED_REVIEW",
+      "status": "PUBLISHED_CONFIRMED_BY_PUBLISHER",
       "id": "vp-ai-agent-bottleneck-bluesky-20260913-01",
       "platform": "bluesky",
-      "reason": "bluesky_direct_error:bluesky_text_too_long:321"
+      "external_post_id": "at://did:plc:3cg6ij6eppzwmy2v2i42v45e/app.bsky.feed.post/3mvfgo7j4si2w",
+      "external_post_url": "https://bsky.app/profile/vectorpx.bsky.social/post/3mvfgo7j4si2w",
+      "publisher": "bluesky_direct"
     }
   ]
 }
