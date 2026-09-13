@@ -1,5 +1,5 @@
 {
-  "version": 3,
+  "version": 4,
   "campaign": "note-completion-layer-20260903",
   "destination": "https://note.com/deft_eel6718/n/na99d74adf2b3?app_launch=false",
   "policy": {
@@ -10,9 +10,7 @@
     "require_external_post_id_for_published": true,
     "do_not_reuse_identical_copy": true,
     "brand": "Vector Praxis",
-    "disabled_platforms": [
-      "x"
-    ]
+    "disabled_platforms": ["x"]
   },
   "platform_blocks": {
     "x": {
@@ -27,10 +25,7 @@
       "platform": "bluesky",
       "angle": "AIの前後に残るHuman Gap",
       "copy": "AIで作るだけでは足りない。生成後に残る確認・変換・投稿・判断。その摩擦を『Completion Layer』として整理しました。",
-      "hashtags": [
-        "生成AI",
-        "自動化"
-      ],
+      "hashtags": ["生成AI", "自動化"],
       "utm": {
         "utm_source": "bluesky",
         "utm_medium": "social_video",
@@ -56,14 +51,7 @@
       "platform": "instagram",
       "angle": "生成から完了へ",
       "copy": "AIの価値は、生成だけで決まるとは限りません。AIが出力したあとに残るコピー、確認、形式変換、投稿、送信、判断。そこを仕事の完了までつなぐ構造を『Completion Layer』として整理しました。Human Gapの見つけ方、評価シート、7日検証テンプレート付き。",
-      "hashtags": [
-        "生成AI",
-        "ChatGPT",
-        "AI活用",
-        "AIエージェント",
-        "自動化",
-        "個人開発"
-      ],
+      "hashtags": ["生成AI", "ChatGPT", "AI活用", "AIエージェント", "自動化", "個人開発"],
       "utm": {
         "utm_source": "instagram",
         "utm_medium": "reel",
@@ -90,13 +78,7 @@
       "platform": "tiktok",
       "angle": "AIで作るだけでは足りないかもしれない",
       "copy": "AIで作るだけでは、足りないかもしれない。次に注目したいのは、AIの前後に残る『人間作業』。生成→接続→完了までをCompletion Layerとして整理しました。続きはnoteで。",
-      "hashtags": [
-        "生成AI",
-        "ChatGPT",
-        "AI活用",
-        "自動化",
-        "個人開発"
-      ],
+      "hashtags": ["生成AI", "ChatGPT", "AI活用", "自動化", "個人開発"],
       "utm": {
         "utm_source": "tiktok",
         "utm_medium": "video",
@@ -174,13 +156,7 @@
       "platform": "instagram",
       "angle": "AI時代のB2Bサイト設計",
       "copy": "AIでサイトは作りやすくなった。でも、売れるサイトはむしろ難しくなった。作れるものが増えるほど、買い手は『結局どれを選べばいい？』で止まりやすくなる。B2Bサイトを企業HPからDecision Productへ変える実践設計をまとめました。",
-      "hashtags": [
-        "生成AI",
-        "B2B",
-        "サイト改善",
-        "Webマーケティング",
-        "SaaS"
-      ],
+      "hashtags": ["生成AI", "B2B", "サイト改善", "Webマーケティング", "SaaS"],
       "destination": "https://note.com/deft_eel6718/n/n7c20c67abf0c",
       "utm": {
         "utm_source": "instagram",
@@ -188,24 +164,23 @@
         "utm_campaign": "vector_decision_product_20260910",
         "utm_content": "decision_product_reel_v1"
       },
-      "status": "READY",
+      "status": "AUTH_WAIT",
       "approval": "USER_APPROVED",
       "scheduled_at": "2026-09-10T11:05:00+09:00",
       "require_media": true,
       "media_url": "https://files.simplepost.social/uploads/XbN6hFEslEz1c8ESSMoAgWRYVNaQDrW2/1789005334517-721eb6ac-32d5-4b7c-966e-5db652f87d10.mp4",
       "media_type": "video/mp4",
       "post_format": "reel",
-      "alt_text": "AI時代のB2Bサイトを、説明する企業HPから判断を前に進めるDecision Productへ変える考え方を紹介する縦型動画"
+      "alt_text": "AI時代のB2Bサイトを、説明する企業HPから判断を前に進めるDecision Productへ変える考え方を紹介する縦型動画",
+      "last_error": "vector_instagram_credentials_not_connected",
+      "last_error_at": "2026-09-13T19:52:00+09:00"
     },
     {
       "id": "vp-note-decision-product-bluesky-20260910-01",
       "platform": "bluesky",
       "angle": "情報量より判断までの距離",
       "copy": "AIでサイトは作りやすくなった。でも、売れるサイトは難しくなった。B2Bサイトを『説明』から『判断を前に進めるDecision Product』へ。実践設計をnoteにまとめました。",
-      "hashtags": [
-        "生成AI",
-        "B2B"
-      ],
+      "hashtags": ["生成AI", "B2B"],
       "destination": "https://note.com/deft_eel6718/n/n7c20c67abf0c",
       "utm": {
         "utm_source": "bluesky",
@@ -230,27 +205,22 @@
       "id": "vp-ai-agent-bottleneck-bluesky-20260913-01",
       "platform": "bluesky",
       "angle": "AIを増やす前に受け渡しを見る",
-      "copy": "AIを増やしたのに仕事が速くならないなら、モデル性能より先に『レビュー待ち・権限・引き継ぎ』を見た方がいい。3つから今の詰まりを選べるようにしました。",
-      "hashtags": [
-        "生成AI",
-        "AIエージェント"
-      ],
+      "copy": "AIを増やしても速くならない。詰まりは『レビュー待ち・権限・引き継ぎ』かも。3つから診断できます。",
+      "hashtags": ["生成AI", "AIエージェント"],
       "destination": "https://vector-praxis-japan-hub.vercel.app/ai-agent-bottleneck",
       "utm": {
         "utm_source": "bluesky",
         "utm_medium": "social",
         "utm_campaign": "vector_ai_agent_bottleneck_20260913",
-        "utm_content": "handoff_bottleneck_v1",
+        "utm_content": "handoff_bottleneck_v2",
         "asset_id": "ai_agent_bottleneck",
         "route_id": "vpj_owned_ai_agent_bottleneck_v2"
       },
-      "status": "FAILED_REVIEW",
+      "status": "READY",
       "approval": "USER_APPROVED",
       "scheduled_at": "2026-09-13T19:30:00+09:00",
       "require_media": false,
-      "post_format": "text",
-      "last_error": "bluesky_direct_error:bluesky_text_too_long:347",
-      "last_error_at": "2026-09-13T10:50:05.046Z"
+      "post_format": "text"
     }
   ],
   "publisher_state": {
