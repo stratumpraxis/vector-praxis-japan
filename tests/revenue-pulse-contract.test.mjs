@@ -26,6 +26,12 @@ test("diagnostic entry and session metrics use the owned Vector route", () => {
   assert.equal(contract.metrics.paid_cta_clicks.filters.route_id, "vpj_owned_ai_agent_bottleneck_v2");
 });
 
+test("paid recommendation metric matches the emitted destination kind", () => {
+  assert.equal(contract.metrics.paid_recommendation_views.event, "vector_bottleneck_recommendation_view");
+  assert.equal(contract.metrics.paid_recommendation_views.filters.destination_kind, "paid");
+  assert.equal("target" in contract.metrics.paid_recommendation_views.filters, false);
+});
+
 test("unobserved analytics stages stay unknown instead of becoming zero", () => {
   assert.equal(
     contract.metrics.bottleneck_selections.observation,
