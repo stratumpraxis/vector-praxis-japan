@@ -6,6 +6,7 @@ import { buildRevenuePulseSnapshot } from "../scripts/revenue-pulse-snapshot.mjs
 test("snapshot distinguishes observed zero from unobserved null", async () => {
   const snapshot = await buildRevenuePulseSnapshot({
     observed_at: "2026-09-13T13:30:00Z",
+    evaluated_at: "2026-09-13T14:00:00Z",
     window: "24h",
     metrics: {
       owned_sessions: 25,
@@ -66,4 +67,29 @@ test("snapshot can carry verified external payment evidence without inferring it
   assert.equal(snapshot.safe_action.mode, "amplify");
   assert.equal(snapshot.safe_action.selected_action, "AMPLIFY_EXISTING_WINNING_ROUTE");
   assert.equal(snapshot.safe_action.guardrails.auto_product_creation, false);
+});
+
+test("stale healthy evidence is downgraded to an evidence refresh ticket", async () => {
+  const snapshot = await buildRevenuePulseSnapshot({
+    observed_at: "2026-09-10T10:00:00Z",
+    evaluated_at: "2026-09-13T20:00:00Z",
+    metrics: {
+      owned_sessions: 100,
+      diagnostic_entry_clicks: 20,
+      diagnostic_sessions: 18,
+      bottleneck_selections: 12,
+      paid_recommendation_views: 20,
+      paid_cta_clicks: 10,
+      checkout_reaches: 6,
+      verified_human_purchases: 2
+    },
+  });
+
+  assert.equal(snapshot.resolution.status, "HEALTHY");
+  assert.equal(snapshot.freshness.state, "STALE");
+  assert.equal(snapshot.safe_action.mode, "observe");
+  assert.equal(snapshot.safe_action.selected_action, "REFRESH_REVENUE_EVIDENCE");
+  assert.equal(snapshot.safe_action.mutation_allowed, false);
+  assert.equal(snapshot.action_ticket.state, "EVIDENCE_REQUIRED");
+  assert.equal(snapshot.action_ticket.target_metric, "evidence_freshness");
 });
