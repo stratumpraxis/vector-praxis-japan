@@ -1,5 +1,5 @@
 {
-  "observed_at": "2026-09-13T05:55:44.069Z",
+  "observed_at": "2026-09-13T10:50:05.046Z",
   "campaign": "note-completion-layer-20260903",
   "results": [
     {
@@ -7,6 +7,12 @@
       "id": "vp-note-decision-product-instagram-20260910-01",
       "platform": "instagram",
       "provider": "instagram_direct"
+    },
+    {
+      "status": "FAILED_REVIEW",
+      "id": "vp-ai-agent-bottleneck-bluesky-20260913-01",
+      "platform": "bluesky",
+      "reason": "bluesky_direct_error:bluesky_text_too_long:347"
     }
   ]
 }
