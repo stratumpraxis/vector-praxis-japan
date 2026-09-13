@@ -22,16 +22,6 @@ jobs:
           (async () => {
             const browser = await chromium.launch({ headless: true });
             const page = await browser.newPage();
-            let sawInquiry = false;
-            let sawRecovered = false;
-            let sawPaidPilot = false;
-            page.on('request', req => {
-              if (req.method() !== 'POST' || !/posthog|\/capture\//i.test(req.url())) return;
-              const body = req.postData() || '';
-              if (body.includes('gwr_buyer_inquiry')) sawInquiry = true;
-              if (body.includes('gwr_buyer_reaction_recovered')) sawRecovered = true;
-              if (body.includes('gwr_paid_pilot_request')) sawPaidPilot = true;
-            });
             const url = `${process.env.GWR_URL}/?gwr_qa=1&gwr_buyer=jobasia&utm_source=qualified_buyer_exposure&utm_campaign=gwr_buyer_reaction_202609`;
             let ready = false;
             for (let attempt = 0; attempt < 12; attempt++) {
@@ -41,19 +31,35 @@ jobs:
               await page.waitForTimeout(5000);
             }
             if (!ready) throw new Error('Buyer inquiry UI did not appear on production');
+            await page.waitForFunction(() => window.posthog && typeof window.posthog.capture === 'function');
+            await page.evaluate(() => {
+              window.__gwrInquiryCaptures = [];
+              const original = window.posthog.capture.bind(window.posthog);
+              window.posthog.capture = function(name, props, options) {
+                window.__gwrInquiryCaptures.push({ name, props: props || {} });
+                return original(name, props, options);
+              };
+            });
             await page.locator('.gwr-reaction-option[data-reaction="hiring_decision"]').click();
             const step = page.locator('#gwrInquiryStep');
             await step.waitFor({ state: 'visible' });
             await page.locator('.gwr-inquiry-option[data-inquiry="paid_pilot"]').click();
-            await page.waitForTimeout(3500);
+            await page.waitForTimeout(1200);
             const status = await page.locator('#gwrInquiryStatus').innerText();
             if (!status.includes('Recovery evidence')) throw new Error(`Attributed recovery status missing: ${status}`);
-            if (!sawInquiry) throw new Error('gwr_buyer_inquiry POST missing');
-            if (!sawRecovered) throw new Error('gwr_buyer_reaction_recovered POST missing');
-            if (!sawPaidPilot) throw new Error('gwr_paid_pilot_request POST missing');
+            const captures = await page.evaluate(() => window.__gwrInquiryCaptures || []);
+            const names = captures.map(x => x.name);
+            if (!names.includes('gwr_buyer_inquiry')) throw new Error(`gwr_buyer_inquiry capture missing: ${names.join(',')}`);
+            if (!names.includes('gwr_buyer_reaction_recovered')) throw new Error(`gwr_buyer_reaction_recovered capture missing: ${names.join(',')}`);
+            if (!names.includes('gwr_paid_pilot_request')) throw new Error(`gwr_paid_pilot_request capture missing: ${names.join(',')}`);
+            const inquiry = captures.find(x => x.name === 'gwr_buyer_inquiry');
+            if (inquiry?.props?.buyer_key !== 'jobasia') throw new Error(`buyer attribution missing: ${JSON.stringify(inquiry?.props || {})}`);
+            if (inquiry?.props?.recovery_qualified !== true) throw new Error('recovery_qualified was not true');
+            if (inquiry?.props?.recovery_status !== 'explicit_inquiry') throw new Error(`unexpected recovery_status: ${inquiry?.props?.recovery_status}`);
             console.log('GWR_BUYER_INQUIRY_UI=PASS');
             console.log('GWR_ATTRIBUTED_RECOVERY=PASS');
             console.log('GWR_PAID_PILOT_EVENT=PASS');
+            console.log('GWR_BUYER_IDENTITY=JOBASIA');
             await browser.close();
           })().catch(error => { console.error(error); process.exit(1); });
           NODE
