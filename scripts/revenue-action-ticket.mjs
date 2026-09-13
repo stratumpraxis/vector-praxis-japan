@@ -38,9 +38,10 @@ export function buildRevenueActionTicket(snapshot = {}) {
     safeAction.selected_action ?? "unknown",
   ].join("|");
   const id = `vector-revenue-${createHash("sha256").update(fingerprint).digest("hex").slice(0, 12)}`;
+  const refreshRequired = safeAction.selected_action === "REFRESH_REVENUE_EVIDENCE";
 
   return {
-    version: 1,
+    version: 2,
     id,
     created_from_observed_at: snapshot.observed_at ?? null,
     window: snapshot.window ?? resolution.window ?? "unspecified",
@@ -50,7 +51,9 @@ export function buildRevenueActionTicket(snapshot = {}) {
     bottleneck: resolution.bottleneck,
     resolution_status: resolution.status,
     action: safeAction.selected_action,
-    target_metric: TARGET_METRIC_BY_STATUS[resolution.status] ?? "unknown",
+    target_metric: refreshRequired
+      ? "evidence_freshness"
+      : TARGET_METRIC_BY_STATUS[resolution.status] ?? "unknown",
     allowed_scope: [...(safeAction.allowed_scope ?? [])],
     mutation_allowed: safeAction.mutation_allowed === true,
     auto_apply: false,
@@ -61,11 +64,13 @@ export function buildRevenueActionTicket(snapshot = {}) {
     guardrails: { ...(safeAction.guardrails ?? {}) },
     evidence: {
       missing_metric: resolution.missing_metric ?? null,
+      freshness: safeAction.freshness_gate ?? snapshot.freshness ?? null,
       metrics: resolution.metrics ?? {},
       rates: resolution.rates ?? {},
     },
-    completion_rule:
-      safeAction.mode === "experiment"
+    completion_rule: refreshRequired
+      ? "Refresh the revenue evidence before any mutation, routing expansion, or amplification decision."
+      : safeAction.mode === "experiment"
         ? "Collect a comparable after-snapshot before accepting the change as an improvement."
         : "Complete only the selected evidence, routing, inspection, review, or amplification task; do not expand scope.",
   };
