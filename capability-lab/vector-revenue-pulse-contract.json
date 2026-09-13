@@ -1,0 +1,85 @@
+{
+  "version": 1,
+  "scope": {
+    "property": "analytics_scope",
+    "value": "vector_praxis_japan"
+  },
+  "route": {
+    "property": "route_id",
+    "value": "vpj_owned_ai_agent_bottleneck_v2"
+  },
+  "diagnostic_path": "/ai-agent-bottleneck",
+  "metrics": {
+    "owned_sessions": {
+      "source": "posthog",
+      "event": "traffic_session_start",
+      "filters": {
+        "analytics_scope": "vector_praxis_japan"
+      },
+      "observation": "observed_after_scope_deploy"
+    },
+    "diagnostic_entry_clicks": {
+      "source": "posthog",
+      "event": "priority_entry_click",
+      "filters": {
+        "analytics_scope": "vector_praxis_japan",
+        "destination_path": "/ai-agent-bottleneck"
+      },
+      "observation": "observed_after_scope_deploy"
+    },
+    "diagnostic_sessions": {
+      "source": "posthog",
+      "event": "funnel_view",
+      "filters": {
+        "analytics_scope": "vector_praxis_japan",
+        "path": "/ai-agent-bottleneck"
+      },
+      "observation": "observed_after_scope_deploy"
+    },
+    "bottleneck_selections": {
+      "source": "posthog",
+      "event": "vector_bottleneck_select",
+      "filters": {
+        "analytics_scope": "vector_praxis_japan"
+      },
+      "observation": "unobserved_until_event_appears_in_schema"
+    },
+    "paid_recommendation_views": {
+      "source": "posthog",
+      "event": "vector_bottleneck_recommendation_view",
+      "filters": {
+        "analytics_scope": "vector_praxis_japan",
+        "target": "paid"
+      },
+      "observation": "unobserved_until_event_appears_in_schema"
+    },
+    "paid_cta_clicks": {
+      "source": "posthog",
+      "event": "primary_cta_click",
+      "filters": {
+        "analytics_scope": "vector_praxis_japan",
+        "route_id": "vpj_owned_ai_agent_bottleneck_v2"
+      },
+      "observation": "observed_after_scope_deploy"
+    },
+    "checkout_reaches": {
+      "source": "external_checkout_evidence",
+      "event": null,
+      "filters": null,
+      "observation": "unknown_until_independently_observed"
+    },
+    "verified_human_purchases": {
+      "source": "external_payment_evidence",
+      "event": null,
+      "filters": null,
+      "observation": "unknown_until_verified"
+    }
+  },
+  "evidence_rules": {
+    "missing_or_unobserved_is_not_zero": true,
+    "paid_cta_click_is_not_checkout": true,
+    "checkout_is_not_purchase": true,
+    "purchase_requires_verified_human_payment_evidence": true,
+    "shared_posthog_requires_vector_scope_filter": true
+  }
+}
