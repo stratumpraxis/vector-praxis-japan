@@ -101,6 +101,7 @@ function gwrAttributionProperties() {
     .gwr-intelligence-action>strong{color:#e5c872;font-size:8px;letter-spacing:.14em}.gwr-intelligence-action>span{margin:8px 0 12px;color:#a9b9c7;font-size:11px;line-height:1.55}
     .gwr-reaction-options{display:grid;gap:7px}.gwr-reaction-option{min-height:38px;padding:8px 10px;border:1px solid #4c5660;border-radius:10px;background:#101923;color:#dce7ef;font:700 10px/1.3 'Noto Sans JP',sans-serif;text-align:left;cursor:pointer;transition:transform .15s ease,border-color .15s ease,background .15s ease}.gwr-reaction-option:hover,.gwr-reaction-option:focus-visible{transform:translateY(-1px);border-color:#8d7435;background:#17212a;outline:none}.gwr-reaction-option[aria-pressed='true']{border-color:#8de6c0;background:rgba(31,78,65,.45);color:#dffbef}.gwr-reaction-option:disabled{cursor:default;opacity:.82;transform:none}
     .gwr-reaction-status{min-height:18px;margin-top:9px;color:#8de6c0!important;font-size:9px!important;line-height:1.45;text-align:left!important}.gwr-intelligence-action>small{margin-top:7px;color:#687b8c;font-size:8px;text-align:left}
+    .gwr-inquiry-step{margin-top:13px;padding-top:13px;border-top:1px solid #34414b}.gwr-inquiry-step[hidden]{display:none}.gwr-inquiry-step>strong{display:block;color:#f0d37c;font-size:8px;letter-spacing:.14em}.gwr-inquiry-step>p{margin:7px 0 10px;color:#93a4b3;font-size:9px;line-height:1.55}.gwr-inquiry-options{display:grid;gap:7px}.gwr-inquiry-option{min-height:42px;padding:9px 10px;border:1px solid #6a623f;border-radius:10px;background:linear-gradient(145deg,#171c20,#111923);color:#f0e7c7;font:800 10px/1.35 'Noto Sans JP',sans-serif;text-align:left;cursor:pointer}.gwr-inquiry-option:hover,.gwr-inquiry-option:focus-visible{border-color:#d7b95f;background:#20231f;outline:3px solid #b7f4da;outline-offset:2px}.gwr-inquiry-option[aria-pressed='true']{border-color:#8de6c0;background:rgba(31,78,65,.45);color:#e1fff2}.gwr-inquiry-option:disabled{cursor:default;opacity:.9}.gwr-inquiry-status{min-height:18px;margin-top:9px;color:#8de6c0;font-size:9px;line-height:1.5}
     @media(max-width:820px){#laborIntelligenceSignal.gwr-intelligence-offer{max-width:calc(100% - 40px);grid-template-columns:1fr}#laborIntelligenceSignal .gwr-intelligence-action{grid-column:1}}
     @media(max-width:430px){#laborIntelligenceSignal.gwr-intelligence-offer{max-width:calc(100% - 28px);padding:20px}#laborIntelligenceSignal.gwr-intelligence-offer:before{font-size:30px}}
   `;
@@ -135,7 +136,17 @@ function gwrAttributionProperties() {
         <button type="button" class="gwr-reaction-option" data-reaction="more_detail">もっと詳しいデータが欲しい</button>
       </div>
       <div class="gwr-reaction-status" id="gwrReactionStatus" aria-live="polite"></div>
-      <small>Reaction evidence only · no email · no account required</small>
+      <div class="gwr-inquiry-step" id="gwrInquiryStep" hidden>
+        <strong>NEXT · COMMERCIAL INQUIRY</strong>
+        <p>ここからは単なるReactionではなく、GWR Paid Intelligenceへの明示的な問い合わせとして記録します。</p>
+        <div class="gwr-inquiry-options" role="group" aria-label="Commercial inquiry options">
+          <button type="button" class="gwr-inquiry-option" data-inquiry="paid_pilot">Paid Pilotを検討したい</button>
+          <button type="button" class="gwr-inquiry-option" data-inquiry="custom_sample">自社向けSampleを見たい</button>
+          <button type="button" class="gwr-inquiry-option" data-inquiry="commercial_terms">契約条件を確認したい</button>
+        </div>
+        <div class="gwr-inquiry-status" id="gwrInquiryStatus" aria-live="polite"></div>
+      </div>
+      <small>Reaction / inquiry evidence only · no email · no account required</small>
     </div>
   `;
   summary.insertAdjacentElement('afterend', section);
@@ -173,7 +184,63 @@ function gwrAttributionProperties() {
         item.setAttribute('aria-pressed', selected ? 'true' : 'false');
       });
       const status = section.querySelector('#gwrReactionStatus');
-      if (status) status.textContent = '反応を記録しました。次のSignal設計に反映します。';
+      if (status) status.textContent = '反応を記録しました。商談意向がある場合は次の1項目だけ選べます。';
+      const inquiryStep = section.querySelector('#gwrInquiryStep');
+      if (inquiryStep) {
+        inquiryStep.hidden = false;
+        inquiryStep.dataset.reactionContext = reaction;
+      }
+    });
+  });
+
+  let inquirySubmitted = false;
+  section.querySelectorAll('.gwr-inquiry-option').forEach((button) => {
+    button.addEventListener('click', () => {
+      if (inquirySubmitted) return;
+      inquirySubmitted = true;
+      const inquiry = button.dataset.inquiry || 'unknown';
+      const inquiryStep = section.querySelector('#gwrInquiryStep');
+      const reactionContext = inquiryStep?.dataset.reactionContext || null;
+      const attribution = gwrAttributionProperties();
+      const recoveryQualified = attribution.buyer_attributed === true;
+      const evidence = {
+        product: 'global-work-radar',
+        signal_id: signal.id,
+        theme: signal.theme,
+        score: signal.score,
+        route: signal.route,
+        source: signal.source,
+        scope: signal.scope,
+        inquiry,
+        reaction_context: reactionContext,
+        commercial_intent: true,
+        evidence_stage: 'buyer_inquiry',
+        evidence_timestamp: new Date().toISOString(),
+        evidence_channel: attribution.attribution_channel || 'site_direct',
+        evidence_action: inquiry,
+        evidence_asset: 'laborIntelligenceSignal',
+        evidence_url: window.location.href.split('#')[0],
+        recovery_qualified: recoveryQualified,
+        recovery_status: recoveryQualified ? 'explicit_inquiry' : 'unattributed_intent',
+        revenue_distance: 'inquiry_to_contract',
+        ...attribution
+      };
+      if (window.posthog && typeof window.posthog.capture === 'function') {
+        window.posthog.capture('gwr_buyer_inquiry', evidence);
+        if (inquiry === 'paid_pilot') window.posthog.capture('gwr_paid_pilot_request', evidence);
+        if (inquiry === 'custom_sample') window.posthog.capture('gwr_custom_sample_request', evidence);
+        if (inquiry === 'commercial_terms') window.posthog.capture('gwr_commercial_terms_request', evidence);
+        if (recoveryQualified) window.posthog.capture('gwr_buyer_reaction_recovered', evidence);
+      }
+      section.querySelectorAll('.gwr-inquiry-option').forEach((item) => {
+        const selected = item === button;
+        item.setAttribute('aria-pressed', selected ? 'true' : 'false');
+        item.disabled = true;
+      });
+      const status = section.querySelector('#gwrInquiryStatus');
+      if (status) status.textContent = recoveryQualified
+        ? '明示的な問い合わせを記録しました。Buyer identity・時刻・Channel・Action・URLをRecovery evidenceとして保存しました。'
+        : '問い合わせ意向を記録しました。Buyer identityがないためRecovery Completeにはしません。';
     });
   });
 
@@ -200,6 +267,7 @@ function gwrAttributionProperties() {
   function selectNextAction(metrics = {}) {
     const verifiedRevenue = toNumber(metrics.verifiedRevenue);
     const revenueClicks = toNumber(metrics.revenueClicks);
+    const buyerInquiries = toNumber(metrics.buyerInquiries);
     const buyerReactions = toNumber(metrics.buyerReactions);
     const intelligenceLeadClicks = toNumber(metrics.intelligenceLeadClicks);
     const officialApplyClicks = toNumber(metrics.officialApplyClicks);
@@ -210,7 +278,8 @@ function gwrAttributionProperties() {
     const partnerEnabled = metrics.partnerEnabled === true;
 
     if (verifiedRevenue > 0) return Object.freeze({ state: 'WINNER_AMPLIFICATION', priority: 100 });
-    if (revenueClicks > 0) return Object.freeze({ state: 'MONETIZATION_VERIFY', priority: 95 });
+    if (revenueClicks > 0) return Object.freeze({ state: 'MONETIZATION_VERIFY', priority: 97 });
+    if (buyerInquiries > 0) return Object.freeze({ state: 'BUYER_INQUIRY_VERIFY', priority: 96 });
     if (buyerReactions > 0) return Object.freeze({ state: 'BUYER_REACTION_VERIFY', priority: 94 });
     if (intelligenceLeadClicks > 0) return Object.freeze({ state: 'PAID_INTELLIGENCE_VERIFY', priority: 93 });
     if (officialApplyClicks > 0 && !partnerEnabled) return Object.freeze({ state: 'MONETIZATION_GATE', priority: 90 });
@@ -223,7 +292,7 @@ function gwrAttributionProperties() {
 
   window.GWR_REVENUE_PUMP = Object.freeze({
     selectNextAction,
-    priorityOrder: Object.freeze(['WINNER_AMPLIFICATION','MONETIZATION_VERIFY','BUYER_REACTION_VERIFY','PAID_INTELLIGENCE_VERIFY','MONETIZATION_GATE','CARD_TO_APPLY','SECTION_TO_CARD','VISIT_TO_JOBS','SEARCH_TO_APPLY','QUALIFIED_ACQUISITION'])
+    priorityOrder: Object.freeze(['WINNER_AMPLIFICATION','MONETIZATION_VERIFY','BUYER_INQUIRY_VERIFY','BUYER_REACTION_VERIFY','PAID_INTELLIGENCE_VERIFY','MONETIZATION_GATE','CARD_TO_APPLY','SECTION_TO_CARD','VISIT_TO_JOBS','SEARCH_TO_APPLY','QUALIFIED_ACQUISITION'])
   });
 
   if (!window.posthog || typeof window.posthog.capture !== 'function') return;
@@ -238,7 +307,7 @@ function gwrAttributionProperties() {
   function observeOnce(selector,event){const element=document.querySelector(selector);if(!element||!('IntersectionObserver' in window))return;const observer=new IntersectionObserver((entries)=>{for(const entry of entries){if(!entry.isIntersecting||entry.intersectionRatio<0.35||seen.has(event))continue;seen.add(event);capture(event,{selector});observer.disconnect();break}},{threshold:[0.35]});observer.observe(element)}
   function observeJobCards(){const jobsList=document.querySelector('#jobsList');if(!jobsList||!('IntersectionObserver' in window))return;const cardObserver=new IntersectionObserver((entries)=>{for(const entry of entries){if(!entry.isIntersecting||entry.intersectionRatio<0.5)continue;const card=entry.target;const link=card.querySelector('.official-apply');const jobId=link?.dataset.jobId||null;const jobSource=link?.dataset.source||null;const position=card.parentElement?[...card.parentElement.children].indexOf(card)+1:null;const key=`gwr_job_card_view:${jobId||jobSource||position}`;if(!seen.has(key)){seen.add(key);capture('gwr_job_card_view',{job_id:jobId,job_source:jobSource,position})}cardObserver.unobserve(card)}},{threshold:[0.5]});const bindCards=()=>{jobsList.querySelectorAll('.job-card:not([data-gwr-observed])').forEach((card)=>{card.dataset.gwrObserved='1';cardObserver.observe(card)})};bindCards();new MutationObserver(bindCards).observe(jobsList,{childList:true})}
 
-  document.addEventListener('click',(event)=>{if(!(event.target instanceof Element))return;const target=event.target.closest('#searchButton,[data-filter],.official-apply,#marketSignalLink,#eligibilityGapLink,#revenuePartnerLink,.gwr-reaction-option,#resetFilters,#loadMore');if(!target)return;markMeaningfulAction()},true);
+  document.addEventListener('click',(event)=>{if(!(event.target instanceof Element))return;const target=event.target.closest('#searchButton,[data-filter],.official-apply,#marketSignalLink,#eligibilityGapLink,#revenuePartnerLink,.gwr-reaction-option,.gwr-inquiry-option,#resetFilters,#loadMore');if(!target)return;markMeaningfulAction()},true);
   document.addEventListener('input',(event)=>{if(!(event.target instanceof Element))return;if(!event.target.closest('#keyword,#category,#minPay,#english,#onlyJapan,#onlyRemote'))return;markMeaningfulAction()},true);
 
   observeOnce('#laborIntelligenceSignal','gwr_intelligence_section_view');
