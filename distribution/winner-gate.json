@@ -1,0 +1,27 @@
+{
+  "version": 1,
+  "gate": "winner_amplification",
+  "state_order": [
+    "PREPARED",
+    "PUBLISHED",
+    "TRAFFIC_CONFIRMED",
+    "BUYER_ACTION",
+    "CHECKOUT",
+    "PURCHASED",
+    "WINNER"
+  ],
+  "rules": {
+    "reach_only": "NO_AMPLIFY",
+    "destination_click": "HOOK_CANDIDATE",
+    "paid_product_view": "MESSAGE_MATCH_CANDIDATE",
+    "checkout_reached": "STRONG_WINNER_CANDIDATE",
+    "purchase_confirmed": "WINNER"
+  },
+  "winner_amplification": {
+    "min_variants": 5,
+    "max_variants": 20,
+    "keep_fixed": ["offer", "route_id"],
+    "vary": ["hook", "problem", "evidence", "cta", "timing"],
+    "separate_by": ["asset_id", "utm_content"]
+  }
+}
