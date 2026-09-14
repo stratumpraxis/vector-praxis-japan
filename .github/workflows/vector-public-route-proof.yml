@@ -43,20 +43,25 @@ jobs:
           Path('.route-proof/candidates.json').write_text(json.dumps(candidates), encoding='utf-8')
           PY
 
-          : > .route-proof/results.tsv
           python3 - <<'PY'
-          import json, subprocess
+          import json, re, subprocess
           from pathlib import Path
 
-          marker = "AIを増やしても"
+          content_marker = "AIを増やしても"
+          analytics_markers = [
+              'id="posthog-tracker"',
+              'analytics_scope:"vector_praxis_japan"',
+              'traffic_session_start',
+          ]
           candidates = json.loads(Path('.route-proof/candidates.json').read_text(encoding='utf-8'))
           rows = []
           for i, url in enumerate(candidates):
               body = Path(f'.route-proof/body-{i}.html')
+              headers = Path(f'.route-proof/headers-{i}.txt')
               cmd = [
                   'curl', '-sS', '-L', '--connect-timeout', '10', '--max-time', '25',
-                  '-A', 'VectorRouteProof/1.0 (+https://github.com/stratumpraxis/vector-praxis-japan)',
-                  '-o', str(body), '-w', '%{http_code}\t%{url_effective}', url,
+                  '-A', 'VectorRouteProof/2.0 (+https://github.com/stratumpraxis/vector-praxis-japan)',
+                  '-D', str(headers), '-o', str(body), '-w', '%{http_code}\t%{url_effective}', url,
               ]
               try:
                   proc = subprocess.run(cmd, text=True, capture_output=True, timeout=30)
@@ -64,11 +69,30 @@ jobs:
                   status = int(parts[0]) if parts and parts[0].isdigit() else 0
                   effective = parts[1] if len(parts) > 1 else None
                   text = body.read_text(encoding='utf-8', errors='ignore') if body.exists() else ''
+                  header_text = headers.read_text(encoding='utf-8', errors='ignore') if headers.exists() else ''
+                  csp_matches = re.findall(r'(?im)^content-security-policy:\s*(.+)$', header_text)
+                  csp = csp_matches[-1].strip() if csp_matches else None
+                  analytics_presence = {marker: marker in text for marker in analytics_markers}
+                  analytics_marker_match = all(analytics_presence.values())
+                  if csp:
+                      csp_l = csp.lower()
+                      posthog_allowed_by_csp = (
+                          'us.i.posthog.com' in csp_l
+                          or '*.posthog.com' in csp_l
+                          or 'https:' in csp_l
+                          or 'connect-src *' in csp_l
+                      )
+                  else:
+                      posthog_allowed_by_csp = None
                   rows.append({
                       'requested_url': url,
                       'effective_url': effective,
                       'http_status': status,
-                      'marker_match': marker in text,
+                      'content_marker_match': content_marker in text,
+                      'analytics_marker_match': analytics_marker_match,
+                      'analytics_markers': analytics_presence,
+                      'content_security_policy': csp,
+                      'posthog_allowed_by_csp': posthog_allowed_by_csp,
                       'curl_exit_code': proc.returncode,
                       'curl_error': (proc.stderr or '').strip()[:500] or None,
                   })
@@ -77,7 +101,11 @@ jobs:
                       'requested_url': url,
                       'effective_url': None,
                       'http_status': 0,
-                      'marker_match': False,
+                      'content_marker_match': False,
+                      'analytics_marker_match': False,
+                      'analytics_markers': {marker: False for marker in analytics_markers},
+                      'content_security_policy': None,
+                      'posthog_allowed_by_csp': None,
                       'curl_exit_code': None,
                       'curl_error': str(exc)[:500],
                   })
@@ -96,8 +124,10 @@ jobs:
           from pathlib import Path
 
           results = json.loads(Path('.route-proof/results.json').read_text(encoding='utf-8'))
-          passing = [r for r in results if r['http_status'] == 200 and r['marker_match']]
-          selected = passing[0]['effective_url'] if passing else None
+          route_passing = [r for r in results if r['http_status'] == 200 and r['content_marker_match']]
+          analytics_passing = [r for r in route_passing if r['analytics_marker_match'] and r['posthog_allowed_by_csp'] is not False]
+          selected = route_passing[0]['effective_url'] if route_passing else None
+          analytics_selected = analytics_passing[0]['effective_url'] if analytics_passing else None
           evidence = {
               'checked_at': datetime.now(timezone.utc).isoformat().replace('+00:00', 'Z'),
               'commit_sha': os.environ.get('COMMIT_SHA'),
@@ -106,10 +136,12 @@ jobs:
               'route_id': 'vpj_owned_ai_agent_bottleneck_v2',
               'asset_id': 'ai_agent_bottleneck',
               'content_marker': 'AIを増やしても',
-              'evidence_state': 'REACHABLE' if selected else 'UNVERIFIED',
+              'analytics_marker': 'vector_praxis_japan + traffic_session_start + posthog-tracker',
+              'evidence_state': 'MEASUREMENT_SURFACE_REACHABLE' if analytics_selected else ('ROUTE_REACHABLE_ANALYTICS_UNVERIFIED' if selected else 'UNVERIFIED'),
               'selected_url': selected,
+              'analytics_selected_url': analytics_selected,
               'candidates': results,
-              'inference_guard': 'HTTP 200 plus current-content marker is required before treating the route as publicly reachable. Deployment success alone is insufficient.'
+              'inference_guard': 'HTTP 200 plus current-content marker proves route reachability. Analytics is only activated at the public surface when all analytics markers are present and CSP does not explicitly block PostHog. This does not itself prove event ingestion.'
           }
           Path('distribution/vector-public-route-proof.json').write_text(
               json.dumps(evidence, ensure_ascii=False, indent=2) + '\n', encoding='utf-8'
