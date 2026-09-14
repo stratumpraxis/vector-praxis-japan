@@ -1,0 +1,19 @@
+{
+  "version": 1,
+  "observed_at": "2026-09-14T03:55:08.201Z",
+  "asset_id": "ai_agent_bottleneck",
+  "route_id": "vpj_owned_ai_agent_bottleneck_v2",
+  "platform": "bluesky",
+  "external_post_id": "at://did:plc:3cg6ij6eppzwmy2v2i42v45e/app.bsky.feed.post/3mvh6zxfe4j2z",
+  "external_post_url": "https://bsky.app/profile/vectorpx.bsky.social/post/3mvh6zxfe4j2z",
+  "published_at": "2026-09-14T03:44:20.957Z",
+  "reaction": {
+    "reply_count": 0,
+    "repost_count": 0,
+    "like_count": 0,
+    "quote_count": 0
+  },
+  "evidence_class": "SOCIAL_ACCOUNT_REACTION",
+  "revenue_evidence": false,
+  "note": "Social reaction is stronger than raw link-scanner traffic, but it is not Buyer Action, Checkout, or Payment evidence."
+}
