@@ -35,6 +35,16 @@ const MAGAZINE = "https://note.com/deft_eel6718/m/md4fd3d914fe5";
 
 const assets: Asset[] = [
   {
+    id: "ai-agent-bottleneck",
+    kind: "FREE",
+    ja: "AI運用の詰まりを3択で診断",
+    en: "Diagnose Your AI Workflow Bottleneck",
+    jaDesc: "レビュー待ち・引き継ぎ・権限境界から、いまの詰まりを1つに絞る。",
+    enDesc: "Identify whether reviews, handoffs or authority boundaries are slowing the workflow.",
+    href: "/ai-agent-bottleneck",
+    intent: ["diagnose"],
+  },
+  {
     id: "ai-team-design-1480",
     kind: "PAID",
     ja: "AIを増やすほど仕事が遅くなる理由",
