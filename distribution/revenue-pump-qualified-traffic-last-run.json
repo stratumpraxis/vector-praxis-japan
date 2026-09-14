@@ -1,13 +1,11 @@
 {
-  "observed_at": "2026-09-14T01:10:44.762Z",
-  "id": "vp-rp-qt-20260914-04",
+  "observed_at": "2026-09-14T01:22:32.859Z",
+  "id": "vp-rp-qt-20260914-05",
   "platform": "bluesky",
   "route_id": "vpj_owned_ai_agent_bottleneck_v2",
   "asset_id": "ai_agent_bottleneck",
-  "status": "PUBLISHED_CONFIRMED_BY_PUBLISHER",
-  "tracked_url": "https://vector-praxis-japan.vercel.app/ai-agent-bottleneck?utm_source=bluesky&utm_medium=social&utm_campaign=vbqtd&route_id=vpj_owned_ai_agent_bottleneck_v2&asset_id=ai_agent_bottleneck",
-  "external_post_id": "at://did:plc:3cg6ij6eppzwmy2v2i42v45e/app.bsky.feed.post/3mvgwhcsncq2i",
-  "external_post_url": "https://bsky.app/profile/vectorpx.bsky.social/post/3mvgwhcsncq2i",
-  "published_at": "2026-09-14T01:10:45.459Z",
-  "publisher": "bluesky_direct"
+  "status": "FAILED_REVIEW",
+  "reason": "destination_origin_mismatch",
+  "destination_origin": "https://linkly.link",
+  "canonical_origin": "https://vector-praxis-japan.user-ex26.chatgpt.site"
 }
