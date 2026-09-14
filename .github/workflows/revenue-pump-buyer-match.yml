@@ -1,0 +1,43 @@
+name: Revenue Pump Buyer Match
+
+on:
+  workflow_dispatch:
+  push:
+    paths:
+      - '.github/workflows/revenue-pump-buyer-match.yml'
+      - 'scripts/revenue-pump-bluesky-buyer-match.mjs'
+
+permissions:
+  contents: write
+
+jobs:
+  scan:
+    runs-on: ubuntu-latest
+    concurrency:
+      group: vector-revenue-pump-buyer-match
+      cancel-in-progress: false
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+
+      - name: Scan Bluesky buyer signals
+        run: node scripts/revenue-pump-bluesky-buyer-match.mjs
+
+      - name: Persist buyer match evidence
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add distribution/revenue-pump-buyer-match-last-run.json
+          if git diff --cached --quiet; then
+            echo "No buyer match evidence change to persist."
+            exit 0
+          fi
+          git commit -m "chore: persist revenue pump buyer match evidence"
+          git fetch origin main
+          git rebase origin/main
+          git push origin HEAD:main
