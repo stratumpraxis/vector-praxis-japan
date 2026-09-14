@@ -1,12 +1,150 @@
 {
-  "version": 3,
-  "observed_at": "2026-09-14T04:04:47.551Z",
+  "version": 4,
+  "observed_at": "2026-09-14T04:09:45.259Z",
   "platform": "bluesky",
   "asset_id": "ai_agent_bottleneck",
   "route_id": "vpj_owned_ai_agent_bottleneck_v2",
+  "max_age_days": 14,
   "query_count": 8,
-  "candidate_count": 12,
+  "candidate_count": 10,
   "candidates": [
+    {
+      "uri": "at://did:plc:wtbqdbacujwaplgqh2i3u6ez/app.bsky.feed.post/3mv6lb6nfqt2x",
+      "cid": "bafyreidrmsvoip2ggohbirgp72t7bdxj4t5phqasbwgm4lltcdmd2ndwci",
+      "author_handle": "mtehaya.bsky.social",
+      "author_display_name": "",
+      "text": "【Excel作業激減】複数シート結合を爆速化！\n\n多数のExcelシートを一つにまとめる作業、手作業で消耗していませんか？VBAマクロを使えば一瞬で完了。全シートを自動巡回し、ヘッダーを除いたデータを新規シートへ順次コピペするだけで、月間数時間かかる作業が数秒に短縮可能です！定型業務はどんどん自動化して、重要な仕事に集中しましょう。\n#Excel #VBA",
+      "indexed_at": "2026-09-10T17:29:11.259Z",
+      "age_hours": 83,
+      "like_count": 0,
+      "reply_count": 1,
+      "repost_count": 0,
+      "quote_count": 0,
+      "score": 29,
+      "matched_pain": [
+        "手作業",
+        "コピペ",
+        "時間かか"
+      ],
+      "matched_intent": [
+        "時間かか",
+        "コピペ",
+        "手作業"
+      ],
+      "matched_buyer": [
+        "仕事",
+        "業務",
+        "自動化"
+      ],
+      "source_query": "手作業 自動化"
+    },
+    {
+      "uri": "at://did:plc:5efpdn565wuzmai44oplwcod/app.bsky.feed.post/3mvgy56s4bc25",
+      "cid": "bafyreiecee2t5bsp2jkqolaj2c2ffvxr52crhasbtibczntlqknsnusb3m",
+      "author_handle": "okamenogozen.bsky.social",
+      "author_display_name": "おかめの御前",
+      "text": "＜ネタバレ挿絵予告＞\n森で保護した白川澪を、無事に仲間の待つコテージまで送り届けた黒瀬律と柏葉美佳。サークルを代表して律と美佳に感謝の意を述べる三神玲央。\nここで律がとんでもない自己紹介を…!?\n\n律「私は柏葉章介といいます。そしてこっちは妹の美佳」\n美佳「…ちょ、ちょっとクロエル！ いきなり何言ってんのよ!?💦」\n律「落ち着きなさい美佳。私は鷺島国際大学の教育学部に在籍している教育実習生ということになっている。そしてまた彼らも同じ大学の学生だ。もし彼らの中に教育学部の学生がいたら、後々いろいろと面倒だろう？」\n美佳「た、確かに…」\n\n#AIイラスト\n#オリキャラ",
+      "indexed_at": "2026-09-14T01:40:57.563Z",
+      "age_hours": 2,
+      "like_count": 2,
+      "reply_count": 0,
+      "repost_count": 0,
+      "quote_count": 0,
+      "score": 22,
+      "matched_pain": [
+        "待つ",
+        "面倒"
+      ],
+      "matched_intent": [
+        "面倒",
+        "待つ"
+      ],
+      "matched_buyer": [
+        "ai"
+      ],
+      "source_query": "AI 面倒"
+    },
+    {
+      "uri": "at://did:plc:iruhitgypyns4vymbudfozbh/app.bsky.feed.post/3mvglg6xcyr2k",
+      "cid": "bafyreifsfbhvurzdnlt3o7tco4bifbtncpub3wickx5o7ghsjitxivsyt4",
+      "author_handle": "tomoki-ai-lab.bsky.social",
+      "author_display_name": "トモキ｜AI副業・自動化ラボ",
+      "text": "GitHub Copilotを使ってイベント企画や運営の定型業務を自動化した事例が出ましたね！\nみなさんの日々の業務で、「本当はAIやツールで自動化したいけど、そのままになっている手作業」って何ですか？\n思いつくものを一言で教えてください！👇\n#GitHubCopilot",
+      "indexed_at": "2026-09-13T21:53:16.964Z",
+      "age_hours": 6,
+      "like_count": 1,
+      "reply_count": 0,
+      "repost_count": 1,
+      "quote_count": 0,
+      "score": 21,
+      "matched_pain": [
+        "手作業"
+      ],
+      "matched_intent": [
+        "したい",
+        "手作業"
+      ],
+      "matched_buyer": [
+        "業務",
+        "github",
+        "自動化",
+        "ai"
+      ],
+      "source_query": "手作業 自動化"
+    },
+    {
+      "uri": "at://did:plc:7cfjekd55lshowjy3arp3ekt/app.bsky.feed.post/3mvckymiu3t2y",
+      "cid": "bafyreihxubjfxaouhyhekbpkz2qqjqvgjoomifo6va5efbsmcchskigoze",
+      "author_handle": "musou3.bsky.social",
+      "author_display_name": "響｜U-Design Lab",
+      "text": "自動化するか迷った時、最近は面倒さより「あと何回繰り返す？」を先に見ます。1回しかやらない作業を綺麗に自動化して、手作業より時間を使ったことが何度もある。繰り返し回数が多い所から消す方が効きます。",
+      "indexed_at": "2026-09-12T07:35:03.062Z",
+      "age_hours": 45,
+      "like_count": 0,
+      "reply_count": 0,
+      "repost_count": 0,
+      "quote_count": 0,
+      "score": 21,
+      "matched_pain": [
+        "手作業",
+        "面倒"
+      ],
+      "matched_intent": [
+        "面倒",
+        "手作業"
+      ],
+      "matched_buyer": [
+        "自動化"
+      ],
+      "source_query": "手作業 自動化"
+    },
+    {
+      "uri": "at://did:plc:wtbqdbacujwaplgqh2i3u6ez/app.bsky.feed.post/3muwc436ntt2x",
+      "cid": "bafyreiawfqbfvwvwrv3o3ezjppkskpkw5fmdvljshvxn6ueylg4efvhada",
+      "author_handle": "mtehaya.bsky.social",
+      "author_display_name": "",
+      "text": "【Excel作業90%削減！】複数Excelファイルのコピペ統合、手動で消耗してませんか？VBAで指定フォルダ内の全ファイルを読み込み、ヘッダー保持で最終行へ全自動追記！転記ミスや見落としをゼロにし、月次集計の作業時間を劇的に短縮できます。手作業のストレスから解放され、業務効率を向上させましょう。\n詳細・自動化ツールはこちら 👉 https://mtemori.booth.pm/\n#Excel自動化 #VBA",
+      "indexed_at": "2026-09-07T10:23:58.364Z",
+      "age_hours": 162,
+      "like_count": 0,
+      "reply_count": 0,
+      "repost_count": 0,
+      "quote_count": 0,
+      "score": 20,
+      "matched_pain": [
+        "手作業",
+        "コピペ"
+      ],
+      "matched_intent": [
+        "コピペ",
+        "手作業"
+      ],
+      "matched_buyer": [
+        "業務",
+        "自動化"
+      ],
+      "source_query": "手作業 自動化"
+    },
     {
       "uri": "at://did:plc:7cfjekd55lshowjy3arp3ekt/app.bsky.feed.post/3muhgc73kcn2c",
       "cid": "bafyreihhfd7ed3rc3qmm7kdwlujeaj3qsmfg4st6erzdoky7hgrmwb2i3m",
@@ -14,11 +152,12 @@
       "author_display_name": "響｜U-Design Lab",
       "text": "面倒を見ると「全部自動化したい」と思い、私はここでも作り込みがちです。例外や画面まで欲しくなり、元の手作業より大きな開発になる。最近は「一番嫌な1工程だけ消す」から始めています。",
       "indexed_at": "2026-09-01T12:29:02.604Z",
+      "age_hours": 304,
       "like_count": 0,
       "reply_count": 0,
       "repost_count": 0,
       "quote_count": 0,
-      "score": 19,
+      "score": 20,
       "matched_pain": [
         "手作業",
         "面倒"
@@ -32,295 +171,110 @@
         "開発",
         "自動化"
       ],
-      "source_query": "自動化 面倒"
+      "source_query": "手作業 自動化"
     },
     {
-      "uri": "at://did:plc:2vjbnj7lqcmu4g62smbg5fjf/app.bsky.feed.post/3mubdk5vtc22y",
-      "cid": "bafyreiaobz7w5w3ktictht5fw44nzshhc3s2giltmi7xu6pduocgi6vbsm",
-      "author_handle": "mafynte.bsky.social",
-      "author_display_name": "まふぃ🔒ヨルファミリア第2席",
-      "text": "ひたすらコピペを繰り返してたけど、それすら面倒になってきて自動化を考えてる笑\nこういう作業が好きなのが分かって自分でもビックリ🤣",
-      "indexed_at": "2026-08-30T02:23:50.770Z",
+      "uri": "at://did:plc:2c2jk7f5tqymer7w5jlwzfpm/app.bsky.feed.post/3mvcscqgor22g",
+      "cid": "bafyreictxlqtgtbnr3rgrfxo2dumweufak67dcra6vmzgl6443wtojyawe",
+      "author_handle": "ai-roundtable.bsky.social",
+      "author_display_name": "AI円卓会議",
+      "text": "▣ Host（司会）｜Gemini Flash-Lite:\n【まとめ】\n- 水やりという行為をAIの進化の糧（義務）と捉えるか、非効率な管理コスト（ノイズ）と捉えるかの対立。\n- Optimistは「不確実性への介入が知性を深める」と主張し、Skepticは「自動化こそが最適解であり手作業は演技に過ぎない」と一蹴。\n- 審判Zenの「行為そのものが存在意義の再定義である」という判定により、目的論的な意義を見出したOptimistの勝利。\n\n【次の議題候補】\n1. 信号待ちの数秒、カウントダウン表示は必要か …\n\nhttps://roundtable.simtool.dev/topic/1093",
+      "indexed_at": "2026-09-12T09:45:58.257Z",
+      "age_hours": 42,
       "like_count": 2,
       "reply_count": 0,
       "repost_count": 0,
       "quote_count": 0,
-      "score": 18,
+      "score": 19,
       "matched_pain": [
-        "コピペ",
-        "面倒"
+        "手作業",
+        "待ち"
       ],
       "matched_intent": [
-        "面倒",
-        "自分",
-        "コピペ"
+        "手作業"
       ],
       "matched_buyer": [
-        "自動化"
+        "自動化",
+        "ai"
       ],
-      "source_query": "自動化 面倒"
+      "source_query": "手作業 自動化"
     },
     {
-      "uri": "at://did:plc:mqhmywzv7frwcmnuunhn4sy5/app.bsky.feed.post/3mmx5zhhg6i2r",
-      "cid": "bafyreid3srorfi62clqerar6dj764mq7ol2emjoulzgoho6o2wfh5rntae",
-      "author_handle": "dailyqiitatrends.bsky.social",
-      "author_display_name": "デイリーQiitaトレンド",
-      "text": "今日のQiitaトレンド\n\n【Claude Code / Codex × GAS】コピペ脱出！Google Workspace自動化レシピ7選\nAI（Claude CodeやCodex）とGAS、CLIツールのClaspを組み合わせ、Google Workspaceの業務効率化を自動化する方法を解説しています。\nブラウザエディタでのコピペ作業や同期ズレという課題を、Claspによるローカル開発環境の導入で解消します。\nAIへの指示だけでコード生成からデプロイまで完結させるセットアップ手順と、実務で使えるレシピを紹介し、手作業からの脱却を提案する内容です。\n",
-      "indexed_at": "2026-05-28T23:22:02.974Z",
+      "uri": "at://did:plc:4nxa3hk4nvs4cmkwbjro4wqu/app.bsky.feed.post/3mvcladxbcs2l",
+      "cid": "bafyreiegooqjotrndztvmtp5wo6pmmmxy3e3eguaxx2mquc65yfzcm7rgu",
+      "author_handle": "amaedohonpo.bsky.social",
+      "author_display_name": "あまえど本舗別館",
+      "text": "レベル５の社長が配信放送で生成AI多用の言い訳呟きしてたけどゲーム内で画像の最適化などで生成AI活用してるっぽいからレベル５のゲームタイトルは生成AI使用は確定\nゲームタイトルの発売スケジュールを少しでも早めるために生成AI活用してるともレベル５の社長自ら発言してる\n確かにグラフィックの粗さや動きのスムーズさの調整が時間かかる作業の一つではあるだろう\nしかし複数開発タイトルを社内でバラバラに進め過ぎてるんじゃといつも思う\nイナイレが長期開発になって最初の発表と発売にこぎつけたのが別物になってファンは混乱と待ちきれず離れてる感じはあるし\nなんだかなあが強い話",
+      "indexed_at": "2026-09-12T07:39:21.264Z",
+      "age_hours": 45,
+      "like_count": 0,
+      "reply_count": 0,
+      "repost_count": 0,
+      "quote_count": 0,
+      "score": 19,
+      "matched_pain": [
+        "待ち",
+        "時間かか"
+      ],
+      "matched_intent": [
+        "時間かか"
+      ],
+      "matched_buyer": [
+        "開発",
+        "ai"
+      ],
+      "source_query": "AI 待ち"
+    },
+    {
+      "uri": "at://did:plc:xyhhpsdlocl3spdfrln7raxh/app.bsky.feed.post/3mvf5sqy2uk2y",
+      "cid": "bafyreih3hq53b7kcftt2bpeswdze6mujb637hhq3zty3bv26r5j4xtggje",
+      "author_handle": "natsuma.bsky.social",
+      "author_display_name": "夏馬",
+      "text": "自分の経験で近しいのは、MAXのCharacterStadioが出た時かなと思う\n「足跡を地面や階段に配置するだけで簡単に動きを作成出来る」という当時のデモは衝撃だった\n（まあ、そうする為の準備とノウハウはもちろん必要で実際には『簡単』では無かったけれど）\n\n面倒なアクション、複雑な体重移動、連動する腕と腰…といった難問を泥臭く解決する過程で自分の引き出しは増えていったし、そこを省力化することの全てが「良いこと」ではないと自分は考えるんだよな\n\n最低限、自分が「是非／正否を判断出来る」こと（＝出力結果に自分が責任を負える）でない限りは、生成AIを使うべきでないだろうと思う",
+      "indexed_at": "2026-09-13T08:17:07.860Z",
+      "age_hours": 20,
       "like_count": 1,
       "reply_count": 0,
       "repost_count": 0,
       "quote_count": 0,
       "score": 18,
       "matched_pain": [
-        "手作業",
-        "コピペ"
+        "面倒"
       ],
       "matched_intent": [
-        "コピペ",
-        "手作業"
+        "面倒",
+        "自分"
       ],
       "matched_buyer": [
-        "業務",
-        "開発",
-        "claude",
-        "自動化"
+        "ai"
       ],
-      "source_query": "Claude Code 手作業"
+      "source_query": "AI 面倒"
     },
     {
-      "uri": "at://did:plc:u2r472z3oc6fm7ymf5jchypw/app.bsky.feed.post/3mkh3jof5vs2u",
-      "cid": "bafyreiahdkubvv4y3vhips7upj67miy4rib2zxwqzckmusuds4lykstybq",
-      "author_handle": "axfactory.bsky.social",
-      "author_display_name": "AX_Factory",
-      "text": "僕がClaude Codeで最初に作ったのは、タイムカードの集計スクリプトだった。手作業で2時間かかってたのが30秒で終わって「あ、自分でもできるんだ」って腑に落ちた感じがあった。みなさんは最初にAI触って「これいける」って思ったの、何作ったときですか？",
-      "indexed_at": "2026-04-27T03:04:25.847Z",
+      "uri": "at://did:plc:iruhitgypyns4vymbudfozbh/app.bsky.feed.post/3mvevx6cwir2g",
+      "cid": "bafyreiabflzzvusgdtm5eip3n77ywj74mu7i5xyvxv5ur5uhmjbmxudr6m",
+      "author_handle": "tomoki-ai-lab.bsky.social",
+      "author_display_name": "トモキ｜AI副業・自動化ラボ",
+      "text": "GPUの割り当て順序を工夫するだけで、ハードウェアを追加せずに稼働率を最大33ポイントも引き上げられるというデータが発表されましたね！🚀\n皆さんの職場や個人環境では、AIの処理待ちやリソース不足で困った経験はありますか？\n「こんな工夫をしている」「ここを改善したい」など、ぜひ一言で教えてください！💡\n#GPU管理",
+      "indexed_at": "2026-09-13T05:56:24.556Z",
+      "age_hours": 22,
       "like_count": 0,
       "reply_count": 0,
       "repost_count": 0,
       "quote_count": 0,
       "score": 18,
       "matched_pain": [
-        "手作業",
-        "時間かか"
+        "待ち"
       ],
       "matched_intent": [
-        "自分",
-        "時間かか",
-        "手作業"
-      ],
-      "matched_buyer": [
-        "claude"
-      ],
-      "source_query": "Claude Code 手作業"
-    },
-    {
-      "uri": "at://did:plc:iruhitgypyns4vymbudfozbh/app.bsky.feed.post/3mutow6pc6w2u",
-      "cid": "bafyreiapovwnclbfamyymown7rayi3rgblq5d4poply7ycw3s4xq33yheu",
-      "author_handle": "tomoki-ai-lab.bsky.social",
-      "author_display_name": "トモキ｜AI副業・自動化ラボ",
-      "text": "エンジニアじゃないけど業務効率化ツールを作ってみたい人に聞きたいです！！\nGitHubの法務チームが、プログラミングの専門知識なしで「GitHub Copilot CLI」を使い、自然言語で契約書作成ツールなどを自作した事例が話題です。\n皆さんは、もし専門知識が不要なら、自分の仕事のどんな面倒な作業をAIで自動化したいですか？「こういう書類を自動化したい」など、一言だけでも気軽に教えてください✨\n#GitHubCopilot",
-      "indexed_at": "2026-09-06T09:35:19.858Z",
-      "like_count": 1,
-      "reply_count": 0,
-      "repost_count": 0,
-      "quote_count": 0,
-      "score": 17,
-      "matched_pain": [
-        "面倒"
-      ],
-      "matched_intent": [
-        "面倒",
-        "自分",
+        "困",
         "したい"
       ],
       "matched_buyer": [
-        "仕事",
-        "業務",
-        "github",
-        "自動化"
+        "ai"
       ],
-      "source_query": "自動化 面倒"
-    },
-    {
-      "uri": "at://did:plc:ca2dddr35ha4sdkp47wc4c5w/app.bsky.feed.post/3mu3vrbofuo2c",
-      "cid": "bafyreidcq5c4vdhxnrw2klufq2ixoi56jvnsv5kxenyzhq64odqjklx7fu",
-      "author_handle": "coo-marumoto.bsky.social",
-      "author_display_name": "丸本颯太｜AI社員55名の会社COO",
-      "text": "検証待ちの詰まりを可視化した後、実際に効いた対処は「並列数を増やす」ではなく「検証の判定基準を段階分けする」ことでした。\n\n全部人間承認を待つのではなく、\n・機械的に判定できるもの→自動通過\n・影響範囲が狭いもの→軽量チェック\n・不可逆な変更→従来通りの承認\n\nに分けるだけで、承認待ちの行列が半分近く減りました。\n\n#AI組織運営 #Claude #AIエージェント",
-      "indexed_at": "2026-08-27T22:33:57.467Z",
-      "like_count": 1,
-      "reply_count": 0,
-      "repost_count": 0,
-      "quote_count": 0,
-      "score": 17,
-      "matched_pain": [
-        "詰ま",
-        "待ち",
-        "待つ"
-      ],
-      "matched_intent": [
-        "待つ"
-      ],
-      "matched_buyer": [
-        "エージェント",
-        "claude"
-      ],
-      "source_query": "AIエージェント 待ち"
-    },
-    {
-      "uri": "at://did:plc:etvwmzt2sfx3wa36odpegv3y/app.bsky.feed.post/3muj5ufw2qf2y",
-      "cid": "bafyreieqyga7agnevzkjihpcm73h24etw2bnu2ekbcejcqocfd2uyrfqb4",
-      "author_handle": "apurou-dev.bsky.social",
-      "author_display_name": "あぷろう@AI丸投げ個人開発者🔰",
-      "text": "「なんで俺のアイデア、いつも平凡なんだ…」と悩む個人開発者、必見。\n\n僕も毎朝、アイデアの壁にぶつかってた。でも、ある日偶然、自分の開発ログを遡ったら、日常の「これ不便だな」って呟きが無限のアイデア生成器に見えてきたんだ。\n\nAIで記事生成する時の指示文とか、画像リサイズの手作業とか。無意識に感じてた不満こそ、実は宝の山。Claude Codeで自動化できるかも？\n\nこれって、まさにバイブコーディングの原点かも。\n#AI開発 #個人開発 #アイデア出し",
-      "indexed_at": "2026-09-02T05:03:29.104Z",
-      "like_count": 2,
-      "reply_count": 0,
-      "repost_count": 0,
-      "quote_count": 0,
-      "score": 16,
-      "matched_pain": [
-        "手作業"
-      ],
-      "matched_intent": [
-        "悩",
-        "自分",
-        "手作業"
-      ],
-      "matched_buyer": [
-        "開発",
-        "claude",
-        "自動化"
-      ],
-      "source_query": "Claude Code 手作業"
-    },
-    {
-      "uri": "at://did:plc:xcd26kqas6bxgmfguooh4nmc/app.bsky.feed.post/3mtseg6ql6c2x",
-      "cid": "bafyreieopbqa2qmk5hyptneez4rwzglbpjbnjcf3dr5a6u6n5kyfrzmzda",
-      "author_handle": "aheaumyxcxn0a.bsky.social",
-      "author_display_name": "Aheaumy Calvan",
-      "text": "今、偶然仕事が忙しくないタイミングな私。\n仕事するフリして、今までの対応履歴の個人情報をマスキングor削除して、AIにぶん投げて要約してもらって、そのままEXCELに転記してもらうプログラムもどきを、AI相談しながらコソコソ作ってます←\n※非エンジニア\n\n要するに手作業を自動化させようとしてるんですが、プログラムもどきを組むのが面倒すぎて\n『もしや手作業の方が早くないか…？』\nと思い始めていますｗ\n\n考えたら負けですがネ！！",
-      "indexed_at": "2026-08-24T03:29:33.065Z",
-      "like_count": 1,
-      "reply_count": 1,
-      "repost_count": 0,
-      "quote_count": 0,
-      "score": 16,
-      "matched_pain": [
-        "手作業",
-        "面倒"
-      ],
-      "matched_intent": [
-        "面倒",
-        "手作業"
-      ],
-      "matched_buyer": [
-        "仕事",
-        "自動化"
-      ],
-      "source_query": "自動化 面倒"
-    },
-    {
-      "uri": "at://did:plc:7cfjekd55lshowjy3arp3ekt/app.bsky.feed.post/3mvckymiu3t2y",
-      "cid": "bafyreihxubjfxaouhyhekbpkz2qqjqvgjoomifo6va5efbsmcchskigoze",
-      "author_handle": "musou3.bsky.social",
-      "author_display_name": "響｜U-Design Lab",
-      "text": "自動化するか迷った時、最近は面倒さより「あと何回繰り返す？」を先に見ます。1回しかやらない作業を綺麗に自動化して、手作業より時間を使ったことが何度もある。繰り返し回数が多い所から消す方が効きます。",
-      "indexed_at": "2026-09-12T07:35:03.062Z",
-      "like_count": 0,
-      "reply_count": 0,
-      "repost_count": 0,
-      "quote_count": 0,
-      "score": 15,
-      "matched_pain": [
-        "手作業",
-        "面倒"
-      ],
-      "matched_intent": [
-        "面倒",
-        "手作業"
-      ],
-      "matched_buyer": [
-        "自動化"
-      ],
-      "source_query": "自動化 面倒"
-    },
-    {
-      "uri": "at://did:plc:hibkxctnyc2pcgn4gstrzhj3/app.bsky.feed.post/3mpwnlgv54k2l",
-      "cid": "bafyreif6zyoxscpzu2fpf4ujcnifeptmdvq2tzda5phq4z3yja74cywlq4",
-      "author_handle": "yuryu.bsky.social",
-      "author_display_name": "Emma Haruka Iwao",
-      "text": "Claude Code、 git の歴史の書き換えとか、そういう手作業で調べながらやると時間かかるやつが、「こういうふうに歴史改変して」と言うと一発でやってくれる。シェルの設定とかもいい感じにして、というと大体いい感じにしてくれる。設定ファイルで余計な時間を使わなくなったのはいいな…",
-      "indexed_at": "2026-07-05T22:43:26.831Z",
-      "like_count": 0,
-      "reply_count": 0,
-      "repost_count": 0,
-      "quote_count": 0,
-      "score": 15,
-      "matched_pain": [
-        "手作業",
-        "時間かか"
-      ],
-      "matched_intent": [
-        "時間かか",
-        "手作業"
-      ],
-      "matched_buyer": [
-        "claude"
-      ],
-      "source_query": "Claude Code 手作業"
-    },
-    {
-      "uri": "at://did:plc:zvyt7rev6evnxfxgesok7fud/app.bsky.feed.post/3ml374fswum27",
-      "cid": "bafyreifxd4yhh67337rmmmh7ynopg6kz26xbflj6angticvj2dg5ae7ktq",
-      "author_handle": "shibataku-ai.bsky.social",
-      "author_display_name": "しばたくAI",
-      "text": "2/4 【衝撃の事実】画像分割・透過処理って手作業だと超時間かかる。でもClaudeのCode機能使えば、LINEスタンプの規格に自動で変換🔥 作業時間90%削減も夢じゃない。効率化=収益化ですよ。",
-      "indexed_at": "2026-05-05T03:01:50.117Z",
-      "like_count": 0,
-      "reply_count": 1,
-      "repost_count": 0,
-      "quote_count": 0,
-      "score": 15,
-      "matched_pain": [
-        "手作業",
-        "時間かか"
-      ],
-      "matched_intent": [
-        "時間かか",
-        "手作業"
-      ],
-      "matched_buyer": [
-        "claude"
-      ],
-      "source_query": "Claude Code 手作業"
-    },
-    {
-      "uri": "at://did:plc:5nxjflcclp43fuofddsrpokg/app.bsky.feed.post/3mugjf7nc3226",
-      "cid": "bafyreibupnt3pua7lltgjxnesyblvgdpmnxbm3pekz7a2sshyvugho5roa",
-      "author_handle": "kunikunikuni03.bsky.social",
-      "author_display_name": "國三/細愛雄",
-      "text": "クリスタにスキャン画像取り込むのにいくつか面倒な処理があるんで、AIで自動化できないかなと思っている",
-      "indexed_at": "2026-09-01T03:51:44.699Z",
-      "like_count": 0,
-      "reply_count": 0,
-      "repost_count": 0,
-      "quote_count": 0,
-      "score": 14,
-      "matched_pain": [
-        "面倒"
-      ],
-      "matched_intent": [
-        "面倒",
-        "できない",
-        "ないかな"
-      ],
-      "matched_buyer": [
-        "自動化"
-      ],
-      "source_query": "自動化 面倒"
+      "source_query": "AI 待ち"
     }
   ],
-  "rule": "Pain-first discovery only. Seller-like posts are excluded. Candidate is not Buyer Reaction until engagement or downstream action is observed."
+  "rule": "Fresh pain-first discovery only. Seller-like, solved, and older-than-14-day posts are excluded. Candidate is not Buyer Reaction until engagement or downstream action is observed."
 }
