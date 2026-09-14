@@ -68,6 +68,14 @@ jobs:
           SOCIAL_PUBLISH_WEBHOOK_URL: ${{ secrets.SOCIAL_PUBLISH_WEBHOOK_URL }}
         run: node scripts/social-queue.mjs
 
+      - name: Sync PostHog revenue evidence
+        env:
+          POSTHOG_PERSONAL_API_KEY: ${{ secrets.POSTHOG_PERSONAL_API_KEY }}
+          POSTHOG_PROJECT_ID: ${{ vars.POSTHOG_PROJECT_ID || '573335' }}
+          POSTHOG_API_HOST: ${{ vars.POSTHOG_API_HOST || 'https://us.posthog.com' }}
+          POSTHOG_EVIDENCE_WINDOW_DAYS: ${{ vars.POSTHOG_EVIDENCE_WINDOW_DAYS || '14' }}
+        run: node scripts/posthog-evidence-sync.mjs
+
       - name: Evaluate Winner Amplification Gate
         run: node scripts/winner-gate.mjs
 
@@ -80,6 +88,8 @@ jobs:
           git add distribution/social-queue.json 2>/dev/null || true
           git add distribution/social-last-run.json 2>/dev/null || true
           git add distribution/social-provider-preflight.json 2>/dev/null || true
+          git add distribution/revenue-evidence.jsonl 2>/dev/null || true
+          git add distribution/posthog-evidence-sync-state.json 2>/dev/null || true
           git add distribution/winner-gate-state.json 2>/dev/null || true
           if git diff --cached --quiet; then
             echo "No media/evidence change to persist."
