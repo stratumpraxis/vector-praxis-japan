@@ -1,24 +1,19 @@
 {
   "version": 1,
-  "id": "vp-rp-qt-20260914-03",
-  "status": "PUBLISHED",
+  "id": "vp-rp-qt-20260914-04",
+  "status": "READY",
   "approval": "USER_APPROVED",
   "platform": "bluesky",
   "route_id": "vpj_owned_ai_agent_bottleneck_v2",
   "asset_id": "ai_agent_bottleneck",
   "angle": "AIに聞く回数ではなく完成までの遅さ",
   "copy": "AIを増やしたのに完成が遅い人へ。待ち・権限・引き継ぎ、どこで詰まっているか30秒で切り分けます。",
-  "destination": "https://vector-praxis-japan.user-ex26.chatgpt.site/ai-agent-bottleneck",
+  "destination": "https://vector-praxis-japan.vercel.app/ai-agent-bottleneck",
   "utm": {
     "utm_source": "bluesky",
     "utm_medium": "social",
-    "utm_campaign": "vbqtc"
+    "utm_campaign": "vbqtd"
   },
   "require_media": false,
-  "post_format": "text",
-  "external_post_id": "at://did:plc:3cg6ij6eppzwmy2v2i42v45e/app.bsky.feed.post/3mvgwale47y2p",
-  "external_post_url": "https://bsky.app/profile/vectorpx.bsky.social/post/3mvgwale47y2p",
-  "published_at": "2026-09-14T01:06:59.536Z",
-  "publisher": "bluesky_direct",
-  "tracked_url": "https://vector-praxis-japan.user-ex26.chatgpt.site/ai-agent-bottleneck?utm_source=bluesky&utm_medium=social&utm_campaign=vbqtc&route_id=vpj_owned_ai_agent_bottleneck_v2&asset_id=ai_agent_bottleneck"
+  "post_format": "text"
 }
