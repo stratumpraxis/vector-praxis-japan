@@ -1,0 +1,19 @@
+{
+  "version": 1,
+  "id": "vp-rp-qt-20260914-01",
+  "status": "READY",
+  "approval": "USER_APPROVED",
+  "platform": "bluesky",
+  "route_id": "vpj_owned_ai_agent_bottleneck_v2",
+  "asset_id": "ai_agent_bottleneck",
+  "angle": "AIを増やしたのに前より遅い人だけ",
+  "copy": "ChatGPT・Claude・GitHubを増やしたのに、前より遅い。止まる場所は①レビュー待ち ②権限あいまい ③引き継ぎ不足のどれか。30秒で今の詰まりだけ切り分けます。",
+  "destination": "https://vector-praxis-japan.vercel.app/ai-agent-bottleneck",
+  "utm": {
+    "utm_source": "bluesky",
+    "utm_medium": "social",
+    "utm_campaign": "vector_bottleneck_qt"
+  },
+  "require_media": false,
+  "post_format": "text"
+}
