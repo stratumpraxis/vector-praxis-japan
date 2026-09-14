@@ -66,20 +66,35 @@ const contract = readJson(contractPath);
 const existing = readJsonl(evidencePath);
 
 // The contract is authoritative for which Vector revenue route is currently active.
-// The social queue contributes the exact utm_content values that can be attributed
-// back to a confirmed published post. This prevents cross-project PostHog data from
-// entering the Vector evidence ledger merely because it shares the same analytics project.
+// The social queue contributes exact route_id + utm_content pairs for confirmed
+// published posts. Ambiguous pairs are excluded rather than guessed.
 const currentRouteId = contract.current_route?.route_id || null;
-const attributionTargets = queue.items
-  .filter((item) => item.status === 'PUBLISHED' && item.external_post_id)
-  .filter((item) => item.utm?.route_id && item.utm?.utm_content)
-  .filter((item) => !currentRouteId || item.utm.route_id === currentRouteId)
-  .map((item) => ({
-    social_item_id: item.id,
-    external_post_id: item.external_post_id,
-    route_id: item.utm.route_id,
-    utm_content: item.utm.utm_content
-  }));
+const publishedCandidates = currentRouteId
+  ? queue.items
+      .filter((item) => item.status === 'PUBLISHED' && item.external_post_id)
+      .filter((item) => item.utm?.route_id === currentRouteId && item.utm?.utm_content)
+      .map((item) => ({
+        social_item_id: item.id,
+        external_post_id: item.external_post_id,
+        route_id: item.utm.route_id,
+        utm_content: item.utm.utm_content
+      }))
+  : [];
+
+const targetGroups = new Map();
+for (const target of publishedCandidates) {
+  const key = `${target.route_id}\u0000${target.utm_content}`;
+  const group = targetGroups.get(key) || [];
+  group.push(target);
+  targetGroups.set(key, group);
+}
+
+const attributionTargets = [];
+const ambiguousTargetKeys = [];
+for (const [key, group] of targetGroups.entries()) {
+  if (group.length === 1) attributionTargets.push(group[0]);
+  else ambiguousTargetKeys.push(key);
+}
 
 const uniqueTargetKeys = new Set(attributionTargets.map((target) => `${target.route_id}\u0000${target.utm_content}`));
 
@@ -97,12 +112,21 @@ function ledgerSummary(records, extra = {}) {
     api_host: apiHost,
     current_route_id: currentRouteId,
     attribution_target_count: uniqueTargetKeys.size,
+    ambiguous_attribution_target_count: ambiguousTargetKeys.length,
     allowed_events: allowedEvents,
     excluded_high_trust_events: excludedHighTrustEvents,
     evidence_record_count: posthogRecords.length,
     last_event_watermark: watermarks.at(-1) || null,
     ...extra
   };
+}
+
+if (!currentRouteId) {
+  writeState(ledgerSummary(existing, {
+    status: 'CONTRACT_ROUTE_MISSING'
+  }));
+  console.log(JSON.stringify({status: 'CONTRACT_ROUTE_MISSING'}, null, 2));
+  process.exit(0);
 }
 
 if (!apiKey || !projectId) {
@@ -127,12 +151,17 @@ if (!Number.isFinite(queryWindowDays) || queryWindowDays < 1 || queryWindowDays 
 
 if (!uniqueTargetKeys.size) {
   writeState(ledgerSummary(existing, {
-    status: 'CONNECTED_NO_ATTRIBUTION_TARGETS',
+    status: ambiguousTargetKeys.length
+      ? 'CONNECTED_NO_UNAMBIGUOUS_TARGETS'
+      : 'CONNECTED_NO_ATTRIBUTION_TARGETS',
     query_window_days: queryWindowDays
   }));
   console.log(JSON.stringify({
-    status: 'CONNECTED_NO_ATTRIBUTION_TARGETS',
-    current_route_id: currentRouteId
+    status: ambiguousTargetKeys.length
+      ? 'CONNECTED_NO_UNAMBIGUOUS_TARGETS'
+      : 'CONNECTED_NO_ATTRIBUTION_TARGETS',
+    current_route_id: currentRouteId,
+    ambiguous_target_count: ambiguousTargetKeys.length
   }, null, 2));
   process.exit(0);
 }
@@ -253,7 +282,10 @@ for (const rawRow of payload.results) {
   const target = targetByKey.get(`${routeId}\u0000${utmContent}`);
   if (!target) continue;
 
-  const observedAt = new Date(observedAtRaw).toISOString();
+  const observedAtDate = new Date(observedAtRaw);
+  if (Number.isNaN(observedAtDate.getTime())) continue;
+  const observedAt = observedAtDate.toISOString();
+
   const recordCore = {
     source: 'posthog',
     project_id: String(projectId),
@@ -298,5 +330,6 @@ console.log(JSON.stringify({
   result_row_count: payload.results.length,
   imported_event_count: additions.length,
   evidence_record_count: finalRecords.filter((record) => record.source === 'posthog').length,
-  attribution_target_count: uniqueTargetKeys.size
+  attribution_target_count: uniqueTargetKeys.size,
+  ambiguous_target_count: ambiguousTargetKeys.length
 }, null, 2));
