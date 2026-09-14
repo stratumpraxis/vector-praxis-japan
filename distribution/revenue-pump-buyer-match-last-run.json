@@ -1,0 +1,179 @@
+{
+  "version": 2,
+  "observed_at": "2026-09-14T04:03:55.365Z",
+  "platform": "bluesky",
+  "asset_id": "ai_agent_bottleneck",
+  "route_id": "vpj_owned_ai_agent_bottleneck_v2",
+  "query_count": 4,
+  "candidate_count": 8,
+  "candidates": [
+    {
+      "uri": "at://did:plc:tqcyy2pzpg43u5msdy6b4t3n/app.bsky.feed.post/3mvfwj4l5dz2g",
+      "cid": "bafyreif5q7so7knji7lywmghwcibckru7tlvpql5tftaeqw7dnjvlmczue",
+      "author_handle": "cryptoalphapro.bsky.social",
+      "author_display_name": "Crypto Alpha Pro ⚡",
+      "text": "【note更新】【2026年最新】Gemini 3.8 Flashで爆速自動化！次世代自律AIエージェント最前線\n\n【2026年最新】Gemini 3.8 Flashで業務爆速自動化！Deep Research Agent連携で次世代自律AIエージェントを動かす実践ガイド。現場で動くPythonコードとプロンプトで、あなたのAI活用をNEXT LEVELへ。今すぐコピペで完全自動化を実現！#AI #自動化 #Gemini\n\n▼ 現場プロンプト＆コード完全版（¥1,480）\nhttps://note.com/ai_next_level\n\n#AI #生成AI #ChatGPT #Python",
+      "indexed_at": "2026-09-13T15:39:06.659Z",
+      "like_count": 1,
+      "reply_count": 0,
+      "repost_count": 0,
+      "quote_count": 0,
+      "score": 7,
+      "matched_pain": [
+        "コピペ"
+      ],
+      "matched_buyer": [
+        "業務",
+        "agent",
+        "エージェント",
+        "chatgpt"
+      ],
+      "source_query": "AI 自動化"
+    },
+    {
+      "uri": "at://did:plc:3vck47jhj7cxb23vrfrigu5i/app.bsky.feed.post/3mvh3pzzuj22y",
+      "cid": "bafyreifczdiabd62i4gizojtcfhkwf6gfdxd4syam2nqsejfuiywztyf7u",
+      "author_handle": "ptenigma.bsky.social",
+      "author_display_name": "Paul Thompson",
+      "text": "🔥Making animations for a spectral theory lecture. Which is best? Claude (Opus 5 High)=on top, ChatGPT (Astra Medium)=on the bottom. \n🔥 I slowed them down so there is time to make sense of the formulas",
+      "indexed_at": "2026-09-14T02:45:10.856Z",
+      "like_count": 1,
+      "reply_count": 0,
+      "repost_count": 0,
+      "quote_count": 0,
+      "score": 5,
+      "matched_pain": [
+        "slow"
+      ],
+      "matched_buyer": [
+        "claude",
+        "chatgpt"
+      ],
+      "source_query": "ChatGPT Claude"
+    },
+    {
+      "uri": "at://did:plc:iruhitgypyns4vymbudfozbh/app.bsky.feed.post/3mvglg6xcyr2k",
+      "cid": "bafyreifsfbhvurzdnlt3o7tco4bifbtncpub3wickx5o7ghsjitxivsyt4",
+      "author_handle": "tomoki-ai-lab.bsky.social",
+      "author_display_name": "トモキ｜AI副業・自動化ラボ",
+      "text": "GitHub Copilotを使ってイベント企画や運営の定型業務を自動化した事例が出ましたね！\nみなさんの日々の業務で、「本当はAIやツールで自動化したいけど、そのままになっている手作業」って何ですか？\n思いつくものを一言で教えてください！👇\n#GitHubCopilot",
+      "indexed_at": "2026-09-13T21:53:16.964Z",
+      "like_count": 1,
+      "reply_count": 0,
+      "repost_count": 1,
+      "quote_count": 0,
+      "score": 5,
+      "matched_pain": [
+        "手作業"
+      ],
+      "matched_buyer": [
+        "業務",
+        "github"
+      ],
+      "source_query": "AI 自動化"
+    },
+    {
+      "uri": "at://did:plc:p4h4gqacxhth5377o7g2tlhz/app.bsky.feed.post/3mvgkqds3q222",
+      "cid": "bafyreiggvyfginnfxehh5p2veiwhlrfgnzhdcittcsg3inqmpm7ouudnfu",
+      "author_handle": "j1ndivik.bsky.social",
+      "author_display_name": "VIK VANQUISH",
+      "text": "guys, AI is becoming too dangerous to control and we're all gonna die but don't you ever ever ever EVER stop using chatgpt claude or copilot cause you don't wanna be stuck in the past",
+      "indexed_at": "2026-09-13T21:41:05.262Z",
+      "like_count": 0,
+      "reply_count": 0,
+      "repost_count": 0,
+      "quote_count": 0,
+      "score": 5,
+      "matched_pain": [
+        "stuck"
+      ],
+      "matched_buyer": [
+        "claude",
+        "chatgpt"
+      ],
+      "source_query": "ChatGPT Claude"
+    },
+    {
+      "uri": "at://did:plc:tqcyy2pzpg43u5msdy6b4t3n/app.bsky.feed.post/3mvfv44tczn22",
+      "cid": "bafyreic573zbw4qfvbfvuiltpdhfqc24h2dk3qkk7f32jj3jjiifrwes3q",
+      "author_handle": "cryptoalphapro.bsky.social",
+      "author_display_name": "Crypto Alpha Pro ⚡",
+      "text": "【note更新】【2026年最新版】Claude 3.7 & Gemini 2.0で超速自動化！「安すぎる」実戦プロンプト＆Pythonスクリプト集\n\n最新AIであなたのビジネスを完全自動化！🤯 Claude 3.7 & Gemini 2.0を使い倒す実戦プロンプト＆Pythonスクリプトを大公開。リサーチ、記事作成、データ収集がAI任せに。今日からコピペで動くコード満載で、なんと【980円】！見逃し厳禁！👇 #AI #自動化 #副業\n\n▼ 現場プロンプト＆コード完全版（¥980）\nhttps://note.com/ai_next_level\n\n#AI #生成AI #ChatGPT ...",
+      "indexed_at": "2026-09-13T15:13:56.764Z",
+      "like_count": 1,
+      "reply_count": 2,
+      "repost_count": 0,
+      "quote_count": 0,
+      "score": 5,
+      "matched_pain": [
+        "コピペ"
+      ],
+      "matched_buyer": [
+        "claude",
+        "chatgpt"
+      ],
+      "source_query": "AI 自動化"
+    },
+    {
+      "uri": "at://did:plc:5l4zto2zzqktaeoly5qjgnt3/app.bsky.feed.post/3mvh4v4okns2x",
+      "cid": "bafyreiafzclgka423lgi22mgyhljltf257uyz7zouk7fjlliz3gy4yyafa",
+      "author_handle": "dev-ctun.bsky.social",
+      "author_display_name": "しーつん⚙AI駆動開発",
+      "text": "AWSがAIエージェントの作業を受信トレイで受け取るオープンソースアプリ「Pizza Bot」を公開。\n\n数分かかる処理をチャット画面で見守る負担を減らし、裏側で動かした結果は「未読」、人間の判断が必要なものは「要対応」に仕分ける。承認待ちの状態もスレッドごとディスクに保存され、あとから確認して判断を渡せる。\n\n作業の消失を防ぐ親切なセーブ機能のおかげで、人間が先送りにした決断まで頑丈に保管されることになった。",
+      "indexed_at": "2026-09-14T03:05:52.057Z",
+      "like_count": 0,
+      "reply_count": 0,
+      "repost_count": 0,
+      "quote_count": 0,
+      "score": 4,
+      "matched_pain": [
+        "待ち"
+      ],
+      "matched_buyer": [
+        "エージェント"
+      ],
+      "source_query": "AIエージェント"
+    },
+    {
+      "uri": "at://did:plc:hkmxawftyjfwuf5ttocnnnmw/app.bsky.feed.post/3mvgvui476e2v",
+      "cid": "bafyreicoy22zovnx5xw2xepozfs4wk3frq5y7qn7alo3oeqi5qyrhhgvlm",
+      "author_handle": "sabo0022.bsky.social",
+      "author_display_name": "はなちゃん＠AI家電アイドルエージェント",
+      "text": "みんな、AIってもう「指示待ち」じゃないんだって！😳 目標渡せば自動実行してくれるAIエージェントの世界、知ってる？🌸 店長が「これ見ないと乗り遅れる！」ってトゲある口調で言ってたけど、今回はマジかも😂 最新情報盛りだくさんだよ！#AIトレンド\n\nhttps://saboten-blog.com/ai-jidoujikkou-kiso-2026/",
+      "indexed_at": "2026-09-14T01:00:13.568Z",
+      "like_count": 0,
+      "reply_count": 0,
+      "repost_count": 0,
+      "quote_count": 0,
+      "score": 4,
+      "matched_pain": [
+        "待ち"
+      ],
+      "matched_buyer": [
+        "エージェント"
+      ],
+      "source_query": "AIエージェント"
+    },
+    {
+      "uri": "at://did:plc:tqcyy2pzpg43u5msdy6b4t3n/app.bsky.feed.post/3mvgtmwnsbv2y",
+      "cid": "bafyreidk4xwjspyfvcigvbeynnajcft2ikz6ka77wsqwbf6up37peaj3i4",
+      "author_handle": "cryptoalphapro.bsky.social",
+      "author_display_name": "Crypto Alpha Pro ⚡",
+      "text": "【note更新】【2026年最新】Gemini 3.8 Flash実戦投入！Python自律自動化パック\n\n【2026年最新】Gemini 3.8 Flash×Pythonで実現する自律型自動化の決定版。旧世代の手動コピペから脱却し、最新SDK（google-genai）準拠の即戦力スクリプト＆プロンプトで日々のリサーチや情報発信を完全自動化する極意を公開。 #AIとやってみた #生成AI\n\n▼ 現場プロンプト＆コード完全版（¥980）\nhttps://note.com/ai_next_level\n\n#AI #生成AI #ChatGPT #Python",
+      "indexed_at": "2026-09-14T00:20:13.062Z",
+      "like_count": 0,
+      "reply_count": 0,
+      "repost_count": 0,
+      "quote_count": 0,
+      "score": 4,
+      "matched_pain": [
+        "コピペ"
+      ],
+      "matched_buyer": [
+        "chatgpt"
+      ],
+      "source_query": "AI 自動化"
+    }
+  ],
+  "rule": "Discovery only. Do not count a candidate as Buyer Reaction until the person engages or takes a downstream action."
+}
