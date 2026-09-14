@@ -1,186 +1,75 @@
 {
-  "version": 5,
-  "observed_at": "2026-09-14T06:16:01.393Z",
+  "version": 6,
+  "observed_at": "2026-09-14T06:17:17.110Z",
   "platform": "bluesky",
   "asset_id": "ai_agent_bottleneck",
   "route_id": "vpj_owned_ai_agent_bottleneck_v2",
   "max_age_days": 7,
   "query_count": 8,
-  "candidate_count": 6,
+  "candidate_count": 2,
   "candidates": [
     {
-      "uri": "at://did:plc:hnpngftywniyg35mmmeahhnm/app.bsky.feed.post/3mvczjg5spk24",
-      "cid": "bafyreif2hafke77qkc2arvidmrq2wwkkw3a5petd7f3plos7phymzfnvfi",
-      "author_handle": "caesarwanya.bsky.social",
-      "author_display_name": "丸の内電気鼠",
-      "text": "AI4S関連のコラボ、昔のICTブームと一緒で、結局AI側の人が手を動かすレベルで興味のあるドメインでないと厳しい。ドメイン側の人がAIに興味を持って動くならAIの人入れる必要ないし、どちらも相手の領域で手を動かさないなら結局AI側がドメインの求める道具を作って終わりという話になりがち。AIの人の突っ込んで行き方も重要だけど、ドメインの人も自分の分野にAIの人をガンガン巻き込んで論文を書いたりしないとまあうまくいかんよ",
-      "indexed_at": "2026-09-12T11:54:59.060Z",
-      "age_hours": 42,
-      "like_count": 3,
+      "uri": "at://did:plc:4nxa3hk4nvs4cmkwbjro4wqu/app.bsky.feed.post/3mvcladxbcs2l",
+      "cid": "bafyreiegooqjotrndztvmtp5wo6pmmmxy3e3eguaxx2mquc65yfzcm7rgu",
+      "author_handle": "amaedohonpo.bsky.social",
+      "author_display_name": "あまえど本舗別館",
+      "text": "レベル５の社長が配信放送で生成AI多用の言い訳呟きしてたけどゲーム内で画像の最適化などで生成AI活用してるっぽいからレベル５のゲームタイトルは生成AI使用は確定\nゲームタイトルの発売スケジュールを少しでも早めるために生成AI活用してるともレベル５の社長自ら発言してる\n確かにグラフィックの粗さや動きのスムーズさの調整が時間かかる作業の一つではあるだろう\nしかし複数開発タイトルを社内でバラバラに進め過ぎてるんじゃといつも思う\nイナイレが長期開発になって最初の発表と発売にこぎつけたのが別物になってファンは混乱と待ちきれず離れてる感じはあるし\nなんだかなあが強い話",
+      "indexed_at": "2026-09-12T07:39:21.264Z",
+      "age_hours": 47,
+      "like_count": 0,
+      "reply_count": 0,
+      "repost_count": 0,
+      "quote_count": 0,
+      "score": 38,
+      "matched_friction": [
+        "待ち",
+        "時間かか"
+      ],
+      "matched_unresolved": [
+        "時間かか"
+      ],
+      "matched_personal": [
+        "いつも",
+        "してる"
+      ],
+      "matched_workflow": [
+        "開発",
+        "作業"
+      ],
+      "source_query": "AI 待ち",
+      "revenue_fit": "existing_ai_agent_bottleneck_diagnostic"
+    },
+    {
+      "uri": "at://did:plc:3cvmauyq4m3bdvya3shioiot/app.bsky.feed.post/3mvc5dggizz2u",
+      "cid": "bafyreifqq2prkaxeouczdfoxos2g7vktauhgjvlek7qsz6ffedjxkc2gle",
+      "author_handle": "ahiruai.bsky.social",
+      "author_display_name": "あひる｜楽すぎるAI副業",
+      "text": "AI副業を始めた会社員が平日の夜に挫折しないための3点チェックリストです。\n\n1. 指示文を毎回手打ちせずメモ帳からコピペしているか\n2. 1回の作業時間を30分以内に区切っているか\n3. 完璧を目指さず60点の段階で保存しているか\n\n仕組みを小さく作ることが継続の唯一のコツですよ。",
+      "indexed_at": "2026-09-12T03:30:32.658Z",
+      "age_hours": 51,
+      "like_count": 1,
       "reply_count": 1,
       "repost_count": 0,
       "quote_count": 0,
-      "score": 25,
-      "matched_pain": [
-        "うまくいか"
+      "score": 35,
+      "matched_friction": [
+        "コピペ",
+        "毎回"
       ],
       "matched_unresolved": [
-        "うまくいか"
+        "毎回"
       ],
       "matched_personal": [
-        "自分",
-        "結局"
+        "毎回",
+        "している"
       ],
-      "matched_buyer": [
-        "ai"
+      "matched_workflow": [
+        "作業"
       ],
-      "source_query": "AI うまくいかない",
-      "revenue_fit": "existing_ai_agent_bottleneck_diagnostic"
-    },
-    {
-      "uri": "at://did:plc:xyhhpsdlocl3spdfrln7raxh/app.bsky.feed.post/3mvf5sqy2uk2y",
-      "cid": "bafyreih3hq53b7kcftt2bpeswdze6mujb637hhq3zty3bv26r5j4xtggje",
-      "author_handle": "natsuma.bsky.social",
-      "author_display_name": "夏馬",
-      "text": "自分の経験で近しいのは、MAXのCharacterStadioが出た時かなと思う\n「足跡を地面や階段に配置するだけで簡単に動きを作成出来る」という当時のデモは衝撃だった\n（まあ、そうする為の準備とノウハウはもちろん必要で実際には『簡単』では無かったけれど）\n\n面倒なアクション、複雑な体重移動、連動する腕と腰…といった難問を泥臭く解決する過程で自分の引き出しは増えていったし、そこを省力化することの全てが「良いこと」ではないと自分は考えるんだよな\n\n最低限、自分が「是非／正否を判断出来る」こと（＝出力結果に自分が責任を負える）でない限りは、生成AIを使うべきでないだろうと思う",
-      "indexed_at": "2026-09-13T08:17:07.860Z",
-      "age_hours": 22,
-      "like_count": 1,
-      "reply_count": 0,
-      "repost_count": 0,
-      "quote_count": 0,
-      "score": 22,
-      "matched_pain": [
-        "面倒"
-      ],
-      "matched_unresolved": [
-        "面倒"
-      ],
-      "matched_personal": [
-        "自分"
-      ],
-      "matched_buyer": [
-        "ai"
-      ],
-      "source_query": "AI 面倒 自分",
-      "revenue_fit": "existing_ai_agent_bottleneck_diagnostic"
-    },
-    {
-      "uri": "at://did:plc:jukfpyswe5iourdhfibfmwtj/app.bsky.feed.post/3muyow7bovc2i",
-      "cid": "bafyreidzylorg3mtcwpbbkxtc3wwao2fljvsk7xvzfdgooex67674dfcmy",
-      "author_handle": "chiyobusa.bsky.social",
-      "author_display_name": "千代隼",
-      "text": "そら、自分で考えることをやめたら、低下するに決まってるわ。\n自分は調べ物をしているときに、試しに最後にAIに質問してみたら、\nものの見事にデマを言ってきたんで（調べていた対象についての知識が蓄えられていたので、デマだとわかった）、それ以来、調べものや検索したいことについて、AIは一切使用していない。ていうか、地道に検索を重ねて、複数のソースを当たれば、大体のことは普通にわかるしな。\nその程度のことすら面倒くさがる人間が、自らの思考を放棄するAI依存症になるんだろう。",
-      "indexed_at": "2026-09-08T09:18:39.257Z",
-      "age_hours": 141,
-      "like_count": 1,
-      "reply_count": 0,
-      "repost_count": 0,
-      "quote_count": 0,
-      "score": 21,
-      "matched_pain": [
-        "面倒"
-      ],
-      "matched_unresolved": [
-        "面倒"
-      ],
-      "matched_personal": [
-        "自分",
-        "したい"
-      ],
-      "matched_buyer": [
-        "ai"
-      ],
-      "source_query": "AI 面倒 自分",
-      "revenue_fit": "existing_ai_agent_bottleneck_diagnostic"
-    },
-    {
-      "uri": "at://did:plc:b6ronb3dek2hl6dxwqlqksj5/app.bsky.feed.post/3muy2j22ruy2f",
-      "cid": "bafyreib4l3iryh4qkxe7svil7yp6br3xkzuavcr7mxaqbpighb5a3i47gu",
-      "author_handle": "ai-career.bsky.social",
-      "author_display_name": "AIと一緒にキャリア設計中",
-      "text": "やってきたことを、言葉にできていますか。職務経歴書の更新でAIを試した記録です。最初はChatGPTだけで文章化まで試みたのですが、どうも表現がしっくりこない。そこで思考の整理はChatGPT、文章化はClaudeと役割分担。結果、自分の意図に近い言葉になりました。1つのAIでうまくいかない時は、道具の組み合わせを変えてみるのがよさそうです。",
-      "indexed_at": "2026-09-08T03:13:22.412Z",
-      "age_hours": 147,
-      "like_count": 1,
-      "reply_count": 0,
-      "repost_count": 0,
-      "quote_count": 0,
-      "score": 21,
-      "matched_pain": [
-        "うまくいか"
-      ],
-      "matched_unresolved": [
-        "うまくいか"
-      ],
-      "matched_personal": [
-        "自分"
-      ],
-      "matched_buyer": [
-        "claude",
-        "chatgpt",
-        "ai"
-      ],
-      "source_query": "AI うまくいかない",
-      "revenue_fit": "existing_ai_agent_bottleneck_diagnostic"
-    },
-    {
-      "uri": "at://did:plc:teynoobpntellfb5hccmksiu/app.bsky.feed.post/3mvagniqju62b",
-      "cid": "bafyreibcesdul4zljvst7i63d3xgbrlzrzd5rklxky6kdvope2a2mmxpri",
-      "author_handle": "airakuwaza.bsky.social",
-      "author_display_name": "AIラク技|AIに丸投げしてみる人",
-      "text": "28歳、AIの専門家でもエンジニアでもありません。\nでも「AIに面倒なことを全部任せたら、人生どこまでラクになるんだろう？」と思ったので、自分で実験します。\nまずはGPTに副業をほぼ丸投げして、月5万円を作れるか検証中。\n成功したことだけじゃなく、失敗・費用・数字もそのまま公開します。",
-      "indexed_at": "2026-09-11T11:11:55.057Z",
-      "age_hours": 67,
-      "like_count": 1,
-      "reply_count": 0,
-      "repost_count": 0,
-      "quote_count": 0,
-      "score": 20,
-      "matched_pain": [
-        "面倒"
-      ],
-      "matched_unresolved": [
-        "面倒"
-      ],
-      "matched_personal": [
-        "自分"
-      ],
-      "matched_buyer": [
-        "ai"
-      ],
-      "source_query": "AI 面倒 自分",
-      "revenue_fit": "existing_ai_agent_bottleneck_diagnostic"
-    },
-    {
-      "uri": "at://did:plc:qmwvppxegue5qrimpqjjm3bj/app.bsky.feed.post/3mvab37zvq22i",
-      "cid": "bafyreie23pk45ceobktx77yvjxr7q4affeqnfyiq42m37xp66oithne6ge",
-      "author_handle": "fire-rodan2222.bsky.social",
-      "author_display_name": "東",
-      "text": "朝、ロペでAI育ててる話がネタにされてたって書いたけど、天気jp見てたら「男性の育児が増加」って記事あって吹いてしまった。\n本物お子さんを育てるのは大いに良いと思うわ、友達の旦那さんたちも子育て積極的で(お母さんが不在だから面倒見るじゃなくて2人で子育てしてて)とても良いねっておもうし。\n\n生成AIは自分で作った子供じゃないから除くね。(AIイラストレーターとAIエンジニアは同じ所にいる、元々自力コーディングできる人が会社の環境都合で使わなくてはならない等の場合を除き)",
-      "indexed_at": "2026-09-11T09:32:14.262Z",
-      "age_hours": 69,
-      "like_count": 1,
-      "reply_count": 0,
-      "repost_count": 0,
-      "quote_count": 0,
-      "score": 20,
-      "matched_pain": [
-        "面倒"
-      ],
-      "matched_unresolved": [
-        "面倒"
-      ],
-      "matched_personal": [
-        "自分"
-      ],
-      "matched_buyer": [
-        "ai"
-      ],
-      "source_query": "AI 面倒 自分",
+      "source_query": "AI コピペ",
       "revenue_fit": "existing_ai_agent_bottleneck_diagnostic"
     }
   ],
-  "decision_rule": "Market/problem first: unresolved personal pain + buyer fit + existing-asset fit. No seller/broadcast/solved posts. One contact at a time.",
-  "next_gate": "Do not contact unless candidate text clearly describes the author’s own unresolved workflow pain."
+  "decision_rule": "Concrete workflow friction only: fresh + personal + unresolved + operational + existing-asset fit. Seller/broadcast/solved/abstract posts are excluded.",
+  "next_gate": "Contact at most one candidate only when the text itself proves an unresolved workflow problem that the current diagnostic can help classify."
 }
