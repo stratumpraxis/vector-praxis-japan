@@ -1,7 +1,7 @@
 {
   "version": 1,
   "id": "vp-rp-market-signal-20260914-01",
-  "status": "READY",
+  "status": "PUBLISHED",
   "approval": "USER_APPROVED",
   "platform": "bluesky",
   "route_id": "vpj_owned_ai_agent_bottleneck_v2",
@@ -16,5 +16,10 @@
     "utm_content": "market_signal_handoff_01"
   },
   "require_media": false,
-  "post_format": "text"
+  "post_format": "text",
+  "external_post_id": "at://did:plc:3cg6ij6eppzwmy2v2i42v45e/app.bsky.feed.post/3mvhhq3mfyc2g",
+  "external_post_url": "https://bsky.app/profile/vectorpx.bsky.social/post/3mvhhq3mfyc2g",
+  "published_at": "2026-09-14T06:19:53.498Z",
+  "publisher": "bluesky_direct",
+  "tracked_url": "https://linkly.link/2t7wy?utm_source=bluesky&utm_medium=social&utm_campaign=vbqtg&utm_content=market_signal_handoff_01&route_id=vpj_owned_ai_agent_bottleneck_v2&asset_id=ai_agent_bottleneck"
 }
