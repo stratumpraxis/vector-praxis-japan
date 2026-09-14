@@ -6,6 +6,7 @@ on:
     paths:
       - '.github/workflows/revenue-pump-reaction-snapshot.yml'
       - 'scripts/revenue-pump-bluesky-reaction-snapshot.mjs'
+      - 'distribution/revenue-pump-qualified-traffic.json'
 
 permissions:
   contents: write
