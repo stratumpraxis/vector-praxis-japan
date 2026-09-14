@@ -1,20 +1,20 @@
 {
-  "id": "vp-ai-agent-bottleneck-bluesky-20260914-03",
+  "id": "vp-ai-agent-bottleneck-bluesky-20260914-04",
   "status": "PUBLISHED_CONFIRMED_BY_PUBLISHER",
   "platform": "bluesky",
   "publisher": "bluesky_direct",
-  "external_post_id": "at://did:plc:3cg6ij6eppzwmy2v2i42v45e/app.bsky.feed.post/3mvhja4oj4t27",
-  "external_post_url": "https://bsky.app/profile/vectorpx.bsky.social/post/3mvhja4oj4t27",
-  "published_at": "2026-09-14T06:46:45.217Z",
+  "external_post_id": "at://did:plc:3cg6ij6eppzwmy2v2i42v45e/app.bsky.feed.post/3mvhogahs4624",
+  "external_post_url": "https://bsky.app/profile/vectorpx.bsky.social/post/3mvhogahs4624",
+  "published_at": "2026-09-14T08:19:39.251Z",
   "destination": "https://vector-praxis-japan.vercel.app/ai-agent-bottleneck",
-  "tracked_url": "https://vector-praxis-japan.vercel.app/ai-agent-bottleneck?utm_source=bluesky&utm_medium=social&utm_campaign=vab14&utm_content=rv1&asset_id=ai_agent_bottleneck&route_id=vpj_owned_ai_agent_bottleneck_v2",
+  "tracked_url": "https://vector-praxis-japan.vercel.app/ai-agent-bottleneck?utm_source=bluesky&utm_medium=social&utm_campaign=vab14&utm_content=coord_judge_v2&asset_id=ai_agent_bottleneck&route_id=vpj_owned_ai_agent_bottleneck_v2",
   "route_id": "vpj_owned_ai_agent_bottleneck_v2",
   "asset_id": "ai_agent_bottleneck",
   "utm": {
     "utm_source": "bluesky",
     "utm_medium": "social",
     "utm_campaign": "vab14",
-    "utm_content": "rv1"
+    "utm_content": "coord_judge_v2"
   },
   "route_proof": {
     "evidence_state": "ROUTE_REACHABLE_ANALYTICS_UNVERIFIED",
