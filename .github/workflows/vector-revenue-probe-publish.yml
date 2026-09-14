@@ -1,5 +1,6 @@
 name: Vector Revenue Probe Publish
 
+# Existing single-post direct Bluesky workflow; marker updated only to trigger this approved run.
 on:
   workflow_dispatch:
   push:
