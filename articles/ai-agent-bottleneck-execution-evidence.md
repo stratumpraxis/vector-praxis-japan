@@ -308,14 +308,10 @@ AIは作業を高速化します。
 
 ---
 
-### 複数AIを「チーム」にする設計を、さらに深掘りしたい場合
+### まず無料で、どこが詰まっているか切り分ける
 
-この記事では、ボトルネックの見つけ方と `handoff → Evidence → Human Gate → Next Action` の基本構造を整理しました。
+AIや自動化ツールを増やしたのに、比較・確認・引き継ぎ・投稿・記録が人間側に残っているなら、いきなり有料記事へ進む前に現在の詰まりを切り分けられます。
 
-Vectorの有料note **「AIを増やすほど仕事が遅くなる理由──ChatGPT・Claude・GitHubを『チーム』に変える設計」** では、役割分担、受け渡し、外部配信、計測、収益導線までを一続きで詳しく扱っています。
+Vectorの無料診断では、いま近いボトルネックを選び、必要な次の説明へ進めます。診断後、さらに深掘りが必要な場合だけ、¥1,480の有料noteへつながります。
 
-**向いている人**：AIや自動化ツールを増やしたのに、比較・コピペ・確認・投稿・記録が人間側に残り、全体が速くならない人。
-
-¥1,480。
-
-[Vectorの深掘り記事を見る — ¥1,480](https://note.com/deft_eel6718/n/ncaff8351e529?utm_source=zenn&utm_medium=article&utm_campaign=vector_ai_agent_bottleneck_20260913&utm_content=primary_cta&asset_id=note_ncaff8351e529&route_id=zenn_ai_agent_bottleneck_v2)
+[無料でAI運用の詰まりを診断する](https://vector-praxis-japan.user-ex26.chatgpt.site/ai-agent-bottleneck?utm_source=zenn&utm_medium=article&utm_campaign=vector_pump_20260914&utm_content=ai_agent_bottleneck_free_diagnosis&asset_id=ai_agent_bottleneck&route_id=vpj_owned_ai_agent_bottleneck_v2)
