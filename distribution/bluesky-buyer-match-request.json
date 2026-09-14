@@ -1,8 +1,9 @@
 {
-  "version": 1,
+  "version": 2,
   "status": "READY",
   "scope": "vector_praxis_japan",
   "purpose": "Existing Distribution -> Buyer Match -> Revenue",
+  "requested_at": "2026-09-14T12:55:00+09:00",
   "queries": [
     "Claude Code",
     "AIエージェント",
