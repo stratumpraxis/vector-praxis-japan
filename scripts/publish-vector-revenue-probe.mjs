@@ -6,7 +6,7 @@ const evidencePath = new URL('../distribution/vector-revenue-probe-evidence.json
 const routeProof = JSON.parse(fs.readFileSync(routeProofPath, 'utf8'));
 const existing = fs.existsSync(evidencePath) ? JSON.parse(fs.readFileSync(evidencePath, 'utf8')) : null;
 
-const PROBE_ID = 'vp-ai-agent-bottleneck-bluesky-20260914-03';
+const PROBE_ID = 'vp-ai-agent-bottleneck-bluesky-20260914-04';
 const ROUTE_ID = 'vpj_owned_ai_agent_bottleneck_v2';
 const ASSET_ID = 'ai_agent_bottleneck';
 
@@ -52,12 +52,12 @@ const tracked = new URL(routeProof.selected_url);
 tracked.searchParams.set('utm_source', 'bluesky');
 tracked.searchParams.set('utm_medium', 'social');
 tracked.searchParams.set('utm_campaign', 'vab14');
-tracked.searchParams.set('utm_content', 'rv1');
+tracked.searchParams.set('utm_content', 'coord_judge_v2');
 tracked.searchParams.set('asset_id', ASSET_ID);
 tracked.searchParams.set('route_id', ROUTE_ID);
 
 const trackedUrl = tracked.toString();
-const copy = 'AIを増やすほど遅くなる？ 3択で詰まりを診断。';
+const copy = 'ChatGPT・Claude・GitHubを増やしたのに、確認・引き継ぎ・判断で仕事が止まる。詰まりを3択の無料診断で切り分けます。30秒で確認 →';
 const text = `${copy}\n\n${trackedUrl}`;
 const item = {
   id: PROBE_ID,
@@ -85,7 +85,7 @@ try {
       utm_source: 'bluesky',
       utm_medium: 'social',
       utm_campaign: 'vab14',
-      utm_content: 'rv1'
+      utm_content: 'coord_judge_v2'
     },
     route_proof: {
       evidence_state: routeProof.evidence_state,
