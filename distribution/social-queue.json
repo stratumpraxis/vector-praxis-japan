@@ -1,5 +1,5 @@
 {
-  "version": 7,
+  "version": 8,
   "campaign": "note-completion-layer-20260903",
   "destination": "https://note.com/deft_eel6718/n/na99d74adf2b3?app_launch=false",
   "policy": {
@@ -278,6 +278,28 @@
       "external_post_url": "https://bsky.app/profile/vectorpx.bsky.social/post/3mvfitkrch62t",
       "published_at": "2026-09-13T11:34:24.324Z",
       "publisher": "bluesky_direct"
+    },
+    {
+      "id": "vp-ai-revenue-system-bluesky-20260914-01",
+      "platform": "bluesky",
+      "angle": "AI活用を収益行動へ",
+      "copy": "AIを使えるだけでは収益にならない。制作・運用・導線を「Revenueに近い順」に組み直す実践設計。¥3,850。",
+      "hashtags": [
+        "生成AI",
+        "AI活用"
+      ],
+      "destination": "https://note.com/deft_eel6718/n/nfce5ac047c15",
+      "utm": {
+        "utm_source": "bluesky",
+        "utm_medium": "social",
+        "utm_campaign": "revenue3850",
+        "utm_content": "v1"
+      },
+      "status": "READY",
+      "approval": "USER_APPROVED",
+      "scheduled_at": "2026-09-14T10:45:00+09:00",
+      "require_media": false,
+      "post_format": "text"
     }
   ],
   "publisher_state": {
