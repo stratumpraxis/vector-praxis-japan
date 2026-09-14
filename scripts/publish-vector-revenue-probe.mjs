@@ -19,7 +19,8 @@ if (existing?.id === PROBE_ID && existing?.status === 'PUBLISHED_CONFIRMED_BY_PU
   process.exit(0);
 }
 
-if (routeProof?.evidence_state !== 'REACHABLE' || !routeProof?.selected_url) {
+const routeReachable = ['REACHABLE', 'ROUTE_REACHABLE_ANALYTICS_UNVERIFIED'].includes(routeProof?.evidence_state);
+if (!routeReachable || !routeProof?.selected_url) {
   const payload = {
     id: PROBE_ID,
     status: 'BLOCKED_ROUTE_UNVERIFIED',
