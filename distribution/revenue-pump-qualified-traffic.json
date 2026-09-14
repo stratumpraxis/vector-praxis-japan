@@ -1,24 +1,19 @@
 {
   "version": 1,
-  "id": "vp-rp-qt-20260914-01",
-  "status": "PUBLISHED",
+  "id": "vp-rp-qt-20260914-02",
+  "status": "READY",
   "approval": "USER_APPROVED",
   "platform": "bluesky",
   "route_id": "vpj_owned_ai_agent_bottleneck_v2",
   "asset_id": "ai_agent_bottleneck",
-  "angle": "AIを増やしたのに前より遅い人だけ",
-  "copy": "ChatGPT・Claude・GitHubを増やしたのに、前より遅い。止まる場所は①レビュー待ち ②権限あいまい ③引き継ぎ不足のどれか。30秒で今の詰まりだけ切り分けます。",
+  "angle": "AIに聞く回数ではなく完成までの遅さ",
+  "copy": "AIに聞く回数は増えたのに、完成までが遅くなった人へ。原因はツール不足より、レビュー待ち・権限・引き継ぎの詰まりかもしれません。30秒診断で、今いちばん止めている1点だけ出します。",
   "destination": "https://vector-praxis-japan.vercel.app/ai-agent-bottleneck",
   "utm": {
     "utm_source": "bluesky",
     "utm_medium": "social",
-    "utm_campaign": "vector_bottleneck_qt"
+    "utm_campaign": "vector_bottleneck_qt_b"
   },
   "require_media": false,
-  "post_format": "text",
-  "external_post_id": "at://did:plc:3cg6ij6eppzwmy2v2i42v45e/app.bsky.feed.post/3mvgvl3j5dt2q",
-  "external_post_url": "https://bsky.app/profile/vectorpx.bsky.social/post/3mvgvl3j5dt2q",
-  "published_at": "2026-09-14T00:54:58.262Z",
-  "publisher": "bluesky_direct",
-  "tracked_url": "https://vector-praxis-japan.vercel.app/ai-agent-bottleneck?utm_source=bluesky&utm_medium=social&utm_campaign=vector_bottleneck_qt&route_id=vpj_owned_ai_agent_bottleneck_v2&asset_id=ai_agent_bottleneck"
+  "post_format": "text"
 }
