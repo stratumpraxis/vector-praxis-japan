@@ -1,26 +1,37 @@
 {
-  "checked_at": "2026-09-14T01:04:25.937640Z",
-  "commit_sha": "ed48f1e1ae2efadf96a59d8886a511fc7ebe70af",
-  "workflow_run_id": "34794689791",
+  "checked_at": "2026-09-14T01:06:35.240337Z",
+  "commit_sha": "266d8094cfcd1754609353353c6068db4a252153",
+  "workflow_run_id": "34794806869",
   "repository": "stratumpraxis/vector-praxis-japan",
   "route_id": "vpj_owned_ai_agent_bottleneck_v2",
   "asset_id": "ai_agent_bottleneck",
   "content_marker": "AIを増やしても",
-  "analytics_marker": "vector_praxis_japan + traffic_session_start + posthog-tracker",
-  "evidence_state": "ROUTE_REACHABLE_ANALYTICS_UNVERIFIED",
+  "analytics_marker": "traffic_session_start + PostHog reference",
+  "evidence_state": "MEASUREMENT_SURFACE_REACHABLE",
   "selected_url": "https://vector-praxis-japan.vercel.app/ai-agent-bottleneck",
-  "analytics_selected_url": null,
+  "analytics_selected_url": "https://vector-praxis-japan.vercel.app/ai-agent-bottleneck",
+  "measurement_canary": {
+    "attempted": true,
+    "browser": "/usr/bin/google-chrome",
+    "canary_route_id": "vpj_measurement_canary_v1",
+    "canary_asset_id": "measurement_canary",
+    "url": "https://vector-praxis-japan.vercel.app/ai-agent-bottleneck?route_id=vpj_measurement_canary_v1&asset_id=measurement_canary&utm_source=github_actions&utm_medium=measurement_canary&utm_campaign=vector_measurement_canary",
+    "exit_code": 0,
+    "dom_has_content_marker": true,
+    "stderr_tail": "ct_proxy.cc:572] Failed to call method: org.freedesktop.DBus.NameHasOwner: object_path= /org/freedesktop/DBus: unknown error type: \n[2272:2297:0914/010633.409584:ERROR:dbus/bus.cc:405] Failed to connect to the bus: Could not parse server address: Unknown address type (examples of valid types are \"tcp\" and on UNIX \"unix\")\n[2272:2272:0914/010633.447044:ERROR:dbus/object_proxy.cc:572] Failed to call method: org.freedesktop.DBus.NameHasOwner: object_path= /org/freedesktop/DBus: unknown error type: \n"
+  },
   "candidates": [
     {
       "requested_url": "https://vector-praxis-japan.vercel.app/ai-agent-bottleneck",
       "effective_url": "https://vector-praxis-japan.vercel.app/ai-agent-bottleneck",
       "http_status": 200,
       "content_marker_match": true,
-      "analytics_marker_match": false,
+      "analytics_marker_match": true,
       "analytics_markers": {
-        "id=\"posthog-tracker\"": false,
-        "analytics_scope:\"vector_praxis_japan\"": false,
-        "traffic_session_start": true
+        "traffic_session_start": true,
+        "posthog_reference": true,
+        "posthog_ingestion_host": true,
+        "vector_scope": true
       },
       "content_security_policy": null,
       "posthog_allowed_by_csp": null,
@@ -32,11 +43,12 @@
       "effective_url": "https://vector-praxis-japan-hub.vercel.app/ai-agent-bottleneck",
       "http_status": 200,
       "content_marker_match": true,
-      "analytics_marker_match": false,
+      "analytics_marker_match": true,
       "analytics_markers": {
-        "id=\"posthog-tracker\"": false,
-        "analytics_scope:\"vector_praxis_japan\"": false,
-        "traffic_session_start": true
+        "traffic_session_start": true,
+        "posthog_reference": true,
+        "posthog_ingestion_host": true,
+        "vector_scope": true
       },
       "content_security_policy": null,
       "posthog_allowed_by_csp": null,
@@ -44,5 +56,5 @@
       "curl_error": null
     }
   ],
-  "inference_guard": "HTTP 200 plus current-content marker proves route reachability. Analytics is only activated at the public surface when all analytics markers are present and CSP does not explicitly block PostHog. This does not itself prove event ingestion."
+  "inference_guard": "HTTP/content proves route reachability. Browser canary executes the live client with a dedicated synthetic route_id. PostHog ingestion must be confirmed separately before treating analytics as operational; canary traffic must never count as qualified traffic."
 }
