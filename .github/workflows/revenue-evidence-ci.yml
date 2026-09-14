@@ -1,0 +1,45 @@
+name: Revenue Evidence CI
+
+on:
+  pull_request:
+    paths:
+      - 'scripts/posthog-evidence-sync.mjs'
+      - 'scripts/winner-gate.mjs'
+      - 'distribution/social-queue.json'
+      - 'distribution/winner-gate.json'
+      - 'distribution/revenue-evidence.jsonl'
+      - 'config/vector-revenue-event-contract.json'
+      - '.github/workflows/revenue-evidence-ci.yml'
+      - '.github/workflows/social-publish.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  evidence-safety:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+
+      - name: Check Node syntax
+        run: |
+          node --check scripts/posthog-evidence-sync.mjs
+          node --check scripts/winner-gate.mjs
+
+      - name: Verify unconnected PostHog sync fails open for publishing
+        env:
+          POSTHOG_PROJECT_ID: '573335'
+          POSTHOG_API_HOST: 'https://us.posthog.com'
+        run: |
+          node scripts/posthog-evidence-sync.mjs
+          node -e "const s=require('./distribution/posthog-evidence-sync-state.json'); if(s.status!=='READY_BUT_NOT_CONNECTED') process.exit(1)"
+
+      - name: Verify Winner Gate evaluates without fabricated evidence
+        run: |
+          node scripts/winner-gate.mjs
+          node -e "const s=require('./distribution/winner-gate-state.json'); if(!Array.isArray(s.winner_ids)) process.exit(1)"
