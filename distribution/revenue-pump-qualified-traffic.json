@@ -1,7 +1,7 @@
 {
   "version": 1,
   "id": "vp-rp-buyer-match-20260914-01",
-  "status": "READY",
+  "status": "PUBLISHED",
   "approval": "USER_APPROVED",
   "platform": "bluesky",
   "route_id": "vpj_owned_ai_agent_bottleneck_v2",
@@ -20,5 +20,10 @@
   "reply_root_uri": "at://did:plc:xcd26kqas6bxgmfguooh4nmc/app.bsky.feed.post/3mtseg6ql6c2x",
   "reply_root_cid": "bafyreieopbqa2qmk5hyptneez4rwzglbpjbnjcf3dr5a6u6n5kyfrzmzda",
   "require_media": false,
-  "post_format": "reply"
+  "post_format": "reply",
+  "external_post_id": "at://did:plc:3cg6ij6eppzwmy2v2i42v45e/app.bsky.feed.post/3mvhabho4di2z",
+  "external_post_url": "https://bsky.app/profile/vectorpx.bsky.social/post/3mvhabho4di2z",
+  "published_at": "2026-09-14T04:06:26.645Z",
+  "publisher": "bluesky_direct",
+  "tracked_url": "https://linkly.link/2t7wy?utm_source=bluesky&utm_medium=reply&utm_campaign=buyer_match_20260914&utm_content=manual_vs_automation_01&route_id=vpj_owned_ai_agent_bottleneck_v2&asset_id=ai_agent_bottleneck"
 }
