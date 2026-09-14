@@ -1,16 +1,16 @@
 {
-  "checked_at": "2026-09-14T01:12:21.132519Z",
-  "commit_sha": "8acd565df6ef2402ae44d727986dde3182e1a50a",
-  "workflow_run_id": "34795109346",
+  "checked_at": "2026-09-14T01:13:54.076255Z",
+  "commit_sha": "2add9883e0753243b5aca30cc2a6716cd4db7341",
+  "workflow_run_id": "34795228863",
   "repository": "stratumpraxis/vector-praxis-japan",
   "route_id": "vpj_owned_ai_agent_bottleneck_v2",
   "asset_id": "ai_agent_bottleneck",
   "content_marker": "AIを増やしても",
-  "analytics_marker": "traffic_session_start + PostHog reference",
-  "evidence_state": "MEASUREMENT_SURFACE_REACHABLE",
-  "measurement_network_state": "NO_POSTHOG_NETWORK_EVIDENCE",
+  "analytics_marker": "traffic_session_start + PostHog + instant send",
+  "evidence_state": "ROUTE_REACHABLE_ANALYTICS_UNVERIFIED",
+  "measurement_network_state": "INGEST_REQUEST_SEEN",
   "selected_url": "https://vector-praxis-japan.vercel.app/ai-agent-bottleneck",
-  "analytics_selected_url": "https://vector-praxis-japan.vercel.app/ai-agent-bottleneck",
+  "analytics_selected_url": null,
   "measurement_canary": {
     "attempted": true,
     "browser": "/usr/bin/google-chrome",
@@ -19,9 +19,10 @@
     "url": "https://vector-praxis-japan.vercel.app/ai-agent-bottleneck?route_id=vpj_measurement_canary_v1&asset_id=measurement_canary&utm_source=github_actions&utm_medium=measurement_canary&utm_campaign=vector_measurement_canary",
     "exit_code": 0,
     "dom_has_content_marker": true,
+    "dom_has_instant_send": false,
     "network_has_posthog_host": false,
     "network_has_posthog_assets": true,
-    "network_has_ingest_path": false,
+    "network_has_ingest_path": true,
     "posthog_url_samples": [
       "https://us-assets.i.posthog.com",
       "https://us-assets.i.posthog.com/array/phc_oTYapRSNXDtn8aY7wMNHfCDexRTkfb2H44MDVXwoUMSN/config.js",
@@ -50,7 +51,7 @@
       "ERR_BLOCKED_BY_FINGERPRINTING_PROTECTION",
       "ERR_BLOCKED_BY_LOCAL_NETWORK_ACCESS_CHECKS"
     ],
-    "stderr_tail": "ct_proxy.cc:572] Failed to call method: org.freedesktop.DBus.NameHasOwner: object_path= /org/freedesktop/DBus: unknown error type: \n[2268:2290:0914/011219.121524:ERROR:dbus/bus.cc:405] Failed to connect to the bus: Could not parse server address: Unknown address type (examples of valid types are \"tcp\" and on UNIX \"unix\")\n[2268:2268:0914/011219.156873:ERROR:dbus/object_proxy.cc:572] Failed to call method: org.freedesktop.DBus.NameHasOwner: object_path= /org/freedesktop/DBus: unknown error type: \n"
+    "stderr_tail": "14/011351.169313:ERROR:dbus/bus.cc:405] Failed to connect to the bus: Could not parse server address: Unknown address type (examples of valid types are \"tcp\" and on UNIX \"unix\")\n[2295:2295:0914/011351.204016:ERROR:dbus/object_proxy.cc:572] Failed to call method: org.freedesktop.DBus.NameHasOwner: object_path= /org/freedesktop/DBus: unknown error type: \n[2295:2321:0914/011353.319604:ERROR:google_apis/gcm/engine/registration_request.cc:291] Registration response error message: DEPRECATED_ENDPOINT\n"
   },
   "candidates": [
     {
@@ -58,12 +59,13 @@
       "effective_url": "https://vector-praxis-japan.vercel.app/ai-agent-bottleneck",
       "http_status": 200,
       "content_marker_match": true,
-      "analytics_marker_match": true,
+      "analytics_marker_match": false,
       "analytics_markers": {
         "traffic_session_start": true,
         "posthog_reference": true,
         "posthog_ingestion_host": true,
-        "vector_scope": true
+        "vector_scope": true,
+        "instant_send": false
       },
       "content_security_policy": null,
       "posthog_allowed_by_csp": null,
@@ -75,12 +77,13 @@
       "effective_url": "https://vector-praxis-japan-hub.vercel.app/ai-agent-bottleneck",
       "http_status": 200,
       "content_marker_match": true,
-      "analytics_marker_match": true,
+      "analytics_marker_match": false,
       "analytics_markers": {
         "traffic_session_start": true,
         "posthog_reference": true,
         "posthog_ingestion_host": true,
-        "vector_scope": true
+        "vector_scope": true,
+        "instant_send": false
       },
       "content_security_policy": null,
       "posthog_allowed_by_csp": null,
