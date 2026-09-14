@@ -2,27 +2,28 @@ import fs from 'node:fs';
 
 const outPath = new URL('../distribution/revenue-pump-buyer-match-last-run.json', import.meta.url);
 const queries = [
-  'AI うまくいかない',
-  'AI 面倒 自分',
-  '自動化 面倒 自分',
-  '手作業 自動化 自分',
-  'コピペ 自動化 面倒',
-  'Claude Code 遅い',
-  'AIエージェント 詰まる',
-  'AI 手作業の方が早い',
+  'AI 手作業',
+  'AI コピペ',
+  'Claude Code 手作業',
+  'ChatGPT 手作業',
+  'AI 待ち',
+  'AI 権限',
+  'AI 引き継ぎ',
+  'AI 貼り直し',
 ];
-const painTerms = [
-  '遅い','遅く','詰ま','手作業','コピペ','待ち','待つ','権限','引き継','面倒','止ま','うまくいか','貼り直','時間かか','手作業の方が早',
-  'slow','stuck','manual','copy paste','handoff','permission','waiting','bottleneck',
+const operationalFrictionTerms = [
+  '手作業','コピペ','貼り直','待ち','待つ','権限','引き継','時間かか','遅い','遅く','詰ま','毎回',
+  'manual','copy paste','waiting','permission','handoff','slow','stuck','bottleneck',
 ];
 const unresolvedTerms = [
-  '困','悩','つら','面倒','できない','うまくいか','遅い','遅く','詰ま','止ま','時間かか','待つ','貼り直','手作業の方が早','どうすれば','ないかな','わからない',
+  '困','悩','つら','面倒','できない','うまくいか','遅い','遅く','詰ま','止ま','時間かか','待つ','貼り直','手作業の方が早','どうすれば','ないかな','わからない','毎回',
 ];
-const personalTerms = ['自分','私','僕','俺','うち','毎回','結局','いつも','やってる','使ってる','作ってる','試してる','したい'];
-const buyerTerms = ['仕事','業務','開発','運用','workflow','agent','エージェント','github','claude','chatgpt','自動化','ai'];
-const sellerTerms = ['note.com','¥','販売','有料','完全版','プロンプト集','大公開','今すぐ','見逃し','購入','詳細はこちら','booth.pm'];
-const broadcastTerms = ['みなさん','教えてください','事例が出ました','解説します','紹介します','ニュース','まとめ','必見','〜しませんか'];
-const solvedTerms = ['解決しました','解消しました','改善しました','減りました','終わった','できた','完了した','短縮でき','自動化でき'];
+const personalTerms = ['自分','私','僕','俺','うち','毎回','結局','いつも','やってる','使ってる','作ってる','試してる','したい','している','してる'];
+const workflowContextTerms = ['仕事','業務','開発','運用','作業','ツール','コード','workflow','agent','エージェント','github','claude','chatgpt','自動化'];
+const sellerTerms = ['note.com','¥','販売','有料','完全版','プロンプト集','大公開','今すぐ','見逃し','購入','詳細はこちら','booth.pm','無料配布'];
+const broadcastTerms = ['みなさん','教えてください','事例が出ました','解説します','紹介します','ニュース','まとめ','必見','しませんか','〜しませんか'];
+const solvedTerms = ['解決しました','解消しました','改善しました','減りました','終わった','できた','完了した','短縮でき','自動化でき','解決した','改善した'];
+const abstractTerms = ['使うべきでない','論文','哲学','依存症','規制','著作権','社会問題'];
 const service = process.env.BLUESKY_PDS_URL || 'https://bsky.social';
 const handle = process.env.BLUESKY_HANDLE;
 const password = process.env.BLUESKY_APP_PASSWORD;
@@ -45,25 +46,29 @@ function matchTerms(text, terms) {
 }
 
 function evaluate(text = '') {
-  const matchedPain = matchTerms(text, painTerms);
+  const matchedFriction = matchTerms(text, operationalFrictionTerms);
   const matchedUnresolved = matchTerms(text, unresolvedTerms);
   const matchedPersonal = matchTerms(text, personalTerms);
-  const matchedBuyer = matchTerms(text, buyerTerms);
+  const matchedWorkflow = matchTerms(text, workflowContextTerms);
   const matchedSeller = matchTerms(text, sellerTerms);
   const matchedBroadcast = matchTerms(text, broadcastTerms);
   const matchedSolved = matchTerms(text, solvedTerms);
+  const matchedAbstract = matchTerms(text, abstractTerms);
   const sellerLike = matchedSeller.length >= 1;
   const broadcastLike = matchedBroadcast.length >= 1;
   const solvedLike = matchedSolved.length >= 1;
-  const problemClear = matchedPain.length >= 1 && matchedUnresolved.length >= 1;
-  const personalPain = matchedPersonal.length >= 1;
-  const buyerFit = matchedBuyer.length >= 1;
-  const score = matchedPain.length * 5 + matchedUnresolved.length * 5 + matchedPersonal.length * 4 + matchedBuyer.length * 2
-    - matchedSeller.length * 10 - matchedBroadcast.length * 8 - matchedSolved.length * 10;
+  const abstractLike = matchedAbstract.length >= 1;
+  const concreteFriction = matchedFriction.length >= 1;
+  const unresolved = matchedUnresolved.length >= 1;
+  const personal = matchedPersonal.length >= 1;
+  const workflowFit = matchedWorkflow.length >= 1;
+  const score = matchedFriction.length * 7 + matchedUnresolved.length * 5 + matchedPersonal.length * 4 + matchedWorkflow.length * 3
+    - matchedSeller.length * 12 - matchedBroadcast.length * 10 - matchedSolved.length * 12 - matchedAbstract.length * 8;
   return {
-    score, matchedPain, matchedUnresolved, matchedPersonal, matchedBuyer,
-    matchedSeller, matchedBroadcast, matchedSolved,
-    sellerLike, broadcastLike, solvedLike, problemClear, personalPain, buyerFit,
+    score, matchedFriction, matchedUnresolved, matchedPersonal, matchedWorkflow,
+    matchedSeller, matchedBroadcast, matchedSolved, matchedAbstract,
+    sellerLike, broadcastLike, solvedLike, abstractLike,
+    concreteFriction, unresolved, personal, workflowFit,
   };
 }
 
@@ -87,8 +92,8 @@ for (const q of queries) {
     if (!Number.isFinite(indexedMs) || indexedMs < freshnessCutoff) continue;
     const text = post?.record?.text ?? '';
     const ev = evaluate(text);
-    if (ev.sellerLike || ev.broadcastLike || ev.solvedLike) continue;
-    if (!ev.problemClear || !ev.personalPain || !ev.buyerFit) continue;
+    if (ev.sellerLike || ev.broadcastLike || ev.solvedLike || ev.abstractLike) continue;
+    if (!ev.concreteFriction || !ev.unresolved || !ev.personal || !ev.workflowFit) continue;
     if (post.author?.handle === handle) continue;
     const ageHours = Math.round((Date.now() - indexedMs) / 36e5);
     const freshnessBonus = Math.max(0, Math.round((maxAgeDays * 24 - ageHours) / 24));
@@ -105,10 +110,10 @@ for (const q of queries) {
       repost_count: Number(post.repostCount ?? 0),
       quote_count: Number(post.quoteCount ?? 0),
       score: ev.score + freshnessBonus,
-      matched_pain: ev.matchedPain,
+      matched_friction: ev.matchedFriction,
       matched_unresolved: ev.matchedUnresolved,
       matched_personal: ev.matchedPersonal,
-      matched_buyer: ev.matchedBuyer,
+      matched_workflow: ev.matchedWorkflow,
       source_query: q,
       revenue_fit: 'existing_ai_agent_bottleneck_diagnostic',
     };
@@ -119,10 +124,10 @@ for (const q of queries) {
 
 const candidates = [...seen.values()]
   .sort((a,b) => b.score - a.score || a.age_hours - b.age_hours)
-  .slice(0, 6);
+  .slice(0, 5);
 
 const evidence = {
-  version: 5,
+  version: 6,
   observed_at: new Date().toISOString(),
   platform: 'bluesky',
   asset_id: 'ai_agent_bottleneck',
@@ -131,8 +136,8 @@ const evidence = {
   query_count: queries.length,
   candidate_count: candidates.length,
   candidates,
-  decision_rule: 'Market/problem first: unresolved personal pain + buyer fit + existing-asset fit. No seller/broadcast/solved posts. One contact at a time.',
-  next_gate: 'Do not contact unless candidate text clearly describes the author’s own unresolved workflow pain.',
+  decision_rule: 'Concrete workflow friction only: fresh + personal + unresolved + operational + existing-asset fit. Seller/broadcast/solved/abstract posts are excluded.',
+  next_gate: 'Contact at most one candidate only when the text itself proves an unresolved workflow problem that the current diagnostic can help classify.',
 };
 
 fs.writeFileSync(outPath, `${JSON.stringify(evidence, null, 2)}\n`);
