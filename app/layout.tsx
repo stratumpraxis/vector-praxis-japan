@@ -52,7 +52,7 @@ var fallbackRouteId=path.indexOf("/ai-agent-bottleneck")===0?"vpj_owned_ai_agent
 var assetId=params.get("asset_id")||fallbackAssetId;
 var routeId=params.get("route_id")||fallbackRouteId;
 var common={analytics_scope:"vector_praxis_japan",path:path,landing_path:path,asset_id:assetId,content_id:assetId,channel:"owned",route_id:routeId,utm_source:params.get("utm_source")||null,utm_medium:params.get("utm_medium")||null,utm_campaign:params.get("utm_campaign")||null,utm_content:params.get("utm_content")||null,referrer:document.referrer||null};
-var instant={send_instantly:true};
+var instant={transport:"sendBeacon",send_instantly:true};
 try{if(!sessionStorage.getItem("vp_revenue_session_v1")){posthog.capture("traffic_session_start",common,instant);sessionStorage.setItem("vp_revenue_session_v1","1")}}catch(_e){posthog.capture("traffic_session_start",common,instant)}
 posthog.capture("funnel_view",common,instant);
 document.addEventListener("click",function(e){var target=e.target;var a=target&&target.closest?target.closest("a[data-event]"):null;if(!a)return;var eventName=a.getAttribute("data-event")||"outbound_click";var destination=(function(){try{return new URL(a.href,window.location.href)}catch(_e){return null}})();var clickProps=Object.assign({},common,{event_name:eventName,destination_url:destination?destination.href:(a.href||null),destination_host:destination?destination.host:null,destination_path:destination?destination.pathname:null,link_text:(a.innerText||"").trim().slice(0,120),route_id:a.getAttribute("data-route-id")||common.route_id});posthog.capture(eventName,clickProps,instant)},true);
