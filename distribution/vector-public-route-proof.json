@@ -1,13 +1,14 @@
 {
-  "checked_at": "2026-09-14T01:06:35.240337Z",
-  "commit_sha": "266d8094cfcd1754609353353c6068db4a252153",
-  "workflow_run_id": "34794806869",
+  "checked_at": "2026-09-14T01:09:27.306857Z",
+  "commit_sha": "b275157b4b1fae2d4c639f029d2a34aecb639243",
+  "workflow_run_id": "34794977729",
   "repository": "stratumpraxis/vector-praxis-japan",
   "route_id": "vpj_owned_ai_agent_bottleneck_v2",
   "asset_id": "ai_agent_bottleneck",
   "content_marker": "AIを増やしても",
   "analytics_marker": "traffic_session_start + PostHog reference",
   "evidence_state": "MEASUREMENT_SURFACE_REACHABLE",
+  "measurement_network_state": "NO_POSTHOG_NETWORK_EVIDENCE",
   "selected_url": "https://vector-praxis-japan.vercel.app/ai-agent-bottleneck",
   "analytics_selected_url": "https://vector-praxis-japan.vercel.app/ai-agent-bottleneck",
   "measurement_canary": {
@@ -18,7 +19,38 @@
     "url": "https://vector-praxis-japan.vercel.app/ai-agent-bottleneck?route_id=vpj_measurement_canary_v1&asset_id=measurement_canary&utm_source=github_actions&utm_medium=measurement_canary&utm_campaign=vector_measurement_canary",
     "exit_code": 0,
     "dom_has_content_marker": true,
-    "stderr_tail": "ct_proxy.cc:572] Failed to call method: org.freedesktop.DBus.NameHasOwner: object_path= /org/freedesktop/DBus: unknown error type: \n[2272:2297:0914/010633.409584:ERROR:dbus/bus.cc:405] Failed to connect to the bus: Could not parse server address: Unknown address type (examples of valid types are \"tcp\" and on UNIX \"unix\")\n[2272:2272:0914/010633.447044:ERROR:dbus/object_proxy.cc:572] Failed to call method: org.freedesktop.DBus.NameHasOwner: object_path= /org/freedesktop/DBus: unknown error type: \n"
+    "network_has_posthog_host": false,
+    "network_has_posthog_assets": true,
+    "network_has_ingest_path": false,
+    "posthog_url_samples": [
+      "https://us-assets.i.posthog.com",
+      "https://us-assets.i.posthog.com/array/phc_oTYapRSNXDtn8aY7wMNHfCDexRTkfb2H44MDVXwoUMSN/config.js",
+      "https://us-assets.i.posthog.com/static/1.430.3/surveys.js",
+      "https://us-assets.i.posthog.com/static/array.js"
+    ],
+    "network_error_mentions": [
+      "ERR_ABORTED",
+      "ERR_ACCESS_DENIED",
+      "ERR_ADDRESS_INVALID",
+      "ERR_ADDRESS_IN_USE",
+      "ERR_ADDRESS_UNREACHABLE",
+      "ERR_ADD_USER_CERT_FAILED",
+      "ERR_ALPN_NEGOTIATION_FAILED",
+      "ERR_BAD_SSL_CLIENT_AUTH_CERT",
+      "ERR_BLOB_DEREFERENCED_WHILE_BUILDING",
+      "ERR_BLOB_FILE_WRITE_FAILED",
+      "ERR_BLOB_INVALID_CONSTRUCTION_ARGUMENTS",
+      "ERR_BLOB_OUT_OF_MEMORY",
+      "ERR_BLOB_REFERENCED_BLOB_BROKEN",
+      "ERR_BLOB_REFERENCED_FILE_UNAVAILABLE",
+      "ERR_BLOB_SOURCE_DIED_IN_TRANSIT",
+      "ERR_BLOCKED_BY_ADMINISTRATOR",
+      "ERR_BLOCKED_BY_CLIENT",
+      "ERR_BLOCKED_BY_CSP",
+      "ERR_BLOCKED_BY_FINGERPRINTING_PROTECTION",
+      "ERR_BLOCKED_BY_LOCAL_NETWORK_ACCESS_CHECKS"
+    ],
+    "stderr_tail": "ct_proxy.cc:572] Failed to call method: org.freedesktop.DBus.NameHasOwner: object_path= /org/freedesktop/DBus: unknown error type: \n[2069:2091:0914/010925.207359:ERROR:dbus/bus.cc:405] Failed to connect to the bus: Could not parse server address: Unknown address type (examples of valid types are \"tcp\" and on UNIX \"unix\")\n[2069:2069:0914/010925.243377:ERROR:dbus/object_proxy.cc:572] Failed to call method: org.freedesktop.DBus.NameHasOwner: object_path= /org/freedesktop/DBus: unknown error type: \n"
   },
   "candidates": [
     {
@@ -56,5 +88,5 @@
       "curl_error": null
     }
   ],
-  "inference_guard": "HTTP/content proves route reachability. Browser canary executes the live client with a dedicated synthetic route_id. PostHog ingestion must be confirmed separately before treating analytics as operational; canary traffic must never count as qualified traffic."
+  "inference_guard": "Synthetic canary traffic is excluded from qualified traffic. PostHog network evidence proves whether the live browser attempts SDK/assets/ingestion; PostHog query evidence is still required to prove ingestion completed."
 }
