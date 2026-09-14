@@ -3,6 +3,8 @@ import crypto from 'node:crypto';
 
 const evidencePath = new URL('../distribution/revenue-evidence.jsonl', import.meta.url);
 const statePath = new URL('../distribution/posthog-evidence-sync-state.json', import.meta.url);
+const queuePath = new URL('../distribution/social-queue.json', import.meta.url);
+const contractPath = new URL('../config/vector-revenue-event-contract.json', import.meta.url);
 
 const apiKey = process.env.POSTHOG_PERSONAL_API_KEY || '';
 const projectId = process.env.POSTHOG_PROJECT_ID || '';
@@ -21,8 +23,19 @@ const allowedEvents = [
   'checkout_click'
 ];
 
+const excludedHighTrustEvents = [
+  'confirmed_checkout_departure',
+  'checkout_return',
+  'verified_access',
+  'purchase'
+];
+
 function stableHash(value) {
   return crypto.createHash('sha256').update(value).digest('hex');
+}
+
+function readJson(path) {
+  return JSON.parse(fs.readFileSync(path, 'utf8'));
 }
 
 function readJsonl(path) {
@@ -44,6 +57,32 @@ function writeState(state) {
   fs.writeFileSync(statePath, `${JSON.stringify(state, null, 2)}\n`);
 }
 
+function sqlString(value) {
+  return `'${String(value).replaceAll("'", "''")}'`;
+}
+
+const queue = readJson(queuePath);
+const contract = readJson(contractPath);
+const existing = readJsonl(evidencePath);
+
+// The contract is authoritative for which Vector revenue route is currently active.
+// The social queue contributes the exact utm_content values that can be attributed
+// back to a confirmed published post. This prevents cross-project PostHog data from
+// entering the Vector evidence ledger merely because it shares the same analytics project.
+const currentRouteId = contract.current_route?.route_id || null;
+const attributionTargets = queue.items
+  .filter((item) => item.status === 'PUBLISHED' && item.external_post_id)
+  .filter((item) => item.utm?.route_id && item.utm?.utm_content)
+  .filter((item) => !currentRouteId || item.utm.route_id === currentRouteId)
+  .map((item) => ({
+    social_item_id: item.id,
+    external_post_id: item.external_post_id,
+    route_id: item.utm.route_id,
+    utm_content: item.utm.utm_content
+  }));
+
+const uniqueTargetKeys = new Set(attributionTargets.map((target) => `${target.route_id}\u0000${target.utm_content}`));
+
 function ledgerSummary(records, extra = {}) {
   const posthogRecords = records.filter((record) => record.source === 'posthog');
   const watermarks = posthogRecords
@@ -56,20 +95,15 @@ function ledgerSummary(records, extra = {}) {
     source: 'posthog',
     project_id: projectId || null,
     api_host: apiHost,
+    current_route_id: currentRouteId,
+    attribution_target_count: uniqueTargetKeys.size,
     allowed_events: allowedEvents,
-    excluded_high_trust_events: [
-      'confirmed_checkout_departure',
-      'checkout_return',
-      'verified_access',
-      'purchase'
-    ],
+    excluded_high_trust_events: excludedHighTrustEvents,
     evidence_record_count: posthogRecords.length,
     last_event_watermark: watermarks.at(-1) || null,
     ...extra
   };
 }
-
-const existing = readJsonl(evidencePath);
 
 if (!apiKey || !projectId) {
   writeState(ledgerSummary(existing, {
@@ -91,7 +125,26 @@ if (!Number.isFinite(queryWindowDays) || queryWindowDays < 1 || queryWindowDays 
   throw new Error('POSTHOG_EVIDENCE_WINDOW_DAYS must be between 1 and 90');
 }
 
-const eventList = allowedEvents.map((event) => `'${event}'`).join(', ');
+if (!uniqueTargetKeys.size) {
+  writeState(ledgerSummary(existing, {
+    status: 'CONNECTED_NO_ATTRIBUTION_TARGETS',
+    query_window_days: queryWindowDays
+  }));
+  console.log(JSON.stringify({
+    status: 'CONNECTED_NO_ATTRIBUTION_TARGETS',
+    current_route_id: currentRouteId
+  }, null, 2));
+  process.exit(0);
+}
+
+const targetConditions = [...uniqueTargetKeys]
+  .map((key) => {
+    const [routeId, utmContent] = key.split('\u0000');
+    return `(properties.route_id = ${sqlString(routeId)} AND properties.utm_content = ${sqlString(utmContent)})`;
+  })
+  .join('\n    OR ');
+
+const eventList = allowedEvents.map(sqlString).join(', ');
 const hogql = `
 SELECT
   timestamp,
@@ -106,9 +159,9 @@ SELECT
 FROM events
 WHERE timestamp >= now() - INTERVAL ${queryWindowDays} DAY
   AND event IN (${eventList})
-  AND properties.analytics_scope = 'vector_praxis_japan'
-  AND coalesce(properties.route_id, '') != ''
-  AND coalesce(properties.utm_content, '') != ''
+  AND (
+    ${targetConditions}
+  )
 ORDER BY timestamp ASC
 LIMIT 500
 `.trim();
@@ -132,7 +185,8 @@ try {
 } catch (error) {
   writeState(ledgerSummary(existing, {
     status: 'QUERY_ERROR',
-    error_class: 'NETWORK_ERROR'
+    error_class: 'NETWORK_ERROR',
+    query_window_days: queryWindowDays
   }));
   console.error(`PostHog evidence sync network error: ${error?.message || 'unknown'}`);
   process.exit(0);
@@ -141,7 +195,8 @@ try {
 if (!response.ok) {
   writeState(ledgerSummary(existing, {
     status: 'QUERY_ERROR',
-    error_class: `HTTP_${response.status}`
+    error_class: `HTTP_${response.status}`,
+    query_window_days: queryWindowDays
   }));
   console.error(`PostHog evidence sync HTTP ${response.status}`);
   process.exit(0);
@@ -151,7 +206,8 @@ const payload = await response.json().catch(() => null);
 if (!payload || !Array.isArray(payload.results)) {
   writeState(ledgerSummary(existing, {
     status: 'QUERY_ERROR',
-    error_class: 'INVALID_RESPONSE'
+    error_class: 'INVALID_RESPONSE',
+    query_window_days: queryWindowDays
   }));
   console.error('PostHog evidence sync returned an invalid response shape.');
   process.exit(0);
@@ -181,6 +237,7 @@ function value(row, key, fallbackKey = null) {
 }
 
 const knownKeys = new Set(existing.map((record) => record.evidence_key).filter(Boolean));
+const targetByKey = new Map(attributionTargets.map((target) => [`${target.route_id}\u0000${target.utm_content}`, target]));
 const additions = [];
 
 for (const rawRow of payload.results) {
@@ -193,12 +250,17 @@ for (const rawRow of payload.results) {
   const utmContent = value(row, 'properties.utm_content', 'utm_content');
   if (!observedAtRaw || !routeId || !utmContent) continue;
 
+  const target = targetByKey.get(`${routeId}\u0000${utmContent}`);
+  if (!target) continue;
+
   const observedAt = new Date(observedAtRaw).toISOString();
   const recordCore = {
     source: 'posthog',
     project_id: String(projectId),
     event,
     observed_at: observedAt,
+    social_item_id: target.social_item_id,
+    external_post_id: target.external_post_id,
     route_id: String(routeId),
     asset_id: value(row, 'properties.asset_id', 'asset_id') || null,
     utm_source: value(row, 'properties.utm_source', 'utm_source') || null,
@@ -228,14 +290,13 @@ if (additions.length) {
 const finalRecords = [...existing, ...additions];
 writeState(ledgerSummary(finalRecords, {
   status: 'CONNECTED',
-  query_window_days: queryWindowDays,
-  result_row_count: payload.results.length,
-  imported_event_count: additions.length
+  query_window_days: queryWindowDays
 }));
 
 console.log(JSON.stringify({
   status: 'CONNECTED',
   result_row_count: payload.results.length,
   imported_event_count: additions.length,
-  evidence_record_count: finalRecords.filter((record) => record.source === 'posthog').length
+  evidence_record_count: finalRecords.filter((record) => record.source === 'posthog').length,
+  attribution_target_count: uniqueTargetKeys.size
 }, null, 2));
