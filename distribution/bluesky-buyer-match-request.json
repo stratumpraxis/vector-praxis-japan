@@ -1,0 +1,18 @@
+{
+  "version": 1,
+  "status": "READY",
+  "scope": "vector_praxis_japan",
+  "purpose": "Existing Distribution -> Buyer Match -> Revenue",
+  "queries": [
+    "Claude Code",
+    "AIエージェント",
+    "ChatGPT Claude",
+    "GitHub 自動化",
+    "生成AI 自動化"
+  ],
+  "limit_per_query": 25,
+  "min_score": 7,
+  "max_results": 15,
+  "language": "ja",
+  "auto_reply": false
+}
