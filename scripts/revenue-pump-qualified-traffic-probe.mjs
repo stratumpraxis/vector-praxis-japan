@@ -6,6 +6,16 @@ const evidencePath = new URL('../distribution/revenue-pump-qualified-traffic-las
 const readmePath = new URL('../README.md', import.meta.url);
 const probe = JSON.parse(fs.readFileSync(probePath, 'utf8'));
 
+// External redirectors are denied by default. This map is deliberately exact and
+// only contains redirects whose destination was independently verified when created.
+const approvedEvidenceRedirects = new Map([
+  ['https://linkly.link/2t7wy', 'https://vector-praxis-japan.vercel.app'],
+]);
+
+const approvedVectorProductionOrigins = new Set([
+  'https://vector-praxis-japan.vercel.app',
+]);
+
 function writeJson(path, value) {
   fs.writeFileSync(path, `${JSON.stringify(value, null, 2)}\n`);
 }
@@ -51,10 +61,12 @@ if (probe.platform !== 'bluesky') {
 }
 
 let canonicalOrigin;
+let destinationUrl;
 let destinationOrigin;
 try {
   canonicalOrigin = readCanonicalOrigin();
-  destinationOrigin = new URL(probe.destination).origin;
+  destinationUrl = new URL(probe.destination);
+  destinationOrigin = destinationUrl.origin;
 } catch (error) {
   const evidence = {
     ...baseEvidence,
@@ -66,21 +78,38 @@ try {
   process.exit(1);
 }
 
-if (destinationOrigin !== canonicalOrigin) {
-  const evidence = {
-    ...baseEvidence,
-    status: 'FAILED_REVIEW',
-    reason: 'destination_origin_mismatch',
-    destination_origin: destinationOrigin,
+const approvedDirectOrigins = new Set([canonicalOrigin, ...approvedVectorProductionOrigins]);
+let destinationValidation = {
+  mode: 'direct',
+  destination_origin: destinationOrigin,
+  canonical_origin: canonicalOrigin,
+};
+
+if (!approvedDirectOrigins.has(destinationOrigin)) {
+  const assertedFinalOrigin = approvedEvidenceRedirects.get(destinationUrl.toString());
+  if (!assertedFinalOrigin || !approvedDirectOrigins.has(assertedFinalOrigin)) {
+    const evidence = {
+      ...baseEvidence,
+      status: 'FAILED_REVIEW',
+      reason: 'destination_origin_mismatch',
+      destination_origin: destinationOrigin,
+      canonical_origin: canonicalOrigin,
+      approved_production_origins: [...approvedVectorProductionOrigins],
+    };
+    writeJson(evidencePath, evidence);
+    console.error(JSON.stringify(evidence, null, 2));
+    process.exit(1);
+  }
+  destinationValidation = {
+    mode: 'approved_exact_evidence_redirect',
+    redirect_url: destinationUrl.toString(),
+    asserted_final_origin: assertedFinalOrigin,
     canonical_origin: canonicalOrigin,
   };
-  writeJson(evidencePath, evidence);
-  console.error(JSON.stringify(evidence, null, 2));
-  process.exit(1);
 }
 
 if (!blueskyConfigured()) {
-  const evidence = {...baseEvidence, status: 'READY_BUT_NOT_CONNECTED', provider: 'bluesky_direct'};
+  const evidence = {...baseEvidence, status: 'READY_BUT_NOT_CONNECTED', provider: 'bluesky_direct', destination_validation: destinationValidation};
   writeJson(evidencePath, evidence);
   console.error(JSON.stringify(evidence, null, 2));
   process.exit(1);
@@ -123,6 +152,7 @@ try {
     external_post_url: probe.external_post_url,
     published_at: probe.published_at,
     publisher: probe.publisher,
+    destination_validation: destinationValidation,
   };
   writeJson(evidencePath, evidence);
   console.log(JSON.stringify(evidence, null, 2));
@@ -137,6 +167,7 @@ try {
     status: 'FAILED_REVIEW',
     tracked_url: trackedUrl,
     reason: probe.last_error,
+    destination_validation: destinationValidation,
   };
   writeJson(evidencePath, evidence);
   console.error(JSON.stringify(evidence, null, 2));
