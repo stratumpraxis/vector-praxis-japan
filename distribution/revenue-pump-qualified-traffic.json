@@ -1,21 +1,19 @@
 {
   "version": 1,
   "id": "vp-rp-qt-20260914-03",
-  "status": "FAILED_REVIEW",
+  "status": "READY",
   "approval": "USER_APPROVED",
   "platform": "bluesky",
   "route_id": "vpj_owned_ai_agent_bottleneck_v2",
   "asset_id": "ai_agent_bottleneck",
   "angle": "AIに聞く回数ではなく完成までの遅さ",
-  "copy": "AIに聞く回数は増えたのに、完成までが遅くなった人へ。原因はツール不足より、レビュー待ち・権限・引き継ぎの詰まりかもしれません。30秒診断で、今いちばん止めている1点だけ出します。",
+  "copy": "AIを増やしたのに完成が遅い人へ。待ち・権限・引き継ぎ、どこで詰まっているか30秒で切り分けます。",
   "destination": "https://vector-praxis-japan.user-ex26.chatgpt.site/ai-agent-bottleneck",
   "utm": {
     "utm_source": "bluesky",
     "utm_medium": "social",
-    "utm_campaign": "vector_bottleneck_qt_c"
+    "utm_campaign": "vbqtc"
   },
   "require_media": false,
-  "post_format": "text",
-  "last_error": "bluesky_text_too_long:306",
-  "last_error_at": "2026-09-14T01:05:35.558Z"
+  "post_format": "text"
 }
