@@ -35,33 +35,22 @@ jobs:
           python3 - <<'PY'
           import json
           from pathlib import Path
-
           candidates = [
               "https://vector-praxis-japan.vercel.app/ai-agent-bottleneck",
               "https://vector-praxis-japan-hub.vercel.app/ai-agent-bottleneck",
           ]
           Path('.route-proof/candidates.json').write_text(json.dumps(candidates), encoding='utf-8')
           PY
-
           python3 - <<'PY'
           import json, re, subprocess
           from pathlib import Path
-
           content_marker = "AIを増やしても"
-          analytics_markers = [
-              'traffic_session_start',
-              'posthog',
-          ]
           candidates = json.loads(Path('.route-proof/candidates.json').read_text(encoding='utf-8'))
           rows = []
           for i, url in enumerate(candidates):
               body = Path(f'.route-proof/body-{i}.html')
               headers = Path(f'.route-proof/headers-{i}.txt')
-              cmd = [
-                  'curl', '-sS', '-L', '--connect-timeout', '10', '--max-time', '25',
-                  '-A', 'VectorRouteProof/3.0 (+https://github.com/stratumpraxis/vector-praxis-japan)',
-                  '-D', str(headers), '-o', str(body), '-w', '%{http_code}\t%{url_effective}', url,
-              ]
+              cmd = ['curl','-sS','-L','--connect-timeout','10','--max-time','25','-A','VectorRouteProof/4.0 (+https://github.com/stratumpraxis/vector-praxis-japan)','-D',str(headers),'-o',str(body),'-w','%{http_code}\t%{url_effective}',url]
               try:
                   proc = subprocess.run(cmd, text=True, capture_output=True, timeout=30)
                   parts = (proc.stdout or '').strip().split('\t', 1)
@@ -72,51 +61,26 @@ jobs:
                   header_text = headers.read_text(encoding='utf-8', errors='ignore') if headers.exists() else ''
                   csp_matches = re.findall(r'(?im)^content-security-policy:\s*(.+)$', header_text)
                   csp = csp_matches[-1].strip() if csp_matches else None
-                  analytics_presence = {
+                  presence = {
                       'traffic_session_start': 'traffic_session_start' in text,
                       'posthog_reference': 'posthog' in text_l,
                       'posthog_ingestion_host': 'us.i.posthog.com' in text_l,
                       'vector_scope': 'vector_praxis_japan' in text,
                   }
-                  analytics_marker_match = (
-                      analytics_presence['traffic_session_start']
-                      and analytics_presence['posthog_reference']
-                  )
-                  if csp:
-                      csp_l = csp.lower()
-                      posthog_allowed_by_csp = (
-                          'us.i.posthog.com' in csp_l
-                          or '*.posthog.com' in csp_l
-                          or 'https:' in csp_l
-                          or 'connect-src *' in csp_l
-                      )
-                  else:
-                      posthog_allowed_by_csp = None
                   rows.append({
                       'requested_url': url,
                       'effective_url': effective,
                       'http_status': status,
                       'content_marker_match': content_marker in text,
-                      'analytics_marker_match': analytics_marker_match,
-                      'analytics_markers': analytics_presence,
+                      'analytics_marker_match': presence['traffic_session_start'] and presence['posthog_reference'],
+                      'analytics_markers': presence,
                       'content_security_policy': csp,
-                      'posthog_allowed_by_csp': posthog_allowed_by_csp,
+                      'posthog_allowed_by_csp': None if not csp else ('us.i.posthog.com' in csp.lower() or '*.posthog.com' in csp.lower() or 'https:' in csp.lower() or 'connect-src *' in csp.lower()),
                       'curl_exit_code': proc.returncode,
                       'curl_error': (proc.stderr or '').strip()[:500] or None,
                   })
               except Exception as exc:
-                  rows.append({
-                      'requested_url': url,
-                      'effective_url': None,
-                      'http_status': 0,
-                      'content_marker_match': False,
-                      'analytics_marker_match': False,
-                      'analytics_markers': {},
-                      'content_security_policy': None,
-                      'posthog_allowed_by_csp': None,
-                      'curl_exit_code': None,
-                      'curl_error': str(exc)[:500],
-                  })
+                  rows.append({'requested_url':url,'effective_url':None,'http_status':0,'content_marker_match':False,'analytics_marker_match':False,'analytics_markers':{},'content_security_policy':None,'posthog_allowed_by_csp':None,'curl_exit_code':None,'curl_error':str(exc)[:500]})
           Path('.route-proof/results.json').write_text(json.dumps(rows, ensure_ascii=False, indent=2), encoding='utf-8')
           PY
 
@@ -142,14 +106,16 @@ jobs:
             exit 0
           fi
           CANARY_URL="${BASE_URL}?route_id=vpj_measurement_canary_v1&asset_id=measurement_canary&utm_source=github_actions&utm_medium=measurement_canary&utm_campaign=vector_measurement_canary"
-          "$CHROME" --headless=new --no-sandbox --disable-gpu --disable-dev-shm-usage --virtual-time-budget=9000 --dump-dom "$CANARY_URL" > .route-proof/canary-dom.html 2> .route-proof/canary-browser.err
+          "$CHROME" --headless=new --no-sandbox --disable-gpu --disable-dev-shm-usage --virtual-time-budget=12000 --log-net-log=.route-proof/netlog.json --net-log-capture-mode=Everything --dump-dom "$CANARY_URL" > .route-proof/canary-dom.html 2> .route-proof/canary-browser.err
           EXIT_CODE=$?
           export CHROME CANARY_URL EXIT_CODE
           python3 - <<'PY'
-          import json, os
+          import json, os, re
           from pathlib import Path
           dom = Path('.route-proof/canary-dom.html').read_text(encoding='utf-8', errors='ignore') if Path('.route-proof/canary-dom.html').exists() else ''
           err = Path('.route-proof/canary-browser.err').read_text(encoding='utf-8', errors='ignore') if Path('.route-proof/canary-browser.err').exists() else ''
+          net = Path('.route-proof/netlog.json').read_text(encoding='utf-8', errors='ignore') if Path('.route-proof/netlog.json').exists() else ''
+          posthog_urls = sorted(set(re.findall(r'https://[^"\\ ]*posthog[^"\\ ]*', net)))[:20]
           evidence = {
               'attempted': True,
               'browser': os.environ.get('CHROME'),
@@ -158,6 +124,11 @@ jobs:
               'url': os.environ.get('CANARY_URL'),
               'exit_code': int(os.environ.get('EXIT_CODE', '1')),
               'dom_has_content_marker': 'AIを増やしても' in dom,
+              'network_has_posthog_host': 'us.i.posthog.com' in net,
+              'network_has_posthog_assets': 'posthog.com/static/' in net or '-assets.i.posthog.com' in net,
+              'network_has_ingest_path': '/i/v0/e/' in net or '/capture' in net,
+              'posthog_url_samples': posthog_urls,
+              'network_error_mentions': sorted(set(re.findall(r'ERR_[A-Z_]+', net + '\n' + err)))[:20],
               'stderr_tail': err[-500:] or None,
           }
           Path('.route-proof/browser-canary.json').write_text(json.dumps(evidence, ensure_ascii=False, indent=2), encoding='utf-8')
@@ -174,13 +145,13 @@ jobs:
           import json, os
           from datetime import datetime, timezone
           from pathlib import Path
-
           results = json.loads(Path('.route-proof/results.json').read_text(encoding='utf-8'))
           canary = json.loads(Path('.route-proof/browser-canary.json').read_text(encoding='utf-8')) if Path('.route-proof/browser-canary.json').exists() else {'attempted': False, 'reason': 'missing_canary_evidence'}
           route_passing = [r for r in results if r['http_status'] == 200 and r['content_marker_match']]
           analytics_passing = [r for r in route_passing if r['analytics_marker_match'] and r['posthog_allowed_by_csp'] is not False]
           selected = route_passing[0]['effective_url'] if route_passing else None
           analytics_selected = analytics_passing[0]['effective_url'] if analytics_passing else None
+          network_state = 'INGEST_REQUEST_SEEN' if canary.get('network_has_ingest_path') else ('POSTHOG_HOST_SEEN' if canary.get('network_has_posthog_host') else 'NO_POSTHOG_NETWORK_EVIDENCE')
           evidence = {
               'checked_at': datetime.now(timezone.utc).isoformat().replace('+00:00', 'Z'),
               'commit_sha': os.environ.get('COMMIT_SHA'),
@@ -191,15 +162,14 @@ jobs:
               'content_marker': 'AIを増やしても',
               'analytics_marker': 'traffic_session_start + PostHog reference',
               'evidence_state': 'MEASUREMENT_SURFACE_REACHABLE' if analytics_selected else ('ROUTE_REACHABLE_ANALYTICS_UNVERIFIED' if selected else 'UNVERIFIED'),
+              'measurement_network_state': network_state,
               'selected_url': selected,
               'analytics_selected_url': analytics_selected,
               'measurement_canary': canary,
               'candidates': results,
-              'inference_guard': 'HTTP/content proves route reachability. Browser canary executes the live client with a dedicated synthetic route_id. PostHog ingestion must be confirmed separately before treating analytics as operational; canary traffic must never count as qualified traffic.'
+              'inference_guard': 'Synthetic canary traffic is excluded from qualified traffic. PostHog network evidence proves whether the live browser attempts SDK/assets/ingestion; PostHog query evidence is still required to prove ingestion completed.'
           }
-          Path('distribution/vector-public-route-proof.json').write_text(
-              json.dumps(evidence, ensure_ascii=False, indent=2) + '\n', encoding='utf-8'
-          )
+          Path('distribution/vector-public-route-proof.json').write_text(json.dumps(evidence, ensure_ascii=False, indent=2) + '\n', encoding='utf-8')
           print(json.dumps(evidence, ensure_ascii=False, indent=2))
           PY
 
