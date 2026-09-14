@@ -1,7 +1,7 @@
 {
   "version": 1,
   "id": "vp-rp-qt-20260914-03",
-  "status": "READY",
+  "status": "FAILED_REVIEW",
   "approval": "USER_APPROVED",
   "platform": "bluesky",
   "route_id": "vpj_owned_ai_agent_bottleneck_v2",
@@ -15,5 +15,7 @@
     "utm_campaign": "vector_bottleneck_qt_c"
   },
   "require_media": false,
-  "post_format": "text"
+  "post_format": "text",
+  "last_error": "bluesky_text_too_long:306",
+  "last_error_at": "2026-09-14T01:05:35.558Z"
 }
