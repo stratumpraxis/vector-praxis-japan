@@ -6,7 +6,7 @@ const evidencePath = new URL('../distribution/vector-revenue-probe-evidence.json
 const routeProof = JSON.parse(fs.readFileSync(routeProofPath, 'utf8'));
 const existing = fs.existsSync(evidencePath) ? JSON.parse(fs.readFileSync(evidencePath, 'utf8')) : null;
 
-const PROBE_ID = 'vp-ai-agent-bottleneck-bluesky-20260914-02';
+const PROBE_ID = 'vp-ai-agent-bottleneck-bluesky-20260914-03';
 const ROUTE_ID = 'vpj_owned_ai_agent_bottleneck_v2';
 const ASSET_ID = 'ai_agent_bottleneck';
 
@@ -14,7 +14,7 @@ function persist(payload) {
   fs.writeFileSync(evidencePath, `${JSON.stringify(payload, null, 2)}\n`);
 }
 
-if (existing?.status === 'PUBLISHED_CONFIRMED_BY_PUBLISHER' && existing?.external_post_id) {
+if (existing?.id === PROBE_ID && existing?.status === 'PUBLISHED_CONFIRMED_BY_PUBLISHER' && existing?.external_post_id) {
   console.log(JSON.stringify({status: 'ALREADY_PUBLISHED', external_post_id: existing.external_post_id}, null, 2));
   process.exit(0);
 }
