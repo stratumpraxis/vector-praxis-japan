@@ -180,6 +180,19 @@ export async function publishBluesky({item, text, trackedUrl}) {
     facets: linkFacet(text, trackedUrl)
   };
 
+  if (item.reply_to_uri && item.reply_to_cid) {
+    record.reply = {
+      root: {
+        uri: item.reply_root_uri || item.reply_to_uri,
+        cid: item.reply_root_cid || item.reply_to_cid
+      },
+      parent: {
+        uri: item.reply_to_uri,
+        cid: item.reply_to_cid
+      }
+    };
+  }
+
   if (item.media_url) {
     const blob = await uploadVideo(item.media_url, session);
     record.embed = {
