@@ -50,7 +50,7 @@ jobs:
           for i, url in enumerate(candidates):
               body = Path(f'.route-proof/body-{i}.html')
               headers = Path(f'.route-proof/headers-{i}.txt')
-              cmd = ['curl','-sS','-L','--connect-timeout','10','--max-time','25','-A','VectorRouteProof/5.0 (+https://github.com/stratumpraxis/vector-praxis-japan)','-D',str(headers),'-o',str(body),'-w','%{http_code}\t%{url_effective}',url]
+              cmd = ['curl','-sS','-L','--connect-timeout','10','--max-time','25','-A','VectorRouteProof/6.0 (+https://github.com/stratumpraxis/vector-praxis-japan)','-D',str(headers),'-o',str(body),'-w','%{http_code}\t%{url_effective}',url]
               try:
                   proc = subprocess.run(cmd, text=True, capture_output=True, timeout=30)
                   parts = (proc.stdout or '').strip().split('\t', 1)
@@ -67,13 +67,14 @@ jobs:
                       'posthog_ingestion_host': 'us.i.posthog.com' in text_l,
                       'vector_scope': 'vector_praxis_japan' in text,
                       'instant_send': 'send_instantly:true' in text,
+                      'beacon_transport': 'transport:"sendBeacon"' in text,
                   }
                   rows.append({
                       'requested_url': url,
                       'effective_url': effective,
                       'http_status': status,
                       'content_marker_match': content_marker in text,
-                      'analytics_marker_match': presence['traffic_session_start'] and presence['posthog_reference'] and presence['instant_send'],
+                      'analytics_marker_match': presence['traffic_session_start'] and presence['posthog_reference'] and presence['instant_send'] and presence['beacon_transport'],
                       'analytics_markers': presence,
                       'content_security_policy': csp,
                       'posthog_allowed_by_csp': None if not csp else ('us.i.posthog.com' in csp.lower() or '*.posthog.com' in csp.lower() or 'https:' in csp.lower() or 'connect-src *' in csp.lower()),
@@ -126,9 +127,10 @@ jobs:
               'exit_code': int(os.environ.get('EXIT_CODE', '1')),
               'dom_has_content_marker': 'AIを増やしても' in dom,
               'dom_has_instant_send': 'send_instantly:true' in dom,
+              'dom_has_beacon_transport': 'transport:"sendBeacon"' in dom,
               'network_has_posthog_host': 'us.i.posthog.com' in net,
               'network_has_posthog_assets': 'posthog.com/static/' in net or '-assets.i.posthog.com' in net,
-              'network_has_ingest_path': '/i/v0/e/' in net or '/capture' in net or '/e/' in net,
+              'network_has_ingest_path': '/i/v0/e/' in net or '/capture' in net,
               'posthog_url_samples': posthog_urls,
               'network_error_mentions': sorted(set(re.findall(r'ERR_[A-Z_]+', net + '\n' + err)))[:20],
               'stderr_tail': err[-500:] or None,
@@ -162,21 +164,23 @@ jobs:
               'route_id': 'vpj_owned_ai_agent_bottleneck_v2',
               'asset_id': 'ai_agent_bottleneck',
               'content_marker': 'AIを増やしても',
-              'analytics_marker': 'traffic_session_start + PostHog + instant send',
+              'analytics_marker': 'traffic_session_start + PostHog + instant send + sendBeacon',
               'evidence_state': 'MEASUREMENT_SURFACE_REACHABLE' if analytics_selected else ('ROUTE_REACHABLE_ANALYTICS_UNVERIFIED' if selected else 'UNVERIFIED'),
               'measurement_network_state': network_state,
               'selected_url': selected,
               'analytics_selected_url': analytics_selected,
               'measurement_canary': canary,
               'candidates': results,
-              'inference_guard': 'Synthetic canary traffic is excluded from qualified traffic. PostHog network evidence proves whether the live browser attempts SDK/assets/ingestion; PostHog query evidence is still required to prove ingestion completed.'
+              'inference_guard': 'Synthetic canary traffic is excluded from qualified traffic. Only exact PostHog capture endpoints count as network ingestion evidence; PostHog query evidence is still required to prove ingestion completed.'
           }
           Path('distribution/vector-public-route-proof.json').write_text(json.dumps(evidence, ensure_ascii=False, indent=2) + '\n', encoding='utf-8')
           print(json.dumps(evidence, ensure_ascii=False, indent=2))
           PY
 
       - name: Persist route evidence
+        shell: bash
         run: |
+          set +e
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
           git add distribution/vector-public-route-proof.json
@@ -186,5 +190,12 @@ jobs:
           fi
           git commit -m "chore: persist Vector public route evidence"
           git fetch origin main
-          git rebase origin/main
-          git push origin HEAD:main
+          if ! git rebase origin/main; then
+            echo "Concurrent evidence update detected; skipping persistence without failing the probe."
+            git rebase --abort || true
+            exit 0
+          fi
+          if ! git push origin HEAD:main; then
+            echo "Concurrent main update detected; probe evidence remains available in workflow logs."
+            exit 0
+          fi
