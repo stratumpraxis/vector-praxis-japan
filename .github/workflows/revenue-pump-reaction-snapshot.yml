@@ -1,0 +1,43 @@
+name: Revenue Pump Reaction Snapshot
+
+on:
+  workflow_dispatch:
+  push:
+    paths:
+      - '.github/workflows/revenue-pump-reaction-snapshot.yml'
+      - 'scripts/revenue-pump-bluesky-reaction-snapshot.mjs'
+
+permissions:
+  contents: write
+
+jobs:
+  snapshot:
+    runs-on: ubuntu-latest
+    concurrency:
+      group: vector-revenue-pump-reaction-snapshot
+      cancel-in-progress: false
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+
+      - name: Capture Bluesky reaction snapshot
+        run: node scripts/revenue-pump-bluesky-reaction-snapshot.mjs
+
+      - name: Persist reaction evidence
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add distribution/revenue-pump-reaction-last-run.json
+          if git diff --cached --quiet; then
+            echo "No reaction evidence change to persist."
+            exit 0
+          fi
+          git commit -m "chore: persist revenue pump reaction evidence"
+          git fetch origin main
+          git rebase origin/main
+          git push origin HEAD:main
