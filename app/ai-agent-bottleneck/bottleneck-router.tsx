@@ -88,6 +88,7 @@ export default function BottleneckRouter() {
   const [selected, setSelected] = useState<BottleneckId>("wait");
 
   useEffect(() => {
+    capture("free_tool_start", { tool_id: "ai_agent_bottleneck" });
     try {
       const saved = localStorage.getItem("vector-agent-bottleneck") as BottleneckId | null;
       if (saved && items.some((item) => item.id === saved)) setSelected(saved);
@@ -112,6 +113,20 @@ export default function BottleneckRouter() {
       bottleneck: id,
       recommended_destination: item?.nextTitle ?? null,
       destination_kind: item?.kind ?? null,
+    });
+  };
+
+  const complete = () => {
+    capture("vector_bottleneck_next_click", {
+      bottleneck: current.id,
+      destination: current.nextTitle,
+      destination_kind: current.kind,
+    });
+    capture("free_tool_complete", {
+      tool_id: "ai_agent_bottleneck",
+      bottleneck: current.id,
+      destination: current.nextTitle,
+      destination_kind: current.kind,
     });
   };
 
@@ -146,11 +161,7 @@ export default function BottleneckRouter() {
           rel={current.external ? "noopener noreferrer" : undefined}
           data-event={current.event}
           data-route-id={ROUTE_ID}
-          onClick={() => capture("vector_bottleneck_next_click", {
-            bottleneck: current.id,
-            destination: current.nextTitle,
-            destination_kind: current.kind,
-          })}
+          onClick={complete}
         >
           {current.kind === "free" ? "先に確認する" : "¥1,480の記事を見る"} <ArrowUpRight size={15} />
         </a>
