@@ -1,12 +1,12 @@
 {
-  "version": 1,
-  "observed_at": "2026-09-14T04:08:25.943Z",
+  "version": 2,
+  "observed_at": "2026-09-14T06:23:12.833Z",
   "asset_id": "ai_agent_bottleneck",
   "route_id": "vpj_owned_ai_agent_bottleneck_v2",
-  "probe_id": "vp-rp-buyer-match-20260914-01",
-  "external_post_id": "at://did:plc:3cg6ij6eppzwmy2v2i42v45e/app.bsky.feed.post/3mvhabho4di2z",
-  "external_post_url": "https://bsky.app/profile/vectorpx.bsky.social/post/3mvhabho4di2z",
-  "published_at": "2026-09-14T04:06:26.645Z",
+  "probe_id": "vp-rp-market-signal-20260914-01",
+  "external_post_id": "at://did:plc:3cg6ij6eppzwmy2v2i42v45e/app.bsky.feed.post/3mvhhq3mfyc2g",
+  "external_post_url": "https://bsky.app/profile/vectorpx.bsky.social/post/3mvhhq3mfyc2g",
+  "published_at": "2026-09-14T06:19:53.498Z",
   "reaction": {
     "like_count": 0,
     "reply_count": 0,
