@@ -1,9 +1,14 @@
 {
-  "observed_at": "2026-09-14T00:03:09.252Z",
+  "observed_at": "2026-09-14T01:46:55.035Z",
   "campaign": "note-completion-layer-20260903",
   "results": [
     {
-      "status": "NO_DUE_SOCIAL_POSTS"
+      "status": "PUBLISHED_CONFIRMED_BY_PUBLISHER",
+      "id": "vp-ai-revenue-system-bluesky-20260914-01",
+      "platform": "bluesky",
+      "external_post_id": "at://did:plc:3cg6ij6eppzwmy2v2i42v45e/app.bsky.feed.post/3mvgyhxuue426",
+      "external_post_url": "https://bsky.app/profile/vectorpx.bsky.social/post/3mvgyhxuue426",
+      "publisher": "bluesky_direct"
     }
   ]
 }

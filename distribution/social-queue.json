@@ -295,11 +295,15 @@
         "utm_campaign": "revenue3850",
         "utm_content": "v1"
       },
-      "status": "READY",
+      "status": "PUBLISHED",
       "approval": "USER_APPROVED",
       "scheduled_at": "2026-09-14T10:45:00+09:00",
       "require_media": false,
-      "post_format": "text"
+      "post_format": "text",
+      "external_post_id": "at://did:plc:3cg6ij6eppzwmy2v2i42v45e/app.bsky.feed.post/3mvgyhxuue426",
+      "external_post_url": "https://bsky.app/profile/vectorpx.bsky.social/post/3mvgyhxuue426",
+      "published_at": "2026-09-14T01:46:55.034Z",
+      "publisher": "bluesky_direct"
     }
   ],
   "publisher_state": {
