@@ -26,6 +26,10 @@ jobs:
           node-version: '22'
 
       - name: Scan Bluesky buyer signals
+        env:
+          BLUESKY_HANDLE: ${{ vars.BLUESKY_HANDLE || 'vectorpx.bsky.social' }}
+          BLUESKY_APP_PASSWORD: ${{ secrets.BLUESKY_APP_PASSWORD }}
+          BLUESKY_PDS_URL: ${{ vars.BLUESKY_PDS_URL || 'https://bsky.social' }}
         run: node scripts/revenue-pump-bluesky-buyer-match.mjs
 
       - name: Persist buyer match evidence
