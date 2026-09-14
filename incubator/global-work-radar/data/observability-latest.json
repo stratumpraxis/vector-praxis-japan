@@ -1,10 +1,10 @@
 {
   "schema_version": 1,
-  "observed_at": "2026-09-13T22:25:23.397Z",
+  "observed_at": "2026-09-14T04:57:18.735Z",
   "run": {
-    "github_run_id": "34786685412",
+    "github_run_id": "34807814812",
     "github_run_attempt": "1",
-    "github_sha": "d5ff1a51faee21b921e3b41d414ab8a581c0245d",
+    "github_sha": "beedaa9a23a0b54dbe7924c679b119836cca0190",
     "baseline_ref": "HEAD"
   },
   "inventory": {
@@ -69,10 +69,10 @@
       "workable-ccb1816009",
       "workable-4006265775",
       "workable-a335b713f4",
+      "workable-8bbd3702f9",
+      "workable-2584b2186b",
       "workable-4c15cdd484",
       "workable-35e51b79a9",
-      "workable-2584b2186b",
-      "workable-8bbd3702f9",
       "workable-0b1d27bd70",
       "workable-82d7518973",
       "workable-7afb08df16",
@@ -207,7 +207,6 @@
       "workable-195adffb77",
       "workable-f4f240cc09",
       "workable-d6701297cc",
-      "workable-969bfe938a",
       "workable-2d2d6fd52b",
       "workable-6c2ca259d3",
       "workable-35a8b8be51",
@@ -489,7 +488,8 @@
       "workable-c539486658",
       "workable-0abbe32bad",
       "workable-9eb9baa924",
-      "workable-00e1957bec"
+      "workable-00e1957bec",
+      "workable-cfad7383e3"
     ],
     "removed_ids": [],
     "changed": []
@@ -497,18 +497,18 @@
   "intelligence": {
     "lifecycle": {
       "state_counts": {
-        "NEW_24H": 8,
-        "STALE_RISK_90D": 221,
-        "LONG_RUNNING_60D": 51,
+        "NEW_3D": 26,
+        "STALE_RISK_90D": 220,
+        "LONG_RUNNING_60D": 52,
         "ACTIVE": 63,
-        "AGING_30D": 67,
-        "FRESH_7D": 34,
-        "NEW_3D": 25
+        "AGING_30D": 66,
+        "FRESH_7D": 37,
+        "NEW_24H": 5
       },
       "stale_risk_counts": {
         "LOW": 197,
-        "ELEVATED": 221,
-        "REVIEW": 51
+        "ELEVATED": 220,
+        "REVIEW": 52
       },
       "reopened_after_confirmed_close_count": 0,
       "changed_within_7d_count": 67,
@@ -521,8 +521,8 @@
     },
     "hiring_intent": {
       "signal_level_counts": {
-        "MODERATE_EVIDENCE": 115,
-        "WEAK_EVIDENCE": 335,
+        "MODERATE_EVIDENCE": 116,
+        "WEAK_EVIDENCE": 334,
         "STRONG_EVIDENCE": 19
       },
       "score_is_probability": false,
