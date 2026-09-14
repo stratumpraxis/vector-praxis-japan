@@ -3,6 +3,7 @@ import { blueskyConfigured, publishBluesky } from './social-provider-bluesky.mjs
 
 const probePath = new URL('../distribution/revenue-pump-qualified-traffic.json', import.meta.url);
 const evidencePath = new URL('../distribution/revenue-pump-qualified-traffic-last-run.json', import.meta.url);
+const readmePath = new URL('../README.md', import.meta.url);
 const probe = JSON.parse(fs.readFileSync(probePath, 'utf8'));
 
 function writeJson(path, value) {
@@ -15,6 +16,13 @@ function buildTrackedUrl(base, params = {}) {
     if (value !== null && value !== undefined && value !== '') url.searchParams.set(key, String(value));
   }
   return url.toString();
+}
+
+function readCanonicalOrigin() {
+  const readme = fs.readFileSync(readmePath, 'utf8');
+  const match = readme.match(/Current public URL:\s*(https:\/\/\S+)/);
+  if (!match?.[1]) throw new Error('canonical_public_url_missing_from_readme');
+  return new URL(match[1]).origin;
 }
 
 const baseEvidence = {
@@ -37,6 +45,35 @@ if (probe.status !== 'READY' || probe.approval !== 'USER_APPROVED') {
 
 if (probe.platform !== 'bluesky') {
   const evidence = {...baseEvidence, status: 'FAILED_REVIEW', reason: `unsupported_platform:${probe.platform}`};
+  writeJson(evidencePath, evidence);
+  console.error(JSON.stringify(evidence, null, 2));
+  process.exit(1);
+}
+
+let canonicalOrigin;
+let destinationOrigin;
+try {
+  canonicalOrigin = readCanonicalOrigin();
+  destinationOrigin = new URL(probe.destination).origin;
+} catch (error) {
+  const evidence = {
+    ...baseEvidence,
+    status: 'FAILED_REVIEW',
+    reason: String(error?.message || error || 'invalid_destination_or_canonical_origin'),
+  };
+  writeJson(evidencePath, evidence);
+  console.error(JSON.stringify(evidence, null, 2));
+  process.exit(1);
+}
+
+if (destinationOrigin !== canonicalOrigin) {
+  const evidence = {
+    ...baseEvidence,
+    status: 'FAILED_REVIEW',
+    reason: 'destination_origin_mismatch',
+    destination_origin: destinationOrigin,
+    canonical_origin: canonicalOrigin,
+  };
   writeJson(evidencePath, evidence);
   console.error(JSON.stringify(evidence, null, 2));
   process.exit(1);
