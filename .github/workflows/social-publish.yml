@@ -68,6 +68,9 @@ jobs:
           SOCIAL_PUBLISH_WEBHOOK_URL: ${{ secrets.SOCIAL_PUBLISH_WEBHOOK_URL }}
         run: node scripts/social-queue.mjs
 
+      - name: Evaluate Winner Amplification Gate
+        run: node scripts/winner-gate.mjs
+
       - name: Persist media and evidence without losing concurrent updates
         if: always()
         run: |
@@ -77,6 +80,7 @@ jobs:
           git add distribution/social-queue.json 2>/dev/null || true
           git add distribution/social-last-run.json 2>/dev/null || true
           git add distribution/social-provider-preflight.json 2>/dev/null || true
+          git add distribution/winner-gate-state.json 2>/dev/null || true
           if git diff --cached --quiet; then
             echo "No media/evidence change to persist."
             exit 0
