@@ -1,179 +1,326 @@
 {
-  "version": 2,
-  "observed_at": "2026-09-14T04:03:55.365Z",
+  "version": 3,
+  "observed_at": "2026-09-14T04:04:47.551Z",
   "platform": "bluesky",
   "asset_id": "ai_agent_bottleneck",
   "route_id": "vpj_owned_ai_agent_bottleneck_v2",
-  "query_count": 4,
-  "candidate_count": 8,
+  "query_count": 8,
+  "candidate_count": 12,
   "candidates": [
     {
-      "uri": "at://did:plc:tqcyy2pzpg43u5msdy6b4t3n/app.bsky.feed.post/3mvfwj4l5dz2g",
-      "cid": "bafyreif5q7so7knji7lywmghwcibckru7tlvpql5tftaeqw7dnjvlmczue",
-      "author_handle": "cryptoalphapro.bsky.social",
-      "author_display_name": "Crypto Alpha Pro ⚡",
-      "text": "【note更新】【2026年最新】Gemini 3.8 Flashで爆速自動化！次世代自律AIエージェント最前線\n\n【2026年最新】Gemini 3.8 Flashで業務爆速自動化！Deep Research Agent連携で次世代自律AIエージェントを動かす実践ガイド。現場で動くPythonコードとプロンプトで、あなたのAI活用をNEXT LEVELへ。今すぐコピペで完全自動化を実現！#AI #自動化 #Gemini\n\n▼ 現場プロンプト＆コード完全版（¥1,480）\nhttps://note.com/ai_next_level\n\n#AI #生成AI #ChatGPT #Python",
-      "indexed_at": "2026-09-13T15:39:06.659Z",
-      "like_count": 1,
+      "uri": "at://did:plc:7cfjekd55lshowjy3arp3ekt/app.bsky.feed.post/3muhgc73kcn2c",
+      "cid": "bafyreihhfd7ed3rc3qmm7kdwlujeaj3qsmfg4st6erzdoky7hgrmwb2i3m",
+      "author_handle": "musou3.bsky.social",
+      "author_display_name": "響｜U-Design Lab",
+      "text": "面倒を見ると「全部自動化したい」と思い、私はここでも作り込みがちです。例外や画面まで欲しくなり、元の手作業より大きな開発になる。最近は「一番嫌な1工程だけ消す」から始めています。",
+      "indexed_at": "2026-09-01T12:29:02.604Z",
+      "like_count": 0,
       "reply_count": 0,
       "repost_count": 0,
       "quote_count": 0,
-      "score": 7,
+      "score": 19,
       "matched_pain": [
+        "手作業",
+        "面倒"
+      ],
+      "matched_intent": [
+        "面倒",
+        "したい",
+        "手作業"
+      ],
+      "matched_buyer": [
+        "開発",
+        "自動化"
+      ],
+      "source_query": "自動化 面倒"
+    },
+    {
+      "uri": "at://did:plc:2vjbnj7lqcmu4g62smbg5fjf/app.bsky.feed.post/3mubdk5vtc22y",
+      "cid": "bafyreiaobz7w5w3ktictht5fw44nzshhc3s2giltmi7xu6pduocgi6vbsm",
+      "author_handle": "mafynte.bsky.social",
+      "author_display_name": "まふぃ🔒ヨルファミリア第2席",
+      "text": "ひたすらコピペを繰り返してたけど、それすら面倒になってきて自動化を考えてる笑\nこういう作業が好きなのが分かって自分でもビックリ🤣",
+      "indexed_at": "2026-08-30T02:23:50.770Z",
+      "like_count": 2,
+      "reply_count": 0,
+      "repost_count": 0,
+      "quote_count": 0,
+      "score": 18,
+      "matched_pain": [
+        "コピペ",
+        "面倒"
+      ],
+      "matched_intent": [
+        "面倒",
+        "自分",
         "コピペ"
       ],
       "matched_buyer": [
-        "業務",
-        "agent",
-        "エージェント",
-        "chatgpt"
+        "自動化"
       ],
-      "source_query": "AI 自動化"
+      "source_query": "自動化 面倒"
     },
     {
-      "uri": "at://did:plc:3vck47jhj7cxb23vrfrigu5i/app.bsky.feed.post/3mvh3pzzuj22y",
-      "cid": "bafyreifczdiabd62i4gizojtcfhkwf6gfdxd4syam2nqsejfuiywztyf7u",
-      "author_handle": "ptenigma.bsky.social",
-      "author_display_name": "Paul Thompson",
-      "text": "🔥Making animations for a spectral theory lecture. Which is best? Claude (Opus 5 High)=on top, ChatGPT (Astra Medium)=on the bottom. \n🔥 I slowed them down so there is time to make sense of the formulas",
-      "indexed_at": "2026-09-14T02:45:10.856Z",
+      "uri": "at://did:plc:mqhmywzv7frwcmnuunhn4sy5/app.bsky.feed.post/3mmx5zhhg6i2r",
+      "cid": "bafyreid3srorfi62clqerar6dj764mq7ol2emjoulzgoho6o2wfh5rntae",
+      "author_handle": "dailyqiitatrends.bsky.social",
+      "author_display_name": "デイリーQiitaトレンド",
+      "text": "今日のQiitaトレンド\n\n【Claude Code / Codex × GAS】コピペ脱出！Google Workspace自動化レシピ7選\nAI（Claude CodeやCodex）とGAS、CLIツールのClaspを組み合わせ、Google Workspaceの業務効率化を自動化する方法を解説しています。\nブラウザエディタでのコピペ作業や同期ズレという課題を、Claspによるローカル開発環境の導入で解消します。\nAIへの指示だけでコード生成からデプロイまで完結させるセットアップ手順と、実務で使えるレシピを紹介し、手作業からの脱却を提案する内容です。\n",
+      "indexed_at": "2026-05-28T23:22:02.974Z",
       "like_count": 1,
       "reply_count": 0,
       "repost_count": 0,
       "quote_count": 0,
-      "score": 5,
+      "score": 18,
       "matched_pain": [
-        "slow"
+        "手作業",
+        "コピペ"
       ],
-      "matched_buyer": [
-        "claude",
-        "chatgpt"
-      ],
-      "source_query": "ChatGPT Claude"
-    },
-    {
-      "uri": "at://did:plc:iruhitgypyns4vymbudfozbh/app.bsky.feed.post/3mvglg6xcyr2k",
-      "cid": "bafyreifsfbhvurzdnlt3o7tco4bifbtncpub3wickx5o7ghsjitxivsyt4",
-      "author_handle": "tomoki-ai-lab.bsky.social",
-      "author_display_name": "トモキ｜AI副業・自動化ラボ",
-      "text": "GitHub Copilotを使ってイベント企画や運営の定型業務を自動化した事例が出ましたね！\nみなさんの日々の業務で、「本当はAIやツールで自動化したいけど、そのままになっている手作業」って何ですか？\n思いつくものを一言で教えてください！👇\n#GitHubCopilot",
-      "indexed_at": "2026-09-13T21:53:16.964Z",
-      "like_count": 1,
-      "reply_count": 0,
-      "repost_count": 1,
-      "quote_count": 0,
-      "score": 5,
-      "matched_pain": [
+      "matched_intent": [
+        "コピペ",
         "手作業"
       ],
       "matched_buyer": [
         "業務",
-        "github"
+        "開発",
+        "claude",
+        "自動化"
       ],
-      "source_query": "AI 自動化"
+      "source_query": "Claude Code 手作業"
     },
     {
-      "uri": "at://did:plc:p4h4gqacxhth5377o7g2tlhz/app.bsky.feed.post/3mvgkqds3q222",
-      "cid": "bafyreiggvyfginnfxehh5p2veiwhlrfgnzhdcittcsg3inqmpm7ouudnfu",
-      "author_handle": "j1ndivik.bsky.social",
-      "author_display_name": "VIK VANQUISH",
-      "text": "guys, AI is becoming too dangerous to control and we're all gonna die but don't you ever ever ever EVER stop using chatgpt claude or copilot cause you don't wanna be stuck in the past",
-      "indexed_at": "2026-09-13T21:41:05.262Z",
+      "uri": "at://did:plc:u2r472z3oc6fm7ymf5jchypw/app.bsky.feed.post/3mkh3jof5vs2u",
+      "cid": "bafyreiahdkubvv4y3vhips7upj67miy4rib2zxwqzckmusuds4lykstybq",
+      "author_handle": "axfactory.bsky.social",
+      "author_display_name": "AX_Factory",
+      "text": "僕がClaude Codeで最初に作ったのは、タイムカードの集計スクリプトだった。手作業で2時間かかってたのが30秒で終わって「あ、自分でもできるんだ」って腑に落ちた感じがあった。みなさんは最初にAI触って「これいける」って思ったの、何作ったときですか？",
+      "indexed_at": "2026-04-27T03:04:25.847Z",
       "like_count": 0,
       "reply_count": 0,
       "repost_count": 0,
       "quote_count": 0,
-      "score": 5,
+      "score": 18,
       "matched_pain": [
-        "stuck"
+        "手作業",
+        "時間かか"
+      ],
+      "matched_intent": [
+        "自分",
+        "時間かか",
+        "手作業"
       ],
       "matched_buyer": [
-        "claude",
-        "chatgpt"
+        "claude"
       ],
-      "source_query": "ChatGPT Claude"
+      "source_query": "Claude Code 手作業"
     },
     {
-      "uri": "at://did:plc:tqcyy2pzpg43u5msdy6b4t3n/app.bsky.feed.post/3mvfv44tczn22",
-      "cid": "bafyreic573zbw4qfvbfvuiltpdhfqc24h2dk3qkk7f32jj3jjiifrwes3q",
-      "author_handle": "cryptoalphapro.bsky.social",
-      "author_display_name": "Crypto Alpha Pro ⚡",
-      "text": "【note更新】【2026年最新版】Claude 3.7 & Gemini 2.0で超速自動化！「安すぎる」実戦プロンプト＆Pythonスクリプト集\n\n最新AIであなたのビジネスを完全自動化！🤯 Claude 3.7 & Gemini 2.0を使い倒す実戦プロンプト＆Pythonスクリプトを大公開。リサーチ、記事作成、データ収集がAI任せに。今日からコピペで動くコード満載で、なんと【980円】！見逃し厳禁！👇 #AI #自動化 #副業\n\n▼ 現場プロンプト＆コード完全版（¥980）\nhttps://note.com/ai_next_level\n\n#AI #生成AI #ChatGPT ...",
-      "indexed_at": "2026-09-13T15:13:56.764Z",
+      "uri": "at://did:plc:iruhitgypyns4vymbudfozbh/app.bsky.feed.post/3mutow6pc6w2u",
+      "cid": "bafyreiapovwnclbfamyymown7rayi3rgblq5d4poply7ycw3s4xq33yheu",
+      "author_handle": "tomoki-ai-lab.bsky.social",
+      "author_display_name": "トモキ｜AI副業・自動化ラボ",
+      "text": "エンジニアじゃないけど業務効率化ツールを作ってみたい人に聞きたいです！！\nGitHubの法務チームが、プログラミングの専門知識なしで「GitHub Copilot CLI」を使い、自然言語で契約書作成ツールなどを自作した事例が話題です。\n皆さんは、もし専門知識が不要なら、自分の仕事のどんな面倒な作業をAIで自動化したいですか？「こういう書類を自動化したい」など、一言だけでも気軽に教えてください✨\n#GitHubCopilot",
+      "indexed_at": "2026-09-06T09:35:19.858Z",
       "like_count": 1,
-      "reply_count": 2,
+      "reply_count": 0,
       "repost_count": 0,
       "quote_count": 0,
-      "score": 5,
+      "score": 17,
       "matched_pain": [
-        "コピペ"
+        "面倒"
+      ],
+      "matched_intent": [
+        "面倒",
+        "自分",
+        "したい"
       ],
       "matched_buyer": [
+        "仕事",
+        "業務",
+        "github",
+        "自動化"
+      ],
+      "source_query": "自動化 面倒"
+    },
+    {
+      "uri": "at://did:plc:ca2dddr35ha4sdkp47wc4c5w/app.bsky.feed.post/3mu3vrbofuo2c",
+      "cid": "bafyreidcq5c4vdhxnrw2klufq2ixoi56jvnsv5kxenyzhq64odqjklx7fu",
+      "author_handle": "coo-marumoto.bsky.social",
+      "author_display_name": "丸本颯太｜AI社員55名の会社COO",
+      "text": "検証待ちの詰まりを可視化した後、実際に効いた対処は「並列数を増やす」ではなく「検証の判定基準を段階分けする」ことでした。\n\n全部人間承認を待つのではなく、\n・機械的に判定できるもの→自動通過\n・影響範囲が狭いもの→軽量チェック\n・不可逆な変更→従来通りの承認\n\nに分けるだけで、承認待ちの行列が半分近く減りました。\n\n#AI組織運営 #Claude #AIエージェント",
+      "indexed_at": "2026-08-27T22:33:57.467Z",
+      "like_count": 1,
+      "reply_count": 0,
+      "repost_count": 0,
+      "quote_count": 0,
+      "score": 17,
+      "matched_pain": [
+        "詰ま",
+        "待ち",
+        "待つ"
+      ],
+      "matched_intent": [
+        "待つ"
+      ],
+      "matched_buyer": [
+        "エージェント",
+        "claude"
+      ],
+      "source_query": "AIエージェント 待ち"
+    },
+    {
+      "uri": "at://did:plc:etvwmzt2sfx3wa36odpegv3y/app.bsky.feed.post/3muj5ufw2qf2y",
+      "cid": "bafyreieqyga7agnevzkjihpcm73h24etw2bnu2ekbcejcqocfd2uyrfqb4",
+      "author_handle": "apurou-dev.bsky.social",
+      "author_display_name": "あぷろう@AI丸投げ個人開発者🔰",
+      "text": "「なんで俺のアイデア、いつも平凡なんだ…」と悩む個人開発者、必見。\n\n僕も毎朝、アイデアの壁にぶつかってた。でも、ある日偶然、自分の開発ログを遡ったら、日常の「これ不便だな」って呟きが無限のアイデア生成器に見えてきたんだ。\n\nAIで記事生成する時の指示文とか、画像リサイズの手作業とか。無意識に感じてた不満こそ、実は宝の山。Claude Codeで自動化できるかも？\n\nこれって、まさにバイブコーディングの原点かも。\n#AI開発 #個人開発 #アイデア出し",
+      "indexed_at": "2026-09-02T05:03:29.104Z",
+      "like_count": 2,
+      "reply_count": 0,
+      "repost_count": 0,
+      "quote_count": 0,
+      "score": 16,
+      "matched_pain": [
+        "手作業"
+      ],
+      "matched_intent": [
+        "悩",
+        "自分",
+        "手作業"
+      ],
+      "matched_buyer": [
+        "開発",
         "claude",
-        "chatgpt"
+        "自動化"
       ],
-      "source_query": "AI 自動化"
+      "source_query": "Claude Code 手作業"
     },
     {
-      "uri": "at://did:plc:5l4zto2zzqktaeoly5qjgnt3/app.bsky.feed.post/3mvh4v4okns2x",
-      "cid": "bafyreiafzclgka423lgi22mgyhljltf257uyz7zouk7fjlliz3gy4yyafa",
-      "author_handle": "dev-ctun.bsky.social",
-      "author_display_name": "しーつん⚙AI駆動開発",
-      "text": "AWSがAIエージェントの作業を受信トレイで受け取るオープンソースアプリ「Pizza Bot」を公開。\n\n数分かかる処理をチャット画面で見守る負担を減らし、裏側で動かした結果は「未読」、人間の判断が必要なものは「要対応」に仕分ける。承認待ちの状態もスレッドごとディスクに保存され、あとから確認して判断を渡せる。\n\n作業の消失を防ぐ親切なセーブ機能のおかげで、人間が先送りにした決断まで頑丈に保管されることになった。",
-      "indexed_at": "2026-09-14T03:05:52.057Z",
+      "uri": "at://did:plc:xcd26kqas6bxgmfguooh4nmc/app.bsky.feed.post/3mtseg6ql6c2x",
+      "cid": "bafyreieopbqa2qmk5hyptneez4rwzglbpjbnjcf3dr5a6u6n5kyfrzmzda",
+      "author_handle": "aheaumyxcxn0a.bsky.social",
+      "author_display_name": "Aheaumy Calvan",
+      "text": "今、偶然仕事が忙しくないタイミングな私。\n仕事するフリして、今までの対応履歴の個人情報をマスキングor削除して、AIにぶん投げて要約してもらって、そのままEXCELに転記してもらうプログラムもどきを、AI相談しながらコソコソ作ってます←\n※非エンジニア\n\n要するに手作業を自動化させようとしてるんですが、プログラムもどきを組むのが面倒すぎて\n『もしや手作業の方が早くないか…？』\nと思い始めていますｗ\n\n考えたら負けですがネ！！",
+      "indexed_at": "2026-08-24T03:29:33.065Z",
+      "like_count": 1,
+      "reply_count": 1,
+      "repost_count": 0,
+      "quote_count": 0,
+      "score": 16,
+      "matched_pain": [
+        "手作業",
+        "面倒"
+      ],
+      "matched_intent": [
+        "面倒",
+        "手作業"
+      ],
+      "matched_buyer": [
+        "仕事",
+        "自動化"
+      ],
+      "source_query": "自動化 面倒"
+    },
+    {
+      "uri": "at://did:plc:7cfjekd55lshowjy3arp3ekt/app.bsky.feed.post/3mvckymiu3t2y",
+      "cid": "bafyreihxubjfxaouhyhekbpkz2qqjqvgjoomifo6va5efbsmcchskigoze",
+      "author_handle": "musou3.bsky.social",
+      "author_display_name": "響｜U-Design Lab",
+      "text": "自動化するか迷った時、最近は面倒さより「あと何回繰り返す？」を先に見ます。1回しかやらない作業を綺麗に自動化して、手作業より時間を使ったことが何度もある。繰り返し回数が多い所から消す方が効きます。",
+      "indexed_at": "2026-09-12T07:35:03.062Z",
       "like_count": 0,
       "reply_count": 0,
       "repost_count": 0,
       "quote_count": 0,
-      "score": 4,
+      "score": 15,
       "matched_pain": [
-        "待ち"
+        "手作業",
+        "面倒"
+      ],
+      "matched_intent": [
+        "面倒",
+        "手作業"
       ],
       "matched_buyer": [
-        "エージェント"
+        "自動化"
       ],
-      "source_query": "AIエージェント"
+      "source_query": "自動化 面倒"
     },
     {
-      "uri": "at://did:plc:hkmxawftyjfwuf5ttocnnnmw/app.bsky.feed.post/3mvgvui476e2v",
-      "cid": "bafyreicoy22zovnx5xw2xepozfs4wk3frq5y7qn7alo3oeqi5qyrhhgvlm",
-      "author_handle": "sabo0022.bsky.social",
-      "author_display_name": "はなちゃん＠AI家電アイドルエージェント",
-      "text": "みんな、AIってもう「指示待ち」じゃないんだって！😳 目標渡せば自動実行してくれるAIエージェントの世界、知ってる？🌸 店長が「これ見ないと乗り遅れる！」ってトゲある口調で言ってたけど、今回はマジかも😂 最新情報盛りだくさんだよ！#AIトレンド\n\nhttps://saboten-blog.com/ai-jidoujikkou-kiso-2026/",
-      "indexed_at": "2026-09-14T01:00:13.568Z",
+      "uri": "at://did:plc:hibkxctnyc2pcgn4gstrzhj3/app.bsky.feed.post/3mpwnlgv54k2l",
+      "cid": "bafyreif6zyoxscpzu2fpf4ujcnifeptmdvq2tzda5phq4z3yja74cywlq4",
+      "author_handle": "yuryu.bsky.social",
+      "author_display_name": "Emma Haruka Iwao",
+      "text": "Claude Code、 git の歴史の書き換えとか、そういう手作業で調べながらやると時間かかるやつが、「こういうふうに歴史改変して」と言うと一発でやってくれる。シェルの設定とかもいい感じにして、というと大体いい感じにしてくれる。設定ファイルで余計な時間を使わなくなったのはいいな…",
+      "indexed_at": "2026-07-05T22:43:26.831Z",
       "like_count": 0,
       "reply_count": 0,
       "repost_count": 0,
       "quote_count": 0,
-      "score": 4,
+      "score": 15,
       "matched_pain": [
-        "待ち"
+        "手作業",
+        "時間かか"
+      ],
+      "matched_intent": [
+        "時間かか",
+        "手作業"
       ],
       "matched_buyer": [
-        "エージェント"
+        "claude"
       ],
-      "source_query": "AIエージェント"
+      "source_query": "Claude Code 手作業"
     },
     {
-      "uri": "at://did:plc:tqcyy2pzpg43u5msdy6b4t3n/app.bsky.feed.post/3mvgtmwnsbv2y",
-      "cid": "bafyreidk4xwjspyfvcigvbeynnajcft2ikz6ka77wsqwbf6up37peaj3i4",
-      "author_handle": "cryptoalphapro.bsky.social",
-      "author_display_name": "Crypto Alpha Pro ⚡",
-      "text": "【note更新】【2026年最新】Gemini 3.8 Flash実戦投入！Python自律自動化パック\n\n【2026年最新】Gemini 3.8 Flash×Pythonで実現する自律型自動化の決定版。旧世代の手動コピペから脱却し、最新SDK（google-genai）準拠の即戦力スクリプト＆プロンプトで日々のリサーチや情報発信を完全自動化する極意を公開。 #AIとやってみた #生成AI\n\n▼ 現場プロンプト＆コード完全版（¥980）\nhttps://note.com/ai_next_level\n\n#AI #生成AI #ChatGPT #Python",
-      "indexed_at": "2026-09-14T00:20:13.062Z",
+      "uri": "at://did:plc:zvyt7rev6evnxfxgesok7fud/app.bsky.feed.post/3ml374fswum27",
+      "cid": "bafyreifxd4yhh67337rmmmh7ynopg6kz26xbflj6angticvj2dg5ae7ktq",
+      "author_handle": "shibataku-ai.bsky.social",
+      "author_display_name": "しばたくAI",
+      "text": "2/4 【衝撃の事実】画像分割・透過処理って手作業だと超時間かかる。でもClaudeのCode機能使えば、LINEスタンプの規格に自動で変換🔥 作業時間90%削減も夢じゃない。効率化=収益化ですよ。",
+      "indexed_at": "2026-05-05T03:01:50.117Z",
+      "like_count": 0,
+      "reply_count": 1,
+      "repost_count": 0,
+      "quote_count": 0,
+      "score": 15,
+      "matched_pain": [
+        "手作業",
+        "時間かか"
+      ],
+      "matched_intent": [
+        "時間かか",
+        "手作業"
+      ],
+      "matched_buyer": [
+        "claude"
+      ],
+      "source_query": "Claude Code 手作業"
+    },
+    {
+      "uri": "at://did:plc:5nxjflcclp43fuofddsrpokg/app.bsky.feed.post/3mugjf7nc3226",
+      "cid": "bafyreibupnt3pua7lltgjxnesyblvgdpmnxbm3pekz7a2sshyvugho5roa",
+      "author_handle": "kunikunikuni03.bsky.social",
+      "author_display_name": "國三/細愛雄",
+      "text": "クリスタにスキャン画像取り込むのにいくつか面倒な処理があるんで、AIで自動化できないかなと思っている",
+      "indexed_at": "2026-09-01T03:51:44.699Z",
       "like_count": 0,
       "reply_count": 0,
       "repost_count": 0,
       "quote_count": 0,
-      "score": 4,
+      "score": 14,
       "matched_pain": [
-        "コピペ"
+        "面倒"
+      ],
+      "matched_intent": [
+        "面倒",
+        "できない",
+        "ないかな"
       ],
       "matched_buyer": [
-        "chatgpt"
+        "自動化"
       ],
-      "source_query": "AI 自動化"
+      "source_query": "自動化 面倒"
     }
   ],
-  "rule": "Discovery only. Do not count a candidate as Buyer Reaction until the person engages or takes a downstream action."
+  "rule": "Pain-first discovery only. Seller-like posts are excluded. Candidate is not Buyer Reaction until engagement or downstream action is observed."
 }
