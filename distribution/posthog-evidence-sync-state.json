@@ -1,0 +1,29 @@
+{
+  "version": 1,
+  "source": "posthog",
+  "project_id": "573335",
+  "api_host": "https://us.posthog.com",
+  "current_route_id": "vpj_owned_ai_agent_bottleneck_v2",
+  "attribution_target_count": 1,
+  "ambiguous_attribution_target_count": 0,
+  "allowed_events": [
+    "traffic_session_start",
+    "free_tool_start",
+    "free_tool_complete",
+    "paid_product_view",
+    "primary_cta_click",
+    "checkout_click"
+  ],
+  "excluded_high_trust_events": [
+    "confirmed_checkout_departure",
+    "checkout_return",
+    "verified_access",
+    "purchase"
+  ],
+  "evidence_record_count": 0,
+  "last_event_watermark": null,
+  "status": "READY_BUT_NOT_CONNECTED",
+  "missing": [
+    "POSTHOG_PERSONAL_API_KEY"
+  ]
+}
