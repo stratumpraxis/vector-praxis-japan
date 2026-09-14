@@ -1,7 +1,7 @@
 {
   "version": 1,
   "id": "vp-rp-market-signal-20260914-01",
-  "status": "APPROVED",
+  "status": "READY",
   "approval": "USER_APPROVED",
   "platform": "bluesky",
   "route_id": "vpj_owned_ai_agent_bottleneck_v2",
