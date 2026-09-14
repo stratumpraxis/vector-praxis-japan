@@ -1,25 +1,24 @@
 {
   "version": 1,
-  "id": "vp-rp-qt-20260914-07",
-  "status": "PUBLISHED",
+  "id": "vp-rp-buyer-match-20260914-01",
+  "status": "READY",
   "approval": "USER_APPROVED",
   "platform": "bluesky",
   "route_id": "vpj_owned_ai_agent_bottleneck_v2",
   "asset_id": "ai_agent_bottleneck",
-  "angle": "最後に人間が待つ・貼り直す摩擦",
-  "copy": "ChatGPT・Claude・GitHubを増やしたのに、最後は自分が待つ・許可する・貼り直す。そこが遅さの原因かもしれません。待ち・権限・引き継ぎの詰まりを30秒で切り分けます。",
+  "angle": "自動化を組むコストが手作業を超える摩擦",
+  "copy": "まさに「自動化を組むコスト＞手作業」になる地点ありますよね。全部を自動化する前に、待ち・権限・受け渡しのどこで止まるか切ると、消す1工程を選びやすいです。3択診断を置いてます。",
   "destination": "https://linkly.link/2t7wy",
   "utm": {
     "utm_source": "bluesky",
-    "utm_medium": "social",
-    "utm_campaign": "vbqtf",
-    "utm_content": "revenue_pump_probe_f"
+    "utm_medium": "reply",
+    "utm_campaign": "buyer_match_20260914",
+    "utm_content": "manual_vs_automation_01"
   },
+  "reply_to_uri": "at://did:plc:xcd26kqas6bxgmfguooh4nmc/app.bsky.feed.post/3mtseg6ql6c2x",
+  "reply_to_cid": "bafyreieopbqa2qmk5hyptneez4rwzglbpjbnjcf3dr5a6u6n5kyfrzmzda",
+  "reply_root_uri": "at://did:plc:xcd26kqas6bxgmfguooh4nmc/app.bsky.feed.post/3mtseg6ql6c2x",
+  "reply_root_cid": "bafyreieopbqa2qmk5hyptneez4rwzglbpjbnjcf3dr5a6u6n5kyfrzmzda",
   "require_media": false,
-  "post_format": "text",
-  "external_post_id": "at://did:plc:3cg6ij6eppzwmy2v2i42v45e/app.bsky.feed.post/3mvh6zxfe4j2z",
-  "external_post_url": "https://bsky.app/profile/vectorpx.bsky.social/post/3mvh6zxfe4j2z",
-  "published_at": "2026-09-14T03:44:20.957Z",
-  "publisher": "bluesky_direct",
-  "tracked_url": "https://linkly.link/2t7wy?utm_source=bluesky&utm_medium=social&utm_campaign=vbqtf&utm_content=revenue_pump_probe_f&route_id=vpj_owned_ai_agent_bottleneck_v2&asset_id=ai_agent_bottleneck"
+  "post_format": "reply"
 }
