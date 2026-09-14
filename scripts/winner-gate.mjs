@@ -36,6 +36,12 @@ const rank = new Map([
   ['WINNER', 6]
 ]);
 
+const highTrustEvents = new Set([
+  'confirmed_checkout_departure',
+  'checkout_return',
+  'purchase'
+]);
+
 function maxState(a, b) {
   return (rank.get(b) ?? -1) > (rank.get(a) ?? -1) ? b : a;
 }
@@ -49,12 +55,11 @@ function eventState(eventName) {
     case 'paid_product_view':
     case 'primary_cta_click':
     case 'checkout_click':
+    case 'verified_access':
       return 'BUYER_ACTION';
     case 'confirmed_checkout_departure':
     case 'checkout_return':
       return 'CHECKOUT';
-    case 'verified_access':
-      return 'PURCHASED';
     case 'purchase':
       return 'WINNER';
     default:
@@ -75,6 +80,15 @@ function matches(item, event) {
   return false;
 }
 
+function validateEvidence(event) {
+  const nextState = eventState(event.event);
+  if (!nextState) return {accepted: false, reason: 'unsupported_event'};
+  if (highTrustEvents.has(event.event) && !event.evidence_ref) {
+    return {accepted: false, reason: 'high_trust_event_missing_evidence_ref'};
+  }
+  return {accepted: true, nextState};
+}
+
 function sha256(value) {
   return crypto.createHash('sha256').update(value || '').digest('hex');
 }
@@ -83,11 +97,21 @@ function summarize(item) {
   let state = item.status === 'PUBLISHED' && item.external_post_id ? 'PUBLISHED' : 'PREPARED';
   const matched = evidence.filter((event) => matches(item, event));
   const accepted = [];
+  const rejected = [];
 
   for (const event of matched) {
-    const next = eventState(event.event);
-    if (!next) continue;
-    state = maxState(state, next);
+    const validation = validateEvidence(event);
+    if (!validation.accepted) {
+      rejected.push({
+        event: event.event || null,
+        observed_at: event.observed_at || null,
+        evidence_ref: event.evidence_ref || null,
+        reason: validation.reason
+      });
+      continue;
+    }
+
+    state = maxState(state, validation.nextState);
     accepted.push({
       event: event.event,
       observed_at: event.observed_at || null,
@@ -97,7 +121,7 @@ function summarize(item) {
 
   const purchaseConfirmed = accepted.some((x) => x.event === 'purchase');
   const checkoutConfirmed = accepted.some((x) => ['confirmed_checkout_departure', 'checkout_return'].includes(x.event));
-  const buyerActionConfirmed = accepted.some((x) => ['free_tool_start', 'free_tool_complete', 'paid_product_view', 'primary_cta_click', 'checkout_click'].includes(x.event));
+  const buyerActionConfirmed = accepted.some((x) => ['free_tool_start', 'free_tool_complete', 'paid_product_view', 'primary_cta_click', 'checkout_click', 'verified_access'].includes(x.event));
   const trafficConfirmed = accepted.some((x) => x.event === 'traffic_session_start');
 
   const decision = purchaseConfirmed
@@ -129,7 +153,9 @@ function summarize(item) {
     state,
     decision,
     evidence_count: accepted.length,
+    rejected_evidence_count: rejected.length,
     evidence: accepted,
+    rejected_evidence: rejected,
     amplification_eligible: purchaseConfirmed,
     amplification_plan: purchaseConfirmed ? {
       min_variants: policy.winner_amplification?.min_variants ?? 5,
@@ -143,13 +169,18 @@ function summarize(item) {
 
 const items = queue.items.map(summarize);
 const winners = items.filter((item) => item.amplification_eligible);
+const evidenceWatermark = evidence
+  .map((event) => event.observed_at)
+  .filter(Boolean)
+  .sort()
+  .at(-1) || null;
 
 const output = {
   version: 1,
-  evaluated_at: new Date().toISOString(),
   campaign: queue.campaign || null,
   invariant: 'PUBLISHED != WINNER',
   evidence_file: 'distribution/revenue-evidence.jsonl',
+  evidence_watermark: evidenceWatermark,
   winner_count: winners.length,
   winner_ids: winners.map((item) => item.social_item_id),
   items
