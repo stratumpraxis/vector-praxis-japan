@@ -94,12 +94,23 @@ function sha256(value) {
 }
 
 function summarize(item) {
-  let state = item.status === 'PUBLISHED' && item.external_post_id ? 'PUBLISHED' : 'PREPARED';
+  const publishedConfirmed = item.status === 'PUBLISHED' && Boolean(item.external_post_id);
+  let state = publishedConfirmed ? 'PUBLISHED' : 'PREPARED';
   const matched = evidence.filter((event) => matches(item, event));
   const accepted = [];
   const rejected = [];
 
   for (const event of matched) {
+    if (!publishedConfirmed) {
+      rejected.push({
+        event: event.event || null,
+        observed_at: event.observed_at || null,
+        evidence_ref: event.evidence_ref || null,
+        reason: 'social_item_not_published'
+      });
+      continue;
+    }
+
     const validation = validateEvidence(event);
     if (!validation.accepted) {
       rejected.push({
@@ -132,7 +143,7 @@ function summarize(item) {
         ? 'BUYER_ACTION_CANDIDATE'
         : trafficConfirmed
           ? 'TRAFFIC_ONLY'
-          : item.status === 'PUBLISHED' && item.external_post_id
+          : publishedConfirmed
             ? 'PUBLISHED_NO_DOWNSTREAM_EVIDENCE'
             : 'NOT_PUBLISHED';
 
