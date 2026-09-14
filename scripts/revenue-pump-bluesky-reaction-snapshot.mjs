@@ -1,10 +1,27 @@
 import fs from 'node:fs';
 
 const probePath = new URL('../distribution/revenue-pump-qualified-traffic.json', import.meta.url);
+const publishEvidencePath = new URL('../distribution/revenue-pump-qualified-traffic-last-run.json', import.meta.url);
 const outPath = new URL('../distribution/revenue-pump-reaction-last-run.json', import.meta.url);
 
 const probe = JSON.parse(fs.readFileSync(probePath, 'utf8'));
-const uri = probe.external_post_id;
+const publishEvidence = fs.existsSync(publishEvidencePath)
+  ? JSON.parse(fs.readFileSync(publishEvidencePath, 'utf8'))
+  : {};
+
+// Publishing and reaction workflows can start from the same push. If the checked-out
+// probe predates the publisher's persisted PUBLISHED mutation, reuse only the matching
+// publisher evidence for the same probe id/route/asset. Never borrow another probe's URI.
+const evidenceMatchesProbe =
+  publishEvidence?.id === probe?.id &&
+  publishEvidence?.route_id === probe?.route_id &&
+  publishEvidence?.asset_id === probe?.asset_id &&
+  publishEvidence?.status === 'PUBLISHED_CONFIRMED_BY_PUBLISHER';
+
+const uri = probe.external_post_id || (evidenceMatchesProbe ? publishEvidence.external_post_id : null);
+const externalPostUrl = probe.external_post_url || (evidenceMatchesProbe ? publishEvidence.external_post_url : null);
+const publishedAt = probe.published_at || (evidenceMatchesProbe ? publishEvidence.published_at : null);
+
 if (!uri || !String(uri).startsWith('at://')) {
   throw new Error('published_bluesky_post_uri_missing');
 }
@@ -24,14 +41,14 @@ const post = payload?.thread?.post;
 if (!post) throw new Error('bluesky_post_missing_from_thread_response');
 
 const evidence = {
-  version: 1,
+  version: 2,
   observed_at: new Date().toISOString(),
   asset_id: probe.asset_id,
   route_id: probe.route_id,
   probe_id: probe.id,
   external_post_id: uri,
-  external_post_url: probe.external_post_url ?? null,
-  published_at: probe.published_at ?? null,
+  external_post_url: externalPostUrl ?? null,
+  published_at: publishedAt ?? null,
   reaction: {
     like_count: Number(post.likeCount ?? 0),
     reply_count: Number(post.replyCount ?? 0),
