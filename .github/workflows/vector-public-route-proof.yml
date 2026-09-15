@@ -8,6 +8,8 @@ on:
       - '.github/workflows/vector-public-route-proof.yml'
       - 'app/ai-agent-bottleneck/**'
       - 'app/layout.tsx'
+      - 'app/robots.ts'
+      - 'app/sitemap.ts'
       - 'lib/site-url.ts'
   schedule:
     - cron: '17 */6 * * *'
@@ -27,66 +29,176 @@ jobs:
         with:
           fetch-depth: 0
 
-      - name: Probe Vector public route candidates
+      - name: Probe live route and search indexability
         shell: bash
         run: |
           set -u
           mkdir -p distribution .route-proof
           python3 - <<'PY'
-          import json
-          from pathlib import Path
-          candidates = [
-              "https://vector-praxis-japan.vercel.app/ai-agent-bottleneck",
-              "https://vector-praxis-japan-hub.vercel.app/ai-agent-bottleneck",
-          ]
-          Path('.route-proof/candidates.json').write_text(json.dumps(candidates), encoding='utf-8')
-          PY
-          python3 - <<'PY'
           import json, re, subprocess
           from pathlib import Path
-          content_marker = "AIを増やしても"
-          candidates = json.loads(Path('.route-proof/candidates.json').read_text(encoding='utf-8'))
-          rows = []
-          for i, url in enumerate(candidates):
-              body = Path(f'.route-proof/body-{i}.html')
-              headers = Path(f'.route-proof/headers-{i}.txt')
-              cmd = ['curl','-sS','-L','--connect-timeout','10','--max-time','25','-A','VectorRouteProof/6.0 (+https://github.com/stratumpraxis/vector-praxis-japan)','-D',str(headers),'-o',str(body),'-w','%{http_code}\t%{url_effective}',url]
+          from urllib.parse import urlsplit
+
+          CANONICAL = "https://vector-praxis-japan.user-ex26.chatgpt.site/ai-agent-bottleneck"
+          CONTENT_MARKER = "AIを増やしても"
+          candidates = [
+              {"role": "canonical", "url": CANONICAL, "expected_canonical": CANONICAL},
+              {"role": "vercel_duplicate", "url": "https://vector-praxis-japan.vercel.app/ai-agent-bottleneck", "expected_canonical": CANONICAL},
+              {"role": "vercel_duplicate", "url": "https://vector-praxis-japan-hub.vercel.app/ai-agent-bottleneck", "expected_canonical": CANONICAL},
+          ]
+
+          def curl(url, body_path, headers_path=None):
+              cmd = [
+                  "curl", "-sS", "-L", "--connect-timeout", "10", "--max-time", "25",
+                  "-A", "VectorRouteProof/7.0 (+https://github.com/stratumpraxis/vector-praxis-japan)",
+              ]
+              if headers_path:
+                  cmd += ["-D", str(headers_path)]
+              cmd += ["-o", str(body_path), "-w", "%{http_code}\\t%{url_effective}", url]
               try:
                   proc = subprocess.run(cmd, text=True, capture_output=True, timeout=30)
-                  parts = (proc.stdout or '').strip().split('\t', 1)
+                  parts = (proc.stdout or "").strip().split("\t", 1)
                   status = int(parts[0]) if parts and parts[0].isdigit() else 0
                   effective = parts[1] if len(parts) > 1 else None
-                  text = body.read_text(encoding='utf-8', errors='ignore') if body.exists() else ''
-                  text_l = text.lower()
-                  header_text = headers.read_text(encoding='utf-8', errors='ignore') if headers.exists() else ''
-                  csp_matches = re.findall(r'(?im)^content-security-policy:\s*(.+)$', header_text)
-                  csp = csp_matches[-1].strip() if csp_matches else None
-                  presence = {
-                      'traffic_session_start': 'traffic_session_start' in text,
-                      'posthog_reference': 'posthog' in text_l,
-                      'posthog_ingestion_host': 'us.i.posthog.com' in text_l,
-                      'vector_scope': 'vector_praxis_japan' in text,
-                      'instant_send': 'send_instantly:true' in text,
-                      'beacon_transport': 'transport:"sendBeacon"' in text,
-                  }
-                  rows.append({
-                      'requested_url': url,
-                      'effective_url': effective,
-                      'http_status': status,
-                      'content_marker_match': content_marker in text,
-                      'analytics_marker_match': presence['traffic_session_start'] and presence['posthog_reference'] and presence['instant_send'] and presence['beacon_transport'],
-                      'analytics_markers': presence,
-                      'content_security_policy': csp,
-                      'posthog_allowed_by_csp': None if not csp else ('us.i.posthog.com' in csp.lower() or '*.posthog.com' in csp.lower() or 'https:' in csp.lower() or 'connect-src *' in csp.lower()),
-                      'curl_exit_code': proc.returncode,
-                      'curl_error': (proc.stderr or '').strip()[:500] or None,
-                  })
+                  return status, effective, proc.returncode, (proc.stderr or "").strip()[:500] or None
               except Exception as exc:
-                  rows.append({'requested_url':url,'effective_url':None,'http_status':0,'content_marker_match':False,'analytics_marker_match':False,'analytics_markers':{},'content_security_policy':None,'posthog_allowed_by_csp':None,'curl_exit_code':None,'curl_error':str(exc)[:500]})
-          Path('.route-proof/results.json').write_text(json.dumps(rows, ensure_ascii=False, indent=2), encoding='utf-8')
+                  return 0, None, None, str(exc)[:500]
+
+          def meta_content(html, name):
+              pattern = rf'<meta[^>]+name=["\']{re.escape(name)}["\'][^>]+content=["\']([^"\']*)["\']'
+              match = re.search(pattern, html, flags=re.I)
+              if match:
+                  return match.group(1).strip()
+              pattern = rf'<meta[^>]+content=["\']([^"\']*)["\'][^>]+name=["\']{re.escape(name)}["\']'
+              match = re.search(pattern, html, flags=re.I)
+              return match.group(1).strip() if match else None
+
+          def canonical_href(html):
+              for tag in re.findall(r'<link\b[^>]*>', html, flags=re.I):
+                  if re.search(r'\brel=["\'][^"\']*\bcanonical\b[^"\']*["\']', tag, flags=re.I):
+                      match = re.search(r'\bhref=["\']([^"\']+)["\']', tag, flags=re.I)
+                      if match:
+                          return match.group(1).strip()
+              return None
+
+          def title_text(html):
+              match = re.search(r'<title[^>]*>(.*?)</title>', html, flags=re.I | re.S)
+              return re.sub(r'\s+', ' ', match.group(1)).strip() if match else None
+
+          def robots_allows(text):
+              lowered = text.lower()
+              blockers = ["/", "/ai-agent-bottleneck", "/ai-agent-bottleneck/"]
+              for line in lowered.splitlines():
+                  line = line.split("#", 1)[0].strip()
+                  if not line.startswith("disallow:"):
+                      continue
+                  value = line.split(":", 1)[1].strip()
+                  if value in blockers:
+                      return False
+              return True
+
+          rows = []
+          for i, candidate in enumerate(candidates):
+              url = candidate["url"]
+              parsed = urlsplit(url)
+              origin = f"{parsed.scheme}://{parsed.netloc}"
+              body = Path(f".route-proof/body-{i}.html")
+              headers = Path(f".route-proof/headers-{i}.txt")
+              status, effective, exit_code, error = curl(url, body, headers)
+              html = body.read_text(encoding="utf-8", errors="ignore") if body.exists() else ""
+              html_l = html.lower()
+              header_text = headers.read_text(encoding="utf-8", errors="ignore") if headers.exists() else ""
+              csp_matches = re.findall(r"(?im)^content-security-policy:\s*(.+)$", header_text)
+              csp = csp_matches[-1].strip() if csp_matches else None
+
+              robots_body = Path(f".route-proof/robots-{i}.txt")
+              robots_status, robots_effective, _, robots_error = curl(origin + "/robots.txt", robots_body)
+              robots_text = robots_body.read_text(encoding="utf-8", errors="ignore") if robots_body.exists() else ""
+
+              sitemap_body = Path(f".route-proof/sitemap-{i}.xml")
+              sitemap_status, sitemap_effective, _, sitemap_error = curl(origin + "/sitemap.xml", sitemap_body)
+              sitemap_text = sitemap_body.read_text(encoding="utf-8", errors="ignore") if sitemap_body.exists() else ""
+
+              root_body = Path(f".route-proof/root-{i}.html")
+              root_status, root_effective, _, root_error = curl(origin + "/", root_body)
+              root_html = root_body.read_text(encoding="utf-8", errors="ignore") if root_body.exists() else ""
+
+              canonical = canonical_href(html)
+              robots_meta = meta_content(html, "robots")
+              noindex = bool(robots_meta and "noindex" in robots_meta.lower())
+              raw_body_ok = CONTENT_MARKER in html and bool(re.search(r"<h1\b", html, flags=re.I))
+              root_internal_link = bool(re.search(r'href=["\'][^"\']*/ai-agent-bottleneck(?:[?#][^"\']*)?["\']', root_html, flags=re.I))
+              presence = {
+                  "traffic_session_start": "traffic_session_start" in html,
+                  "posthog_reference": "posthog" in html_l,
+                  "posthog_ingestion_host": "us.i.posthog.com" in html_l,
+                  "vector_scope": "vector_praxis_japan" in html,
+                  "instant_send": "send_instantly:true" in html,
+                  "beacon_transport": 'transport:"sendBeacon"' in html,
+              }
+
+              row = {
+                  "role": candidate["role"],
+                  "requested_url": url,
+                  "effective_url": effective,
+                  "http_status": status,
+                  "redirect_changed": bool(effective and effective.rstrip("/") != url.rstrip("/")),
+                  "content_marker_match": CONTENT_MARKER in html,
+                  "raw_html_h1": bool(re.search(r"<h1\b", html, flags=re.I)),
+                  "crawlable_body": raw_body_ok,
+                  "js_only_rendering_risk": not raw_body_ok,
+                  "title": title_text(html),
+                  "meta_description": meta_content(html, "description"),
+                  "meta_robots": robots_meta,
+                  "noindex": noindex,
+                  "canonical": canonical,
+                  "expected_canonical": candidate["expected_canonical"],
+                  "canonical_match_expected": canonical == candidate["expected_canonical"],
+                  "root_http_status": root_status,
+                  "crawlable_internal_link_on_root": root_internal_link,
+                  "robots_url": robots_effective or origin + "/robots.txt",
+                  "robots_http_status": robots_status,
+                  "robots_allows_route": robots_status == 200 and robots_allows(robots_text),
+                  "robots_error": robots_error,
+                  "sitemap_url": sitemap_effective or origin + "/sitemap.xml",
+                  "sitemap_http_status": sitemap_status,
+                  "sitemap_has_expected_canonical": candidate["expected_canonical"] in sitemap_text,
+                  "sitemap_error": sitemap_error,
+                  "analytics_marker_match": presence["traffic_session_start"] and presence["posthog_reference"] and presence["instant_send"] and presence["beacon_transport"],
+                  "analytics_markers": presence,
+                  "content_security_policy": csp,
+                  "posthog_allowed_by_csp": None if not csp else (
+                      "us.i.posthog.com" in csp.lower()
+                      or "*.posthog.com" in csp.lower()
+                      or "https:" in csp.lower()
+                      or "connect-src *" in csp.lower()
+                  ),
+                  "curl_exit_code": exit_code,
+                  "curl_error": error,
+                  "root_error": root_error,
+              }
+              row["indexability_ready"] = bool(
+                  status == 200
+                  and not row["redirect_changed"]
+                  and row["crawlable_body"]
+                  and row["title"]
+                  and row["meta_description"]
+                  and not row["noindex"]
+                  and row["canonical_match_expected"]
+                  and row["robots_allows_route"]
+                  and row["sitemap_http_status"] == 200
+                  and row["sitemap_has_expected_canonical"]
+                  and row["root_http_status"] == 200
+                  and row["crawlable_internal_link_on_root"]
+              )
+              rows.append(row)
+
+          Path(".route-proof/results.json").write_text(
+              json.dumps(rows, ensure_ascii=False, indent=2), encoding="utf-8"
+          )
           PY
 
-      - name: Exercise live analytics with browser canary
+      - name: Exercise browser runtime and mobile viewport
         shell: bash
         run: |
           set +e
@@ -94,8 +206,10 @@ jobs:
           import json
           from pathlib import Path
           results = json.loads(Path('.route-proof/results.json').read_text(encoding='utf-8'))
+          canonical = next((r for r in results if r.get('role') == 'canonical'), None)
           passing = [r for r in results if r.get('http_status') == 200 and r.get('content_marker_match')]
-          Path('.route-proof/selected-url.txt').write_text((passing[0].get('effective_url') or '') if passing else '', encoding='utf-8')
+          selected = canonical if canonical and canonical.get('http_status') == 200 and canonical.get('content_marker_match') else (passing[0] if passing else None)
+          Path('.route-proof/selected-url.txt').write_text((selected.get('effective_url') or '') if selected else '', encoding='utf-8')
           PY
           BASE_URL="$(cat .route-proof/selected-url.txt)"
           if [ -z "$BASE_URL" ]; then
@@ -107,8 +221,8 @@ jobs:
             printf '%s\n' '{"attempted":false,"reason":"chrome_not_found"}' > .route-proof/browser-canary.json
             exit 0
           fi
-          CANARY_URL="${BASE_URL}?route_id=vpj_measurement_canary_v1&asset_id=measurement_canary&utm_source=github_actions&utm_medium=measurement_canary&utm_campaign=vector_measurement_canary"
-          "$CHROME" --headless=new --no-sandbox --disable-gpu --disable-dev-shm-usage --virtual-time-budget=12000 --log-net-log=.route-proof/netlog.json --net-log-capture-mode=Everything --dump-dom "$CANARY_URL" > .route-proof/canary-dom.html 2> .route-proof/canary-browser.err
+          CANARY_URL="${BASE_URL}?route_id=vpj_measurement_canary_v1&asset_id=measurement_canary&utm_source=github_actions&utm_medium=measurement_canary&utm_campaign=vector_measurement_canary&utm_content=search_runtime_probe"
+          "$CHROME" --headless=new --no-sandbox --disable-gpu --disable-dev-shm-usage --window-size=390,844 --virtual-time-budget=12000 --log-net-log=.route-proof/netlog.json --net-log-capture-mode=Everything --dump-dom "$CANARY_URL" > .route-proof/canary-dom.html 2> .route-proof/canary-browser.err
           EXIT_CODE=$?
           export CHROME CANARY_URL EXIT_CODE
           python3 - <<'PY'
@@ -121,25 +235,27 @@ jobs:
           evidence = {
               'attempted': True,
               'browser': os.environ.get('CHROME'),
+              'viewport': '390x844',
               'canary_route_id': 'vpj_measurement_canary_v1',
               'canary_asset_id': 'measurement_canary',
               'url': os.environ.get('CANARY_URL'),
               'exit_code': int(os.environ.get('EXIT_CODE', '1')),
-              'dom_has_content_marker': 'AIを増やしても' in dom,
+              'mobile_dom_has_content_marker': 'AIを増やしても' in dom,
+              'mobile_dom_has_h1': bool(re.search(r'<h1\\b', dom, flags=re.I)),
               'dom_has_instant_send': 'send_instantly:true' in dom,
               'dom_has_beacon_transport': 'transport:"sendBeacon"' in dom,
               'network_has_posthog_host': 'us.i.posthog.com' in net,
               'network_has_posthog_assets': 'posthog.com/static/' in net or '-assets.i.posthog.com' in net,
               'network_has_ingest_path': '/i/v0/e/' in net or '/capture' in net,
               'posthog_url_samples': posthog_urls,
-              'network_error_mentions': sorted(set(re.findall(r'ERR_[A-Z_]+', net + '\n' + err)))[:20],
+              'network_error_mentions': sorted(set(re.findall(r'ERR_[A-Z_]+', net + '\\n' + err)))[:20],
               'stderr_tail': err[-500:] or None,
           }
           Path('.route-proof/browser-canary.json').write_text(json.dumps(evidence, ensure_ascii=False, indent=2), encoding='utf-8')
           PY
           exit 0
 
-      - name: Write evidence state
+      - name: Write search distribution evidence
         env:
           COMMIT_SHA: ${{ github.sha }}
           RUN_ID: ${{ github.run_id }}
@@ -151,11 +267,34 @@ jobs:
           from pathlib import Path
           results = json.loads(Path('.route-proof/results.json').read_text(encoding='utf-8'))
           canary = json.loads(Path('.route-proof/browser-canary.json').read_text(encoding='utf-8')) if Path('.route-proof/browser-canary.json').exists() else {'attempted': False, 'reason': 'missing_canary_evidence'}
-          route_passing = [r for r in results if r['http_status'] == 200 and r['content_marker_match']]
-          analytics_passing = [r for r in route_passing if r['analytics_marker_match'] and r['posthog_allowed_by_csp'] is not False]
+          canonical = next((r for r in results if r.get('role') == 'canonical'), None)
+          route_passing = [r for r in results if r.get('http_status') == 200 and r.get('content_marker_match')]
+          analytics_passing = [r for r in route_passing if r.get('analytics_marker_match') and r.get('posthog_allowed_by_csp') is not False]
           selected = route_passing[0]['effective_url'] if route_passing else None
           analytics_selected = analytics_passing[0]['effective_url'] if analytics_passing else None
           network_state = 'INGEST_REQUEST_SEEN' if canary.get('network_has_ingest_path') else ('POSTHOG_HOST_SEEN' if canary.get('network_has_posthog_host') else 'NO_POSTHOG_NETWORK_EVIDENCE')
+
+          if not canonical or canonical.get('http_status') != 200:
+              search_state = 'CANONICAL_UNREACHABLE'
+          elif canonical.get('noindex'):
+              search_state = 'BLOCKED_NOINDEX'
+          elif not canonical.get('canonical_match_expected'):
+              search_state = 'CANONICAL_MISMATCH'
+          elif not canonical.get('robots_allows_route'):
+              search_state = 'ROBOTS_BLOCKED_OR_UNVERIFIED'
+          elif not canonical.get('sitemap_has_expected_canonical'):
+              search_state = 'SITEMAP_MISSING_ROUTE'
+          elif not canonical.get('crawlable_body'):
+              search_state = 'JS_ONLY_OR_BODY_UNCRAWLABLE'
+          elif not canonical.get('crawlable_internal_link_on_root'):
+              search_state = 'INTERNAL_DISCOVERY_LINK_MISSING'
+          elif canonical.get('indexability_ready') and canary.get('mobile_dom_has_content_marker'):
+              search_state = 'INDEXABILITY_READY'
+          elif canonical.get('indexability_ready'):
+              search_state = 'INDEXABILITY_READY_MOBILE_RUNTIME_UNVERIFIED'
+          else:
+              search_state = 'INDEXABILITY_INCOMPLETE'
+
           evidence = {
               'checked_at': datetime.now(timezone.utc).isoformat().replace('+00:00', 'Z'),
               'commit_sha': os.environ.get('COMMIT_SHA'),
@@ -163,6 +302,8 @@ jobs:
               'repository': os.environ.get('REPOSITORY'),
               'route_id': 'vpj_owned_ai_agent_bottleneck_v2',
               'asset_id': 'ai_agent_bottleneck',
+              'canonical_public_url': 'https://vector-praxis-japan.user-ex26.chatgpt.site/ai-agent-bottleneck',
+              'search_distribution_state': search_state,
               'content_marker': 'AIを増やしても',
               'analytics_marker': 'traffic_session_start + PostHog + instant send + sendBeacon',
               'evidence_state': 'MEASUREMENT_SURFACE_REACHABLE' if analytics_selected else ('ROUTE_REACHABLE_ANALYTICS_UNVERIFIED' if selected else 'UNVERIFIED'),
@@ -170,8 +311,11 @@ jobs:
               'selected_url': selected,
               'analytics_selected_url': analytics_selected,
               'measurement_canary': canary,
+              'canonical_indexability': canonical,
               'candidates': results,
-              'inference_guard': 'Synthetic canary traffic is excluded from qualified traffic. Only exact PostHog capture endpoints count as network ingestion evidence; PostHog query evidence is still required to prove ingestion completed.'
+              'decision_guard': 'Search indexability alone is not revenue success. Keep UI, offer, price, checkout, and product unchanged while qualified traffic_session_start remains zero.',
+              'attribution_guard': 'Organic search stays on the clean canonical URL. Search attribution is identified by route_id + asset_id + referrer/UTM properties; controlled probes use explicit UTM values.',
+              'inference_guard': 'Synthetic canary traffic is excluded from qualified traffic. Search discovery and PostHog query evidence are required independently.'
           }
           Path('distribution/vector-public-route-proof.json').write_text(json.dumps(evidence, ensure_ascii=False, indent=2) + '\n', encoding='utf-8')
           print(json.dumps(evidence, ensure_ascii=False, indent=2))
