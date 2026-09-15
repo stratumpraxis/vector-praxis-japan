@@ -1,7 +1,7 @@
 {
-  "checked_at": "2026-09-15T17:01:13.557766Z",
-  "commit_sha": "eacc2487af493f2b17b50558162136f51c7352e1",
-  "workflow_run_id": "34998599531",
+  "checked_at": "2026-09-15T21:23:06.793252Z",
+  "commit_sha": "4de308b7edbc75abb33fbac00e72035c6f6d464d",
+  "workflow_run_id": "35025250887",
   "repository": "stratumpraxis/vector-praxis-japan",
   "route_id": "vpj_owned_ai_agent_bottleneck_v2",
   "asset_id": "ai_agent_bottleneck",
@@ -56,7 +56,7 @@
       "ERR_BLOCKED_BY_FINGERPRINTING_PROTECTION",
       "ERR_BLOCKED_BY_LOCAL_NETWORK_ACCESS_CHECKS"
     ],
-    "stderr_tail": "ct_proxy.cc:572] Failed to call method: org.freedesktop.DBus.NameHasOwner: object_path= /org/freedesktop/DBus: unknown error type: \n[2079:2102:0915/170112.400394:ERROR:dbus/bus.cc:405] Failed to connect to the bus: Could not parse server address: Unknown address type (examples of valid types are \"tcp\" and on UNIX \"unix\")\n[2079:2079:0915/170112.417031:ERROR:dbus/object_proxy.cc:572] Failed to call method: org.freedesktop.DBus.NameHasOwner: object_path= /org/freedesktop/DBus: unknown error type: \n"
+    "stderr_tail": "ct_proxy.cc:572] Failed to call method: org.freedesktop.DBus.NameHasOwner: object_path= /org/freedesktop/DBus: unknown error type: \n[2283:2309:0915/212304.231817:ERROR:dbus/bus.cc:405] Failed to connect to the bus: Could not parse server address: Unknown address type (examples of valid types are \"tcp\" and on UNIX \"unix\")\n[2283:2283:0915/212304.257113:ERROR:dbus/object_proxy.cc:572] Failed to call method: org.freedesktop.DBus.NameHasOwner: object_path= /org/freedesktop/DBus: unknown error type: \n"
   },
   "canonical_indexability": {
     "role": "canonical",
