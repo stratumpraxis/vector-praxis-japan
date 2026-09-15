@@ -57,6 +57,9 @@ jobs:
           SOCIAL_PUBLISH_WEBHOOK_URL: ${{ secrets.SOCIAL_PUBLISH_WEBHOOK_URL }}
         run: node scripts/social-provider-preflight.mjs
 
+      - name: Merge one-shot approved social item
+        run: node scripts/social-one-shot-merge.mjs
+
       - name: Publish approved due social items
         env:
           BLUESKY_HANDLE: ${{ vars.BLUESKY_HANDLE || 'vectorpx.bsky.social' }}
