@@ -1,5 +1,5 @@
 {
-  "observed_at": "2026-09-15T04:42:22.586Z",
+  "observed_at": "2026-09-15T08:11:56.186Z",
   "campaign": "note-completion-layer-20260903",
   "results": [
     {
@@ -15,6 +15,14 @@
       "provider": "legacy_webhook",
       "retry_after": "2026-09-16T03:50:57.443Z",
       "last_http_status": 410
+    },
+    {
+      "status": "PUBLISHED_CONFIRMED_BY_PUBLISHER",
+      "id": "vp-video-quality-bluesky-20260915-01",
+      "platform": "bluesky",
+      "external_post_id": "at://did:plc:3cg6ij6eppzwmy2v2i42v45e/app.bsky.feed.post/3mvk6hecpdh26",
+      "external_post_url": "https://bsky.app/profile/vectorpx.bsky.social/post/3mvk6hecpdh26",
+      "publisher": "bluesky_direct"
     }
   ]
 }

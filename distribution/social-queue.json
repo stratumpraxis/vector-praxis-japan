@@ -419,6 +419,32 @@
       "media_type": "image/png",
       "post_format": "pin",
       "alt_text": "AIを増やしても仕事が速くならない時の受け渡しボトルネックを扱うVector Praxis画像"
+    },
+    {
+      "id": "vp-video-quality-bluesky-20260915-01",
+      "platform": "bluesky",
+      "angle": "高品質動画は4Kでは決まらない",
+      "copy": "4Kにしただけで動画は高品質にならない。視聴者が感じる品質は、光・奥行き・動き・音・リズム・質感の合成で決まる。Vectorでは『静止画＋ズーム』を完成扱いしない。世界の中の物体が動くところまで作る。",
+      "hashtags": [
+        "動画制作",
+        "生成AI"
+      ],
+      "destination": "https://vector-praxis-japan.vercel.app/",
+      "utm": {
+        "utm_source": "bluesky",
+        "utm_medium": "social",
+        "utm_campaign": "vector_video_quality_20260915",
+        "utm_content": "perceived_quality_v1"
+      },
+      "status": "PUBLISHED",
+      "approval": "USER_APPROVED",
+      "scheduled_at": "2026-09-15T17:08:00+09:00",
+      "require_media": false,
+      "post_format": "text",
+      "external_post_id": "at://did:plc:3cg6ij6eppzwmy2v2i42v45e/app.bsky.feed.post/3mvk6hecpdh26",
+      "external_post_url": "https://bsky.app/profile/vectorpx.bsky.social/post/3mvk6hecpdh26",
+      "published_at": "2026-09-15T08:11:56.185Z",
+      "publisher": "bluesky_direct"
     }
   ],
   "publisher_state": {
