@@ -1,14 +1,14 @@
 {
-  "observed_at": "2026-09-15T02:26:40.821Z",
+  "observed_at": "2026-09-15T03:50:57.444Z",
   "campaign": "note-completion-layer-20260903",
   "results": [
     {
-      "status": "PUBLISHED_CONFIRMED_BY_PUBLISHER",
-      "id": "vp-ai-agent-bottleneck-bluesky-20260915-traffic-01",
-      "platform": "bluesky",
-      "external_post_id": "at://did:plc:3cg6ij6eppzwmy2v2i42v45e/app.bsky.feed.post/3mvjl5ymdiu2z",
-      "external_post_url": "https://bsky.app/profile/vectorpx.bsky.social/post/3mvjl5ymdiu2z",
-      "publisher": "bluesky_direct"
+      "status": "FAILED_REVIEW",
+      "id": "vp-ai-agent-bottleneck-pinterest-20260915-traffic-01",
+      "platform": "pinterest",
+      "reason": "publisher_http_410",
+      "http_status": 410,
+      "retry_after": "2026-09-16T03:50:57.443Z"
     }
   ]
 }
