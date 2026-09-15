@@ -1,3 +1,3 @@
-triggered_at=2026-09-15T13:04:21+09:00
-campaign=vector-ai-agent-bottleneck-pinterest-20260915-v2
-reason=publish_ready_vector_pinterest_probe_vab19
+triggered_at=2026-09-15T17:10:00+09:00
+campaign=vector-video-quality-20260915
+reason=publish_vector_video_quality_post
