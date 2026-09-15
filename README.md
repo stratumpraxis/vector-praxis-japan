@@ -1,5 +1,28 @@
 # Vector Praxis Works Hub
 
+> **見る場所に迷わないための入口**  
+> Vectorの公開資産・収益循環・能力研究・自動化を、役割ごとに追えるように整理しています。
+
+| 🌐 公開価値 | 💰 収益循環 | 🧠 能力研究 | ⚙️ 自動化 | 🗺 全体構造 |
+|---|---|---|---|---|
+| [`app/`](app/) | [`distribution/`](distribution/) | [`capability-lab/`](capability-lab/) | [`.github/workflows/`](.github/workflows/) | [`STRUCTURE_MAP`](docs/STRUCTURE_MAP.md) |
+| サイト・診断・Utility | 流入・反応・収益証拠 | 能力獲得・検証 | 定期実行・同期 | Repoを俯瞰する |
+
+```mermaid
+flowchart LR
+    M[市場・需要] --> D[流入・配信]
+    D --> R[収益判断]
+    R --> P[公開資産]
+    P --> B[Buyer Action]
+    B --> E[収益Evidence]
+    E --> L[学習]
+    L --> R
+```
+
+**詳細マップ：[`docs/STRUCTURE_MAP.md`](docs/STRUCTURE_MAP.md)**
+
+---
+
 Vector Praxis Works Hub is the general public asset base inside the broader Digital Index Base structure.
 
 It organizes practical AI use, building, monetization, creator work, publishing, reusable utilities, and return routes without turning Vector into the owner of Stratum's B2B offers.
