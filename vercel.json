@@ -2,5 +2,5 @@
   "$schema": "https://openapi.vercel.sh/vercel.json",
   "framework": "nextjs",
   "buildCommand": "npm run build:vercel",
-  "ignoreCommand": "test -n \"$VERCEL_GIT_PREVIOUS_SHA\" && ! git diff --name-only \"$VERCEL_GIT_PREVIOUS_SHA\" \"$VERCEL_GIT_COMMIT_SHA\" | grep -Ev '^(distribution/|\\.github/|docs/|.*\\.md$)' | grep -q ."
+  "ignoreCommand": "if [ -z \"$VERCEL_GIT_PREVIOUS_SHA\" ]; then exit 1; fi; git diff --quiet \"$VERCEL_GIT_PREVIOUS_SHA\" \"$VERCEL_GIT_COMMIT_SHA\" -- . ':(exclude)distribution/**' ':(exclude).github/**' ':(exclude)docs/**' ':(exclude)**/*.md'; [ $? -eq 0 ]"
 }
