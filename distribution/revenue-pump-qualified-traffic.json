@@ -1,7 +1,7 @@
 {
   "version": 2,
   "id": "vp-rp-qualified-human-20260915-01",
-  "status": "READY",
+  "status": "PUBLISHED",
   "approval": "USER_APPROVED",
   "platform": "bluesky",
   "route_id": "vpj_owned_ai_agent_bottleneck_v2",
@@ -16,5 +16,10 @@
     "utm_content": "q1"
   },
   "require_media": false,
-  "post_format": "text"
+  "post_format": "text",
+  "external_post_id": "at://did:plc:3cg6ij6eppzwmy2v2i42v45e/app.bsky.feed.post/3mvkhreases2g",
+  "external_post_url": "https://bsky.app/profile/vectorpx.bsky.social/post/3mvkhreases2g",
+  "published_at": "2026-09-15T10:58:35.317Z",
+  "publisher": "bluesky_direct",
+  "tracked_url": "https://vector-praxis-japan.vercel.app/ai-agent-bottleneck?utm_source=bsky&utm_medium=social&utm_campaign=qh1&utm_content=q1&route_id=vpj_owned_ai_agent_bottleneck_v2&asset_id=ai_agent_bottleneck"
 }
