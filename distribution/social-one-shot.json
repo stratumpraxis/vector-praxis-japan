@@ -1,26 +1,21 @@
 {
   "item": {
-    "id": "vp-ai-agent-bottleneck-pinterest-20260915-traffic-02",
-    "platform": "pinterest",
-    "angle": "AIを増やしても遅い原因を3択診断",
-    "copy": "ChatGPTやClaudeを増やしたのに、確認・引き継ぎ・判断で止まる。AI性能より『受け渡し』が詰まりかもしれません。30秒の3択診断で切り分けます。",
-    "hashtags": ["生成AI", "AIエージェント", "ChatGPT", "AI活用"],
-    "destination": "https://vector-praxis-japan.vercel.app/ai-agent-bottleneck",
+    "id": "vp-video-quality-bluesky-20260915-01",
+    "platform": "bluesky",
+    "angle": "高品質動画は4Kでは決まらない",
+    "copy": "4Kにしただけで動画は高品質にならない。視聴者が感じる品質は、光・奥行き・動き・音・リズム・質感の合成で決まる。Vectorでは『静止画＋ズーム』を完成扱いしない。世界の中の物体が動くところまで作る。",
+    "hashtags": ["動画制作", "生成AI"],
+    "destination": "https://vector-praxis-japan.vercel.app/",
     "utm": {
-      "utm_source": "pinterest",
+      "utm_source": "bluesky",
       "utm_medium": "social",
-      "utm_campaign": "vab19",
-      "utm_content": "pin_bottleneck_diag_v1",
-      "asset_id": "ai_agent_bottleneck",
-      "route_id": "vpj_owned_ai_agent_bottleneck_v2"
+      "utm_campaign": "vector_video_quality_20260915",
+      "utm_content": "perceived_quality_v1"
     },
     "status": "READY",
     "approval": "USER_APPROVED",
-    "scheduled_at": "2026-09-15T12:50:00+09:00",
-    "require_media": true,
-    "media_url": "https://static.metricool.com/planner/202609/6810050-file-2409699064718819615.png",
-    "media_type": "image/png",
-    "post_format": "pin",
-    "alt_text": "AIを増やしても仕事が速くならない時の受け渡しボトルネックを扱うVector Praxis画像"
+    "scheduled_at": "2026-09-15T17:08:00+09:00",
+    "require_media": false,
+    "post_format": "text"
   }
 }
