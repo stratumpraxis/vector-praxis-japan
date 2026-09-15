@@ -236,6 +236,29 @@
       "rejected_evidence": [],
       "amplification_eligible": false,
       "amplification_plan": null
+    },
+    {
+      "social_item_id": "vp-ai-agent-bottleneck-bluesky-20260915-traffic-01",
+      "platform": "bluesky",
+      "external_post_id": "at://did:plc:3cg6ij6eppzwmy2v2i42v45e/app.bsky.feed.post/3mvjl5ymdiu2z",
+      "external_post_url": "https://bsky.app/profile/vectorpx.bsky.social/post/3mvjl5ymdiu2z",
+      "published_at": "2026-09-15T02:26:40.820Z",
+      "destination_url": "https://linkly.link/2tMAI",
+      "route_id": "vpj_owned_ai_agent_bottleneck_v2",
+      "asset_id": "ai_agent_bottleneck",
+      "utm_source": "bluesky",
+      "utm_medium": "social",
+      "utm_campaign": "vab15",
+      "utm_content": "dist_probe_v1",
+      "copy_hash": "c1fdf50f5a59d784e608e4573f5e79e6c7f09795eefb2001f5d18def12fd79dc",
+      "state": "PUBLISHED",
+      "decision": "PUBLISHED_NO_DOWNSTREAM_EVIDENCE",
+      "evidence_count": 0,
+      "rejected_evidence_count": 0,
+      "evidence": [],
+      "rejected_evidence": [],
+      "amplification_eligible": false,
+      "amplification_plan": null
     }
   ]
 }

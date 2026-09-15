@@ -1,9 +1,14 @@
 {
-  "observed_at": "2026-09-14T23:49:16.850Z",
+  "observed_at": "2026-09-15T02:26:40.821Z",
   "campaign": "note-completion-layer-20260903",
   "results": [
     {
-      "status": "NO_DUE_SOCIAL_POSTS"
+      "status": "PUBLISHED_CONFIRMED_BY_PUBLISHER",
+      "id": "vp-ai-agent-bottleneck-bluesky-20260915-traffic-01",
+      "platform": "bluesky",
+      "external_post_id": "at://did:plc:3cg6ij6eppzwmy2v2i42v45e/app.bsky.feed.post/3mvjl5ymdiu2z",
+      "external_post_url": "https://bsky.app/profile/vectorpx.bsky.social/post/3mvjl5ymdiu2z",
+      "publisher": "bluesky_direct"
     }
   ]
 }
