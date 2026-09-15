@@ -1,5 +1,5 @@
 const FALLBACK_SITE_ORIGIN =
-  "https://vector-praxis-japan.user-ex26.chatgpt.site";
+  "https://vector-praxis-japan.vercel.app";
 
 function normalizeSiteOrigin(value: string | undefined): string {
   if (!value) return FALLBACK_SITE_ORIGIN;
