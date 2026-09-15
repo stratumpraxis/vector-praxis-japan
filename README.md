@@ -18,6 +18,7 @@ The public design and copy are original to Vector Praxis. Do not copy third-part
 ## Production
 
 - Current public URL: https://vector-praxis-japan.user-ex26.chatgpt.site/
+- Free AI Agent Bottleneck diagnostic: https://vector-praxis-japan.vercel.app/ai-agent-bottleneck?utm_source=github&utm_medium=repository&utm_campaign=vab15&utm_content=readme_diag_v1&asset_id=ai_agent_bottleneck&route_id=vpj_owned_ai_agent_bottleneck_v2
 - note: https://note.com/deft_eel6718
 - Deployment migration: [`docs/zero-cost-hosting-migration.md`](docs/zero-cost-hosting-migration.md)
 - Verified asset inventory: [`docs/asset-inventory.md`](docs/asset-inventory.md)
