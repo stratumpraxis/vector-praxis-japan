@@ -1,5 +1,5 @@
 {
-  "observed_at": "2026-09-15T03:54:39.625Z",
+  "observed_at": "2026-09-15T03:56:55.727Z",
   "campaign": "note-completion-layer-20260903",
   "results": [
     {
@@ -7,6 +7,14 @@
       "id": "vp-ai-agent-bottleneck-instagram-20260915-traffic-01",
       "platform": "instagram",
       "provider": "instagram_direct"
+    },
+    {
+      "status": "PUBLISHER_COOLDOWN",
+      "id": "vp-ai-agent-bottleneck-pinterest-20260915-traffic-02",
+      "platform": "pinterest",
+      "provider": "legacy_webhook",
+      "retry_after": "2026-09-16T03:50:57.443Z",
+      "last_http_status": 410
     }
   ]
 }
