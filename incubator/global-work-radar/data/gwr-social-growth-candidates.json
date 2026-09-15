@@ -1,6 +1,6 @@
 {
-  "generated_at": "2026-09-14T20:20:26.528Z",
-  "source_generated_at": "2026-09-14T20:19:46.081Z",
+  "generated_at": "2026-09-15T04:56:19.679Z",
+  "source_generated_at": "2026-09-15T04:55:45.721Z",
   "brand": "Global Work Radar",
   "purpose": "Turn verified market changes into GWR-owned traffic, explicit buyer-reaction evidence, and revenue opportunities without fabricating publication state.",
   "channel_policy": "GWR_CHANNEL_ONLY",
@@ -35,18 +35,18 @@
   "candidate_count": 10,
   "candidates": [
     {
-      "candidate_id": "gwr-alert-360024bb2ab2",
+      "candidate_id": "gwr-alert-5a7d086f24dd",
       "signal_type": "GWR_ALERT",
       "objective": "qualified_revenue_growth",
       "score": 98,
-      "source_generated_at": "2026-09-14T20:19:46.081Z",
+      "source_generated_at": "2026-09-15T04:55:45.721Z",
       "claim_scope": "snapshot_change_only_no_hiring_outcome_inference",
       "text": {
-        "x": "【GWR ALERT】BoostDraft｜アカウントマネージャー｜新着Signal。日本対象可否・公式求人・鮮度を確認して追跡しています。次の変化もGWRで更新。 https://global-work-radar.pages.dev/?japan=1&utm_source=social&utm_medium=organic&utm_campaign=gwr_signal_growth&utm_content=gwr-alert-360024bb2ab2&q=BoostDraft&intent=general",
-        "bluesky": "GWR ALERT｜BoostDraft｜アカウントマネージャー｜新着Signal。日本対象可否・公式求人・鮮度を確認して継続追跡。 https://global-work-radar.pages.dev/?japan=1&utm_source=social&utm_medium=organic&utm_campaign=gwr_signal_growth&utm_content=gwr-alert-360024bb2ab2&q=BoostDraft&intent=general",
-        "linkedin": "GWR Market Alert BoostDraft｜アカウントマネージャー｜新着Signal。採用結果の予測ではなく、GWRの検証済み求人スナップショットで確認できた変化です。 https://global-work-radar.pages.dev/?japan=1&utm_source=social&utm_medium=organic&utm_campaign=gwr_signal_growth&utm_content=gwr-alert-360024bb2ab2&q=BoostDraft&intent=general"
+        "x": "【GWR ALERT】BoostDraft｜アカウントマネージャー｜新着Signal。日本対象可否・公式求人・鮮度を確認して追跡しています。次の変化もGWRで更新。 https://global-work-radar.pages.dev/?japan=1&utm_source=social&utm_medium=organic&utm_campaign=gwr_signal_growth&utm_content=gwr-alert-5a7d086f24dd&q=BoostDraft&intent=general",
+        "bluesky": "GWR ALERT｜BoostDraft｜アカウントマネージャー｜新着Signal。日本対象可否・公式求人・鮮度を確認して継続追跡。 https://global-work-radar.pages.dev/?japan=1&utm_source=social&utm_medium=organic&utm_campaign=gwr_signal_growth&utm_content=gwr-alert-5a7d086f24dd&q=BoostDraft&intent=general",
+        "linkedin": "GWR Market Alert BoostDraft｜アカウントマネージャー｜新着Signal。採用結果の予測ではなく、GWRの検証済み求人スナップショットで確認できた変化です。 https://global-work-radar.pages.dev/?japan=1&utm_source=social&utm_medium=organic&utm_campaign=gwr_signal_growth&utm_content=gwr-alert-5a7d086f24dd&q=BoostDraft&intent=general"
       },
-      "destination_url": "https://global-work-radar.pages.dev/?japan=1&utm_source=social&utm_medium=organic&utm_campaign=gwr_signal_growth&utm_content=gwr-alert-360024bb2ab2&q=BoostDraft&intent=general",
+      "destination_url": "https://global-work-radar.pages.dev/?japan=1&utm_source=social&utm_medium=organic&utm_campaign=gwr_signal_growth&utm_content=gwr-alert-5a7d086f24dd&q=BoostDraft&intent=general",
       "evidence": [
         {
           "job_id": "workable-90cd2d1581",
@@ -54,7 +54,7 @@
           "title": "アカウントマネージャー",
           "source": "Workable",
           "official_url": "https://apply.workable.com/j/90CD2D1581",
-          "last_verified_at": "2026-09-14T20:19:23.689Z",
+          "last_verified_at": "2026-09-15T04:55:22.401Z",
           "freshness_bucket": "NEW_24H",
           "hiring_momentum": "STEADY",
           "hiring_delta": 0
@@ -73,18 +73,18 @@
       "rank": 1
     },
     {
-      "candidate_id": "gwr-alert-62571842f2f2",
+      "candidate_id": "gwr-alert-7e1b0122ca00",
       "signal_type": "GWR_ALERT",
       "objective": "qualified_revenue_growth",
       "score": 98,
-      "source_generated_at": "2026-09-14T20:19:46.081Z",
+      "source_generated_at": "2026-09-15T04:55:45.721Z",
       "claim_scope": "snapshot_change_only_no_hiring_outcome_inference",
       "text": {
-        "x": "【GWR ALERT】Human Made, makers of Altis DXP｜Freelance Scrum Master - APAC｜新着Signal。日本対象可否・公式求人・鮮度を確認して追跡しています。次の変化もGWRで更新。 https://global-work-radar.pages.dev/?japan=1&utm_source=social&utm_medium=organic&utm_campaign=gwr_signal_growth&utm_content=gwr-alert-62571842f2f2&q=Hu…",
-        "bluesky": "GWR ALERT｜Human Made, makers of Altis DXP｜Freelance Scrum Master - APAC｜新着Signal。日本対象可否・公式求人・鮮度を確認して継続追跡。 https://global-work-radar.pages.dev/?japan=1&utm_source=social&utm_medium=organic&utm_campaign=gwr_signal_growth&utm_content=gwr-alert-62571842f2f2&q=Human+Made%2C+makers+of+Altis+DXP&inte…",
-        "linkedin": "GWR Market Alert Human Made, makers of Altis DXP｜Freelance Scrum Master - APAC｜新着Signal。採用結果の予測ではなく、GWRの検証済み求人スナップショットで確認できた変化です。 https://global-work-radar.pages.dev/?japan=1&utm_source=social&utm_medium=organic&utm_campaign=gwr_signal_growth&utm_content=gwr-alert-62571842f2f2&q=Human+Made%2C+makers+of+Altis+DXP&intent=general"
+        "x": "【GWR ALERT】Human Made, makers of Altis DXP｜Freelance Scrum Master - APAC｜新着Signal。日本対象可否・公式求人・鮮度を確認して追跡しています。次の変化もGWRで更新。 https://global-work-radar.pages.dev/?japan=1&utm_source=social&utm_medium=organic&utm_campaign=gwr_signal_growth&utm_content=gwr-alert-7e1b0122ca00&q=Hu…",
+        "bluesky": "GWR ALERT｜Human Made, makers of Altis DXP｜Freelance Scrum Master - APAC｜新着Signal。日本対象可否・公式求人・鮮度を確認して継続追跡。 https://global-work-radar.pages.dev/?japan=1&utm_source=social&utm_medium=organic&utm_campaign=gwr_signal_growth&utm_content=gwr-alert-7e1b0122ca00&q=Human+Made%2C+makers+of+Altis+DXP&inte…",
+        "linkedin": "GWR Market Alert Human Made, makers of Altis DXP｜Freelance Scrum Master - APAC｜新着Signal。採用結果の予測ではなく、GWRの検証済み求人スナップショットで確認できた変化です。 https://global-work-radar.pages.dev/?japan=1&utm_source=social&utm_medium=organic&utm_campaign=gwr_signal_growth&utm_content=gwr-alert-7e1b0122ca00&q=Human+Made%2C+makers+of+Altis+DXP&intent=general"
       },
-      "destination_url": "https://global-work-radar.pages.dev/?japan=1&utm_source=social&utm_medium=organic&utm_campaign=gwr_signal_growth&utm_content=gwr-alert-62571842f2f2&q=Human+Made%2C+makers+of+Altis+DXP&intent=general",
+      "destination_url": "https://global-work-radar.pages.dev/?japan=1&utm_source=social&utm_medium=organic&utm_campaign=gwr_signal_growth&utm_content=gwr-alert-7e1b0122ca00&q=Human+Made%2C+makers+of+Altis+DXP&intent=general",
       "evidence": [
         {
           "job_id": "workable-99f85c87ee",
@@ -92,7 +92,7 @@
           "title": "Freelance Scrum Master - APAC",
           "source": "Workable",
           "official_url": "https://apply.workable.com/j/99F85C87EE",
-          "last_verified_at": "2026-09-14T20:19:23.689Z",
+          "last_verified_at": "2026-09-15T04:55:22.401Z",
           "freshness_bucket": "NEW_24H",
           "hiring_momentum": "STEADY",
           "hiring_delta": 0
@@ -111,18 +111,18 @@
       "rank": 2
     },
     {
-      "candidate_id": "gwr-alert-89cfc0442fad",
+      "candidate_id": "gwr-alert-caa33df8370f",
       "signal_type": "GWR_ALERT",
       "objective": "qualified_revenue_growth",
       "score": 93,
-      "source_generated_at": "2026-09-14T20:19:46.081Z",
+      "source_generated_at": "2026-09-15T04:55:45.721Z",
       "claim_scope": "snapshot_change_only_no_hiring_outcome_inference",
       "text": {
-        "x": "【GWR ALERT】Mindrift - Data annotation｜AI Trainer - Freelance Data Annotator｜新着Signal。日本対象可否・公式求人・鮮度を確認して追跡しています。次の変化もGWRで更新。 https://global-work-radar.pages.dev/?japan=1&utm_source=social&utm_medium=organic&utm_campaign=gwr_signal_growth&utm_content=gwr-alert-89cfc0442fad&q…",
-        "bluesky": "GWR ALERT｜Mindrift - Data annotation｜AI Trainer - Freelance Data Annotator｜新着Signal。日本対象可否・公式求人・鮮度を確認して継続追跡。 https://global-work-radar.pages.dev/?japan=1&utm_source=social&utm_medium=organic&utm_campaign=gwr_signal_growth&utm_content=gwr-alert-89cfc0442fad&q=Mindrift+-+Data+annotation&intent=g…",
-        "linkedin": "GWR Market Alert Mindrift - Data annotation｜AI Trainer - Freelance Data Annotator｜新着Signal。採用結果の予測ではなく、GWRの検証済み求人スナップショットで確認できた変化です。 https://global-work-radar.pages.dev/?japan=1&utm_source=social&utm_medium=organic&utm_campaign=gwr_signal_growth&utm_content=gwr-alert-89cfc0442fad&q=Mindrift+-+Data+annotation&intent=general"
+        "x": "【GWR ALERT】Mindrift - Data annotation｜AI Trainer - Freelance Data Annotator｜新着Signal。日本対象可否・公式求人・鮮度を確認して追跡しています。次の変化もGWRで更新。 https://global-work-radar.pages.dev/?japan=1&utm_source=social&utm_medium=organic&utm_campaign=gwr_signal_growth&utm_content=gwr-alert-caa33df8370f&q…",
+        "bluesky": "GWR ALERT｜Mindrift - Data annotation｜AI Trainer - Freelance Data Annotator｜新着Signal。日本対象可否・公式求人・鮮度を確認して継続追跡。 https://global-work-radar.pages.dev/?japan=1&utm_source=social&utm_medium=organic&utm_campaign=gwr_signal_growth&utm_content=gwr-alert-caa33df8370f&q=Mindrift+-+Data+annotation&intent=g…",
+        "linkedin": "GWR Market Alert Mindrift - Data annotation｜AI Trainer - Freelance Data Annotator｜新着Signal。採用結果の予測ではなく、GWRの検証済み求人スナップショットで確認できた変化です。 https://global-work-radar.pages.dev/?japan=1&utm_source=social&utm_medium=organic&utm_campaign=gwr_signal_growth&utm_content=gwr-alert-caa33df8370f&q=Mindrift+-+Data+annotation&intent=general"
       },
-      "destination_url": "https://global-work-radar.pages.dev/?japan=1&utm_source=social&utm_medium=organic&utm_campaign=gwr_signal_growth&utm_content=gwr-alert-89cfc0442fad&q=Mindrift+-+Data+annotation&intent=general",
+      "destination_url": "https://global-work-radar.pages.dev/?japan=1&utm_source=social&utm_medium=organic&utm_campaign=gwr_signal_growth&utm_content=gwr-alert-caa33df8370f&q=Mindrift+-+Data+annotation&intent=general",
       "evidence": [
         {
           "job_id": "workable-35075755e4",
@@ -130,7 +130,7 @@
           "title": "AI Trainer - Freelance Data Annotator",
           "source": "Workable",
           "official_url": "https://apply.workable.com/j/35075755E4",
-          "last_verified_at": "2026-09-14T20:19:23.689Z",
+          "last_verified_at": "2026-09-15T04:55:22.401Z",
           "freshness_bucket": "NEW_3D",
           "hiring_momentum": "STEADY",
           "hiring_delta": 0
@@ -149,18 +149,18 @@
       "rank": 3
     },
     {
-      "candidate_id": "gwr-alert-a6f9ab7ca926",
+      "candidate_id": "gwr-alert-21b6f94ae9cd",
       "signal_type": "GWR_ALERT",
       "objective": "qualified_revenue_growth",
       "score": 93,
-      "source_generated_at": "2026-09-14T20:19:46.081Z",
+      "source_generated_at": "2026-09-15T04:55:45.721Z",
       "claim_scope": "snapshot_change_only_no_hiring_outcome_inference",
       "text": {
         "x": "【GWR ALERT】Digital Technology Institute for Development (DTID)｜UNPAID VOLUNTEER - IT Support Officer｜新着Signal。日本対象可否・公式求人・鮮度を確認して追跡しています。次の変化もGWRで更新。 https://global-work-radar.pages.dev/?japan=1&utm_source=social&utm_medium=organic&utm_campaign=gwr_signal_growth&utm_content…",
-        "bluesky": "GWR ALERT｜Digital Technology Institute for Development (DTID)｜UNPAID VOLUNTEER - IT Support Officer｜新着Signal。日本対象可否・公式求人・鮮度を確認して継続追跡。 https://global-work-radar.pages.dev/?japan=1&utm_source=social&utm_medium=organic&utm_campaign=gwr_signal_growth&utm_content=gwr-alert-a6f9ab7ca926&q=Digital+Te…",
-        "linkedin": "GWR Market Alert Digital Technology Institute for Development (DTID)｜UNPAID VOLUNTEER - IT Support Officer｜新着Signal。採用結果の予測ではなく、GWRの検証済み求人スナップショットで確認できた変化です。 https://global-work-radar.pages.dev/?japan=1&utm_source=social&utm_medium=organic&utm_campaign=gwr_signal_growth&utm_content=gwr-alert-a6f9ab7ca926&q=Digital+Technology+Institute+for+Development+%28DTID%29&intent=general"
+        "bluesky": "GWR ALERT｜Digital Technology Institute for Development (DTID)｜UNPAID VOLUNTEER - IT Support Officer｜新着Signal。日本対象可否・公式求人・鮮度を確認して継続追跡。 https://global-work-radar.pages.dev/?japan=1&utm_source=social&utm_medium=organic&utm_campaign=gwr_signal_growth&utm_content=gwr-alert-21b6f94ae9cd&q=Digital+Te…",
+        "linkedin": "GWR Market Alert Digital Technology Institute for Development (DTID)｜UNPAID VOLUNTEER - IT Support Officer｜新着Signal。採用結果の予測ではなく、GWRの検証済み求人スナップショットで確認できた変化です。 https://global-work-radar.pages.dev/?japan=1&utm_source=social&utm_medium=organic&utm_campaign=gwr_signal_growth&utm_content=gwr-alert-21b6f94ae9cd&q=Digital+Technology+Institute+for+Development+%28DTID%29&intent=general"
       },
-      "destination_url": "https://global-work-radar.pages.dev/?japan=1&utm_source=social&utm_medium=organic&utm_campaign=gwr_signal_growth&utm_content=gwr-alert-a6f9ab7ca926&q=Digital+Technology+Institute+for+Development+%28DTID%29&intent=general",
+      "destination_url": "https://global-work-radar.pages.dev/?japan=1&utm_source=social&utm_medium=organic&utm_campaign=gwr_signal_growth&utm_content=gwr-alert-21b6f94ae9cd&q=Digital+Technology+Institute+for+Development+%28DTID%29&intent=general",
       "evidence": [
         {
           "job_id": "workable-c539486658",
@@ -168,7 +168,7 @@
           "title": "UNPAID VOLUNTEER - IT Support Officer",
           "source": "Workable",
           "official_url": "https://apply.workable.com/j/C539486658",
-          "last_verified_at": "2026-09-14T20:19:23.689Z",
+          "last_verified_at": "2026-09-15T04:55:22.401Z",
           "freshness_bucket": "NEW_3D",
           "hiring_momentum": "STEADY",
           "hiring_delta": 0
@@ -187,18 +187,18 @@
       "rank": 4
     },
     {
-      "candidate_id": "gwr-open-31bd4e200c8f",
+      "candidate_id": "gwr-open-92f87a47a8bf",
       "signal_type": "GWR_OPEN",
       "objective": "qualified_revenue_growth",
       "score": 91,
-      "source_generated_at": "2026-09-14T20:19:46.081Z",
+      "source_generated_at": "2026-09-15T04:55:45.721Z",
       "claim_scope": "verified_active_structured_facts_only",
       "text": {
-        "x": "【GWR OPEN】アカウントマネージャー｜BoostDraft｜JP｜USD 0。公式求人の確認先まで検証済み。GWRは日本から確認できる海外求人の変化を継続観測中。 https://global-work-radar.pages.dev/?japan=1&utm_source=social&utm_medium=organic&utm_campaign=gwr_signal_growth&utm_content=gwr-open-31bd4e200c8f&q=BoostDraft&intent=remote",
-        "bluesky": "GWR OPEN｜アカウントマネージャー｜BoostDraft｜JP｜USD 0。公式求人まで確認済み。GWRは日本から確認できる海外求人の変化を継続観測中。 https://global-work-radar.pages.dev/?japan=1&utm_source=social&utm_medium=organic&utm_campaign=gwr_signal_growth&utm_content=gwr-open-31bd4e200c8f&q=BoostDraft&intent=remote",
-        "linkedin": "Global Work Radarで新しい求人Signalを確認。 アカウントマネージャー｜BoostDraft｜JP｜USD 0 公開対象はVERIFIED ACTIVEかつ公式応募先を確認できたものに限定しています。 https://global-work-radar.pages.dev/?japan=1&utm_source=social&utm_medium=organic&utm_campaign=gwr_signal_growth&utm_content=gwr-open-31bd4e200c8f&q=BoostDraft&intent=remote"
+        "x": "【GWR OPEN】アカウントマネージャー｜BoostDraft｜JP｜USD 0。公式求人の確認先まで検証済み。GWRは日本から確認できる海外求人の変化を継続観測中。 https://global-work-radar.pages.dev/?japan=1&utm_source=social&utm_medium=organic&utm_campaign=gwr_signal_growth&utm_content=gwr-open-92f87a47a8bf&q=BoostDraft&intent=remote",
+        "bluesky": "GWR OPEN｜アカウントマネージャー｜BoostDraft｜JP｜USD 0。公式求人まで確認済み。GWRは日本から確認できる海外求人の変化を継続観測中。 https://global-work-radar.pages.dev/?japan=1&utm_source=social&utm_medium=organic&utm_campaign=gwr_signal_growth&utm_content=gwr-open-92f87a47a8bf&q=BoostDraft&intent=remote",
+        "linkedin": "Global Work Radarで新しい求人Signalを確認。 アカウントマネージャー｜BoostDraft｜JP｜USD 0 公開対象はVERIFIED ACTIVEかつ公式応募先を確認できたものに限定しています。 https://global-work-radar.pages.dev/?japan=1&utm_source=social&utm_medium=organic&utm_campaign=gwr_signal_growth&utm_content=gwr-open-92f87a47a8bf&q=BoostDraft&intent=remote"
       },
-      "destination_url": "https://global-work-radar.pages.dev/?japan=1&utm_source=social&utm_medium=organic&utm_campaign=gwr_signal_growth&utm_content=gwr-open-31bd4e200c8f&q=BoostDraft&intent=remote",
+      "destination_url": "https://global-work-radar.pages.dev/?japan=1&utm_source=social&utm_medium=organic&utm_campaign=gwr_signal_growth&utm_content=gwr-open-92f87a47a8bf&q=BoostDraft&intent=remote",
       "evidence": [
         {
           "job_id": "workable-90cd2d1581",
@@ -206,7 +206,7 @@
           "title": "アカウントマネージャー",
           "source": "Workable",
           "official_url": "https://apply.workable.com/j/90CD2D1581",
-          "last_verified_at": "2026-09-14T20:19:23.689Z",
+          "last_verified_at": "2026-09-15T04:55:22.401Z",
           "freshness_bucket": "NEW_24H",
           "hiring_momentum": "STEADY",
           "hiring_delta": 0
@@ -225,18 +225,18 @@
       "rank": 5
     },
     {
-      "candidate_id": "gwr-open-a5e4a54d7add",
+      "candidate_id": "gwr-open-384f4efe7512",
       "signal_type": "GWR_OPEN",
       "objective": "qualified_revenue_growth",
       "score": 91,
-      "source_generated_at": "2026-09-14T20:19:46.081Z",
+      "source_generated_at": "2026-09-15T04:55:45.721Z",
       "claim_scope": "verified_active_structured_facts_only",
       "text": {
-        "x": "【GWR OPEN】Freelance Scrum Master - APAC｜Human Made, makers of Altis DXP｜JP｜USD 0。公式求人の確認先まで検証済み。GWRは日本から確認できる海外求人の変化を継続観測中。 https://global-work-radar.pages.dev/?japan=1&utm_source=social&utm_medium=organic&utm_campaign=gwr_signal_growth&utm_content=gwr-open-a5e4a54d7add&q=H…",
-        "bluesky": "GWR OPEN｜Freelance Scrum Master - APAC｜Human Made, makers of Altis DXP｜JP｜USD 0。公式求人まで確認済み。GWRは日本から確認できる海外求人の変化を継続観測中。 https://global-work-radar.pages.dev/?japan=1&utm_source=social&utm_medium=organic&utm_campaign=gwr_signal_growth&utm_content=gwr-open-a5e4a54d7add&q=Human+Made%2C+makers+of+Al…",
-        "linkedin": "Global Work Radarで新しい求人Signalを確認。 Freelance Scrum Master - APAC｜Human Made, makers of Altis DXP｜JP｜USD 0 公開対象はVERIFIED ACTIVEかつ公式応募先を確認できたものに限定しています。 https://global-work-radar.pages.dev/?japan=1&utm_source=social&utm_medium=organic&utm_campaign=gwr_signal_growth&utm_content=gwr-open-a5e4a54d7add&q=Human+Made%2C+makers+of+Altis+DXP&intent=remote"
+        "x": "【GWR OPEN】Freelance Scrum Master - APAC｜Human Made, makers of Altis DXP｜JP｜USD 0。公式求人の確認先まで検証済み。GWRは日本から確認できる海外求人の変化を継続観測中。 https://global-work-radar.pages.dev/?japan=1&utm_source=social&utm_medium=organic&utm_campaign=gwr_signal_growth&utm_content=gwr-open-384f4efe7512&q=H…",
+        "bluesky": "GWR OPEN｜Freelance Scrum Master - APAC｜Human Made, makers of Altis DXP｜JP｜USD 0。公式求人まで確認済み。GWRは日本から確認できる海外求人の変化を継続観測中。 https://global-work-radar.pages.dev/?japan=1&utm_source=social&utm_medium=organic&utm_campaign=gwr_signal_growth&utm_content=gwr-open-384f4efe7512&q=Human+Made%2C+makers+of+Al…",
+        "linkedin": "Global Work Radarで新しい求人Signalを確認。 Freelance Scrum Master - APAC｜Human Made, makers of Altis DXP｜JP｜USD 0 公開対象はVERIFIED ACTIVEかつ公式応募先を確認できたものに限定しています。 https://global-work-radar.pages.dev/?japan=1&utm_source=social&utm_medium=organic&utm_campaign=gwr_signal_growth&utm_content=gwr-open-384f4efe7512&q=Human+Made%2C+makers+of+Altis+DXP&intent=remote"
       },
-      "destination_url": "https://global-work-radar.pages.dev/?japan=1&utm_source=social&utm_medium=organic&utm_campaign=gwr_signal_growth&utm_content=gwr-open-a5e4a54d7add&q=Human+Made%2C+makers+of+Altis+DXP&intent=remote",
+      "destination_url": "https://global-work-radar.pages.dev/?japan=1&utm_source=social&utm_medium=organic&utm_campaign=gwr_signal_growth&utm_content=gwr-open-384f4efe7512&q=Human+Made%2C+makers+of+Altis+DXP&intent=remote",
       "evidence": [
         {
           "job_id": "workable-99f85c87ee",
@@ -244,7 +244,7 @@
           "title": "Freelance Scrum Master - APAC",
           "source": "Workable",
           "official_url": "https://apply.workable.com/j/99F85C87EE",
-          "last_verified_at": "2026-09-14T20:19:23.689Z",
+          "last_verified_at": "2026-09-15T04:55:22.401Z",
           "freshness_bucket": "NEW_24H",
           "hiring_momentum": "STEADY",
           "hiring_delta": 0
@@ -263,18 +263,18 @@
       "rank": 6
     },
     {
-      "candidate_id": "gwr-open-ca101fe8beda",
+      "candidate_id": "gwr-open-838bfddb33fd",
       "signal_type": "GWR_OPEN",
       "objective": "qualified_revenue_growth",
       "score": 86,
-      "source_generated_at": "2026-09-14T20:19:46.081Z",
+      "source_generated_at": "2026-09-15T04:55:45.721Z",
       "claim_scope": "verified_active_structured_facts_only",
       "text": {
-        "x": "【GWR OPEN】AI Trainer - Freelance Data Annotator｜Mindrift - Data annotation｜JP｜USD 0。公式求人の確認先まで検証済み。GWRは日本から確認できる海外求人の変化を継続観測中。 https://global-work-radar.pages.dev/?japan=1&utm_source=social&utm_medium=organic&utm_campaign=gwr_signal_growth&utm_content=gwr-open-ca101fe8beda&…",
-        "bluesky": "GWR OPEN｜AI Trainer - Freelance Data Annotator｜Mindrift - Data annotation｜JP｜USD 0。公式求人まで確認済み。GWRは日本から確認できる海外求人の変化を継続観測中。 https://global-work-radar.pages.dev/?japan=1&utm_source=social&utm_medium=organic&utm_campaign=gwr_signal_growth&utm_content=gwr-open-ca101fe8beda&q=Mindrift+-+Data+annotat…",
-        "linkedin": "Global Work Radarで新しい求人Signalを確認。 AI Trainer - Freelance Data Annotator｜Mindrift - Data annotation｜JP｜USD 0 公開対象はVERIFIED ACTIVEかつ公式応募先を確認できたものに限定しています。 https://global-work-radar.pages.dev/?japan=1&utm_source=social&utm_medium=organic&utm_campaign=gwr_signal_growth&utm_content=gwr-open-ca101fe8beda&q=Mindrift+-+Data+annotation&intent=remote"
+        "x": "【GWR OPEN】AI Trainer - Freelance Data Annotator｜Mindrift - Data annotation｜JP｜USD 0。公式求人の確認先まで検証済み。GWRは日本から確認できる海外求人の変化を継続観測中。 https://global-work-radar.pages.dev/?japan=1&utm_source=social&utm_medium=organic&utm_campaign=gwr_signal_growth&utm_content=gwr-open-838bfddb33fd&…",
+        "bluesky": "GWR OPEN｜AI Trainer - Freelance Data Annotator｜Mindrift - Data annotation｜JP｜USD 0。公式求人まで確認済み。GWRは日本から確認できる海外求人の変化を継続観測中。 https://global-work-radar.pages.dev/?japan=1&utm_source=social&utm_medium=organic&utm_campaign=gwr_signal_growth&utm_content=gwr-open-838bfddb33fd&q=Mindrift+-+Data+annotat…",
+        "linkedin": "Global Work Radarで新しい求人Signalを確認。 AI Trainer - Freelance Data Annotator｜Mindrift - Data annotation｜JP｜USD 0 公開対象はVERIFIED ACTIVEかつ公式応募先を確認できたものに限定しています。 https://global-work-radar.pages.dev/?japan=1&utm_source=social&utm_medium=organic&utm_campaign=gwr_signal_growth&utm_content=gwr-open-838bfddb33fd&q=Mindrift+-+Data+annotation&intent=remote"
       },
-      "destination_url": "https://global-work-radar.pages.dev/?japan=1&utm_source=social&utm_medium=organic&utm_campaign=gwr_signal_growth&utm_content=gwr-open-ca101fe8beda&q=Mindrift+-+Data+annotation&intent=remote",
+      "destination_url": "https://global-work-radar.pages.dev/?japan=1&utm_source=social&utm_medium=organic&utm_campaign=gwr_signal_growth&utm_content=gwr-open-838bfddb33fd&q=Mindrift+-+Data+annotation&intent=remote",
       "evidence": [
         {
           "job_id": "workable-35075755e4",
@@ -282,7 +282,7 @@
           "title": "AI Trainer - Freelance Data Annotator",
           "source": "Workable",
           "official_url": "https://apply.workable.com/j/35075755E4",
-          "last_verified_at": "2026-09-14T20:19:23.689Z",
+          "last_verified_at": "2026-09-15T04:55:22.401Z",
           "freshness_bucket": "NEW_3D",
           "hiring_momentum": "STEADY",
           "hiring_delta": 0
@@ -301,18 +301,18 @@
       "rank": 7
     },
     {
-      "candidate_id": "gwr-open-af6c64aad93b",
+      "candidate_id": "gwr-open-1ac96f22ce44",
       "signal_type": "GWR_OPEN",
       "objective": "qualified_revenue_growth",
       "score": 86,
-      "source_generated_at": "2026-09-14T20:19:46.081Z",
+      "source_generated_at": "2026-09-15T04:55:45.721Z",
       "claim_scope": "verified_active_structured_facts_only",
       "text": {
         "x": "【GWR OPEN】UNPAID VOLUNTEER - IT Support Officer｜Digital Technology Institute for Development (DTID)｜JP｜USD 0。公式求人の確認先まで検証済み。GWRは日本から確認できる海外求人の変化を継続観測中。 https://global-work-radar.pages.dev/?japan=1&utm_source=social&utm_medium=organic&utm_campaign=gwr_signal_growth&utm_conte…",
-        "bluesky": "GWR OPEN｜UNPAID VOLUNTEER - IT Support Officer｜Digital Technology Institute for Development (DTID)｜JP｜USD 0。公式求人まで確認済み。GWRは日本から確認できる海外求人の変化を継続観測中。 https://global-work-radar.pages.dev/?japan=1&utm_source=social&utm_medium=organic&utm_campaign=gwr_signal_growth&utm_content=gwr-open-af6c64aad93b&…",
-        "linkedin": "Global Work Radarで新しい求人Signalを確認。 UNPAID VOLUNTEER - IT Support Officer｜Digital Technology Institute for Development (DTID)｜JP｜USD 0 公開対象はVERIFIED ACTIVEかつ公式応募先を確認できたものに限定しています。 https://global-work-radar.pages.dev/?japan=1&utm_source=social&utm_medium=organic&utm_campaign=gwr_signal_growth&utm_content=gwr-open-af6c64aad93b&q=Digital+Technology+Institute+for+Development+%28DTID%29&intent=remote"
+        "bluesky": "GWR OPEN｜UNPAID VOLUNTEER - IT Support Officer｜Digital Technology Institute for Development (DTID)｜JP｜USD 0。公式求人まで確認済み。GWRは日本から確認できる海外求人の変化を継続観測中。 https://global-work-radar.pages.dev/?japan=1&utm_source=social&utm_medium=organic&utm_campaign=gwr_signal_growth&utm_content=gwr-open-1ac96f22ce44&…",
+        "linkedin": "Global Work Radarで新しい求人Signalを確認。 UNPAID VOLUNTEER - IT Support Officer｜Digital Technology Institute for Development (DTID)｜JP｜USD 0 公開対象はVERIFIED ACTIVEかつ公式応募先を確認できたものに限定しています。 https://global-work-radar.pages.dev/?japan=1&utm_source=social&utm_medium=organic&utm_campaign=gwr_signal_growth&utm_content=gwr-open-1ac96f22ce44&q=Digital+Technology+Institute+for+Development+%28DTID%29&intent=remote"
       },
-      "destination_url": "https://global-work-radar.pages.dev/?japan=1&utm_source=social&utm_medium=organic&utm_campaign=gwr_signal_growth&utm_content=gwr-open-af6c64aad93b&q=Digital+Technology+Institute+for+Development+%28DTID%29&intent=remote",
+      "destination_url": "https://global-work-radar.pages.dev/?japan=1&utm_source=social&utm_medium=organic&utm_campaign=gwr_signal_growth&utm_content=gwr-open-1ac96f22ce44&q=Digital+Technology+Institute+for+Development+%28DTID%29&intent=remote",
       "evidence": [
         {
           "job_id": "workable-c539486658",
@@ -320,7 +320,7 @@
           "title": "UNPAID VOLUNTEER - IT Support Officer",
           "source": "Workable",
           "official_url": "https://apply.workable.com/j/C539486658",
-          "last_verified_at": "2026-09-14T20:19:23.689Z",
+          "last_verified_at": "2026-09-15T04:55:22.401Z",
           "freshness_bucket": "NEW_3D",
           "hiring_momentum": "STEADY",
           "hiring_delta": 0
@@ -339,18 +339,18 @@
       "rank": 8
     },
     {
-      "candidate_id": "gwr-open-fa9f2611ee13",
+      "candidate_id": "gwr-open-d74487c2ffaf",
       "signal_type": "GWR_OPEN",
       "objective": "qualified_revenue_growth",
       "score": 86,
-      "source_generated_at": "2026-09-14T20:19:46.081Z",
+      "source_generated_at": "2026-09-15T04:55:45.721Z",
       "claim_scope": "verified_active_structured_facts_only",
       "text": {
         "x": "【GWR OPEN】UNPAID VOLUNTEER - Director of Media Relations｜Digital Technology Institute for Development (DTID)｜JP｜USD 0。公式求人の確認先まで検証済み。GWRは日本から確認できる海外求人の変化を継続観測中。 https://global-work-radar.pages.dev/?japan=1&utm_source=social&utm_medium=organic&utm_campaign=gwr_signal_growth&…",
-        "bluesky": "GWR OPEN｜UNPAID VOLUNTEER - Director of Media Relations｜Digital Technology Institute for Development (DTID)｜JP｜USD 0。公式求人まで確認済み。GWRは日本から確認できる海外求人の変化を継続観測中。 https://global-work-radar.pages.dev/?japan=1&utm_source=social&utm_medium=organic&utm_campaign=gwr_signal_growth&utm_content=gwr-open-fa9f…",
-        "linkedin": "Global Work Radarで新しい求人Signalを確認。 UNPAID VOLUNTEER - Director of Media Relations｜Digital Technology Institute for Development (DTID)｜JP｜USD 0 公開対象はVERIFIED ACTIVEかつ公式応募先を確認できたものに限定しています。 https://global-work-radar.pages.dev/?japan=1&utm_source=social&utm_medium=organic&utm_campaign=gwr_signal_growth&utm_content=gwr-open-fa9f2611ee13&q=Digital+Technology+Institute+for+Development+%28DTID%29&intent=remote"
+        "bluesky": "GWR OPEN｜UNPAID VOLUNTEER - Director of Media Relations｜Digital Technology Institute for Development (DTID)｜JP｜USD 0。公式求人まで確認済み。GWRは日本から確認できる海外求人の変化を継続観測中。 https://global-work-radar.pages.dev/?japan=1&utm_source=social&utm_medium=organic&utm_campaign=gwr_signal_growth&utm_content=gwr-open-d744…",
+        "linkedin": "Global Work Radarで新しい求人Signalを確認。 UNPAID VOLUNTEER - Director of Media Relations｜Digital Technology Institute for Development (DTID)｜JP｜USD 0 公開対象はVERIFIED ACTIVEかつ公式応募先を確認できたものに限定しています。 https://global-work-radar.pages.dev/?japan=1&utm_source=social&utm_medium=organic&utm_campaign=gwr_signal_growth&utm_content=gwr-open-d74487c2ffaf&q=Digital+Technology+Institute+for+Development+%28DTID%29&intent=remote"
       },
-      "destination_url": "https://global-work-radar.pages.dev/?japan=1&utm_source=social&utm_medium=organic&utm_campaign=gwr_signal_growth&utm_content=gwr-open-fa9f2611ee13&q=Digital+Technology+Institute+for+Development+%28DTID%29&intent=remote",
+      "destination_url": "https://global-work-radar.pages.dev/?japan=1&utm_source=social&utm_medium=organic&utm_campaign=gwr_signal_growth&utm_content=gwr-open-d74487c2ffaf&q=Digital+Technology+Institute+for+Development+%28DTID%29&intent=remote",
       "evidence": [
         {
           "job_id": "workable-0abbe32bad",
@@ -358,7 +358,7 @@
           "title": "UNPAID VOLUNTEER - Director of Media Relations",
           "source": "Workable",
           "official_url": "https://apply.workable.com/j/0ABBE32BAD",
-          "last_verified_at": "2026-09-14T20:19:23.689Z",
+          "last_verified_at": "2026-09-15T04:55:22.401Z",
           "freshness_bucket": "NEW_3D",
           "hiring_momentum": "STEADY",
           "hiring_delta": 0
@@ -377,18 +377,18 @@
       "rank": 9
     },
     {
-      "candidate_id": "gwr-open-a3dbe95d0b3e",
+      "candidate_id": "gwr-open-55aa3a7c4ac2",
       "signal_type": "GWR_OPEN",
       "objective": "qualified_revenue_growth",
       "score": 86,
-      "source_generated_at": "2026-09-14T20:19:46.081Z",
+      "source_generated_at": "2026-09-15T04:55:45.721Z",
       "claim_scope": "verified_active_structured_facts_only",
       "text": {
         "x": "【GWR OPEN】UNPAID VOLUNTEER - Director of Strategic Communications and Brand｜Digital Technology Institute for Development (DTID)｜JP｜USD 0。公式求人の確認先まで検証済み。GWRは日本から確認できる海外求人の変化を継続観測中。 https://global-work-radar.pages.dev/?japan=1&utm_source=social&utm_medium=organic&utm_campaign…",
         "bluesky": "GWR OPEN｜UNPAID VOLUNTEER - Director of Strategic Communications and Brand｜Digital Technology Institute for Development (DTID)｜JP｜USD 0。公式求人まで確認済み。GWRは日本から確認できる海外求人の変化を継続観測中。 https://global-work-radar.pages.dev/?japan=1&utm_source=social&utm_medium=organic&utm_campaign=gwr_signal_growth&utm_co…",
-        "linkedin": "Global Work Radarで新しい求人Signalを確認。 UNPAID VOLUNTEER - Director of Strategic Communications and Brand｜Digital Technology Institute for Development (DTID)｜JP｜USD 0 公開対象はVERIFIED ACTIVEかつ公式応募先を確認できたものに限定しています。 https://global-work-radar.pages.dev/?japan=1&utm_source=social&utm_medium=organic&utm_campaign=gwr_signal_growth&utm_content=gwr-open-a3dbe95d0b3e&q=Digital+Technology+Institute+for+Development+%28DTID%29&intent=remote"
+        "linkedin": "Global Work Radarで新しい求人Signalを確認。 UNPAID VOLUNTEER - Director of Strategic Communications and Brand｜Digital Technology Institute for Development (DTID)｜JP｜USD 0 公開対象はVERIFIED ACTIVEかつ公式応募先を確認できたものに限定しています。 https://global-work-radar.pages.dev/?japan=1&utm_source=social&utm_medium=organic&utm_campaign=gwr_signal_growth&utm_content=gwr-open-55aa3a7c4ac2&q=Digital+Technology+Institute+for+Development+%28DTID%29&intent=remote"
       },
-      "destination_url": "https://global-work-radar.pages.dev/?japan=1&utm_source=social&utm_medium=organic&utm_campaign=gwr_signal_growth&utm_content=gwr-open-a3dbe95d0b3e&q=Digital+Technology+Institute+for+Development+%28DTID%29&intent=remote",
+      "destination_url": "https://global-work-radar.pages.dev/?japan=1&utm_source=social&utm_medium=organic&utm_campaign=gwr_signal_growth&utm_content=gwr-open-55aa3a7c4ac2&q=Digital+Technology+Institute+for+Development+%28DTID%29&intent=remote",
       "evidence": [
         {
           "job_id": "workable-9eb9baa924",
@@ -396,7 +396,7 @@
           "title": "UNPAID VOLUNTEER - Director of Strategic Communications and Brand",
           "source": "Workable",
           "official_url": "https://apply.workable.com/j/9EB9BAA924",
-          "last_verified_at": "2026-09-14T20:19:23.689Z",
+          "last_verified_at": "2026-09-15T04:55:22.401Z",
           "freshness_bucket": "NEW_3D",
           "hiring_momentum": "STEADY",
           "hiring_delta": 0
