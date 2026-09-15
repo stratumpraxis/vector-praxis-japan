@@ -1,23 +1,26 @@
 {
   "item": {
-    "id": "vp-ai-agent-bottleneck-bluesky-20260915-traffic-01",
-    "platform": "bluesky",
-    "angle": "AI受け渡し詰まりを3択診断へ",
-    "copy": "ChatGPTやClaudeを増やしたのに、確認・引き継ぎ・判断で止まる。AI性能ではなく「受け渡し」が詰まりかもしれません。3択で診断。",
-    "hashtags": [],
-    "destination": "https://linkly.link/2tMAI",
+    "id": "vp-ai-agent-bottleneck-pinterest-20260915-traffic-01",
+    "platform": "pinterest",
+    "angle": "AIを増やしても遅い原因を3択診断",
+    "copy": "ChatGPTやClaudeを増やしたのに、確認・引き継ぎ・判断で止まる。AI性能より『受け渡し』が詰まりかもしれません。30秒の3択診断で切り分けます。",
+    "hashtags": ["生成AI", "AIエージェント", "ChatGPT", "AI活用"],
+    "destination": "https://vector-praxis-japan.vercel.app/ai-agent-bottleneck",
     "utm": {
-      "utm_source": "bluesky",
+      "utm_source": "pinterest",
       "utm_medium": "social",
-      "utm_campaign": "vab15",
-      "utm_content": "dist_probe_v1",
+      "utm_campaign": "vab16",
+      "utm_content": "pin_bottleneck_diag_v1",
       "asset_id": "ai_agent_bottleneck",
       "route_id": "vpj_owned_ai_agent_bottleneck_v2"
     },
     "status": "READY",
     "approval": "USER_APPROVED",
-    "scheduled_at": "2026-09-15T11:23:00+09:00",
-    "require_media": false,
-    "post_format": "text"
+    "scheduled_at": "2026-09-15T12:39:00+09:00",
+    "require_media": true,
+    "media_url": "https://static.metricool.com/planner/202609/6810050-file-2409699064718819615.png",
+    "media_type": "image/png",
+    "post_format": "pin",
+    "alt_text": "AIを増やしても仕事が速くならない時の受け渡しボトルネックを扱うVector Praxis画像"
   }
 }
