@@ -360,6 +360,36 @@
       "alt_text": "AIを増やしても仕事が速くならない時の受け渡しボトルネックを扱うVector Praxis画像",
       "last_error": "publisher_http_410",
       "last_error_at": "2026-09-15T03:50:57.444Z"
+    },
+    {
+      "id": "vp-ai-agent-bottleneck-instagram-20260915-traffic-01",
+      "platform": "instagram",
+      "angle": "AIを増やしても遅い原因を3択診断",
+      "copy": "AIを増やしたのに、確認・引き継ぎ・判断で仕事が止まる。原因はモデル性能より『受け渡し』かもしれません。30秒の3択診断で、今どこが詰まっているかを切り分けます。",
+      "hashtags": [
+        "生成AI",
+        "AIエージェント",
+        "ChatGPT",
+        "Claude",
+        "AI活用"
+      ],
+      "destination": "https://vector-praxis-japan.vercel.app/ai-agent-bottleneck",
+      "utm": {
+        "utm_source": "instagram",
+        "utm_medium": "reel",
+        "utm_campaign": "vab18",
+        "utm_content": "bottleneck_reel_v1",
+        "asset_id": "ai_agent_bottleneck",
+        "route_id": "vpj_owned_ai_agent_bottleneck_v2"
+      },
+      "status": "READY",
+      "approval": "USER_APPROVED",
+      "scheduled_at": "2026-09-15T12:52:00+09:00",
+      "require_media": true,
+      "media_url": "https://static.metricool.com/planner/202609/6810050-file-17289655829087914082.mp4",
+      "media_type": "video/mp4",
+      "post_format": "reel",
+      "alt_text": "AIを増やすほど仕事が遅くなる原因を、レビュー待ち・権限・引き継ぎの観点から示すVector Praxisの短尺動画"
     }
   ],
   "publisher_state": {

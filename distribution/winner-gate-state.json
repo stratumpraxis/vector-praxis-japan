@@ -282,6 +282,29 @@
       "rejected_evidence": [],
       "amplification_eligible": false,
       "amplification_plan": null
+    },
+    {
+      "social_item_id": "vp-ai-agent-bottleneck-instagram-20260915-traffic-01",
+      "platform": "instagram",
+      "external_post_id": null,
+      "external_post_url": null,
+      "published_at": null,
+      "destination_url": "https://vector-praxis-japan.vercel.app/ai-agent-bottleneck",
+      "route_id": "vpj_owned_ai_agent_bottleneck_v2",
+      "asset_id": "ai_agent_bottleneck",
+      "utm_source": "instagram",
+      "utm_medium": "reel",
+      "utm_campaign": "vab18",
+      "utm_content": "bottleneck_reel_v1",
+      "copy_hash": "65956040cbe9c832678975ea01f8f77941940795c6d43c129358b0ec5249f262",
+      "state": "PREPARED",
+      "decision": "NOT_PUBLISHED",
+      "evidence_count": 0,
+      "rejected_evidence_count": 0,
+      "evidence": [],
+      "rejected_evidence": [],
+      "amplification_eligible": false,
+      "amplification_plan": null
     }
   ]
 }
