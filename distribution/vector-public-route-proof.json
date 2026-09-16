@@ -1,7 +1,7 @@
 {
-  "checked_at": "2026-09-16T04:51:44.367177Z",
-  "commit_sha": "cc1a89c62ba1b5b3b090aab88f5a057389f84791",
-  "workflow_run_id": "35057218921",
+  "checked_at": "2026-09-16T11:38:04.982575Z",
+  "commit_sha": "9830b66e15f64b3f8a396f3cba8bd7f5d9e05fc6",
+  "workflow_run_id": "35091278144",
   "repository": "stratumpraxis/vector-praxis-japan",
   "route_id": "vpj_owned_ai_agent_bottleneck_v2",
   "asset_id": "ai_agent_bottleneck",
@@ -56,7 +56,7 @@
       "ERR_BLOCKED_BY_FINGERPRINTING_PROTECTION",
       "ERR_BLOCKED_BY_LOCAL_NETWORK_ACCESS_CHECKS"
     ],
-    "stderr_tail": "ct_proxy.cc:572] Failed to call method: org.freedesktop.DBus.NameHasOwner: object_path= /org/freedesktop/DBus: unknown error type: \n[2076:2101:0916/045141.485758:ERROR:dbus/bus.cc:405] Failed to connect to the bus: Could not parse server address: Unknown address type (examples of valid types are \"tcp\" and on UNIX \"unix\")\n[2076:2076:0916/045141.521448:ERROR:dbus/object_proxy.cc:572] Failed to call method: org.freedesktop.DBus.NameHasOwner: object_path= /org/freedesktop/DBus: unknown error type: \n"
+    "stderr_tail": "path= /org/freedesktop/DBus: unknown error type: \n[2062:2097:0916/113804.086503:ERROR:google_apis/gcm/engine/registration_request.cc:291] Registration response error message: PHONE_REGISTRATION_ERROR\n[2062:2097:0916/113804.086961:ERROR:google_apis/gcm/engine/registration_request.cc:291] Registration response error message: PHONE_REGISTRATION_ERROR\n[2062:2097:0916/113804.087926:ERROR:google_apis/gcm/engine/registration_request.cc:291] Registration response error message: PHONE_REGISTRATION_ERROR\n"
   },
   "canonical_indexability": {
     "role": "canonical",
