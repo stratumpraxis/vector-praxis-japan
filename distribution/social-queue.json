@@ -411,14 +411,16 @@
         "asset_id": "ai_agent_bottleneck",
         "route_id": "vpj_owned_ai_agent_bottleneck_v2"
       },
-      "status": "READY",
+      "status": "FAILED_REVIEW",
       "approval": "USER_APPROVED",
       "scheduled_at": "2026-09-15T12:50:00+09:00",
       "require_media": true,
       "media_url": "https://static.metricool.com/planner/202609/6810050-file-2409699064718819615.png",
       "media_type": "image/png",
       "post_format": "pin",
-      "alt_text": "AIを増やしても仕事が速くならない時の受け渡しボトルネックを扱うVector Praxis画像"
+      "alt_text": "AIを増やしても仕事が速くならない時の受け渡しボトルネックを扱うVector Praxis画像",
+      "last_error": "publisher_http_410",
+      "last_error_at": "2026-09-16T05:52:43.451Z"
     },
     {
       "id": "vp-video-quality-bluesky-20260915-01",
@@ -450,7 +452,7 @@
   "publisher_state": {
     "status": "PUBLISHER_GONE",
     "http_status": 410,
-    "observed_at": "2026-09-15T03:50:57.443Z",
-    "retry_after": "2026-09-16T03:50:57.443Z"
+    "observed_at": "2026-09-16T05:52:43.451Z",
+    "retry_after": "2026-09-17T05:52:43.451Z"
   }
 }
