@@ -1,6 +1,6 @@
 {
-  "generated_at": "2026-09-16T13:32:20.842Z",
-  "source_generated_at": "2026-09-16T13:31:43.046Z",
+  "generated_at": "2026-09-16T19:35:41.218Z",
+  "source_generated_at": "2026-09-16T19:34:55.061Z",
   "brand": "Global Work Radar",
   "purpose": "Turn verified market changes into GWR-owned traffic, explicit buyer-reaction evidence, and revenue opportunities without fabricating publication state.",
   "channel_policy": "GWR_CHANNEL_ONLY",
@@ -32,31 +32,31 @@
     ],
     "revenue_first": true
   },
-  "candidate_count": 11,
+  "candidate_count": 12,
   "candidates": [
     {
-      "candidate_id": "gwr-alert-6d44cdcb6d90",
+      "candidate_id": "gwr-alert-9b5ba41e3658",
       "signal_type": "GWR_ALERT",
       "objective": "qualified_revenue_growth",
-      "score": 99,
-      "source_generated_at": "2026-09-16T13:31:43.046Z",
+      "score": 112,
+      "source_generated_at": "2026-09-16T19:34:55.061Z",
       "claim_scope": "snapshot_change_only_no_hiring_outcome_inference",
       "text": {
-        "x": "【GWR ALERT】AI Robot Association｜COR-222 人事マネージャー（HR Manager）｜前回スナップショット比 +1。日本対象可否・公式求人・鮮度を確認して追跡しています。次の変化もGWRで更新。 https://global-work-radar.pages.dev/?japan=1&utm_source=social&utm_medium=organic&utm_campaign=gwr_signal_growth&utm_content=gwr-alert-6d44cdcb6d90&q=AI+Robot…",
-        "bluesky": "GWR ALERT｜AI Robot Association｜COR-222 人事マネージャー（HR Manager）｜前回スナップショット比 +1。日本対象可否・公式求人・鮮度を確認して継続追跡。 https://global-work-radar.pages.dev/?japan=1&utm_source=social&utm_medium=organic&utm_campaign=gwr_signal_growth&utm_content=gwr-alert-6d44cdcb6d90&q=AI+Robot+Association&intent=general",
-        "linkedin": "GWR Market Alert AI Robot Association｜COR-222 人事マネージャー（HR Manager）｜前回スナップショット比 +1。採用結果の予測ではなく、GWRの検証済み求人スナップショットで確認できた変化です。 https://global-work-radar.pages.dev/?japan=1&utm_source=social&utm_medium=organic&utm_campaign=gwr_signal_growth&utm_content=gwr-alert-6d44cdcb6d90&q=AI+Robot+Association&intent=general"
+        "x": "【GWR ALERT】Weekday AI｜PDF Annotation & Transcription Experts - Japanese｜GWR観測内で新規Employer Signal。日本対象可否・公式求人・鮮度を確認して追跡しています。次の変化もGWRで更新。 https://global-work-radar.pages.dev/?japan=1&utm_source=social&utm_medium=organic&utm_campaign=gwr_signal_growth&utm_content=gwr-alert-9b…",
+        "bluesky": "GWR ALERT｜Weekday AI｜PDF Annotation & Transcription Experts - Japanese｜GWR観測内で新規Employer Signal。日本対象可否・公式求人・鮮度を確認して継続追跡。 https://global-work-radar.pages.dev/?japan=1&utm_source=social&utm_medium=organic&utm_campaign=gwr_signal_growth&utm_content=gwr-alert-9b5ba41e3658&q=Weekday+AI&intent=gener…",
+        "linkedin": "GWR Market Alert Weekday AI｜PDF Annotation & Transcription Experts - Japanese｜GWR観測内で新規Employer Signal。採用結果の予測ではなく、GWRの検証済み求人スナップショットで確認できた変化です。 https://global-work-radar.pages.dev/?japan=1&utm_source=social&utm_medium=organic&utm_campaign=gwr_signal_growth&utm_content=gwr-alert-9b5ba41e3658&q=Weekday+AI&intent=general"
       },
-      "destination_url": "https://global-work-radar.pages.dev/?japan=1&utm_source=social&utm_medium=organic&utm_campaign=gwr_signal_growth&utm_content=gwr-alert-6d44cdcb6d90&q=AI+Robot+Association&intent=general",
+      "destination_url": "https://global-work-radar.pages.dev/?japan=1&utm_source=social&utm_medium=organic&utm_campaign=gwr_signal_growth&utm_content=gwr-alert-9b5ba41e3658&q=Weekday+AI&intent=general",
       "evidence": [
         {
-          "job_id": "workable-d25edcfce5",
-          "employer": "AI Robot Association",
-          "title": "COR-222 人事マネージャー（HR Manager）",
+          "job_id": "workable-315cf9a193",
+          "employer": "Weekday AI",
+          "title": "PDF Annotation & Transcription Experts - Japanese",
           "source": "Workable",
-          "official_url": "https://apply.workable.com/j/D25EDCFCE5",
-          "last_verified_at": "2026-09-16T13:31:25.304Z",
+          "official_url": "https://apply.workable.com/j/315CF9A193",
+          "last_verified_at": "2026-09-16T19:34:40.813Z",
           "freshness_bucket": "NEW_24H",
-          "hiring_momentum": "HIRING_UP",
+          "hiring_momentum": "NEW_EMPLOYER_SIGNAL",
           "hiring_delta": 1
         }
       ],
@@ -73,140 +73,26 @@
       "rank": 1
     },
     {
-      "candidate_id": "gwr-alert-6ccb322cbd60",
+      "candidate_id": "gwr-alert-5c21eec60ce4",
       "signal_type": "GWR_ALERT",
       "objective": "qualified_revenue_growth",
-      "score": 98,
-      "source_generated_at": "2026-09-16T13:31:43.046Z",
+      "score": 107,
+      "source_generated_at": "2026-09-16T19:34:55.061Z",
       "claim_scope": "snapshot_change_only_no_hiring_outcome_inference",
       "text": {
-        "x": "【GWR ALERT】Gridlines｜Analyst- Model Audit｜新着Signal。日本対象可否・公式求人・鮮度を確認して追跡しています。次の変化もGWRで更新。 https://global-work-radar.pages.dev/?japan=1&utm_source=social&utm_medium=organic&utm_campaign=gwr_signal_growth&utm_content=gwr-alert-6ccb322cbd60&q=Gridlines&intent=general",
-        "bluesky": "GWR ALERT｜Gridlines｜Analyst- Model Audit｜新着Signal。日本対象可否・公式求人・鮮度を確認して継続追跡。 https://global-work-radar.pages.dev/?japan=1&utm_source=social&utm_medium=organic&utm_campaign=gwr_signal_growth&utm_content=gwr-alert-6ccb322cbd60&q=Gridlines&intent=general",
-        "linkedin": "GWR Market Alert Gridlines｜Analyst- Model Audit｜新着Signal。採用結果の予測ではなく、GWRの検証済み求人スナップショットで確認できた変化です。 https://global-work-radar.pages.dev/?japan=1&utm_source=social&utm_medium=organic&utm_campaign=gwr_signal_growth&utm_content=gwr-alert-6ccb322cbd60&q=Gridlines&intent=general"
+        "x": "【GWR ALERT】CXG｜Japanese Survey Validation Freelancer｜前回スナップショット比 +1。日本対象可否・公式求人・鮮度を確認して追跡しています。次の変化もGWRで更新。 https://global-work-radar.pages.dev/?japan=1&utm_source=social&utm_medium=organic&utm_campaign=gwr_signal_growth&utm_content=gwr-alert-5c21eec60ce4&q=CXG&intent=gener…",
+        "bluesky": "GWR ALERT｜CXG｜Japanese Survey Validation Freelancer｜前回スナップショット比 +1。日本対象可否・公式求人・鮮度を確認して継続追跡。 https://global-work-radar.pages.dev/?japan=1&utm_source=social&utm_medium=organic&utm_campaign=gwr_signal_growth&utm_content=gwr-alert-5c21eec60ce4&q=CXG&intent=general",
+        "linkedin": "GWR Market Alert CXG｜Japanese Survey Validation Freelancer｜前回スナップショット比 +1。採用結果の予測ではなく、GWRの検証済み求人スナップショットで確認できた変化です。 https://global-work-radar.pages.dev/?japan=1&utm_source=social&utm_medium=organic&utm_campaign=gwr_signal_growth&utm_content=gwr-alert-5c21eec60ce4&q=CXG&intent=general"
       },
-      "destination_url": "https://global-work-radar.pages.dev/?japan=1&utm_source=social&utm_medium=organic&utm_campaign=gwr_signal_growth&utm_content=gwr-alert-6ccb322cbd60&q=Gridlines&intent=general",
+      "destination_url": "https://global-work-radar.pages.dev/?japan=1&utm_source=social&utm_medium=organic&utm_campaign=gwr_signal_growth&utm_content=gwr-alert-5c21eec60ce4&q=CXG&intent=general",
       "evidence": [
         {
-          "job_id": "workable-52ab03caac",
-          "employer": "Gridlines",
-          "title": "Analyst- Model Audit",
+          "job_id": "workable-802cc6e102",
+          "employer": "CXG",
+          "title": "Japanese Survey Validation Freelancer",
           "source": "Workable",
-          "official_url": "https://apply.workable.com/j/52AB03CAAC",
-          "last_verified_at": "2026-09-16T13:31:25.304Z",
-          "freshness_bucket": "NEW_24H",
-          "hiring_momentum": "STEADY",
-          "hiring_delta": 0
-        }
-      ],
-      "measurement_chain": [
-        "social_publish",
-        "gwr_visit",
-        "gwr_return_visit",
-        "gwr_search",
-        "gwr_buyer_reaction",
-        "gwr_official_apply_click"
-      ],
-      "publish_state": "CANDIDATE_NOT_PUBLISHED",
-      "channel_rule": "GWR_CHANNEL_ONLY",
-      "rank": 2
-    },
-    {
-      "candidate_id": "gwr-alert-23ada4b51612",
-      "signal_type": "GWR_ALERT",
-      "objective": "qualified_revenue_growth",
-      "score": 98,
-      "source_generated_at": "2026-09-16T13:31:43.046Z",
-      "claim_scope": "snapshot_change_only_no_hiring_outcome_inference",
-      "text": {
-        "x": "【GWR ALERT】Gridlines｜Associate Director- Model Audit, Build and Transaction Advisory｜新着Signal。日本対象可否・公式求人・鮮度を確認して追跡しています。次の変化もGWRで更新。 https://global-work-radar.pages.dev/?japan=1&utm_source=social&utm_medium=organic&utm_campaign=gwr_signal_growth&utm_content=gwr-alert-23ada…",
-        "bluesky": "GWR ALERT｜Gridlines｜Associate Director- Model Audit, Build and Transaction Advisory｜新着Signal。日本対象可否・公式求人・鮮度を確認して継続追跡。 https://global-work-radar.pages.dev/?japan=1&utm_source=social&utm_medium=organic&utm_campaign=gwr_signal_growth&utm_content=gwr-alert-23ada4b51612&q=Gridlines&intent=general",
-        "linkedin": "GWR Market Alert Gridlines｜Associate Director- Model Audit, Build and Transaction Advisory｜新着Signal。採用結果の予測ではなく、GWRの検証済み求人スナップショットで確認できた変化です。 https://global-work-radar.pages.dev/?japan=1&utm_source=social&utm_medium=organic&utm_campaign=gwr_signal_growth&utm_content=gwr-alert-23ada4b51612&q=Gridlines&intent=general"
-      },
-      "destination_url": "https://global-work-radar.pages.dev/?japan=1&utm_source=social&utm_medium=organic&utm_campaign=gwr_signal_growth&utm_content=gwr-alert-23ada4b51612&q=Gridlines&intent=general",
-      "evidence": [
-        {
-          "job_id": "workable-06311a73ff",
-          "employer": "Gridlines",
-          "title": "Associate Director- Model Audit, Build and Transaction Advisory",
-          "source": "Workable",
-          "official_url": "https://apply.workable.com/j/06311A73FF",
-          "last_verified_at": "2026-09-16T13:31:25.304Z",
-          "freshness_bucket": "NEW_24H",
-          "hiring_momentum": "STEADY",
-          "hiring_delta": 0
-        }
-      ],
-      "measurement_chain": [
-        "social_publish",
-        "gwr_visit",
-        "gwr_return_visit",
-        "gwr_search",
-        "gwr_buyer_reaction",
-        "gwr_official_apply_click"
-      ],
-      "publish_state": "CANDIDATE_NOT_PUBLISHED",
-      "channel_rule": "GWR_CHANNEL_ONLY",
-      "rank": 3
-    },
-    {
-      "candidate_id": "gwr-alert-cb470fb93d1d",
-      "signal_type": "GWR_ALERT",
-      "objective": "qualified_revenue_growth",
-      "score": 98,
-      "source_generated_at": "2026-09-16T13:31:43.046Z",
-      "claim_scope": "snapshot_change_only_no_hiring_outcome_inference",
-      "text": {
-        "x": "【GWR ALERT】Gridlines｜Commercial Director- Model Audit, Build and Transaction Advisory｜新着Signal。日本対象可否・公式求人・鮮度を確認して追跡しています。次の変化もGWRで更新。 https://global-work-radar.pages.dev/?japan=1&utm_source=social&utm_medium=organic&utm_campaign=gwr_signal_growth&utm_content=gwr-alert-cb47…",
-        "bluesky": "GWR ALERT｜Gridlines｜Commercial Director- Model Audit, Build and Transaction Advisory｜新着Signal。日本対象可否・公式求人・鮮度を確認して継続追跡。 https://global-work-radar.pages.dev/?japan=1&utm_source=social&utm_medium=organic&utm_campaign=gwr_signal_growth&utm_content=gwr-alert-cb470fb93d1d&q=Gridlines&intent=general",
-        "linkedin": "GWR Market Alert Gridlines｜Commercial Director- Model Audit, Build and Transaction Advisory｜新着Signal。採用結果の予測ではなく、GWRの検証済み求人スナップショットで確認できた変化です。 https://global-work-radar.pages.dev/?japan=1&utm_source=social&utm_medium=organic&utm_campaign=gwr_signal_growth&utm_content=gwr-alert-cb470fb93d1d&q=Gridlines&intent=general"
-      },
-      "destination_url": "https://global-work-radar.pages.dev/?japan=1&utm_source=social&utm_medium=organic&utm_campaign=gwr_signal_growth&utm_content=gwr-alert-cb470fb93d1d&q=Gridlines&intent=general",
-      "evidence": [
-        {
-          "job_id": "workable-5b54e21a11",
-          "employer": "Gridlines",
-          "title": "Commercial Director- Model Audit, Build and Transaction Advisory",
-          "source": "Workable",
-          "official_url": "https://apply.workable.com/j/5B54E21A11",
-          "last_verified_at": "2026-09-16T13:31:25.304Z",
-          "freshness_bucket": "NEW_24H",
-          "hiring_momentum": "STEADY",
-          "hiring_delta": 0
-        }
-      ],
-      "measurement_chain": [
-        "social_publish",
-        "gwr_visit",
-        "gwr_return_visit",
-        "gwr_search",
-        "gwr_buyer_reaction",
-        "gwr_official_apply_click"
-      ],
-      "publish_state": "CANDIDATE_NOT_PUBLISHED",
-      "channel_rule": "GWR_CHANNEL_ONLY",
-      "rank": 4
-    },
-    {
-      "candidate_id": "gwr-open-191346c908c8",
-      "signal_type": "GWR_OPEN",
-      "objective": "qualified_revenue_growth",
-      "score": 92,
-      "source_generated_at": "2026-09-16T13:31:43.046Z",
-      "claim_scope": "verified_active_structured_facts_only",
-      "text": {
-        "x": "【GWR OPEN】COR-222 人事マネージャー（HR Manager）｜AI Robot Association｜Ota-ku, Tokyo, JP｜USD 0。公式求人の確認先まで検証済み。GWRは日本から確認できる海外求人の変化を継続観測中。 https://global-work-radar.pages.dev/?japan=1&utm_source=social&utm_medium=organic&utm_campaign=gwr_signal_growth&utm_content=gwr-open-191346c908c8&…",
-        "bluesky": "GWR OPEN｜COR-222 人事マネージャー（HR Manager）｜AI Robot Association｜Ota-ku, Tokyo, JP｜USD 0。公式求人まで確認済み。GWRは日本から確認できる海外求人の変化を継続観測中。 https://global-work-radar.pages.dev/?japan=1&utm_source=social&utm_medium=organic&utm_campaign=gwr_signal_growth&utm_content=gwr-open-191346c908c8&q=AI+Robot+Association&in…",
-        "linkedin": "Global Work Radarで新しい求人Signalを確認。 COR-222 人事マネージャー（HR Manager）｜AI Robot Association｜Ota-ku, Tokyo, JP｜USD 0 公開対象はVERIFIED ACTIVEかつ公式応募先を確認できたものに限定しています。 https://global-work-radar.pages.dev/?japan=1&utm_source=social&utm_medium=organic&utm_campaign=gwr_signal_growth&utm_content=gwr-open-191346c908c8&q=AI+Robot+Association&intent=general"
-      },
-      "destination_url": "https://global-work-radar.pages.dev/?japan=1&utm_source=social&utm_medium=organic&utm_campaign=gwr_signal_growth&utm_content=gwr-open-191346c908c8&q=AI+Robot+Association&intent=general",
-      "evidence": [
-        {
-          "job_id": "workable-d25edcfce5",
-          "employer": "AI Robot Association",
-          "title": "COR-222 人事マネージャー（HR Manager）",
-          "source": "Workable",
-          "official_url": "https://apply.workable.com/j/D25EDCFCE5",
-          "last_verified_at": "2026-09-16T13:31:25.304Z",
+          "official_url": "https://apply.workable.com/j/802CC6E102",
+          "last_verified_at": "2026-09-16T19:34:40.813Z",
           "freshness_bucket": "NEW_24H",
           "hiring_momentum": "HIRING_UP",
           "hiring_delta": 1
@@ -222,21 +108,97 @@
       ],
       "publish_state": "CANDIDATE_NOT_PUBLISHED",
       "channel_rule": "GWR_CHANNEL_ONLY",
-      "rank": 5
+      "rank": 2
     },
     {
-      "candidate_id": "gwr-open-4ca3f97eb1fe",
+      "candidate_id": "gwr-open-5b518ea7fc0e",
       "signal_type": "GWR_OPEN",
       "objective": "qualified_revenue_growth",
-      "score": 91,
-      "source_generated_at": "2026-09-16T13:31:43.046Z",
+      "score": 105,
+      "source_generated_at": "2026-09-16T19:34:55.061Z",
       "claim_scope": "verified_active_structured_facts_only",
       "text": {
-        "x": "【GWR OPEN】Analyst- Model Audit｜Gridlines｜JP｜USD 0。公式求人の確認先まで検証済み。GWRは日本から確認できる海外求人の変化を継続観測中。 https://global-work-radar.pages.dev/?japan=1&utm_source=social&utm_medium=organic&utm_campaign=gwr_signal_growth&utm_content=gwr-open-4ca3f97eb1fe&q=Gridlines&intent=remote",
-        "bluesky": "GWR OPEN｜Analyst- Model Audit｜Gridlines｜JP｜USD 0。公式求人まで確認済み。GWRは日本から確認できる海外求人の変化を継続観測中。 https://global-work-radar.pages.dev/?japan=1&utm_source=social&utm_medium=organic&utm_campaign=gwr_signal_growth&utm_content=gwr-open-4ca3f97eb1fe&q=Gridlines&intent=remote",
-        "linkedin": "Global Work Radarで新しい求人Signalを確認。 Analyst- Model Audit｜Gridlines｜JP｜USD 0 公開対象はVERIFIED ACTIVEかつ公式応募先を確認できたものに限定しています。 https://global-work-radar.pages.dev/?japan=1&utm_source=social&utm_medium=organic&utm_campaign=gwr_signal_growth&utm_content=gwr-open-4ca3f97eb1fe&q=Gridlines&intent=remote"
+        "x": "【GWR OPEN】PDF Annotation & Transcription Experts - Japanese｜Weekday AI｜JP｜USD 0。公式求人の確認先まで検証済み。GWRは日本から確認できる海外求人の変化を継続観測中。 https://global-work-radar.pages.dev/?japan=1&utm_source=social&utm_medium=organic&utm_campaign=gwr_signal_growth&utm_content=gwr-open-5b518ea7fc0e&q=We…",
+        "bluesky": "GWR OPEN｜PDF Annotation & Transcription Experts - Japanese｜Weekday AI｜JP｜USD 0。公式求人まで確認済み。GWRは日本から確認できる海外求人の変化を継続観測中。 https://global-work-radar.pages.dev/?japan=1&utm_source=social&utm_medium=organic&utm_campaign=gwr_signal_growth&utm_content=gwr-open-5b518ea7fc0e&q=Weekday+AI&intent=remote",
+        "linkedin": "Global Work Radarで新しい求人Signalを確認。 PDF Annotation & Transcription Experts - Japanese｜Weekday AI｜JP｜USD 0 公開対象はVERIFIED ACTIVEかつ公式応募先を確認できたものに限定しています。 https://global-work-radar.pages.dev/?japan=1&utm_source=social&utm_medium=organic&utm_campaign=gwr_signal_growth&utm_content=gwr-open-5b518ea7fc0e&q=Weekday+AI&intent=remote"
       },
-      "destination_url": "https://global-work-radar.pages.dev/?japan=1&utm_source=social&utm_medium=organic&utm_campaign=gwr_signal_growth&utm_content=gwr-open-4ca3f97eb1fe&q=Gridlines&intent=remote",
+      "destination_url": "https://global-work-radar.pages.dev/?japan=1&utm_source=social&utm_medium=organic&utm_campaign=gwr_signal_growth&utm_content=gwr-open-5b518ea7fc0e&q=Weekday+AI&intent=remote",
+      "evidence": [
+        {
+          "job_id": "workable-315cf9a193",
+          "employer": "Weekday AI",
+          "title": "PDF Annotation & Transcription Experts - Japanese",
+          "source": "Workable",
+          "official_url": "https://apply.workable.com/j/315CF9A193",
+          "last_verified_at": "2026-09-16T19:34:40.813Z",
+          "freshness_bucket": "NEW_24H",
+          "hiring_momentum": "NEW_EMPLOYER_SIGNAL",
+          "hiring_delta": 1
+        }
+      ],
+      "measurement_chain": [
+        "social_publish",
+        "gwr_visit",
+        "gwr_return_visit",
+        "gwr_search",
+        "gwr_buyer_reaction",
+        "gwr_official_apply_click"
+      ],
+      "publish_state": "CANDIDATE_NOT_PUBLISHED",
+      "channel_rule": "GWR_CHANNEL_ONLY",
+      "rank": 3
+    },
+    {
+      "candidate_id": "gwr-open-40f4cd239aaa",
+      "signal_type": "GWR_OPEN",
+      "objective": "qualified_revenue_growth",
+      "score": 100,
+      "source_generated_at": "2026-09-16T19:34:55.061Z",
+      "claim_scope": "verified_active_structured_facts_only",
+      "text": {
+        "x": "【GWR OPEN】Japanese Survey Validation Freelancer｜CXG｜JP｜USD 0。公式求人の確認先まで検証済み。GWRは日本から確認できる海外求人の変化を継続観測中。 https://global-work-radar.pages.dev/?japan=1&utm_source=social&utm_medium=organic&utm_campaign=gwr_signal_growth&utm_content=gwr-open-40f4cd239aaa&q=CXG&intent=remote",
+        "bluesky": "GWR OPEN｜Japanese Survey Validation Freelancer｜CXG｜JP｜USD 0。公式求人まで確認済み。GWRは日本から確認できる海外求人の変化を継続観測中。 https://global-work-radar.pages.dev/?japan=1&utm_source=social&utm_medium=organic&utm_campaign=gwr_signal_growth&utm_content=gwr-open-40f4cd239aaa&q=CXG&intent=remote",
+        "linkedin": "Global Work Radarで新しい求人Signalを確認。 Japanese Survey Validation Freelancer｜CXG｜JP｜USD 0 公開対象はVERIFIED ACTIVEかつ公式応募先を確認できたものに限定しています。 https://global-work-radar.pages.dev/?japan=1&utm_source=social&utm_medium=organic&utm_campaign=gwr_signal_growth&utm_content=gwr-open-40f4cd239aaa&q=CXG&intent=remote"
+      },
+      "destination_url": "https://global-work-radar.pages.dev/?japan=1&utm_source=social&utm_medium=organic&utm_campaign=gwr_signal_growth&utm_content=gwr-open-40f4cd239aaa&q=CXG&intent=remote",
+      "evidence": [
+        {
+          "job_id": "workable-802cc6e102",
+          "employer": "CXG",
+          "title": "Japanese Survey Validation Freelancer",
+          "source": "Workable",
+          "official_url": "https://apply.workable.com/j/802CC6E102",
+          "last_verified_at": "2026-09-16T19:34:40.813Z",
+          "freshness_bucket": "NEW_24H",
+          "hiring_momentum": "HIRING_UP",
+          "hiring_delta": 1
+        }
+      ],
+      "measurement_chain": [
+        "social_publish",
+        "gwr_visit",
+        "gwr_return_visit",
+        "gwr_search",
+        "gwr_buyer_reaction",
+        "gwr_official_apply_click"
+      ],
+      "publish_state": "CANDIDATE_NOT_PUBLISHED",
+      "channel_rule": "GWR_CHANNEL_ONLY",
+      "rank": 4
+    },
+    {
+      "candidate_id": "gwr-alert-af1eefe45269",
+      "signal_type": "GWR_ALERT",
+      "objective": "qualified_revenue_growth",
+      "score": 98,
+      "source_generated_at": "2026-09-16T19:34:55.061Z",
+      "claim_scope": "snapshot_change_only_no_hiring_outcome_inference",
+      "text": {
+        "x": "【GWR ALERT】Gridlines｜Analyst- Model Audit｜新着Signal。日本対象可否・公式求人・鮮度を確認して追跡しています。次の変化もGWRで更新。 https://global-work-radar.pages.dev/?japan=1&utm_source=social&utm_medium=organic&utm_campaign=gwr_signal_growth&utm_content=gwr-alert-af1eefe45269&q=Gridlines&intent=general",
+        "bluesky": "GWR ALERT｜Gridlines｜Analyst- Model Audit｜新着Signal。日本対象可否・公式求人・鮮度を確認して継続追跡。 https://global-work-radar.pages.dev/?japan=1&utm_source=social&utm_medium=organic&utm_campaign=gwr_signal_growth&utm_content=gwr-alert-af1eefe45269&q=Gridlines&intent=general",
+        "linkedin": "GWR Market Alert Gridlines｜Analyst- Model Audit｜新着Signal。採用結果の予測ではなく、GWRの検証済み求人スナップショットで確認できた変化です。 https://global-work-radar.pages.dev/?japan=1&utm_source=social&utm_medium=organic&utm_campaign=gwr_signal_growth&utm_content=gwr-alert-af1eefe45269&q=Gridlines&intent=general"
+      },
+      "destination_url": "https://global-work-radar.pages.dev/?japan=1&utm_source=social&utm_medium=organic&utm_campaign=gwr_signal_growth&utm_content=gwr-alert-af1eefe45269&q=Gridlines&intent=general",
       "evidence": [
         {
           "job_id": "workable-52ab03caac",
@@ -244,7 +206,45 @@
           "title": "Analyst- Model Audit",
           "source": "Workable",
           "official_url": "https://apply.workable.com/j/52AB03CAAC",
-          "last_verified_at": "2026-09-16T13:31:25.304Z",
+          "last_verified_at": "2026-09-16T19:34:40.813Z",
+          "freshness_bucket": "NEW_24H",
+          "hiring_momentum": "STEADY",
+          "hiring_delta": 0
+        }
+      ],
+      "measurement_chain": [
+        "social_publish",
+        "gwr_visit",
+        "gwr_return_visit",
+        "gwr_search",
+        "gwr_buyer_reaction",
+        "gwr_official_apply_click"
+      ],
+      "publish_state": "CANDIDATE_NOT_PUBLISHED",
+      "channel_rule": "GWR_CHANNEL_ONLY",
+      "rank": 5
+    },
+    {
+      "candidate_id": "gwr-alert-c6dc3e92b1d2",
+      "signal_type": "GWR_ALERT",
+      "objective": "qualified_revenue_growth",
+      "score": 98,
+      "source_generated_at": "2026-09-16T19:34:55.061Z",
+      "claim_scope": "snapshot_change_only_no_hiring_outcome_inference",
+      "text": {
+        "x": "【GWR ALERT】Gridlines｜Associate Director- Model Audit, Build and Transaction Advisory｜新着Signal。日本対象可否・公式求人・鮮度を確認して追跡しています。次の変化もGWRで更新。 https://global-work-radar.pages.dev/?japan=1&utm_source=social&utm_medium=organic&utm_campaign=gwr_signal_growth&utm_content=gwr-alert-c6dc3…",
+        "bluesky": "GWR ALERT｜Gridlines｜Associate Director- Model Audit, Build and Transaction Advisory｜新着Signal。日本対象可否・公式求人・鮮度を確認して継続追跡。 https://global-work-radar.pages.dev/?japan=1&utm_source=social&utm_medium=organic&utm_campaign=gwr_signal_growth&utm_content=gwr-alert-c6dc3e92b1d2&q=Gridlines&intent=general",
+        "linkedin": "GWR Market Alert Gridlines｜Associate Director- Model Audit, Build and Transaction Advisory｜新着Signal。採用結果の予測ではなく、GWRの検証済み求人スナップショットで確認できた変化です。 https://global-work-radar.pages.dev/?japan=1&utm_source=social&utm_medium=organic&utm_campaign=gwr_signal_growth&utm_content=gwr-alert-c6dc3e92b1d2&q=Gridlines&intent=general"
+      },
+      "destination_url": "https://global-work-radar.pages.dev/?japan=1&utm_source=social&utm_medium=organic&utm_campaign=gwr_signal_growth&utm_content=gwr-alert-c6dc3e92b1d2&q=Gridlines&intent=general",
+      "evidence": [
+        {
+          "job_id": "workable-06311a73ff",
+          "employer": "Gridlines",
+          "title": "Associate Director- Model Audit, Build and Transaction Advisory",
+          "source": "Workable",
+          "official_url": "https://apply.workable.com/j/06311A73FF",
+          "last_verified_at": "2026-09-16T19:34:40.813Z",
           "freshness_bucket": "NEW_24H",
           "hiring_momentum": "STEADY",
           "hiring_delta": 0
@@ -263,26 +263,26 @@
       "rank": 6
     },
     {
-      "candidate_id": "gwr-open-a5f9b4c7e2d2",
+      "candidate_id": "gwr-open-5bcd69d3a50f",
       "signal_type": "GWR_OPEN",
       "objective": "qualified_revenue_growth",
       "score": 91,
-      "source_generated_at": "2026-09-16T13:31:43.046Z",
+      "source_generated_at": "2026-09-16T19:34:55.061Z",
       "claim_scope": "verified_active_structured_facts_only",
       "text": {
-        "x": "【GWR OPEN】Associate Director- Model Audit, Build and Transaction Advisory｜Gridlines｜JP｜USD 0。公式求人の確認先まで検証済み。GWRは日本から確認できる海外求人の変化を継続観測中。 https://global-work-radar.pages.dev/?japan=1&utm_source=social&utm_medium=organic&utm_campaign=gwr_signal_growth&utm_content=gwr-open-a5f9…",
-        "bluesky": "GWR OPEN｜Associate Director- Model Audit, Build and Transaction Advisory｜Gridlines｜JP｜USD 0。公式求人まで確認済み。GWRは日本から確認できる海外求人の変化を継続観測中。 https://global-work-radar.pages.dev/?japan=1&utm_source=social&utm_medium=organic&utm_campaign=gwr_signal_growth&utm_content=gwr-open-a5f9b4c7e2d2&q=Gridlines&inte…",
-        "linkedin": "Global Work Radarで新しい求人Signalを確認。 Associate Director- Model Audit, Build and Transaction Advisory｜Gridlines｜JP｜USD 0 公開対象はVERIFIED ACTIVEかつ公式応募先を確認できたものに限定しています。 https://global-work-radar.pages.dev/?japan=1&utm_source=social&utm_medium=organic&utm_campaign=gwr_signal_growth&utm_content=gwr-open-a5f9b4c7e2d2&q=Gridlines&intent=remote"
+        "x": "【GWR OPEN】Analyst- Model Audit｜Gridlines｜JP｜USD 0。公式求人の確認先まで検証済み。GWRは日本から確認できる海外求人の変化を継続観測中。 https://global-work-radar.pages.dev/?japan=1&utm_source=social&utm_medium=organic&utm_campaign=gwr_signal_growth&utm_content=gwr-open-5bcd69d3a50f&q=Gridlines&intent=remote",
+        "bluesky": "GWR OPEN｜Analyst- Model Audit｜Gridlines｜JP｜USD 0。公式求人まで確認済み。GWRは日本から確認できる海外求人の変化を継続観測中。 https://global-work-radar.pages.dev/?japan=1&utm_source=social&utm_medium=organic&utm_campaign=gwr_signal_growth&utm_content=gwr-open-5bcd69d3a50f&q=Gridlines&intent=remote",
+        "linkedin": "Global Work Radarで新しい求人Signalを確認。 Analyst- Model Audit｜Gridlines｜JP｜USD 0 公開対象はVERIFIED ACTIVEかつ公式応募先を確認できたものに限定しています。 https://global-work-radar.pages.dev/?japan=1&utm_source=social&utm_medium=organic&utm_campaign=gwr_signal_growth&utm_content=gwr-open-5bcd69d3a50f&q=Gridlines&intent=remote"
       },
-      "destination_url": "https://global-work-radar.pages.dev/?japan=1&utm_source=social&utm_medium=organic&utm_campaign=gwr_signal_growth&utm_content=gwr-open-a5f9b4c7e2d2&q=Gridlines&intent=remote",
+      "destination_url": "https://global-work-radar.pages.dev/?japan=1&utm_source=social&utm_medium=organic&utm_campaign=gwr_signal_growth&utm_content=gwr-open-5bcd69d3a50f&q=Gridlines&intent=remote",
       "evidence": [
         {
-          "job_id": "workable-06311a73ff",
+          "job_id": "workable-52ab03caac",
           "employer": "Gridlines",
-          "title": "Associate Director- Model Audit, Build and Transaction Advisory",
+          "title": "Analyst- Model Audit",
           "source": "Workable",
-          "official_url": "https://apply.workable.com/j/06311A73FF",
-          "last_verified_at": "2026-09-16T13:31:25.304Z",
+          "official_url": "https://apply.workable.com/j/52AB03CAAC",
+          "last_verified_at": "2026-09-16T19:34:40.813Z",
           "freshness_bucket": "NEW_24H",
           "hiring_momentum": "STEADY",
           "hiring_delta": 0
@@ -301,26 +301,26 @@
       "rank": 7
     },
     {
-      "candidate_id": "gwr-open-74453e800401",
+      "candidate_id": "gwr-open-0db14acc2e1f",
       "signal_type": "GWR_OPEN",
       "objective": "qualified_revenue_growth",
       "score": 91,
-      "source_generated_at": "2026-09-16T13:31:43.046Z",
+      "source_generated_at": "2026-09-16T19:34:55.061Z",
       "claim_scope": "verified_active_structured_facts_only",
       "text": {
-        "x": "【GWR OPEN】Commercial Director- Model Audit, Build and Transaction Advisory｜Gridlines｜JP｜USD 0。公式求人の確認先まで検証済み。GWRは日本から確認できる海外求人の変化を継続観測中。 https://global-work-radar.pages.dev/?japan=1&utm_source=social&utm_medium=organic&utm_campaign=gwr_signal_growth&utm_content=gwr-open-744…",
-        "bluesky": "GWR OPEN｜Commercial Director- Model Audit, Build and Transaction Advisory｜Gridlines｜JP｜USD 0。公式求人まで確認済み。GWRは日本から確認できる海外求人の変化を継続観測中。 https://global-work-radar.pages.dev/?japan=1&utm_source=social&utm_medium=organic&utm_campaign=gwr_signal_growth&utm_content=gwr-open-74453e800401&q=Gridlines&int…",
-        "linkedin": "Global Work Radarで新しい求人Signalを確認。 Commercial Director- Model Audit, Build and Transaction Advisory｜Gridlines｜JP｜USD 0 公開対象はVERIFIED ACTIVEかつ公式応募先を確認できたものに限定しています。 https://global-work-radar.pages.dev/?japan=1&utm_source=social&utm_medium=organic&utm_campaign=gwr_signal_growth&utm_content=gwr-open-74453e800401&q=Gridlines&intent=remote"
+        "x": "【GWR OPEN】Associate Director- Model Audit, Build and Transaction Advisory｜Gridlines｜JP｜USD 0。公式求人の確認先まで検証済み。GWRは日本から確認できる海外求人の変化を継続観測中。 https://global-work-radar.pages.dev/?japan=1&utm_source=social&utm_medium=organic&utm_campaign=gwr_signal_growth&utm_content=gwr-open-0db1…",
+        "bluesky": "GWR OPEN｜Associate Director- Model Audit, Build and Transaction Advisory｜Gridlines｜JP｜USD 0。公式求人まで確認済み。GWRは日本から確認できる海外求人の変化を継続観測中。 https://global-work-radar.pages.dev/?japan=1&utm_source=social&utm_medium=organic&utm_campaign=gwr_signal_growth&utm_content=gwr-open-0db14acc2e1f&q=Gridlines&inte…",
+        "linkedin": "Global Work Radarで新しい求人Signalを確認。 Associate Director- Model Audit, Build and Transaction Advisory｜Gridlines｜JP｜USD 0 公開対象はVERIFIED ACTIVEかつ公式応募先を確認できたものに限定しています。 https://global-work-radar.pages.dev/?japan=1&utm_source=social&utm_medium=organic&utm_campaign=gwr_signal_growth&utm_content=gwr-open-0db14acc2e1f&q=Gridlines&intent=remote"
       },
-      "destination_url": "https://global-work-radar.pages.dev/?japan=1&utm_source=social&utm_medium=organic&utm_campaign=gwr_signal_growth&utm_content=gwr-open-74453e800401&q=Gridlines&intent=remote",
+      "destination_url": "https://global-work-radar.pages.dev/?japan=1&utm_source=social&utm_medium=organic&utm_campaign=gwr_signal_growth&utm_content=gwr-open-0db14acc2e1f&q=Gridlines&intent=remote",
       "evidence": [
         {
-          "job_id": "workable-5b54e21a11",
+          "job_id": "workable-06311a73ff",
           "employer": "Gridlines",
-          "title": "Commercial Director- Model Audit, Build and Transaction Advisory",
+          "title": "Associate Director- Model Audit, Build and Transaction Advisory",
           "source": "Workable",
-          "official_url": "https://apply.workable.com/j/5B54E21A11",
-          "last_verified_at": "2026-09-16T13:31:25.304Z",
+          "official_url": "https://apply.workable.com/j/06311A73FF",
+          "last_verified_at": "2026-09-16T19:34:40.813Z",
           "freshness_bucket": "NEW_24H",
           "hiring_momentum": "STEADY",
           "hiring_delta": 0
@@ -339,26 +339,26 @@
       "rank": 8
     },
     {
-      "candidate_id": "gwr-open-46d95e5d91ac",
+      "candidate_id": "gwr-open-4651954c29a7",
       "signal_type": "GWR_OPEN",
       "objective": "qualified_revenue_growth",
       "score": 91,
-      "source_generated_at": "2026-09-16T13:31:43.046Z",
+      "source_generated_at": "2026-09-16T19:34:55.061Z",
       "claim_scope": "verified_active_structured_facts_only",
       "text": {
-        "x": "【GWR OPEN】Manager- Model Audit｜Gridlines｜JP｜USD 0。公式求人の確認先まで検証済み。GWRは日本から確認できる海外求人の変化を継続観測中。 https://global-work-radar.pages.dev/?japan=1&utm_source=social&utm_medium=organic&utm_campaign=gwr_signal_growth&utm_content=gwr-open-46d95e5d91ac&q=Gridlines&intent=remote",
-        "bluesky": "GWR OPEN｜Manager- Model Audit｜Gridlines｜JP｜USD 0。公式求人まで確認済み。GWRは日本から確認できる海外求人の変化を継続観測中。 https://global-work-radar.pages.dev/?japan=1&utm_source=social&utm_medium=organic&utm_campaign=gwr_signal_growth&utm_content=gwr-open-46d95e5d91ac&q=Gridlines&intent=remote",
-        "linkedin": "Global Work Radarで新しい求人Signalを確認。 Manager- Model Audit｜Gridlines｜JP｜USD 0 公開対象はVERIFIED ACTIVEかつ公式応募先を確認できたものに限定しています。 https://global-work-radar.pages.dev/?japan=1&utm_source=social&utm_medium=organic&utm_campaign=gwr_signal_growth&utm_content=gwr-open-46d95e5d91ac&q=Gridlines&intent=remote"
+        "x": "【GWR OPEN】Commercial Director- Model Audit, Build and Transaction Advisory｜Gridlines｜JP｜USD 0。公式求人の確認先まで検証済み。GWRは日本から確認できる海外求人の変化を継続観測中。 https://global-work-radar.pages.dev/?japan=1&utm_source=social&utm_medium=organic&utm_campaign=gwr_signal_growth&utm_content=gwr-open-465…",
+        "bluesky": "GWR OPEN｜Commercial Director- Model Audit, Build and Transaction Advisory｜Gridlines｜JP｜USD 0。公式求人まで確認済み。GWRは日本から確認できる海外求人の変化を継続観測中。 https://global-work-radar.pages.dev/?japan=1&utm_source=social&utm_medium=organic&utm_campaign=gwr_signal_growth&utm_content=gwr-open-4651954c29a7&q=Gridlines&int…",
+        "linkedin": "Global Work Radarで新しい求人Signalを確認。 Commercial Director- Model Audit, Build and Transaction Advisory｜Gridlines｜JP｜USD 0 公開対象はVERIFIED ACTIVEかつ公式応募先を確認できたものに限定しています。 https://global-work-radar.pages.dev/?japan=1&utm_source=social&utm_medium=organic&utm_campaign=gwr_signal_growth&utm_content=gwr-open-4651954c29a7&q=Gridlines&intent=remote"
       },
-      "destination_url": "https://global-work-radar.pages.dev/?japan=1&utm_source=social&utm_medium=organic&utm_campaign=gwr_signal_growth&utm_content=gwr-open-46d95e5d91ac&q=Gridlines&intent=remote",
+      "destination_url": "https://global-work-radar.pages.dev/?japan=1&utm_source=social&utm_medium=organic&utm_campaign=gwr_signal_growth&utm_content=gwr-open-4651954c29a7&q=Gridlines&intent=remote",
       "evidence": [
         {
-          "job_id": "workable-33ef723bd1",
+          "job_id": "workable-5b54e21a11",
           "employer": "Gridlines",
-          "title": "Manager- Model Audit",
+          "title": "Commercial Director- Model Audit, Build and Transaction Advisory",
           "source": "Workable",
-          "official_url": "https://apply.workable.com/j/33EF723BD1",
-          "last_verified_at": "2026-09-16T13:31:25.304Z",
+          "official_url": "https://apply.workable.com/j/5B54E21A11",
+          "last_verified_at": "2026-09-16T19:34:40.813Z",
           "freshness_bucket": "NEW_24H",
           "hiring_momentum": "STEADY",
           "hiring_delta": 0
@@ -377,26 +377,26 @@
       "rank": 9
     },
     {
-      "candidate_id": "gwr-open-9313257c0133",
+      "candidate_id": "gwr-open-8b5de5733e62",
       "signal_type": "GWR_OPEN",
       "objective": "qualified_revenue_growth",
       "score": 91,
-      "source_generated_at": "2026-09-16T13:31:43.046Z",
+      "source_generated_at": "2026-09-16T19:34:55.061Z",
       "claim_scope": "verified_active_structured_facts_only",
       "text": {
-        "x": "【GWR OPEN】Consultant- Model Audit｜Gridlines｜JP｜USD 0。公式求人の確認先まで検証済み。GWRは日本から確認できる海外求人の変化を継続観測中。 https://global-work-radar.pages.dev/?japan=1&utm_source=social&utm_medium=organic&utm_campaign=gwr_signal_growth&utm_content=gwr-open-9313257c0133&q=Gridlines&intent=remote",
-        "bluesky": "GWR OPEN｜Consultant- Model Audit｜Gridlines｜JP｜USD 0。公式求人まで確認済み。GWRは日本から確認できる海外求人の変化を継続観測中。 https://global-work-radar.pages.dev/?japan=1&utm_source=social&utm_medium=organic&utm_campaign=gwr_signal_growth&utm_content=gwr-open-9313257c0133&q=Gridlines&intent=remote",
-        "linkedin": "Global Work Radarで新しい求人Signalを確認。 Consultant- Model Audit｜Gridlines｜JP｜USD 0 公開対象はVERIFIED ACTIVEかつ公式応募先を確認できたものに限定しています。 https://global-work-radar.pages.dev/?japan=1&utm_source=social&utm_medium=organic&utm_campaign=gwr_signal_growth&utm_content=gwr-open-9313257c0133&q=Gridlines&intent=remote"
+        "x": "【GWR OPEN】Manager- Model Audit｜Gridlines｜JP｜USD 0。公式求人の確認先まで検証済み。GWRは日本から確認できる海外求人の変化を継続観測中。 https://global-work-radar.pages.dev/?japan=1&utm_source=social&utm_medium=organic&utm_campaign=gwr_signal_growth&utm_content=gwr-open-8b5de5733e62&q=Gridlines&intent=remote",
+        "bluesky": "GWR OPEN｜Manager- Model Audit｜Gridlines｜JP｜USD 0。公式求人まで確認済み。GWRは日本から確認できる海外求人の変化を継続観測中。 https://global-work-radar.pages.dev/?japan=1&utm_source=social&utm_medium=organic&utm_campaign=gwr_signal_growth&utm_content=gwr-open-8b5de5733e62&q=Gridlines&intent=remote",
+        "linkedin": "Global Work Radarで新しい求人Signalを確認。 Manager- Model Audit｜Gridlines｜JP｜USD 0 公開対象はVERIFIED ACTIVEかつ公式応募先を確認できたものに限定しています。 https://global-work-radar.pages.dev/?japan=1&utm_source=social&utm_medium=organic&utm_campaign=gwr_signal_growth&utm_content=gwr-open-8b5de5733e62&q=Gridlines&intent=remote"
       },
-      "destination_url": "https://global-work-radar.pages.dev/?japan=1&utm_source=social&utm_medium=organic&utm_campaign=gwr_signal_growth&utm_content=gwr-open-9313257c0133&q=Gridlines&intent=remote",
+      "destination_url": "https://global-work-radar.pages.dev/?japan=1&utm_source=social&utm_medium=organic&utm_campaign=gwr_signal_growth&utm_content=gwr-open-8b5de5733e62&q=Gridlines&intent=remote",
       "evidence": [
         {
-          "job_id": "workable-bb55fc253b",
+          "job_id": "workable-33ef723bd1",
           "employer": "Gridlines",
-          "title": "Consultant- Model Audit",
+          "title": "Manager- Model Audit",
           "source": "Workable",
-          "official_url": "https://apply.workable.com/j/BB55FC253B",
-          "last_verified_at": "2026-09-16T13:31:25.304Z",
+          "official_url": "https://apply.workable.com/j/33EF723BD1",
+          "last_verified_at": "2026-09-16T19:34:40.813Z",
           "freshness_bucket": "NEW_24H",
           "hiring_momentum": "STEADY",
           "hiring_delta": 0
@@ -415,59 +415,59 @@
       "rank": 10
     },
     {
-      "candidate_id": "gwr-shift-411adbf770e7",
+      "candidate_id": "gwr-shift-14be3b4170ef",
       "signal_type": "GWR_SHIFT",
       "objective": "qualified_revenue_growth",
       "score": 82,
-      "source_generated_at": "2026-09-16T13:31:43.046Z",
+      "source_generated_at": "2026-09-16T19:34:55.061Z",
       "claim_scope": "verified_inventory_snapshot_delta_only",
       "text": {
-        "x": "【GWR SHIFT】AI Robot Association：GWR確認求人 43→44（+1）。採用成否の予測ではなく、検証済み公開求人のスナップショット変化です。 https://global-work-radar.pages.dev/?japan=1&utm_source=social&utm_medium=organic&utm_campaign=gwr_signal_growth&utm_content=gwr-shift-411adbf770e7&q=AI+Robot+Association&intent=general",
-        "bluesky": "GWR SHIFT｜AI Robot Association：GWR確認求人 43→44（+1）。検証済み公開求人のスナップショット変化として継続追跡。 https://global-work-radar.pages.dev/?japan=1&utm_source=social&utm_medium=organic&utm_campaign=gwr_signal_growth&utm_content=gwr-shift-411adbf770e7&q=AI+Robot+Association&intent=general",
-        "linkedin": "GWR Market Shift AI Robot Association：GWR確認求人 43→44（+1）。企業の採用意欲や採用成否を断定せず、VERIFIED ACTIVE求人の差分として追跡します。 https://global-work-radar.pages.dev/?japan=1&utm_source=social&utm_medium=organic&utm_campaign=gwr_signal_growth&utm_content=gwr-shift-411adbf770e7&q=AI+Robot+Association&intent=general"
+        "x": "【GWR SHIFT】CXG：GWR確認求人 23→24（+1）。採用成否の予測ではなく、検証済み公開求人のスナップショット変化です。 https://global-work-radar.pages.dev/?japan=1&utm_source=social&utm_medium=organic&utm_campaign=gwr_signal_growth&utm_content=gwr-shift-14be3b4170ef&q=CXG&intent=general",
+        "bluesky": "GWR SHIFT｜CXG：GWR確認求人 23→24（+1）。検証済み公開求人のスナップショット変化として継続追跡。 https://global-work-radar.pages.dev/?japan=1&utm_source=social&utm_medium=organic&utm_campaign=gwr_signal_growth&utm_content=gwr-shift-14be3b4170ef&q=CXG&intent=general",
+        "linkedin": "GWR Market Shift CXG：GWR確認求人 23→24（+1）。企業の採用意欲や採用成否を断定せず、VERIFIED ACTIVE求人の差分として追跡します。 https://global-work-radar.pages.dev/?japan=1&utm_source=social&utm_medium=organic&utm_campaign=gwr_signal_growth&utm_content=gwr-shift-14be3b4170ef&q=CXG&intent=general"
       },
-      "destination_url": "https://global-work-radar.pages.dev/?japan=1&utm_source=social&utm_medium=organic&utm_campaign=gwr_signal_growth&utm_content=gwr-shift-411adbf770e7&q=AI+Robot+Association&intent=general",
+      "destination_url": "https://global-work-radar.pages.dev/?japan=1&utm_source=social&utm_medium=organic&utm_campaign=gwr_signal_growth&utm_content=gwr-shift-14be3b4170ef&q=CXG&intent=general",
       "evidence": [
         {
-          "job_id": "workable-41f439e0a6",
-          "employer": "AI Robot Association",
-          "title": "R&D-023 MLOps Engineer",
+          "job_id": "workable-802cc6e102",
+          "employer": "CXG",
+          "title": "Japanese Survey Validation Freelancer",
           "source": "Workable",
-          "official_url": "https://apply.workable.com/j/41F439E0A6",
-          "last_verified_at": "2026-09-16T13:31:25.304Z",
+          "official_url": "https://apply.workable.com/j/802CC6E102",
+          "last_verified_at": "2026-09-16T19:34:40.813Z",
+          "freshness_bucket": "NEW_24H",
+          "hiring_momentum": "HIRING_UP",
+          "hiring_delta": 1
+        },
+        {
+          "job_id": "workable-ccb1816009",
+          "employer": "CXG",
+          "title": "ラグジュアリーブランド評価者になろう ー 応募受付中 (関東エリア)",
+          "source": "Workable",
+          "official_url": "https://apply.workable.com/j/CCB1816009",
+          "last_verified_at": "2026-09-16T19:34:40.813Z",
           "freshness_bucket": "LONG_RUNNING",
           "hiring_momentum": "HIRING_UP",
           "hiring_delta": 1
         },
         {
-          "job_id": "workable-6b151a6914",
-          "employer": "AI Robot Association",
-          "title": "R&D-014 Intern Research Scientist (VLAs)",
+          "job_id": "workable-4006265775",
+          "employer": "CXG",
+          "title": "ラグジュアリーブランド評価者になろう ー 応募受付中 (東北エリア)",
           "source": "Workable",
-          "official_url": "https://apply.workable.com/j/6B151A6914",
-          "last_verified_at": "2026-09-16T13:31:25.304Z",
+          "official_url": "https://apply.workable.com/j/4006265775",
+          "last_verified_at": "2026-09-16T19:34:40.813Z",
           "freshness_bucket": "LONG_RUNNING",
           "hiring_momentum": "HIRING_UP",
           "hiring_delta": 1
         },
         {
-          "job_id": "workable-d27bc4d685",
-          "employer": "AI Robot Association",
-          "title": "R&D-013 Junior Research Scientist (VLAs)",
+          "job_id": "workable-a335b713f4",
+          "employer": "CXG",
+          "title": "ラグジュアリーブランド評価者になろう ー 応募受付中 (名古屋エリア)",
           "source": "Workable",
-          "official_url": "https://apply.workable.com/j/D27BC4D685",
-          "last_verified_at": "2026-09-16T13:31:25.304Z",
-          "freshness_bucket": "LONG_RUNNING",
-          "hiring_momentum": "HIRING_UP",
-          "hiring_delta": 1
-        },
-        {
-          "job_id": "workable-450c7cea45",
-          "employer": "AI Robot Association",
-          "title": "R&D-012 Research Scientist (VLAs)",
-          "source": "Workable",
-          "official_url": "https://apply.workable.com/j/450C7CEA45",
-          "last_verified_at": "2026-09-16T13:31:25.304Z",
+          "official_url": "https://apply.workable.com/j/A335B713F4",
+          "last_verified_at": "2026-09-16T19:34:40.813Z",
           "freshness_bucket": "LONG_RUNNING",
           "hiring_momentum": "HIRING_UP",
           "hiring_delta": 1
@@ -484,6 +484,44 @@
       "publish_state": "CANDIDATE_NOT_PUBLISHED",
       "channel_rule": "GWR_CHANNEL_ONLY",
       "rank": 11
+    },
+    {
+      "candidate_id": "gwr-shift-4b271d3916fb",
+      "signal_type": "GWR_SHIFT",
+      "objective": "qualified_revenue_growth",
+      "score": 76,
+      "source_generated_at": "2026-09-16T19:34:55.061Z",
+      "claim_scope": "verified_inventory_snapshot_delta_only",
+      "text": {
+        "x": "【GWR SHIFT】Weekday AI：GWR確認求人 0→1（+1）。採用成否の予測ではなく、検証済み公開求人のスナップショット変化です。 https://global-work-radar.pages.dev/?japan=1&utm_source=social&utm_medium=organic&utm_campaign=gwr_signal_growth&utm_content=gwr-shift-4b271d3916fb&q=Weekday+AI&intent=general",
+        "bluesky": "GWR SHIFT｜Weekday AI：GWR確認求人 0→1（+1）。検証済み公開求人のスナップショット変化として継続追跡。 https://global-work-radar.pages.dev/?japan=1&utm_source=social&utm_medium=organic&utm_campaign=gwr_signal_growth&utm_content=gwr-shift-4b271d3916fb&q=Weekday+AI&intent=general",
+        "linkedin": "GWR Market Shift Weekday AI：GWR確認求人 0→1（+1）。企業の採用意欲や採用成否を断定せず、VERIFIED ACTIVE求人の差分として追跡します。 https://global-work-radar.pages.dev/?japan=1&utm_source=social&utm_medium=organic&utm_campaign=gwr_signal_growth&utm_content=gwr-shift-4b271d3916fb&q=Weekday+AI&intent=general"
+      },
+      "destination_url": "https://global-work-radar.pages.dev/?japan=1&utm_source=social&utm_medium=organic&utm_campaign=gwr_signal_growth&utm_content=gwr-shift-4b271d3916fb&q=Weekday+AI&intent=general",
+      "evidence": [
+        {
+          "job_id": "workable-315cf9a193",
+          "employer": "Weekday AI",
+          "title": "PDF Annotation & Transcription Experts - Japanese",
+          "source": "Workable",
+          "official_url": "https://apply.workable.com/j/315CF9A193",
+          "last_verified_at": "2026-09-16T19:34:40.813Z",
+          "freshness_bucket": "NEW_24H",
+          "hiring_momentum": "NEW_EMPLOYER_SIGNAL",
+          "hiring_delta": 1
+        }
+      ],
+      "measurement_chain": [
+        "social_publish",
+        "gwr_visit",
+        "gwr_return_visit",
+        "gwr_search",
+        "gwr_buyer_reaction",
+        "gwr_official_apply_click"
+      ],
+      "publish_state": "CANDIDATE_NOT_PUBLISHED",
+      "channel_rule": "GWR_CHANNEL_ONLY",
+      "rank": 12
     }
   ]
 }
