@@ -1,23 +1,23 @@
 {
   "schema_version": 1,
-  "observed_at": "2026-09-16T04:50:16.116Z",
+  "observed_at": "2026-09-16T13:31:43.415Z",
   "run": {
-    "github_run_id": "35057070423",
+    "github_run_id": "35102328353",
     "github_run_attempt": "1",
-    "github_sha": "cc1a89c62ba1b5b3b090aab88f5a057389f84791",
+    "github_sha": "f10ffc71579d7f07a34c7a9eb923acc80fac81a0",
     "baseline_ref": "HEAD"
   },
   "inventory": {
     "previous_count": null,
-    "current_count": 462,
+    "current_count": 460,
     "source_counts": {
       "lever": 0,
-      "workable_publishable": 569
+      "workable_publishable": 567
     }
   },
   "change_detection": {
-    "meaningful_change_count": 462,
-    "added_count": 462,
+    "meaningful_change_count": 460,
+    "added_count": 460,
     "removed_count": 0,
     "changed_count": 0,
     "added_ids": [
@@ -64,9 +64,9 @@
       "workable-ccb1816009",
       "workable-4006265775",
       "workable-a335b713f4",
+      "workable-2584b2186b",
       "workable-4c15cdd484",
       "workable-35e51b79a9",
-      "workable-2584b2186b",
       "workable-8bbd3702f9",
       "workable-0b1d27bd70",
       "workable-82d7518973",
@@ -214,10 +214,6 @@
       "workable-d9b3cf27e9",
       "workable-d845e79830",
       "workable-a5b4e894eb",
-      "workable-8d8df65dd4",
-      "workable-9a17327915",
-      "workable-284724c2d8",
-      "workable-8e87c7bb33",
       "workable-9ad8063e4f",
       "workable-ebf340a7ca",
       "workable-99d41dda7a",
@@ -241,8 +237,8 @@
       "workable-e15a83320b",
       "workable-dce00c9ab7",
       "workable-5566905a4d",
-      "workable-77e347facb",
       "workable-724fc610a7",
+      "workable-77e347facb",
       "workable-361b100e01",
       "workable-1a3ece5ba1",
       "workable-394c5fdae6",
@@ -263,8 +259,6 @@
       "workable-2e36e9fb07",
       "workable-27c9e3bc72",
       "workable-d676a527a5",
-      "workable-f6c1c20cb3",
-      "workable-f0992f2360",
       "workable-560e7958c6",
       "workable-bfea977411",
       "workable-b92728b832",
@@ -295,7 +289,6 @@
       "workable-d938a9a8ed",
       "workable-315ec3ea7f",
       "workable-ae8c512164",
-      "workable-c27832845f",
       "workable-d069059ee3",
       "workable-7a8b56f354",
       "workable-260e83f2aa",
@@ -334,11 +327,9 @@
       "workable-7d6642cfff",
       "workable-0f952dd32a",
       "workable-3ad018b1ec",
-      "workable-6870f06d9a",
       "workable-f1153aa5a8",
       "workable-fad5b6920f",
       "workable-509be5c3e9",
-      "workable-f36ed72367",
       "workable-52747ba8b0",
       "workable-d1b4ec163d",
       "workable-d354fd74a2",
@@ -374,7 +365,6 @@
       "workable-b8c14f2b5c",
       "workable-a2c418a2d3",
       "workable-4a137c14cc",
-      "workable-8510d8ad8e",
       "workable-412bd8011d",
       "workable-0d6ad05b7a",
       "workable-374c08e8fb",
@@ -482,7 +472,15 @@
       "workable-1336ec9757",
       "workable-d606f2e466",
       "workable-7d94b661e0",
-      "workable-587174a08a"
+      "workable-587174a08a",
+      "workable-52ab03caac",
+      "workable-06311a73ff",
+      "workable-5b54e21a11",
+      "workable-33ef723bd1",
+      "workable-bb55fc253b",
+      "workable-51f2976178",
+      "workable-d402b627a8",
+      "workable-d25edcfce5"
     ],
     "removed_ids": [],
     "changed": []
@@ -490,21 +488,21 @@
   "intelligence": {
     "lifecycle": {
       "state_counts": {
-        "STALE_RISK_90D": 224,
-        "LONG_RUNNING_60D": 49,
-        "ACTIVE": 76,
+        "STALE_RISK_90D": 220,
+        "LONG_RUNNING_60D": 47,
+        "ACTIVE": 75,
         "AGING_30D": 61,
-        "FRESH_7D": 36,
-        "NEW_3D": 10,
-        "NEW_24H": 6
+        "FRESH_7D": 37,
+        "NEW_3D": 11,
+        "NEW_24H": 9
       },
       "stale_risk_counts": {
-        "ELEVATED": 224,
-        "REVIEW": 49,
-        "LOW": 189
+        "ELEVATED": 220,
+        "REVIEW": 47,
+        "LOW": 193
       },
       "reopened_after_confirmed_close_count": 0,
-      "changed_within_7d_count": 68,
+      "changed_within_7d_count": 65,
       "thresholds_days": {
         "aging": 30,
         "long_running": 60,
@@ -514,8 +512,8 @@
     },
     "hiring_intent": {
       "signal_level_counts": {
-        "WEAK_EVIDENCE": 334,
-        "MODERATE_EVIDENCE": 111,
+        "WEAK_EVIDENCE": 322,
+        "MODERATE_EVIDENCE": 121,
         "STRONG_EVIDENCE": 17
       },
       "score_is_probability": false,
