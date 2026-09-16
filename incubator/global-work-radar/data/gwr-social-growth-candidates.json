@@ -1,6 +1,6 @@
 {
-  "generated_at": "2026-09-15T22:55:38.030Z",
-  "source_generated_at": "2026-09-15T22:55:04.882Z",
+  "generated_at": "2026-09-16T04:50:48.669Z",
+  "source_generated_at": "2026-09-16T04:50:15.672Z",
   "brand": "Global Work Radar",
   "purpose": "Turn verified market changes into GWR-owned traffic, explicit buyer-reaction evidence, and revenue opportunities without fabricating publication state.",
   "channel_policy": "GWR_CHANNEL_ONLY",
@@ -32,32 +32,32 @@
     ],
     "revenue_first": true
   },
-  "candidate_count": 11,
+  "candidate_count": 10,
   "candidates": [
     {
-      "candidate_id": "gwr-alert-7868637a61d3",
+      "candidate_id": "gwr-alert-23f1be13b5f1",
       "signal_type": "GWR_ALERT",
       "objective": "qualified_revenue_growth",
-      "score": 99,
-      "source_generated_at": "2026-09-15T22:55:04.882Z",
+      "score": 98,
+      "source_generated_at": "2026-09-16T04:50:15.672Z",
       "claim_scope": "snapshot_change_only_no_hiring_outcome_inference",
       "text": {
-        "x": "【GWR ALERT】Mercari, inc.｜Product Engineer Backend, Global Supply - Mercari｜前回スナップショット比 +1。日本対象可否・公式求人・鮮度を確認して追跡しています。次の変化もGWRで更新。 https://global-work-radar.pages.dev/?japan=1&utm_source=social&utm_medium=organic&utm_campaign=gwr_signal_growth&utm_content=gwr-alert-7868637a6…",
-        "bluesky": "GWR ALERT｜Mercari, inc.｜Product Engineer Backend, Global Supply - Mercari｜前回スナップショット比 +1。日本対象可否・公式求人・鮮度を確認して継続追跡。 https://global-work-radar.pages.dev/?japan=1&utm_source=social&utm_medium=organic&utm_campaign=gwr_signal_growth&utm_content=gwr-alert-7868637a61d3&q=Mercari%2C+inc.&intent=general",
-        "linkedin": "GWR Market Alert Mercari, inc.｜Product Engineer Backend, Global Supply - Mercari｜前回スナップショット比 +1。採用結果の予測ではなく、GWRの検証済み求人スナップショットで確認できた変化です。 https://global-work-radar.pages.dev/?japan=1&utm_source=social&utm_medium=organic&utm_campaign=gwr_signal_growth&utm_content=gwr-alert-7868637a61d3&q=Mercari%2C+inc.&intent=general"
+        "x": "【GWR ALERT】Mindrift｜Freelance Web Designer｜新着Signal。日本対象可否・公式求人・鮮度を確認して追跡しています。次の変化もGWRで更新。 https://global-work-radar.pages.dev/?japan=1&utm_source=social&utm_medium=organic&utm_campaign=gwr_signal_growth&utm_content=gwr-alert-23f1be13b5f1&q=Mindrift&intent=general",
+        "bluesky": "GWR ALERT｜Mindrift｜Freelance Web Designer｜新着Signal。日本対象可否・公式求人・鮮度を確認して継続追跡。 https://global-work-radar.pages.dev/?japan=1&utm_source=social&utm_medium=organic&utm_campaign=gwr_signal_growth&utm_content=gwr-alert-23f1be13b5f1&q=Mindrift&intent=general",
+        "linkedin": "GWR Market Alert Mindrift｜Freelance Web Designer｜新着Signal。採用結果の予測ではなく、GWRの検証済み求人スナップショットで確認できた変化です。 https://global-work-radar.pages.dev/?japan=1&utm_source=social&utm_medium=organic&utm_campaign=gwr_signal_growth&utm_content=gwr-alert-23f1be13b5f1&q=Mindrift&intent=general"
       },
-      "destination_url": "https://global-work-radar.pages.dev/?japan=1&utm_source=social&utm_medium=organic&utm_campaign=gwr_signal_growth&utm_content=gwr-alert-7868637a61d3&q=Mercari%2C+inc.&intent=general",
+      "destination_url": "https://global-work-radar.pages.dev/?japan=1&utm_source=social&utm_medium=organic&utm_campaign=gwr_signal_growth&utm_content=gwr-alert-23f1be13b5f1&q=Mindrift&intent=general",
       "evidence": [
         {
-          "job_id": "workable-e259b1df64",
-          "employer": "Mercari, inc.",
-          "title": "Product Engineer Backend, Global Supply - Mercari",
+          "job_id": "workable-d606f2e466",
+          "employer": "Mindrift",
+          "title": "Freelance Web Designer",
           "source": "Workable",
-          "official_url": "https://apply.workable.com/j/E259B1DF64",
-          "last_verified_at": "2026-09-15T22:54:42.726Z",
+          "official_url": "https://apply.workable.com/j/D606F2E466",
+          "last_verified_at": "2026-09-16T04:49:53.175Z",
           "freshness_bucket": "NEW_24H",
-          "hiring_momentum": "HIRING_UP",
-          "hiring_delta": 1
+          "hiring_momentum": "STEADY",
+          "hiring_delta": 0
         }
       ],
       "measurement_chain": [
@@ -73,29 +73,29 @@
       "rank": 1
     },
     {
-      "candidate_id": "gwr-alert-5e7b15a10b79",
+      "candidate_id": "gwr-alert-c0c4afd32241",
       "signal_type": "GWR_ALERT",
       "objective": "qualified_revenue_growth",
-      "score": 99,
-      "source_generated_at": "2026-09-15T22:55:04.882Z",
+      "score": 98,
+      "source_generated_at": "2026-09-16T04:50:15.672Z",
       "claim_scope": "snapshot_change_only_no_hiring_outcome_inference",
       "text": {
-        "x": "【GWR ALERT】Mercari, inc.｜Financial Systems Specialist / Lead - Mercari｜前回スナップショット比 +1。日本対象可否・公式求人・鮮度を確認して追跡しています。次の変化もGWRで更新。 https://global-work-radar.pages.dev/?japan=1&utm_source=social&utm_medium=organic&utm_campaign=gwr_signal_growth&utm_content=gwr-alert-5e7b15a10b79&…",
-        "bluesky": "GWR ALERT｜Mercari, inc.｜Financial Systems Specialist / Lead - Mercari｜前回スナップショット比 +1。日本対象可否・公式求人・鮮度を確認して継続追跡。 https://global-work-radar.pages.dev/?japan=1&utm_source=social&utm_medium=organic&utm_campaign=gwr_signal_growth&utm_content=gwr-alert-5e7b15a10b79&q=Mercari%2C+inc.&intent=general",
-        "linkedin": "GWR Market Alert Mercari, inc.｜Financial Systems Specialist / Lead - Mercari｜前回スナップショット比 +1。採用結果の予測ではなく、GWRの検証済み求人スナップショットで確認できた変化です。 https://global-work-radar.pages.dev/?japan=1&utm_source=social&utm_medium=organic&utm_campaign=gwr_signal_growth&utm_content=gwr-alert-5e7b15a10b79&q=Mercari%2C+inc.&intent=general"
+        "x": "【GWR ALERT】Mindrift｜Freelance Web Designer｜新着Signal。日本対象可否・公式求人・鮮度を確認して追跡しています。次の変化もGWRで更新。 https://global-work-radar.pages.dev/?japan=1&utm_source=social&utm_medium=organic&utm_campaign=gwr_signal_growth&utm_content=gwr-alert-c0c4afd32241&q=Mindrift&intent=general",
+        "bluesky": "GWR ALERT｜Mindrift｜Freelance Web Designer｜新着Signal。日本対象可否・公式求人・鮮度を確認して継続追跡。 https://global-work-radar.pages.dev/?japan=1&utm_source=social&utm_medium=organic&utm_campaign=gwr_signal_growth&utm_content=gwr-alert-c0c4afd32241&q=Mindrift&intent=general",
+        "linkedin": "GWR Market Alert Mindrift｜Freelance Web Designer｜新着Signal。採用結果の予測ではなく、GWRの検証済み求人スナップショットで確認できた変化です。 https://global-work-radar.pages.dev/?japan=1&utm_source=social&utm_medium=organic&utm_campaign=gwr_signal_growth&utm_content=gwr-alert-c0c4afd32241&q=Mindrift&intent=general"
       },
-      "destination_url": "https://global-work-radar.pages.dev/?japan=1&utm_source=social&utm_medium=organic&utm_campaign=gwr_signal_growth&utm_content=gwr-alert-5e7b15a10b79&q=Mercari%2C+inc.&intent=general",
+      "destination_url": "https://global-work-radar.pages.dev/?japan=1&utm_source=social&utm_medium=organic&utm_campaign=gwr_signal_growth&utm_content=gwr-alert-c0c4afd32241&q=Mindrift&intent=general",
       "evidence": [
         {
-          "job_id": "workable-1336ec9757",
-          "employer": "Mercari, inc.",
-          "title": "Financial Systems Specialist / Lead - Mercari",
+          "job_id": "workable-7d94b661e0",
+          "employer": "Mindrift",
+          "title": "Freelance Web Designer",
           "source": "Workable",
-          "official_url": "https://apply.workable.com/j/1336EC9757",
-          "last_verified_at": "2026-09-15T22:54:42.726Z",
+          "official_url": "https://apply.workable.com/j/7D94B661E0",
+          "last_verified_at": "2026-09-16T04:49:53.175Z",
           "freshness_bucket": "NEW_24H",
-          "hiring_momentum": "HIRING_UP",
-          "hiring_delta": 1
+          "hiring_momentum": "STEADY",
+          "hiring_delta": 0
         }
       ],
       "measurement_chain": [
@@ -111,29 +111,29 @@
       "rank": 2
     },
     {
-      "candidate_id": "gwr-alert-aa0d07e67ff3",
+      "candidate_id": "gwr-alert-bd85b355071f",
       "signal_type": "GWR_ALERT",
       "objective": "qualified_revenue_growth",
-      "score": 99,
-      "source_generated_at": "2026-09-15T22:55:04.882Z",
+      "score": 93,
+      "source_generated_at": "2026-09-16T04:50:15.672Z",
       "claim_scope": "snapshot_change_only_no_hiring_outcome_inference",
       "text": {
-        "x": "【GWR ALERT】Mercari, inc.｜IP Senior Counsel, Intellectual Property (Patents) - Mercari｜前回スナップショット比 +1。日本対象可否・公式求人・鮮度を確認して追跡しています。次の変化もGWRで更新。 https://global-work-radar.pages.dev/?japan=1&utm_source=social&utm_medium=organic&utm_campaign=gwr_signal_growth&utm_content=gwr-aler…",
-        "bluesky": "GWR ALERT｜Mercari, inc.｜IP Senior Counsel, Intellectual Property (Patents) - Mercari｜前回スナップショット比 +1。日本対象可否・公式求人・鮮度を確認して継続追跡。 https://global-work-radar.pages.dev/?japan=1&utm_source=social&utm_medium=organic&utm_campaign=gwr_signal_growth&utm_content=gwr-alert-aa0d07e67ff3&q=Mercari%2C+inc.&int…",
-        "linkedin": "GWR Market Alert Mercari, inc.｜IP Senior Counsel, Intellectual Property (Patents) - Mercari｜前回スナップショット比 +1。採用結果の予測ではなく、GWRの検証済み求人スナップショットで確認できた変化です。 https://global-work-radar.pages.dev/?japan=1&utm_source=social&utm_medium=organic&utm_campaign=gwr_signal_growth&utm_content=gwr-alert-aa0d07e67ff3&q=Mercari%2C+inc.&intent=general"
+        "x": "【GWR ALERT】Digital Technology Institute for Development (DTID)｜UNPAID VOLUNTEER - IT Support Officer｜新着Signal。日本対象可否・公式求人・鮮度を確認して追跡しています。次の変化もGWRで更新。 https://global-work-radar.pages.dev/?japan=1&utm_source=social&utm_medium=organic&utm_campaign=gwr_signal_growth&utm_content…",
+        "bluesky": "GWR ALERT｜Digital Technology Institute for Development (DTID)｜UNPAID VOLUNTEER - IT Support Officer｜新着Signal。日本対象可否・公式求人・鮮度を確認して継続追跡。 https://global-work-radar.pages.dev/?japan=1&utm_source=social&utm_medium=organic&utm_campaign=gwr_signal_growth&utm_content=gwr-alert-bd85b355071f&q=Digital+Te…",
+        "linkedin": "GWR Market Alert Digital Technology Institute for Development (DTID)｜UNPAID VOLUNTEER - IT Support Officer｜新着Signal。採用結果の予測ではなく、GWRの検証済み求人スナップショットで確認できた変化です。 https://global-work-radar.pages.dev/?japan=1&utm_source=social&utm_medium=organic&utm_campaign=gwr_signal_growth&utm_content=gwr-alert-bd85b355071f&q=Digital+Technology+Institute+for+Development+%28DTID%29&intent=general"
       },
-      "destination_url": "https://global-work-radar.pages.dev/?japan=1&utm_source=social&utm_medium=organic&utm_campaign=gwr_signal_growth&utm_content=gwr-alert-aa0d07e67ff3&q=Mercari%2C+inc.&intent=general",
+      "destination_url": "https://global-work-radar.pages.dev/?japan=1&utm_source=social&utm_medium=organic&utm_campaign=gwr_signal_growth&utm_content=gwr-alert-bd85b355071f&q=Digital+Technology+Institute+for+Development+%28DTID%29&intent=general",
       "evidence": [
         {
-          "job_id": "workable-587174a08a",
-          "employer": "Mercari, inc.",
-          "title": "IP Senior Counsel, Intellectual Property (Patents) - Mercari",
+          "job_id": "workable-c539486658",
+          "employer": "Digital Technology Institute for Development (DTID)",
+          "title": "UNPAID VOLUNTEER - IT Support Officer",
           "source": "Workable",
-          "official_url": "https://apply.workable.com/j/587174A08A",
-          "last_verified_at": "2026-09-15T22:54:42.726Z",
-          "freshness_bucket": "NEW_24H",
-          "hiring_momentum": "HIRING_UP",
-          "hiring_delta": 1
+          "official_url": "https://apply.workable.com/j/C539486658",
+          "last_verified_at": "2026-09-16T04:49:53.175Z",
+          "freshness_bucket": "NEW_3D",
+          "hiring_momentum": "STEADY",
+          "hiring_delta": 0
         }
       ],
       "measurement_chain": [
@@ -149,27 +149,27 @@
       "rank": 3
     },
     {
-      "candidate_id": "gwr-alert-0f5f4e3a57b8",
+      "candidate_id": "gwr-alert-237fa9206297",
       "signal_type": "GWR_ALERT",
       "objective": "qualified_revenue_growth",
-      "score": 98,
-      "source_generated_at": "2026-09-15T22:55:04.882Z",
+      "score": 93,
+      "source_generated_at": "2026-09-16T04:50:15.672Z",
       "claim_scope": "snapshot_change_only_no_hiring_outcome_inference",
       "text": {
-        "x": "【GWR ALERT】Mindrift｜Freelance Web Designer｜新着Signal。日本対象可否・公式求人・鮮度を確認して追跡しています。次の変化もGWRで更新。 https://global-work-radar.pages.dev/?japan=1&utm_source=social&utm_medium=organic&utm_campaign=gwr_signal_growth&utm_content=gwr-alert-0f5f4e3a57b8&q=Mindrift&intent=general",
-        "bluesky": "GWR ALERT｜Mindrift｜Freelance Web Designer｜新着Signal。日本対象可否・公式求人・鮮度を確認して継続追跡。 https://global-work-radar.pages.dev/?japan=1&utm_source=social&utm_medium=organic&utm_campaign=gwr_signal_growth&utm_content=gwr-alert-0f5f4e3a57b8&q=Mindrift&intent=general",
-        "linkedin": "GWR Market Alert Mindrift｜Freelance Web Designer｜新着Signal。採用結果の予測ではなく、GWRの検証済み求人スナップショットで確認できた変化です。 https://global-work-radar.pages.dev/?japan=1&utm_source=social&utm_medium=organic&utm_campaign=gwr_signal_growth&utm_content=gwr-alert-0f5f4e3a57b8&q=Mindrift&intent=general"
+        "x": "【GWR ALERT】Digital Technology Institute for Development (DTID)｜UNPAID VOLUNTEER - Director of Media Relations｜新着Signal。日本対象可否・公式求人・鮮度を確認して追跡しています。次の変化もGWRで更新。 https://global-work-radar.pages.dev/?japan=1&utm_source=social&utm_medium=organic&utm_campaign=gwr_signal_growth&ut…",
+        "bluesky": "GWR ALERT｜Digital Technology Institute for Development (DTID)｜UNPAID VOLUNTEER - Director of Media Relations｜新着Signal。日本対象可否・公式求人・鮮度を確認して継続追跡。 https://global-work-radar.pages.dev/?japan=1&utm_source=social&utm_medium=organic&utm_campaign=gwr_signal_growth&utm_content=gwr-alert-237fa9206297&q=D…",
+        "linkedin": "GWR Market Alert Digital Technology Institute for Development (DTID)｜UNPAID VOLUNTEER - Director of Media Relations｜新着Signal。採用結果の予測ではなく、GWRの検証済み求人スナップショットで確認できた変化です。 https://global-work-radar.pages.dev/?japan=1&utm_source=social&utm_medium=organic&utm_campaign=gwr_signal_growth&utm_content=gwr-alert-237fa9206297&q=Digital+Technology+Institute+for+Development+%28DTID%29&intent=general"
       },
-      "destination_url": "https://global-work-radar.pages.dev/?japan=1&utm_source=social&utm_medium=organic&utm_campaign=gwr_signal_growth&utm_content=gwr-alert-0f5f4e3a57b8&q=Mindrift&intent=general",
+      "destination_url": "https://global-work-radar.pages.dev/?japan=1&utm_source=social&utm_medium=organic&utm_campaign=gwr_signal_growth&utm_content=gwr-alert-237fa9206297&q=Digital+Technology+Institute+for+Development+%28DTID%29&intent=general",
       "evidence": [
         {
-          "job_id": "workable-d606f2e466",
-          "employer": "Mindrift",
-          "title": "Freelance Web Designer",
+          "job_id": "workable-0abbe32bad",
+          "employer": "Digital Technology Institute for Development (DTID)",
+          "title": "UNPAID VOLUNTEER - Director of Media Relations",
           "source": "Workable",
-          "official_url": "https://apply.workable.com/j/D606F2E466",
-          "last_verified_at": "2026-09-15T22:54:42.726Z",
-          "freshness_bucket": "NEW_24H",
+          "official_url": "https://apply.workable.com/j/0ABBE32BAD",
+          "last_verified_at": "2026-09-16T04:49:53.175Z",
+          "freshness_bucket": "NEW_3D",
           "hiring_momentum": "STEADY",
           "hiring_delta": 0
         }
@@ -187,29 +187,29 @@
       "rank": 4
     },
     {
-      "candidate_id": "gwr-open-c7981031d96a",
+      "candidate_id": "gwr-open-1e80e2e29d90",
       "signal_type": "GWR_OPEN",
       "objective": "qualified_revenue_growth",
-      "score": 92,
-      "source_generated_at": "2026-09-15T22:55:04.882Z",
+      "score": 91,
+      "source_generated_at": "2026-09-16T04:50:15.672Z",
       "claim_scope": "verified_active_structured_facts_only",
       "text": {
-        "x": "【GWR OPEN】Product Engineer Backend, Global Supply - Mercari｜Mercari, inc.｜Minato City, Tokyo, JP｜USD 0。公式求人の確認先まで検証済み。GWRは日本から確認できる海外求人の変化を継続観測中。 https://global-work-radar.pages.dev/?japan=1&utm_source=social&utm_medium=organic&utm_campaign=gwr_signal_growth&utm_content=gwr…",
-        "bluesky": "GWR OPEN｜Product Engineer Backend, Global Supply - Mercari｜Mercari, inc.｜Minato City, Tokyo, JP｜USD 0。公式求人まで確認済み。GWRは日本から確認できる海外求人の変化を継続観測中。 https://global-work-radar.pages.dev/?japan=1&utm_source=social&utm_medium=organic&utm_campaign=gwr_signal_growth&utm_content=gwr-open-c7981031d96a&q=Merc…",
-        "linkedin": "Global Work Radarで新しい求人Signalを確認。 Product Engineer Backend, Global Supply - Mercari｜Mercari, inc.｜Minato City, Tokyo, JP｜USD 0 公開対象はVERIFIED ACTIVEかつ公式応募先を確認できたものに限定しています。 https://global-work-radar.pages.dev/?japan=1&utm_source=social&utm_medium=organic&utm_campaign=gwr_signal_growth&utm_content=gwr-open-c7981031d96a&q=Mercari%2C+inc.&intent=general"
+        "x": "【GWR OPEN】Freelance Web Designer｜Mindrift｜JP｜USD 0。公式求人の確認先まで検証済み。GWRは日本から確認できる海外求人の変化を継続観測中。 https://global-work-radar.pages.dev/?japan=1&utm_source=social&utm_medium=organic&utm_campaign=gwr_signal_growth&utm_content=gwr-open-1e80e2e29d90&q=Mindrift&intent=remote",
+        "bluesky": "GWR OPEN｜Freelance Web Designer｜Mindrift｜JP｜USD 0。公式求人まで確認済み。GWRは日本から確認できる海外求人の変化を継続観測中。 https://global-work-radar.pages.dev/?japan=1&utm_source=social&utm_medium=organic&utm_campaign=gwr_signal_growth&utm_content=gwr-open-1e80e2e29d90&q=Mindrift&intent=remote",
+        "linkedin": "Global Work Radarで新しい求人Signalを確認。 Freelance Web Designer｜Mindrift｜JP｜USD 0 公開対象はVERIFIED ACTIVEかつ公式応募先を確認できたものに限定しています。 https://global-work-radar.pages.dev/?japan=1&utm_source=social&utm_medium=organic&utm_campaign=gwr_signal_growth&utm_content=gwr-open-1e80e2e29d90&q=Mindrift&intent=remote"
       },
-      "destination_url": "https://global-work-radar.pages.dev/?japan=1&utm_source=social&utm_medium=organic&utm_campaign=gwr_signal_growth&utm_content=gwr-open-c7981031d96a&q=Mercari%2C+inc.&intent=general",
+      "destination_url": "https://global-work-radar.pages.dev/?japan=1&utm_source=social&utm_medium=organic&utm_campaign=gwr_signal_growth&utm_content=gwr-open-1e80e2e29d90&q=Mindrift&intent=remote",
       "evidence": [
         {
-          "job_id": "workable-e259b1df64",
-          "employer": "Mercari, inc.",
-          "title": "Product Engineer Backend, Global Supply - Mercari",
+          "job_id": "workable-d606f2e466",
+          "employer": "Mindrift",
+          "title": "Freelance Web Designer",
           "source": "Workable",
-          "official_url": "https://apply.workable.com/j/E259B1DF64",
-          "last_verified_at": "2026-09-15T22:54:42.726Z",
+          "official_url": "https://apply.workable.com/j/D606F2E466",
+          "last_verified_at": "2026-09-16T04:49:53.175Z",
           "freshness_bucket": "NEW_24H",
-          "hiring_momentum": "HIRING_UP",
-          "hiring_delta": 1
+          "hiring_momentum": "STEADY",
+          "hiring_delta": 0
         }
       ],
       "measurement_chain": [
@@ -225,29 +225,29 @@
       "rank": 5
     },
     {
-      "candidate_id": "gwr-open-94548f1df537",
+      "candidate_id": "gwr-open-0f3adb4f78ab",
       "signal_type": "GWR_OPEN",
       "objective": "qualified_revenue_growth",
-      "score": 92,
-      "source_generated_at": "2026-09-15T22:55:04.882Z",
+      "score": 91,
+      "source_generated_at": "2026-09-16T04:50:15.672Z",
       "claim_scope": "verified_active_structured_facts_only",
       "text": {
-        "x": "【GWR OPEN】Financial Systems Specialist / Lead - Mercari｜Mercari, inc.｜Minato City, Tokyo, JP｜USD 0。公式求人の確認先まで検証済み。GWRは日本から確認できる海外求人の変化を継続観測中。 https://global-work-radar.pages.dev/?japan=1&utm_source=social&utm_medium=organic&utm_campaign=gwr_signal_growth&utm_content=gwr-ope…",
-        "bluesky": "GWR OPEN｜Financial Systems Specialist / Lead - Mercari｜Mercari, inc.｜Minato City, Tokyo, JP｜USD 0。公式求人まで確認済み。GWRは日本から確認できる海外求人の変化を継続観測中。 https://global-work-radar.pages.dev/?japan=1&utm_source=social&utm_medium=organic&utm_campaign=gwr_signal_growth&utm_content=gwr-open-94548f1df537&q=Mercari%…",
-        "linkedin": "Global Work Radarで新しい求人Signalを確認。 Financial Systems Specialist / Lead - Mercari｜Mercari, inc.｜Minato City, Tokyo, JP｜USD 0 公開対象はVERIFIED ACTIVEかつ公式応募先を確認できたものに限定しています。 https://global-work-radar.pages.dev/?japan=1&utm_source=social&utm_medium=organic&utm_campaign=gwr_signal_growth&utm_content=gwr-open-94548f1df537&q=Mercari%2C+inc.&intent=general"
+        "x": "【GWR OPEN】Freelance Web Designer｜Mindrift｜JP｜USD 0。公式求人の確認先まで検証済み。GWRは日本から確認できる海外求人の変化を継続観測中。 https://global-work-radar.pages.dev/?japan=1&utm_source=social&utm_medium=organic&utm_campaign=gwr_signal_growth&utm_content=gwr-open-0f3adb4f78ab&q=Mindrift&intent=remote",
+        "bluesky": "GWR OPEN｜Freelance Web Designer｜Mindrift｜JP｜USD 0。公式求人まで確認済み。GWRは日本から確認できる海外求人の変化を継続観測中。 https://global-work-radar.pages.dev/?japan=1&utm_source=social&utm_medium=organic&utm_campaign=gwr_signal_growth&utm_content=gwr-open-0f3adb4f78ab&q=Mindrift&intent=remote",
+        "linkedin": "Global Work Radarで新しい求人Signalを確認。 Freelance Web Designer｜Mindrift｜JP｜USD 0 公開対象はVERIFIED ACTIVEかつ公式応募先を確認できたものに限定しています。 https://global-work-radar.pages.dev/?japan=1&utm_source=social&utm_medium=organic&utm_campaign=gwr_signal_growth&utm_content=gwr-open-0f3adb4f78ab&q=Mindrift&intent=remote"
       },
-      "destination_url": "https://global-work-radar.pages.dev/?japan=1&utm_source=social&utm_medium=organic&utm_campaign=gwr_signal_growth&utm_content=gwr-open-94548f1df537&q=Mercari%2C+inc.&intent=general",
+      "destination_url": "https://global-work-radar.pages.dev/?japan=1&utm_source=social&utm_medium=organic&utm_campaign=gwr_signal_growth&utm_content=gwr-open-0f3adb4f78ab&q=Mindrift&intent=remote",
       "evidence": [
         {
-          "job_id": "workable-1336ec9757",
-          "employer": "Mercari, inc.",
-          "title": "Financial Systems Specialist / Lead - Mercari",
+          "job_id": "workable-7d94b661e0",
+          "employer": "Mindrift",
+          "title": "Freelance Web Designer",
           "source": "Workable",
-          "official_url": "https://apply.workable.com/j/1336EC9757",
-          "last_verified_at": "2026-09-15T22:54:42.726Z",
+          "official_url": "https://apply.workable.com/j/7D94B661E0",
+          "last_verified_at": "2026-09-16T04:49:53.175Z",
           "freshness_bucket": "NEW_24H",
-          "hiring_momentum": "HIRING_UP",
-          "hiring_delta": 1
+          "hiring_momentum": "STEADY",
+          "hiring_delta": 0
         }
       ],
       "measurement_chain": [
@@ -263,29 +263,29 @@
       "rank": 6
     },
     {
-      "candidate_id": "gwr-open-eda5dff7271b",
+      "candidate_id": "gwr-open-3f59b814c1cb",
       "signal_type": "GWR_OPEN",
       "objective": "qualified_revenue_growth",
-      "score": 92,
-      "source_generated_at": "2026-09-15T22:55:04.882Z",
+      "score": 86,
+      "source_generated_at": "2026-09-16T04:50:15.672Z",
       "claim_scope": "verified_active_structured_facts_only",
       "text": {
-        "x": "【GWR OPEN】IP Senior Counsel, Intellectual Property (Patents) - Mercari｜Mercari, inc.｜Minato City, Tokyo, JP｜USD 0。公式求人の確認先まで検証済み。GWRは日本から確認できる海外求人の変化を継続観測中。 https://global-work-radar.pages.dev/?japan=1&utm_source=social&utm_medium=organic&utm_campaign=gwr_signal_growth&utm_…",
-        "bluesky": "GWR OPEN｜IP Senior Counsel, Intellectual Property (Patents) - Mercari｜Mercari, inc.｜Minato City, Tokyo, JP｜USD 0。公式求人まで確認済み。GWRは日本から確認できる海外求人の変化を継続観測中。 https://global-work-radar.pages.dev/?japan=1&utm_source=social&utm_medium=organic&utm_campaign=gwr_signal_growth&utm_content=gwr-open-eda5dff7…",
-        "linkedin": "Global Work Radarで新しい求人Signalを確認。 IP Senior Counsel, Intellectual Property (Patents) - Mercari｜Mercari, inc.｜Minato City, Tokyo, JP｜USD 0 公開対象はVERIFIED ACTIVEかつ公式応募先を確認できたものに限定しています。 https://global-work-radar.pages.dev/?japan=1&utm_source=social&utm_medium=organic&utm_campaign=gwr_signal_growth&utm_content=gwr-open-eda5dff7271b&q=Mercari%2C+inc.&intent=general"
+        "x": "【GWR OPEN】UNPAID VOLUNTEER - IT Support Officer｜Digital Technology Institute for Development (DTID)｜JP｜USD 0。公式求人の確認先まで検証済み。GWRは日本から確認できる海外求人の変化を継続観測中。 https://global-work-radar.pages.dev/?japan=1&utm_source=social&utm_medium=organic&utm_campaign=gwr_signal_growth&utm_conte…",
+        "bluesky": "GWR OPEN｜UNPAID VOLUNTEER - IT Support Officer｜Digital Technology Institute for Development (DTID)｜JP｜USD 0。公式求人まで確認済み。GWRは日本から確認できる海外求人の変化を継続観測中。 https://global-work-radar.pages.dev/?japan=1&utm_source=social&utm_medium=organic&utm_campaign=gwr_signal_growth&utm_content=gwr-open-3f59b814c1cb&…",
+        "linkedin": "Global Work Radarで新しい求人Signalを確認。 UNPAID VOLUNTEER - IT Support Officer｜Digital Technology Institute for Development (DTID)｜JP｜USD 0 公開対象はVERIFIED ACTIVEかつ公式応募先を確認できたものに限定しています。 https://global-work-radar.pages.dev/?japan=1&utm_source=social&utm_medium=organic&utm_campaign=gwr_signal_growth&utm_content=gwr-open-3f59b814c1cb&q=Digital+Technology+Institute+for+Development+%28DTID%29&intent=remote"
       },
-      "destination_url": "https://global-work-radar.pages.dev/?japan=1&utm_source=social&utm_medium=organic&utm_campaign=gwr_signal_growth&utm_content=gwr-open-eda5dff7271b&q=Mercari%2C+inc.&intent=general",
+      "destination_url": "https://global-work-radar.pages.dev/?japan=1&utm_source=social&utm_medium=organic&utm_campaign=gwr_signal_growth&utm_content=gwr-open-3f59b814c1cb&q=Digital+Technology+Institute+for+Development+%28DTID%29&intent=remote",
       "evidence": [
         {
-          "job_id": "workable-587174a08a",
-          "employer": "Mercari, inc.",
-          "title": "IP Senior Counsel, Intellectual Property (Patents) - Mercari",
+          "job_id": "workable-c539486658",
+          "employer": "Digital Technology Institute for Development (DTID)",
+          "title": "UNPAID VOLUNTEER - IT Support Officer",
           "source": "Workable",
-          "official_url": "https://apply.workable.com/j/587174A08A",
-          "last_verified_at": "2026-09-15T22:54:42.726Z",
-          "freshness_bucket": "NEW_24H",
-          "hiring_momentum": "HIRING_UP",
-          "hiring_delta": 1
+          "official_url": "https://apply.workable.com/j/C539486658",
+          "last_verified_at": "2026-09-16T04:49:53.175Z",
+          "freshness_bucket": "NEW_3D",
+          "hiring_momentum": "STEADY",
+          "hiring_delta": 0
         }
       ],
       "measurement_chain": [
@@ -301,27 +301,27 @@
       "rank": 7
     },
     {
-      "candidate_id": "gwr-open-74e105a0beda",
+      "candidate_id": "gwr-open-3e0b3e25af80",
       "signal_type": "GWR_OPEN",
       "objective": "qualified_revenue_growth",
-      "score": 91,
-      "source_generated_at": "2026-09-15T22:55:04.882Z",
+      "score": 86,
+      "source_generated_at": "2026-09-16T04:50:15.672Z",
       "claim_scope": "verified_active_structured_facts_only",
       "text": {
-        "x": "【GWR OPEN】Freelance Web Designer｜Mindrift｜JP｜USD 0。公式求人の確認先まで検証済み。GWRは日本から確認できる海外求人の変化を継続観測中。 https://global-work-radar.pages.dev/?japan=1&utm_source=social&utm_medium=organic&utm_campaign=gwr_signal_growth&utm_content=gwr-open-74e105a0beda&q=Mindrift&intent=remote",
-        "bluesky": "GWR OPEN｜Freelance Web Designer｜Mindrift｜JP｜USD 0。公式求人まで確認済み。GWRは日本から確認できる海外求人の変化を継続観測中。 https://global-work-radar.pages.dev/?japan=1&utm_source=social&utm_medium=organic&utm_campaign=gwr_signal_growth&utm_content=gwr-open-74e105a0beda&q=Mindrift&intent=remote",
-        "linkedin": "Global Work Radarで新しい求人Signalを確認。 Freelance Web Designer｜Mindrift｜JP｜USD 0 公開対象はVERIFIED ACTIVEかつ公式応募先を確認できたものに限定しています。 https://global-work-radar.pages.dev/?japan=1&utm_source=social&utm_medium=organic&utm_campaign=gwr_signal_growth&utm_content=gwr-open-74e105a0beda&q=Mindrift&intent=remote"
+        "x": "【GWR OPEN】UNPAID VOLUNTEER - Director of Media Relations｜Digital Technology Institute for Development (DTID)｜JP｜USD 0。公式求人の確認先まで検証済み。GWRは日本から確認できる海外求人の変化を継続観測中。 https://global-work-radar.pages.dev/?japan=1&utm_source=social&utm_medium=organic&utm_campaign=gwr_signal_growth&…",
+        "bluesky": "GWR OPEN｜UNPAID VOLUNTEER - Director of Media Relations｜Digital Technology Institute for Development (DTID)｜JP｜USD 0。公式求人まで確認済み。GWRは日本から確認できる海外求人の変化を継続観測中。 https://global-work-radar.pages.dev/?japan=1&utm_source=social&utm_medium=organic&utm_campaign=gwr_signal_growth&utm_content=gwr-open-3e0b…",
+        "linkedin": "Global Work Radarで新しい求人Signalを確認。 UNPAID VOLUNTEER - Director of Media Relations｜Digital Technology Institute for Development (DTID)｜JP｜USD 0 公開対象はVERIFIED ACTIVEかつ公式応募先を確認できたものに限定しています。 https://global-work-radar.pages.dev/?japan=1&utm_source=social&utm_medium=organic&utm_campaign=gwr_signal_growth&utm_content=gwr-open-3e0b3e25af80&q=Digital+Technology+Institute+for+Development+%28DTID%29&intent=remote"
       },
-      "destination_url": "https://global-work-radar.pages.dev/?japan=1&utm_source=social&utm_medium=organic&utm_campaign=gwr_signal_growth&utm_content=gwr-open-74e105a0beda&q=Mindrift&intent=remote",
+      "destination_url": "https://global-work-radar.pages.dev/?japan=1&utm_source=social&utm_medium=organic&utm_campaign=gwr_signal_growth&utm_content=gwr-open-3e0b3e25af80&q=Digital+Technology+Institute+for+Development+%28DTID%29&intent=remote",
       "evidence": [
         {
-          "job_id": "workable-d606f2e466",
-          "employer": "Mindrift",
-          "title": "Freelance Web Designer",
+          "job_id": "workable-0abbe32bad",
+          "employer": "Digital Technology Institute for Development (DTID)",
+          "title": "UNPAID VOLUNTEER - Director of Media Relations",
           "source": "Workable",
-          "official_url": "https://apply.workable.com/j/D606F2E466",
-          "last_verified_at": "2026-09-15T22:54:42.726Z",
-          "freshness_bucket": "NEW_24H",
+          "official_url": "https://apply.workable.com/j/0ABBE32BAD",
+          "last_verified_at": "2026-09-16T04:49:53.175Z",
+          "freshness_bucket": "NEW_3D",
           "hiring_momentum": "STEADY",
           "hiring_delta": 0
         }
@@ -339,27 +339,27 @@
       "rank": 8
     },
     {
-      "candidate_id": "gwr-open-eb2ebc24b32e",
+      "candidate_id": "gwr-open-f693ea04eb96",
       "signal_type": "GWR_OPEN",
       "objective": "qualified_revenue_growth",
-      "score": 91,
-      "source_generated_at": "2026-09-15T22:55:04.882Z",
+      "score": 86,
+      "source_generated_at": "2026-09-16T04:50:15.672Z",
       "claim_scope": "verified_active_structured_facts_only",
       "text": {
-        "x": "【GWR OPEN】Freelance Web Designer｜Mindrift｜JP｜USD 0。公式求人の確認先まで検証済み。GWRは日本から確認できる海外求人の変化を継続観測中。 https://global-work-radar.pages.dev/?japan=1&utm_source=social&utm_medium=organic&utm_campaign=gwr_signal_growth&utm_content=gwr-open-eb2ebc24b32e&q=Mindrift&intent=remote",
-        "bluesky": "GWR OPEN｜Freelance Web Designer｜Mindrift｜JP｜USD 0。公式求人まで確認済み。GWRは日本から確認できる海外求人の変化を継続観測中。 https://global-work-radar.pages.dev/?japan=1&utm_source=social&utm_medium=organic&utm_campaign=gwr_signal_growth&utm_content=gwr-open-eb2ebc24b32e&q=Mindrift&intent=remote",
-        "linkedin": "Global Work Radarで新しい求人Signalを確認。 Freelance Web Designer｜Mindrift｜JP｜USD 0 公開対象はVERIFIED ACTIVEかつ公式応募先を確認できたものに限定しています。 https://global-work-radar.pages.dev/?japan=1&utm_source=social&utm_medium=organic&utm_campaign=gwr_signal_growth&utm_content=gwr-open-eb2ebc24b32e&q=Mindrift&intent=remote"
+        "x": "【GWR OPEN】UNPAID VOLUNTEER - Director of Strategic Communications and Brand｜Digital Technology Institute for Development (DTID)｜JP｜USD 0。公式求人の確認先まで検証済み。GWRは日本から確認できる海外求人の変化を継続観測中。 https://global-work-radar.pages.dev/?japan=1&utm_source=social&utm_medium=organic&utm_campaign…",
+        "bluesky": "GWR OPEN｜UNPAID VOLUNTEER - Director of Strategic Communications and Brand｜Digital Technology Institute for Development (DTID)｜JP｜USD 0。公式求人まで確認済み。GWRは日本から確認できる海外求人の変化を継続観測中。 https://global-work-radar.pages.dev/?japan=1&utm_source=social&utm_medium=organic&utm_campaign=gwr_signal_growth&utm_co…",
+        "linkedin": "Global Work Radarで新しい求人Signalを確認。 UNPAID VOLUNTEER - Director of Strategic Communications and Brand｜Digital Technology Institute for Development (DTID)｜JP｜USD 0 公開対象はVERIFIED ACTIVEかつ公式応募先を確認できたものに限定しています。 https://global-work-radar.pages.dev/?japan=1&utm_source=social&utm_medium=organic&utm_campaign=gwr_signal_growth&utm_content=gwr-open-f693ea04eb96&q=Digital+Technology+Institute+for+Development+%28DTID%29&intent=remote"
       },
-      "destination_url": "https://global-work-radar.pages.dev/?japan=1&utm_source=social&utm_medium=organic&utm_campaign=gwr_signal_growth&utm_content=gwr-open-eb2ebc24b32e&q=Mindrift&intent=remote",
+      "destination_url": "https://global-work-radar.pages.dev/?japan=1&utm_source=social&utm_medium=organic&utm_campaign=gwr_signal_growth&utm_content=gwr-open-f693ea04eb96&q=Digital+Technology+Institute+for+Development+%28DTID%29&intent=remote",
       "evidence": [
         {
-          "job_id": "workable-7d94b661e0",
-          "employer": "Mindrift",
-          "title": "Freelance Web Designer",
+          "job_id": "workable-9eb9baa924",
+          "employer": "Digital Technology Institute for Development (DTID)",
+          "title": "UNPAID VOLUNTEER - Director of Strategic Communications and Brand",
           "source": "Workable",
-          "official_url": "https://apply.workable.com/j/7D94B661E0",
-          "last_verified_at": "2026-09-15T22:54:42.726Z",
-          "freshness_bucket": "NEW_24H",
+          "official_url": "https://apply.workable.com/j/9EB9BAA924",
+          "last_verified_at": "2026-09-16T04:49:53.175Z",
+          "freshness_bucket": "NEW_3D",
           "hiring_momentum": "STEADY",
           "hiring_delta": 0
         }
@@ -377,26 +377,26 @@
       "rank": 9
     },
     {
-      "candidate_id": "gwr-open-c99809c678b3",
+      "candidate_id": "gwr-open-0225f2f56160",
       "signal_type": "GWR_OPEN",
       "objective": "qualified_revenue_growth",
       "score": 86,
-      "source_generated_at": "2026-09-15T22:55:04.882Z",
+      "source_generated_at": "2026-09-16T04:50:15.672Z",
       "claim_scope": "verified_active_structured_facts_only",
       "text": {
-        "x": "【GWR OPEN】UNPAID VOLUNTEER - IT Support Officer｜Digital Technology Institute for Development (DTID)｜JP｜USD 0。公式求人の確認先まで検証済み。GWRは日本から確認できる海外求人の変化を継続観測中。 https://global-work-radar.pages.dev/?japan=1&utm_source=social&utm_medium=organic&utm_campaign=gwr_signal_growth&utm_conte…",
-        "bluesky": "GWR OPEN｜UNPAID VOLUNTEER - IT Support Officer｜Digital Technology Institute for Development (DTID)｜JP｜USD 0。公式求人まで確認済み。GWRは日本から確認できる海外求人の変化を継続観測中。 https://global-work-radar.pages.dev/?japan=1&utm_source=social&utm_medium=organic&utm_campaign=gwr_signal_growth&utm_content=gwr-open-c99809c678b3&…",
-        "linkedin": "Global Work Radarで新しい求人Signalを確認。 UNPAID VOLUNTEER - IT Support Officer｜Digital Technology Institute for Development (DTID)｜JP｜USD 0 公開対象はVERIFIED ACTIVEかつ公式応募先を確認できたものに限定しています。 https://global-work-radar.pages.dev/?japan=1&utm_source=social&utm_medium=organic&utm_campaign=gwr_signal_growth&utm_content=gwr-open-c99809c678b3&q=Digital+Technology+Institute+for+Development+%28DTID%29&intent=remote"
+        "x": "【GWR OPEN】Freelance Annotator (English) - AI Trainer｜Mindrift - Data annotation｜JP｜USD 0。公式求人の確認先まで検証済み。GWRは日本から確認できる海外求人の変化を継続観測中。 https://global-work-radar.pages.dev/?japan=1&utm_source=social&utm_medium=organic&utm_campaign=gwr_signal_growth&utm_content=gwr-open-0225f2f5…",
+        "bluesky": "GWR OPEN｜Freelance Annotator (English) - AI Trainer｜Mindrift - Data annotation｜JP｜USD 0。公式求人まで確認済み。GWRは日本から確認できる海外求人の変化を継続観測中。 https://global-work-radar.pages.dev/?japan=1&utm_source=social&utm_medium=organic&utm_campaign=gwr_signal_growth&utm_content=gwr-open-0225f2f56160&q=Mindrift+-+Data+an…",
+        "linkedin": "Global Work Radarで新しい求人Signalを確認。 Freelance Annotator (English) - AI Trainer｜Mindrift - Data annotation｜JP｜USD 0 公開対象はVERIFIED ACTIVEかつ公式応募先を確認できたものに限定しています。 https://global-work-radar.pages.dev/?japan=1&utm_source=social&utm_medium=organic&utm_campaign=gwr_signal_growth&utm_content=gwr-open-0225f2f56160&q=Mindrift+-+Data+annotation&intent=remote"
       },
-      "destination_url": "https://global-work-radar.pages.dev/?japan=1&utm_source=social&utm_medium=organic&utm_campaign=gwr_signal_growth&utm_content=gwr-open-c99809c678b3&q=Digital+Technology+Institute+for+Development+%28DTID%29&intent=remote",
+      "destination_url": "https://global-work-radar.pages.dev/?japan=1&utm_source=social&utm_medium=organic&utm_campaign=gwr_signal_growth&utm_content=gwr-open-0225f2f56160&q=Mindrift+-+Data+annotation&intent=remote",
       "evidence": [
         {
-          "job_id": "workable-c539486658",
-          "employer": "Digital Technology Institute for Development (DTID)",
-          "title": "UNPAID VOLUNTEER - IT Support Officer",
+          "job_id": "workable-00e1957bec",
+          "employer": "Mindrift - Data annotation",
+          "title": "Freelance Annotator (English) - AI Trainer",
           "source": "Workable",
-          "official_url": "https://apply.workable.com/j/C539486658",
-          "last_verified_at": "2026-09-15T22:54:42.726Z",
+          "official_url": "https://apply.workable.com/j/00E1957BEC",
+          "last_verified_at": "2026-09-16T04:49:53.175Z",
           "freshness_bucket": "NEW_3D",
           "hiring_momentum": "STEADY",
           "hiring_delta": 0
@@ -413,77 +413,6 @@
       "publish_state": "CANDIDATE_NOT_PUBLISHED",
       "channel_rule": "GWR_CHANNEL_ONLY",
       "rank": 10
-    },
-    {
-      "candidate_id": "gwr-shift-4477dc37a64e",
-      "signal_type": "GWR_SHIFT",
-      "objective": "qualified_revenue_growth",
-      "score": 82,
-      "source_generated_at": "2026-09-15T22:55:04.882Z",
-      "claim_scope": "verified_inventory_snapshot_delta_only",
-      "text": {
-        "x": "【GWR SHIFT】Mercari, inc.：GWR確認求人 62→63（+1）。採用成否の予測ではなく、検証済み公開求人のスナップショット変化です。 https://global-work-radar.pages.dev/?japan=1&utm_source=social&utm_medium=organic&utm_campaign=gwr_signal_growth&utm_content=gwr-shift-4477dc37a64e&q=Mercari%2C+inc.&intent=general",
-        "bluesky": "GWR SHIFT｜Mercari, inc.：GWR確認求人 62→63（+1）。検証済み公開求人のスナップショット変化として継続追跡。 https://global-work-radar.pages.dev/?japan=1&utm_source=social&utm_medium=organic&utm_campaign=gwr_signal_growth&utm_content=gwr-shift-4477dc37a64e&q=Mercari%2C+inc.&intent=general",
-        "linkedin": "GWR Market Shift Mercari, inc.：GWR確認求人 62→63（+1）。企業の採用意欲や採用成否を断定せず、VERIFIED ACTIVE求人の差分として追跡します。 https://global-work-radar.pages.dev/?japan=1&utm_source=social&utm_medium=organic&utm_campaign=gwr_signal_growth&utm_content=gwr-shift-4477dc37a64e&q=Mercari%2C+inc.&intent=general"
-      },
-      "destination_url": "https://global-work-radar.pages.dev/?japan=1&utm_source=social&utm_medium=organic&utm_campaign=gwr_signal_growth&utm_content=gwr-shift-4477dc37a64e&q=Mercari%2C+inc.&intent=general",
-      "evidence": [
-        {
-          "job_id": "workable-af9b7a6e30",
-          "employer": "Mercari, inc.",
-          "title": "HR Business Partner - Mercari",
-          "source": "Workable",
-          "official_url": "https://apply.workable.com/j/AF9B7A6E30",
-          "last_verified_at": "2026-09-15T22:54:42.726Z",
-          "freshness_bucket": "LONG_RUNNING",
-          "hiring_momentum": "HIRING_UP",
-          "hiring_delta": 1
-        },
-        {
-          "job_id": "workable-c2bdf5efab",
-          "employer": "Mercari, inc.",
-          "title": "Corporate Application Engineer - Mercari",
-          "source": "Workable",
-          "official_url": "https://apply.workable.com/j/C2BDF5EFAB",
-          "last_verified_at": "2026-09-15T22:54:42.726Z",
-          "freshness_bucket": "LONG_RUNNING",
-          "hiring_momentum": "HIRING_UP",
-          "hiring_delta": 1
-        },
-        {
-          "job_id": "workable-2ed6e15a34",
-          "employer": "Mercari, inc.",
-          "title": "Art Director / アートディレクター - Mercari",
-          "source": "Workable",
-          "official_url": "https://apply.workable.com/j/2ED6E15A34",
-          "last_verified_at": "2026-09-15T22:54:42.726Z",
-          "freshness_bucket": "LONG_RUNNING",
-          "hiring_momentum": "HIRING_UP",
-          "hiring_delta": 1
-        },
-        {
-          "job_id": "workable-650401fd75",
-          "employer": "Mercari, inc.",
-          "title": "UX Researcher - Merpay",
-          "source": "Workable",
-          "official_url": "https://apply.workable.com/j/650401FD75",
-          "last_verified_at": "2026-09-15T22:54:42.726Z",
-          "freshness_bucket": "LONG_RUNNING",
-          "hiring_momentum": "HIRING_UP",
-          "hiring_delta": 1
-        }
-      ],
-      "measurement_chain": [
-        "social_publish",
-        "gwr_visit",
-        "gwr_return_visit",
-        "gwr_search",
-        "gwr_buyer_reaction",
-        "gwr_official_apply_click"
-      ],
-      "publish_state": "CANDIDATE_NOT_PUBLISHED",
-      "channel_rule": "GWR_CHANNEL_ONLY",
-      "rank": 11
     }
   ]
 }
