@@ -1,10 +1,10 @@
 {
   "schema_version": 1,
-  "observed_at": "2026-09-16T19:34:55.370Z",
+  "observed_at": "2026-09-16T22:57:23.451Z",
   "run": {
-    "github_run_id": "35141285539",
+    "github_run_id": "35160013943",
     "github_run_attempt": "1",
-    "github_sha": "e7bcd47916427faac19b2758bbdba67a733fff66",
+    "github_sha": "be6329eeaca30d4e21580873f90f2d336490782d",
     "baseline_ref": "HEAD"
   },
   "inventory": {
@@ -31,8 +31,8 @@
       "workable-3d80317f09",
       "workable-f08ecc04d8",
       "workable-44b2567a99",
-      "workable-14cb8e9594",
       "workable-df08d17fe2",
+      "workable-14cb8e9594",
       "workable-2bc7b3e24a",
       "workable-ad45131703",
       "workable-50cf31d307",
@@ -65,10 +65,10 @@
       "workable-ccb1816009",
       "workable-4006265775",
       "workable-a335b713f4",
-      "workable-2584b2186b",
-      "workable-8bbd3702f9",
       "workable-35e51b79a9",
+      "workable-8bbd3702f9",
       "workable-4c15cdd484",
+      "workable-2584b2186b",
       "workable-0b1d27bd70",
       "workable-82d7518973",
       "workable-7afb08df16",
@@ -503,7 +503,7 @@
         "REVIEW": 47
       },
       "reopened_after_confirmed_close_count": 0,
-      "changed_within_7d_count": 68,
+      "changed_within_7d_count": 69,
       "thresholds_days": {
         "aging": 30,
         "long_running": 60,
@@ -513,9 +513,9 @@
     },
     "hiring_intent": {
       "signal_level_counts": {
-        "WEAK_EVIDENCE": 306,
-        "STRONG_EVIDENCE": 21,
-        "MODERATE_EVIDENCE": 134
+        "WEAK_EVIDENCE": 325,
+        "STRONG_EVIDENCE": 20,
+        "MODERATE_EVIDENCE": 116
       },
       "score_is_probability": false,
       "ghost_job_classifier": false,
