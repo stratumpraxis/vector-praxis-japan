@@ -1,7 +1,7 @@
 {
-  "checked_at": "2026-09-17T04:55:39.413720Z",
-  "commit_sha": "50e90655101793dd0ab8e5bb080203a0e854deeb",
-  "workflow_run_id": "35183726064",
+  "checked_at": "2026-09-17T11:44:52.311847Z",
+  "commit_sha": "bacb579364c1482832df3dc9e5a483fbb2616766",
+  "workflow_run_id": "35217282092",
   "repository": "stratumpraxis/vector-praxis-japan",
   "route_id": "vpj_owned_ai_agent_bottleneck_v2",
   "asset_id": "ai_agent_bottleneck",
@@ -31,7 +31,7 @@
     "posthog_url_samples": [
       "https://us-assets.i.posthog.com",
       "https://us-assets.i.posthog.com/array/phc_oTYapRSNXDtn8aY7wMNHfCDexRTkfb2H44MDVXwoUMSN/config.js",
-      "https://us-assets.i.posthog.com/static/1.433.7/surveys.js",
+      "https://us-assets.i.posthog.com/static/1.433.9/surveys.js",
       "https://us-assets.i.posthog.com/static/array.js"
     ],
     "network_error_mentions": [
@@ -56,7 +56,7 @@
       "ERR_BLOCKED_BY_FINGERPRINTING_PROTECTION",
       "ERR_BLOCKED_BY_LOCAL_NETWORK_ACCESS_CHECKS"
     ],
-    "stderr_tail": "ct_proxy.cc:572] Failed to call method: org.freedesktop.DBus.NameHasOwner: object_path= /org/freedesktop/DBus: unknown error type: \n[2283:2306:0917/045534.777600:ERROR:dbus/bus.cc:405] Failed to connect to the bus: Could not parse server address: Unknown address type (examples of valid types are \"tcp\" and on UNIX \"unix\")\n[2283:2283:0917/045534.867880:ERROR:dbus/object_proxy.cc:572] Failed to call method: org.freedesktop.DBus.NameHasOwner: object_path= /org/freedesktop/DBus: unknown error type: \n"
+    "stderr_tail": "ed to call method: org.freedesktop.DBus.NameHasOwner: object_path= /org/freedesktop/DBus: unknown error type: \n[2070:2099:0917/114451.890185:ERROR:google_apis/gcm/engine/registration_request.cc:275] Registration URL fetching failed.\n[2070:2099:0917/114451.890310:ERROR:google_apis/gcm/engine/registration_request.cc:275] Registration URL fetching failed.\n[2070:2099:0917/114451.937398:ERROR:google_apis/gcm/engine/registration_request.cc:291] Registration response error message: DEPRECATED_ENDPOINT\n"
   },
   "canonical_indexability": {
     "role": "canonical",
