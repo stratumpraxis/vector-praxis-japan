@@ -1,10 +1,10 @@
 {
   "schema_version": 1,
-  "observed_at": "2026-09-18T04:44:34.463Z",
+  "observed_at": "2026-09-18T12:58:58.609Z",
   "run": {
-    "github_run_id": "35308032349",
+    "github_run_id": "35347443453",
     "github_run_attempt": "1",
-    "github_sha": "7cef6f81a10ffed4fd2dd8b4e9c3db8dcf798f32",
+    "github_sha": "b44a49762bce866cf6fef4a293509b2abeb5460f",
     "baseline_ref": "HEAD"
   },
   "inventory": {
@@ -66,9 +66,9 @@
       "workable-4006265775",
       "workable-a335b713f4",
       "workable-2584b2186b",
-      "workable-35e51b79a9",
       "workable-8bbd3702f9",
       "workable-4c15cdd484",
+      "workable-35e51b79a9",
       "workable-0b1d27bd70",
       "workable-82d7518973",
       "workable-7afb08df16",
@@ -242,11 +242,9 @@
       "workable-1a3ece5ba1",
       "workable-394c5fdae6",
       "workable-6d37f9f9a1",
-      "workable-57eb2ce1dd",
       "workable-c550458f01",
       "workable-b40459acbb",
       "workable-a29021cc47",
-      "workable-001eb68a79",
       "workable-1e98f1d169",
       "workable-9bea0f7cf3",
       "workable-ae781d676e",
@@ -330,7 +328,6 @@
       "workable-fad5b6920f",
       "workable-509be5c3e9",
       "workable-52747ba8b0",
-      "workable-d1b4ec163d",
       "workable-d354fd74a2",
       "workable-3b73c5d7c9",
       "workable-0b21f4ae74",
@@ -426,12 +423,8 @@
       "workable-d888760f30",
       "workable-43dacfeb6e",
       "workable-d559a11f60",
-      "workable-3ae6d3c7f5",
-      "workable-e51e70cb6b",
-      "workable-d2dea4c1b5",
       "workable-542c383fce",
       "workable-89f335698e",
-      "workable-00f12593b6",
       "workable-cd6475249e",
       "workable-33ffd227f4",
       "workable-0257fc6a22",
@@ -449,7 +442,6 @@
       "workable-de77a98d9a",
       "workable-c78e00751f",
       "workable-718daf4e74",
-      "workable-7c7b249f3c",
       "workable-7367875c4c",
       "workable-35075755e4",
       "workable-c539486658",
@@ -479,7 +471,15 @@
       "workable-c4c14d16aa",
       "workable-1cfca12602",
       "workable-8f76000eba",
-      "workable-1bc8a1ed0c"
+      "workable-1bc8a1ed0c",
+      "workable-abf352e9e5",
+      "workable-289bfd575d",
+      "workable-fde0b59648",
+      "workable-a4e29b2864",
+      "workable-35ac69f256",
+      "workable-df615622cc",
+      "workable-af4569242d",
+      "workable-f099d9e249"
     ],
     "removed_ids": [],
     "changed": []
@@ -487,21 +487,21 @@
   "intelligence": {
     "lifecycle": {
       "state_counts": {
-        "STALE_RISK_90D": 221,
-        "NEW_3D": 15,
-        "LONG_RUNNING_60D": 44,
-        "ACTIVE": 76,
-        "AGING_30D": 68,
-        "FRESH_7D": 30,
-        "NEW_24H": 5
+        "STALE_RISK_90D": 220,
+        "NEW_3D": 14,
+        "LONG_RUNNING_60D": 43,
+        "ACTIVE": 88,
+        "AGING_30D": 69,
+        "FRESH_7D": 15,
+        "NEW_24H": 10
       },
       "stale_risk_counts": {
-        "ELEVATED": 221,
-        "LOW": 194,
-        "REVIEW": 44
+        "ELEVATED": 220,
+        "LOW": 196,
+        "REVIEW": 43
       },
       "reopened_after_confirmed_close_count": 0,
-      "changed_within_7d_count": 68,
+      "changed_within_7d_count": 67,
       "thresholds_days": {
         "aging": 30,
         "long_running": 60,
@@ -511,9 +511,9 @@
     },
     "hiring_intent": {
       "signal_level_counts": {
-        "WEAK_EVIDENCE": 307,
-        "STRONG_EVIDENCE": 31,
-        "MODERATE_EVIDENCE": 121
+        "WEAK_EVIDENCE": 300,
+        "STRONG_EVIDENCE": 49,
+        "MODERATE_EVIDENCE": 110
       },
       "score_is_probability": false,
       "ghost_job_classifier": false,
