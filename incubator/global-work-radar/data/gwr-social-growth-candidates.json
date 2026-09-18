@@ -1,6 +1,6 @@
 {
-  "generated_at": "2026-09-18T04:45:07.728Z",
-  "source_generated_at": "2026-09-18T04:44:34.020Z",
+  "generated_at": "2026-09-18T12:59:36.045Z",
+  "source_generated_at": "2026-09-18T12:58:58.204Z",
   "brand": "Global Work Radar",
   "purpose": "Turn verified market changes into GWR-owned traffic, explicit buyer-reaction evidence, and revenue opportunities without fabricating publication state.",
   "channel_policy": "GWR_CHANNEL_ONLY",
@@ -32,21 +32,21 @@
     ],
     "revenue_first": true
   },
-  "candidate_count": 11,
+  "candidate_count": 12,
   "candidates": [
     {
-      "candidate_id": "gwr-alert-d0f233efa170",
+      "candidate_id": "gwr-alert-81debb625851",
       "signal_type": "GWR_ALERT",
       "objective": "qualified_revenue_growth",
-      "score": 99,
-      "source_generated_at": "2026-09-18T04:44:34.020Z",
+      "score": 100,
+      "source_generated_at": "2026-09-18T12:58:58.204Z",
       "claim_scope": "snapshot_change_only_no_hiring_outcome_inference",
       "text": {
-        "x": "【GWR ALERT】Mercari, inc.｜Talent Acquisition Manager (New Graduate) / 新卒採用マネージャー - Mercari｜前回スナップショット比 +1。日本対象可否・公式求人・鮮度を確認して追跡しています。次の変化もGWRで更新。 https://global-work-radar.pages.dev/?japan=1&utm_source=social&utm_medium=organic&utm_campaign=gwr_signal_growth&utm_content=gwr-…",
-        "bluesky": "GWR ALERT｜Mercari, inc.｜Talent Acquisition Manager (New Graduate) / 新卒採用マネージャー - Mercari｜前回スナップショット比 +1。日本対象可否・公式求人・鮮度を確認して継続追跡。 https://global-work-radar.pages.dev/?japan=1&utm_source=social&utm_medium=organic&utm_campaign=gwr_signal_growth&utm_content=gwr-alert-d0f233efa170&q=Mercari%2C+inc.…",
-        "linkedin": "GWR Market Alert Mercari, inc.｜Talent Acquisition Manager (New Graduate) / 新卒採用マネージャー - Mercari｜前回スナップショット比 +1。採用結果の予測ではなく、GWRの検証済み求人スナップショットで確認できた変化です。 https://global-work-radar.pages.dev/?japan=1&utm_source=social&utm_medium=organic&utm_campaign=gwr_signal_growth&utm_content=gwr-alert-d0f233efa170&q=Mercari%2C+inc.&intent=general"
+        "x": "【GWR ALERT】Mercari, inc.｜Talent Acquisition Manager (New Graduate) / 新卒採用マネージャー - Mercari｜前回スナップショット比 +2。日本対象可否・公式求人・鮮度を確認して追跡しています。次の変化もGWRで更新。 https://global-work-radar.pages.dev/?japan=1&utm_source=social&utm_medium=organic&utm_campaign=gwr_signal_growth&utm_content=gwr-…",
+        "bluesky": "GWR ALERT｜Mercari, inc.｜Talent Acquisition Manager (New Graduate) / 新卒採用マネージャー - Mercari｜前回スナップショット比 +2。日本対象可否・公式求人・鮮度を確認して継続追跡。 https://global-work-radar.pages.dev/?japan=1&utm_source=social&utm_medium=organic&utm_campaign=gwr_signal_growth&utm_content=gwr-alert-81debb625851&q=Mercari%2C+inc.…",
+        "linkedin": "GWR Market Alert Mercari, inc.｜Talent Acquisition Manager (New Graduate) / 新卒採用マネージャー - Mercari｜前回スナップショット比 +2。採用結果の予測ではなく、GWRの検証済み求人スナップショットで確認できた変化です。 https://global-work-radar.pages.dev/?japan=1&utm_source=social&utm_medium=organic&utm_campaign=gwr_signal_growth&utm_content=gwr-alert-81debb625851&q=Mercari%2C+inc.&intent=general"
       },
-      "destination_url": "https://global-work-radar.pages.dev/?japan=1&utm_source=social&utm_medium=organic&utm_campaign=gwr_signal_growth&utm_content=gwr-alert-d0f233efa170&q=Mercari%2C+inc.&intent=general",
+      "destination_url": "https://global-work-radar.pages.dev/?japan=1&utm_source=social&utm_medium=organic&utm_campaign=gwr_signal_growth&utm_content=gwr-alert-81debb625851&q=Mercari%2C+inc.&intent=general",
       "evidence": [
         {
           "job_id": "workable-1bc8a1ed0c",
@@ -54,10 +54,10 @@
           "title": "Talent Acquisition Manager (New Graduate) / 新卒採用マネージャー - Mercari",
           "source": "Workable",
           "official_url": "https://apply.workable.com/j/1BC8A1ED0C",
-          "last_verified_at": "2026-09-18T04:44:11.828Z",
+          "last_verified_at": "2026-09-18T12:58:34.302Z",
           "freshness_bucket": "NEW_24H",
           "hiring_momentum": "HIRING_UP",
-          "hiring_delta": 1
+          "hiring_delta": 2
         }
       ],
       "measurement_chain": [
@@ -73,29 +73,29 @@
       "rank": 1
     },
     {
-      "candidate_id": "gwr-alert-d9637d218ec5",
+      "candidate_id": "gwr-alert-d565fe60fdec",
       "signal_type": "GWR_ALERT",
       "objective": "qualified_revenue_growth",
-      "score": 98,
-      "source_generated_at": "2026-09-18T04:44:34.020Z",
+      "score": 100,
+      "source_generated_at": "2026-09-18T12:58:58.204Z",
       "claim_scope": "snapshot_change_only_no_hiring_outcome_inference",
       "text": {
-        "x": "【GWR ALERT】Mindrift｜Freelance Agent Evaluation Engineer｜新着Signal。日本対象可否・公式求人・鮮度を確認して追跡しています。次の変化もGWRで更新。 https://global-work-radar.pages.dev/?japan=1&utm_source=social&utm_medium=organic&utm_campaign=gwr_signal_growth&utm_content=gwr-alert-d9637d218ec5&q=Mindrift&intent=gen…",
-        "bluesky": "GWR ALERT｜Mindrift｜Freelance Agent Evaluation Engineer｜新着Signal。日本対象可否・公式求人・鮮度を確認して継続追跡。 https://global-work-radar.pages.dev/?japan=1&utm_source=social&utm_medium=organic&utm_campaign=gwr_signal_growth&utm_content=gwr-alert-d9637d218ec5&q=Mindrift&intent=general",
-        "linkedin": "GWR Market Alert Mindrift｜Freelance Agent Evaluation Engineer｜新着Signal。採用結果の予測ではなく、GWRの検証済み求人スナップショットで確認できた変化です。 https://global-work-radar.pages.dev/?japan=1&utm_source=social&utm_medium=organic&utm_campaign=gwr_signal_growth&utm_content=gwr-alert-d9637d218ec5&q=Mindrift&intent=general"
+        "x": "【GWR ALERT】Mercari, inc.｜HR Business Partner - Merpay / Mercoin｜前回スナップショット比 +2。日本対象可否・公式求人・鮮度を確認して追跡しています。次の変化もGWRで更新。 https://global-work-radar.pages.dev/?japan=1&utm_source=social&utm_medium=organic&utm_campaign=gwr_signal_growth&utm_content=gwr-alert-d565fe60fdec&q=Merca…",
+        "bluesky": "GWR ALERT｜Mercari, inc.｜HR Business Partner - Merpay / Mercoin｜前回スナップショット比 +2。日本対象可否・公式求人・鮮度を確認して継続追跡。 https://global-work-radar.pages.dev/?japan=1&utm_source=social&utm_medium=organic&utm_campaign=gwr_signal_growth&utm_content=gwr-alert-d565fe60fdec&q=Mercari%2C+inc.&intent=general",
+        "linkedin": "GWR Market Alert Mercari, inc.｜HR Business Partner - Merpay / Mercoin｜前回スナップショット比 +2。採用結果の予測ではなく、GWRの検証済み求人スナップショットで確認できた変化です。 https://global-work-radar.pages.dev/?japan=1&utm_source=social&utm_medium=organic&utm_campaign=gwr_signal_growth&utm_content=gwr-alert-d565fe60fdec&q=Mercari%2C+inc.&intent=general"
       },
-      "destination_url": "https://global-work-radar.pages.dev/?japan=1&utm_source=social&utm_medium=organic&utm_campaign=gwr_signal_growth&utm_content=gwr-alert-d9637d218ec5&q=Mindrift&intent=general",
+      "destination_url": "https://global-work-radar.pages.dev/?japan=1&utm_source=social&utm_medium=organic&utm_campaign=gwr_signal_growth&utm_content=gwr-alert-d565fe60fdec&q=Mercari%2C+inc.&intent=general",
       "evidence": [
         {
-          "job_id": "workable-6ac0ae86d7",
-          "employer": "Mindrift",
-          "title": "Freelance Agent Evaluation Engineer",
+          "job_id": "workable-35ac69f256",
+          "employer": "Mercari, inc.",
+          "title": "HR Business Partner - Merpay / Mercoin",
           "source": "Workable",
-          "official_url": "https://apply.workable.com/j/6AC0AE86D7",
-          "last_verified_at": "2026-09-18T04:44:11.828Z",
+          "official_url": "https://apply.workable.com/j/35AC69F256",
+          "last_verified_at": "2026-09-18T12:58:34.302Z",
           "freshness_bucket": "NEW_24H",
-          "hiring_momentum": "STEADY",
-          "hiring_delta": 0
+          "hiring_momentum": "HIRING_UP",
+          "hiring_delta": 2
         }
       ],
       "measurement_chain": [
@@ -111,29 +111,29 @@
       "rank": 2
     },
     {
-      "candidate_id": "gwr-alert-495eda01dc74",
+      "candidate_id": "gwr-alert-2a439fcda526",
       "signal_type": "GWR_ALERT",
       "objective": "qualified_revenue_growth",
-      "score": 98,
-      "source_generated_at": "2026-09-18T04:44:34.020Z",
+      "score": 100,
+      "source_generated_at": "2026-09-18T12:58:58.204Z",
       "claim_scope": "snapshot_change_only_no_hiring_outcome_inference",
       "text": {
-        "x": "【GWR ALERT】Mindrift｜Freelance Agent Evaluation Engineer｜新着Signal。日本対象可否・公式求人・鮮度を確認して追跡しています。次の変化もGWRで更新。 https://global-work-radar.pages.dev/?japan=1&utm_source=social&utm_medium=organic&utm_campaign=gwr_signal_growth&utm_content=gwr-alert-495eda01dc74&q=Mindrift&intent=gen…",
-        "bluesky": "GWR ALERT｜Mindrift｜Freelance Agent Evaluation Engineer｜新着Signal。日本対象可否・公式求人・鮮度を確認して継続追跡。 https://global-work-radar.pages.dev/?japan=1&utm_source=social&utm_medium=organic&utm_campaign=gwr_signal_growth&utm_content=gwr-alert-495eda01dc74&q=Mindrift&intent=general",
-        "linkedin": "GWR Market Alert Mindrift｜Freelance Agent Evaluation Engineer｜新着Signal。採用結果の予測ではなく、GWRの検証済み求人スナップショットで確認できた変化です。 https://global-work-radar.pages.dev/?japan=1&utm_source=social&utm_medium=organic&utm_campaign=gwr_signal_growth&utm_content=gwr-alert-495eda01dc74&q=Mindrift&intent=general"
+        "x": "【GWR ALERT】Mercari, inc.｜AI Transformation Engineer - Mercari｜前回スナップショット比 +2。日本対象可否・公式求人・鮮度を確認して追跡しています。次の変化もGWRで更新。 https://global-work-radar.pages.dev/?japan=1&utm_source=social&utm_medium=organic&utm_campaign=gwr_signal_growth&utm_content=gwr-alert-2a439fcda526&q=Mercari…",
+        "bluesky": "GWR ALERT｜Mercari, inc.｜AI Transformation Engineer - Mercari｜前回スナップショット比 +2。日本対象可否・公式求人・鮮度を確認して継続追跡。 https://global-work-radar.pages.dev/?japan=1&utm_source=social&utm_medium=organic&utm_campaign=gwr_signal_growth&utm_content=gwr-alert-2a439fcda526&q=Mercari%2C+inc.&intent=general",
+        "linkedin": "GWR Market Alert Mercari, inc.｜AI Transformation Engineer - Mercari｜前回スナップショット比 +2。採用結果の予測ではなく、GWRの検証済み求人スナップショットで確認できた変化です。 https://global-work-radar.pages.dev/?japan=1&utm_source=social&utm_medium=organic&utm_campaign=gwr_signal_growth&utm_content=gwr-alert-2a439fcda526&q=Mercari%2C+inc.&intent=general"
       },
-      "destination_url": "https://global-work-radar.pages.dev/?japan=1&utm_source=social&utm_medium=organic&utm_campaign=gwr_signal_growth&utm_content=gwr-alert-495eda01dc74&q=Mindrift&intent=general",
+      "destination_url": "https://global-work-radar.pages.dev/?japan=1&utm_source=social&utm_medium=organic&utm_campaign=gwr_signal_growth&utm_content=gwr-alert-2a439fcda526&q=Mercari%2C+inc.&intent=general",
       "evidence": [
         {
-          "job_id": "workable-c4c14d16aa",
-          "employer": "Mindrift",
-          "title": "Freelance Agent Evaluation Engineer",
+          "job_id": "workable-f099d9e249",
+          "employer": "Mercari, inc.",
+          "title": "AI Transformation Engineer - Mercari",
           "source": "Workable",
-          "official_url": "https://apply.workable.com/j/C4C14D16AA",
-          "last_verified_at": "2026-09-18T04:44:11.828Z",
+          "official_url": "https://apply.workable.com/j/F099D9E249",
+          "last_verified_at": "2026-09-18T12:58:34.302Z",
           "freshness_bucket": "NEW_24H",
-          "hiring_momentum": "STEADY",
-          "hiring_delta": 0
+          "hiring_momentum": "HIRING_UP",
+          "hiring_delta": 2
         }
       ],
       "measurement_chain": [
@@ -149,29 +149,29 @@
       "rank": 3
     },
     {
-      "candidate_id": "gwr-alert-ad7ad17293e0",
+      "candidate_id": "gwr-alert-e747074295f3",
       "signal_type": "GWR_ALERT",
       "objective": "qualified_revenue_growth",
-      "score": 98,
-      "source_generated_at": "2026-09-18T04:44:34.020Z",
+      "score": 99,
+      "source_generated_at": "2026-09-18T12:58:58.204Z",
       "claim_scope": "snapshot_change_only_no_hiring_outcome_inference",
       "text": {
-        "x": "【GWR ALERT】Weekday AI｜In-House Counsel (Japan)｜新着Signal。日本対象可否・公式求人・鮮度を確認して追跡しています。次の変化もGWRで更新。 https://global-work-radar.pages.dev/?japan=1&utm_source=social&utm_medium=organic&utm_campaign=gwr_signal_growth&utm_content=gwr-alert-ad7ad17293e0&q=Weekday+AI&intent=general",
-        "bluesky": "GWR ALERT｜Weekday AI｜In-House Counsel (Japan)｜新着Signal。日本対象可否・公式求人・鮮度を確認して継続追跡。 https://global-work-radar.pages.dev/?japan=1&utm_source=social&utm_medium=organic&utm_campaign=gwr_signal_growth&utm_content=gwr-alert-ad7ad17293e0&q=Weekday+AI&intent=general",
-        "linkedin": "GWR Market Alert Weekday AI｜In-House Counsel (Japan)｜新着Signal。採用結果の予測ではなく、GWRの検証済み求人スナップショットで確認できた変化です。 https://global-work-radar.pages.dev/?japan=1&utm_source=social&utm_medium=organic&utm_campaign=gwr_signal_growth&utm_content=gwr-alert-ad7ad17293e0&q=Weekday+AI&intent=general"
+        "x": "【GWR ALERT】Keywords Studios｜German LQA Specialist｜前回スナップショット比 +1。日本対象可否・公式求人・鮮度を確認して追跡しています。次の変化もGWRで更新。 https://global-work-radar.pages.dev/?japan=1&utm_source=social&utm_medium=organic&utm_campaign=gwr_signal_growth&utm_content=gwr-alert-e747074295f3&q=Keywords+Studios&in…",
+        "bluesky": "GWR ALERT｜Keywords Studios｜German LQA Specialist｜前回スナップショット比 +1。日本対象可否・公式求人・鮮度を確認して継続追跡。 https://global-work-radar.pages.dev/?japan=1&utm_source=social&utm_medium=organic&utm_campaign=gwr_signal_growth&utm_content=gwr-alert-e747074295f3&q=Keywords+Studios&intent=general",
+        "linkedin": "GWR Market Alert Keywords Studios｜German LQA Specialist｜前回スナップショット比 +1。採用結果の予測ではなく、GWRの検証済み求人スナップショットで確認できた変化です。 https://global-work-radar.pages.dev/?japan=1&utm_source=social&utm_medium=organic&utm_campaign=gwr_signal_growth&utm_content=gwr-alert-e747074295f3&q=Keywords+Studios&intent=general"
       },
-      "destination_url": "https://global-work-radar.pages.dev/?japan=1&utm_source=social&utm_medium=organic&utm_campaign=gwr_signal_growth&utm_content=gwr-alert-ad7ad17293e0&q=Weekday+AI&intent=general",
+      "destination_url": "https://global-work-radar.pages.dev/?japan=1&utm_source=social&utm_medium=organic&utm_campaign=gwr_signal_growth&utm_content=gwr-alert-e747074295f3&q=Keywords+Studios&intent=general",
       "evidence": [
         {
-          "job_id": "workable-1cfca12602",
-          "employer": "Weekday AI",
-          "title": "In-House Counsel (Japan)",
+          "job_id": "workable-fde0b59648",
+          "employer": "Keywords Studios",
+          "title": "German LQA Specialist",
           "source": "Workable",
-          "official_url": "https://apply.workable.com/j/1CFCA12602",
-          "last_verified_at": "2026-09-18T04:44:11.828Z",
+          "official_url": "https://apply.workable.com/j/FDE0B59648",
+          "last_verified_at": "2026-09-18T12:58:34.302Z",
           "freshness_bucket": "NEW_24H",
-          "hiring_momentum": "STEADY",
-          "hiring_delta": 0
+          "hiring_momentum": "HIRING_UP",
+          "hiring_delta": 1
         }
       ],
       "measurement_chain": [
@@ -187,18 +187,18 @@
       "rank": 4
     },
     {
-      "candidate_id": "gwr-open-595eb3b551e9",
+      "candidate_id": "gwr-open-8de4884f9cd4",
       "signal_type": "GWR_OPEN",
       "objective": "qualified_revenue_growth",
-      "score": 92,
-      "source_generated_at": "2026-09-18T04:44:34.020Z",
+      "score": 93,
+      "source_generated_at": "2026-09-18T12:58:58.204Z",
       "claim_scope": "verified_active_structured_facts_only",
       "text": {
         "x": "【GWR OPEN】Talent Acquisition Manager (New Graduate) / 新卒採用マネージャー - Mercari｜Mercari, inc.｜Minato City, Tokyo, JP｜USD 0。公式求人の確認先まで検証済み。GWRは日本から確認できる海外求人の変化を継続観測中。 https://global-work-radar.pages.dev/?japan=1&utm_source=social&utm_medium=organic&utm_campaign=gwr_signal_growth&…",
-        "bluesky": "GWR OPEN｜Talent Acquisition Manager (New Graduate) / 新卒採用マネージャー - Mercari｜Mercari, inc.｜Minato City, Tokyo, JP｜USD 0。公式求人まで確認済み。GWRは日本から確認できる海外求人の変化を継続観測中。 https://global-work-radar.pages.dev/?japan=1&utm_source=social&utm_medium=organic&utm_campaign=gwr_signal_growth&utm_content=gwr-open-595e…",
-        "linkedin": "Global Work Radarで新しい求人Signalを確認。 Talent Acquisition Manager (New Graduate) / 新卒採用マネージャー - Mercari｜Mercari, inc.｜Minato City, Tokyo, JP｜USD 0 公開対象はVERIFIED ACTIVEかつ公式応募先を確認できたものに限定しています。 https://global-work-radar.pages.dev/?japan=1&utm_source=social&utm_medium=organic&utm_campaign=gwr_signal_growth&utm_content=gwr-open-595eb3b551e9&q=Mercari%2C+inc.&intent=general"
+        "bluesky": "GWR OPEN｜Talent Acquisition Manager (New Graduate) / 新卒採用マネージャー - Mercari｜Mercari, inc.｜Minato City, Tokyo, JP｜USD 0。公式求人まで確認済み。GWRは日本から確認できる海外求人の変化を継続観測中。 https://global-work-radar.pages.dev/?japan=1&utm_source=social&utm_medium=organic&utm_campaign=gwr_signal_growth&utm_content=gwr-open-8de4…",
+        "linkedin": "Global Work Radarで新しい求人Signalを確認。 Talent Acquisition Manager (New Graduate) / 新卒採用マネージャー - Mercari｜Mercari, inc.｜Minato City, Tokyo, JP｜USD 0 公開対象はVERIFIED ACTIVEかつ公式応募先を確認できたものに限定しています。 https://global-work-radar.pages.dev/?japan=1&utm_source=social&utm_medium=organic&utm_campaign=gwr_signal_growth&utm_content=gwr-open-8de4884f9cd4&q=Mercari%2C+inc.&intent=general"
       },
-      "destination_url": "https://global-work-radar.pages.dev/?japan=1&utm_source=social&utm_medium=organic&utm_campaign=gwr_signal_growth&utm_content=gwr-open-595eb3b551e9&q=Mercari%2C+inc.&intent=general",
+      "destination_url": "https://global-work-radar.pages.dev/?japan=1&utm_source=social&utm_medium=organic&utm_campaign=gwr_signal_growth&utm_content=gwr-open-8de4884f9cd4&q=Mercari%2C+inc.&intent=general",
       "evidence": [
         {
           "job_id": "workable-1bc8a1ed0c",
@@ -206,10 +206,10 @@
           "title": "Talent Acquisition Manager (New Graduate) / 新卒採用マネージャー - Mercari",
           "source": "Workable",
           "official_url": "https://apply.workable.com/j/1BC8A1ED0C",
-          "last_verified_at": "2026-09-18T04:44:11.828Z",
+          "last_verified_at": "2026-09-18T12:58:34.302Z",
           "freshness_bucket": "NEW_24H",
           "hiring_momentum": "HIRING_UP",
-          "hiring_delta": 1
+          "hiring_delta": 2
         }
       ],
       "measurement_chain": [
@@ -225,29 +225,29 @@
       "rank": 5
     },
     {
-      "candidate_id": "gwr-open-36c6279e211c",
+      "candidate_id": "gwr-open-ad0a0c9b6148",
       "signal_type": "GWR_OPEN",
       "objective": "qualified_revenue_growth",
-      "score": 91,
-      "source_generated_at": "2026-09-18T04:44:34.020Z",
+      "score": 93,
+      "source_generated_at": "2026-09-18T12:58:58.204Z",
       "claim_scope": "verified_active_structured_facts_only",
       "text": {
-        "x": "【GWR OPEN】Freelance Agent Evaluation Engineer｜Mindrift｜JP｜USD 0。公式求人の確認先まで検証済み。GWRは日本から確認できる海外求人の変化を継続観測中。 https://global-work-radar.pages.dev/?japan=1&utm_source=social&utm_medium=organic&utm_campaign=gwr_signal_growth&utm_content=gwr-open-36c6279e211c&q=Mindrift&intent=re…",
-        "bluesky": "GWR OPEN｜Freelance Agent Evaluation Engineer｜Mindrift｜JP｜USD 0。公式求人まで確認済み。GWRは日本から確認できる海外求人の変化を継続観測中。 https://global-work-radar.pages.dev/?japan=1&utm_source=social&utm_medium=organic&utm_campaign=gwr_signal_growth&utm_content=gwr-open-36c6279e211c&q=Mindrift&intent=remote",
-        "linkedin": "Global Work Radarで新しい求人Signalを確認。 Freelance Agent Evaluation Engineer｜Mindrift｜JP｜USD 0 公開対象はVERIFIED ACTIVEかつ公式応募先を確認できたものに限定しています。 https://global-work-radar.pages.dev/?japan=1&utm_source=social&utm_medium=organic&utm_campaign=gwr_signal_growth&utm_content=gwr-open-36c6279e211c&q=Mindrift&intent=remote"
+        "x": "【GWR OPEN】HR Business Partner - Merpay / Mercoin｜Mercari, inc.｜Minato City, Tokyo, JP｜USD 0。公式求人の確認先まで検証済み。GWRは日本から確認できる海外求人の変化を継続観測中。 https://global-work-radar.pages.dev/?japan=1&utm_source=social&utm_medium=organic&utm_campaign=gwr_signal_growth&utm_content=gwr-open-ad0a0…",
+        "bluesky": "GWR OPEN｜HR Business Partner - Merpay / Mercoin｜Mercari, inc.｜Minato City, Tokyo, JP｜USD 0。公式求人まで確認済み。GWRは日本から確認できる海外求人の変化を継続観測中。 https://global-work-radar.pages.dev/?japan=1&utm_source=social&utm_medium=organic&utm_campaign=gwr_signal_growth&utm_content=gwr-open-ad0a0c9b6148&q=Mercari%2C+inc.…",
+        "linkedin": "Global Work Radarで新しい求人Signalを確認。 HR Business Partner - Merpay / Mercoin｜Mercari, inc.｜Minato City, Tokyo, JP｜USD 0 公開対象はVERIFIED ACTIVEかつ公式応募先を確認できたものに限定しています。 https://global-work-radar.pages.dev/?japan=1&utm_source=social&utm_medium=organic&utm_campaign=gwr_signal_growth&utm_content=gwr-open-ad0a0c9b6148&q=Mercari%2C+inc.&intent=general"
       },
-      "destination_url": "https://global-work-radar.pages.dev/?japan=1&utm_source=social&utm_medium=organic&utm_campaign=gwr_signal_growth&utm_content=gwr-open-36c6279e211c&q=Mindrift&intent=remote",
+      "destination_url": "https://global-work-radar.pages.dev/?japan=1&utm_source=social&utm_medium=organic&utm_campaign=gwr_signal_growth&utm_content=gwr-open-ad0a0c9b6148&q=Mercari%2C+inc.&intent=general",
       "evidence": [
         {
-          "job_id": "workable-6ac0ae86d7",
-          "employer": "Mindrift",
-          "title": "Freelance Agent Evaluation Engineer",
+          "job_id": "workable-35ac69f256",
+          "employer": "Mercari, inc.",
+          "title": "HR Business Partner - Merpay / Mercoin",
           "source": "Workable",
-          "official_url": "https://apply.workable.com/j/6AC0AE86D7",
-          "last_verified_at": "2026-09-18T04:44:11.828Z",
+          "official_url": "https://apply.workable.com/j/35AC69F256",
+          "last_verified_at": "2026-09-18T12:58:34.302Z",
           "freshness_bucket": "NEW_24H",
-          "hiring_momentum": "STEADY",
-          "hiring_delta": 0
+          "hiring_momentum": "HIRING_UP",
+          "hiring_delta": 2
         }
       ],
       "measurement_chain": [
@@ -263,29 +263,29 @@
       "rank": 6
     },
     {
-      "candidate_id": "gwr-open-4ac55289b7a9",
+      "candidate_id": "gwr-open-265fedb8a4dd",
       "signal_type": "GWR_OPEN",
       "objective": "qualified_revenue_growth",
-      "score": 91,
-      "source_generated_at": "2026-09-18T04:44:34.020Z",
+      "score": 93,
+      "source_generated_at": "2026-09-18T12:58:58.204Z",
       "claim_scope": "verified_active_structured_facts_only",
       "text": {
-        "x": "【GWR OPEN】Freelance Agent Evaluation Engineer｜Mindrift｜JP｜USD 0。公式求人の確認先まで検証済み。GWRは日本から確認できる海外求人の変化を継続観測中。 https://global-work-radar.pages.dev/?japan=1&utm_source=social&utm_medium=organic&utm_campaign=gwr_signal_growth&utm_content=gwr-open-4ac55289b7a9&q=Mindrift&intent=re…",
-        "bluesky": "GWR OPEN｜Freelance Agent Evaluation Engineer｜Mindrift｜JP｜USD 0。公式求人まで確認済み。GWRは日本から確認できる海外求人の変化を継続観測中。 https://global-work-radar.pages.dev/?japan=1&utm_source=social&utm_medium=organic&utm_campaign=gwr_signal_growth&utm_content=gwr-open-4ac55289b7a9&q=Mindrift&intent=remote",
-        "linkedin": "Global Work Radarで新しい求人Signalを確認。 Freelance Agent Evaluation Engineer｜Mindrift｜JP｜USD 0 公開対象はVERIFIED ACTIVEかつ公式応募先を確認できたものに限定しています。 https://global-work-radar.pages.dev/?japan=1&utm_source=social&utm_medium=organic&utm_campaign=gwr_signal_growth&utm_content=gwr-open-4ac55289b7a9&q=Mindrift&intent=remote"
+        "x": "【GWR OPEN】AI Transformation Engineer - Mercari｜Mercari, inc.｜Minato City, Tokyo, JP｜USD 0。公式求人の確認先まで検証済み。GWRは日本から確認できる海外求人の変化を継続観測中。 https://global-work-radar.pages.dev/?japan=1&utm_source=social&utm_medium=organic&utm_campaign=gwr_signal_growth&utm_content=gwr-open-265fedb…",
+        "bluesky": "GWR OPEN｜AI Transformation Engineer - Mercari｜Mercari, inc.｜Minato City, Tokyo, JP｜USD 0。公式求人まで確認済み。GWRは日本から確認できる海外求人の変化を継続観測中。 https://global-work-radar.pages.dev/?japan=1&utm_source=social&utm_medium=organic&utm_campaign=gwr_signal_growth&utm_content=gwr-open-265fedb8a4dd&q=Mercari%2C+inc.&i…",
+        "linkedin": "Global Work Radarで新しい求人Signalを確認。 AI Transformation Engineer - Mercari｜Mercari, inc.｜Minato City, Tokyo, JP｜USD 0 公開対象はVERIFIED ACTIVEかつ公式応募先を確認できたものに限定しています。 https://global-work-radar.pages.dev/?japan=1&utm_source=social&utm_medium=organic&utm_campaign=gwr_signal_growth&utm_content=gwr-open-265fedb8a4dd&q=Mercari%2C+inc.&intent=general"
       },
-      "destination_url": "https://global-work-radar.pages.dev/?japan=1&utm_source=social&utm_medium=organic&utm_campaign=gwr_signal_growth&utm_content=gwr-open-4ac55289b7a9&q=Mindrift&intent=remote",
+      "destination_url": "https://global-work-radar.pages.dev/?japan=1&utm_source=social&utm_medium=organic&utm_campaign=gwr_signal_growth&utm_content=gwr-open-265fedb8a4dd&q=Mercari%2C+inc.&intent=general",
       "evidence": [
         {
-          "job_id": "workable-c4c14d16aa",
-          "employer": "Mindrift",
-          "title": "Freelance Agent Evaluation Engineer",
+          "job_id": "workable-f099d9e249",
+          "employer": "Mercari, inc.",
+          "title": "AI Transformation Engineer - Mercari",
           "source": "Workable",
-          "official_url": "https://apply.workable.com/j/C4C14D16AA",
-          "last_verified_at": "2026-09-18T04:44:11.828Z",
+          "official_url": "https://apply.workable.com/j/F099D9E249",
+          "last_verified_at": "2026-09-18T12:58:34.302Z",
           "freshness_bucket": "NEW_24H",
-          "hiring_momentum": "STEADY",
-          "hiring_delta": 0
+          "hiring_momentum": "HIRING_UP",
+          "hiring_delta": 2
         }
       ],
       "measurement_chain": [
@@ -301,29 +301,29 @@
       "rank": 7
     },
     {
-      "candidate_id": "gwr-open-4a23cc81ac11",
+      "candidate_id": "gwr-open-48a87b83c53d",
       "signal_type": "GWR_OPEN",
       "objective": "qualified_revenue_growth",
-      "score": 91,
-      "source_generated_at": "2026-09-18T04:44:34.020Z",
+      "score": 92,
+      "source_generated_at": "2026-09-18T12:58:58.204Z",
       "claim_scope": "verified_active_structured_facts_only",
       "text": {
-        "x": "【GWR OPEN】In-House Counsel (Japan)｜Weekday AI｜JP｜USD 0。公式求人の確認先まで検証済み。GWRは日本から確認できる海外求人の変化を継続観測中。 https://global-work-radar.pages.dev/?japan=1&utm_source=social&utm_medium=organic&utm_campaign=gwr_signal_growth&utm_content=gwr-open-4a23cc81ac11&q=Weekday+AI&intent=remote",
-        "bluesky": "GWR OPEN｜In-House Counsel (Japan)｜Weekday AI｜JP｜USD 0。公式求人まで確認済み。GWRは日本から確認できる海外求人の変化を継続観測中。 https://global-work-radar.pages.dev/?japan=1&utm_source=social&utm_medium=organic&utm_campaign=gwr_signal_growth&utm_content=gwr-open-4a23cc81ac11&q=Weekday+AI&intent=remote",
-        "linkedin": "Global Work Radarで新しい求人Signalを確認。 In-House Counsel (Japan)｜Weekday AI｜JP｜USD 0 公開対象はVERIFIED ACTIVEかつ公式応募先を確認できたものに限定しています。 https://global-work-radar.pages.dev/?japan=1&utm_source=social&utm_medium=organic&utm_campaign=gwr_signal_growth&utm_content=gwr-open-4a23cc81ac11&q=Weekday+AI&intent=remote"
+        "x": "【GWR OPEN】German LQA Specialist｜Keywords Studios｜Suginami City, Tokyo, JP｜USD 0。公式求人の確認先まで検証済み。GWRは日本から確認できる海外求人の変化を継続観測中。 https://global-work-radar.pages.dev/?japan=1&utm_source=social&utm_medium=organic&utm_campaign=gwr_signal_growth&utm_content=gwr-open-48a87b83c53d&q=Ke…",
+        "bluesky": "GWR OPEN｜German LQA Specialist｜Keywords Studios｜Suginami City, Tokyo, JP｜USD 0。公式求人まで確認済み。GWRは日本から確認できる海外求人の変化を継続観測中。 https://global-work-radar.pages.dev/?japan=1&utm_source=social&utm_medium=organic&utm_campaign=gwr_signal_growth&utm_content=gwr-open-48a87b83c53d&q=Keywords+Studios&intent=gen…",
+        "linkedin": "Global Work Radarで新しい求人Signalを確認。 German LQA Specialist｜Keywords Studios｜Suginami City, Tokyo, JP｜USD 0 公開対象はVERIFIED ACTIVEかつ公式応募先を確認できたものに限定しています。 https://global-work-radar.pages.dev/?japan=1&utm_source=social&utm_medium=organic&utm_campaign=gwr_signal_growth&utm_content=gwr-open-48a87b83c53d&q=Keywords+Studios&intent=general"
       },
-      "destination_url": "https://global-work-radar.pages.dev/?japan=1&utm_source=social&utm_medium=organic&utm_campaign=gwr_signal_growth&utm_content=gwr-open-4a23cc81ac11&q=Weekday+AI&intent=remote",
+      "destination_url": "https://global-work-radar.pages.dev/?japan=1&utm_source=social&utm_medium=organic&utm_campaign=gwr_signal_growth&utm_content=gwr-open-48a87b83c53d&q=Keywords+Studios&intent=general",
       "evidence": [
         {
-          "job_id": "workable-1cfca12602",
-          "employer": "Weekday AI",
-          "title": "In-House Counsel (Japan)",
+          "job_id": "workable-fde0b59648",
+          "employer": "Keywords Studios",
+          "title": "German LQA Specialist",
           "source": "Workable",
-          "official_url": "https://apply.workable.com/j/1CFCA12602",
-          "last_verified_at": "2026-09-18T04:44:11.828Z",
+          "official_url": "https://apply.workable.com/j/FDE0B59648",
+          "last_verified_at": "2026-09-18T12:58:34.302Z",
           "freshness_bucket": "NEW_24H",
-          "hiring_momentum": "STEADY",
-          "hiring_delta": 0
+          "hiring_momentum": "HIRING_UP",
+          "hiring_delta": 1
         }
       ],
       "measurement_chain": [
@@ -339,29 +339,29 @@
       "rank": 8
     },
     {
-      "candidate_id": "gwr-open-07088a4a77d8",
+      "candidate_id": "gwr-open-82d939ded6a7",
       "signal_type": "GWR_OPEN",
       "objective": "qualified_revenue_growth",
-      "score": 87,
-      "source_generated_at": "2026-09-18T04:44:34.020Z",
+      "score": 91,
+      "source_generated_at": "2026-09-18T12:58:58.204Z",
       "claim_scope": "verified_active_structured_facts_only",
       "text": {
-        "x": "【GWR OPEN】Product Engineer Backend, Global Supply - Mercari｜Mercari, inc.｜Minato City, Tokyo, JP｜USD 0。公式求人の確認先まで検証済み。GWRは日本から確認できる海外求人の変化を継続観測中。 https://global-work-radar.pages.dev/?japan=1&utm_source=social&utm_medium=organic&utm_campaign=gwr_signal_growth&utm_content=gwr…",
-        "bluesky": "GWR OPEN｜Product Engineer Backend, Global Supply - Mercari｜Mercari, inc.｜Minato City, Tokyo, JP｜USD 0。公式求人まで確認済み。GWRは日本から確認できる海外求人の変化を継続観測中。 https://global-work-radar.pages.dev/?japan=1&utm_source=social&utm_medium=organic&utm_campaign=gwr_signal_growth&utm_content=gwr-open-07088a4a77d8&q=Merc…",
-        "linkedin": "Global Work Radarで新しい求人Signalを確認。 Product Engineer Backend, Global Supply - Mercari｜Mercari, inc.｜Minato City, Tokyo, JP｜USD 0 公開対象はVERIFIED ACTIVEかつ公式応募先を確認できたものに限定しています。 https://global-work-radar.pages.dev/?japan=1&utm_source=social&utm_medium=organic&utm_campaign=gwr_signal_growth&utm_content=gwr-open-07088a4a77d8&q=Mercari%2C+inc.&intent=general"
+        "x": "【GWR OPEN】AI训练师 - 中英双语语音录制｜Mindrift - Data annotation｜JP｜USD 0。公式求人の確認先まで検証済み。GWRは日本から確認できる海外求人の変化を継続観測中。 https://global-work-radar.pages.dev/?japan=1&utm_source=social&utm_medium=organic&utm_campaign=gwr_signal_growth&utm_content=gwr-open-82d939ded6a7&q=Mindrift+-+Data+ann…",
+        "bluesky": "GWR OPEN｜AI训练师 - 中英双语语音录制｜Mindrift - Data annotation｜JP｜USD 0。公式求人まで確認済み。GWRは日本から確認できる海外求人の変化を継続観測中。 https://global-work-radar.pages.dev/?japan=1&utm_source=social&utm_medium=organic&utm_campaign=gwr_signal_growth&utm_content=gwr-open-82d939ded6a7&q=Mindrift+-+Data+annotation&intent=remote",
+        "linkedin": "Global Work Radarで新しい求人Signalを確認。 AI训练师 - 中英双语语音录制｜Mindrift - Data annotation｜JP｜USD 0 公開対象はVERIFIED ACTIVEかつ公式応募先を確認できたものに限定しています。 https://global-work-radar.pages.dev/?japan=1&utm_source=social&utm_medium=organic&utm_campaign=gwr_signal_growth&utm_content=gwr-open-82d939ded6a7&q=Mindrift+-+Data+annotation&intent=remote"
       },
-      "destination_url": "https://global-work-radar.pages.dev/?japan=1&utm_source=social&utm_medium=organic&utm_campaign=gwr_signal_growth&utm_content=gwr-open-07088a4a77d8&q=Mercari%2C+inc.&intent=general",
+      "destination_url": "https://global-work-radar.pages.dev/?japan=1&utm_source=social&utm_medium=organic&utm_campaign=gwr_signal_growth&utm_content=gwr-open-82d939ded6a7&q=Mindrift+-+Data+annotation&intent=remote",
       "evidence": [
         {
-          "job_id": "workable-e259b1df64",
-          "employer": "Mercari, inc.",
-          "title": "Product Engineer Backend, Global Supply - Mercari",
+          "job_id": "workable-289bfd575d",
+          "employer": "Mindrift - Data annotation",
+          "title": "AI训练师 - 中英双语语音录制",
           "source": "Workable",
-          "official_url": "https://apply.workable.com/j/E259B1DF64",
-          "last_verified_at": "2026-09-18T04:44:11.828Z",
-          "freshness_bucket": "NEW_3D",
-          "hiring_momentum": "HIRING_UP",
-          "hiring_delta": 1
+          "official_url": "https://apply.workable.com/j/289BFD575D",
+          "last_verified_at": "2026-09-18T12:58:34.302Z",
+          "freshness_bucket": "NEW_24H",
+          "hiring_momentum": "STEADY",
+          "hiring_delta": 0
         }
       ],
       "measurement_chain": [
@@ -377,29 +377,29 @@
       "rank": 9
     },
     {
-      "candidate_id": "gwr-open-d468b6438f2e",
+      "candidate_id": "gwr-open-3490f3f68476",
       "signal_type": "GWR_OPEN",
       "objective": "qualified_revenue_growth",
-      "score": 87,
-      "source_generated_at": "2026-09-18T04:44:34.020Z",
+      "score": 91,
+      "source_generated_at": "2026-09-18T12:58:58.204Z",
       "claim_scope": "verified_active_structured_facts_only",
       "text": {
-        "x": "【GWR OPEN】Financial Systems Specialist / Lead - Mercari｜Mercari, inc.｜Minato City, Tokyo, JP｜USD 0。公式求人の確認先まで検証済み。GWRは日本から確認できる海外求人の変化を継続観測中。 https://global-work-radar.pages.dev/?japan=1&utm_source=social&utm_medium=organic&utm_campaign=gwr_signal_growth&utm_content=gwr-ope…",
-        "bluesky": "GWR OPEN｜Financial Systems Specialist / Lead - Mercari｜Mercari, inc.｜Minato City, Tokyo, JP｜USD 0。公式求人まで確認済み。GWRは日本から確認できる海外求人の変化を継続観測中。 https://global-work-radar.pages.dev/?japan=1&utm_source=social&utm_medium=organic&utm_campaign=gwr_signal_growth&utm_content=gwr-open-d468b6438f2e&q=Mercari%…",
-        "linkedin": "Global Work Radarで新しい求人Signalを確認。 Financial Systems Specialist / Lead - Mercari｜Mercari, inc.｜Minato City, Tokyo, JP｜USD 0 公開対象はVERIFIED ACTIVEかつ公式応募先を確認できたものに限定しています。 https://global-work-radar.pages.dev/?japan=1&utm_source=social&utm_medium=organic&utm_campaign=gwr_signal_growth&utm_content=gwr-open-d468b6438f2e&q=Mercari%2C+inc.&intent=general"
+        "x": "【GWR OPEN】Senior Python Data Scraping Engineer (Freelance)｜Mindrift｜JP｜USD 0。公式求人の確認先まで検証済み。GWRは日本から確認できる海外求人の変化を継続観測中。 https://global-work-radar.pages.dev/?japan=1&utm_source=social&utm_medium=organic&utm_campaign=gwr_signal_growth&utm_content=gwr-open-3490f3f68476&q=Mindr…",
+        "bluesky": "GWR OPEN｜Senior Python Data Scraping Engineer (Freelance)｜Mindrift｜JP｜USD 0。公式求人まで確認済み。GWRは日本から確認できる海外求人の変化を継続観測中。 https://global-work-radar.pages.dev/?japan=1&utm_source=social&utm_medium=organic&utm_campaign=gwr_signal_growth&utm_content=gwr-open-3490f3f68476&q=Mindrift&intent=remote",
+        "linkedin": "Global Work Radarで新しい求人Signalを確認。 Senior Python Data Scraping Engineer (Freelance)｜Mindrift｜JP｜USD 0 公開対象はVERIFIED ACTIVEかつ公式応募先を確認できたものに限定しています。 https://global-work-radar.pages.dev/?japan=1&utm_source=social&utm_medium=organic&utm_campaign=gwr_signal_growth&utm_content=gwr-open-3490f3f68476&q=Mindrift&intent=remote"
       },
-      "destination_url": "https://global-work-radar.pages.dev/?japan=1&utm_source=social&utm_medium=organic&utm_campaign=gwr_signal_growth&utm_content=gwr-open-d468b6438f2e&q=Mercari%2C+inc.&intent=general",
+      "destination_url": "https://global-work-radar.pages.dev/?japan=1&utm_source=social&utm_medium=organic&utm_campaign=gwr_signal_growth&utm_content=gwr-open-3490f3f68476&q=Mindrift&intent=remote",
       "evidence": [
         {
-          "job_id": "workable-1336ec9757",
-          "employer": "Mercari, inc.",
-          "title": "Financial Systems Specialist / Lead - Mercari",
+          "job_id": "workable-a4e29b2864",
+          "employer": "Mindrift",
+          "title": "Senior Python Data Scraping Engineer (Freelance)",
           "source": "Workable",
-          "official_url": "https://apply.workable.com/j/1336EC9757",
-          "last_verified_at": "2026-09-18T04:44:11.828Z",
-          "freshness_bucket": "NEW_3D",
-          "hiring_momentum": "HIRING_UP",
-          "hiring_delta": 1
+          "official_url": "https://apply.workable.com/j/A4E29B2864",
+          "last_verified_at": "2026-09-18T12:58:34.302Z",
+          "freshness_bucket": "NEW_24H",
+          "hiring_momentum": "STEADY",
+          "hiring_delta": 0
         }
       ],
       "measurement_chain": [
@@ -415,18 +415,18 @@
       "rank": 10
     },
     {
-      "candidate_id": "gwr-shift-4477dc37a64e",
+      "candidate_id": "gwr-shift-ff906f9ce162",
       "signal_type": "GWR_SHIFT",
       "objective": "qualified_revenue_growth",
-      "score": 82,
-      "source_generated_at": "2026-09-18T04:44:34.020Z",
+      "score": 86,
+      "source_generated_at": "2026-09-18T12:58:58.204Z",
       "claim_scope": "verified_inventory_snapshot_delta_only",
       "text": {
-        "x": "【GWR SHIFT】Mercari, inc.：GWR確認求人 62→63（+1）。採用成否の予測ではなく、検証済み公開求人のスナップショット変化です。 https://global-work-radar.pages.dev/?japan=1&utm_source=social&utm_medium=organic&utm_campaign=gwr_signal_growth&utm_content=gwr-shift-4477dc37a64e&q=Mercari%2C+inc.&intent=general",
-        "bluesky": "GWR SHIFT｜Mercari, inc.：GWR確認求人 62→63（+1）。検証済み公開求人のスナップショット変化として継続追跡。 https://global-work-radar.pages.dev/?japan=1&utm_source=social&utm_medium=organic&utm_campaign=gwr_signal_growth&utm_content=gwr-shift-4477dc37a64e&q=Mercari%2C+inc.&intent=general",
-        "linkedin": "GWR Market Shift Mercari, inc.：GWR確認求人 62→63（+1）。企業の採用意欲や採用成否を断定せず、VERIFIED ACTIVE求人の差分として追跡します。 https://global-work-radar.pages.dev/?japan=1&utm_source=social&utm_medium=organic&utm_campaign=gwr_signal_growth&utm_content=gwr-shift-4477dc37a64e&q=Mercari%2C+inc.&intent=general"
+        "x": "【GWR SHIFT】Mercari, inc.：GWR確認求人 63→65（+2）。採用成否の予測ではなく、検証済み公開求人のスナップショット変化です。 https://global-work-radar.pages.dev/?japan=1&utm_source=social&utm_medium=organic&utm_campaign=gwr_signal_growth&utm_content=gwr-shift-ff906f9ce162&q=Mercari%2C+inc.&intent=general",
+        "bluesky": "GWR SHIFT｜Mercari, inc.：GWR確認求人 63→65（+2）。検証済み公開求人のスナップショット変化として継続追跡。 https://global-work-radar.pages.dev/?japan=1&utm_source=social&utm_medium=organic&utm_campaign=gwr_signal_growth&utm_content=gwr-shift-ff906f9ce162&q=Mercari%2C+inc.&intent=general",
+        "linkedin": "GWR Market Shift Mercari, inc.：GWR確認求人 63→65（+2）。企業の採用意欲や採用成否を断定せず、VERIFIED ACTIVE求人の差分として追跡します。 https://global-work-radar.pages.dev/?japan=1&utm_source=social&utm_medium=organic&utm_campaign=gwr_signal_growth&utm_content=gwr-shift-ff906f9ce162&q=Mercari%2C+inc.&intent=general"
       },
-      "destination_url": "https://global-work-radar.pages.dev/?japan=1&utm_source=social&utm_medium=organic&utm_campaign=gwr_signal_growth&utm_content=gwr-shift-4477dc37a64e&q=Mercari%2C+inc.&intent=general",
+      "destination_url": "https://global-work-radar.pages.dev/?japan=1&utm_source=social&utm_medium=organic&utm_campaign=gwr_signal_growth&utm_content=gwr-shift-ff906f9ce162&q=Mercari%2C+inc.&intent=general",
       "evidence": [
         {
           "job_id": "workable-af9b7a6e30",
@@ -434,10 +434,10 @@
           "title": "HR Business Partner - Mercari",
           "source": "Workable",
           "official_url": "https://apply.workable.com/j/AF9B7A6E30",
-          "last_verified_at": "2026-09-18T04:44:11.828Z",
+          "last_verified_at": "2026-09-18T12:58:34.302Z",
           "freshness_bucket": "LONG_RUNNING",
           "hiring_momentum": "HIRING_UP",
-          "hiring_delta": 1
+          "hiring_delta": 2
         },
         {
           "job_id": "workable-c2bdf5efab",
@@ -445,10 +445,10 @@
           "title": "Corporate Application Engineer - Mercari",
           "source": "Workable",
           "official_url": "https://apply.workable.com/j/C2BDF5EFAB",
-          "last_verified_at": "2026-09-18T04:44:11.828Z",
+          "last_verified_at": "2026-09-18T12:58:34.302Z",
           "freshness_bucket": "LONG_RUNNING",
           "hiring_momentum": "HIRING_UP",
-          "hiring_delta": 1
+          "hiring_delta": 2
         },
         {
           "job_id": "workable-2ed6e15a34",
@@ -456,10 +456,10 @@
           "title": "Art Director / アートディレクター - Mercari",
           "source": "Workable",
           "official_url": "https://apply.workable.com/j/2ED6E15A34",
-          "last_verified_at": "2026-09-18T04:44:11.828Z",
+          "last_verified_at": "2026-09-18T12:58:34.302Z",
           "freshness_bucket": "LONG_RUNNING",
           "hiring_momentum": "HIRING_UP",
-          "hiring_delta": 1
+          "hiring_delta": 2
         },
         {
           "job_id": "workable-650401fd75",
@@ -467,7 +467,78 @@
           "title": "UX Researcher - Merpay",
           "source": "Workable",
           "official_url": "https://apply.workable.com/j/650401FD75",
-          "last_verified_at": "2026-09-18T04:44:11.828Z",
+          "last_verified_at": "2026-09-18T12:58:34.302Z",
+          "freshness_bucket": "LONG_RUNNING",
+          "hiring_momentum": "HIRING_UP",
+          "hiring_delta": 2
+        }
+      ],
+      "measurement_chain": [
+        "social_publish",
+        "gwr_visit",
+        "gwr_return_visit",
+        "gwr_search",
+        "gwr_buyer_reaction",
+        "gwr_official_apply_click"
+      ],
+      "publish_state": "CANDIDATE_NOT_PUBLISHED",
+      "channel_rule": "GWR_CHANNEL_ONLY",
+      "rank": 11
+    },
+    {
+      "candidate_id": "gwr-shift-42eb81bebccb",
+      "signal_type": "GWR_SHIFT",
+      "objective": "qualified_revenue_growth",
+      "score": 82,
+      "source_generated_at": "2026-09-18T12:58:58.204Z",
+      "claim_scope": "verified_inventory_snapshot_delta_only",
+      "text": {
+        "x": "【GWR SHIFT】Keywords Studios：GWR確認求人 25→26（+1）。採用成否の予測ではなく、検証済み公開求人のスナップショット変化です。 https://global-work-radar.pages.dev/?japan=1&utm_source=social&utm_medium=organic&utm_campaign=gwr_signal_growth&utm_content=gwr-shift-42eb81bebccb&q=Keywords+Studios&intent=general",
+        "bluesky": "GWR SHIFT｜Keywords Studios：GWR確認求人 25→26（+1）。検証済み公開求人のスナップショット変化として継続追跡。 https://global-work-radar.pages.dev/?japan=1&utm_source=social&utm_medium=organic&utm_campaign=gwr_signal_growth&utm_content=gwr-shift-42eb81bebccb&q=Keywords+Studios&intent=general",
+        "linkedin": "GWR Market Shift Keywords Studios：GWR確認求人 25→26（+1）。企業の採用意欲や採用成否を断定せず、VERIFIED ACTIVE求人の差分として追跡します。 https://global-work-radar.pages.dev/?japan=1&utm_source=social&utm_medium=organic&utm_campaign=gwr_signal_growth&utm_content=gwr-shift-42eb81bebccb&q=Keywords+Studios&intent=general"
+      },
+      "destination_url": "https://global-work-radar.pages.dev/?japan=1&utm_source=social&utm_medium=organic&utm_campaign=gwr_signal_growth&utm_content=gwr-shift-42eb81bebccb&q=Keywords+Studios&intent=general",
+      "evidence": [
+        {
+          "job_id": "workable-c0bf8df48a",
+          "employer": "Keywords Studios",
+          "title": "English to Japanese MOBA Game Translator (Freelance/remote Job) 英日ゲームフリーランス翻訳者",
+          "source": "Workable",
+          "official_url": "https://apply.workable.com/j/C0BF8DF48A",
+          "last_verified_at": "2026-09-18T12:58:34.302Z",
+          "freshness_bucket": "LONG_RUNNING",
+          "hiring_momentum": "HIRING_UP",
+          "hiring_delta": 1
+        },
+        {
+          "job_id": "workable-82fcd309b3",
+          "employer": "Keywords Studios",
+          "title": "English to Japanese Freelance Translators (Games) 英日ゲームフリーランス翻訳者",
+          "source": "Workable",
+          "official_url": "https://apply.workable.com/j/82FCD309B3",
+          "last_verified_at": "2026-09-18T12:58:34.302Z",
+          "freshness_bucket": "LONG_RUNNING",
+          "hiring_momentum": "HIRING_UP",
+          "hiring_delta": 1
+        },
+        {
+          "job_id": "workable-6f2f664d12",
+          "employer": "Keywords Studios",
+          "title": "Japanese & English Customer Support Agent - Gaming",
+          "source": "Workable",
+          "official_url": "https://apply.workable.com/j/6F2F664D12",
+          "last_verified_at": "2026-09-18T12:58:34.302Z",
+          "freshness_bucket": "LONG_RUNNING",
+          "hiring_momentum": "HIRING_UP",
+          "hiring_delta": 1
+        },
+        {
+          "job_id": "workable-135a66bbd4",
+          "employer": "Keywords Studios",
+          "title": "Outsourced Art Account Manager - Japan アカウントマネージャー - アートスタジオ",
+          "source": "Workable",
+          "official_url": "https://apply.workable.com/j/135A66BBD4",
+          "last_verified_at": "2026-09-18T12:58:34.302Z",
           "freshness_bucket": "LONG_RUNNING",
           "hiring_momentum": "HIRING_UP",
           "hiring_delta": 1
@@ -483,7 +554,7 @@
       ],
       "publish_state": "CANDIDATE_NOT_PUBLISHED",
       "channel_rule": "GWR_CHANNEL_ONLY",
-      "rank": 11
+      "rank": 12
     }
   ]
 }
