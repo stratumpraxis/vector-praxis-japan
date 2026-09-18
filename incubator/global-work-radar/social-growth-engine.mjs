@@ -9,7 +9,7 @@ const MEASUREMENT_CHAIN=Object.freeze(['social_publish','gwr_visit','gwr_return_
 const KPI_ORDER=Object.freeze(['revenue_evidence','buyer_reaction_evidence','official_apply_evidence','qualified_gwr_action','gwr_return_visit','qualified_social_visit','qualified_follow','reach']);
 
 const text=v=>typeof v==='string'?v.trim():'';
-const finite=v=>Number.isFinite(Number(v))?Number(v):null;
+const finite=v=>{if(v===null||v===undefined)return null;if(typeof v==='string'&&!v.trim())return null;const n=Number(v);return Number.isFinite(n)?n:null;};
 const compact=(value,max=180)=>{const n=text(value).replace(/\s+/g,' ');return n.length<=max?n:`${n.slice(0,Math.max(0,max-1)).trimEnd()}…`};
 const hash=value=>crypto.createHash('sha256').update(JSON.stringify(value)).digest('hex').slice(0,12);
 
