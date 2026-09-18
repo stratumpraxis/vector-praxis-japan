@@ -1,10 +1,10 @@
 {
   "schema_version": 1,
-  "observed_at": "2026-09-18T19:02:43.266Z",
+  "observed_at": "2026-09-18T22:35:17.406Z",
   "run": {
-    "github_run_id": "35383564498",
+    "github_run_id": "35402133813",
     "github_run_attempt": "1",
-    "github_sha": "1754311699097155adab5b37b3f5a1eac334dfe2",
+    "github_sha": "d5bdf89c48bcb13e7a3558d2cf82baab88dde774",
     "baseline_ref": "HEAD"
   },
   "inventory": {
@@ -31,8 +31,8 @@
       "workable-3d80317f09",
       "workable-f08ecc04d8",
       "workable-44b2567a99",
-      "workable-14cb8e9594",
       "workable-df08d17fe2",
+      "workable-14cb8e9594",
       "workable-2bc7b3e24a",
       "workable-ad45131703",
       "workable-50cf31d307",
@@ -65,10 +65,10 @@
       "workable-ccb1816009",
       "workable-4006265775",
       "workable-a335b713f4",
+      "workable-8bbd3702f9",
       "workable-35e51b79a9",
       "workable-4c15cdd484",
       "workable-2584b2186b",
-      "workable-8bbd3702f9",
       "workable-0b1d27bd70",
       "workable-82d7518973",
       "workable-7afb08df16",
@@ -80,8 +80,8 @@
       "workable-2491771220",
       "workable-7066a95e5c",
       "workable-9700794743",
-      "workable-c489180ebf",
       "workable-880a60b611",
+      "workable-c489180ebf",
       "workable-2ed6e15a34",
       "workable-650401fd75",
       "workable-089e240467",
@@ -141,8 +141,8 @@
       "workable-6f14d9904f",
       "workable-22ed3d67c0",
       "workable-431fce5084",
-      "workable-f6b5fc653f",
       "workable-6a42996879",
+      "workable-f6b5fc653f",
       "workable-6ce68c228e",
       "workable-650d64cd6f",
       "workable-2ce9b93480",
@@ -512,8 +512,8 @@
     "hiring_intent": {
       "signal_level_counts": {
         "WEAK_EVIDENCE": 328,
-        "STRONG_EVIDENCE": 18,
-        "MODERATE_EVIDENCE": 113
+        "STRONG_EVIDENCE": 17,
+        "MODERATE_EVIDENCE": 114
       },
       "score_is_probability": false,
       "ghost_job_classifier": false,
