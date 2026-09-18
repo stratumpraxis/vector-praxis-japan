@@ -1,10 +1,10 @@
 {
   "schema_version": 1,
-  "observed_at": "2026-09-18T22:35:17.406Z",
+  "observed_at": "2026-09-18T23:22:31.914Z",
   "run": {
-    "github_run_id": "35402133813",
+    "github_run_id": "35405364521",
     "github_run_attempt": "1",
-    "github_sha": "d5bdf89c48bcb13e7a3558d2cf82baab88dde774",
+    "github_sha": "e9e5ea03e7c33fe966ee07df1ac3e50fd60b0fa6",
     "baseline_ref": "HEAD"
   },
   "inventory": {
@@ -80,8 +80,8 @@
       "workable-2491771220",
       "workable-7066a95e5c",
       "workable-9700794743",
-      "workable-880a60b611",
       "workable-c489180ebf",
+      "workable-880a60b611",
       "workable-2ed6e15a34",
       "workable-650401fd75",
       "workable-089e240467",
@@ -488,11 +488,11 @@
     "lifecycle": {
       "state_counts": {
         "STALE_RISK_90D": 220,
-        "NEW_3D": 14,
+        "NEW_3D": 13,
         "LONG_RUNNING_60D": 43,
         "ACTIVE": 89,
         "AGING_30D": 69,
-        "FRESH_7D": 13,
+        "FRESH_7D": 14,
         "NEW_24H": 11
       },
       "stale_risk_counts": {
