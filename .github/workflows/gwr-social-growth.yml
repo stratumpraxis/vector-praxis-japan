@@ -38,13 +38,13 @@ jobs:
           node-version: '24'
 
       - name: Build follower-growth candidates from verified GWR signals
-        run: node incubator/global-work-radar/social-growth-engine.mjs
+        run: node social-growth-engine.mjs
 
       - name: Validate GWR-only social output
         run: |
           node - <<'NODE'
           const fs=require('fs');
-          const p='incubator/global-work-radar/data/gwr-social-growth-candidates.json';
+          const p='data/gwr-social-growth-candidates.json';
           const out=JSON.parse(fs.readFileSync(p,'utf8'));
           if(out.brand!=='Global Work Radar') throw new Error('wrong brand');
           if(out.channel_policy!=='GWR_CHANNEL_ONLY') throw new Error('GWR channel boundary missing');
@@ -70,7 +70,7 @@ jobs:
           set -euo pipefail
           git config user.name "gwr-bot"
           git config user.email "globalworkradar@gmail.com"
-          git add incubator/global-work-radar/data/gwr-social-growth-candidates.json
+          git add data/gwr-social-growth-candidates.json
           if git diff --cached --quiet; then
             echo "No GWR social candidate changes"
           else

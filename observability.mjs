@@ -2,9 +2,9 @@ import fs from 'node:fs';
 import { execFileSync } from 'node:child_process';
 import crypto from 'node:crypto';
 
-const JOBS_PATH = 'incubator/global-work-radar/data/verified-jobs.json';
-const LATEST_PATH = 'incubator/global-work-radar/data/observability-latest.json';
-const HISTORY_PATH = 'incubator/global-work-radar/data/observability-history.jsonl';
+const JOBS_PATH = 'data/verified-jobs.json';
+const LATEST_PATH = 'data/observability-latest.json';
+const HISTORY_PATH = 'data/observability-history.jsonl';
 const BASELINE_REF = process.env.GWR_BASELINE_REF || 'HEAD';
 
 function readJson(path) {

@@ -1,7 +1,7 @@
 import fs from 'node:fs';
 import crypto from 'node:crypto';
 
-const HANDOFF_PATH = 'incubator/global-work-radar/data/publishing-data-insight-candidates.jsonl';
+const HANDOFF_PATH = 'data/publishing-data-insight-candidates.jsonl';
 const DEFAULT_RETURN_DESTINATION = 'https://global-work-radar.pages.dev/';
 const FORBIDDEN_ASSERTIONS = Object.freeze([
   'this_job_will_make_money',
@@ -147,15 +147,15 @@ export function recordCandidate(input) {
     return { appended: false, candidate: checked.candidate };
   }
 
-  fs.mkdirSync('incubator/global-work-radar/data', { recursive: true });
+  fs.mkdirSync('data', { recursive: true });
   fs.appendFileSync(HANDOFF_PATH, JSON.stringify(checked.candidate) + '\n');
   return { appended: true, candidate: checked.candidate };
 }
 
 function usage() {
   console.log('Usage:');
-  console.log('  node incubator/global-work-radar/publishing-handoff.mjs --validate-log');
-  console.log('  node incubator/global-work-radar/publishing-handoff.mjs --record <candidate.json>');
+  console.log('  node publishing-handoff.mjs --validate-log');
+  console.log('  node publishing-handoff.mjs --record <candidate.json>');
 }
 
 const [mode, arg] = process.argv.slice(2);

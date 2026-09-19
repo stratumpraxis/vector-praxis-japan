@@ -1,7 +1,7 @@
 import fs from 'node:fs';
 import crypto from 'node:crypto';
 
-const ROOT='incubator/global-work-radar';
+const ROOT='.';
 const INPUT=`${ROOT}/data/verified-jobs.json`;
 const OUTPUT=`${ROOT}/data/gwr-social-growth-candidates.json`;
 const BASE_URL='https://global-work-radar.pages.dev/';
