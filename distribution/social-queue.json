@@ -473,6 +473,32 @@
       "external_post_url": "https://bsky.app/profile/vectorpx.bsky.social/post/3mvu4drqqwz2z",
       "published_at": "2026-09-19T07:00:45.942Z",
       "publisher": "bluesky_direct"
+    },
+    {
+      "id": "vp-alignment-before-depth-bluesky-20260919-01",
+      "platform": "bluesky",
+      "angle": "奥行きより先にAlignment",
+      "copy": "2.5D化で先に奥行きを足すと、人物の境界・クロップ・位置が壊れやすい。先に基準フレームを固定する。Alignment → Object Motion → Environment Motion → Depth。奥行きは最後に増やす。",
+      "hashtags": [
+        "動画制作",
+        "映像制作"
+      ],
+      "destination": "https://vector-praxis-japan.vercel.app/",
+      "utm": {
+        "utm_source": "bluesky",
+        "utm_medium": "social",
+        "utm_campaign": "vector_alignment_depth_20260919",
+        "utm_content": "alignment_before_depth_v1"
+      },
+      "status": "PUBLISHED",
+      "approval": "USER_APPROVED",
+      "scheduled_at": "2026-09-19T15:31:00+09:00",
+      "require_media": false,
+      "post_format": "text",
+      "external_post_id": "at://did:plc:3cg6ij6eppzwmy2v2i42v45e/app.bsky.feed.post/3mvu4v77mc22u",
+      "external_post_url": "https://bsky.app/profile/vectorpx.bsky.social/post/3mvu4v77mc22u",
+      "published_at": "2026-09-19T07:10:30.483Z",
+      "publisher": "bluesky_direct"
     }
   ],
   "publisher_state": {

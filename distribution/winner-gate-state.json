@@ -374,6 +374,29 @@
       "rejected_evidence": [],
       "amplification_eligible": false,
       "amplification_plan": null
+    },
+    {
+      "social_item_id": "vp-alignment-before-depth-bluesky-20260919-01",
+      "platform": "bluesky",
+      "external_post_id": "at://did:plc:3cg6ij6eppzwmy2v2i42v45e/app.bsky.feed.post/3mvu4v77mc22u",
+      "external_post_url": "https://bsky.app/profile/vectorpx.bsky.social/post/3mvu4v77mc22u",
+      "published_at": "2026-09-19T07:10:30.483Z",
+      "destination_url": "https://vector-praxis-japan.vercel.app/",
+      "route_id": null,
+      "asset_id": null,
+      "utm_source": "bluesky",
+      "utm_medium": "social",
+      "utm_campaign": "vector_alignment_depth_20260919",
+      "utm_content": "alignment_before_depth_v1",
+      "copy_hash": "3a9ab2415c80caba3a113f5cbf3bee841467a601c1a84966e1b4a2849cf7f986",
+      "state": "PUBLISHED",
+      "decision": "PUBLISHED_NO_DOWNSTREAM_EVIDENCE",
+      "evidence_count": 0,
+      "rejected_evidence_count": 0,
+      "evidence": [],
+      "rejected_evidence": [],
+      "amplification_eligible": false,
+      "amplification_plan": null
     }
   ]
 }
