@@ -1,10 +1,10 @@
 {
   "schema_version": 1,
-  "observed_at": "2026-09-18T23:32:03.707Z",
+  "observed_at": "2026-09-19T04:38:28.710Z",
   "run": {
-    "github_run_id": "35402133813",
-    "github_run_attempt": "2",
-    "github_sha": "d5bdf89c48bcb13e7a3558d2cf82baab88dde774",
+    "github_run_id": "35421773924",
+    "github_run_attempt": "1",
+    "github_sha": "70b73d8e20686f32fc6f7087226ce8bcf1038ced",
     "baseline_ref": "HEAD"
   },
   "inventory": {
@@ -65,10 +65,10 @@
       "workable-ccb1816009",
       "workable-4006265775",
       "workable-a335b713f4",
-      "workable-8bbd3702f9",
-      "workable-35e51b79a9",
       "workable-4c15cdd484",
       "workable-2584b2186b",
+      "workable-8bbd3702f9",
+      "workable-35e51b79a9",
       "workable-0b1d27bd70",
       "workable-82d7518973",
       "workable-7afb08df16",
@@ -488,17 +488,17 @@
     "lifecycle": {
       "state_counts": {
         "STALE_RISK_90D": 220,
-        "NEW_3D": 13,
-        "LONG_RUNNING_60D": 43,
+        "NEW_3D": 15,
+        "LONG_RUNNING_60D": 44,
         "ACTIVE": 89,
-        "AGING_30D": 69,
+        "AGING_30D": 68,
         "FRESH_7D": 14,
-        "NEW_24H": 11
+        "NEW_24H": 9
       },
       "stale_risk_counts": {
         "ELEVATED": 220,
-        "LOW": 196,
-        "REVIEW": 43
+        "LOW": 195,
+        "REVIEW": 44
       },
       "reopened_after_confirmed_close_count": 0,
       "changed_within_7d_count": 70,
