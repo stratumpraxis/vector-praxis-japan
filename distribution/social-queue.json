@@ -499,6 +499,32 @@
       "external_post_url": "https://bsky.app/profile/vectorpx.bsky.social/post/3mvu4v77mc22u",
       "published_at": "2026-09-19T07:10:30.483Z",
       "publisher": "bluesky_direct"
+    },
+    {
+      "id": "vp-environment-motion-bluesky-20260919-01",
+      "platform": "bluesky",
+      "angle": "背景を固定画として扱わない",
+      "copy": "映像が止まって見える原因は、主役より背景かもしれない。煙・霧・反射・光量・雲・埃。Environment Motionを入れると、画面全体が呼吸し始める。主役だけ動かすより、世界そのものを動かす。",
+      "hashtags": [
+        "動画制作",
+        "映像制作"
+      ],
+      "destination": "https://vector-praxis-japan.vercel.app/",
+      "utm": {
+        "utm_source": "bluesky",
+        "utm_medium": "social",
+        "utm_campaign": "vector_environment_motion_20260919",
+        "utm_content": "environment_motion_v1"
+      },
+      "status": "PUBLISHED",
+      "approval": "USER_APPROVED",
+      "scheduled_at": "2026-09-19T15:33:00+09:00",
+      "require_media": false,
+      "post_format": "text",
+      "external_post_id": "at://did:plc:3cg6ij6eppzwmy2v2i42v45e/app.bsky.feed.post/3mvu5pn4lcs2t",
+      "external_post_url": "https://bsky.app/profile/vectorpx.bsky.social/post/3mvu5pn4lcs2t",
+      "published_at": "2026-09-19T07:25:17.489Z",
+      "publisher": "bluesky_direct"
     }
   ],
   "publisher_state": {
