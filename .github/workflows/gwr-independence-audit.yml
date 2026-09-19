@@ -18,15 +18,5 @@ jobs:
       - uses: actions/setup-node@v4
         with:
           node-version: '24'
-      - name: Verify independent repository boundary
-        run: node verify-independence.mjs
-      - name: Syntax check operational scripts
-        run: |
-          node --check ingest-lever.mjs
-          node --check ingest-workable.mjs
-          node --check build-public-jobs.mjs
-          node --check enrich-lifecycle.mjs
-          node --check agent-lab-handoff.mjs
-          node --check publishing-handoff.mjs
-          node --check observability.mjs
-          node --check social-growth-engine.mjs
+      - name: Run independent repository test suite
+        run: npm test

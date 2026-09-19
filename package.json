@@ -1,0 +1,14 @@
+{
+  "name": "global-work-radar",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "engines": {
+    "node": ">=24"
+  },
+  "scripts": {
+    "audit": "node verify-independence.mjs",
+    "syntax": "node --check ingest-lever.mjs && node --check ingest-workable.mjs && node --check build-public-jobs.mjs && node --check enrich-lifecycle.mjs && node --check agent-lab-handoff.mjs && node --check publishing-handoff.mjs && node --check observability.mjs && node --check social-growth-engine.mjs",
+    "test": "npm run audit && npm run syntax"
+  }
+}

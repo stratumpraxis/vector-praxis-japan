@@ -1,3 +1,0 @@
-User-agent: *
-Allow: /
-Sitemap: https://gwr-world-work-data.pages.dev/sitemap.xml

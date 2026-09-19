@@ -18,6 +18,14 @@ Required repository secrets:
 - `CLOUDFLARE_API_TOKEN`
 - `CLOUDFLARE_ACCOUNT_ID`
 
+Local/CI verification:
+
+```bash
+npm test
+```
+
+Cutover procedure: [`MIGRATION.md`](MIGRATION.md)
+
 ---
 
 # Global Work Radar
