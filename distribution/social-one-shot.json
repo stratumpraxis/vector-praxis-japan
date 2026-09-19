@@ -1,20 +1,20 @@
 {
   "item": {
-    "id": "vp-video-quality-bluesky-20260915-01",
+    "id": "vp-motion-first-bluesky-20260919-01",
     "platform": "bluesky",
-    "angle": "高品質動画は4Kでは決まらない",
-    "copy": "4Kにしただけで動画は高品質にならない。視聴者が感じる品質は、光・奥行き・動き・音・リズム・質感の合成で決まる。Vectorでは『静止画＋ズーム』を完成扱いしない。世界の中の物体が動くところまで作る。",
+    "angle": "静止画＋ズームを動画の完成形にしない",
+    "copy": "静止画をズームしただけでも「動いて」はいる。でも、世界は動いていない。強い動画は、被写体・背景・光・空気・カメラが別々の理由で動く。Vectorでは Motion-First。まず世界の中を動かしてから、演出を足す。",
     "hashtags": ["動画制作", "生成AI"],
     "destination": "https://vector-praxis-japan.vercel.app/",
     "utm": {
       "utm_source": "bluesky",
       "utm_medium": "social",
-      "utm_campaign": "vector_video_quality_20260915",
-      "utm_content": "perceived_quality_v1"
+      "utm_campaign": "vector_motion_first_20260919",
+      "utm_content": "true_scene_motion_v1"
     },
     "status": "READY",
     "approval": "USER_APPROVED",
-    "scheduled_at": "2026-09-15T17:08:00+09:00",
+    "scheduled_at": "2026-09-19T15:29:00+09:00",
     "require_media": false,
     "post_format": "text"
   }
