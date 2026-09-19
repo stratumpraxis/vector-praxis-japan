@@ -1,43 +1,36 @@
-# Global Work Radar (GWR)
+# Global Work Radar
 
-Global Work Radar is a public labor-intelligence utility optimized as a revenue-inflow website.
+Global Work Radar (GWR) is an independent global-work and labor-intelligence service.
 
-Production: https://global-work-radar.pages.dev/
+## Production
 
-## Operating direction
+- Main site: https://global-work-radar.pages.dev/
+- World Work Data: https://gwr-world-work-data.pages.dev/
 
-The current merged redesign is the base. Do not replace it with a new concept.
+## Repository boundary
 
-Primary path:
+This repository contains only GWR-owned code, data, deployment workflows, measurement logic, and GWR data utilities.
 
-`Inbound traffic -> utility / market signal -> CTA -> revenue-bearing action -> checkout / payment evidence`
+It is intentionally independent from Stratum, Vector Praxis, and Digital Index Base repositories. Other brands may consume verified GWR signals through explicit handoff or public links, but they are not runtime dependencies.
 
-Priorities:
+## Core loop
 
-- strengthen inbound traffic and qualified-return behavior
-- make the utility and market-signal layer useful enough to earn repeated visits
-- shorten the path from useful signal to the existing CTA / monetization route
-- finish visual/UI quality to the current research-site standard
-- reuse existing GWR data, filters, official-source routing, tracking events, revenue sensors, and monetization logic
-- avoid unnecessary new pages, products, dashboards, or features
+Public/approved source
+→ ingest
+→ normalize
+→ verify
+→ publish
+→ measure human action
+→ retain evidence
+→ refresh
 
-## Not the core model
+## Operations
 
-GWR is not operated primarily as a manual outbound-sales program. Gmail outreach, additional manual sales sending, and reply-tracking are not the default growth loop.
+The scheduled refresh workflow updates verified job data and deploys the public site to Cloudflare Pages. Social growth output is GWR-only and remains candidate-only until a GWR-owned publishing channel is verified.
 
-## Revenue and trust boundaries
+Required repository secrets:
 
-- Keep official job/source routing neutral and evidence-based.
-- Preserve the official-apply boundary.
-- Keep partner/affiliate monetization fail-closed until an approved, verified revenue URL exists.
-- Do not count visits, searches, workflow runs, or CTA exposure as revenue.
-- Revenue truth requires the relevant checkout, transaction, contract, reward, or payment evidence.
-- Do not create a new offer merely because traffic is weak; first improve the existing visit -> utility/signal -> CTA path.
+- `CLOUDFLARE_API_TOKEN`
+- `CLOUDFLARE_ACCOUNT_ID`
 
-## Existing design base
-
-PR #29, `Redesign GWR as a daily labor intelligence dashboard`, is the current visual/information-architecture base. Its Today-first hierarchy, compact market pulse, signal-first reading flow, research-style cards, secondary search utility, mobile quick dock, tracking, and existing revenue logic should be refined rather than discarded.
-
-## Deployment / verification
-
-GWR deployment and production QA remain in the existing branch workflows. Preserve working CI, Cloudflare deployment, source snapshots, analytics, and fail-closed revenue verification unless evidence shows a concrete defect.
+Technical product notes live under `incubator/global-work-radar/README.md`.

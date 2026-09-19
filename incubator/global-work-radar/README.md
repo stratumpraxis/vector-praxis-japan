@@ -173,4 +173,4 @@ GWR Data → Publishing Research / QA → Public Content → Qualified Search / 
 
 ## Distribution
 
-The service remains independent. Existing Vector Praxis assets may provide contextual inbound links; no shared candidate database, application workflow, or employer account system is planned.
+The service remains independent. External sites may link into GWR, but no shared candidate database, application workflow, employer account system, or cross-brand operational dependency is planned.
