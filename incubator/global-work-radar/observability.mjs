@@ -16,9 +16,11 @@ function readBaseline() {
     const text = execFileSync('git', ['show', `${BASELINE_REF}:${JOBS_PATH}`], {
       encoding: 'utf8',
       stdio: ['ignore', 'pipe', 'pipe'],
+      maxBuffer: 32 * 1024 * 1024,
     });
     return JSON.parse(text);
-  } catch {
+  } catch (error) {
+    console.warn(`GWR baseline unavailable from ${BASELINE_REF}: ${error?.message || error}`);
     return null;
   }
 }
