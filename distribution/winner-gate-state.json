@@ -351,6 +351,29 @@
       "rejected_evidence": [],
       "amplification_eligible": false,
       "amplification_plan": null
+    },
+    {
+      "social_item_id": "vp-motion-first-bluesky-20260919-01",
+      "platform": "bluesky",
+      "external_post_id": "at://did:plc:3cg6ij6eppzwmy2v2i42v45e/app.bsky.feed.post/3mvu4drqqwz2z",
+      "external_post_url": "https://bsky.app/profile/vectorpx.bsky.social/post/3mvu4drqqwz2z",
+      "published_at": "2026-09-19T07:00:45.942Z",
+      "destination_url": "https://vector-praxis-japan.vercel.app/",
+      "route_id": null,
+      "asset_id": null,
+      "utm_source": "bluesky",
+      "utm_medium": "social",
+      "utm_campaign": "vector_motion_first_20260919",
+      "utm_content": "true_scene_motion_v1",
+      "copy_hash": "c86e4fd6cc742cd16f54a1ba05459142d230367f8b643929dfe989c917757c26",
+      "state": "PUBLISHED",
+      "decision": "PUBLISHED_NO_DOWNSTREAM_EVIDENCE",
+      "evidence_count": 0,
+      "rejected_evidence_count": 0,
+      "evidence": [],
+      "rejected_evidence": [],
+      "amplification_eligible": false,
+      "amplification_plan": null
     }
   ]
 }
