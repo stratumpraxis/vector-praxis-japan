@@ -1,20 +1,20 @@
 {
   "item": {
-    "id": "vp-motion-first-bluesky-20260919-01",
+    "id": "vp-alignment-before-depth-bluesky-20260919-01",
     "platform": "bluesky",
-    "angle": "静止画＋ズームを動画の完成形にしない",
-    "copy": "静止画をズームしただけでも「動いて」はいる。でも、世界は動いていない。強い動画は、被写体・背景・光・空気・カメラが別々の理由で動く。Vectorでは Motion-First。まず世界の中を動かしてから、演出を足す。",
-    "hashtags": ["動画制作", "生成AI"],
+    "angle": "奥行きより先にAlignment",
+    "copy": "2.5D化で先に奥行きを足すと、人物の境界・クロップ・位置が壊れやすい。先に基準フレームを固定する。Alignment → Object Motion → Environment Motion → Depth。奥行きは最後に増やす。",
+    "hashtags": ["動画制作", "映像制作"],
     "destination": "https://vector-praxis-japan.vercel.app/",
     "utm": {
       "utm_source": "bluesky",
       "utm_medium": "social",
-      "utm_campaign": "vector_motion_first_20260919",
-      "utm_content": "true_scene_motion_v1"
+      "utm_campaign": "vector_alignment_depth_20260919",
+      "utm_content": "alignment_before_depth_v1"
     },
     "status": "READY",
     "approval": "USER_APPROVED",
-    "scheduled_at": "2026-09-19T15:29:00+09:00",
+    "scheduled_at": "2026-09-19T15:31:00+09:00",
     "require_media": false,
     "post_format": "text"
   }
