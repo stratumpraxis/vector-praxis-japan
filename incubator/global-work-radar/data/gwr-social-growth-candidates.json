@@ -1,6 +1,6 @@
 {
-  "generated_at": "2026-09-19T22:21:26.854Z",
-  "source_generated_at": "2026-09-19T22:20:54.862Z",
+  "generated_at": "2026-09-20T04:55:06.635Z",
+  "source_generated_at": "2026-09-20T04:54:36.583Z",
   "brand": "Global Work Radar",
   "purpose": "Turn verified market changes into GWR-owned traffic, explicit buyer-reaction evidence, and revenue opportunities without fabricating publication state.",
   "channel_policy": "GWR_CHANNEL_ONLY",
@@ -35,18 +35,18 @@
   "candidate_count": 10,
   "candidates": [
     {
-      "candidate_id": "gwr-alert-5c542d34c853",
+      "candidate_id": "gwr-alert-e46257477dca",
       "signal_type": "GWR_ALERT",
       "objective": "qualified_revenue_growth",
       "score": 98,
-      "source_generated_at": "2026-09-19T22:20:54.862Z",
+      "source_generated_at": "2026-09-20T04:54:36.583Z",
       "claim_scope": "snapshot_change_only_no_hiring_outcome_inference",
       "text": {
-        "x": "【GWR ALERT】Gramian Consulting Group｜Photography Expert｜新着Signal。日本対象可否・公式求人・鮮度を確認して追跡しています。次の変化もGWRで更新。 https://global-work-radar.pages.dev/?japan=1&utm_source=social&utm_medium=organic&utm_campaign=gwr_signal_growth&utm_content=gwr-alert-5c542d34c853&q=Gramian+Consulting+G…",
-        "bluesky": "GWR ALERT｜Gramian Consulting Group｜Photography Expert｜新着Signal。日本対象可否・公式求人・鮮度を確認して継続追跡。 https://global-work-radar.pages.dev/?japan=1&utm_source=social&utm_medium=organic&utm_campaign=gwr_signal_growth&utm_content=gwr-alert-5c542d34c853&q=Gramian+Consulting+Group&intent=general",
-        "linkedin": "GWR Market Alert Gramian Consulting Group｜Photography Expert｜新着Signal。採用結果の予測ではなく、GWRの検証済み求人スナップショットで確認できた変化です。 https://global-work-radar.pages.dev/?japan=1&utm_source=social&utm_medium=organic&utm_campaign=gwr_signal_growth&utm_content=gwr-alert-5c542d34c853&q=Gramian+Consulting+Group&intent=general"
+        "x": "【GWR ALERT】Gramian Consulting Group｜Photography Expert｜新着Signal。日本対象可否・公式求人・鮮度を確認して追跡しています。次の変化もGWRで更新。 https://global-work-radar.pages.dev/?japan=1&utm_source=social&utm_medium=organic&utm_campaign=gwr_signal_growth&utm_content=gwr-alert-e46257477dca&q=Gramian+Consulting+G…",
+        "bluesky": "GWR ALERT｜Gramian Consulting Group｜Photography Expert｜新着Signal。日本対象可否・公式求人・鮮度を確認して継続追跡。 https://global-work-radar.pages.dev/?japan=1&utm_source=social&utm_medium=organic&utm_campaign=gwr_signal_growth&utm_content=gwr-alert-e46257477dca&q=Gramian+Consulting+Group&intent=general",
+        "linkedin": "GWR Market Alert Gramian Consulting Group｜Photography Expert｜新着Signal。採用結果の予測ではなく、GWRの検証済み求人スナップショットで確認できた変化です。 https://global-work-radar.pages.dev/?japan=1&utm_source=social&utm_medium=organic&utm_campaign=gwr_signal_growth&utm_content=gwr-alert-e46257477dca&q=Gramian+Consulting+Group&intent=general"
       },
-      "destination_url": "https://global-work-radar.pages.dev/?japan=1&utm_source=social&utm_medium=organic&utm_campaign=gwr_signal_growth&utm_content=gwr-alert-5c542d34c853&q=Gramian+Consulting+Group&intent=general",
+      "destination_url": "https://global-work-radar.pages.dev/?japan=1&utm_source=social&utm_medium=organic&utm_campaign=gwr_signal_growth&utm_content=gwr-alert-e46257477dca&q=Gramian+Consulting+Group&intent=general",
       "evidence": [
         {
           "job_id": "workable-14bfe24950",
@@ -54,7 +54,7 @@
           "title": "Photography Expert",
           "source": "Workable",
           "official_url": "https://apply.workable.com/j/14BFE24950",
-          "last_verified_at": "2026-09-19T22:20:34.454Z",
+          "last_verified_at": "2026-09-20T04:54:14.882Z",
           "freshness_bucket": "NEW_24H",
           "hiring_momentum": "STEADY",
           "hiring_delta": 0
@@ -73,18 +73,18 @@
       "rank": 1
     },
     {
-      "candidate_id": "gwr-alert-7b8a32ec46e4",
+      "candidate_id": "gwr-alert-822632f4444c",
       "signal_type": "GWR_ALERT",
       "objective": "qualified_revenue_growth",
       "score": 98,
-      "source_generated_at": "2026-09-19T22:20:54.862Z",
+      "source_generated_at": "2026-09-20T04:54:36.583Z",
       "claim_scope": "snapshot_change_only_no_hiring_outcome_inference",
       "text": {
         "x": "【GWR ALERT】Digital Technology Institute for Development (DTID)｜UNPAID VOLUNTEER - Deputy Director of Research - Energy & Environment｜新着Signal。日本対象可否・公式求人・鮮度を確認して追跡しています。次の変化もGWRで更新。 https://global-work-radar.pages.dev/?japan=1&utm_source=social&utm_medium=organic&utm_campai…",
         "bluesky": "GWR ALERT｜Digital Technology Institute for Development (DTID)｜UNPAID VOLUNTEER - Deputy Director of Research - Energy & Environment｜新着Signal。日本対象可否・公式求人・鮮度を確認して継続追跡。 https://global-work-radar.pages.dev/?japan=1&utm_source=social&utm_medium=organic&utm_campaign=gwr_signal_growth&utm_content=gwr…",
-        "linkedin": "GWR Market Alert Digital Technology Institute for Development (DTID)｜UNPAID VOLUNTEER - Deputy Director of Research - Energy & Environment｜新着Signal。採用結果の予測ではなく、GWRの検証済み求人スナップショットで確認できた変化です。 https://global-work-radar.pages.dev/?japan=1&utm_source=social&utm_medium=organic&utm_campaign=gwr_signal_growth&utm_content=gwr-alert-7b8a32ec46e4&q=Digital+Technology+Institute+for+Development+%28DTID%29&intent=general"
+        "linkedin": "GWR Market Alert Digital Technology Institute for Development (DTID)｜UNPAID VOLUNTEER - Deputy Director of Research - Energy & Environment｜新着Signal。採用結果の予測ではなく、GWRの検証済み求人スナップショットで確認できた変化です。 https://global-work-radar.pages.dev/?japan=1&utm_source=social&utm_medium=organic&utm_campaign=gwr_signal_growth&utm_content=gwr-alert-822632f4444c&q=Digital+Technology+Institute+for+Development+%28DTID%29&intent=general"
       },
-      "destination_url": "https://global-work-radar.pages.dev/?japan=1&utm_source=social&utm_medium=organic&utm_campaign=gwr_signal_growth&utm_content=gwr-alert-7b8a32ec46e4&q=Digital+Technology+Institute+for+Development+%28DTID%29&intent=general",
+      "destination_url": "https://global-work-radar.pages.dev/?japan=1&utm_source=social&utm_medium=organic&utm_campaign=gwr_signal_growth&utm_content=gwr-alert-822632f4444c&q=Digital+Technology+Institute+for+Development+%28DTID%29&intent=general",
       "evidence": [
         {
           "job_id": "workable-61faa9208e",
@@ -92,7 +92,7 @@
           "title": "UNPAID VOLUNTEER - Deputy Director of Research - Energy & Environment",
           "source": "Workable",
           "official_url": "https://apply.workable.com/j/61FAA9208E",
-          "last_verified_at": "2026-09-19T22:20:34.454Z",
+          "last_verified_at": "2026-09-20T04:54:14.882Z",
           "freshness_bucket": "NEW_24H",
           "hiring_momentum": "STEADY",
           "hiring_delta": 0
@@ -111,18 +111,18 @@
       "rank": 2
     },
     {
-      "candidate_id": "gwr-alert-61cb8271202a",
+      "candidate_id": "gwr-alert-ac4d8f627631",
       "signal_type": "GWR_ALERT",
       "objective": "qualified_revenue_growth",
       "score": 98,
-      "source_generated_at": "2026-09-19T22:20:54.862Z",
+      "source_generated_at": "2026-09-20T04:54:36.583Z",
       "claim_scope": "snapshot_change_only_no_hiring_outcome_inference",
       "text": {
         "x": "【GWR ALERT】Digital Technology Institute for Development (DTID)｜UNPAID VOLUNTEER - Principal Research Officer - Circular Economy｜新着Signal。日本対象可否・公式求人・鮮度を確認して追跡しています。次の変化もGWRで更新。 https://global-work-radar.pages.dev/?japan=1&utm_source=social&utm_medium=organic&utm_campaign=gw…",
         "bluesky": "GWR ALERT｜Digital Technology Institute for Development (DTID)｜UNPAID VOLUNTEER - Principal Research Officer - Circular Economy｜新着Signal。日本対象可否・公式求人・鮮度を確認して継続追跡。 https://global-work-radar.pages.dev/?japan=1&utm_source=social&utm_medium=organic&utm_campaign=gwr_signal_growth&utm_content=gwr-aler…",
-        "linkedin": "GWR Market Alert Digital Technology Institute for Development (DTID)｜UNPAID VOLUNTEER - Principal Research Officer - Circular Economy｜新着Signal。採用結果の予測ではなく、GWRの検証済み求人スナップショットで確認できた変化です。 https://global-work-radar.pages.dev/?japan=1&utm_source=social&utm_medium=organic&utm_campaign=gwr_signal_growth&utm_content=gwr-alert-61cb8271202a&q=Digital+Technology+Institute+for+Development+%28DTID%29&intent=general"
+        "linkedin": "GWR Market Alert Digital Technology Institute for Development (DTID)｜UNPAID VOLUNTEER - Principal Research Officer - Circular Economy｜新着Signal。採用結果の予測ではなく、GWRの検証済み求人スナップショットで確認できた変化です。 https://global-work-radar.pages.dev/?japan=1&utm_source=social&utm_medium=organic&utm_campaign=gwr_signal_growth&utm_content=gwr-alert-ac4d8f627631&q=Digital+Technology+Institute+for+Development+%28DTID%29&intent=general"
       },
-      "destination_url": "https://global-work-radar.pages.dev/?japan=1&utm_source=social&utm_medium=organic&utm_campaign=gwr_signal_growth&utm_content=gwr-alert-61cb8271202a&q=Digital+Technology+Institute+for+Development+%28DTID%29&intent=general",
+      "destination_url": "https://global-work-radar.pages.dev/?japan=1&utm_source=social&utm_medium=organic&utm_campaign=gwr_signal_growth&utm_content=gwr-alert-ac4d8f627631&q=Digital+Technology+Institute+for+Development+%28DTID%29&intent=general",
       "evidence": [
         {
           "job_id": "workable-81482c3c16",
@@ -130,7 +130,7 @@
           "title": "UNPAID VOLUNTEER - Principal Research Officer - Circular Economy",
           "source": "Workable",
           "official_url": "https://apply.workable.com/j/81482C3C16",
-          "last_verified_at": "2026-09-19T22:20:34.454Z",
+          "last_verified_at": "2026-09-20T04:54:14.882Z",
           "freshness_bucket": "NEW_24H",
           "hiring_momentum": "STEADY",
           "hiring_delta": 0
@@ -149,18 +149,18 @@
       "rank": 3
     },
     {
-      "candidate_id": "gwr-alert-e8588e4b1cd8",
+      "candidate_id": "gwr-alert-bc24c93345a1",
       "signal_type": "GWR_ALERT",
       "objective": "qualified_revenue_growth",
       "score": 98,
-      "source_generated_at": "2026-09-19T22:20:54.862Z",
+      "source_generated_at": "2026-09-20T04:54:36.583Z",
       "claim_scope": "snapshot_change_only_no_hiring_outcome_inference",
       "text": {
         "x": "【GWR ALERT】Digital Technology Institute for Development (DTID)｜UNPAID VOLUNTEER - Principal Research Officer - Emissions Management｜新着Signal。日本対象可否・公式求人・鮮度を確認して追跡しています。次の変化もGWRで更新。 https://global-work-radar.pages.dev/?japan=1&utm_source=social&utm_medium=organic&utm_campaig…",
         "bluesky": "GWR ALERT｜Digital Technology Institute for Development (DTID)｜UNPAID VOLUNTEER - Principal Research Officer - Emissions Management｜新着Signal。日本対象可否・公式求人・鮮度を確認して継続追跡。 https://global-work-radar.pages.dev/?japan=1&utm_source=social&utm_medium=organic&utm_campaign=gwr_signal_growth&utm_content=gwr-…",
-        "linkedin": "GWR Market Alert Digital Technology Institute for Development (DTID)｜UNPAID VOLUNTEER - Principal Research Officer - Emissions Management｜新着Signal。採用結果の予測ではなく、GWRの検証済み求人スナップショットで確認できた変化です。 https://global-work-radar.pages.dev/?japan=1&utm_source=social&utm_medium=organic&utm_campaign=gwr_signal_growth&utm_content=gwr-alert-e8588e4b1cd8&q=Digital+Technology+Institute+for+Development+%28DTID%29&intent=general"
+        "linkedin": "GWR Market Alert Digital Technology Institute for Development (DTID)｜UNPAID VOLUNTEER - Principal Research Officer - Emissions Management｜新着Signal。採用結果の予測ではなく、GWRの検証済み求人スナップショットで確認できた変化です。 https://global-work-radar.pages.dev/?japan=1&utm_source=social&utm_medium=organic&utm_campaign=gwr_signal_growth&utm_content=gwr-alert-bc24c93345a1&q=Digital+Technology+Institute+for+Development+%28DTID%29&intent=general"
       },
-      "destination_url": "https://global-work-radar.pages.dev/?japan=1&utm_source=social&utm_medium=organic&utm_campaign=gwr_signal_growth&utm_content=gwr-alert-e8588e4b1cd8&q=Digital+Technology+Institute+for+Development+%28DTID%29&intent=general",
+      "destination_url": "https://global-work-radar.pages.dev/?japan=1&utm_source=social&utm_medium=organic&utm_campaign=gwr_signal_growth&utm_content=gwr-alert-bc24c93345a1&q=Digital+Technology+Institute+for+Development+%28DTID%29&intent=general",
       "evidence": [
         {
           "job_id": "workable-cd05d17bf0",
@@ -168,7 +168,7 @@
           "title": "UNPAID VOLUNTEER - Principal Research Officer - Emissions Management",
           "source": "Workable",
           "official_url": "https://apply.workable.com/j/CD05D17BF0",
-          "last_verified_at": "2026-09-19T22:20:34.454Z",
+          "last_verified_at": "2026-09-20T04:54:14.882Z",
           "freshness_bucket": "NEW_24H",
           "hiring_momentum": "STEADY",
           "hiring_delta": 0
@@ -187,18 +187,18 @@
       "rank": 4
     },
     {
-      "candidate_id": "gwr-open-907bd339d64c",
+      "candidate_id": "gwr-open-6041a92f2a54",
       "signal_type": "GWR_OPEN",
       "objective": "qualified_revenue_growth",
       "score": 91,
-      "source_generated_at": "2026-09-19T22:20:54.862Z",
+      "source_generated_at": "2026-09-20T04:54:36.583Z",
       "claim_scope": "verified_active_structured_facts_only",
       "text": {
-        "x": "【GWR OPEN】Photography Expert｜Gramian Consulting Group｜JP。公式求人の確認先まで検証済み。GWRは日本から確認できる海外求人の変化を継続観測中。 https://global-work-radar.pages.dev/?japan=1&utm_source=social&utm_medium=organic&utm_campaign=gwr_signal_growth&utm_content=gwr-open-907bd339d64c&q=Gramian+Consulting+Group&…",
-        "bluesky": "GWR OPEN｜Photography Expert｜Gramian Consulting Group｜JP。公式求人まで確認済み。GWRは日本から確認できる海外求人の変化を継続観測中。 https://global-work-radar.pages.dev/?japan=1&utm_source=social&utm_medium=organic&utm_campaign=gwr_signal_growth&utm_content=gwr-open-907bd339d64c&q=Gramian+Consulting+Group&intent=remote",
-        "linkedin": "Global Work Radarで新しい求人Signalを確認。 Photography Expert｜Gramian Consulting Group｜JP 公開対象はVERIFIED ACTIVEかつ公式応募先を確認できたものに限定しています。 https://global-work-radar.pages.dev/?japan=1&utm_source=social&utm_medium=organic&utm_campaign=gwr_signal_growth&utm_content=gwr-open-907bd339d64c&q=Gramian+Consulting+Group&intent=remote"
+        "x": "【GWR OPEN】Photography Expert｜Gramian Consulting Group｜JP。公式求人の確認先まで検証済み。GWRは日本から確認できる海外求人の変化を継続観測中。 https://global-work-radar.pages.dev/?japan=1&utm_source=social&utm_medium=organic&utm_campaign=gwr_signal_growth&utm_content=gwr-open-6041a92f2a54&q=Gramian+Consulting+Group&…",
+        "bluesky": "GWR OPEN｜Photography Expert｜Gramian Consulting Group｜JP。公式求人まで確認済み。GWRは日本から確認できる海外求人の変化を継続観測中。 https://global-work-radar.pages.dev/?japan=1&utm_source=social&utm_medium=organic&utm_campaign=gwr_signal_growth&utm_content=gwr-open-6041a92f2a54&q=Gramian+Consulting+Group&intent=remote",
+        "linkedin": "Global Work Radarで新しい求人Signalを確認。 Photography Expert｜Gramian Consulting Group｜JP 公開対象はVERIFIED ACTIVEかつ公式応募先を確認できたものに限定しています。 https://global-work-radar.pages.dev/?japan=1&utm_source=social&utm_medium=organic&utm_campaign=gwr_signal_growth&utm_content=gwr-open-6041a92f2a54&q=Gramian+Consulting+Group&intent=remote"
       },
-      "destination_url": "https://global-work-radar.pages.dev/?japan=1&utm_source=social&utm_medium=organic&utm_campaign=gwr_signal_growth&utm_content=gwr-open-907bd339d64c&q=Gramian+Consulting+Group&intent=remote",
+      "destination_url": "https://global-work-radar.pages.dev/?japan=1&utm_source=social&utm_medium=organic&utm_campaign=gwr_signal_growth&utm_content=gwr-open-6041a92f2a54&q=Gramian+Consulting+Group&intent=remote",
       "evidence": [
         {
           "job_id": "workable-14bfe24950",
@@ -206,7 +206,7 @@
           "title": "Photography Expert",
           "source": "Workable",
           "official_url": "https://apply.workable.com/j/14BFE24950",
-          "last_verified_at": "2026-09-19T22:20:34.454Z",
+          "last_verified_at": "2026-09-20T04:54:14.882Z",
           "freshness_bucket": "NEW_24H",
           "hiring_momentum": "STEADY",
           "hiring_delta": 0
@@ -225,18 +225,18 @@
       "rank": 5
     },
     {
-      "candidate_id": "gwr-open-58259ab015c2",
+      "candidate_id": "gwr-open-bdb94d8e0cf0",
       "signal_type": "GWR_OPEN",
       "objective": "qualified_revenue_growth",
       "score": 91,
-      "source_generated_at": "2026-09-19T22:20:54.862Z",
+      "source_generated_at": "2026-09-20T04:54:36.583Z",
       "claim_scope": "verified_active_structured_facts_only",
       "text": {
         "x": "【GWR OPEN】UNPAID VOLUNTEER - Deputy Director of Research - Energy & Environment｜Digital Technology Institute for Development (DTID)｜JP。公式求人の確認先まで検証済み。GWRは日本から確認できる海外求人の変化を継続観測中。 https://global-work-radar.pages.dev/?japan=1&utm_source=social&utm_medium=organic&utm_campaign=g…",
         "bluesky": "GWR OPEN｜UNPAID VOLUNTEER - Deputy Director of Research - Energy & Environment｜Digital Technology Institute for Development (DTID)｜JP。公式求人まで確認済み。GWRは日本から確認できる海外求人の変化を継続観測中。 https://global-work-radar.pages.dev/?japan=1&utm_source=social&utm_medium=organic&utm_campaign=gwr_signal_growth&utm_cont…",
-        "linkedin": "Global Work Radarで新しい求人Signalを確認。 UNPAID VOLUNTEER - Deputy Director of Research - Energy & Environment｜Digital Technology Institute for Development (DTID)｜JP 公開対象はVERIFIED ACTIVEかつ公式応募先を確認できたものに限定しています。 https://global-work-radar.pages.dev/?japan=1&utm_source=social&utm_medium=organic&utm_campaign=gwr_signal_growth&utm_content=gwr-open-58259ab015c2&q=Digital+Technology+Institute+for+Development+%28DTID%29&intent=remote"
+        "linkedin": "Global Work Radarで新しい求人Signalを確認。 UNPAID VOLUNTEER - Deputy Director of Research - Energy & Environment｜Digital Technology Institute for Development (DTID)｜JP 公開対象はVERIFIED ACTIVEかつ公式応募先を確認できたものに限定しています。 https://global-work-radar.pages.dev/?japan=1&utm_source=social&utm_medium=organic&utm_campaign=gwr_signal_growth&utm_content=gwr-open-bdb94d8e0cf0&q=Digital+Technology+Institute+for+Development+%28DTID%29&intent=remote"
       },
-      "destination_url": "https://global-work-radar.pages.dev/?japan=1&utm_source=social&utm_medium=organic&utm_campaign=gwr_signal_growth&utm_content=gwr-open-58259ab015c2&q=Digital+Technology+Institute+for+Development+%28DTID%29&intent=remote",
+      "destination_url": "https://global-work-radar.pages.dev/?japan=1&utm_source=social&utm_medium=organic&utm_campaign=gwr_signal_growth&utm_content=gwr-open-bdb94d8e0cf0&q=Digital+Technology+Institute+for+Development+%28DTID%29&intent=remote",
       "evidence": [
         {
           "job_id": "workable-61faa9208e",
@@ -244,7 +244,7 @@
           "title": "UNPAID VOLUNTEER - Deputy Director of Research - Energy & Environment",
           "source": "Workable",
           "official_url": "https://apply.workable.com/j/61FAA9208E",
-          "last_verified_at": "2026-09-19T22:20:34.454Z",
+          "last_verified_at": "2026-09-20T04:54:14.882Z",
           "freshness_bucket": "NEW_24H",
           "hiring_momentum": "STEADY",
           "hiring_delta": 0
@@ -263,18 +263,18 @@
       "rank": 6
     },
     {
-      "candidate_id": "gwr-open-40d245c2a7a6",
+      "candidate_id": "gwr-open-b82a183399c0",
       "signal_type": "GWR_OPEN",
       "objective": "qualified_revenue_growth",
       "score": 91,
-      "source_generated_at": "2026-09-19T22:20:54.862Z",
+      "source_generated_at": "2026-09-20T04:54:36.583Z",
       "claim_scope": "verified_active_structured_facts_only",
       "text": {
         "x": "【GWR OPEN】UNPAID VOLUNTEER - Principal Research Officer - Circular Economy｜Digital Technology Institute for Development (DTID)｜JP。公式求人の確認先まで検証済み。GWRは日本から確認できる海外求人の変化を継続観測中。 https://global-work-radar.pages.dev/?japan=1&utm_source=social&utm_medium=organic&utm_campaign=gwr_si…",
         "bluesky": "GWR OPEN｜UNPAID VOLUNTEER - Principal Research Officer - Circular Economy｜Digital Technology Institute for Development (DTID)｜JP。公式求人まで確認済み。GWRは日本から確認できる海外求人の変化を継続観測中。 https://global-work-radar.pages.dev/?japan=1&utm_source=social&utm_medium=organic&utm_campaign=gwr_signal_growth&utm_content=g…",
-        "linkedin": "Global Work Radarで新しい求人Signalを確認。 UNPAID VOLUNTEER - Principal Research Officer - Circular Economy｜Digital Technology Institute for Development (DTID)｜JP 公開対象はVERIFIED ACTIVEかつ公式応募先を確認できたものに限定しています。 https://global-work-radar.pages.dev/?japan=1&utm_source=social&utm_medium=organic&utm_campaign=gwr_signal_growth&utm_content=gwr-open-40d245c2a7a6&q=Digital+Technology+Institute+for+Development+%28DTID%29&intent=remote"
+        "linkedin": "Global Work Radarで新しい求人Signalを確認。 UNPAID VOLUNTEER - Principal Research Officer - Circular Economy｜Digital Technology Institute for Development (DTID)｜JP 公開対象はVERIFIED ACTIVEかつ公式応募先を確認できたものに限定しています。 https://global-work-radar.pages.dev/?japan=1&utm_source=social&utm_medium=organic&utm_campaign=gwr_signal_growth&utm_content=gwr-open-b82a183399c0&q=Digital+Technology+Institute+for+Development+%28DTID%29&intent=remote"
       },
-      "destination_url": "https://global-work-radar.pages.dev/?japan=1&utm_source=social&utm_medium=organic&utm_campaign=gwr_signal_growth&utm_content=gwr-open-40d245c2a7a6&q=Digital+Technology+Institute+for+Development+%28DTID%29&intent=remote",
+      "destination_url": "https://global-work-radar.pages.dev/?japan=1&utm_source=social&utm_medium=organic&utm_campaign=gwr_signal_growth&utm_content=gwr-open-b82a183399c0&q=Digital+Technology+Institute+for+Development+%28DTID%29&intent=remote",
       "evidence": [
         {
           "job_id": "workable-81482c3c16",
@@ -282,7 +282,7 @@
           "title": "UNPAID VOLUNTEER - Principal Research Officer - Circular Economy",
           "source": "Workable",
           "official_url": "https://apply.workable.com/j/81482C3C16",
-          "last_verified_at": "2026-09-19T22:20:34.454Z",
+          "last_verified_at": "2026-09-20T04:54:14.882Z",
           "freshness_bucket": "NEW_24H",
           "hiring_momentum": "STEADY",
           "hiring_delta": 0
@@ -301,18 +301,18 @@
       "rank": 7
     },
     {
-      "candidate_id": "gwr-open-62c1ed664400",
+      "candidate_id": "gwr-open-ef84fbdc826c",
       "signal_type": "GWR_OPEN",
       "objective": "qualified_revenue_growth",
       "score": 91,
-      "source_generated_at": "2026-09-19T22:20:54.862Z",
+      "source_generated_at": "2026-09-20T04:54:36.583Z",
       "claim_scope": "verified_active_structured_facts_only",
       "text": {
         "x": "【GWR OPEN】UNPAID VOLUNTEER - Principal Research Officer - Emissions Management｜Digital Technology Institute for Development (DTID)｜JP。公式求人の確認先まで検証済み。GWRは日本から確認できる海外求人の変化を継続観測中。 https://global-work-radar.pages.dev/?japan=1&utm_source=social&utm_medium=organic&utm_campaign=gw…",
         "bluesky": "GWR OPEN｜UNPAID VOLUNTEER - Principal Research Officer - Emissions Management｜Digital Technology Institute for Development (DTID)｜JP。公式求人まで確認済み。GWRは日本から確認できる海外求人の変化を継続観測中。 https://global-work-radar.pages.dev/?japan=1&utm_source=social&utm_medium=organic&utm_campaign=gwr_signal_growth&utm_conte…",
-        "linkedin": "Global Work Radarで新しい求人Signalを確認。 UNPAID VOLUNTEER - Principal Research Officer - Emissions Management｜Digital Technology Institute for Development (DTID)｜JP 公開対象はVERIFIED ACTIVEかつ公式応募先を確認できたものに限定しています。 https://global-work-radar.pages.dev/?japan=1&utm_source=social&utm_medium=organic&utm_campaign=gwr_signal_growth&utm_content=gwr-open-62c1ed664400&q=Digital+Technology+Institute+for+Development+%28DTID%29&intent=remote"
+        "linkedin": "Global Work Radarで新しい求人Signalを確認。 UNPAID VOLUNTEER - Principal Research Officer - Emissions Management｜Digital Technology Institute for Development (DTID)｜JP 公開対象はVERIFIED ACTIVEかつ公式応募先を確認できたものに限定しています。 https://global-work-radar.pages.dev/?japan=1&utm_source=social&utm_medium=organic&utm_campaign=gwr_signal_growth&utm_content=gwr-open-ef84fbdc826c&q=Digital+Technology+Institute+for+Development+%28DTID%29&intent=remote"
       },
-      "destination_url": "https://global-work-radar.pages.dev/?japan=1&utm_source=social&utm_medium=organic&utm_campaign=gwr_signal_growth&utm_content=gwr-open-62c1ed664400&q=Digital+Technology+Institute+for+Development+%28DTID%29&intent=remote",
+      "destination_url": "https://global-work-radar.pages.dev/?japan=1&utm_source=social&utm_medium=organic&utm_campaign=gwr_signal_growth&utm_content=gwr-open-ef84fbdc826c&q=Digital+Technology+Institute+for+Development+%28DTID%29&intent=remote",
       "evidence": [
         {
           "job_id": "workable-cd05d17bf0",
@@ -320,7 +320,7 @@
           "title": "UNPAID VOLUNTEER - Principal Research Officer - Emissions Management",
           "source": "Workable",
           "official_url": "https://apply.workable.com/j/CD05D17BF0",
-          "last_verified_at": "2026-09-19T22:20:34.454Z",
+          "last_verified_at": "2026-09-20T04:54:14.882Z",
           "freshness_bucket": "NEW_24H",
           "hiring_momentum": "STEADY",
           "hiring_delta": 0
@@ -339,18 +339,18 @@
       "rank": 8
     },
     {
-      "candidate_id": "gwr-open-afe22bf8e190",
+      "candidate_id": "gwr-open-2ab3a09c3209",
       "signal_type": "GWR_OPEN",
       "objective": "qualified_revenue_growth",
       "score": 91,
-      "source_generated_at": "2026-09-19T22:20:54.862Z",
+      "source_generated_at": "2026-09-20T04:54:36.583Z",
       "claim_scope": "verified_active_structured_facts_only",
       "text": {
         "x": "【GWR OPEN】UNPAID VOLUNTEER - Senior Research Officer - Carbon Credits｜Digital Technology Institute for Development (DTID)｜JP。公式求人の確認先まで検証済み。GWRは日本から確認できる海外求人の変化を継続観測中。 https://global-work-radar.pages.dev/?japan=1&utm_source=social&utm_medium=organic&utm_campaign=gwr_signal_…",
         "bluesky": "GWR OPEN｜UNPAID VOLUNTEER - Senior Research Officer - Carbon Credits｜Digital Technology Institute for Development (DTID)｜JP。公式求人まで確認済み。GWRは日本から確認できる海外求人の変化を継続観測中。 https://global-work-radar.pages.dev/?japan=1&utm_source=social&utm_medium=organic&utm_campaign=gwr_signal_growth&utm_content=gwr-op…",
-        "linkedin": "Global Work Radarで新しい求人Signalを確認。 UNPAID VOLUNTEER - Senior Research Officer - Carbon Credits｜Digital Technology Institute for Development (DTID)｜JP 公開対象はVERIFIED ACTIVEかつ公式応募先を確認できたものに限定しています。 https://global-work-radar.pages.dev/?japan=1&utm_source=social&utm_medium=organic&utm_campaign=gwr_signal_growth&utm_content=gwr-open-afe22bf8e190&q=Digital+Technology+Institute+for+Development+%28DTID%29&intent=remote"
+        "linkedin": "Global Work Radarで新しい求人Signalを確認。 UNPAID VOLUNTEER - Senior Research Officer - Carbon Credits｜Digital Technology Institute for Development (DTID)｜JP 公開対象はVERIFIED ACTIVEかつ公式応募先を確認できたものに限定しています。 https://global-work-radar.pages.dev/?japan=1&utm_source=social&utm_medium=organic&utm_campaign=gwr_signal_growth&utm_content=gwr-open-2ab3a09c3209&q=Digital+Technology+Institute+for+Development+%28DTID%29&intent=remote"
       },
-      "destination_url": "https://global-work-radar.pages.dev/?japan=1&utm_source=social&utm_medium=organic&utm_campaign=gwr_signal_growth&utm_content=gwr-open-afe22bf8e190&q=Digital+Technology+Institute+for+Development+%28DTID%29&intent=remote",
+      "destination_url": "https://global-work-radar.pages.dev/?japan=1&utm_source=social&utm_medium=organic&utm_campaign=gwr_signal_growth&utm_content=gwr-open-2ab3a09c3209&q=Digital+Technology+Institute+for+Development+%28DTID%29&intent=remote",
       "evidence": [
         {
           "job_id": "workable-155931dae8",
@@ -358,7 +358,7 @@
           "title": "UNPAID VOLUNTEER - Senior Research Officer - Carbon Credits",
           "source": "Workable",
           "official_url": "https://apply.workable.com/j/155931DAE8",
-          "last_verified_at": "2026-09-19T22:20:34.454Z",
+          "last_verified_at": "2026-09-20T04:54:14.882Z",
           "freshness_bucket": "NEW_24H",
           "hiring_momentum": "STEADY",
           "hiring_delta": 0
@@ -377,18 +377,18 @@
       "rank": 9
     },
     {
-      "candidate_id": "gwr-open-f22b2570f51d",
+      "candidate_id": "gwr-open-5d2cf8ced066",
       "signal_type": "GWR_OPEN",
       "objective": "qualified_revenue_growth",
       "score": 86,
-      "source_generated_at": "2026-09-19T22:20:54.862Z",
+      "source_generated_at": "2026-09-20T04:54:36.583Z",
       "claim_scope": "verified_active_structured_facts_only",
       "text": {
-        "x": "【GWR OPEN】Freelance Agent Evaluation Engineer｜Mindrift｜JP。公式求人の確認先まで検証済み。GWRは日本から確認できる海外求人の変化を継続観測中。 https://global-work-radar.pages.dev/?japan=1&utm_source=social&utm_medium=organic&utm_campaign=gwr_signal_growth&utm_content=gwr-open-f22b2570f51d&q=Mindrift&intent=remote",
-        "bluesky": "GWR OPEN｜Freelance Agent Evaluation Engineer｜Mindrift｜JP。公式求人まで確認済み。GWRは日本から確認できる海外求人の変化を継続観測中。 https://global-work-radar.pages.dev/?japan=1&utm_source=social&utm_medium=organic&utm_campaign=gwr_signal_growth&utm_content=gwr-open-f22b2570f51d&q=Mindrift&intent=remote",
-        "linkedin": "Global Work Radarで新しい求人Signalを確認。 Freelance Agent Evaluation Engineer｜Mindrift｜JP 公開対象はVERIFIED ACTIVEかつ公式応募先を確認できたものに限定しています。 https://global-work-radar.pages.dev/?japan=1&utm_source=social&utm_medium=organic&utm_campaign=gwr_signal_growth&utm_content=gwr-open-f22b2570f51d&q=Mindrift&intent=remote"
+        "x": "【GWR OPEN】Freelance Agent Evaluation Engineer｜Mindrift｜JP。公式求人の確認先まで検証済み。GWRは日本から確認できる海外求人の変化を継続観測中。 https://global-work-radar.pages.dev/?japan=1&utm_source=social&utm_medium=organic&utm_campaign=gwr_signal_growth&utm_content=gwr-open-5d2cf8ced066&q=Mindrift&intent=remote",
+        "bluesky": "GWR OPEN｜Freelance Agent Evaluation Engineer｜Mindrift｜JP。公式求人まで確認済み。GWRは日本から確認できる海外求人の変化を継続観測中。 https://global-work-radar.pages.dev/?japan=1&utm_source=social&utm_medium=organic&utm_campaign=gwr_signal_growth&utm_content=gwr-open-5d2cf8ced066&q=Mindrift&intent=remote",
+        "linkedin": "Global Work Radarで新しい求人Signalを確認。 Freelance Agent Evaluation Engineer｜Mindrift｜JP 公開対象はVERIFIED ACTIVEかつ公式応募先を確認できたものに限定しています。 https://global-work-radar.pages.dev/?japan=1&utm_source=social&utm_medium=organic&utm_campaign=gwr_signal_growth&utm_content=gwr-open-5d2cf8ced066&q=Mindrift&intent=remote"
       },
-      "destination_url": "https://global-work-radar.pages.dev/?japan=1&utm_source=social&utm_medium=organic&utm_campaign=gwr_signal_growth&utm_content=gwr-open-f22b2570f51d&q=Mindrift&intent=remote",
+      "destination_url": "https://global-work-radar.pages.dev/?japan=1&utm_source=social&utm_medium=organic&utm_campaign=gwr_signal_growth&utm_content=gwr-open-5d2cf8ced066&q=Mindrift&intent=remote",
       "evidence": [
         {
           "job_id": "workable-6ac0ae86d7",
@@ -396,7 +396,7 @@
           "title": "Freelance Agent Evaluation Engineer",
           "source": "Workable",
           "official_url": "https://apply.workable.com/j/6AC0AE86D7",
-          "last_verified_at": "2026-09-19T22:20:34.454Z",
+          "last_verified_at": "2026-09-20T04:54:14.882Z",
           "freshness_bucket": "NEW_3D",
           "hiring_momentum": "STEADY",
           "hiring_delta": 0
