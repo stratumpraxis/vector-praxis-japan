@@ -1,0 +1,8 @@
+{
+  "account_name": "code-ops-lab",
+  "account_email": "codeops.contact@gmail.com",
+  "status": "READY_FOR_TARGET_ACCOUNT_CONNECTION",
+  "human_gate_before_external_write": true,
+  "security_sensitive_work": false,
+  "initial_schedule_enabled": false
+}
