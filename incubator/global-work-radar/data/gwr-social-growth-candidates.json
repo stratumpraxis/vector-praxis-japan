@@ -1,6 +1,6 @@
 {
-  "generated_at": "2026-09-20T13:04:46.181Z",
-  "source_generated_at": "2026-09-20T13:04:11.393Z",
+  "generated_at": "2026-09-20T18:49:12.073Z",
+  "source_generated_at": "2026-09-20T18:48:40.571Z",
   "brand": "Global Work Radar",
   "purpose": "Turn verified market changes into GWR-owned traffic, explicit buyer-reaction evidence, and revenue opportunities without fabricating publication state.",
   "channel_policy": "GWR_CHANNEL_ONLY",
@@ -35,27 +35,27 @@
   "candidate_count": 10,
   "candidates": [
     {
-      "candidate_id": "gwr-alert-dd0d9114a3ac",
+      "candidate_id": "gwr-alert-7281a7d92b16",
       "signal_type": "GWR_ALERT",
       "objective": "qualified_revenue_growth",
-      "score": 98,
-      "source_generated_at": "2026-09-20T13:04:11.393Z",
+      "score": 93,
+      "source_generated_at": "2026-09-20T18:48:40.571Z",
       "claim_scope": "snapshot_change_only_no_hiring_outcome_inference",
       "text": {
-        "x": "【GWR ALERT】Digital Technology Institute for Development (DTID)｜UNPAID VOLUNTEER - Deputy Director of Research - Energy & Environment｜新着Signal。日本対象可否・公式求人・鮮度を確認して追跡しています。次の変化もGWRで更新。 https://global-work-radar.pages.dev/?japan=1&utm_source=social&utm_medium=organic&utm_campai…",
-        "bluesky": "GWR ALERT｜Digital Technology Institute for Development (DTID)｜UNPAID VOLUNTEER - Deputy Director of Research - Energy & Environment｜新着Signal。日本対象可否・公式求人・鮮度を確認して継続追跡。 https://global-work-radar.pages.dev/?japan=1&utm_source=social&utm_medium=organic&utm_campaign=gwr_signal_growth&utm_content=gwr…",
-        "linkedin": "GWR Market Alert Digital Technology Institute for Development (DTID)｜UNPAID VOLUNTEER - Deputy Director of Research - Energy & Environment｜新着Signal。採用結果の予測ではなく、GWRの検証済み求人スナップショットで確認できた変化です。 https://global-work-radar.pages.dev/?japan=1&utm_source=social&utm_medium=organic&utm_campaign=gwr_signal_growth&utm_content=gwr-alert-dd0d9114a3ac&q=Digital+Technology+Institute+for+Development+%28DTID%29&intent=general"
+        "x": "【GWR ALERT】Mindrift - Data annotation｜AI训练师 - 中英双语语音录制｜新着Signal。日本対象可否・公式求人・鮮度を確認して追跡しています。次の変化もGWRで更新。 https://global-work-radar.pages.dev/?japan=1&utm_source=social&utm_medium=organic&utm_campaign=gwr_signal_growth&utm_content=gwr-alert-7281a7d92b16&q=Mindrift+-+Data+anno…",
+        "bluesky": "GWR ALERT｜Mindrift - Data annotation｜AI训练师 - 中英双语语音录制｜新着Signal。日本対象可否・公式求人・鮮度を確認して継続追跡。 https://global-work-radar.pages.dev/?japan=1&utm_source=social&utm_medium=organic&utm_campaign=gwr_signal_growth&utm_content=gwr-alert-7281a7d92b16&q=Mindrift+-+Data+annotation&intent=general",
+        "linkedin": "GWR Market Alert Mindrift - Data annotation｜AI训练师 - 中英双语语音录制｜新着Signal。採用結果の予測ではなく、GWRの検証済み求人スナップショットで確認できた変化です。 https://global-work-radar.pages.dev/?japan=1&utm_source=social&utm_medium=organic&utm_campaign=gwr_signal_growth&utm_content=gwr-alert-7281a7d92b16&q=Mindrift+-+Data+annotation&intent=general"
       },
-      "destination_url": "https://global-work-radar.pages.dev/?japan=1&utm_source=social&utm_medium=organic&utm_campaign=gwr_signal_growth&utm_content=gwr-alert-dd0d9114a3ac&q=Digital+Technology+Institute+for+Development+%28DTID%29&intent=general",
+      "destination_url": "https://global-work-radar.pages.dev/?japan=1&utm_source=social&utm_medium=organic&utm_campaign=gwr_signal_growth&utm_content=gwr-alert-7281a7d92b16&q=Mindrift+-+Data+annotation&intent=general",
       "evidence": [
         {
-          "job_id": "workable-61faa9208e",
-          "employer": "Digital Technology Institute for Development (DTID)",
-          "title": "UNPAID VOLUNTEER - Deputy Director of Research - Energy & Environment",
+          "job_id": "workable-289bfd575d",
+          "employer": "Mindrift - Data annotation",
+          "title": "AI训练师 - 中英双语语音录制",
           "source": "Workable",
-          "official_url": "https://apply.workable.com/j/61FAA9208E",
-          "last_verified_at": "2026-09-20T13:03:53.082Z",
-          "freshness_bucket": "NEW_24H",
+          "official_url": "https://apply.workable.com/j/289BFD575D",
+          "last_verified_at": "2026-09-20T18:48:23.172Z",
+          "freshness_bucket": "NEW_3D",
           "hiring_momentum": "STEADY",
           "hiring_delta": 0
         }
@@ -73,27 +73,27 @@
       "rank": 1
     },
     {
-      "candidate_id": "gwr-alert-48f668b0d809",
+      "candidate_id": "gwr-alert-ee52b59be83c",
       "signal_type": "GWR_ALERT",
       "objective": "qualified_revenue_growth",
-      "score": 98,
-      "source_generated_at": "2026-09-20T13:04:11.393Z",
+      "score": 93,
+      "source_generated_at": "2026-09-20T18:48:40.571Z",
       "claim_scope": "snapshot_change_only_no_hiring_outcome_inference",
       "text": {
-        "x": "【GWR ALERT】Digital Technology Institute for Development (DTID)｜UNPAID VOLUNTEER - Principal Research Officer - Circular Economy｜新着Signal。日本対象可否・公式求人・鮮度を確認して追跡しています。次の変化もGWRで更新。 https://global-work-radar.pages.dev/?japan=1&utm_source=social&utm_medium=organic&utm_campaign=gw…",
-        "bluesky": "GWR ALERT｜Digital Technology Institute for Development (DTID)｜UNPAID VOLUNTEER - Principal Research Officer - Circular Economy｜新着Signal。日本対象可否・公式求人・鮮度を確認して継続追跡。 https://global-work-radar.pages.dev/?japan=1&utm_source=social&utm_medium=organic&utm_campaign=gwr_signal_growth&utm_content=gwr-aler…",
-        "linkedin": "GWR Market Alert Digital Technology Institute for Development (DTID)｜UNPAID VOLUNTEER - Principal Research Officer - Circular Economy｜新着Signal。採用結果の予測ではなく、GWRの検証済み求人スナップショットで確認できた変化です。 https://global-work-radar.pages.dev/?japan=1&utm_source=social&utm_medium=organic&utm_campaign=gwr_signal_growth&utm_content=gwr-alert-48f668b0d809&q=Digital+Technology+Institute+for+Development+%28DTID%29&intent=general"
+        "x": "【GWR ALERT】Mindrift｜Senior Python Data Scraping Engineer (Freelance)｜新着Signal。日本対象可否・公式求人・鮮度を確認して追跡しています。次の変化もGWRで更新。 https://global-work-radar.pages.dev/?japan=1&utm_source=social&utm_medium=organic&utm_campaign=gwr_signal_growth&utm_content=gwr-alert-ee52b59be83c&q=Mindri…",
+        "bluesky": "GWR ALERT｜Mindrift｜Senior Python Data Scraping Engineer (Freelance)｜新着Signal。日本対象可否・公式求人・鮮度を確認して継続追跡。 https://global-work-radar.pages.dev/?japan=1&utm_source=social&utm_medium=organic&utm_campaign=gwr_signal_growth&utm_content=gwr-alert-ee52b59be83c&q=Mindrift&intent=general",
+        "linkedin": "GWR Market Alert Mindrift｜Senior Python Data Scraping Engineer (Freelance)｜新着Signal。採用結果の予測ではなく、GWRの検証済み求人スナップショットで確認できた変化です。 https://global-work-radar.pages.dev/?japan=1&utm_source=social&utm_medium=organic&utm_campaign=gwr_signal_growth&utm_content=gwr-alert-ee52b59be83c&q=Mindrift&intent=general"
       },
-      "destination_url": "https://global-work-radar.pages.dev/?japan=1&utm_source=social&utm_medium=organic&utm_campaign=gwr_signal_growth&utm_content=gwr-alert-48f668b0d809&q=Digital+Technology+Institute+for+Development+%28DTID%29&intent=general",
+      "destination_url": "https://global-work-radar.pages.dev/?japan=1&utm_source=social&utm_medium=organic&utm_campaign=gwr_signal_growth&utm_content=gwr-alert-ee52b59be83c&q=Mindrift&intent=general",
       "evidence": [
         {
-          "job_id": "workable-81482c3c16",
-          "employer": "Digital Technology Institute for Development (DTID)",
-          "title": "UNPAID VOLUNTEER - Principal Research Officer - Circular Economy",
+          "job_id": "workable-a4e29b2864",
+          "employer": "Mindrift",
+          "title": "Senior Python Data Scraping Engineer (Freelance)",
           "source": "Workable",
-          "official_url": "https://apply.workable.com/j/81482C3C16",
-          "last_verified_at": "2026-09-20T13:03:53.082Z",
-          "freshness_bucket": "NEW_24H",
+          "official_url": "https://apply.workable.com/j/A4E29B2864",
+          "last_verified_at": "2026-09-20T18:48:23.172Z",
+          "freshness_bucket": "NEW_3D",
           "hiring_momentum": "STEADY",
           "hiring_delta": 0
         }
@@ -111,27 +111,27 @@
       "rank": 2
     },
     {
-      "candidate_id": "gwr-alert-1fa1aedef709",
+      "candidate_id": "gwr-alert-4447ab6d1caf",
       "signal_type": "GWR_ALERT",
       "objective": "qualified_revenue_growth",
-      "score": 98,
-      "source_generated_at": "2026-09-20T13:04:11.393Z",
+      "score": 93,
+      "source_generated_at": "2026-09-20T18:48:40.571Z",
       "claim_scope": "snapshot_change_only_no_hiring_outcome_inference",
       "text": {
-        "x": "【GWR ALERT】Digital Technology Institute for Development (DTID)｜UNPAID VOLUNTEER - Principal Research Officer - Emissions Management｜新着Signal。日本対象可否・公式求人・鮮度を確認して追跡しています。次の変化もGWRで更新。 https://global-work-radar.pages.dev/?japan=1&utm_source=social&utm_medium=organic&utm_campaig…",
-        "bluesky": "GWR ALERT｜Digital Technology Institute for Development (DTID)｜UNPAID VOLUNTEER - Principal Research Officer - Emissions Management｜新着Signal。日本対象可否・公式求人・鮮度を確認して継続追跡。 https://global-work-radar.pages.dev/?japan=1&utm_source=social&utm_medium=organic&utm_campaign=gwr_signal_growth&utm_content=gwr-…",
-        "linkedin": "GWR Market Alert Digital Technology Institute for Development (DTID)｜UNPAID VOLUNTEER - Principal Research Officer - Emissions Management｜新着Signal。採用結果の予測ではなく、GWRの検証済み求人スナップショットで確認できた変化です。 https://global-work-radar.pages.dev/?japan=1&utm_source=social&utm_medium=organic&utm_campaign=gwr_signal_growth&utm_content=gwr-alert-1fa1aedef709&q=Digital+Technology+Institute+for+Development+%28DTID%29&intent=general"
+        "x": "【GWR ALERT】Mindrift - Data annotation｜AI Trainer - English-Chinese Bilingual Voice Recording｜新着Signal。日本対象可否・公式求人・鮮度を確認して追跡しています。次の変化もGWRで更新。 https://global-work-radar.pages.dev/?japan=1&utm_source=social&utm_medium=organic&utm_campaign=gwr_signal_growth&utm_content=gwr-ale…",
+        "bluesky": "GWR ALERT｜Mindrift - Data annotation｜AI Trainer - English-Chinese Bilingual Voice Recording｜新着Signal。日本対象可否・公式求人・鮮度を確認して継続追跡。 https://global-work-radar.pages.dev/?japan=1&utm_source=social&utm_medium=organic&utm_campaign=gwr_signal_growth&utm_content=gwr-alert-4447ab6d1caf&q=Mindrift+-+Data+an…",
+        "linkedin": "GWR Market Alert Mindrift - Data annotation｜AI Trainer - English-Chinese Bilingual Voice Recording｜新着Signal。採用結果の予測ではなく、GWRの検証済み求人スナップショットで確認できた変化です。 https://global-work-radar.pages.dev/?japan=1&utm_source=social&utm_medium=organic&utm_campaign=gwr_signal_growth&utm_content=gwr-alert-4447ab6d1caf&q=Mindrift+-+Data+annotation&intent=general"
       },
-      "destination_url": "https://global-work-radar.pages.dev/?japan=1&utm_source=social&utm_medium=organic&utm_campaign=gwr_signal_growth&utm_content=gwr-alert-1fa1aedef709&q=Digital+Technology+Institute+for+Development+%28DTID%29&intent=general",
+      "destination_url": "https://global-work-radar.pages.dev/?japan=1&utm_source=social&utm_medium=organic&utm_campaign=gwr_signal_growth&utm_content=gwr-alert-4447ab6d1caf&q=Mindrift+-+Data+annotation&intent=general",
       "evidence": [
         {
-          "job_id": "workable-cd05d17bf0",
-          "employer": "Digital Technology Institute for Development (DTID)",
-          "title": "UNPAID VOLUNTEER - Principal Research Officer - Emissions Management",
+          "job_id": "workable-df615622cc",
+          "employer": "Mindrift - Data annotation",
+          "title": "AI Trainer - English-Chinese Bilingual Voice Recording",
           "source": "Workable",
-          "official_url": "https://apply.workable.com/j/CD05D17BF0",
-          "last_verified_at": "2026-09-20T13:03:53.082Z",
-          "freshness_bucket": "NEW_24H",
+          "official_url": "https://apply.workable.com/j/DF615622CC",
+          "last_verified_at": "2026-09-20T18:48:23.172Z",
+          "freshness_bucket": "NEW_3D",
           "hiring_momentum": "STEADY",
           "hiring_delta": 0
         }
@@ -149,27 +149,27 @@
       "rank": 3
     },
     {
-      "candidate_id": "gwr-alert-da72ac372bd6",
+      "candidate_id": "gwr-alert-1efc77e9382a",
       "signal_type": "GWR_ALERT",
       "objective": "qualified_revenue_growth",
-      "score": 98,
-      "source_generated_at": "2026-09-20T13:04:11.393Z",
+      "score": 93,
+      "source_generated_at": "2026-09-20T18:48:40.571Z",
       "claim_scope": "snapshot_change_only_no_hiring_outcome_inference",
       "text": {
-        "x": "【GWR ALERT】Digital Technology Institute for Development (DTID)｜UNPAID VOLUNTEER - Senior Research Officer - Carbon Credits｜新着Signal。日本対象可否・公式求人・鮮度を確認して追跡しています。次の変化もGWRで更新。 https://global-work-radar.pages.dev/?japan=1&utm_source=social&utm_medium=organic&utm_campaign=gwr_sig…",
-        "bluesky": "GWR ALERT｜Digital Technology Institute for Development (DTID)｜UNPAID VOLUNTEER - Senior Research Officer - Carbon Credits｜新着Signal。日本対象可否・公式求人・鮮度を確認して継続追跡。 https://global-work-radar.pages.dev/?japan=1&utm_source=social&utm_medium=organic&utm_campaign=gwr_signal_growth&utm_content=gwr-alert-da7…",
-        "linkedin": "GWR Market Alert Digital Technology Institute for Development (DTID)｜UNPAID VOLUNTEER - Senior Research Officer - Carbon Credits｜新着Signal。採用結果の予測ではなく、GWRの検証済み求人スナップショットで確認できた変化です。 https://global-work-radar.pages.dev/?japan=1&utm_source=social&utm_medium=organic&utm_campaign=gwr_signal_growth&utm_content=gwr-alert-da72ac372bd6&q=Digital+Technology+Institute+for+Development+%28DTID%29&intent=general"
+        "x": "【GWR ALERT】Mindrift - Data annotation｜AI Trainer - English-Chinese Bilingual Voice Recording｜新着Signal。日本対象可否・公式求人・鮮度を確認して追跡しています。次の変化もGWRで更新。 https://global-work-radar.pages.dev/?japan=1&utm_source=social&utm_medium=organic&utm_campaign=gwr_signal_growth&utm_content=gwr-ale…",
+        "bluesky": "GWR ALERT｜Mindrift - Data annotation｜AI Trainer - English-Chinese Bilingual Voice Recording｜新着Signal。日本対象可否・公式求人・鮮度を確認して継続追跡。 https://global-work-radar.pages.dev/?japan=1&utm_source=social&utm_medium=organic&utm_campaign=gwr_signal_growth&utm_content=gwr-alert-1efc77e9382a&q=Mindrift+-+Data+an…",
+        "linkedin": "GWR Market Alert Mindrift - Data annotation｜AI Trainer - English-Chinese Bilingual Voice Recording｜新着Signal。採用結果の予測ではなく、GWRの検証済み求人スナップショットで確認できた変化です。 https://global-work-radar.pages.dev/?japan=1&utm_source=social&utm_medium=organic&utm_campaign=gwr_signal_growth&utm_content=gwr-alert-1efc77e9382a&q=Mindrift+-+Data+annotation&intent=general"
       },
-      "destination_url": "https://global-work-radar.pages.dev/?japan=1&utm_source=social&utm_medium=organic&utm_campaign=gwr_signal_growth&utm_content=gwr-alert-da72ac372bd6&q=Digital+Technology+Institute+for+Development+%28DTID%29&intent=general",
+      "destination_url": "https://global-work-radar.pages.dev/?japan=1&utm_source=social&utm_medium=organic&utm_campaign=gwr_signal_growth&utm_content=gwr-alert-1efc77e9382a&q=Mindrift+-+Data+annotation&intent=general",
       "evidence": [
         {
-          "job_id": "workable-155931dae8",
-          "employer": "Digital Technology Institute for Development (DTID)",
-          "title": "UNPAID VOLUNTEER - Senior Research Officer - Carbon Credits",
+          "job_id": "workable-af4569242d",
+          "employer": "Mindrift - Data annotation",
+          "title": "AI Trainer - English-Chinese Bilingual Voice Recording",
           "source": "Workable",
-          "official_url": "https://apply.workable.com/j/155931DAE8",
-          "last_verified_at": "2026-09-20T13:03:53.082Z",
-          "freshness_bucket": "NEW_24H",
+          "official_url": "https://apply.workable.com/j/AF4569242D",
+          "last_verified_at": "2026-09-20T18:48:23.172Z",
+          "freshness_bucket": "NEW_3D",
           "hiring_momentum": "STEADY",
           "hiring_delta": 0
         }
@@ -187,27 +187,27 @@
       "rank": 4
     },
     {
-      "candidate_id": "gwr-open-ec1bc89d3aa3",
+      "candidate_id": "gwr-open-0375619edf5a",
       "signal_type": "GWR_OPEN",
       "objective": "qualified_revenue_growth",
-      "score": 91,
-      "source_generated_at": "2026-09-20T13:04:11.393Z",
+      "score": 86,
+      "source_generated_at": "2026-09-20T18:48:40.571Z",
       "claim_scope": "verified_active_structured_facts_only",
       "text": {
-        "x": "【GWR OPEN】UNPAID VOLUNTEER - Deputy Director of Research - Energy & Environment｜Digital Technology Institute for Development (DTID)｜JP。公式求人の確認先まで検証済み。GWRは日本から確認できる海外求人の変化を継続観測中。 https://global-work-radar.pages.dev/?japan=1&utm_source=social&utm_medium=organic&utm_campaign=g…",
-        "bluesky": "GWR OPEN｜UNPAID VOLUNTEER - Deputy Director of Research - Energy & Environment｜Digital Technology Institute for Development (DTID)｜JP。公式求人まで確認済み。GWRは日本から確認できる海外求人の変化を継続観測中。 https://global-work-radar.pages.dev/?japan=1&utm_source=social&utm_medium=organic&utm_campaign=gwr_signal_growth&utm_cont…",
-        "linkedin": "Global Work Radarで新しい求人Signalを確認。 UNPAID VOLUNTEER - Deputy Director of Research - Energy & Environment｜Digital Technology Institute for Development (DTID)｜JP 公開対象はVERIFIED ACTIVEかつ公式応募先を確認できたものに限定しています。 https://global-work-radar.pages.dev/?japan=1&utm_source=social&utm_medium=organic&utm_campaign=gwr_signal_growth&utm_content=gwr-open-ec1bc89d3aa3&q=Digital+Technology+Institute+for+Development+%28DTID%29&intent=remote"
+        "x": "【GWR OPEN】AI训练师 - 中英双语语音录制｜Mindrift - Data annotation｜JP。公式求人の確認先まで検証済み。GWRは日本から確認できる海外求人の変化を継続観測中。 https://global-work-radar.pages.dev/?japan=1&utm_source=social&utm_medium=organic&utm_campaign=gwr_signal_growth&utm_content=gwr-open-0375619edf5a&q=Mindrift+-+Data+annotatio…",
+        "bluesky": "GWR OPEN｜AI训练师 - 中英双语语音录制｜Mindrift - Data annotation｜JP。公式求人まで確認済み。GWRは日本から確認できる海外求人の変化を継続観測中。 https://global-work-radar.pages.dev/?japan=1&utm_source=social&utm_medium=organic&utm_campaign=gwr_signal_growth&utm_content=gwr-open-0375619edf5a&q=Mindrift+-+Data+annotation&intent=remote",
+        "linkedin": "Global Work Radarで新しい求人Signalを確認。 AI训练师 - 中英双语语音录制｜Mindrift - Data annotation｜JP 公開対象はVERIFIED ACTIVEかつ公式応募先を確認できたものに限定しています。 https://global-work-radar.pages.dev/?japan=1&utm_source=social&utm_medium=organic&utm_campaign=gwr_signal_growth&utm_content=gwr-open-0375619edf5a&q=Mindrift+-+Data+annotation&intent=remote"
       },
-      "destination_url": "https://global-work-radar.pages.dev/?japan=1&utm_source=social&utm_medium=organic&utm_campaign=gwr_signal_growth&utm_content=gwr-open-ec1bc89d3aa3&q=Digital+Technology+Institute+for+Development+%28DTID%29&intent=remote",
+      "destination_url": "https://global-work-radar.pages.dev/?japan=1&utm_source=social&utm_medium=organic&utm_campaign=gwr_signal_growth&utm_content=gwr-open-0375619edf5a&q=Mindrift+-+Data+annotation&intent=remote",
       "evidence": [
         {
-          "job_id": "workable-61faa9208e",
-          "employer": "Digital Technology Institute for Development (DTID)",
-          "title": "UNPAID VOLUNTEER - Deputy Director of Research - Energy & Environment",
+          "job_id": "workable-289bfd575d",
+          "employer": "Mindrift - Data annotation",
+          "title": "AI训练师 - 中英双语语音录制",
           "source": "Workable",
-          "official_url": "https://apply.workable.com/j/61FAA9208E",
-          "last_verified_at": "2026-09-20T13:03:53.082Z",
-          "freshness_bucket": "NEW_24H",
+          "official_url": "https://apply.workable.com/j/289BFD575D",
+          "last_verified_at": "2026-09-20T18:48:23.172Z",
+          "freshness_bucket": "NEW_3D",
           "hiring_momentum": "STEADY",
           "hiring_delta": 0
         }
@@ -225,27 +225,27 @@
       "rank": 5
     },
     {
-      "candidate_id": "gwr-open-f7fd268552b8",
+      "candidate_id": "gwr-open-4e861492641b",
       "signal_type": "GWR_OPEN",
       "objective": "qualified_revenue_growth",
-      "score": 91,
-      "source_generated_at": "2026-09-20T13:04:11.393Z",
+      "score": 86,
+      "source_generated_at": "2026-09-20T18:48:40.571Z",
       "claim_scope": "verified_active_structured_facts_only",
       "text": {
-        "x": "【GWR OPEN】UNPAID VOLUNTEER - Principal Research Officer - Circular Economy｜Digital Technology Institute for Development (DTID)｜JP。公式求人の確認先まで検証済み。GWRは日本から確認できる海外求人の変化を継続観測中。 https://global-work-radar.pages.dev/?japan=1&utm_source=social&utm_medium=organic&utm_campaign=gwr_si…",
-        "bluesky": "GWR OPEN｜UNPAID VOLUNTEER - Principal Research Officer - Circular Economy｜Digital Technology Institute for Development (DTID)｜JP。公式求人まで確認済み。GWRは日本から確認できる海外求人の変化を継続観測中。 https://global-work-radar.pages.dev/?japan=1&utm_source=social&utm_medium=organic&utm_campaign=gwr_signal_growth&utm_content=g…",
-        "linkedin": "Global Work Radarで新しい求人Signalを確認。 UNPAID VOLUNTEER - Principal Research Officer - Circular Economy｜Digital Technology Institute for Development (DTID)｜JP 公開対象はVERIFIED ACTIVEかつ公式応募先を確認できたものに限定しています。 https://global-work-radar.pages.dev/?japan=1&utm_source=social&utm_medium=organic&utm_campaign=gwr_signal_growth&utm_content=gwr-open-f7fd268552b8&q=Digital+Technology+Institute+for+Development+%28DTID%29&intent=remote"
+        "x": "【GWR OPEN】Senior Python Data Scraping Engineer (Freelance)｜Mindrift｜JP。公式求人の確認先まで検証済み。GWRは日本から確認できる海外求人の変化を継続観測中。 https://global-work-radar.pages.dev/?japan=1&utm_source=social&utm_medium=organic&utm_campaign=gwr_signal_growth&utm_content=gwr-open-4e861492641b&q=Mindrift&in…",
+        "bluesky": "GWR OPEN｜Senior Python Data Scraping Engineer (Freelance)｜Mindrift｜JP。公式求人まで確認済み。GWRは日本から確認できる海外求人の変化を継続観測中。 https://global-work-radar.pages.dev/?japan=1&utm_source=social&utm_medium=organic&utm_campaign=gwr_signal_growth&utm_content=gwr-open-4e861492641b&q=Mindrift&intent=remote",
+        "linkedin": "Global Work Radarで新しい求人Signalを確認。 Senior Python Data Scraping Engineer (Freelance)｜Mindrift｜JP 公開対象はVERIFIED ACTIVEかつ公式応募先を確認できたものに限定しています。 https://global-work-radar.pages.dev/?japan=1&utm_source=social&utm_medium=organic&utm_campaign=gwr_signal_growth&utm_content=gwr-open-4e861492641b&q=Mindrift&intent=remote"
       },
-      "destination_url": "https://global-work-radar.pages.dev/?japan=1&utm_source=social&utm_medium=organic&utm_campaign=gwr_signal_growth&utm_content=gwr-open-f7fd268552b8&q=Digital+Technology+Institute+for+Development+%28DTID%29&intent=remote",
+      "destination_url": "https://global-work-radar.pages.dev/?japan=1&utm_source=social&utm_medium=organic&utm_campaign=gwr_signal_growth&utm_content=gwr-open-4e861492641b&q=Mindrift&intent=remote",
       "evidence": [
         {
-          "job_id": "workable-81482c3c16",
-          "employer": "Digital Technology Institute for Development (DTID)",
-          "title": "UNPAID VOLUNTEER - Principal Research Officer - Circular Economy",
+          "job_id": "workable-a4e29b2864",
+          "employer": "Mindrift",
+          "title": "Senior Python Data Scraping Engineer (Freelance)",
           "source": "Workable",
-          "official_url": "https://apply.workable.com/j/81482C3C16",
-          "last_verified_at": "2026-09-20T13:03:53.082Z",
-          "freshness_bucket": "NEW_24H",
+          "official_url": "https://apply.workable.com/j/A4E29B2864",
+          "last_verified_at": "2026-09-20T18:48:23.172Z",
+          "freshness_bucket": "NEW_3D",
           "hiring_momentum": "STEADY",
           "hiring_delta": 0
         }
@@ -263,27 +263,27 @@
       "rank": 6
     },
     {
-      "candidate_id": "gwr-open-f75149750b77",
+      "candidate_id": "gwr-open-3110cfc97e4a",
       "signal_type": "GWR_OPEN",
       "objective": "qualified_revenue_growth",
-      "score": 91,
-      "source_generated_at": "2026-09-20T13:04:11.393Z",
+      "score": 86,
+      "source_generated_at": "2026-09-20T18:48:40.571Z",
       "claim_scope": "verified_active_structured_facts_only",
       "text": {
-        "x": "【GWR OPEN】UNPAID VOLUNTEER - Principal Research Officer - Emissions Management｜Digital Technology Institute for Development (DTID)｜JP。公式求人の確認先まで検証済み。GWRは日本から確認できる海外求人の変化を継続観測中。 https://global-work-radar.pages.dev/?japan=1&utm_source=social&utm_medium=organic&utm_campaign=gw…",
-        "bluesky": "GWR OPEN｜UNPAID VOLUNTEER - Principal Research Officer - Emissions Management｜Digital Technology Institute for Development (DTID)｜JP。公式求人まで確認済み。GWRは日本から確認できる海外求人の変化を継続観測中。 https://global-work-radar.pages.dev/?japan=1&utm_source=social&utm_medium=organic&utm_campaign=gwr_signal_growth&utm_conte…",
-        "linkedin": "Global Work Radarで新しい求人Signalを確認。 UNPAID VOLUNTEER - Principal Research Officer - Emissions Management｜Digital Technology Institute for Development (DTID)｜JP 公開対象はVERIFIED ACTIVEかつ公式応募先を確認できたものに限定しています。 https://global-work-radar.pages.dev/?japan=1&utm_source=social&utm_medium=organic&utm_campaign=gwr_signal_growth&utm_content=gwr-open-f75149750b77&q=Digital+Technology+Institute+for+Development+%28DTID%29&intent=remote"
+        "x": "【GWR OPEN】AI Trainer - English-Chinese Bilingual Voice Recording｜Mindrift - Data annotation｜JP。公式求人の確認先まで検証済み。GWRは日本から確認できる海外求人の変化を継続観測中。 https://global-work-radar.pages.dev/?japan=1&utm_source=social&utm_medium=organic&utm_campaign=gwr_signal_growth&utm_content=gwr-open-31…",
+        "bluesky": "GWR OPEN｜AI Trainer - English-Chinese Bilingual Voice Recording｜Mindrift - Data annotation｜JP。公式求人まで確認済み。GWRは日本から確認できる海外求人の変化を継続観測中。 https://global-work-radar.pages.dev/?japan=1&utm_source=social&utm_medium=organic&utm_campaign=gwr_signal_growth&utm_content=gwr-open-3110cfc97e4a&q=Mindrift+-+D…",
+        "linkedin": "Global Work Radarで新しい求人Signalを確認。 AI Trainer - English-Chinese Bilingual Voice Recording｜Mindrift - Data annotation｜JP 公開対象はVERIFIED ACTIVEかつ公式応募先を確認できたものに限定しています。 https://global-work-radar.pages.dev/?japan=1&utm_source=social&utm_medium=organic&utm_campaign=gwr_signal_growth&utm_content=gwr-open-3110cfc97e4a&q=Mindrift+-+Data+annotation&intent=remote"
       },
-      "destination_url": "https://global-work-radar.pages.dev/?japan=1&utm_source=social&utm_medium=organic&utm_campaign=gwr_signal_growth&utm_content=gwr-open-f75149750b77&q=Digital+Technology+Institute+for+Development+%28DTID%29&intent=remote",
+      "destination_url": "https://global-work-radar.pages.dev/?japan=1&utm_source=social&utm_medium=organic&utm_campaign=gwr_signal_growth&utm_content=gwr-open-3110cfc97e4a&q=Mindrift+-+Data+annotation&intent=remote",
       "evidence": [
         {
-          "job_id": "workable-cd05d17bf0",
-          "employer": "Digital Technology Institute for Development (DTID)",
-          "title": "UNPAID VOLUNTEER - Principal Research Officer - Emissions Management",
+          "job_id": "workable-df615622cc",
+          "employer": "Mindrift - Data annotation",
+          "title": "AI Trainer - English-Chinese Bilingual Voice Recording",
           "source": "Workable",
-          "official_url": "https://apply.workable.com/j/CD05D17BF0",
-          "last_verified_at": "2026-09-20T13:03:53.082Z",
-          "freshness_bucket": "NEW_24H",
+          "official_url": "https://apply.workable.com/j/DF615622CC",
+          "last_verified_at": "2026-09-20T18:48:23.172Z",
+          "freshness_bucket": "NEW_3D",
           "hiring_momentum": "STEADY",
           "hiring_delta": 0
         }
@@ -301,27 +301,27 @@
       "rank": 7
     },
     {
-      "candidate_id": "gwr-open-0eeba8a5b804",
+      "candidate_id": "gwr-open-8acbe6230eca",
       "signal_type": "GWR_OPEN",
       "objective": "qualified_revenue_growth",
-      "score": 91,
-      "source_generated_at": "2026-09-20T13:04:11.393Z",
+      "score": 86,
+      "source_generated_at": "2026-09-20T18:48:40.571Z",
       "claim_scope": "verified_active_structured_facts_only",
       "text": {
-        "x": "【GWR OPEN】UNPAID VOLUNTEER - Senior Research Officer - Carbon Credits｜Digital Technology Institute for Development (DTID)｜JP。公式求人の確認先まで検証済み。GWRは日本から確認できる海外求人の変化を継続観測中。 https://global-work-radar.pages.dev/?japan=1&utm_source=social&utm_medium=organic&utm_campaign=gwr_signal_…",
-        "bluesky": "GWR OPEN｜UNPAID VOLUNTEER - Senior Research Officer - Carbon Credits｜Digital Technology Institute for Development (DTID)｜JP。公式求人まで確認済み。GWRは日本から確認できる海外求人の変化を継続観測中。 https://global-work-radar.pages.dev/?japan=1&utm_source=social&utm_medium=organic&utm_campaign=gwr_signal_growth&utm_content=gwr-op…",
-        "linkedin": "Global Work Radarで新しい求人Signalを確認。 UNPAID VOLUNTEER - Senior Research Officer - Carbon Credits｜Digital Technology Institute for Development (DTID)｜JP 公開対象はVERIFIED ACTIVEかつ公式応募先を確認できたものに限定しています。 https://global-work-radar.pages.dev/?japan=1&utm_source=social&utm_medium=organic&utm_campaign=gwr_signal_growth&utm_content=gwr-open-0eeba8a5b804&q=Digital+Technology+Institute+for+Development+%28DTID%29&intent=remote"
+        "x": "【GWR OPEN】AI Trainer - English-Chinese Bilingual Voice Recording｜Mindrift - Data annotation｜JP。公式求人の確認先まで検証済み。GWRは日本から確認できる海外求人の変化を継続観測中。 https://global-work-radar.pages.dev/?japan=1&utm_source=social&utm_medium=organic&utm_campaign=gwr_signal_growth&utm_content=gwr-open-8a…",
+        "bluesky": "GWR OPEN｜AI Trainer - English-Chinese Bilingual Voice Recording｜Mindrift - Data annotation｜JP。公式求人まで確認済み。GWRは日本から確認できる海外求人の変化を継続観測中。 https://global-work-radar.pages.dev/?japan=1&utm_source=social&utm_medium=organic&utm_campaign=gwr_signal_growth&utm_content=gwr-open-8acbe6230eca&q=Mindrift+-+D…",
+        "linkedin": "Global Work Radarで新しい求人Signalを確認。 AI Trainer - English-Chinese Bilingual Voice Recording｜Mindrift - Data annotation｜JP 公開対象はVERIFIED ACTIVEかつ公式応募先を確認できたものに限定しています。 https://global-work-radar.pages.dev/?japan=1&utm_source=social&utm_medium=organic&utm_campaign=gwr_signal_growth&utm_content=gwr-open-8acbe6230eca&q=Mindrift+-+Data+annotation&intent=remote"
       },
-      "destination_url": "https://global-work-radar.pages.dev/?japan=1&utm_source=social&utm_medium=organic&utm_campaign=gwr_signal_growth&utm_content=gwr-open-0eeba8a5b804&q=Digital+Technology+Institute+for+Development+%28DTID%29&intent=remote",
+      "destination_url": "https://global-work-radar.pages.dev/?japan=1&utm_source=social&utm_medium=organic&utm_campaign=gwr_signal_growth&utm_content=gwr-open-8acbe6230eca&q=Mindrift+-+Data+annotation&intent=remote",
       "evidence": [
         {
-          "job_id": "workable-155931dae8",
-          "employer": "Digital Technology Institute for Development (DTID)",
-          "title": "UNPAID VOLUNTEER - Senior Research Officer - Carbon Credits",
+          "job_id": "workable-af4569242d",
+          "employer": "Mindrift - Data annotation",
+          "title": "AI Trainer - English-Chinese Bilingual Voice Recording",
           "source": "Workable",
-          "official_url": "https://apply.workable.com/j/155931DAE8",
-          "last_verified_at": "2026-09-20T13:03:53.082Z",
-          "freshness_bucket": "NEW_24H",
+          "official_url": "https://apply.workable.com/j/AF4569242D",
+          "last_verified_at": "2026-09-20T18:48:23.172Z",
+          "freshness_bucket": "NEW_3D",
           "hiring_momentum": "STEADY",
           "hiring_delta": 0
         }
@@ -339,26 +339,26 @@
       "rank": 8
     },
     {
-      "candidate_id": "gwr-open-db63d5ea45a4",
+      "candidate_id": "gwr-open-c16e83644973",
       "signal_type": "GWR_OPEN",
       "objective": "qualified_revenue_growth",
       "score": 86,
-      "source_generated_at": "2026-09-20T13:04:11.393Z",
+      "source_generated_at": "2026-09-20T18:48:40.571Z",
       "claim_scope": "verified_active_structured_facts_only",
       "text": {
-        "x": "【GWR OPEN】AI训练师 - 中英双语语音录制｜Mindrift - Data annotation｜JP。公式求人の確認先まで検証済み。GWRは日本から確認できる海外求人の変化を継続観測中。 https://global-work-radar.pages.dev/?japan=1&utm_source=social&utm_medium=organic&utm_campaign=gwr_signal_growth&utm_content=gwr-open-db63d5ea45a4&q=Mindrift+-+Data+annotatio…",
-        "bluesky": "GWR OPEN｜AI训练师 - 中英双语语音录制｜Mindrift - Data annotation｜JP。公式求人まで確認済み。GWRは日本から確認できる海外求人の変化を継続観測中。 https://global-work-radar.pages.dev/?japan=1&utm_source=social&utm_medium=organic&utm_campaign=gwr_signal_growth&utm_content=gwr-open-db63d5ea45a4&q=Mindrift+-+Data+annotation&intent=remote",
-        "linkedin": "Global Work Radarで新しい求人Signalを確認。 AI训练师 - 中英双语语音录制｜Mindrift - Data annotation｜JP 公開対象はVERIFIED ACTIVEかつ公式応募先を確認できたものに限定しています。 https://global-work-radar.pages.dev/?japan=1&utm_source=social&utm_medium=organic&utm_campaign=gwr_signal_growth&utm_content=gwr-open-db63d5ea45a4&q=Mindrift+-+Data+annotation&intent=remote"
+        "x": "【GWR OPEN】Photographer / Photo Editor｜Gramian Consulting Group｜JP。公式求人の確認先まで検証済み。GWRは日本から確認できる海外求人の変化を継続観測中。 https://global-work-radar.pages.dev/?japan=1&utm_source=social&utm_medium=organic&utm_campaign=gwr_signal_growth&utm_content=gwr-open-c16e83644973&q=Gramian+Consulti…",
+        "bluesky": "GWR OPEN｜Photographer / Photo Editor｜Gramian Consulting Group｜JP。公式求人まで確認済み。GWRは日本から確認できる海外求人の変化を継続観測中。 https://global-work-radar.pages.dev/?japan=1&utm_source=social&utm_medium=organic&utm_campaign=gwr_signal_growth&utm_content=gwr-open-c16e83644973&q=Gramian+Consulting+Group&intent=remote",
+        "linkedin": "Global Work Radarで新しい求人Signalを確認。 Photographer / Photo Editor｜Gramian Consulting Group｜JP 公開対象はVERIFIED ACTIVEかつ公式応募先を確認できたものに限定しています。 https://global-work-radar.pages.dev/?japan=1&utm_source=social&utm_medium=organic&utm_campaign=gwr_signal_growth&utm_content=gwr-open-c16e83644973&q=Gramian+Consulting+Group&intent=remote"
       },
-      "destination_url": "https://global-work-radar.pages.dev/?japan=1&utm_source=social&utm_medium=organic&utm_campaign=gwr_signal_growth&utm_content=gwr-open-db63d5ea45a4&q=Mindrift+-+Data+annotation&intent=remote",
+      "destination_url": "https://global-work-radar.pages.dev/?japan=1&utm_source=social&utm_medium=organic&utm_campaign=gwr_signal_growth&utm_content=gwr-open-c16e83644973&q=Gramian+Consulting+Group&intent=remote",
       "evidence": [
         {
-          "job_id": "workable-289bfd575d",
-          "employer": "Mindrift - Data annotation",
-          "title": "AI训练师 - 中英双语语音录制",
+          "job_id": "workable-14bfe24950",
+          "employer": "Gramian Consulting Group",
+          "title": "Photographer / Photo Editor",
           "source": "Workable",
-          "official_url": "https://apply.workable.com/j/289BFD575D",
-          "last_verified_at": "2026-09-20T13:03:53.082Z",
+          "official_url": "https://apply.workable.com/j/14BFE24950",
+          "last_verified_at": "2026-09-20T18:48:23.172Z",
           "freshness_bucket": "NEW_3D",
           "hiring_momentum": "STEADY",
           "hiring_delta": 0
@@ -377,26 +377,26 @@
       "rank": 9
     },
     {
-      "candidate_id": "gwr-open-3dccd2055982",
+      "candidate_id": "gwr-open-d6b456f56f66",
       "signal_type": "GWR_OPEN",
       "objective": "qualified_revenue_growth",
       "score": 86,
-      "source_generated_at": "2026-09-20T13:04:11.393Z",
+      "source_generated_at": "2026-09-20T18:48:40.571Z",
       "claim_scope": "verified_active_structured_facts_only",
       "text": {
-        "x": "【GWR OPEN】Senior Python Data Scraping Engineer (Freelance)｜Mindrift｜JP。公式求人の確認先まで検証済み。GWRは日本から確認できる海外求人の変化を継続観測中。 https://global-work-radar.pages.dev/?japan=1&utm_source=social&utm_medium=organic&utm_campaign=gwr_signal_growth&utm_content=gwr-open-3dccd2055982&q=Mindrift&in…",
-        "bluesky": "GWR OPEN｜Senior Python Data Scraping Engineer (Freelance)｜Mindrift｜JP。公式求人まで確認済み。GWRは日本から確認できる海外求人の変化を継続観測中。 https://global-work-radar.pages.dev/?japan=1&utm_source=social&utm_medium=organic&utm_campaign=gwr_signal_growth&utm_content=gwr-open-3dccd2055982&q=Mindrift&intent=remote",
-        "linkedin": "Global Work Radarで新しい求人Signalを確認。 Senior Python Data Scraping Engineer (Freelance)｜Mindrift｜JP 公開対象はVERIFIED ACTIVEかつ公式応募先を確認できたものに限定しています。 https://global-work-radar.pages.dev/?japan=1&utm_source=social&utm_medium=organic&utm_campaign=gwr_signal_growth&utm_content=gwr-open-3dccd2055982&q=Mindrift&intent=remote"
+        "x": "【GWR OPEN】UNPAID VOLUNTEER - Deputy Director of Research - Energy & Environment｜Digital Technology Institute for Development (DTID)｜JP。公式求人の確認先まで検証済み。GWRは日本から確認できる海外求人の変化を継続観測中。 https://global-work-radar.pages.dev/?japan=1&utm_source=social&utm_medium=organic&utm_campaign=g…",
+        "bluesky": "GWR OPEN｜UNPAID VOLUNTEER - Deputy Director of Research - Energy & Environment｜Digital Technology Institute for Development (DTID)｜JP。公式求人まで確認済み。GWRは日本から確認できる海外求人の変化を継続観測中。 https://global-work-radar.pages.dev/?japan=1&utm_source=social&utm_medium=organic&utm_campaign=gwr_signal_growth&utm_cont…",
+        "linkedin": "Global Work Radarで新しい求人Signalを確認。 UNPAID VOLUNTEER - Deputy Director of Research - Energy & Environment｜Digital Technology Institute for Development (DTID)｜JP 公開対象はVERIFIED ACTIVEかつ公式応募先を確認できたものに限定しています。 https://global-work-radar.pages.dev/?japan=1&utm_source=social&utm_medium=organic&utm_campaign=gwr_signal_growth&utm_content=gwr-open-d6b456f56f66&q=Digital+Technology+Institute+for+Development+%28DTID%29&intent=remote"
       },
-      "destination_url": "https://global-work-radar.pages.dev/?japan=1&utm_source=social&utm_medium=organic&utm_campaign=gwr_signal_growth&utm_content=gwr-open-3dccd2055982&q=Mindrift&intent=remote",
+      "destination_url": "https://global-work-radar.pages.dev/?japan=1&utm_source=social&utm_medium=organic&utm_campaign=gwr_signal_growth&utm_content=gwr-open-d6b456f56f66&q=Digital+Technology+Institute+for+Development+%28DTID%29&intent=remote",
       "evidence": [
         {
-          "job_id": "workable-a4e29b2864",
-          "employer": "Mindrift",
-          "title": "Senior Python Data Scraping Engineer (Freelance)",
+          "job_id": "workable-61faa9208e",
+          "employer": "Digital Technology Institute for Development (DTID)",
+          "title": "UNPAID VOLUNTEER - Deputy Director of Research - Energy & Environment",
           "source": "Workable",
-          "official_url": "https://apply.workable.com/j/A4E29B2864",
-          "last_verified_at": "2026-09-20T13:03:53.082Z",
+          "official_url": "https://apply.workable.com/j/61FAA9208E",
+          "last_verified_at": "2026-09-20T18:48:23.172Z",
           "freshness_bucket": "NEW_3D",
           "hiring_momentum": "STEADY",
           "hiring_delta": 0
