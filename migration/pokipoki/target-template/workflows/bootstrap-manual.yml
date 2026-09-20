@@ -1,0 +1,18 @@
+name: Code Ops Manual Bootstrap
+
+on:
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  verify:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Verify code-ops-lab bootstrap
+        run: |
+          echo "code-ops-lab bootstrap is manual-only"
+          echo "external writes are disabled"
+          echo "security-sensitive work is excluded"
