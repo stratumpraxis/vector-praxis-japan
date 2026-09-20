@@ -1,0 +1,45 @@
+{
+  "schema_version": 1,
+  "status": "PREPARED_NOT_MIGRATED",
+  "source_repo": "stratumpraxis/vector-praxis-japan",
+  "source_branch": "main",
+  "prep_branch": "chore/pokipoki-migration-prep",
+  "move": [
+    "revenue-mesh/README.md",
+    "revenue-mesh/config.json",
+    "revenue-mesh/scan.mjs",
+    ".github/workflows/revenue-mesh-radar.yml"
+  ],
+  "hold_for_review": [
+    "capability-lab/**",
+    "scripts/capability-scan.mjs",
+    ".github/workflows/capability-acquisition-loop.yml"
+  ],
+  "keep_in_vector": [
+    ".github/workflows/social-publish.yml",
+    ".github/workflows/bluesky-buyer-match.yml",
+    ".github/workflows/vector-revenue-probe-publish.yml",
+    ".github/workflows/revenue-pump-*.yml",
+    "distribution/**"
+  ],
+  "secrets_to_recreate_if_used": [
+    "SUPERTEAM_AGENT_KEY"
+  ],
+  "guardrails": {
+    "auto_external_submit": false,
+    "auto_claim": false,
+    "auto_comment": false,
+    "auto_pr_submission": false,
+    "security_sensitive_work": false,
+    "human_gate_before_external_write": true
+  },
+  "cutover_order": [
+    "copy",
+    "manual_test",
+    "verify_output",
+    "enable_schedule",
+    "disable_old_vector_workflow",
+    "observe",
+    "delete_old_copy_only_after_stable"
+  ]
+}
