@@ -1,6 +1,6 @@
 {
-  "generated_at": "2026-09-21T20:27:38.532Z",
-  "source_generated_at": "2026-09-21T20:27:05.776Z",
+  "generated_at": "2026-09-22T04:57:12.312Z",
+  "source_generated_at": "2026-09-22T04:56:38.293Z",
   "brand": "Global Work Radar",
   "purpose": "Turn verified market changes into GWR-owned traffic, explicit buyer-reaction evidence, and revenue opportunities without fabricating publication state.",
   "channel_policy": "GWR_CHANNEL_ONLY",
@@ -35,28 +35,28 @@
   "candidate_count": 11,
   "candidates": [
     {
-      "candidate_id": "gwr-alert-34e7acdb127b",
+      "candidate_id": "gwr-alert-9b940f61d3e2",
       "signal_type": "GWR_ALERT",
       "objective": "qualified_revenue_growth",
-      "score": 112,
-      "source_generated_at": "2026-09-21T20:27:05.776Z",
+      "score": 99,
+      "source_generated_at": "2026-09-22T04:56:38.293Z",
       "claim_scope": "snapshot_change_only_no_hiring_outcome_inference",
       "text": {
-        "x": "【GWR ALERT】LMG Staffing Solutions｜Local Digital Marketer - Japan｜GWR観測内で新規Employer Signal。日本対象可否・公式求人・鮮度を確認して追跡しています。次の変化もGWRで更新。 https://global-work-radar.pages.dev/?japan=1&utm_source=social&utm_medium=organic&utm_campaign=gwr_signal_growth&utm_content=gwr-alert-34e7acdb1…",
-        "bluesky": "GWR ALERT｜LMG Staffing Solutions｜Local Digital Marketer - Japan｜GWR観測内で新規Employer Signal。日本対象可否・公式求人・鮮度を確認して継続追跡。 https://global-work-radar.pages.dev/?japan=1&utm_source=social&utm_medium=organic&utm_campaign=gwr_signal_growth&utm_content=gwr-alert-34e7acdb127b&q=LMG+Staffing+Solutions&intent=…",
-        "linkedin": "GWR Market Alert LMG Staffing Solutions｜Local Digital Marketer - Japan｜GWR観測内で新規Employer Signal。採用結果の予測ではなく、GWRの検証済み求人スナップショットで確認できた変化です。 https://global-work-radar.pages.dev/?japan=1&utm_source=social&utm_medium=organic&utm_campaign=gwr_signal_growth&utm_content=gwr-alert-34e7acdb127b&q=LMG+Staffing+Solutions&intent=general"
+        "x": "【GWR ALERT】A2MAC1｜Customer Success Manager｜前回スナップショット比 +1。日本対象可否・公式求人・鮮度を確認して追跡しています。次の変化もGWRで更新。 https://global-work-radar.pages.dev/?japan=1&utm_source=social&utm_medium=organic&utm_campaign=gwr_signal_growth&utm_content=gwr-alert-9b940f61d3e2&q=A2MAC1&intent=general",
+        "bluesky": "GWR ALERT｜A2MAC1｜Customer Success Manager｜前回スナップショット比 +1。日本対象可否・公式求人・鮮度を確認して継続追跡。 https://global-work-radar.pages.dev/?japan=1&utm_source=social&utm_medium=organic&utm_campaign=gwr_signal_growth&utm_content=gwr-alert-9b940f61d3e2&q=A2MAC1&intent=general",
+        "linkedin": "GWR Market Alert A2MAC1｜Customer Success Manager｜前回スナップショット比 +1。採用結果の予測ではなく、GWRの検証済み求人スナップショットで確認できた変化です。 https://global-work-radar.pages.dev/?japan=1&utm_source=social&utm_medium=organic&utm_campaign=gwr_signal_growth&utm_content=gwr-alert-9b940f61d3e2&q=A2MAC1&intent=general"
       },
-      "destination_url": "https://global-work-radar.pages.dev/?japan=1&utm_source=social&utm_medium=organic&utm_campaign=gwr_signal_growth&utm_content=gwr-alert-34e7acdb127b&q=LMG+Staffing+Solutions&intent=general",
+      "destination_url": "https://global-work-radar.pages.dev/?japan=1&utm_source=social&utm_medium=organic&utm_campaign=gwr_signal_growth&utm_content=gwr-alert-9b940f61d3e2&q=A2MAC1&intent=general",
       "evidence": [
         {
-          "job_id": "workable-35ebac8977",
-          "employer": "LMG Staffing Solutions",
-          "title": "Local Digital Marketer - Japan",
+          "job_id": "workable-a060975f4c",
+          "employer": "A2MAC1",
+          "title": "Customer Success Manager",
           "source": "Workable",
-          "official_url": "https://apply.workable.com/j/35EBAC8977",
-          "last_verified_at": "2026-09-21T20:26:44.138Z",
+          "official_url": "https://apply.workable.com/j/A060975F4C",
+          "last_verified_at": "2026-09-22T04:56:16.359Z",
           "freshness_bucket": "NEW_24H",
-          "hiring_momentum": "NEW_EMPLOYER_SIGNAL",
+          "hiring_momentum": "HIRING_UP",
           "hiring_delta": 1
         }
       ],
@@ -73,18 +73,18 @@
       "rank": 1
     },
     {
-      "candidate_id": "gwr-open-7e42b77a278d",
-      "signal_type": "GWR_OPEN",
+      "candidate_id": "gwr-alert-2deb5cf8b812",
+      "signal_type": "GWR_ALERT",
       "objective": "qualified_revenue_growth",
-      "score": 105,
-      "source_generated_at": "2026-09-21T20:27:05.776Z",
-      "claim_scope": "verified_active_structured_facts_only",
+      "score": 98,
+      "source_generated_at": "2026-09-22T04:56:38.293Z",
+      "claim_scope": "snapshot_change_only_no_hiring_outcome_inference",
       "text": {
-        "x": "【GWR OPEN】Local Digital Marketer - Japan｜LMG Staffing Solutions｜Tokyo, JP。公式求人の確認先まで検証済み。GWRは日本から確認できる海外求人の変化を継続観測中。 https://global-work-radar.pages.dev/?japan=1&utm_source=social&utm_medium=organic&utm_campaign=gwr_signal_growth&utm_content=gwr-open-7e42b77a278d&q=LMG+Staf…",
-        "bluesky": "GWR OPEN｜Local Digital Marketer - Japan｜LMG Staffing Solutions｜Tokyo, JP。公式求人まで確認済み。GWRは日本から確認できる海外求人の変化を継続観測中。 https://global-work-radar.pages.dev/?japan=1&utm_source=social&utm_medium=organic&utm_campaign=gwr_signal_growth&utm_content=gwr-open-7e42b77a278d&q=LMG+Staffing+Solutions&intent=rem…",
-        "linkedin": "Global Work Radarで新しい求人Signalを確認。 Local Digital Marketer - Japan｜LMG Staffing Solutions｜Tokyo, JP 公開対象はVERIFIED ACTIVEかつ公式応募先を確認できたものに限定しています。 https://global-work-radar.pages.dev/?japan=1&utm_source=social&utm_medium=organic&utm_campaign=gwr_signal_growth&utm_content=gwr-open-7e42b77a278d&q=LMG+Staffing+Solutions&intent=remote"
+        "x": "【GWR ALERT】LMG Staffing Solutions｜Local Digital Marketer - Japan｜新着Signal。日本対象可否・公式求人・鮮度を確認して追跡しています。次の変化もGWRで更新。 https://global-work-radar.pages.dev/?japan=1&utm_source=social&utm_medium=organic&utm_campaign=gwr_signal_growth&utm_content=gwr-alert-2deb5cf8b812&q=LMG+Staffi…",
+        "bluesky": "GWR ALERT｜LMG Staffing Solutions｜Local Digital Marketer - Japan｜新着Signal。日本対象可否・公式求人・鮮度を確認して継続追跡。 https://global-work-radar.pages.dev/?japan=1&utm_source=social&utm_medium=organic&utm_campaign=gwr_signal_growth&utm_content=gwr-alert-2deb5cf8b812&q=LMG+Staffing+Solutions&intent=general",
+        "linkedin": "GWR Market Alert LMG Staffing Solutions｜Local Digital Marketer - Japan｜新着Signal。採用結果の予測ではなく、GWRの検証済み求人スナップショットで確認できた変化です。 https://global-work-radar.pages.dev/?japan=1&utm_source=social&utm_medium=organic&utm_campaign=gwr_signal_growth&utm_content=gwr-alert-2deb5cf8b812&q=LMG+Staffing+Solutions&intent=general"
       },
-      "destination_url": "https://global-work-radar.pages.dev/?japan=1&utm_source=social&utm_medium=organic&utm_campaign=gwr_signal_growth&utm_content=gwr-open-7e42b77a278d&q=LMG+Staffing+Solutions&intent=remote",
+      "destination_url": "https://global-work-radar.pages.dev/?japan=1&utm_source=social&utm_medium=organic&utm_campaign=gwr_signal_growth&utm_content=gwr-alert-2deb5cf8b812&q=LMG+Staffing+Solutions&intent=general",
       "evidence": [
         {
           "job_id": "workable-35ebac8977",
@@ -92,10 +92,10 @@
           "title": "Local Digital Marketer - Japan",
           "source": "Workable",
           "official_url": "https://apply.workable.com/j/35EBAC8977",
-          "last_verified_at": "2026-09-21T20:26:44.138Z",
+          "last_verified_at": "2026-09-22T04:56:16.359Z",
           "freshness_bucket": "NEW_24H",
-          "hiring_momentum": "NEW_EMPLOYER_SIGNAL",
-          "hiring_delta": 1
+          "hiring_momentum": "STEADY",
+          "hiring_delta": 0
         }
       ],
       "measurement_chain": [
@@ -111,26 +111,26 @@
       "rank": 2
     },
     {
-      "candidate_id": "gwr-alert-1a2e1487d5b8",
+      "candidate_id": "gwr-alert-c6928a774ece",
       "signal_type": "GWR_ALERT",
       "objective": "qualified_revenue_growth",
       "score": 98,
-      "source_generated_at": "2026-09-21T20:27:05.776Z",
+      "source_generated_at": "2026-09-22T04:56:38.293Z",
       "claim_scope": "snapshot_change_only_no_hiring_outcome_inference",
       "text": {
-        "x": "【GWR ALERT】Avomind｜Business Development Manager｜新着Signal。日本対象可否・公式求人・鮮度を確認して追跡しています。次の変化もGWRで更新。 https://global-work-radar.pages.dev/?japan=1&utm_source=social&utm_medium=organic&utm_campaign=gwr_signal_growth&utm_content=gwr-alert-1a2e1487d5b8&q=Avomind&intent=general",
-        "bluesky": "GWR ALERT｜Avomind｜Business Development Manager｜新着Signal。日本対象可否・公式求人・鮮度を確認して継続追跡。 https://global-work-radar.pages.dev/?japan=1&utm_source=social&utm_medium=organic&utm_campaign=gwr_signal_growth&utm_content=gwr-alert-1a2e1487d5b8&q=Avomind&intent=general",
-        "linkedin": "GWR Market Alert Avomind｜Business Development Manager｜新着Signal。採用結果の予測ではなく、GWRの検証済み求人スナップショットで確認できた変化です。 https://global-work-radar.pages.dev/?japan=1&utm_source=social&utm_medium=organic&utm_campaign=gwr_signal_growth&utm_content=gwr-alert-1a2e1487d5b8&q=Avomind&intent=general"
+        "x": "【GWR ALERT】Mindrift｜Freelance Presentation Designer｜新着Signal。日本対象可否・公式求人・鮮度を確認して追跡しています。次の変化もGWRで更新。 https://global-work-radar.pages.dev/?japan=1&utm_source=social&utm_medium=organic&utm_campaign=gwr_signal_growth&utm_content=gwr-alert-c6928a774ece&q=Mindrift&intent=general",
+        "bluesky": "GWR ALERT｜Mindrift｜Freelance Presentation Designer｜新着Signal。日本対象可否・公式求人・鮮度を確認して継続追跡。 https://global-work-radar.pages.dev/?japan=1&utm_source=social&utm_medium=organic&utm_campaign=gwr_signal_growth&utm_content=gwr-alert-c6928a774ece&q=Mindrift&intent=general",
+        "linkedin": "GWR Market Alert Mindrift｜Freelance Presentation Designer｜新着Signal。採用結果の予測ではなく、GWRの検証済み求人スナップショットで確認できた変化です。 https://global-work-radar.pages.dev/?japan=1&utm_source=social&utm_medium=organic&utm_campaign=gwr_signal_growth&utm_content=gwr-alert-c6928a774ece&q=Mindrift&intent=general"
       },
-      "destination_url": "https://global-work-radar.pages.dev/?japan=1&utm_source=social&utm_medium=organic&utm_campaign=gwr_signal_growth&utm_content=gwr-alert-1a2e1487d5b8&q=Avomind&intent=general",
+      "destination_url": "https://global-work-radar.pages.dev/?japan=1&utm_source=social&utm_medium=organic&utm_campaign=gwr_signal_growth&utm_content=gwr-alert-c6928a774ece&q=Mindrift&intent=general",
       "evidence": [
         {
-          "job_id": "workable-8b0296fb68",
-          "employer": "Avomind",
-          "title": "Business Development Manager",
+          "job_id": "workable-33dbbfdb26",
+          "employer": "Mindrift",
+          "title": "Freelance Presentation Designer",
           "source": "Workable",
-          "official_url": "https://apply.workable.com/j/8B0296FB68",
-          "last_verified_at": "2026-09-21T20:26:44.138Z",
+          "official_url": "https://apply.workable.com/j/33DBBFDB26",
+          "last_verified_at": "2026-09-22T04:56:16.359Z",
           "freshness_bucket": "NEW_24H",
           "hiring_momentum": "STEADY",
           "hiring_delta": 0
@@ -149,27 +149,27 @@
       "rank": 3
     },
     {
-      "candidate_id": "gwr-alert-3605a1f597e8",
+      "candidate_id": "gwr-alert-8d9b2dd20898",
       "signal_type": "GWR_ALERT",
       "objective": "qualified_revenue_growth",
-      "score": 98,
-      "source_generated_at": "2026-09-21T20:27:05.776Z",
+      "score": 93,
+      "source_generated_at": "2026-09-22T04:56:38.293Z",
       "claim_scope": "snapshot_change_only_no_hiring_outcome_inference",
       "text": {
-        "x": "【GWR ALERT】Mindrift｜Freelance Presentation Designer｜新着Signal。日本対象可否・公式求人・鮮度を確認して追跡しています。次の変化もGWRで更新。 https://global-work-radar.pages.dev/?japan=1&utm_source=social&utm_medium=organic&utm_campaign=gwr_signal_growth&utm_content=gwr-alert-3605a1f597e8&q=Mindrift&intent=general",
-        "bluesky": "GWR ALERT｜Mindrift｜Freelance Presentation Designer｜新着Signal。日本対象可否・公式求人・鮮度を確認して継続追跡。 https://global-work-radar.pages.dev/?japan=1&utm_source=social&utm_medium=organic&utm_campaign=gwr_signal_growth&utm_content=gwr-alert-3605a1f597e8&q=Mindrift&intent=general",
-        "linkedin": "GWR Market Alert Mindrift｜Freelance Presentation Designer｜新着Signal。採用結果の予測ではなく、GWRの検証済み求人スナップショットで確認できた変化です。 https://global-work-radar.pages.dev/?japan=1&utm_source=social&utm_medium=organic&utm_campaign=gwr_signal_growth&utm_content=gwr-alert-3605a1f597e8&q=Mindrift&intent=general"
+        "x": "【GWR ALERT】Gramian Consulting Group｜Photographer / Photo Editor｜新着Signal。日本対象可否・公式求人・鮮度を確認して追跡しています。次の変化もGWRで更新。 https://global-work-radar.pages.dev/?japan=1&utm_source=social&utm_medium=organic&utm_campaign=gwr_signal_growth&utm_content=gwr-alert-8d9b2dd20898&q=Gramian+Con…",
+        "bluesky": "GWR ALERT｜Gramian Consulting Group｜Photographer / Photo Editor｜新着Signal。日本対象可否・公式求人・鮮度を確認して継続追跡。 https://global-work-radar.pages.dev/?japan=1&utm_source=social&utm_medium=organic&utm_campaign=gwr_signal_growth&utm_content=gwr-alert-8d9b2dd20898&q=Gramian+Consulting+Group&intent=general",
+        "linkedin": "GWR Market Alert Gramian Consulting Group｜Photographer / Photo Editor｜新着Signal。採用結果の予測ではなく、GWRの検証済み求人スナップショットで確認できた変化です。 https://global-work-radar.pages.dev/?japan=1&utm_source=social&utm_medium=organic&utm_campaign=gwr_signal_growth&utm_content=gwr-alert-8d9b2dd20898&q=Gramian+Consulting+Group&intent=general"
       },
-      "destination_url": "https://global-work-radar.pages.dev/?japan=1&utm_source=social&utm_medium=organic&utm_campaign=gwr_signal_growth&utm_content=gwr-alert-3605a1f597e8&q=Mindrift&intent=general",
+      "destination_url": "https://global-work-radar.pages.dev/?japan=1&utm_source=social&utm_medium=organic&utm_campaign=gwr_signal_growth&utm_content=gwr-alert-8d9b2dd20898&q=Gramian+Consulting+Group&intent=general",
       "evidence": [
         {
-          "job_id": "workable-33dbbfdb26",
-          "employer": "Mindrift",
-          "title": "Freelance Presentation Designer",
+          "job_id": "workable-14bfe24950",
+          "employer": "Gramian Consulting Group",
+          "title": "Photographer / Photo Editor",
           "source": "Workable",
-          "official_url": "https://apply.workable.com/j/33DBBFDB26",
-          "last_verified_at": "2026-09-21T20:26:44.138Z",
-          "freshness_bucket": "NEW_24H",
+          "official_url": "https://apply.workable.com/j/14BFE24950",
+          "last_verified_at": "2026-09-22T04:56:16.359Z",
+          "freshness_bucket": "NEW_3D",
           "hiring_momentum": "STEADY",
           "hiring_delta": 0
         }
@@ -187,29 +187,29 @@
       "rank": 4
     },
     {
-      "candidate_id": "gwr-alert-438b8fc1e261",
-      "signal_type": "GWR_ALERT",
+      "candidate_id": "gwr-open-5f5517dda818",
+      "signal_type": "GWR_OPEN",
       "objective": "qualified_revenue_growth",
-      "score": 93,
-      "source_generated_at": "2026-09-21T20:27:05.776Z",
-      "claim_scope": "snapshot_change_only_no_hiring_outcome_inference",
+      "score": 92,
+      "source_generated_at": "2026-09-22T04:56:38.293Z",
+      "claim_scope": "verified_active_structured_facts_only",
       "text": {
-        "x": "【GWR ALERT】Gramian Consulting Group｜Photographer / Photo Editor｜新着Signal。日本対象可否・公式求人・鮮度を確認して追跡しています。次の変化もGWRで更新。 https://global-work-radar.pages.dev/?japan=1&utm_source=social&utm_medium=organic&utm_campaign=gwr_signal_growth&utm_content=gwr-alert-438b8fc1e261&q=Gramian+Con…",
-        "bluesky": "GWR ALERT｜Gramian Consulting Group｜Photographer / Photo Editor｜新着Signal。日本対象可否・公式求人・鮮度を確認して継続追跡。 https://global-work-radar.pages.dev/?japan=1&utm_source=social&utm_medium=organic&utm_campaign=gwr_signal_growth&utm_content=gwr-alert-438b8fc1e261&q=Gramian+Consulting+Group&intent=general",
-        "linkedin": "GWR Market Alert Gramian Consulting Group｜Photographer / Photo Editor｜新着Signal。採用結果の予測ではなく、GWRの検証済み求人スナップショットで確認できた変化です。 https://global-work-radar.pages.dev/?japan=1&utm_source=social&utm_medium=organic&utm_campaign=gwr_signal_growth&utm_content=gwr-alert-438b8fc1e261&q=Gramian+Consulting+Group&intent=general"
+        "x": "【GWR OPEN】Customer Success Manager｜A2MAC1｜Tokyo, Tokyo, JP。公式求人の確認先まで検証済み。GWRは日本から確認できる海外求人の変化を継続観測中。 https://global-work-radar.pages.dev/?japan=1&utm_source=social&utm_medium=organic&utm_campaign=gwr_signal_growth&utm_content=gwr-open-5f5517dda818&q=A2MAC1&intent=general",
+        "bluesky": "GWR OPEN｜Customer Success Manager｜A2MAC1｜Tokyo, Tokyo, JP。公式求人まで確認済み。GWRは日本から確認できる海外求人の変化を継続観測中。 https://global-work-radar.pages.dev/?japan=1&utm_source=social&utm_medium=organic&utm_campaign=gwr_signal_growth&utm_content=gwr-open-5f5517dda818&q=A2MAC1&intent=general",
+        "linkedin": "Global Work Radarで新しい求人Signalを確認。 Customer Success Manager｜A2MAC1｜Tokyo, Tokyo, JP 公開対象はVERIFIED ACTIVEかつ公式応募先を確認できたものに限定しています。 https://global-work-radar.pages.dev/?japan=1&utm_source=social&utm_medium=organic&utm_campaign=gwr_signal_growth&utm_content=gwr-open-5f5517dda818&q=A2MAC1&intent=general"
       },
-      "destination_url": "https://global-work-radar.pages.dev/?japan=1&utm_source=social&utm_medium=organic&utm_campaign=gwr_signal_growth&utm_content=gwr-alert-438b8fc1e261&q=Gramian+Consulting+Group&intent=general",
+      "destination_url": "https://global-work-radar.pages.dev/?japan=1&utm_source=social&utm_medium=organic&utm_campaign=gwr_signal_growth&utm_content=gwr-open-5f5517dda818&q=A2MAC1&intent=general",
       "evidence": [
         {
-          "job_id": "workable-14bfe24950",
-          "employer": "Gramian Consulting Group",
-          "title": "Photographer / Photo Editor",
+          "job_id": "workable-a060975f4c",
+          "employer": "A2MAC1",
+          "title": "Customer Success Manager",
           "source": "Workable",
-          "official_url": "https://apply.workable.com/j/14BFE24950",
-          "last_verified_at": "2026-09-21T20:26:44.138Z",
-          "freshness_bucket": "NEW_3D",
-          "hiring_momentum": "STEADY",
-          "hiring_delta": 0
+          "official_url": "https://apply.workable.com/j/A060975F4C",
+          "last_verified_at": "2026-09-22T04:56:16.359Z",
+          "freshness_bucket": "NEW_24H",
+          "hiring_momentum": "HIRING_UP",
+          "hiring_delta": 1
         }
       ],
       "measurement_chain": [
@@ -225,26 +225,26 @@
       "rank": 5
     },
     {
-      "candidate_id": "gwr-open-7493e8c3ad13",
+      "candidate_id": "gwr-open-855882c885e0",
       "signal_type": "GWR_OPEN",
       "objective": "qualified_revenue_growth",
       "score": 91,
-      "source_generated_at": "2026-09-21T20:27:05.776Z",
+      "source_generated_at": "2026-09-22T04:56:38.293Z",
       "claim_scope": "verified_active_structured_facts_only",
       "text": {
-        "x": "【GWR OPEN】Business Development Manager｜Avomind｜JP。公式求人の確認先まで検証済み。GWRは日本から確認できる海外求人の変化を継続観測中。 https://global-work-radar.pages.dev/?japan=1&utm_source=social&utm_medium=organic&utm_campaign=gwr_signal_growth&utm_content=gwr-open-7493e8c3ad13&q=Avomind&intent=remote",
-        "bluesky": "GWR OPEN｜Business Development Manager｜Avomind｜JP。公式求人まで確認済み。GWRは日本から確認できる海外求人の変化を継続観測中。 https://global-work-radar.pages.dev/?japan=1&utm_source=social&utm_medium=organic&utm_campaign=gwr_signal_growth&utm_content=gwr-open-7493e8c3ad13&q=Avomind&intent=remote",
-        "linkedin": "Global Work Radarで新しい求人Signalを確認。 Business Development Manager｜Avomind｜JP 公開対象はVERIFIED ACTIVEかつ公式応募先を確認できたものに限定しています。 https://global-work-radar.pages.dev/?japan=1&utm_source=social&utm_medium=organic&utm_campaign=gwr_signal_growth&utm_content=gwr-open-7493e8c3ad13&q=Avomind&intent=remote"
+        "x": "【GWR OPEN】Local Digital Marketer - Japan｜LMG Staffing Solutions｜Tokyo, JP。公式求人の確認先まで検証済み。GWRは日本から確認できる海外求人の変化を継続観測中。 https://global-work-radar.pages.dev/?japan=1&utm_source=social&utm_medium=organic&utm_campaign=gwr_signal_growth&utm_content=gwr-open-855882c885e0&q=LMG+Staf…",
+        "bluesky": "GWR OPEN｜Local Digital Marketer - Japan｜LMG Staffing Solutions｜Tokyo, JP。公式求人まで確認済み。GWRは日本から確認できる海外求人の変化を継続観測中。 https://global-work-radar.pages.dev/?japan=1&utm_source=social&utm_medium=organic&utm_campaign=gwr_signal_growth&utm_content=gwr-open-855882c885e0&q=LMG+Staffing+Solutions&intent=rem…",
+        "linkedin": "Global Work Radarで新しい求人Signalを確認。 Local Digital Marketer - Japan｜LMG Staffing Solutions｜Tokyo, JP 公開対象はVERIFIED ACTIVEかつ公式応募先を確認できたものに限定しています。 https://global-work-radar.pages.dev/?japan=1&utm_source=social&utm_medium=organic&utm_campaign=gwr_signal_growth&utm_content=gwr-open-855882c885e0&q=LMG+Staffing+Solutions&intent=remote"
       },
-      "destination_url": "https://global-work-radar.pages.dev/?japan=1&utm_source=social&utm_medium=organic&utm_campaign=gwr_signal_growth&utm_content=gwr-open-7493e8c3ad13&q=Avomind&intent=remote",
+      "destination_url": "https://global-work-radar.pages.dev/?japan=1&utm_source=social&utm_medium=organic&utm_campaign=gwr_signal_growth&utm_content=gwr-open-855882c885e0&q=LMG+Staffing+Solutions&intent=remote",
       "evidence": [
         {
-          "job_id": "workable-8b0296fb68",
-          "employer": "Avomind",
-          "title": "Business Development Manager",
+          "job_id": "workable-35ebac8977",
+          "employer": "LMG Staffing Solutions",
+          "title": "Local Digital Marketer - Japan",
           "source": "Workable",
-          "official_url": "https://apply.workable.com/j/8B0296FB68",
-          "last_verified_at": "2026-09-21T20:26:44.138Z",
+          "official_url": "https://apply.workable.com/j/35EBAC8977",
+          "last_verified_at": "2026-09-22T04:56:16.359Z",
           "freshness_bucket": "NEW_24H",
           "hiring_momentum": "STEADY",
           "hiring_delta": 0
@@ -263,18 +263,18 @@
       "rank": 6
     },
     {
-      "candidate_id": "gwr-open-cccc3d6cd566",
+      "candidate_id": "gwr-open-487a735829f7",
       "signal_type": "GWR_OPEN",
       "objective": "qualified_revenue_growth",
       "score": 91,
-      "source_generated_at": "2026-09-21T20:27:05.776Z",
+      "source_generated_at": "2026-09-22T04:56:38.293Z",
       "claim_scope": "verified_active_structured_facts_only",
       "text": {
-        "x": "【GWR OPEN】Freelance Presentation Designer｜Mindrift｜JP。公式求人の確認先まで検証済み。GWRは日本から確認できる海外求人の変化を継続観測中。 https://global-work-radar.pages.dev/?japan=1&utm_source=social&utm_medium=organic&utm_campaign=gwr_signal_growth&utm_content=gwr-open-cccc3d6cd566&q=Mindrift&intent=remote",
-        "bluesky": "GWR OPEN｜Freelance Presentation Designer｜Mindrift｜JP。公式求人まで確認済み。GWRは日本から確認できる海外求人の変化を継続観測中。 https://global-work-radar.pages.dev/?japan=1&utm_source=social&utm_medium=organic&utm_campaign=gwr_signal_growth&utm_content=gwr-open-cccc3d6cd566&q=Mindrift&intent=remote",
-        "linkedin": "Global Work Radarで新しい求人Signalを確認。 Freelance Presentation Designer｜Mindrift｜JP 公開対象はVERIFIED ACTIVEかつ公式応募先を確認できたものに限定しています。 https://global-work-radar.pages.dev/?japan=1&utm_source=social&utm_medium=organic&utm_campaign=gwr_signal_growth&utm_content=gwr-open-cccc3d6cd566&q=Mindrift&intent=remote"
+        "x": "【GWR OPEN】Freelance Presentation Designer｜Mindrift｜JP。公式求人の確認先まで検証済み。GWRは日本から確認できる海外求人の変化を継続観測中。 https://global-work-radar.pages.dev/?japan=1&utm_source=social&utm_medium=organic&utm_campaign=gwr_signal_growth&utm_content=gwr-open-487a735829f7&q=Mindrift&intent=remote",
+        "bluesky": "GWR OPEN｜Freelance Presentation Designer｜Mindrift｜JP。公式求人まで確認済み。GWRは日本から確認できる海外求人の変化を継続観測中。 https://global-work-radar.pages.dev/?japan=1&utm_source=social&utm_medium=organic&utm_campaign=gwr_signal_growth&utm_content=gwr-open-487a735829f7&q=Mindrift&intent=remote",
+        "linkedin": "Global Work Radarで新しい求人Signalを確認。 Freelance Presentation Designer｜Mindrift｜JP 公開対象はVERIFIED ACTIVEかつ公式応募先を確認できたものに限定しています。 https://global-work-radar.pages.dev/?japan=1&utm_source=social&utm_medium=organic&utm_campaign=gwr_signal_growth&utm_content=gwr-open-487a735829f7&q=Mindrift&intent=remote"
       },
-      "destination_url": "https://global-work-radar.pages.dev/?japan=1&utm_source=social&utm_medium=organic&utm_campaign=gwr_signal_growth&utm_content=gwr-open-cccc3d6cd566&q=Mindrift&intent=remote",
+      "destination_url": "https://global-work-radar.pages.dev/?japan=1&utm_source=social&utm_medium=organic&utm_campaign=gwr_signal_growth&utm_content=gwr-open-487a735829f7&q=Mindrift&intent=remote",
       "evidence": [
         {
           "job_id": "workable-33dbbfdb26",
@@ -282,7 +282,7 @@
           "title": "Freelance Presentation Designer",
           "source": "Workable",
           "official_url": "https://apply.workable.com/j/33DBBFDB26",
-          "last_verified_at": "2026-09-21T20:26:44.138Z",
+          "last_verified_at": "2026-09-22T04:56:16.359Z",
           "freshness_bucket": "NEW_24H",
           "hiring_momentum": "STEADY",
           "hiring_delta": 0
@@ -301,18 +301,18 @@
       "rank": 7
     },
     {
-      "candidate_id": "gwr-open-8fffc24850ee",
+      "candidate_id": "gwr-open-1aa737e473b9",
       "signal_type": "GWR_OPEN",
       "objective": "qualified_revenue_growth",
       "score": 86,
-      "source_generated_at": "2026-09-21T20:27:05.776Z",
+      "source_generated_at": "2026-09-22T04:56:38.293Z",
       "claim_scope": "verified_active_structured_facts_only",
       "text": {
-        "x": "【GWR OPEN】Photographer / Photo Editor｜Gramian Consulting Group｜JP。公式求人の確認先まで検証済み。GWRは日本から確認できる海外求人の変化を継続観測中。 https://global-work-radar.pages.dev/?japan=1&utm_source=social&utm_medium=organic&utm_campaign=gwr_signal_growth&utm_content=gwr-open-8fffc24850ee&q=Gramian+Consulti…",
-        "bluesky": "GWR OPEN｜Photographer / Photo Editor｜Gramian Consulting Group｜JP。公式求人まで確認済み。GWRは日本から確認できる海外求人の変化を継続観測中。 https://global-work-radar.pages.dev/?japan=1&utm_source=social&utm_medium=organic&utm_campaign=gwr_signal_growth&utm_content=gwr-open-8fffc24850ee&q=Gramian+Consulting+Group&intent=remote",
-        "linkedin": "Global Work Radarで新しい求人Signalを確認。 Photographer / Photo Editor｜Gramian Consulting Group｜JP 公開対象はVERIFIED ACTIVEかつ公式応募先を確認できたものに限定しています。 https://global-work-radar.pages.dev/?japan=1&utm_source=social&utm_medium=organic&utm_campaign=gwr_signal_growth&utm_content=gwr-open-8fffc24850ee&q=Gramian+Consulting+Group&intent=remote"
+        "x": "【GWR OPEN】Photographer / Photo Editor｜Gramian Consulting Group｜JP。公式求人の確認先まで検証済み。GWRは日本から確認できる海外求人の変化を継続観測中。 https://global-work-radar.pages.dev/?japan=1&utm_source=social&utm_medium=organic&utm_campaign=gwr_signal_growth&utm_content=gwr-open-1aa737e473b9&q=Gramian+Consulti…",
+        "bluesky": "GWR OPEN｜Photographer / Photo Editor｜Gramian Consulting Group｜JP。公式求人まで確認済み。GWRは日本から確認できる海外求人の変化を継続観測中。 https://global-work-radar.pages.dev/?japan=1&utm_source=social&utm_medium=organic&utm_campaign=gwr_signal_growth&utm_content=gwr-open-1aa737e473b9&q=Gramian+Consulting+Group&intent=remote",
+        "linkedin": "Global Work Radarで新しい求人Signalを確認。 Photographer / Photo Editor｜Gramian Consulting Group｜JP 公開対象はVERIFIED ACTIVEかつ公式応募先を確認できたものに限定しています。 https://global-work-radar.pages.dev/?japan=1&utm_source=social&utm_medium=organic&utm_campaign=gwr_signal_growth&utm_content=gwr-open-1aa737e473b9&q=Gramian+Consulting+Group&intent=remote"
       },
-      "destination_url": "https://global-work-radar.pages.dev/?japan=1&utm_source=social&utm_medium=organic&utm_campaign=gwr_signal_growth&utm_content=gwr-open-8fffc24850ee&q=Gramian+Consulting+Group&intent=remote",
+      "destination_url": "https://global-work-radar.pages.dev/?japan=1&utm_source=social&utm_medium=organic&utm_campaign=gwr_signal_growth&utm_content=gwr-open-1aa737e473b9&q=Gramian+Consulting+Group&intent=remote",
       "evidence": [
         {
           "job_id": "workable-14bfe24950",
@@ -320,7 +320,7 @@
           "title": "Photographer / Photo Editor",
           "source": "Workable",
           "official_url": "https://apply.workable.com/j/14BFE24950",
-          "last_verified_at": "2026-09-21T20:26:44.138Z",
+          "last_verified_at": "2026-09-22T04:56:16.359Z",
           "freshness_bucket": "NEW_3D",
           "hiring_momentum": "STEADY",
           "hiring_delta": 0
@@ -339,18 +339,18 @@
       "rank": 8
     },
     {
-      "candidate_id": "gwr-open-96788bca552b",
+      "candidate_id": "gwr-open-0d8d39ea8e09",
       "signal_type": "GWR_OPEN",
       "objective": "qualified_revenue_growth",
       "score": 86,
-      "source_generated_at": "2026-09-21T20:27:05.776Z",
+      "source_generated_at": "2026-09-22T04:56:38.293Z",
       "claim_scope": "verified_active_structured_facts_only",
       "text": {
         "x": "【GWR OPEN】UNPAID VOLUNTEER - Deputy Director of Research - Energy & Environment｜Digital Technology Institute for Development (DTID)｜JP。公式求人の確認先まで検証済み。GWRは日本から確認できる海外求人の変化を継続観測中。 https://global-work-radar.pages.dev/?japan=1&utm_source=social&utm_medium=organic&utm_campaign=g…",
         "bluesky": "GWR OPEN｜UNPAID VOLUNTEER - Deputy Director of Research - Energy & Environment｜Digital Technology Institute for Development (DTID)｜JP。公式求人まで確認済み。GWRは日本から確認できる海外求人の変化を継続観測中。 https://global-work-radar.pages.dev/?japan=1&utm_source=social&utm_medium=organic&utm_campaign=gwr_signal_growth&utm_cont…",
-        "linkedin": "Global Work Radarで新しい求人Signalを確認。 UNPAID VOLUNTEER - Deputy Director of Research - Energy & Environment｜Digital Technology Institute for Development (DTID)｜JP 公開対象はVERIFIED ACTIVEかつ公式応募先を確認できたものに限定しています。 https://global-work-radar.pages.dev/?japan=1&utm_source=social&utm_medium=organic&utm_campaign=gwr_signal_growth&utm_content=gwr-open-96788bca552b&q=Digital+Technology+Institute+for+Development+%28DTID%29&intent=remote"
+        "linkedin": "Global Work Radarで新しい求人Signalを確認。 UNPAID VOLUNTEER - Deputy Director of Research - Energy & Environment｜Digital Technology Institute for Development (DTID)｜JP 公開対象はVERIFIED ACTIVEかつ公式応募先を確認できたものに限定しています。 https://global-work-radar.pages.dev/?japan=1&utm_source=social&utm_medium=organic&utm_campaign=gwr_signal_growth&utm_content=gwr-open-0d8d39ea8e09&q=Digital+Technology+Institute+for+Development+%28DTID%29&intent=remote"
       },
-      "destination_url": "https://global-work-radar.pages.dev/?japan=1&utm_source=social&utm_medium=organic&utm_campaign=gwr_signal_growth&utm_content=gwr-open-96788bca552b&q=Digital+Technology+Institute+for+Development+%28DTID%29&intent=remote",
+      "destination_url": "https://global-work-radar.pages.dev/?japan=1&utm_source=social&utm_medium=organic&utm_campaign=gwr_signal_growth&utm_content=gwr-open-0d8d39ea8e09&q=Digital+Technology+Institute+for+Development+%28DTID%29&intent=remote",
       "evidence": [
         {
           "job_id": "workable-61faa9208e",
@@ -358,7 +358,7 @@
           "title": "UNPAID VOLUNTEER - Deputy Director of Research - Energy & Environment",
           "source": "Workable",
           "official_url": "https://apply.workable.com/j/61FAA9208E",
-          "last_verified_at": "2026-09-21T20:26:44.138Z",
+          "last_verified_at": "2026-09-22T04:56:16.359Z",
           "freshness_bucket": "NEW_3D",
           "hiring_momentum": "STEADY",
           "hiring_delta": 0
@@ -377,18 +377,18 @@
       "rank": 9
     },
     {
-      "candidate_id": "gwr-open-5f90ac0a7605",
+      "candidate_id": "gwr-open-859fe522321d",
       "signal_type": "GWR_OPEN",
       "objective": "qualified_revenue_growth",
       "score": 86,
-      "source_generated_at": "2026-09-21T20:27:05.776Z",
+      "source_generated_at": "2026-09-22T04:56:38.293Z",
       "claim_scope": "verified_active_structured_facts_only",
       "text": {
         "x": "【GWR OPEN】UNPAID VOLUNTEER - Principal Research Officer - Circular Economy｜Digital Technology Institute for Development (DTID)｜JP。公式求人の確認先まで検証済み。GWRは日本から確認できる海外求人の変化を継続観測中。 https://global-work-radar.pages.dev/?japan=1&utm_source=social&utm_medium=organic&utm_campaign=gwr_si…",
         "bluesky": "GWR OPEN｜UNPAID VOLUNTEER - Principal Research Officer - Circular Economy｜Digital Technology Institute for Development (DTID)｜JP。公式求人まで確認済み。GWRは日本から確認できる海外求人の変化を継続観測中。 https://global-work-radar.pages.dev/?japan=1&utm_source=social&utm_medium=organic&utm_campaign=gwr_signal_growth&utm_content=g…",
-        "linkedin": "Global Work Radarで新しい求人Signalを確認。 UNPAID VOLUNTEER - Principal Research Officer - Circular Economy｜Digital Technology Institute for Development (DTID)｜JP 公開対象はVERIFIED ACTIVEかつ公式応募先を確認できたものに限定しています。 https://global-work-radar.pages.dev/?japan=1&utm_source=social&utm_medium=organic&utm_campaign=gwr_signal_growth&utm_content=gwr-open-5f90ac0a7605&q=Digital+Technology+Institute+for+Development+%28DTID%29&intent=remote"
+        "linkedin": "Global Work Radarで新しい求人Signalを確認。 UNPAID VOLUNTEER - Principal Research Officer - Circular Economy｜Digital Technology Institute for Development (DTID)｜JP 公開対象はVERIFIED ACTIVEかつ公式応募先を確認できたものに限定しています。 https://global-work-radar.pages.dev/?japan=1&utm_source=social&utm_medium=organic&utm_campaign=gwr_signal_growth&utm_content=gwr-open-859fe522321d&q=Digital+Technology+Institute+for+Development+%28DTID%29&intent=remote"
       },
-      "destination_url": "https://global-work-radar.pages.dev/?japan=1&utm_source=social&utm_medium=organic&utm_campaign=gwr_signal_growth&utm_content=gwr-open-5f90ac0a7605&q=Digital+Technology+Institute+for+Development+%28DTID%29&intent=remote",
+      "destination_url": "https://global-work-radar.pages.dev/?japan=1&utm_source=social&utm_medium=organic&utm_campaign=gwr_signal_growth&utm_content=gwr-open-859fe522321d&q=Digital+Technology+Institute+for+Development+%28DTID%29&intent=remote",
       "evidence": [
         {
           "job_id": "workable-81482c3c16",
@@ -396,7 +396,7 @@
           "title": "UNPAID VOLUNTEER - Principal Research Officer - Circular Economy",
           "source": "Workable",
           "official_url": "https://apply.workable.com/j/81482C3C16",
-          "last_verified_at": "2026-09-21T20:26:44.138Z",
+          "last_verified_at": "2026-09-22T04:56:16.359Z",
           "freshness_bucket": "NEW_3D",
           "hiring_momentum": "STEADY",
           "hiring_delta": 0
@@ -415,28 +415,39 @@
       "rank": 10
     },
     {
-      "candidate_id": "gwr-shift-24218612ec6f",
+      "candidate_id": "gwr-shift-9e17662e6b15",
       "signal_type": "GWR_SHIFT",
       "objective": "qualified_revenue_growth",
-      "score": 76,
-      "source_generated_at": "2026-09-21T20:27:05.776Z",
+      "score": 78,
+      "source_generated_at": "2026-09-22T04:56:38.293Z",
       "claim_scope": "verified_inventory_snapshot_delta_only",
       "text": {
-        "x": "【GWR SHIFT】LMG Staffing Solutions：GWR確認求人 0→1（+1）。採用成否の予測ではなく、検証済み公開求人のスナップショット変化です。 https://global-work-radar.pages.dev/?japan=1&utm_source=social&utm_medium=organic&utm_campaign=gwr_signal_growth&utm_content=gwr-shift-24218612ec6f&q=LMG+Staffing+Solutions&intent=general",
-        "bluesky": "GWR SHIFT｜LMG Staffing Solutions：GWR確認求人 0→1（+1）。検証済み公開求人のスナップショット変化として継続追跡。 https://global-work-radar.pages.dev/?japan=1&utm_source=social&utm_medium=organic&utm_campaign=gwr_signal_growth&utm_content=gwr-shift-24218612ec6f&q=LMG+Staffing+Solutions&intent=general",
-        "linkedin": "GWR Market Shift LMG Staffing Solutions：GWR確認求人 0→1（+1）。企業の採用意欲や採用成否を断定せず、VERIFIED ACTIVE求人の差分として追跡します。 https://global-work-radar.pages.dev/?japan=1&utm_source=social&utm_medium=organic&utm_campaign=gwr_signal_growth&utm_content=gwr-shift-24218612ec6f&q=LMG+Staffing+Solutions&intent=general"
+        "x": "【GWR SHIFT】A2MAC1：GWR確認求人 1→2（+1）。採用成否の予測ではなく、検証済み公開求人のスナップショット変化です。 https://global-work-radar.pages.dev/?japan=1&utm_source=social&utm_medium=organic&utm_campaign=gwr_signal_growth&utm_content=gwr-shift-9e17662e6b15&q=A2MAC1&intent=general",
+        "bluesky": "GWR SHIFT｜A2MAC1：GWR確認求人 1→2（+1）。検証済み公開求人のスナップショット変化として継続追跡。 https://global-work-radar.pages.dev/?japan=1&utm_source=social&utm_medium=organic&utm_campaign=gwr_signal_growth&utm_content=gwr-shift-9e17662e6b15&q=A2MAC1&intent=general",
+        "linkedin": "GWR Market Shift A2MAC1：GWR確認求人 1→2（+1）。企業の採用意欲や採用成否を断定せず、VERIFIED ACTIVE求人の差分として追跡します。 https://global-work-radar.pages.dev/?japan=1&utm_source=social&utm_medium=organic&utm_campaign=gwr_signal_growth&utm_content=gwr-shift-9e17662e6b15&q=A2MAC1&intent=general"
       },
-      "destination_url": "https://global-work-radar.pages.dev/?japan=1&utm_source=social&utm_medium=organic&utm_campaign=gwr_signal_growth&utm_content=gwr-shift-24218612ec6f&q=LMG+Staffing+Solutions&intent=general",
+      "destination_url": "https://global-work-radar.pages.dev/?japan=1&utm_source=social&utm_medium=organic&utm_campaign=gwr_signal_growth&utm_content=gwr-shift-9e17662e6b15&q=A2MAC1&intent=general",
       "evidence": [
         {
-          "job_id": "workable-35ebac8977",
-          "employer": "LMG Staffing Solutions",
-          "title": "Local Digital Marketer - Japan",
+          "job_id": "workable-6c2ca259d3",
+          "employer": "A2MAC1",
+          "title": "Key Account Manager",
           "source": "Workable",
-          "official_url": "https://apply.workable.com/j/35EBAC8977",
-          "last_verified_at": "2026-09-21T20:26:44.138Z",
+          "official_url": "https://apply.workable.com/j/6C2CA259D3",
+          "last_verified_at": "2026-09-22T04:56:16.359Z",
+          "freshness_bucket": "LONG_RUNNING",
+          "hiring_momentum": "HIRING_UP",
+          "hiring_delta": 1
+        },
+        {
+          "job_id": "workable-a060975f4c",
+          "employer": "A2MAC1",
+          "title": "Customer Success Manager",
+          "source": "Workable",
+          "official_url": "https://apply.workable.com/j/A060975F4C",
+          "last_verified_at": "2026-09-22T04:56:16.359Z",
           "freshness_bucket": "NEW_24H",
-          "hiring_momentum": "NEW_EMPLOYER_SIGNAL",
+          "hiring_momentum": "HIRING_UP",
           "hiring_delta": 1
         }
       ],
