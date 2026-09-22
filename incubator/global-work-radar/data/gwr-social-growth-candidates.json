@@ -1,6 +1,6 @@
 {
-  "generated_at": "2026-09-22T19:46:55.289Z",
-  "source_generated_at": "2026-09-22T19:45:48.683Z",
+  "generated_at": "2026-09-22T22:58:21.558Z",
+  "source_generated_at": "2026-09-22T22:57:46.182Z",
   "brand": "Global Work Radar",
   "purpose": "Turn verified market changes into GWR-owned traffic, explicit buyer-reaction evidence, and revenue opportunities without fabricating publication state.",
   "channel_policy": "GWR_CHANNEL_ONLY",
@@ -35,18 +35,18 @@
   "candidate_count": 10,
   "candidates": [
     {
-      "candidate_id": "gwr-alert-d6462b21012b",
+      "candidate_id": "gwr-alert-01e41b9ef3db",
       "signal_type": "GWR_ALERT",
       "objective": "qualified_revenue_growth",
       "score": 98,
-      "source_generated_at": "2026-09-22T19:45:48.683Z",
+      "source_generated_at": "2026-09-22T22:57:46.182Z",
       "claim_scope": "snapshot_change_only_no_hiring_outcome_inference",
       "text": {
-        "x": "【GWR ALERT】Mindrift｜Freelance Web Designer｜新着Signal。日本対象可否・公式求人・鮮度を確認して追跡しています。次の変化もGWRで更新。 https://global-work-radar.pages.dev/?japan=1&utm_source=social&utm_medium=organic&utm_campaign=gwr_signal_growth&utm_content=gwr-alert-d6462b21012b&q=Mindrift&intent=general",
-        "bluesky": "GWR ALERT｜Mindrift｜Freelance Web Designer｜新着Signal。日本対象可否・公式求人・鮮度を確認して継続追跡。 https://global-work-radar.pages.dev/?japan=1&utm_source=social&utm_medium=organic&utm_campaign=gwr_signal_growth&utm_content=gwr-alert-d6462b21012b&q=Mindrift&intent=general",
-        "linkedin": "GWR Market Alert Mindrift｜Freelance Web Designer｜新着Signal。採用結果の予測ではなく、GWRの検証済み求人スナップショットで確認できた変化です。 https://global-work-radar.pages.dev/?japan=1&utm_source=social&utm_medium=organic&utm_campaign=gwr_signal_growth&utm_content=gwr-alert-d6462b21012b&q=Mindrift&intent=general"
+        "x": "【GWR ALERT】Mindrift｜Freelance Web Designer｜新着Signal。日本対象可否・公式求人・鮮度を確認して追跡しています。次の変化もGWRで更新。 https://global-work-radar.pages.dev/?japan=1&utm_source=social&utm_medium=organic&utm_campaign=gwr_signal_growth&utm_content=gwr-alert-01e41b9ef3db&q=Mindrift&intent=general",
+        "bluesky": "GWR ALERT｜Mindrift｜Freelance Web Designer｜新着Signal。日本対象可否・公式求人・鮮度を確認して継続追跡。 https://global-work-radar.pages.dev/?japan=1&utm_source=social&utm_medium=organic&utm_campaign=gwr_signal_growth&utm_content=gwr-alert-01e41b9ef3db&q=Mindrift&intent=general",
+        "linkedin": "GWR Market Alert Mindrift｜Freelance Web Designer｜新着Signal。採用結果の予測ではなく、GWRの検証済み求人スナップショットで確認できた変化です。 https://global-work-radar.pages.dev/?japan=1&utm_source=social&utm_medium=organic&utm_campaign=gwr_signal_growth&utm_content=gwr-alert-01e41b9ef3db&q=Mindrift&intent=general"
       },
-      "destination_url": "https://global-work-radar.pages.dev/?japan=1&utm_source=social&utm_medium=organic&utm_campaign=gwr_signal_growth&utm_content=gwr-alert-d6462b21012b&q=Mindrift&intent=general",
+      "destination_url": "https://global-work-radar.pages.dev/?japan=1&utm_source=social&utm_medium=organic&utm_campaign=gwr_signal_growth&utm_content=gwr-alert-01e41b9ef3db&q=Mindrift&intent=general",
       "evidence": [
         {
           "job_id": "workable-1a8f41deea",
@@ -54,7 +54,7 @@
           "title": "Freelance Web Designer",
           "source": "Workable",
           "official_url": "https://apply.workable.com/j/1A8F41DEEA",
-          "last_verified_at": "2026-09-22T19:45:26.616Z",
+          "last_verified_at": "2026-09-22T22:57:23.548Z",
           "freshness_bucket": "NEW_24H",
           "hiring_momentum": "STEADY",
           "hiring_delta": 0
@@ -73,18 +73,18 @@
       "rank": 1
     },
     {
-      "candidate_id": "gwr-alert-b414f03434c7",
+      "candidate_id": "gwr-alert-0c2ace7c8788",
       "signal_type": "GWR_ALERT",
       "objective": "qualified_revenue_growth",
       "score": 93,
-      "source_generated_at": "2026-09-22T19:45:48.683Z",
+      "source_generated_at": "2026-09-22T22:57:46.182Z",
       "claim_scope": "snapshot_change_only_no_hiring_outcome_inference",
       "text": {
-        "x": "【GWR ALERT】Avomind｜Business Development Manager｜新着Signal。日本対象可否・公式求人・鮮度を確認して追跡しています。次の変化もGWRで更新。 https://global-work-radar.pages.dev/?japan=1&utm_source=social&utm_medium=organic&utm_campaign=gwr_signal_growth&utm_content=gwr-alert-b414f03434c7&q=Avomind&intent=general",
-        "bluesky": "GWR ALERT｜Avomind｜Business Development Manager｜新着Signal。日本対象可否・公式求人・鮮度を確認して継続追跡。 https://global-work-radar.pages.dev/?japan=1&utm_source=social&utm_medium=organic&utm_campaign=gwr_signal_growth&utm_content=gwr-alert-b414f03434c7&q=Avomind&intent=general",
-        "linkedin": "GWR Market Alert Avomind｜Business Development Manager｜新着Signal。採用結果の予測ではなく、GWRの検証済み求人スナップショットで確認できた変化です。 https://global-work-radar.pages.dev/?japan=1&utm_source=social&utm_medium=organic&utm_campaign=gwr_signal_growth&utm_content=gwr-alert-b414f03434c7&q=Avomind&intent=general"
+        "x": "【GWR ALERT】Avomind｜Business Development Manager｜新着Signal。日本対象可否・公式求人・鮮度を確認して追跡しています。次の変化もGWRで更新。 https://global-work-radar.pages.dev/?japan=1&utm_source=social&utm_medium=organic&utm_campaign=gwr_signal_growth&utm_content=gwr-alert-0c2ace7c8788&q=Avomind&intent=general",
+        "bluesky": "GWR ALERT｜Avomind｜Business Development Manager｜新着Signal。日本対象可否・公式求人・鮮度を確認して継続追跡。 https://global-work-radar.pages.dev/?japan=1&utm_source=social&utm_medium=organic&utm_campaign=gwr_signal_growth&utm_content=gwr-alert-0c2ace7c8788&q=Avomind&intent=general",
+        "linkedin": "GWR Market Alert Avomind｜Business Development Manager｜新着Signal。採用結果の予測ではなく、GWRの検証済み求人スナップショットで確認できた変化です。 https://global-work-radar.pages.dev/?japan=1&utm_source=social&utm_medium=organic&utm_campaign=gwr_signal_growth&utm_content=gwr-alert-0c2ace7c8788&q=Avomind&intent=general"
       },
-      "destination_url": "https://global-work-radar.pages.dev/?japan=1&utm_source=social&utm_medium=organic&utm_campaign=gwr_signal_growth&utm_content=gwr-alert-b414f03434c7&q=Avomind&intent=general",
+      "destination_url": "https://global-work-radar.pages.dev/?japan=1&utm_source=social&utm_medium=organic&utm_campaign=gwr_signal_growth&utm_content=gwr-alert-0c2ace7c8788&q=Avomind&intent=general",
       "evidence": [
         {
           "job_id": "workable-8b0296fb68",
@@ -92,7 +92,7 @@
           "title": "Business Development Manager",
           "source": "Workable",
           "official_url": "https://apply.workable.com/j/8B0296FB68",
-          "last_verified_at": "2026-09-22T19:45:26.616Z",
+          "last_verified_at": "2026-09-22T22:57:23.548Z",
           "freshness_bucket": "NEW_3D",
           "hiring_momentum": "STEADY",
           "hiring_delta": 0
@@ -111,18 +111,18 @@
       "rank": 2
     },
     {
-      "candidate_id": "gwr-alert-7161106cf62f",
+      "candidate_id": "gwr-alert-27aa2b88032d",
       "signal_type": "GWR_ALERT",
       "objective": "qualified_revenue_growth",
       "score": 93,
-      "source_generated_at": "2026-09-22T19:45:48.683Z",
+      "source_generated_at": "2026-09-22T22:57:46.182Z",
       "claim_scope": "snapshot_change_only_no_hiring_outcome_inference",
       "text": {
-        "x": "【GWR ALERT】LMG Staffing Solutions｜Local Digital Marketer - Japan｜新着Signal。日本対象可否・公式求人・鮮度を確認して追跡しています。次の変化もGWRで更新。 https://global-work-radar.pages.dev/?japan=1&utm_source=social&utm_medium=organic&utm_campaign=gwr_signal_growth&utm_content=gwr-alert-7161106cf62f&q=LMG+Staffi…",
-        "bluesky": "GWR ALERT｜LMG Staffing Solutions｜Local Digital Marketer - Japan｜新着Signal。日本対象可否・公式求人・鮮度を確認して継続追跡。 https://global-work-radar.pages.dev/?japan=1&utm_source=social&utm_medium=organic&utm_campaign=gwr_signal_growth&utm_content=gwr-alert-7161106cf62f&q=LMG+Staffing+Solutions&intent=general",
-        "linkedin": "GWR Market Alert LMG Staffing Solutions｜Local Digital Marketer - Japan｜新着Signal。採用結果の予測ではなく、GWRの検証済み求人スナップショットで確認できた変化です。 https://global-work-radar.pages.dev/?japan=1&utm_source=social&utm_medium=organic&utm_campaign=gwr_signal_growth&utm_content=gwr-alert-7161106cf62f&q=LMG+Staffing+Solutions&intent=general"
+        "x": "【GWR ALERT】LMG Staffing Solutions｜Local Digital Marketer - Japan｜新着Signal。日本対象可否・公式求人・鮮度を確認して追跡しています。次の変化もGWRで更新。 https://global-work-radar.pages.dev/?japan=1&utm_source=social&utm_medium=organic&utm_campaign=gwr_signal_growth&utm_content=gwr-alert-27aa2b88032d&q=LMG+Staffi…",
+        "bluesky": "GWR ALERT｜LMG Staffing Solutions｜Local Digital Marketer - Japan｜新着Signal。日本対象可否・公式求人・鮮度を確認して継続追跡。 https://global-work-radar.pages.dev/?japan=1&utm_source=social&utm_medium=organic&utm_campaign=gwr_signal_growth&utm_content=gwr-alert-27aa2b88032d&q=LMG+Staffing+Solutions&intent=general",
+        "linkedin": "GWR Market Alert LMG Staffing Solutions｜Local Digital Marketer - Japan｜新着Signal。採用結果の予測ではなく、GWRの検証済み求人スナップショットで確認できた変化です。 https://global-work-radar.pages.dev/?japan=1&utm_source=social&utm_medium=organic&utm_campaign=gwr_signal_growth&utm_content=gwr-alert-27aa2b88032d&q=LMG+Staffing+Solutions&intent=general"
       },
-      "destination_url": "https://global-work-radar.pages.dev/?japan=1&utm_source=social&utm_medium=organic&utm_campaign=gwr_signal_growth&utm_content=gwr-alert-7161106cf62f&q=LMG+Staffing+Solutions&intent=general",
+      "destination_url": "https://global-work-radar.pages.dev/?japan=1&utm_source=social&utm_medium=organic&utm_campaign=gwr_signal_growth&utm_content=gwr-alert-27aa2b88032d&q=LMG+Staffing+Solutions&intent=general",
       "evidence": [
         {
           "job_id": "workable-35ebac8977",
@@ -130,7 +130,7 @@
           "title": "Local Digital Marketer - Japan",
           "source": "Workable",
           "official_url": "https://apply.workable.com/j/35EBAC8977",
-          "last_verified_at": "2026-09-22T19:45:26.616Z",
+          "last_verified_at": "2026-09-22T22:57:23.548Z",
           "freshness_bucket": "NEW_3D",
           "hiring_momentum": "STEADY",
           "hiring_delta": 0
@@ -149,18 +149,18 @@
       "rank": 3
     },
     {
-      "candidate_id": "gwr-alert-1502e73b69c8",
+      "candidate_id": "gwr-alert-ef288209810e",
       "signal_type": "GWR_ALERT",
       "objective": "qualified_revenue_growth",
       "score": 93,
-      "source_generated_at": "2026-09-22T19:45:48.683Z",
+      "source_generated_at": "2026-09-22T22:57:46.182Z",
       "claim_scope": "snapshot_change_only_no_hiring_outcome_inference",
       "text": {
-        "x": "【GWR ALERT】Mindrift｜Freelance Presentation Designer｜新着Signal。日本対象可否・公式求人・鮮度を確認して追跡しています。次の変化もGWRで更新。 https://global-work-radar.pages.dev/?japan=1&utm_source=social&utm_medium=organic&utm_campaign=gwr_signal_growth&utm_content=gwr-alert-1502e73b69c8&q=Mindrift&intent=general",
-        "bluesky": "GWR ALERT｜Mindrift｜Freelance Presentation Designer｜新着Signal。日本対象可否・公式求人・鮮度を確認して継続追跡。 https://global-work-radar.pages.dev/?japan=1&utm_source=social&utm_medium=organic&utm_campaign=gwr_signal_growth&utm_content=gwr-alert-1502e73b69c8&q=Mindrift&intent=general",
-        "linkedin": "GWR Market Alert Mindrift｜Freelance Presentation Designer｜新着Signal。採用結果の予測ではなく、GWRの検証済み求人スナップショットで確認できた変化です。 https://global-work-radar.pages.dev/?japan=1&utm_source=social&utm_medium=organic&utm_campaign=gwr_signal_growth&utm_content=gwr-alert-1502e73b69c8&q=Mindrift&intent=general"
+        "x": "【GWR ALERT】Mindrift｜Freelance Presentation Designer｜新着Signal。日本対象可否・公式求人・鮮度を確認して追跡しています。次の変化もGWRで更新。 https://global-work-radar.pages.dev/?japan=1&utm_source=social&utm_medium=organic&utm_campaign=gwr_signal_growth&utm_content=gwr-alert-ef288209810e&q=Mindrift&intent=general",
+        "bluesky": "GWR ALERT｜Mindrift｜Freelance Presentation Designer｜新着Signal。日本対象可否・公式求人・鮮度を確認して継続追跡。 https://global-work-radar.pages.dev/?japan=1&utm_source=social&utm_medium=organic&utm_campaign=gwr_signal_growth&utm_content=gwr-alert-ef288209810e&q=Mindrift&intent=general",
+        "linkedin": "GWR Market Alert Mindrift｜Freelance Presentation Designer｜新着Signal。採用結果の予測ではなく、GWRの検証済み求人スナップショットで確認できた変化です。 https://global-work-radar.pages.dev/?japan=1&utm_source=social&utm_medium=organic&utm_campaign=gwr_signal_growth&utm_content=gwr-alert-ef288209810e&q=Mindrift&intent=general"
       },
-      "destination_url": "https://global-work-radar.pages.dev/?japan=1&utm_source=social&utm_medium=organic&utm_campaign=gwr_signal_growth&utm_content=gwr-alert-1502e73b69c8&q=Mindrift&intent=general",
+      "destination_url": "https://global-work-radar.pages.dev/?japan=1&utm_source=social&utm_medium=organic&utm_campaign=gwr_signal_growth&utm_content=gwr-alert-ef288209810e&q=Mindrift&intent=general",
       "evidence": [
         {
           "job_id": "workable-33dbbfdb26",
@@ -168,7 +168,7 @@
           "title": "Freelance Presentation Designer",
           "source": "Workable",
           "official_url": "https://apply.workable.com/j/33DBBFDB26",
-          "last_verified_at": "2026-09-22T19:45:26.616Z",
+          "last_verified_at": "2026-09-22T22:57:23.548Z",
           "freshness_bucket": "NEW_3D",
           "hiring_momentum": "STEADY",
           "hiring_delta": 0
@@ -187,18 +187,18 @@
       "rank": 4
     },
     {
-      "candidate_id": "gwr-open-41670ad92edf",
+      "candidate_id": "gwr-open-67291e91c1a6",
       "signal_type": "GWR_OPEN",
       "objective": "qualified_revenue_growth",
       "score": 91,
-      "source_generated_at": "2026-09-22T19:45:48.683Z",
+      "source_generated_at": "2026-09-22T22:57:46.182Z",
       "claim_scope": "verified_active_structured_facts_only",
       "text": {
-        "x": "【GWR OPEN】Freelance Web Designer｜Mindrift｜JP。公式求人の確認先まで検証済み。GWRは日本から確認できる海外求人の変化を継続観測中。 https://global-work-radar.pages.dev/?japan=1&utm_source=social&utm_medium=organic&utm_campaign=gwr_signal_growth&utm_content=gwr-open-41670ad92edf&q=Mindrift&intent=remote",
-        "bluesky": "GWR OPEN｜Freelance Web Designer｜Mindrift｜JP。公式求人まで確認済み。GWRは日本から確認できる海外求人の変化を継続観測中。 https://global-work-radar.pages.dev/?japan=1&utm_source=social&utm_medium=organic&utm_campaign=gwr_signal_growth&utm_content=gwr-open-41670ad92edf&q=Mindrift&intent=remote",
-        "linkedin": "Global Work Radarで新しい求人Signalを確認。 Freelance Web Designer｜Mindrift｜JP 公開対象はVERIFIED ACTIVEかつ公式応募先を確認できたものに限定しています。 https://global-work-radar.pages.dev/?japan=1&utm_source=social&utm_medium=organic&utm_campaign=gwr_signal_growth&utm_content=gwr-open-41670ad92edf&q=Mindrift&intent=remote"
+        "x": "【GWR OPEN】Freelance Web Designer｜Mindrift｜JP。公式求人の確認先まで検証済み。GWRは日本から確認できる海外求人の変化を継続観測中。 https://global-work-radar.pages.dev/?japan=1&utm_source=social&utm_medium=organic&utm_campaign=gwr_signal_growth&utm_content=gwr-open-67291e91c1a6&q=Mindrift&intent=remote",
+        "bluesky": "GWR OPEN｜Freelance Web Designer｜Mindrift｜JP。公式求人まで確認済み。GWRは日本から確認できる海外求人の変化を継続観測中。 https://global-work-radar.pages.dev/?japan=1&utm_source=social&utm_medium=organic&utm_campaign=gwr_signal_growth&utm_content=gwr-open-67291e91c1a6&q=Mindrift&intent=remote",
+        "linkedin": "Global Work Radarで新しい求人Signalを確認。 Freelance Web Designer｜Mindrift｜JP 公開対象はVERIFIED ACTIVEかつ公式応募先を確認できたものに限定しています。 https://global-work-radar.pages.dev/?japan=1&utm_source=social&utm_medium=organic&utm_campaign=gwr_signal_growth&utm_content=gwr-open-67291e91c1a6&q=Mindrift&intent=remote"
       },
-      "destination_url": "https://global-work-radar.pages.dev/?japan=1&utm_source=social&utm_medium=organic&utm_campaign=gwr_signal_growth&utm_content=gwr-open-41670ad92edf&q=Mindrift&intent=remote",
+      "destination_url": "https://global-work-radar.pages.dev/?japan=1&utm_source=social&utm_medium=organic&utm_campaign=gwr_signal_growth&utm_content=gwr-open-67291e91c1a6&q=Mindrift&intent=remote",
       "evidence": [
         {
           "job_id": "workable-1a8f41deea",
@@ -206,7 +206,7 @@
           "title": "Freelance Web Designer",
           "source": "Workable",
           "official_url": "https://apply.workable.com/j/1A8F41DEEA",
-          "last_verified_at": "2026-09-22T19:45:26.616Z",
+          "last_verified_at": "2026-09-22T22:57:23.548Z",
           "freshness_bucket": "NEW_24H",
           "hiring_momentum": "STEADY",
           "hiring_delta": 0
@@ -225,18 +225,18 @@
       "rank": 5
     },
     {
-      "candidate_id": "gwr-open-2dc2e003e6e2",
+      "candidate_id": "gwr-open-c5d7876cd3cd",
       "signal_type": "GWR_OPEN",
       "objective": "qualified_revenue_growth",
       "score": 86,
-      "source_generated_at": "2026-09-22T19:45:48.683Z",
+      "source_generated_at": "2026-09-22T22:57:46.182Z",
       "claim_scope": "verified_active_structured_facts_only",
       "text": {
-        "x": "【GWR OPEN】Business Development Manager｜Avomind｜JP。公式求人の確認先まで検証済み。GWRは日本から確認できる海外求人の変化を継続観測中。 https://global-work-radar.pages.dev/?japan=1&utm_source=social&utm_medium=organic&utm_campaign=gwr_signal_growth&utm_content=gwr-open-2dc2e003e6e2&q=Avomind&intent=remote",
-        "bluesky": "GWR OPEN｜Business Development Manager｜Avomind｜JP。公式求人まで確認済み。GWRは日本から確認できる海外求人の変化を継続観測中。 https://global-work-radar.pages.dev/?japan=1&utm_source=social&utm_medium=organic&utm_campaign=gwr_signal_growth&utm_content=gwr-open-2dc2e003e6e2&q=Avomind&intent=remote",
-        "linkedin": "Global Work Radarで新しい求人Signalを確認。 Business Development Manager｜Avomind｜JP 公開対象はVERIFIED ACTIVEかつ公式応募先を確認できたものに限定しています。 https://global-work-radar.pages.dev/?japan=1&utm_source=social&utm_medium=organic&utm_campaign=gwr_signal_growth&utm_content=gwr-open-2dc2e003e6e2&q=Avomind&intent=remote"
+        "x": "【GWR OPEN】Business Development Manager｜Avomind｜JP。公式求人の確認先まで検証済み。GWRは日本から確認できる海外求人の変化を継続観測中。 https://global-work-radar.pages.dev/?japan=1&utm_source=social&utm_medium=organic&utm_campaign=gwr_signal_growth&utm_content=gwr-open-c5d7876cd3cd&q=Avomind&intent=remote",
+        "bluesky": "GWR OPEN｜Business Development Manager｜Avomind｜JP。公式求人まで確認済み。GWRは日本から確認できる海外求人の変化を継続観測中。 https://global-work-radar.pages.dev/?japan=1&utm_source=social&utm_medium=organic&utm_campaign=gwr_signal_growth&utm_content=gwr-open-c5d7876cd3cd&q=Avomind&intent=remote",
+        "linkedin": "Global Work Radarで新しい求人Signalを確認。 Business Development Manager｜Avomind｜JP 公開対象はVERIFIED ACTIVEかつ公式応募先を確認できたものに限定しています。 https://global-work-radar.pages.dev/?japan=1&utm_source=social&utm_medium=organic&utm_campaign=gwr_signal_growth&utm_content=gwr-open-c5d7876cd3cd&q=Avomind&intent=remote"
       },
-      "destination_url": "https://global-work-radar.pages.dev/?japan=1&utm_source=social&utm_medium=organic&utm_campaign=gwr_signal_growth&utm_content=gwr-open-2dc2e003e6e2&q=Avomind&intent=remote",
+      "destination_url": "https://global-work-radar.pages.dev/?japan=1&utm_source=social&utm_medium=organic&utm_campaign=gwr_signal_growth&utm_content=gwr-open-c5d7876cd3cd&q=Avomind&intent=remote",
       "evidence": [
         {
           "job_id": "workable-8b0296fb68",
@@ -244,7 +244,7 @@
           "title": "Business Development Manager",
           "source": "Workable",
           "official_url": "https://apply.workable.com/j/8B0296FB68",
-          "last_verified_at": "2026-09-22T19:45:26.616Z",
+          "last_verified_at": "2026-09-22T22:57:23.548Z",
           "freshness_bucket": "NEW_3D",
           "hiring_momentum": "STEADY",
           "hiring_delta": 0
@@ -263,18 +263,18 @@
       "rank": 6
     },
     {
-      "candidate_id": "gwr-open-50c65dff168a",
+      "candidate_id": "gwr-open-be16750ccbd0",
       "signal_type": "GWR_OPEN",
       "objective": "qualified_revenue_growth",
       "score": 86,
-      "source_generated_at": "2026-09-22T19:45:48.683Z",
+      "source_generated_at": "2026-09-22T22:57:46.182Z",
       "claim_scope": "verified_active_structured_facts_only",
       "text": {
-        "x": "【GWR OPEN】Local Digital Marketer - Japan｜LMG Staffing Solutions｜Tokyo, JP。公式求人の確認先まで検証済み。GWRは日本から確認できる海外求人の変化を継続観測中。 https://global-work-radar.pages.dev/?japan=1&utm_source=social&utm_medium=organic&utm_campaign=gwr_signal_growth&utm_content=gwr-open-50c65dff168a&q=LMG+Staf…",
-        "bluesky": "GWR OPEN｜Local Digital Marketer - Japan｜LMG Staffing Solutions｜Tokyo, JP。公式求人まで確認済み。GWRは日本から確認できる海外求人の変化を継続観測中。 https://global-work-radar.pages.dev/?japan=1&utm_source=social&utm_medium=organic&utm_campaign=gwr_signal_growth&utm_content=gwr-open-50c65dff168a&q=LMG+Staffing+Solutions&intent=rem…",
-        "linkedin": "Global Work Radarで新しい求人Signalを確認。 Local Digital Marketer - Japan｜LMG Staffing Solutions｜Tokyo, JP 公開対象はVERIFIED ACTIVEかつ公式応募先を確認できたものに限定しています。 https://global-work-radar.pages.dev/?japan=1&utm_source=social&utm_medium=organic&utm_campaign=gwr_signal_growth&utm_content=gwr-open-50c65dff168a&q=LMG+Staffing+Solutions&intent=remote"
+        "x": "【GWR OPEN】Local Digital Marketer - Japan｜LMG Staffing Solutions｜Tokyo, JP。公式求人の確認先まで検証済み。GWRは日本から確認できる海外求人の変化を継続観測中。 https://global-work-radar.pages.dev/?japan=1&utm_source=social&utm_medium=organic&utm_campaign=gwr_signal_growth&utm_content=gwr-open-be16750ccbd0&q=LMG+Staf…",
+        "bluesky": "GWR OPEN｜Local Digital Marketer - Japan｜LMG Staffing Solutions｜Tokyo, JP。公式求人まで確認済み。GWRは日本から確認できる海外求人の変化を継続観測中。 https://global-work-radar.pages.dev/?japan=1&utm_source=social&utm_medium=organic&utm_campaign=gwr_signal_growth&utm_content=gwr-open-be16750ccbd0&q=LMG+Staffing+Solutions&intent=rem…",
+        "linkedin": "Global Work Radarで新しい求人Signalを確認。 Local Digital Marketer - Japan｜LMG Staffing Solutions｜Tokyo, JP 公開対象はVERIFIED ACTIVEかつ公式応募先を確認できたものに限定しています。 https://global-work-radar.pages.dev/?japan=1&utm_source=social&utm_medium=organic&utm_campaign=gwr_signal_growth&utm_content=gwr-open-be16750ccbd0&q=LMG+Staffing+Solutions&intent=remote"
       },
-      "destination_url": "https://global-work-radar.pages.dev/?japan=1&utm_source=social&utm_medium=organic&utm_campaign=gwr_signal_growth&utm_content=gwr-open-50c65dff168a&q=LMG+Staffing+Solutions&intent=remote",
+      "destination_url": "https://global-work-radar.pages.dev/?japan=1&utm_source=social&utm_medium=organic&utm_campaign=gwr_signal_growth&utm_content=gwr-open-be16750ccbd0&q=LMG+Staffing+Solutions&intent=remote",
       "evidence": [
         {
           "job_id": "workable-35ebac8977",
@@ -282,7 +282,7 @@
           "title": "Local Digital Marketer - Japan",
           "source": "Workable",
           "official_url": "https://apply.workable.com/j/35EBAC8977",
-          "last_verified_at": "2026-09-22T19:45:26.616Z",
+          "last_verified_at": "2026-09-22T22:57:23.548Z",
           "freshness_bucket": "NEW_3D",
           "hiring_momentum": "STEADY",
           "hiring_delta": 0
@@ -301,18 +301,18 @@
       "rank": 7
     },
     {
-      "candidate_id": "gwr-open-309e9966ccef",
+      "candidate_id": "gwr-open-47f9664060b9",
       "signal_type": "GWR_OPEN",
       "objective": "qualified_revenue_growth",
       "score": 86,
-      "source_generated_at": "2026-09-22T19:45:48.683Z",
+      "source_generated_at": "2026-09-22T22:57:46.182Z",
       "claim_scope": "verified_active_structured_facts_only",
       "text": {
-        "x": "【GWR OPEN】Freelance Presentation Designer｜Mindrift｜JP。公式求人の確認先まで検証済み。GWRは日本から確認できる海外求人の変化を継続観測中。 https://global-work-radar.pages.dev/?japan=1&utm_source=social&utm_medium=organic&utm_campaign=gwr_signal_growth&utm_content=gwr-open-309e9966ccef&q=Mindrift&intent=remote",
-        "bluesky": "GWR OPEN｜Freelance Presentation Designer｜Mindrift｜JP。公式求人まで確認済み。GWRは日本から確認できる海外求人の変化を継続観測中。 https://global-work-radar.pages.dev/?japan=1&utm_source=social&utm_medium=organic&utm_campaign=gwr_signal_growth&utm_content=gwr-open-309e9966ccef&q=Mindrift&intent=remote",
-        "linkedin": "Global Work Radarで新しい求人Signalを確認。 Freelance Presentation Designer｜Mindrift｜JP 公開対象はVERIFIED ACTIVEかつ公式応募先を確認できたものに限定しています。 https://global-work-radar.pages.dev/?japan=1&utm_source=social&utm_medium=organic&utm_campaign=gwr_signal_growth&utm_content=gwr-open-309e9966ccef&q=Mindrift&intent=remote"
+        "x": "【GWR OPEN】Freelance Presentation Designer｜Mindrift｜JP。公式求人の確認先まで検証済み。GWRは日本から確認できる海外求人の変化を継続観測中。 https://global-work-radar.pages.dev/?japan=1&utm_source=social&utm_medium=organic&utm_campaign=gwr_signal_growth&utm_content=gwr-open-47f9664060b9&q=Mindrift&intent=remote",
+        "bluesky": "GWR OPEN｜Freelance Presentation Designer｜Mindrift｜JP。公式求人まで確認済み。GWRは日本から確認できる海外求人の変化を継続観測中。 https://global-work-radar.pages.dev/?japan=1&utm_source=social&utm_medium=organic&utm_campaign=gwr_signal_growth&utm_content=gwr-open-47f9664060b9&q=Mindrift&intent=remote",
+        "linkedin": "Global Work Radarで新しい求人Signalを確認。 Freelance Presentation Designer｜Mindrift｜JP 公開対象はVERIFIED ACTIVEかつ公式応募先を確認できたものに限定しています。 https://global-work-radar.pages.dev/?japan=1&utm_source=social&utm_medium=organic&utm_campaign=gwr_signal_growth&utm_content=gwr-open-47f9664060b9&q=Mindrift&intent=remote"
       },
-      "destination_url": "https://global-work-radar.pages.dev/?japan=1&utm_source=social&utm_medium=organic&utm_campaign=gwr_signal_growth&utm_content=gwr-open-309e9966ccef&q=Mindrift&intent=remote",
+      "destination_url": "https://global-work-radar.pages.dev/?japan=1&utm_source=social&utm_medium=organic&utm_campaign=gwr_signal_growth&utm_content=gwr-open-47f9664060b9&q=Mindrift&intent=remote",
       "evidence": [
         {
           "job_id": "workable-33dbbfdb26",
@@ -320,7 +320,7 @@
           "title": "Freelance Presentation Designer",
           "source": "Workable",
           "official_url": "https://apply.workable.com/j/33DBBFDB26",
-          "last_verified_at": "2026-09-22T19:45:26.616Z",
+          "last_verified_at": "2026-09-22T22:57:23.548Z",
           "freshness_bucket": "NEW_3D",
           "hiring_momentum": "STEADY",
           "hiring_delta": 0
@@ -339,18 +339,18 @@
       "rank": 8
     },
     {
-      "candidate_id": "gwr-open-347548040c0d",
+      "candidate_id": "gwr-open-6c12bacb5347",
       "signal_type": "GWR_OPEN",
       "objective": "qualified_revenue_growth",
       "score": 83,
-      "source_generated_at": "2026-09-22T19:45:48.683Z",
+      "source_generated_at": "2026-09-22T22:57:46.182Z",
       "claim_scope": "verified_active_structured_facts_only",
       "text": {
-        "x": "【GWR OPEN】Customer Success Manager｜A2MAC1｜Tokyo, Tokyo, JP。公式求人の確認先まで検証済み。GWRは日本から確認できる海外求人の変化を継続観測中。 https://global-work-radar.pages.dev/?japan=1&utm_source=social&utm_medium=organic&utm_campaign=gwr_signal_growth&utm_content=gwr-open-347548040c0d&q=A2MAC1&intent=general",
-        "bluesky": "GWR OPEN｜Customer Success Manager｜A2MAC1｜Tokyo, Tokyo, JP。公式求人まで確認済み。GWRは日本から確認できる海外求人の変化を継続観測中。 https://global-work-radar.pages.dev/?japan=1&utm_source=social&utm_medium=organic&utm_campaign=gwr_signal_growth&utm_content=gwr-open-347548040c0d&q=A2MAC1&intent=general",
-        "linkedin": "Global Work Radarで新しい求人Signalを確認。 Customer Success Manager｜A2MAC1｜Tokyo, Tokyo, JP 公開対象はVERIFIED ACTIVEかつ公式応募先を確認できたものに限定しています。 https://global-work-radar.pages.dev/?japan=1&utm_source=social&utm_medium=organic&utm_campaign=gwr_signal_growth&utm_content=gwr-open-347548040c0d&q=A2MAC1&intent=general"
+        "x": "【GWR OPEN】Customer Success Manager｜A2MAC1｜Tokyo, Tokyo, JP。公式求人の確認先まで検証済み。GWRは日本から確認できる海外求人の変化を継続観測中。 https://global-work-radar.pages.dev/?japan=1&utm_source=social&utm_medium=organic&utm_campaign=gwr_signal_growth&utm_content=gwr-open-6c12bacb5347&q=A2MAC1&intent=general",
+        "bluesky": "GWR OPEN｜Customer Success Manager｜A2MAC1｜Tokyo, Tokyo, JP。公式求人まで確認済み。GWRは日本から確認できる海外求人の変化を継続観測中。 https://global-work-radar.pages.dev/?japan=1&utm_source=social&utm_medium=organic&utm_campaign=gwr_signal_growth&utm_content=gwr-open-6c12bacb5347&q=A2MAC1&intent=general",
+        "linkedin": "Global Work Radarで新しい求人Signalを確認。 Customer Success Manager｜A2MAC1｜Tokyo, Tokyo, JP 公開対象はVERIFIED ACTIVEかつ公式応募先を確認できたものに限定しています。 https://global-work-radar.pages.dev/?japan=1&utm_source=social&utm_medium=organic&utm_campaign=gwr_signal_growth&utm_content=gwr-open-6c12bacb5347&q=A2MAC1&intent=general"
       },
-      "destination_url": "https://global-work-radar.pages.dev/?japan=1&utm_source=social&utm_medium=organic&utm_campaign=gwr_signal_growth&utm_content=gwr-open-347548040c0d&q=A2MAC1&intent=general",
+      "destination_url": "https://global-work-radar.pages.dev/?japan=1&utm_source=social&utm_medium=organic&utm_campaign=gwr_signal_growth&utm_content=gwr-open-6c12bacb5347&q=A2MAC1&intent=general",
       "evidence": [
         {
           "job_id": "workable-a060975f4c",
@@ -358,7 +358,7 @@
           "title": "Customer Success Manager",
           "source": "Workable",
           "official_url": "https://apply.workable.com/j/A060975F4C",
-          "last_verified_at": "2026-09-22T19:45:26.616Z",
+          "last_verified_at": "2026-09-22T22:57:23.548Z",
           "freshness_bucket": "NEW_24H",
           "hiring_momentum": "STEADY",
           "hiring_delta": 0
@@ -377,18 +377,18 @@
       "rank": 9
     },
     {
-      "candidate_id": "gwr-open-52453314f2ce",
+      "candidate_id": "gwr-open-73246a5d3169",
       "signal_type": "GWR_OPEN",
       "objective": "qualified_revenue_growth",
       "score": 83,
-      "source_generated_at": "2026-09-22T19:45:48.683Z",
+      "source_generated_at": "2026-09-22T22:57:46.182Z",
       "claim_scope": "verified_active_structured_facts_only",
       "text": {
-        "x": "【GWR OPEN】Technical Recruiter｜Unison Group｜Sapporo, Hokkaido, JP。公式求人の確認先まで検証済み。GWRは日本から確認できる海外求人の変化を継続観測中。 https://global-work-radar.pages.dev/?japan=1&utm_source=social&utm_medium=organic&utm_campaign=gwr_signal_growth&utm_content=gwr-open-52453314f2ce&q=Unison+Group&inte…",
-        "bluesky": "GWR OPEN｜Technical Recruiter｜Unison Group｜Sapporo, Hokkaido, JP。公式求人まで確認済み。GWRは日本から確認できる海外求人の変化を継続観測中。 https://global-work-radar.pages.dev/?japan=1&utm_source=social&utm_medium=organic&utm_campaign=gwr_signal_growth&utm_content=gwr-open-52453314f2ce&q=Unison+Group&intent=general",
-        "linkedin": "Global Work Radarで新しい求人Signalを確認。 Technical Recruiter｜Unison Group｜Sapporo, Hokkaido, JP 公開対象はVERIFIED ACTIVEかつ公式応募先を確認できたものに限定しています。 https://global-work-radar.pages.dev/?japan=1&utm_source=social&utm_medium=organic&utm_campaign=gwr_signal_growth&utm_content=gwr-open-52453314f2ce&q=Unison+Group&intent=general"
+        "x": "【GWR OPEN】Technical Recruiter｜Unison Group｜Sapporo, Hokkaido, JP。公式求人の確認先まで検証済み。GWRは日本から確認できる海外求人の変化を継続観測中。 https://global-work-radar.pages.dev/?japan=1&utm_source=social&utm_medium=organic&utm_campaign=gwr_signal_growth&utm_content=gwr-open-73246a5d3169&q=Unison+Group&inte…",
+        "bluesky": "GWR OPEN｜Technical Recruiter｜Unison Group｜Sapporo, Hokkaido, JP。公式求人まで確認済み。GWRは日本から確認できる海外求人の変化を継続観測中。 https://global-work-radar.pages.dev/?japan=1&utm_source=social&utm_medium=organic&utm_campaign=gwr_signal_growth&utm_content=gwr-open-73246a5d3169&q=Unison+Group&intent=general",
+        "linkedin": "Global Work Radarで新しい求人Signalを確認。 Technical Recruiter｜Unison Group｜Sapporo, Hokkaido, JP 公開対象はVERIFIED ACTIVEかつ公式応募先を確認できたものに限定しています。 https://global-work-radar.pages.dev/?japan=1&utm_source=social&utm_medium=organic&utm_campaign=gwr_signal_growth&utm_content=gwr-open-73246a5d3169&q=Unison+Group&intent=general"
       },
-      "destination_url": "https://global-work-radar.pages.dev/?japan=1&utm_source=social&utm_medium=organic&utm_campaign=gwr_signal_growth&utm_content=gwr-open-52453314f2ce&q=Unison+Group&intent=general",
+      "destination_url": "https://global-work-radar.pages.dev/?japan=1&utm_source=social&utm_medium=organic&utm_campaign=gwr_signal_growth&utm_content=gwr-open-73246a5d3169&q=Unison+Group&intent=general",
       "evidence": [
         {
           "job_id": "workable-79ae056392",
@@ -396,7 +396,7 @@
           "title": "Technical Recruiter",
           "source": "Workable",
           "official_url": "https://apply.workable.com/j/79AE056392",
-          "last_verified_at": "2026-09-22T19:45:26.616Z",
+          "last_verified_at": "2026-09-22T22:57:23.548Z",
           "freshness_bucket": "NEW_24H",
           "hiring_momentum": "STEADY",
           "hiring_delta": 0
