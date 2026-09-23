@@ -27,21 +27,17 @@ jobs:
           fi
           echo "WORKING_SECRET_PRESENT=YES"
 
-          curl --fail --silent --show-error             --header "Authorization: Bearer ${CLOUDFLARE_API_TOKEN}"             "https://api.cloudflare.com/client/v4/accounts/${CLOUDFLARE_ACCOUNT_ID}"             --output /tmp/account.json
+          echo "=== WRANGLER IDENTITY (sanitized) ==="
+          npx --yes wrangler@4 whoami 2>&1             | sed -E 's/[0-9a-fA-F]{32}/[ID_REDACTED]/g; s/[[:alnum:]._%+-]+@[[:alnum:].-]+\.[[:alpha:]]{2,}/[EMAIL_REDACTED]/g'
 
           curl --fail --silent --show-error             --header "Authorization: Bearer ${CLOUDFLARE_API_TOKEN}"             "https://api.cloudflare.com/client/v4/accounts/${CLOUDFLARE_ACCOUNT_ID}/pages/projects/global-work-radar"             --output /tmp/project.json
 
           node - <<'NODE'
           const fs = require('fs');
-          const a = JSON.parse(fs.readFileSync('/tmp/account.json', 'utf8'));
           const p = JSON.parse(fs.readFileSync('/tmp/project.json', 'utf8'));
-          const ar = a && a.result;
           const r = p && p.result;
-          console.log('ACCOUNT_LOOKUP_SUCCESS=' + Boolean(ar));
-          console.log('ACCOUNT_NAME=' + (ar?.name || 'UNKNOWN'));
           console.log('PROJECT_LOOKUP_SUCCESS=' + Boolean(r));
           console.log('PROJECT_NAME=' + (r?.name || 'UNKNOWN'));
           console.log('PROJECT_SUBDOMAIN=' + (r?.subdomain || 'UNKNOWN'));
           console.log('PROJECT_PRODUCTION_BRANCH=' + (r?.production_branch || 'UNKNOWN'));
-          console.log('PROJECT_CREATED_ON=' + (r?.created_on || 'UNKNOWN'));
           NODE
