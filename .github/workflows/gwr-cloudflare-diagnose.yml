@@ -27,8 +27,15 @@ jobs:
           fi
           echo "WORKING_SECRET_PRESENT=YES"
 
-          echo "=== WRANGLER IDENTITY (sanitized) ==="
-          npx --yes wrangler@4 whoami 2>&1             | sed -E 's/[0-9a-fA-F]{32}/[ID_REDACTED]/g; s/[[:alnum:]._%+-]+@[[:alnum:].-]+\.[[:alpha:]]{2,}/[EMAIL_REDACTED]/g'
+          npx --yes wrangler@4 whoami > /tmp/whoami.txt 2>&1
+
+          if grep -qi 'stratumpraxis@gmail.com' /tmp/whoami.txt; then
+            echo "ACCOUNT_MATCH=STRATUMPRAXIS"
+          elif grep -qi 'globalworkradar@gmail.com' /tmp/whoami.txt; then
+            echo "ACCOUNT_MATCH=GLOBALWORKRADAR"
+          else
+            echo "ACCOUNT_MATCH=OTHER"
+          fi
 
           curl --fail --silent --show-error             --header "Authorization: Bearer ${CLOUDFLARE_API_TOKEN}"             "https://api.cloudflare.com/client/v4/accounts/${CLOUDFLARE_ACCOUNT_ID}/pages/projects/global-work-radar"             --output /tmp/project.json
 
