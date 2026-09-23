@@ -70,22 +70,91 @@ jobs:
           cp incubator/global-work-radar/data/workable-market.json /tmp/gwr-public/data/
           printf '%s\n' '/* /index.html 200' > /tmp/gwr-public/_redirects
 
-      - name: Create Cloudflare Pages project if needed
+      - name: Resolve Cloudflare production branch
         env:
           CLOUDFLARE_API_TOKEN: ${{ secrets.CLOUDFLARE_API_TOKEN }}
           CLOUDFLARE_ACCOUNT_ID: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
         run: |
+          set -euo pipefail
           npx --yes wrangler@4 pages project create global-work-radar --production-branch=incubator/global-work-radar || true
+          curl --fail --silent --show-error \
+            --header "Authorization: Bearer ${CLOUDFLARE_API_TOKEN}" \
+            "https://api.cloudflare.com/client/v4/accounts/${CLOUDFLARE_ACCOUNT_ID}/pages/projects/global-work-radar" \
+            -o /tmp/gwr-pages-project.json
+          node - <<'NODE'
+          const fs=require('fs');
+          const p=JSON.parse(fs.readFileSync('/tmp/gwr-pages-project.json','utf8'));
+          const branch=p?.result?.production_branch;
+          if(!p?.success || !branch) throw new Error('Cloudflare production_branch unavailable');
+          fs.appendFileSync(process.env.GITHUB_ENV, `GWR_CF_PRODUCTION_BRANCH=${branch}\n`);
+          console.log(`GWR_CF_PRODUCTION_BRANCH=${branch}`);
+          NODE
 
-      - name: Deploy to Cloudflare Pages
+      - name: Deploy to Cloudflare Pages production branch
         env:
           CLOUDFLARE_API_TOKEN: ${{ secrets.CLOUDFLARE_API_TOKEN }}
           CLOUDFLARE_ACCOUNT_ID: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
         run: |
+          set -euo pipefail
+          test -n "${GWR_CF_PRODUCTION_BRANCH:-}"
           npx --yes wrangler@4 pages deploy /tmp/gwr-public \
             --project-name=global-work-radar \
-            --branch=incubator/global-work-radar \
+            --branch="${GWR_CF_PRODUCTION_BRANCH}" \
             --commit-dirty=true
+
+      - name: Verify deployed artifact identity
+        env:
+          GWR_URL: https://global-work-radar.pages.dev
+        run: |
+          set -euo pipefail
+          node - <<'NODE'
+          const fs=require('fs');
+          const crypto=require('crypto');
+          const p='/tmp/gwr-public/data/verified-jobs.json';
+          const b=fs.readFileSync(p);
+          const j=JSON.parse(b);
+          if(!j.generated_at || !j.records?.length) throw new Error('Local artifact invalid');
+          fs.writeFileSync('/tmp/gwr-local-meta.json', JSON.stringify({
+            generated_at:j.generated_at,
+            job_count:j.records.length,
+            sha256:crypto.createHash('sha256').update(b).digest('hex')
+          }));
+          console.log(fs.readFileSync('/tmp/gwr-local-meta.json','utf8'));
+          NODE
+          for attempt in 1 2 3 4 5 6 7 8 9 10 11 12; do
+            curl --fail --location --silent --show-error --max-time 30 \
+              --header 'Cache-Control: no-cache' \
+              "${GWR_URL}/data/verified-jobs.json?gwr_verify=${GITHUB_SHA}-${attempt}" \
+              -o /tmp/gwr-live-jobs-identity.json || true
+            if node - <<'NODE'
+          const fs=require('fs');
+          const crypto=require('crypto');
+          const local=JSON.parse(fs.readFileSync('/tmp/gwr-local-meta.json','utf8'));
+          let b;
+          try { b=fs.readFileSync('/tmp/gwr-live-jobs-identity.json'); } catch { process.exit(1); }
+          let live;
+          try { live=JSON.parse(b); } catch { process.exit(1); }
+          const meta={
+            generated_at:live.generated_at,
+            job_count:Array.isArray(live.records)?live.records.length:null,
+            sha256:crypto.createHash('sha256').update(b).digest('hex')
+          };
+          console.log(`GWR_LOCAL_GENERATED_AT=${local.generated_at}`);
+          console.log(`GWR_LIVE_GENERATED_AT=${meta.generated_at}`);
+          console.log(`GWR_LOCAL_JOB_COUNT=${local.job_count}`);
+          console.log(`GWR_LIVE_JOB_COUNT=${meta.job_count}`);
+          console.log(`GWR_LOCAL_SHA256=${local.sha256}`);
+          console.log(`GWR_LIVE_SHA256=${meta.sha256}`);
+          if(meta.generated_at!==local.generated_at || meta.job_count!==local.job_count || meta.sha256!==local.sha256) process.exit(1);
+          NODE
+            then
+              echo "GWR_PRODUCTION_ARTIFACT_IDENTITY=PASS"
+              exit 0
+            fi
+            sleep 5
+          done
+          echo "Production alias did not converge to deployed artifact"
+          exit 1
 
       - name: Live production QA
         env:
