@@ -1,0 +1,41 @@
+name: GWR Cloudflare Ownership Diagnose
+
+on:
+  push:
+    branches:
+      - main
+    paths:
+      - .github/workflows/gwr-cloudflare-diagnose.yml
+
+permissions:
+  contents: read
+
+jobs:
+  diagnose:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - name: Diagnose working Cloudflare project
+        env:
+          CLOUDFLARE_API_TOKEN: ${{ secrets.CLOUDFLARE_API_TOKEN }}
+          CLOUDFLARE_ACCOUNT_ID: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
+        run: |
+          set -euo pipefail
+          if [ -z "$CLOUDFLARE_API_TOKEN" ] || [ -z "$CLOUDFLARE_ACCOUNT_ID" ]; then
+            echo "WORKING_SECRET_PRESENT=NO"
+            exit 1
+          fi
+          echo "WORKING_SECRET_PRESENT=YES"
+
+          curl --fail --silent --show-error             --header "Authorization: Bearer ${CLOUDFLARE_API_TOKEN}"             "https://api.cloudflare.com/client/v4/accounts/${CLOUDFLARE_ACCOUNT_ID}/pages/projects/global-work-radar"             --output /tmp/project.json
+
+          node - <<'NODE'
+          const fs = require('fs');
+          const p = JSON.parse(fs.readFileSync('/tmp/project.json', 'utf8'));
+          const r = p && p.result;
+          console.log('PROJECT_LOOKUP_SUCCESS=' + Boolean(r));
+          console.log('PROJECT_NAME=' + (r?.name || 'UNKNOWN'));
+          console.log('PROJECT_SUBDOMAIN=' + (r?.subdomain || 'UNKNOWN'));
+          console.log('PROJECT_PRODUCTION_BRANCH=' + (r?.production_branch || 'UNKNOWN'));
+          console.log('PROJECT_CREATED_ON=' + (r?.created_on || 'UNKNOWN'));
+          NODE
