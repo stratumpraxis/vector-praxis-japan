@@ -1,0 +1,128 @@
+name: GWR Canonical Production Migration
+
+on:
+  push:
+    branches:
+      - main
+    paths:
+      - .github/workflows/gwr-canonical-production-migrate.yml
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  migrate:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - name: Checkout canonical GWR main
+        uses: actions/checkout@v4
+        with:
+          repository: globalworkradar/global-work-radar
+          ref: main
+          path: canonical
+          fetch-depth: 1
+
+      - name: Validate canonical artifact
+        run: |
+          set -euo pipefail
+          cd canonical
+          node - <<'NODE'
+          const fs=require('fs');
+          const p=JSON.parse(fs.readFileSync('data/verified-jobs.json','utf8'));
+          if(!p.generated_at || !p.records?.length) throw new Error('canonical artifact invalid');
+          console.log('CANONICAL_GENERATED_AT=' + p.generated_at);
+          console.log('CANONICAL_JOB_COUNT=' + p.records.length);
+          NODE
+
+      - name: Require working Cloudflare credentials
+        env:
+          CLOUDFLARE_API_TOKEN: ${{ secrets.CLOUDFLARE_API_TOKEN }}
+          CLOUDFLARE_ACCOUNT_ID: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
+        run: |
+          set -euo pipefail
+          test -n "$CLOUDFLARE_API_TOKEN"
+          test -n "$CLOUDFLARE_ACCOUNT_ID"
+          echo "WORKING_CLOUDFLARE_CREDENTIALS=YES"
+
+      - name: Promote Pages production branch to main
+        env:
+          CLOUDFLARE_API_TOKEN: ${{ secrets.CLOUDFLARE_API_TOKEN }}
+          CLOUDFLARE_ACCOUNT_ID: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
+        run: |
+          set -euo pipefail
+          curl --fail --silent --show-error             --request PATCH             --header "Authorization: Bearer ${CLOUDFLARE_API_TOKEN}"             --header "Content-Type: application/json"             --data '{"production_branch":"main"}'             "https://api.cloudflare.com/client/v4/accounts/${CLOUDFLARE_ACCOUNT_ID}/pages/projects/global-work-radar"             --output /tmp/gwr-project-patch.json
+          node - <<'NODE'
+          const fs=require('fs');
+          const p=JSON.parse(fs.readFileSync('/tmp/gwr-project-patch.json','utf8'));
+          const branch=p?.result?.production_branch;
+          console.log('PROJECT_PRODUCTION_BRANCH=' + (branch || 'UNKNOWN'));
+          if(branch !== 'main') process.exit(1);
+          NODE
+
+      - name: Build canonical public bundle
+        run: |
+          set -euo pipefail
+          rm -rf /tmp/gwr-public
+          mkdir -p /tmp/gwr-public/data
+          cp canonical/index.html /tmp/gwr-public/
+          cp canonical/styles.css /tmp/gwr-public/
+          cp canonical/app.js /tmp/gwr-public/
+          printf '\n' >> /tmp/gwr-public/app.js
+          cat canonical/measurement-contract.js >> /tmp/gwr-public/app.js
+          cp canonical/revenue-config.js /tmp/gwr-public/
+          cp canonical/favicon.svg /tmp/gwr-public/
+          cp canonical/robots.txt /tmp/gwr-public/
+          cp canonical/sitemap.xml /tmp/gwr-public/
+          cp canonical/d3af1ce8e69e0a9f87870bc03e522daf.txt /tmp/gwr-public/
+          cp canonical/data/verified-jobs.json /tmp/gwr-public/data/
+          cp canonical/data/workable-market.json /tmp/gwr-public/data/
+          printf '%s\n' '/* /index.html 200' > /tmp/gwr-public/_redirects
+          node --check /tmp/gwr-public/app.js
+
+      - name: Deploy canonical main to Cloudflare Pages
+        env:
+          CLOUDFLARE_API_TOKEN: ${{ secrets.CLOUDFLARE_API_TOKEN }}
+          CLOUDFLARE_ACCOUNT_ID: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
+        run: |
+          set -euo pipefail
+          npx --yes wrangler@4 pages deploy /tmp/gwr-public             --project-name=global-work-radar             --branch=main             --commit-dirty=true
+
+      - name: Verify exact production artifact
+        env:
+          GWR_URL: https://global-work-radar.pages.dev
+        run: |
+          set -euo pipefail
+          for attempt in $(seq 1 20); do
+            if curl --fail --location --silent --show-error --max-time 30 "$GWR_URL/data/verified-jobs.json" -o /tmp/gwr-live-jobs.json; then
+              if node - <<'NODE'
+          const fs=require('fs');
+          const crypto=require('crypto');
+          const localRaw=fs.readFileSync('canonical/data/verified-jobs.json');
+          const liveRaw=fs.readFileSync('/tmp/gwr-live-jobs.json');
+          const local=JSON.parse(localRaw.toString('utf8'));
+          const live=JSON.parse(liveRaw.toString('utf8'));
+          const sha=b=>crypto.createHash('sha256').update(b).digest('hex');
+          const localSha=sha(localRaw);
+          const liveSha=sha(liveRaw);
+          console.log('EXPECTED_GENERATED_AT=' + local.generated_at);
+          console.log('LIVE_GENERATED_AT=' + live.generated_at);
+          console.log('EXPECTED_JOB_COUNT=' + (local.records?.length ?? 0));
+          console.log('LIVE_JOB_COUNT=' + (live.records?.length ?? 0));
+          console.log('SHA_MATCH=' + (localSha===liveSha));
+          if(local.generated_at!==live.generated_at) process.exit(2);
+          if((local.records?.length ?? 0)!==(live.records?.length ?? 0)) process.exit(3);
+          if(localSha!==liveSha) process.exit(4);
+          NODE
+              then
+                echo "GWR_CANONICAL_PRODUCTION_MATCH=PASS"
+                break
+              fi
+            fi
+            if [ "$attempt" = "20" ]; then
+              echo "GWR_CANONICAL_PRODUCTION_MATCH=FAIL"
+              exit 1
+            fi
+            sleep 15
+          done
