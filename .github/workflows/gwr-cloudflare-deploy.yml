@@ -1,28 +1,6 @@
-name: GWR Cloudflare Deploy
+name: GWR Cloudflare Deploy (Legacy Rollback Only)
 
 on:
-  push:
-    branches:
-      - incubator/global-work-radar
-    paths:
-      - incubator/global-work-radar/index.html
-      - incubator/global-work-radar/styles.css
-      - incubator/global-work-radar/app.js
-      - incubator/global-work-radar/revenue-config.js
-      - incubator/global-work-radar/favicon.svg
-      - incubator/global-work-radar/robots.txt
-      - incubator/global-work-radar/sitemap.xml
-      - incubator/global-work-radar/d3af1ce8e69e0a9f87870bc03e522daf.txt
-      - incubator/global-work-radar/data/verified-jobs.json
-      - incubator/global-work-radar/data/workable-market.json
-      - .github/workflows/gwr-cloudflare-deploy.yml
-  workflow_run:
-    workflows:
-      - GWR Workable Snapshot
-    types:
-      - completed
-    branches:
-      - incubator/global-work-radar
   workflow_dispatch:
 
 permissions:
@@ -34,7 +12,6 @@ concurrency:
 
 jobs:
   deploy:
-    if: github.event_name != 'workflow_run' || github.event.workflow_run.conclusion == 'success'
     runs-on: ubuntu-latest
     timeout-minutes: 15
     steps:
