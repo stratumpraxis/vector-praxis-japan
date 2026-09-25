@@ -188,9 +188,19 @@ jobs:
             if (!mission.trim()) throw new Error(name+': mission progress empty');
 
             const imageState = await page.evaluate(async () => {
-              const urls=[...new Set(
-                (document.documentElement.innerHTML.match(/https:\\/\\/files\\.simplepost\\.social\\/[A-Za-z0-9_./-]+\\.png/g) || [])
-              )];
+              const source=document.documentElement.outerHTML;
+              const marker='https://files.simplepost.social/';
+              const found=[];
+              let cursor=0;
+              while(true){
+                const begin=source.indexOf(marker,cursor);
+                if(begin<0) break;
+                const end=source.indexOf('.png',begin);
+                if(end<0) break;
+                found.push(source.slice(begin,end+4));
+                cursor=end+4;
+              }
+              const urls=[...new Set(found)];
               const results=await Promise.all(urls.map(url => new Promise(resolve => {
                 const img=new Image();
                 img.onload=()=>resolve({url,ok:true,width:img.naturalWidth});
