@@ -65,9 +65,16 @@ jobs:
       - name: Verify temporary visual assets
         run: |
           set -euo pipefail
-          grep -oE 'https://files\.simplepost\.social/[^"''' ]+\.png' /tmp/yorumachi-live-qa/index.html | sort -u > /tmp/assets.txt
-          test "$(wc -l < /tmp/assets.txt)" -eq 9
-          while read -r url; do
+          node - <<'NODE'
+          const fs=require('fs');
+          const h=fs.readFileSync('/tmp/yorumachi-live-qa/index.html','utf8');
+          const urls=[...new Set(h.match(/https:\/\/files\.simplepost\.social\/[A-Za-z0-9_./-]+\.png/g) || [])];
+          if(urls.length !== 9) throw new Error('expected 9 visual assets, got '+urls.length);
+          fs.writeFileSync('/tmp/assets.txt', urls.join('\n')+'\n');
+          console.log('REMOTE_VISUAL_ASSET_URLS='+urls.length);
+          NODE
+          while IFS= read -r url; do
+            test -n "$url"
             curl --fail --location --silent --show-error --max-time 30 --range 0-31 "$url" -o /tmp/asset.bin
             test -s /tmp/asset.bin
           done < /tmp/assets.txt
@@ -79,11 +86,19 @@ jobs:
           CLOUDFLARE_ACCOUNT_ID: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
         run: |
           set -euo pipefail
-          code=$(curl --silent --show-error -o /tmp/project-get.json -w '%{http_code}'             --header "Authorization: Bearer $CLOUDFLARE_API_TOKEN"             "https://api.cloudflare.com/client/v4/accounts/$CLOUDFLARE_ACCOUNT_ID/pages/projects/$PROJECT_NAME")
+          code=$(curl --silent --show-error -o /tmp/project-get.json -w '%{http_code}' \
+            --header "Authorization: Bearer $CLOUDFLARE_API_TOKEN" \
+            "https://api.cloudflare.com/client/v4/accounts/$CLOUDFLARE_ACCOUNT_ID/pages/projects/$PROJECT_NAME")
           if [ "$code" = "200" ] && node -e "const p=require('/tmp/project-get.json');process.exit(p.success===true?0:1)"; then
             echo "PAGES_PROJECT=EXISTING"
           else
-            curl --fail --silent --show-error               --request POST               --header "Authorization: Bearer $CLOUDFLARE_API_TOKEN"               --header 'Content-Type: application/json'               --data "{\"name\":\"$PROJECT_NAME\",\"production_branch\":\"main\"}"               "https://api.cloudflare.com/client/v4/accounts/$CLOUDFLARE_ACCOUNT_ID/pages/projects"               --output /tmp/project-create.json
+            curl --fail --silent --show-error \
+              --request POST \
+              --header "Authorization: Bearer $CLOUDFLARE_API_TOKEN" \
+              --header 'Content-Type: application/json' \
+              --data "{\"name\":\"$PROJECT_NAME\",\"production_branch\":\"main\"}" \
+              "https://api.cloudflare.com/client/v4/accounts/$CLOUDFLARE_ACCOUNT_ID/pages/projects" \
+              --output /tmp/project-create.json
             node -e "const p=require('/tmp/project-create.json');if(p.success!==true){console.error(p);process.exit(1)}"
             echo "PAGES_PROJECT=CREATED"
           fi
@@ -94,7 +109,10 @@ jobs:
           CLOUDFLARE_ACCOUNT_ID: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
         run: |
           set -euo pipefail
-          npx --yes wrangler@4 pages deploy /tmp/yorumachi-live-qa             --project-name="$PROJECT_NAME"             --branch=main             --commit-dirty=true
+          npx --yes wrangler@4 pages deploy /tmp/yorumachi-live-qa \
+            --project-name="$PROJECT_NAME" \
+            --branch=main \
+            --commit-dirty=true
 
       - name: Direct live readback
         run: |
