@@ -18,7 +18,7 @@ concurrency:
 jobs:
   deploy-preview:
     runs-on: ubuntu-latest
-    timeout-minutes: 15
+    timeout-minutes: 20
     env:
       PROJECT_NAME: yorumachi-live-qa
       LIVE_URL: https://yorumachi-live-qa.pages.dev
@@ -133,3 +133,95 @@ jobs:
           echo "LIVE_URL=$LIVE_URL"
           echo "LIVE_SHA256=$live_sha"
           echo "LIVE_READBACK=PASS"
+
+      - name: Live browser smoke - desktop and mobile
+        run: |
+          set -euo pipefail
+          rm -rf /tmp/yorumachi-browser-qa
+          mkdir -p /tmp/yorumachi-browser-qa
+          cd /tmp/yorumachi-browser-qa
+          npm init -y >/dev/null 2>&1
+          npm install --no-audit --no-fund playwright@1.55.0 >/dev/null
+          npx playwright install chromium >/dev/null
+          cat > smoke.cjs <<'NODE'
+          const { chromium } = require('playwright');
+
+          const liveUrl = process.env.LIVE_URL;
+          if (!liveUrl) throw new Error('LIVE_URL missing');
+
+          async function runCase(browser, name, options) {
+            const context = await browser.newContext(options);
+            const page = await context.newPage();
+            const consoleErrors = [];
+            const pageErrors = [];
+            page.on('console', m => { if (m.type() === 'error') consoleErrors.push(m.text()); });
+            page.on('pageerror', e => pageErrors.push(String(e)));
+
+            await page.goto(liveUrl, { waitUntil: 'networkidle', timeout: 60000 });
+
+            const badge = await page.locator('#liveQaBadge').innerText();
+            if (!badge.includes('LIVE QA PREVIEW')) throw new Error(name+': preview badge missing');
+
+            const press = page.locator('#pressStart');
+            if (!await press.isVisible()) throw new Error(name+': PRESS START not visible');
+            await press.click();
+
+            if (!await page.locator('#openingMovie').evaluate(el => el.classList.contains('hidden'))) {
+              throw new Error(name+': opening did not close');
+            }
+
+            const start = page.locator('#startBtn');
+            if (!await start.isVisible()) throw new Error(name+': start button not visible');
+            await start.click();
+            await page.waitForTimeout(500);
+
+            if (!await page.locator('#intro').evaluate(el => el.classList.contains('hidden'))) {
+              throw new Error(name+': intro did not close after start');
+            }
+
+            const canvas = page.locator('#town');
+            if (!await canvas.isVisible()) throw new Error(name+': town canvas not visible');
+            const size = await canvas.evaluate(el => ({w:el.width,h:el.height}));
+            if (size.w !== 960 || size.h !== 600) throw new Error(name+': town canvas size mismatch');
+
+            const mission = await page.locator('#missionProgress').innerText();
+            if (!mission.trim()) throw new Error(name+': mission progress empty');
+
+            const imageState = await page.locator('img').evaluateAll(imgs =>
+              imgs.filter(img => img.src.includes('files.simplepost.social'))
+                  .map(img => ({src:img.src, complete:img.complete, width:img.naturalWidth}))
+            );
+            if (imageState.length !== 9) throw new Error(name+': expected 9 external images, got '+imageState.length);
+            const badImages = imageState.filter(x => !x.complete || x.width <= 0);
+            if (badImages.length) throw new Error(name+': visual assets failed '+JSON.stringify(badImages));
+
+            if (consoleErrors.length) throw new Error(name+': console errors '+JSON.stringify(consoleErrors));
+            if (pageErrors.length) throw new Error(name+': page errors '+JSON.stringify(pageErrors));
+
+            await page.screenshot({path:`/tmp/yorumachi-browser-qa/${name}.png`, fullPage:true});
+            console.log(name.toUpperCase()+'_BROWSER_SMOKE=PASS');
+            await context.close();
+          }
+
+          (async () => {
+            const browser = await chromium.launch({headless:true});
+            try {
+              await runCase(browser, 'desktop', {
+                viewport:{width:1280,height:900}
+              });
+              await runCase(browser, 'mobile', {
+                viewport:{width:390,height:844},
+                isMobile:true,
+                hasTouch:true,
+                deviceScaleFactor:1
+              });
+              console.log('LIVE_BROWSER_QA=PASS');
+            } finally {
+              await browser.close();
+            }
+          })().catch(err => {
+            console.error(err);
+            process.exit(1);
+          });
+          NODE
+          node smoke.cjs
