@@ -1,0 +1,117 @@
+name: YORUMACHI Live QA Preview
+
+on:
+  workflow_dispatch:
+  push:
+    branches:
+      - main
+    paths:
+      - .github/workflows/yorumachi-live-qa-preview.yml
+
+permissions:
+  contents: read
+
+concurrency:
+  group: yorumachi-live-qa-preview
+  cancel-in-progress: true
+
+jobs:
+  deploy-preview:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    env:
+      PROJECT_NAME: yorumachi-live-qa
+      LIVE_URL: https://yorumachi-live-qa.pages.dev
+      EXPECTED_SHA256: cfcc91a5e15f2238fc0d382503f7e922642d51898ff1c3df79038581c360afcc
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Require Cloudflare credential bridge
+        env:
+          CLOUDFLARE_API_TOKEN: ${{ secrets.CLOUDFLARE_API_TOKEN }}
+          CLOUDFLARE_ACCOUNT_ID: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
+        run: |
+          set -euo pipefail
+          test -n "$CLOUDFLARE_API_TOKEN"
+          test -n "$CLOUDFLARE_ACCOUNT_ID"
+          echo "CLOUDFLARE_CREDENTIAL_BRIDGE=READY"
+
+      - name: Materialize exact LIVE QA preview
+        run: |
+          set -euo pipefail
+          rm -rf /tmp/yorumachi-live-qa
+          mkdir -p /tmp/yorumachi-live-qa
+          cat ops/yorumachi-live-qa/payload/part*.b64 | tr -d '\n' | base64 --decode | gzip --decompress > /tmp/yorumachi-live-qa/index.html
+          printf '%s  %s\n' "$EXPECTED_SHA256" /tmp/yorumachi-live-qa/index.html | sha256sum --check
+          grep -q 'LIVE QA PREVIEW' /tmp/yorumachi-live-qa/index.html
+          grep -q 'RELEASE CANDIDATE 03' /tmp/yorumachi-live-qa/index.html
+          echo "PREVIEW_ARTIFACT=PASS"
+
+      - name: Validate inline JavaScript
+        run: |
+          set -euo pipefail
+          node - <<'NODE'
+          const fs=require('fs');
+          const h=fs.readFileSync('/tmp/yorumachi-live-qa/index.html','utf8');
+          const scripts=[...h.matchAll(/<script(?:\s[^>]*)?>([\s\S]*?)<\/script>/gi)].map(m=>m[1]);
+          if(!scripts.length) throw new Error('inline script not found');
+          fs.writeFileSync('/tmp/yorumachi-inline.js',scripts.join('\n'));
+          console.log('INLINE_SCRIPT_COUNT='+scripts.length);
+          NODE
+          node --check /tmp/yorumachi-inline.js
+          echo "SYNTAX_QA=PASS"
+
+      - name: Verify temporary visual assets
+        run: |
+          set -euo pipefail
+          grep -oE 'https://files\.simplepost\.social/[^"''' ]+\.png' /tmp/yorumachi-live-qa/index.html | sort -u > /tmp/assets.txt
+          test "$(wc -l < /tmp/assets.txt)" -eq 9
+          while read -r url; do
+            curl --fail --location --silent --show-error --max-time 30 --range 0-31 "$url" -o /tmp/asset.bin
+            test -s /tmp/asset.bin
+          done < /tmp/assets.txt
+          echo "REMOTE_VISUAL_ASSETS=9/9"
+
+      - name: Ensure Cloudflare Pages preview project
+        env:
+          CLOUDFLARE_API_TOKEN: ${{ secrets.CLOUDFLARE_API_TOKEN }}
+          CLOUDFLARE_ACCOUNT_ID: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
+        run: |
+          set -euo pipefail
+          code=$(curl --silent --show-error -o /tmp/project-get.json -w '%{http_code}'             --header "Authorization: Bearer $CLOUDFLARE_API_TOKEN"             "https://api.cloudflare.com/client/v4/accounts/$CLOUDFLARE_ACCOUNT_ID/pages/projects/$PROJECT_NAME")
+          if [ "$code" = "200" ] && node -e "const p=require('/tmp/project-get.json');process.exit(p.success===true?0:1)"; then
+            echo "PAGES_PROJECT=EXISTING"
+          else
+            curl --fail --silent --show-error               --request POST               --header "Authorization: Bearer $CLOUDFLARE_API_TOKEN"               --header 'Content-Type: application/json'               --data "{\"name\":\"$PROJECT_NAME\",\"production_branch\":\"main\"}"               "https://api.cloudflare.com/client/v4/accounts/$CLOUDFLARE_ACCOUNT_ID/pages/projects"               --output /tmp/project-create.json
+            node -e "const p=require('/tmp/project-create.json');if(p.success!==true){console.error(p);process.exit(1)}"
+            echo "PAGES_PROJECT=CREATED"
+          fi
+
+      - name: Deploy LIVE QA preview
+        env:
+          CLOUDFLARE_API_TOKEN: ${{ secrets.CLOUDFLARE_API_TOKEN }}
+          CLOUDFLARE_ACCOUNT_ID: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
+        run: |
+          set -euo pipefail
+          npx --yes wrangler@4 pages deploy /tmp/yorumachi-live-qa             --project-name="$PROJECT_NAME"             --branch=main             --commit-dirty=true
+
+      - name: Direct live readback
+        run: |
+          set -euo pipefail
+          ok=0
+          for attempt in $(seq 1 20); do
+            if curl --fail --location --silent --show-error --max-time 30 "$LIVE_URL" -o /tmp/live.html; then
+              if grep -q 'LIVE QA PREVIEW' /tmp/live.html && grep -q 'RELEASE CANDIDATE 03' /tmp/live.html; then
+                ok=1
+                break
+              fi
+            fi
+            sleep 8
+          done
+          test "$ok" = 1
+          live_sha=$(sha256sum /tmp/live.html | awk '{print $1}')
+          test "$live_sha" = "$EXPECTED_SHA256"
+          echo "LIVE_URL=$LIVE_URL"
+          echo "LIVE_SHA256=$live_sha"
+          echo "LIVE_READBACK=PASS"
