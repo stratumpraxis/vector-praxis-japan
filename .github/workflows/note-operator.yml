@@ -1,0 +1,77 @@
+name: Note Operator
+
+on:
+  workflow_dispatch:
+    inputs:
+      mode:
+        description: "bootstrap-login or execute"
+        required: true
+        default: "execute"
+        type: choice
+        options:
+          - execute
+          - bootstrap-login
+      command_b64:
+        description: "Base64 UTF-8 note-operator.v1 command"
+        required: false
+        default: ""
+
+permissions:
+  contents: read
+
+concurrency:
+  group: note-operator-single-writer
+  cancel-in-progress: false
+
+jobs:
+  note-operator:
+    runs-on: [self-hosted, windows, x64, note-operator]
+    timeout-minutes: 15
+    env:
+      NOTE_PROFILE_DIR: C:\\vector-note-profile
+      NOTE_OPERATOR_EVIDENCE_DIR: ${{ github.workspace }}\\note-operator-evidence
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: "22"
+
+      - name: Install worker
+        shell: powershell
+        working-directory: note-operator-worker
+        run: |
+          npm install --no-audit --no-fund
+          npx playwright install chromium
+
+      - name: Bootstrap note login
+        if: ${{ inputs.mode == 'bootstrap-login' }}
+        shell: powershell
+        run: node note-operator-worker/login.mjs
+
+      - name: Decode command
+        if: ${{ inputs.mode == 'execute' }}
+        shell: powershell
+        run: |
+          if ([string]::IsNullOrWhiteSpace("${{ inputs.command_b64 }}")) { throw "command_b64 is required" }
+          [IO.File]::WriteAllBytes(
+            "${{ github.workspace }}\\note-command.json",
+            [Convert]::FromBase64String("${{ inputs.command_b64 }}")
+          )
+
+      - name: Execute one article / one diff
+        if: ${{ inputs.mode == 'execute' }}
+        shell: powershell
+        run: node note-operator-worker/operator.mjs "${{ github.workspace }}\\note-command.json"
+
+      - name: Upload evidence
+        if: ${{ always() && inputs.mode == 'execute' }}
+        uses: actions/upload-artifact@v4
+        with:
+          name: note-operator-evidence-${{ github.run_id }}
+          path: |
+            note-operator-evidence/**
+          if-no-files-found: warn
+          retention-days: 14
