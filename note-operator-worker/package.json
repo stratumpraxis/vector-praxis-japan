@@ -1,0 +1,13 @@
+{
+  "name": "vector-note-operator-worker",
+  "private": true,
+  "type": "module",
+  "version": "0.1.0",
+  "scripts": {
+    "login": "node login.mjs",
+    "run": "node operator.mjs"
+  },
+  "dependencies": {
+    "playwright": "1.55.0"
+  }
+}
