@@ -157,6 +157,9 @@ jobs:
           grep -q 'id="jobsList"' /tmp/gwr-live.html
           curl --fail --location --silent --show-error --max-time 30 "${GWR_URL}/app.js" -o /tmp/gwr-live-app.js
           grep -q "gwr_search" /tmp/gwr-live-app.js
+          curl --fail --location --silent --show-error --max-time 30 "${GWR_URL}/styles.css?ui=${GITHUB_SHA}" -o /tmp/gwr-live-styles.css
+          cmp /tmp/gwr-public/styles.css /tmp/gwr-live-styles.css
+          echo "GWR_UI_CSS_IDENTITY=PASS"
           echo "GWR_LIVE_QA=PASS"
           echo "GWR_DEPLOY_BRIDGE=PASS"
 
