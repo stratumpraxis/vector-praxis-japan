@@ -1,7 +1,7 @@
 {
-  "checked_at": "2026-10-04T12:24:31.618137Z",
-  "commit_sha": "6cd087d8370ee19ae51c4b4bf95579433468d7f7",
-  "workflow_run_id": "37201964270",
+  "checked_at": "2026-10-04T21:28:05.898534Z",
+  "commit_sha": "36d59bc598f2dd19adb8b533ce11b0a1eefd1c84",
+  "workflow_run_id": "37236194502",
   "repository": "stratumpraxis/vector-praxis-japan",
   "route_id": "vpj_owned_ai_agent_bottleneck_v2",
   "asset_id": "ai_agent_bottleneck",
@@ -56,7 +56,7 @@
       "ERR_BLOCKED_BY_FINGERPRINTING_PROTECTION",
       "ERR_BLOCKED_BY_LOCAL_NETWORK_ACCESS_CHECKS"
     ],
-    "stderr_tail": "sktop.DBus.NameHasOwner: object_path= /org/freedesktop/DBus: unknown error type: \n[2337:2367:1004/122430.017319:ERROR:google_apis/gcm/engine/registration_request.cc:291] Registration response error message: DEPRECATED_ENDPOINT\n[2337:2367:1004/122430.096943:ERROR:google_apis/gcm/engine/mcs_client.cc:702]   Error code: 401  Error message: Authentication Failed: wrong_secret\n[2337:2367:1004/122430.096965:ERROR:google_apis/gcm/engine/mcs_client.cc:704] Failed to log in to GCM, resetting connection.\n"
+    "stderr_tail": "ct_proxy.cc:572] Failed to call method: org.freedesktop.DBus.NameHasOwner: object_path= /org/freedesktop/DBus: unknown error type: \n[2351:2375:1004/212804.760903:ERROR:dbus/bus.cc:405] Failed to connect to the bus: Could not parse server address: Unknown address type (examples of valid types are \"tcp\" and on UNIX \"unix\")\n[2351:2351:1004/212804.772091:ERROR:dbus/object_proxy.cc:572] Failed to call method: org.freedesktop.DBus.NameHasOwner: object_path= /org/freedesktop/DBus: unknown error type: \n"
   },
   "canonical_indexability": {
     "role": "canonical",
