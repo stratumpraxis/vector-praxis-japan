@@ -1,5 +1,5 @@
 name: GWR Canonical Production Deploy Bridge
-# GWR canonical bridge wake: 2026-10-05 final-sync
+# GWR canonical bridge wake: self-make-revenue-route
 
 on:
   schedule:
