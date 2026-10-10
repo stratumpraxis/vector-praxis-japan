@@ -1,5 +1,5 @@
 {
-  "observed_at": "2026-10-09T20:47:25.667Z",
+  "observed_at": "2026-10-10T00:41:01.579Z",
   "secrets_present": {
     "bluesky_handle": true,
     "bluesky_app_password": true,
@@ -14,10 +14,10 @@
   },
   "providers": {
     "bluesky": {
-      "http_status": 502,
-      "ok": false,
-      "handle": null,
-      "did": null,
+      "http_status": 200,
+      "ok": true,
+      "handle": "vectorpx.bsky.social",
+      "did": "did:plc:3cg6ij6eppzwmy2v2i42v45e",
       "error": null
     }
   }
