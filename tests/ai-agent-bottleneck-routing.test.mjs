@@ -38,3 +38,10 @@ test("article keeps Vector ownership boundaries and does not fabricate checkout 
   assert.doesNotMatch(page + router, /stratumpraxis\.com|Cross-Agent Operating Kit|Agent Economics Calculator/i);
   assert.doesNotMatch(router + page, /purchase_success|verified_purchase|fake_checkout/i);
 });
+
+test("diagnostic start requires an explicit user choice, not page load", () => {
+  const mountEffect = router.match(/useEffect\(\(\) => \{[\s\S]*?\}, \[\]\);/)?.[0] ?? "";
+  assert.doesNotMatch(mountEffect, /capture\("free_tool_start"/);
+  assert.match(router, /const choose = \(id: BottleneckId\) => \{\s*capture\("free_tool_start", \{[^}]*interaction: "user_selection"/);
+  assert.match(router, /onClick=\{\(\) => choose\(item\.id\)\}/);
+});
