@@ -14,7 +14,7 @@ test("bottleneck routing uses only the three declared operational bottlenecks", 
 
 test("bottleneck routing stays Vector-native and routes intent to the existing paid note", () => {
   assert.match(router, /note\.com\/deft_eel6718\/n\/ncaff8351e529/);
-  assert.match(router, /FREE FIRST/);
+  assert.match(router, /無料の3ルール/);
   assert.match(router, /VECTOR DEEP DIVE/);
   assert.match(router, /vpj_owned_ai_agent_bottleneck_v2/);
   assert.doesNotMatch(router, /stratumpraxis\.com|cross-agent-operating-kit|ai-agent-economics-calculator/i);

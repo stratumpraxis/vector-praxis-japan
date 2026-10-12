@@ -89,7 +89,6 @@ export default function BottleneckRouter() {
   const [selected, setSelected] = useState<BottleneckId>("wait");
 
   useEffect(() => {
-    capture("free_tool_start", { tool_id: "ai_agent_bottleneck" });
     try {
       const saved = localStorage.getItem("vector-agent-bottleneck") as BottleneckId | null;
       if (saved && items.some((item) => item.id === saved)) setSelected(saved);
@@ -107,6 +106,7 @@ export default function BottleneckRouter() {
   }, [current.id, current.kind, current.nextTitle]);
 
   const choose = (id: BottleneckId) => {
+    capture("free_tool_start", { tool_id: "ai_agent_bottleneck", bottleneck: id, interaction: "user_selection" });
     setSelected(id);
     try { localStorage.setItem("vector-agent-bottleneck", id); } catch {}
     const item = items.find((entry) => entry.id === id);

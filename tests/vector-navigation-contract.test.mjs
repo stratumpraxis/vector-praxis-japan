@@ -24,9 +24,9 @@ test("Vector routes owned traffic into the measured free diagnostic", async () =
   assert.match(entry, /pathname\?\.startsWith\("\/ai-agent-bottleneck"\)/);
 });
 
-test("Vector preserves current Sites canonical fallback", async () => {
+test("Vector preserves current production canonical fallback", async () => {
   const siteUrl = await read("lib/site-url.ts");
-  assert.match(siteUrl, /https:\/\/vector-praxis-japan\.user-ex26\.chatgpt\.site/);
+  assert.match(siteUrl, /https:\/\/vector-praxis-japan\.vercel\.app/);
 });
 
 test("Vector premium layer exposes the canonical public status vocabulary", async () => {
