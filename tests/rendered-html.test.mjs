@@ -2,7 +2,7 @@ import assert from "node:assert/strict";
 import test from "node:test";
 
 const canonicalLink =
-  /<link(?=[^>]*\brel=["']canonical["'])(?=[^>]*\bhref=["']https:\/\/vector-praxis-japan\.user-ex26\.chatgpt\.site\/["'])[^>]*>/i;
+  /<link(?=[^>]*\brel=["']canonical["'])(?=[^>]*\bhref=["']https:\/\/vector-praxis-japan\.vercel\.app\/["'])[^>]*>/i;
 
 test("renders production canonical metadata", async () => {
   const workerUrl = new URL("../dist/server/index.js", import.meta.url);
