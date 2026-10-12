@@ -234,6 +234,8 @@ function RevenueExperience() {
             <span>route verified: {primary.verified}</span>
             <a
               href={withAttribution(primary, intent)}
+              data-event="primary_cta_click"
+              data-route-id="vp_main"
               target="_blank"
               rel="noreferrer"
               onClick={() => openAsset(primary, "primary_match")}
@@ -249,6 +251,8 @@ function RevenueExperience() {
             <a
               key={asset.id}
               href={withAttribution(asset, intent)}
+              data-event="primary_cta_click"
+              data-route-id="vp_main"
               target="_blank"
               rel="noreferrer"
               onClick={() => openAsset(asset, "alternative_match")}
@@ -277,7 +281,7 @@ function RevenueExperience() {
         <p>購入前に目的を選ぶ。商品一覧を眺める時間を減らす。</p>
         <div>
           {resumedAsset && (
-            <a href={withAttribution(resumedAsset, intent)} target="_blank" rel="noreferrer" onClick={() => openAsset(resumedAsset, "resume")}>
+            <a href={withAttribution(resumedAsset, intent)} data-event="primary_cta_click" data-route-id="vp_main" target="_blank" rel="noreferrer" onClick={() => openAsset(resumedAsset, "resume")}>
               <RotateCcw size={14} /> 前回の続き
             </a>
           )}
