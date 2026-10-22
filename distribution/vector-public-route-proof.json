@@ -1,7 +1,7 @@
 {
-  "checked_at": "2026-10-22T04:50:34.333313Z",
-  "commit_sha": "be0b4301bf06368826d58ed92b916486151d361b",
-  "workflow_run_id": "39724583650",
+  "checked_at": "2026-10-22T11:55:35.300079Z",
+  "commit_sha": "47a92344e07f3e5d7ded288321cf78997b9febbd",
+  "workflow_run_id": "39774221132",
   "repository": "stratumpraxis/vector-praxis-japan",
   "route_id": "vpj_owned_ai_agent_bottleneck_v2",
   "asset_id": "ai_agent_bottleneck",
@@ -31,7 +31,7 @@
     "posthog_url_samples": [
       "https://us-assets.i.posthog.com",
       "https://us-assets.i.posthog.com/array/phc_oTYapRSNXDtn8aY7wMNHfCDexRTkfb2H44MDVXwoUMSN/config.js",
-      "https://us-assets.i.posthog.com/static/1.438.13/surveys.js",
+      "https://us-assets.i.posthog.com/static/1.438.15/surveys.js",
       "https://us-assets.i.posthog.com/static/array.js"
     ],
     "network_error_mentions": [
@@ -56,7 +56,7 @@
       "ERR_BLOCKED_BY_FINGERPRINTING_PROTECTION",
       "ERR_BLOCKED_BY_LOCAL_NETWORK_ACCESS_CHECKS"
     ],
-    "stderr_tail": "22/045031.361394:ERROR:dbus/bus.cc:405] Failed to connect to the bus: Could not parse server address: Unknown address type (examples of valid types are \"tcp\" and on UNIX \"unix\")\n[2126:2126:1022/045031.451482:ERROR:dbus/object_proxy.cc:572] Failed to call method: org.freedesktop.DBus.NameHasOwner: object_path= /org/freedesktop/DBus: unknown error type: \n[2126:2154:1022/045034.059322:ERROR:google_apis/gcm/engine/registration_request.cc:291] Registration response error message: DEPRECATED_ENDPOINT\n"
+    "stderr_tail": "ct_proxy.cc:572] Failed to call method: org.freedesktop.DBus.NameHasOwner: object_path= /org/freedesktop/DBus: unknown error type: \n[2343:2368:1022/115533.395552:ERROR:dbus/bus.cc:405] Failed to connect to the bus: Could not parse server address: Unknown address type (examples of valid types are \"tcp\" and on UNIX \"unix\")\n[2343:2343:1022/115533.474467:ERROR:dbus/object_proxy.cc:572] Failed to call method: org.freedesktop.DBus.NameHasOwner: object_path= /org/freedesktop/DBus: unknown error type: \n"
   },
   "canonical_indexability": {
     "role": "canonical",
