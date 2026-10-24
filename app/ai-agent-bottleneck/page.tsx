@@ -4,6 +4,7 @@ import { siteOrigin } from "@/lib/site-url";
 import { VectorFooter, VectorHeader } from "@/components/vector-chrome";
 import { VectorNext } from "@/components/vector-next";
 import BottleneckRouter from "./bottleneck-router";
+import VectorFunnelBeacon from "./vector-funnel-beacon";
 
 const ROUTE_ID = "vpj_owned_ai_agent_bottleneck_v2";
 const NOTE_DEEP_DIVE = `https://note.com/deft_eel6718/n/ncaff8351e529?utm_source=vector_praxis_site&utm_medium=owned_article&utm_campaign=ai_agent_bottleneck_owned_20260913&utm_content=paid_note_primary&asset_id=note_ncaff8351e529&route_id=${ROUTE_ID}`;
@@ -20,7 +21,8 @@ function Out({ href, event, children, className = "" }: { href: string; event: s
 }
 
 export default function AiAgentBottleneckPage() {
-  return <main className="vx-page tone-read">
+  return <main className="vx-page tone-read" data-vector-first-party-sensor="v1">
+    <VectorFunnelBeacon/>
     <VectorHeader tone="read"/>
 
     <section className="vx-article-hero shell">
