@@ -1,7 +1,7 @@
 {
-  "checked_at": "2026-10-27T05:08:50.874245Z",
-  "commit_sha": "8f140899760aeaa0bd7021099b62e8dc9545582e",
-  "workflow_run_id": "40453613141",
+  "checked_at": "2026-10-27T12:14:58.339301Z",
+  "commit_sha": "37afb98d4e3ec3ef1a831d5fa4258c915c363bcc",
+  "workflow_run_id": "40502216494",
   "repository": "stratumpraxis/vector-praxis-japan",
   "route_id": "vpj_owned_ai_agent_bottleneck_v2",
   "asset_id": "ai_agent_bottleneck",
@@ -31,7 +31,7 @@
     "posthog_url_samples": [
       "https://us-assets.i.posthog.com",
       "https://us-assets.i.posthog.com/array/phc_oTYapRSNXDtn8aY7wMNHfCDexRTkfb2H44MDVXwoUMSN/config.js",
-      "https://us-assets.i.posthog.com/static/1.438.24/surveys.js",
+      "https://us-assets.i.posthog.com/static/1.439.0/surveys.js",
       "https://us-assets.i.posthog.com/static/array.js"
     ],
     "network_error_mentions": [
@@ -56,7 +56,7 @@
       "ERR_BLOCKED_BY_FINGERPRINTING_PROTECTION",
       "ERR_BLOCKED_BY_LOCAL_NETWORK_ACCESS_CHECKS"
     ],
-    "stderr_tail": "ct_proxy.cc:572] Failed to call method: org.freedesktop.DBus.NameHasOwner: object_path= /org/freedesktop/DBus: unknown error type: \n[2110:2134:1027/050848.571790:ERROR:dbus/bus.cc:405] Failed to connect to the bus: Could not parse server address: Unknown address type (examples of valid types are \"tcp\" and on UNIX \"unix\")\n[2110:2110:1027/050848.607544:ERROR:dbus/object_proxy.cc:572] Failed to call method: org.freedesktop.DBus.NameHasOwner: object_path= /org/freedesktop/DBus: unknown error type: \n"
+    "stderr_tail": "27/121454.864469:ERROR:dbus/bus.cc:405] Failed to connect to the bus: Could not parse server address: Unknown address type (examples of valid types are \"tcp\" and on UNIX \"unix\")\n[2279:2279:1027/121454.915698:ERROR:dbus/object_proxy.cc:572] Failed to call method: org.freedesktop.DBus.NameHasOwner: object_path= /org/freedesktop/DBus: unknown error type: \n[2279:2309:1027/121457.719667:ERROR:google_apis/gcm/engine/registration_request.cc:291] Registration response error message: DEPRECATED_ENDPOINT\n"
   },
   "canonical_indexability": {
     "role": "canonical",
