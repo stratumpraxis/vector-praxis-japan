@@ -1,0 +1,253 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Vector Praxis｜構造を、実務へ。</title>
+<meta name="description" content="Vector Praxisは、AI・構造思考・知識整理を、実務と収益設計へつなげる日本語プロジェクトです。有料記事6本セット（単品合計¥23,880→¥12,800）と単品記事への公式Hub。">
+<style>
+:root{
+--ink:#1a1d21; --sub:#5b6470; --line:#e4e7eb; --bg:#ffffff; --soft:#f6f7f9;
+--accent:#0f5132; --accent-ink:#ffffff; --gold:#8a6d1f;
+}
+*{box-sizing:border-box; margin:0; padding:0;}
+body{font-family:"Hiragino Kaku Gothic ProN","Hiragino Sans","Noto Sans JP",sans-serif; color:var(--ink); background:var(--bg); line-height:1.8; -webkit-font-smoothing:antialiased;}
+.wrap{max-width:880px; margin:0 auto; padding:0 20px;}
+header{padding:28px 0 8px; display:flex; justify-content:space-between; align-items:baseline;}
+.brand{font-weight:700; letter-spacing:.06em; font-size:15px;}
+.brand span{color:var(--sub); font-weight:400; font-size:12px; margin-left:8px; letter-spacing:.02em;}
+nav a{color:var(--sub); text-decoration:none; font-size:13px; margin-left:18px;}
+nav a:hover{color:var(--ink);}
+.hero{padding:56px 0 40px; border-bottom:1px solid var(--line);}
+.hero h1{font-size:34px; line-height:1.45; font-weight:700; letter-spacing:.01em;}
+.hero h1 em{font-style:normal; border-bottom:3px solid var(--accent);}
+.hero p{color:var(--sub); margin-top:18px; font-size:15px; max-width:640px;}
+.cta-row{display:flex; gap:12px; flex-wrap:wrap; margin-top:28px;}
+.btn{display:inline-block; padding:12px 22px; border-radius:8px; text-decoration:none; font-size:14px; font-weight:600;}
+.btn-primary{background:var(--accent); color:var(--accent-ink);}
+.btn-ghost{border:1px solid var(--line); color:var(--ink); background:#fff;}
+.steps{display:flex; gap:10px; margin-top:34px; flex-wrap:wrap;}
+.step{flex:1 1 180px; background:var(--soft); border-radius:10px; padding:14px 16px; font-size:13px;}
+.step b{display:block; font-size:15px; margin-bottom:2px;}
+.step i{font-style:normal; color:var(--accent); font-weight:700; margin-right:6px;}
+section{padding:44px 0; border-bottom:1px solid var(--line);}
+.kicker{font-size:11px; letter-spacing:.22em; color:var(--gold); font-weight:700; text-transform:uppercase;}
+h2{font-size:24px; margin:8px 0 14px; line-height:1.5;}
+.lead{color:var(--sub); font-size:14px; max-width:660px;}
+.diag{margin-top:22px; display:grid; gap:10px;}
+.diag button{text-align:left; background:#fff; border:1px solid var(--line); border-radius:10px; padding:14px 16px; font-size:14px; cursor:pointer; font-family:inherit;}
+.diag button:hover{border-color:var(--accent);}
+.diag button.active{border-color:var(--accent); background:#f0f7f3;}
+.diag-result{margin-top:16px; background:var(--soft); border-radius:10px; padding:18px; display:none;}
+.diag-result.price{color:var(--gold); font-weight:700; font-size:13px;}
+.diag-result h3{font-size:17px; margin:4px 0 6px;}
+.diag-result p{font-size:13px; color:var(--sub);}
+.diag-result a{display:inline-block; margin-top:10px; font-size:13px; font-weight:700; color:var(--accent); text-decoration:none;}
+.featured{background:#10241a; color:#eef3f0; border-radius:14px; padding:28px;}
+.featured.kicker{color:#c9a94e;}
+.featured h2{color:#fff;}
+.featured p{color:#c3cec8; font-size:14px; max-width:600px;}
+.featured.price-row{margin:16px 0 6px; font-size:15px;}
+.featured.price-row s{color:#8fa398;}
+.featured.price-row b{font-size:26px; color:#fff; margin-left:8px;}
+.featured.btn{background:#fff; color:#10241a; margin-top:14px;}
+.grid{display:grid; grid-template-columns:1fr 1fr; gap:14px; margin-top:22px;}
+@media (max-width:640px){.grid{grid-template-columns:1fr;}.hero h1{font-size:27px;}}
+.card{border:1px solid var(--line); border-radius:12px; padding:18px; display:flex; flex-direction:column;}
+.card.tag{font-size:11px; color:var(--gold); font-weight:700; letter-spacing:.08em;}
+.card h3{font-size:16px; line-height:1.6; margin:6px 0 8px;}
+.card p{font-size:13px; color:var(--sub); flex:1;}
+.card.foot{margin-top:14px; display:flex; justify-content:space-between; align-items:center;}
+.card.price{font-weight:700;}
+.card a{font-size:13px; font-weight:700; color:var(--accent); text-decoration:none;}
+.path{counter-reset:step; margin-top:18px; display:grid; gap:10px;}
+.path li{list-style:none; background:var(--soft); border-radius:10px; padding:12px 16px; font-size:14px;}
+.path li b{color:var(--accent); margin-right:8px;}
+footer{padding:30px 0 44px; color:var(--sub); font-size:12px;}
+footer p{margin-bottom:6px;}
+</style>
+</head>
+<body>
+<div class="wrap">
+
+<header>
+<div class="brand">Vector Praxis<span>構造を、実務へ。</span></div>
+<nav>
+<a href="#diag">診断</a><a href="#set">有料セット</a><a href="#collection">記事一覧</a><a href="https://note.com/deft_eel6718">note</a>
+</nav>
+</header>
+
+<div class="hero">
+<h1>複雑な情報を、<em>使える構造</em>へ。</h1>
+<p>Vector Praxisは、AI・構造思考・知識整理を、実務と収益設計へつなげる日本語プロジェクトです。読むだけで終わらず、次の判断と行動が見える形に整理します。</p>
+<div class="cta-row">
+<a class="btn btn-primary" href="#set">有料セット（¥12,800）を見る</a>
+<a class="btn btn-ghost" href="https://note.com/deft_eel6718">無料記事からはじめる</a>
+</div>
+<div class="steps">
+<div class="step"><b><i>01</i>構造を読む</b>情報の並びと関係を先に掴む</div>
+<div class="step"><b><i>02</i>判断を整える</b>何を・どの順で直すか決める</div>
+<div class="step"><b><i>03</i>実装へつなぐ</b>設計を手順と道具に落とす</div>
+</div>
+</div>
+
+<section id="diag">
+<div class="kicker">Free / Next Step</div>
+<h2>今の課題から、次の一手を選ぶ。</h2>
+<p class="lead">いま確かめられている状態を選ぶと、確認することと関連する記事が分かります。回答はこの画面だけで使い、保存・送信しません。</p>
+<div class="diag" id="diagBtns">
+<button data-k="demand">まだ需要や実訪問を確認できていない</button>
+<button data-k="affiliate">高単価アフィリエイトを仕組みで回したい</button>
+<button data-k="system">AIを使っても仕事が減らない・仕組み化したい</button>
+<button data-k="all">全部まとめて体系で読みたい</button>
+</div>
+<div class="diag-result" id="diagResult"></div>
+</section>
+
+<section id="set" style="border-bottom:none; padding-bottom:8px;">
+<div class="featured">
+<div class="kicker">Recommended — 有料マガジン</div>
+<h2>AI・note・個人収益化 実践設計</h2>
+<p>有料記事6本のセットです。案件選定から成約導線、仕事の仕組み化、収益化システムまで、ひとりで回す実務設計を一式で。単品で揃えるより¥11,080お得です。</p>
+<div class="price-row">単品合計 <s>¥23,880</s><b>¥12,800</b></div>
+<a class="btn" href="https://note.com/deft_eel6718/m/mde8769ff3823">販売ページで内容と価格を確認</a>
+</div>
+</section>
+
+<section id="collection">
+<div class="kicker">The Collection</div>
+<h2>知る。選ぶ。実践する。</h2>
+<p class="lead">単品でも購入できます。価格は掲載時点の参考表示です。最新価格・割引・内容は、購入前に各販売ページでご確認ください。売上を保証するものではありません。</p>
+<div class="grid">
+<div class="card">
+<div class="tag">有料記事</div>
+<h3>Museで高単価アフィリエイトを仕組み化する実践書｜案件選定・成約導線・収益分析まで自動化する14日間の設計図</h3>
+<p>案件選定から記事制作、クリック分析、成果承認、改善判断までを一つの運用工程にまとめた業務設計書。案件採点シート・収益計算式・指示文6本・チェックリストのPDF付録付き。</p>
+<div class="foot"><span class="price">¥3,980</span><a href="https://note.com/deft_eel6718/n/nd81f1837ade8">販売ページを見る →</a></div>
+</div>
+<div class="card">
+<div class="tag">有料記事</div>
+<h3>AI副業は「6人のAI」より「1本の利益導線」で決まる｜需要調査から初売上まで。6役AIエージェントで作る収益化システム実装書</h3>
+<p>需要証拠スコア、6役AIの役割分担と停止条件、コピペ用プロンプト6本、損益シミュレーター（Excel付録）、14日間の実行計画とファネル診断表。</p>
+<div class="foot"><span class="price">¥3,480</span><a href="https://note.com/deft_eel6718/n/nf23415379d19">販売ページを見る →</a></div>
+</div>
+<div class="card">
+<div class="tag">有料記事</div>
+<h3>高単価アフィリエイトは「報酬額」で選ぶな。フリーランスのための案件選定・集客・成果確定・収益改善 実務設計書</h3>
+<p>報酬額ではなく、成果発生率と承認率まで含めた期待収益で案件を選ぶための実務設計書。</p>
+<div class="foot"><span class="price">¥6,980</span><a href="https://note.com/deft_eel6718/m/mde8769ff3823">セット／単品はnoteで確認 →</a></div>
+</div>
+<div class="card">
+<div class="tag">有料記事</div>
+<h3>AIを使っても仕事が減らない人へ。ひとりで回す「仕事の仕組み」完全設計書</h3>
+<p>AI導入で作業が増える構造を読み解き、ひとりで回る仕事の仕組みへ組み替える設計書。</p>
+<div class="foot"><span class="price">¥4,980</span><a href="https://note.com/deft_eel6718/m/mde8769ff3823">セット／単品はnoteで確認 →</a></div>
+</div>
+<div class="card">
+<div class="tag">有料記事</div>
+<h3>なぜ日本のAIフリーランサーは、働き続けても資産が残らないのか？｜イスラム経済に学ぶ「技術・資本・利益」の新しい設計図</h3>
+<p>労働が資産に変わらない構造を、技術・資本・利益の配分から読み直す設計図。</p>
+<div class="foot"><span class="price">¥2,480</span><a href="https://note.com/deft_eel6718/m/mde8769ff3823">セット／単品はnoteで確認 →</a></div>
+</div>
+<div class="card">
+<div class="tag">有料記事</div>
+<h3>AIを24時間動かしても稼げない理由。売上に直結する「Revenue Agent」実務プロンプト5選</h3>
+<p>稼働時間ではなく売上への接続で設計する、Revenue Agentの実務プロンプト集。</p>
+<div class="foot"><span class="price">¥1,980</span><a href="https://note.com/deft_eel6718/m/mde8769ff3823">セット／単品はnoteで確認 →</a></div>
+</div>
+<div class="card">
+<div class="tag">実装キット · Stratum Praxis</div>
+<h3>Cross-Agent Operating Kit｜AI運用ルールを持ち運べる実装キット</h3>
+<p>Claude・Codex・Cursor間で、権限・Human Gate・停止条件・状態を保つ既存の実装キットです。</p>
+<div class="foot"><span class="price">$69〜</span><a href="https://stratumpraxis.com/">販売ページを見る →</a></div>
+</div>
+<div class="card">
+<div class="tag">無料記事</div>
+<h3>無料記事から全体像を掴む</h3>
+<p>考え方との相性は、まず無料記事で確認できます。記事一覧はnoteで公開しています。</p>
+<div class="foot"><span class="price">¥0</span><a href="https://note.com/deft_eel6718">noteで全記事を見る →</a></div>
+</div>
+</div>
+</section>
+
+<section>
+<div class="kicker">Recommended Path</div>
+<h2>迷ったら、この順序で。</h2>
+<ol class="path">
+<li><b>01 無料で読む</b>考え方との相性を確認</li>
+<li><b>02 課題を特定</b>どこが詰まっているか整理</li>
+<li><b>03 深く学ぶ</b>必要なテーマだけ購入（まとめてなら有料セット）</li>
+<li><b>04 実務へ戻す</b>記事を判断と実装に使う</li>
+</ol>
+</section>
+
+<footer>
+<p>Vector Praxis Works — 新しい公開資産は、確認後にこのHubへ接続します。ブックマークして、必要なときに戻ってきてください。</p>
+<p>価格は掲載時点の参考表示です。米ドル建ての商品を含みます。最新価格・割引・内容は、購入前に各販売ページでご確認ください。本ページの内容は売上を保証するものではありません。</p>
+</footer>
+
+</div>
+<script>
+var DATA = {
+demand: {
+check: "既存の読者・検索語・問い合わせから、誰が何に困っているかを一つ確認する。記録がない指標はゼロではなく未確認として扱う。",
+metric: "人の訪問 / 具体的な質問や反応",
+price: "有料記事 · ¥3,480",
+title: "AI副業は「6人のAI」より「1本の利益導線」で決まる",
+desc: "需要・入口・無料価値・収益化・計測を一つの流れとして整理する実装書です。",
+fit: "需要・入口・無料価値・商品・計測を、自分の既存サイトに当てはめて整理したい方。",
+url: "https://note.com/deft_eel6718/n/nf23415379d19"
+},
+affiliate: {
+check: "報酬額だけでなく、成果条件・成果発生率・承認率まで確認する。数字がない案件は「未確認」として扱う。",
+metric: "送客クリック / 成果発生 / 承認率",
+price: "有料記事 · ¥3,980",
+title: "Museで高単価アフィリエイトを仕組み化する実践書",
+desc: "案件選定・成約導線・収益分析まで自動化する14日間の設計図です。",
+fit: "高単価案件を、感覚ではなく工程と数字で運用したい方。",
+url: "https://note.com/deft_eel6718/n/nd81f1837ade8"
+},
+system: {
+check: "AIに任せた作業と、かえって増えた確認・修正の作業を分けて数える。増えた側の工程が仕組み化の対象。",
+metric: "作業時間の内訳 / 確認・修正の回数",
+price: "有料記事 · ¥4,980",
+title: "AIを使っても仕事が減らない人へ。ひとりで回す「仕事の仕組み」完全設計書",
+desc: "仕事の仕組みそのものを組み替えるための完全設計書です（有料セットにも収録）。",
+fit: "AIを入れても忙しさが変わらないと感じる方。",
+url: "https://note.com/deft_eel6718/m/mde8769ff3823"
+},
+all: {
+check: "6本を順に読む前提で、自分の現在地（需要・導線・仕組み化のどこで詰まっているか）を先に一つ決める。",
+metric: "読み終えた本数 / 実務に移した手順の数",
+price: "有料マガジン · ¥12,800（単品合計¥23,880）",
+title: "AI・note・個人収益化 実践設計",
+desc: "有料記事6本のセット。案件選定から成約導線、仕事の仕組み化、収益化システムまでを一式で。",
+fit: "テーマごとに買うより、体系で一気に揃えたい方。",
+url: "https://note.com/deft_eel6718/m/mde8769ff3823"
+}
+};
+var result = document.getElementById('diagResult');
+document.getElementById('diagBtns').addEventListener('click', function(e){
+var btn = e.target.closest('button'); if(!btn) return;
+var d = DATA[btn.getAttribute('data-k')]; if(!d) return;
+var btns = this.querySelectorAll('button');
+for (var i=0;i<btns.length;i++) btns[i].classList.remove('active');
+btn.classList.add('active');
+result.style.display = 'block';
+result.innerHTML =
+'<div style="font-size:12px;color:#5b6470;">先に確かめること</div>' +
+'<p style="color:#1a1d21;font-size:14px;">' + d.check + '</p>' +
+'<div style="font-size:12px;color:#5b6470;margin-top:10px;">確認する指標</div>' +
+'<p style="color:#1a1d21;font-size:14px;">' + d.metric + '</p>' +
+'<div class="price" style="margin-top:14px;">' + d.price + '</div>' +
+'<h3>' + d.title + '</h3>' +
+'<p>' + d.desc + '</p>' +
+'<div style="font-size:12px;color:#5b6470;margin-top:10px;">この内容が合う方</div>' +
+'<p style="color:#1a1d21;font-size:13px;">' + d.fit + '</p>' +
+'<a href="' + d.url + '">販売ページで内容と価格を確認 →</a>' +
+'<p style="margin-top:12px;">この画面の無料診断は次の一手を整理するものです。有料記事は関連テーマの解説です。購入前にリンク先の無料部分・目次・最新価格と条件を確認してください。売上を保証するものではありません。</p>';
+result.scrollIntoView({behavior:'smooth', block:'nearest'});
+});
+</script>
+</body>
+</html>
